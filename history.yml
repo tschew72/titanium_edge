@@ -1,0 +1,43 @@
+---
+klimato: |+
+  data: {"location":"Chicago","temperature":"79","code":"27","format":"f","id":"klimato","updatedAt":1404806122}
+
+top_underlying: |+
+  data: {"series":[{"name":"Network Engineer","data":[2000],"pointWidth":500},{"name":"System Engineer","data":[1500],"pointWidth":500},{"name":"IT Administrator","data":[984],"pointWidth":500},{"name":"MC King1","data":[400],"pointWidth":500},{"name":"Chiong King","data":[200],"pointWidth":500}],"color":"#d35400","id":"top_underlying","updatedAt":1404829198}
+
+top_exchanges: |+
+  data: {"series":[{"data":[[50],[123],[300],[500],[600],[1000],[3000]]}],"categories":[["Bangladash"],["Myanmar"],["Malaysia"],["Singapore"],["Indonesia"],["India"],["Philippines"]],"color":"#efad1b","id":"top_exchanges","updatedAt":1404828941}
+
+pie_ppl: |+
+  data: {"series":[{"type":"pie","name":"Type","data":[["Finance",1000],["Manufacturing",400],["Oil and Gas",98],["Biomedical",600],["POWER",300]]}],"color":"#f39c12","id":"pie_ppl","updatedAt":1404828599}
+
+top_instruments: |+
+  data: {"series":[{"name":"Instruments","data":[2000,800,585,545,400,300,230,124,98,50]}],"categories":["Database","Windows 8","SMTP Server","Exchange Server","HSQL","Router","Active Directory","Windows Server","Linux","Domain Server"],"color":"#2c3e50","id":"top_instruments","updatedAt":1404827953}
+
+recent_trades_list: |+
+  data: {"items":[{"label":["IT Consultant"],"value":["1000 matches"]},{"label":["Auditor"],"value":["800 matches"]},{"label":["System Engineer"],"value":["500 matches"]},{"label":["IT Manager"],"value":["300 matches"]},{"label":["Medic"],"value":["100 matches"]}],"id":"recent_trades_list","updatedAt":1404827543}
+
+total_transactions: |+
+  data: {"current":"1000","last":null,"id":"total_transactions","updatedAt":1404827649}
+
+career_score: |+
+  data: {"current":"30","last":"300","id":"career_score","updatedAt":1404829896}
+
+recent_top_matches: |+
+  data: {"items":[{"label":["IT Consultant"],"value":["1000 matches"]},{"label":["Auditor"],"value":["800 matches"]},{"label":["System Engineer"],"value":["500 matches"]},{"label":["IT Manager"],"value":["300 matches"]},{"label":["Medic"],"value":["100 matches"]}],"id":"recent_top_matches","updatedAt":1404830343}
+
+no_of_it_jobs: |+
+  data: {"current":"999","last":null,"id":"no_of_it_jobs","updatedAt":1404829866}
+
+top_it_jobs: |+
+  data: {"series":[{"name":"Instruments","data":[2000,800,585,545,400,300,230,124,98,50]}],"categories":["Database","Windows 8","SMTP Server","Exchange Server","HSQL","Router","Active Directory","Windows Server","Linux","Domain Server"],"color":"#2c3e50","id":"top_it_jobs","updatedAt":1404830343}
+
+top_industries: |+
+  data: {"series":[{"type":"pie","name":"Type","data":[["Finance",1000],["Manufacturing",400],["Oil and Gas",98],["Biomedical",600],["POWER",300]]}],"color":"#f39c12","id":"top_industries","updatedAt":1404830342}
+
+seekers_nationality: |+
+  data: {"series":[{"data":[[50],[123],[300],[500],[600],[1000],[3000]]}],"categories":[["Bangladash"],["Myanmar"],["Malaysia"],["Singapore"],["Indonesia"],["India"],["Philippines"]],"color":"#efad1b","id":"seekers_nationality","updatedAt":1404830341}
+
+top_job_titles: |+
+  data: {"series":[{"name":"Network Engineer","data":[2000],"pointWidth":500},{"name":"System Engineer","data":[1500],"pointWidth":500},{"name":"IT Administrator","data":[984],"pointWidth":500},{"name":"MC King1","data":[400],"pointWidth":500},{"name":"Chiong King","data":[200],"pointWidth":500}],"color":"#d35400","id":"top_job_titles","updatedAt":1404830341}
+

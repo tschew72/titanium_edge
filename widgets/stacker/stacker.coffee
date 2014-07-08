@@ -49,7 +49,8 @@ class Dashing.Stacker extends Dashing.Widget
             showInLegend: false
             dataLabels:
               enabled: true
-              format: '#{series.name} @ {y}'
+              # format: '#{series.name} @ {y}'
+              format: '{series.name}'
               color: "white"
               style:
                 fontSize: '20px'
