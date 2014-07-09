@@ -24,7 +24,7 @@ s = Roo::CSV.new(file_path)
     if current_score == $last_score
       #puts ("do nothing!")
     else
-    HTTParty.post('http://dashy2.herokuapp.com/widgets/career_score', :body => { auth_token: "YOUR_AUTH_TOKEN", current: current_score, last: $last_score }.to_json)
+    HTTParty.post('http://dashy3.herokuapp.com/widgets/career_score', :body => { auth_token: "YOUR_AUTH_TOKEN", current: current_score, last: $last_score }.to_json)
     end
     $last_score = current_score
   end
@@ -51,7 +51,7 @@ s = Roo::CSV.new(file_path)
   input_hash["pointWidth"] = 500
   list2_array << input_hash
   end
-  HTTParty.post('http://dashy2.herokuapp.com/widgets/top_job_titles', :body => { auth_token: "YOUR_AUTH_TOKEN", series: list2_array, color: '#d35400' }.to_json)
+  HTTParty.post('http://dashy3.herokuapp.com/widgets/top_job_titles', :body => { auth_token: "YOUR_AUTH_TOKEN", series: list2_array, color: '#d35400' }.to_json)
   
 
   
@@ -68,7 +68,7 @@ s = Roo::CSV.new(file_path)
   sorted_seekers = ex_keys.zip(ex_data).sort_by &:last
   ex_cats = sorted_seekers.map { |ex| ex[0] }
   ex_data = sorted_seekers.map { |ex| ex[1] }
-  HTTParty.post('http://dashy2.herokuapp.com/widgets/seekers_nationality', :body => { auth_token: "YOUR_AUTH_TOKEN", series: [{ data: ex_data }], categories: ex_cats, color: '#efad1b' }.to_json)
+  HTTParty.post('http://dashy3.herokuapp.com/widgets/seekers_nationality', :body => { auth_token: "YOUR_AUTH_TOKEN", series: [{ data: ex_data }], categories: ex_cats, color: '#efad1b' }.to_json)
 
 
 
@@ -80,7 +80,7 @@ s = Roo::CSV.new(file_path)
     top_industries << [s.cell(i,3),qty.to_i]
   end
   pie_series = [{ type: 'pie', name: 'Type', data: top_industries }]
-  HTTParty.post('http://dashy2.herokuapp.com/widgets/top_industries', :body => { auth_token: "YOUR_AUTH_TOKEN", series: pie_series, color: '#f39c12' }.to_json)
+  HTTParty.post('http://dashy3.herokuapp.com/widgets/top_industries', :body => { auth_token: "YOUR_AUTH_TOKEN", series: pie_series, color: '#f39c12' }.to_json)
 
 
 
@@ -97,7 +97,7 @@ s = Roo::CSV.new(file_path)
 
     ti_cats = top_it_jobs.map { |list| list[0] }
     ti_data = top_it_jobs.map { |list| list[1] }
-    HTTParty.post('http://dashy2.herokuapp.com/widgets/top_it_jobs', :body => { auth_token: "YOUR_AUTH_TOKEN", series: [{ name: 'Instruments', data: ti_data }], categories: ti_cats, color: '#2c3e50' }.to_json)
+    HTTParty.post('http://dashy3.herokuapp.com/widgets/top_it_jobs', :body => { auth_token: "YOUR_AUTH_TOKEN", series: [{ name: 'Instruments', data: ti_data }], categories: ti_cats, color: '#2c3e50' }.to_json)
 
 
 
@@ -118,7 +118,7 @@ s = Roo::CSV.new(file_path)
     rt_hash["value"] = rt_values[i]
     rt_send << rt_hash
   end  
-  HTTParty.post('http://dashy2.herokuapp.com/widgets/recent_top_matches', :body => { auth_token: "YOUR_AUTH_TOKEN", items: rt_send }.to_json)
+  HTTParty.post('http://dashy3.herokuapp.com/widgets/recent_top_matches', :body => { auth_token: "YOUR_AUTH_TOKEN", items: rt_send }.to_json)
 
 
 
@@ -130,7 +130,7 @@ s = Roo::CSV.new(file_path)
     if current_itjobs_qty == $last_itjobs_qty
         #puts ("do nothing!")
     else
-        HTTParty.post('http://dashy2.herokuapp.com/widgets/no_of_it_jobs', :body => { auth_token: "YOUR_AUTH_TOKEN", current: current_itjobs_qty, last: $last_itjobs_qty}.to_json)
+        HTTParty.post('http://dashy3.herokuapp.com/widgets/no_of_it_jobs', :body => { auth_token: "YOUR_AUTH_TOKEN", current: current_itjobs_qty, last: $last_itjobs_qty}.to_json)
     end
     $last_itjobs_qty = current_itjobs_qty
   end
