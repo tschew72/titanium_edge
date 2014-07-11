@@ -22,13 +22,31 @@ s = Roo::CSV.new(file_path)
 		if current_score == $last_score
 			#puts ("do nothing!")
 		else
-			send_event('career_score',   { current: current_score, last: $last_score})
+			send_event('seeker_profile',   { current: current_score, last: $last_score})
 		#HTTParty.post('http://dashy3.herokuapp.com/widgets/career_score', :body => { auth_token: "YOUR_AUTH_TOKEN", current: current_score, last: $last_score }.to_json)
 		end
 		$last_score = current_score
 	end
 	fetch_spreadsheet_data(file_path)
 
+### RECENT TOP MATCHES ###
+ 
+	rt_labels=[]
+	rt_values=[]
+	(2..6).each do |i|
+		match_qty = s.cell(i,10)
+		rt_labels << [s.cell(i,9)]
+		rt_values << [match_qty+" matches"]
+	end 
+	rt_send=[]
+	(0..4).each do |i|
+		rt_hash = {}
+		rt_hash["label"] = rt_labels[i]
+		rt_hash["value"] = rt_values[i]
+		rt_send << rt_hash
+	end  
+	send_event('recent_top_matches', { items: rt_send })
+	#HTTParty.post('http://dashy3.herokuapp.com/widgets/recent_top_matches', :body => { auth_token: "YOUR_AUTH_TOKEN", items: rt_send }.to_json)
 
 
 ### TOP 5 JOB TITLES ###
@@ -105,24 +123,6 @@ s = Roo::CSV.new(file_path)
 
 
 
-### RECENT TOP MATCHES ###
- 
-	rt_labels=[]
-	rt_values=[]
-	(2..6).each do |i|
-		match_qty = s.cell(i,10)
-		rt_labels << [s.cell(i,9)]
-		rt_values << [match_qty+" matches"]
-	end 
-	rt_send=[]
-	(0..4).each do |i|
-		rt_hash = {}
-		rt_hash["label"] = rt_labels[i]
-		rt_hash["value"] = rt_values[i]
-		rt_send << rt_hash
-	end  
-	send_event('recent_top_matches', { items: rt_send })
-	#HTTParty.post('http://dashy3.herokuapp.com/widgets/recent_top_matches', :body => { auth_token: "YOUR_AUTH_TOKEN", items: rt_send }.to_json)
 
 
 

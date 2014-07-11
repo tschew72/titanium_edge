@@ -23,6 +23,8 @@ $moreinfo-color:    rgba(255, 255, 255, 0.7);
   ol, ul {
     margin: 0 15px;
     text-align: left;
+    
+    font-size: 25px;
     color: $label-color;
   }
 
@@ -40,12 +42,13 @@ $moreinfo-color:    rgba(255, 255, 255, 0.7);
 
   .label {
     color: $label-color;
+    font-weight: 200;
   }
 
   .value {
     float: right;
     margin-left: 12px;
-    font-weight: 600;
+    font-weight: 100;
     color: $value-color;
   }
 

@@ -17,8 +17,8 @@ $moreinfo-color:    rgba(255, 255, 255, 0.7);
   .seeker-name {
     color: $title-color;
     position: absolute;
-    top: 30%;
-    left: 30%;
+    top: 20%;
+    left: 50%;
   }
 
   .more-info {
@@ -34,14 +34,42 @@ $moreinfo-color:    rgba(255, 255, 255, 0.7);
     font-size: 65px;
   }
 
-.job-title {
-     position: absolute;
+
+.careerscore {
+    position: absolute;
+    font-weight: 100;
+    font-size: 25px;
     top: 40%;
-    left: 30%;
-}
+    left: 50%;
+  }
+
+.change-rate {
+    position: absolute;
+    font-weight: 100;
+    font-size: 25px;
+    top: 50%;
+    left: 50%;
+  }
+
   img {
     position: absolute;
     top: 0px;
     left: 0px;
   }
+
+.updated-at{
+    position: absolute;
+    font-weight: 100;
+    font-size: 15px;
+    top: 90%;
+    left: center;
+  }
+
+.jobsapplied{
+    position: absolute;
+    font-weight: 100;
+    font-size: 25px;
+    top: 60%;
+    left: 50%;
+  }  
 }

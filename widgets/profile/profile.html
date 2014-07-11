@@ -2,5 +2,17 @@
 
 <h1 class="seeker-name" data-bind="seekername"></h1>
 
-<h3 class="job-title" data-bind="jobtitle"></h3>
+<p class="careerscore">
+  Career Score: <span data-bind="current | shortenedNumber | prepend prefix | append suffix">></span>
+</p>
+<p class="change-rate">
+  Career Growth: <i data-bind-class="arrow"></i><span data-bind="difference"></span>
+</p>
 
+<p class="jobsapplied">
+  Jobs Applied: <span data-bind="current | shortenedNumber | prepend prefix | append suffix">></span>
+</p>
+
+<p class="updated-at">
+<span data-bind="updatedAtMessage">></span>
+</p>

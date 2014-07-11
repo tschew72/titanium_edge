@@ -1,7 +1,4 @@
-<script type='text/javascript'>
-$(function() {
-Dashing.gridsterLayout('[{"col":1,"row":1,"size_x":2,"size_y":1},{"col":3,"row":1,"size_x":1,"size_y":1},{"col":1,"row":4,"size_x":1,"size_y":1},{"col":1,"row":3,"size_x":2,"size_y":1},{"col":3,"row":2,"size_x":2,"size_y":2},{"col":4,"row":1,"size_x":1,"size_y":1},{"col":1,"row":2,"size_x":2,"size_y":1},{"col":3,"row":4,"size_x":2,"size_y":1}]')
-});
+
 </script>
 <% content_for(:title) { "Dashing w/ Highcharts!" } %>
 
@@ -15,11 +12,17 @@ Dashing.gridsterLayout('[{"col":1,"row":1,"size_x":2,"size_y":1},{"col":3,"row":
 <div class="gridster">
   <ul>
     <li data-row="1" data-col="1" data-sizex="2" data-sizey="1">
-      <div data-id="seeker_name" data-view="Profile" data-image="/logo.png" data-seekername="Alex Wong" data-jobtitle="System Administrator" data-moreinfo="Singapore"></div>
+      <div data-id="seeker_profile" data-view="Profile" data-image="/logo.png" data-seekername="Alex Wong" ></div>
     </li>    
-    <li data-row="1" data-col="1" data-sizex="1" data-sizey="1">
+<!--     <li data-row="1" data-col="1" data-sizex="1" data-sizey="1">
       <div data-id="career_score" data-view="Number" data-title="Career Score" style="background-color:steelblue;"></div>
+    </li> -->
+
+    <li data-row="1" data-col="1" data-sizex="2" data-sizey="1">
+      <div data-id="recent_top_matches" data-title="Recent Top Matches" data-view="Fadelist" data-unordered="false" data-moreinfo="" style="background-color:#3498db;"></div>
     </li>
+
+
     <li data-row="1" data-col="1" data-sizex="2" data-sizey="2">
       <div data-id="top_job_titles" data-view="Stacker" data-title="Top 5 IT Job Titles" style="background-color:#d35400;"></div>
     </li>
@@ -32,17 +35,15 @@ Dashing.gridsterLayout('[{"col":1,"row":1,"size_x":2,"size_y":1},{"col":3,"row":
       <div data-id="top_industries" data-view="Pie" data-title="Top 5 hiring Industries" style="background-color:#f39c12;"></div>
     </li>
 
-    <li data-row="1" data-col="1" data-sizex="1" data-sizey="1">
+<!--     <li data-row="1" data-col="1" data-sizex="1" data-sizey="1">
       <div data-id="no_of_it_jobs" data-view="Number" data-title="# of IT Jobs" style="background-color:#96bf48;"></div>
-    </li>
+    </li> -->
 
     <li data-row="1" data-col="1" data-sizex="2" data-sizey="1">
       <div data-id="top_it_jobs" data-view="Horizonbarstack" data-title="Top 10 IT Skills in demand" style="background-color:#2c3e50;"></div>
     </li>
 
-    <li data-row="1" data-col="1" data-sizex="2" data-sizey="1">
-      <div data-id="recent_top_matches" data-title="Recent Top Matches" data-view="Fadelist" data-unordered="false" data-moreinfo="" style="background-color:#3498db;"></div>
-    </li>
+
     
     <!--     <li data-row="1" data-col="1" data-sizex="1" data-sizey="1">
       <div data-view="Clock"></div>
