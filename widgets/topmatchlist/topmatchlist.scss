@@ -1,0 +1,90 @@
+// ----------------------------------------------------------------------------
+// Sass declarations
+// ----------------------------------------------------------------------------
+$background-color:  #12b0c5;
+$value-color:       #fff;
+
+$title-color:       rgba(255, 255, 255, 0.7);
+$label-color:       rgba(255, 255, 255, 0.7);
+$moreinfo-color:    rgba(255, 255, 255, 0.7);
+
+// ----------------------------------------------------------------------------
+// Widget-list styles
+// ----------------------------------------------------------------------------
+.widget-topmatchlist {
+
+  background-color: $background-color;
+  vertical-align: top;
+
+
+  .title {
+    color: $title-color;
+    font-size: 15px;
+  }
+
+  ol, ul {
+    margin: 0 15px;
+    text-align: left;
+    font-size: 15px;
+    color: $label-color;
+  }
+
+  ol {
+    list-style-position: inside;
+  }
+
+  li {
+    margin-bottom: 5px;
+  }
+
+  .list-nostyle {
+    list-style: none;
+  }
+
+  .date, .score, .rank, .job, .level, .salary {
+    color: $label-color;
+    font-weight: 100;
+    font-size: 11px;
+  }
+
+  .score {
+    float: center;
+    margin-left: 12px;
+    font-weight: 100;
+    color: $value-color;
+  }
+
+  .rank {
+    float: center;
+    margin-left: 12px;
+    font-weight: 100;
+    color: $value-color;
+  }
+  .job {
+    float: center;
+    margin-left: 12px;
+    font-weight: 100;
+    color: $value-color;
+  }
+  .level {
+    float: center;
+    margin-left: 12px;
+    font-weight: 100;
+    color: $value-color;
+  }
+  .salary {
+    float: center;
+    margin-left: 12px;
+    font-weight: 100;
+    color: $value-color;
+  }
+
+  .updated-at {
+    color: rgba(0, 0, 0, 0.3);
+  }
+
+  .more-info {
+    color: $moreinfo-color;
+  }
+
+}

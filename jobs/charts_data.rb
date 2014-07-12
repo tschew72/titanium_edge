@@ -49,6 +49,39 @@ s = Roo::CSV.new(file_path)
 	#HTTParty.post('http://dashy3.herokuapp.com/widgets/recent_top_matches', :body => { auth_token: "YOUR_AUTH_TOKEN", items: rt_send }.to_json)
 
 
+### RECENT TOP MATCHES (NEW)###
+ 
+	rtm_score=[]
+	rtm_date=[]
+	rtm_rank=[]
+	rtm_job=[]
+	rtm_level=[]
+	rtm_salary=[]
+
+	(21..30).each do |i|
+		rtm_score << [s.cell(i,2)]
+		rtm_date << [s.cell(i,1)]
+		rtm_rank << [s.cell(i,3)]
+		rtm_job << [s.cell(i,4)]
+		rtm_level << [s.cell(i,5)]
+		rtm_salary << [s.cell(i,6)]
+	end 
+	rtm_send=[]
+	(0..9).each do |i|
+		rtm_hash = {}
+		rtm_hash["score"] = rtm_score[i]
+		rtm_hash["date"] = rtm_date[i]
+		rtm_hash["rank"] = rtm_rank[i]
+		rtm_hash["job"] = rtm_job[i]
+		rtm_hash["level"] = rtm_level[i]
+        rtm_hash["salary"] = rtm_salary[i]
+		rtm_send << rtm_hash
+	end
+	send_event('new_top_matches', { items: rtm_send })
+	#HTTParty.post('http://dashy3.herokuapp.com/widgets/recent_top_matches', :body => { auth_token: "YOUR_AUTH_TOKEN", items: rt_send }.to_json)
+
+
+
 ### TOP 5 JOB TITLES ###
 
 	qtylist=[]
@@ -141,5 +174,7 @@ s = Roo::CSV.new(file_path)
 	end
 
 	fetch_itjobsqty_data(file_path)
+
+
 
 	end
