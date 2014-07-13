@@ -78,7 +78,7 @@ s = Roo::CSV.new(file_path)
 		rtm_send << rtm_hash
 	end
 	send_event('new_top_matches', { items: rtm_send })
-	#HTTParty.post('http://dashy3.herokuapp.com/widgets/recent_top_matches', :body => { auth_token: "YOUR_AUTH_TOKEN", items: rt_send }.to_json)
+	#HTTParty.post('http://dashy3.herokuapp.com/widgets/new_top_matches', :body => { auth_token: "YOUR_AUTH_TOKEN", items: rtm_send }.to_json)
 
 
 

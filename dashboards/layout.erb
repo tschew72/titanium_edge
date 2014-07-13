@@ -4,6 +4,8 @@
       <title><%= yield_content(:title) %></title>
  
   <script type="text/javascript" src="/assets/application.js"></script>
+  <script src="/vendor/bootstrap/js/bootstrap.min.js"></script>
+  <script src="/vendor/bootstrap/js/scripts.js"></script>
   <link rel="stylesheet" href="/assets/application.css">
   <link href="/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <link href='//fonts.googleapis.com/css?family=Open+Sans:300,400,600,700' rel='stylesheet' type='text/css'>
@@ -14,15 +16,19 @@
     <![endif]-->
   </head>
   <body>
-    <header class="navbar navbar-inverse navbar-static-top">
+    <header>
+
 <div id="top-nav" class="navbar navbar-inverse navbar-static-top">
   <div class="container">
     <div class="navbar-header">
-      <a class="navbar-brand" href="#">My Career Dashboard</a>
+      <button type="button" class="navbar-toggle" data-toggle="collapse" href=".nav-collapse">
+          <span class="icon-toggle"></span>
+      </button>
+      <a class="navbar-brand" href="#">Control Panel</a>
     </div>
     <div class="navbar-collapse collapse">
       <ul class="nav navbar-nav navbar-right">
-        
+       
         <li class="dropdown">
           <a class="dropdown-toggle" role="button" data-toggle="dropdown" href="#">
             <i class="glyphicon glyphicon-user"></i> Admin <span class="caret"></span></a>
@@ -41,7 +47,7 @@
       <!-- left -->
       <h3><i class="glyphicon glyphicon-briefcase"></i> Toolbox</h3>
       <hr>
-      
+     
       <ul class="nav nav-stacked">
         <li><a href="javascript:;"><i class="glyphicon glyphicon-flash"></i> Summary</a></li>
         <li><a href="javascript:;"><i class="glyphicon glyphicon-link"></i> Jobseeker</a></li>
@@ -52,7 +58,6 @@
         <li><a href="javascript:;"><i class="glyphicon glyphicon-plus"></i> Advanced..</a></li>
       </ul>
   </div>
-      <hr>
     <div class="container">
       <%= yield %>
     </div>
