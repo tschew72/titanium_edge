@@ -6,8 +6,8 @@ class SinatraWardenExample < Sinatra::Application
 
 
 configure do
-  enable :sessions
-
+  #enable :sessions
+  use Rack::Session::Pool, :expire_after => 2592000
 
   use OmniAuth::Builder do
      provider :twitter, 'j8KO3MW7efn9wxfVbTXDa07rH', 'R43vCtJoG5ef5yuALRbJItgC6XCG9kNs3rnFoFqFryk6AShHOS'
@@ -35,8 +35,8 @@ get '/' do
 end
  
 get '/edge' do
-  if current_user 
-    erb :edge
+  if current_user
+    erb :edge, :locals => {:name => session[:username]}
   else
     redirect to('/auth/twitter')
   end
@@ -54,7 +54,7 @@ end
 
 get '/auth/twitter/callback' do
   session[:uid] = env['omniauth.auth']['uid']
-  #session[:username] = env['omniauth.auth']['info']['name']
+  session[:username] = env['omniauth.auth']['info']['name']
   # "<h1>Hi #{session[:username]}!</h1>"
   redirect to('/edge')
 end

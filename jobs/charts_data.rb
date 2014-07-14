@@ -30,7 +30,7 @@ s = Roo::CSV.new(file_path)
 	fetch_spreadsheet_data(file_path)
 
 ### RECENT TOP MATCHES ###
- 
+    #puts "TTT  %{name}"
 	rt_labels=[]
 	rt_values=[]
 	(2..6).each do |i|
