@@ -22,7 +22,7 @@ end
 
  before do
    pass if request.path_info =~ /^\/auth\//
-   #redirect to('/auth/twitter') unless current_user
+   redirect to('/auth/twitter') unless current_user
  end
 
 get '/' do
