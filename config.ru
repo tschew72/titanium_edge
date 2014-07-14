@@ -16,7 +16,7 @@ end
 helpers do
 
   def current_user
-  !session[:uid].nil?
+     !session[:uid].nil?
   end
 end
  
@@ -34,8 +34,11 @@ get '/' do
 end
  
 get '/edge' do
-  redirect to('/auth/twitter') unless current_user 
-  erb :edge
+  if current_user 
+    erb :edge
+  else
+    redirect to('/auth/twitter')
+  end
 end
 
 #get '/login' do
