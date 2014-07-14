@@ -47,7 +47,7 @@ get '/auth/twitter/callback' do
 end
 
 get '/auth/failure' do
-  params[:message]
+  "Problem!"
 end
 
 end
