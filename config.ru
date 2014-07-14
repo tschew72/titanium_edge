@@ -1,7 +1,8 @@
 require 'dashing'
 require 'warden'
 require 'bundler'
-Bundler.require
+#Bundler.require
+require 'sinatra/flash'
 
 # load the Database and User model
 require './model'
