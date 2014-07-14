@@ -23,12 +23,12 @@ end
  before do
    pass if request.path_info =~ /^\/auth\//
    #Not sure why if I put this redirect statement, everything won't work.
-   #redirect to("/auth/twitter") unless current_user 
+   #redirect to('/auth/twitter') unless current_user 
 
  end
 
 get '/' do
-  redirect to("/auth/twitter") unless current_user 
+  redirect to('/auth/twitter') unless current_user 
   erb :edge
 end
  
