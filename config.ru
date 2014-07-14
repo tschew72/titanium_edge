@@ -13,9 +13,7 @@ end
 end
  
 helpers do
-  def admin?
-    session[:admin]
-  end
+
   def current_user
   !session[:uid].nil?
   end
@@ -37,7 +35,7 @@ get '/login' do
 end
  
 get '/logout' do
-  session[:admin] = nil
+  !session[:uid]=nil
   "You are now logged out"
 end
 
