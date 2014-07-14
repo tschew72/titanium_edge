@@ -24,29 +24,29 @@ career_score: |+
   data: {"current":"201","last":0,"id":"career_score","updatedAt":1405054599}
 
 recent_top_matches: |+
-  data: {"items":[{"label":["IT Consultant"],"value":["1000 matches"]},{"label":["Auditor"],"value":["800 matches"]},{"label":["System Engineer"],"value":["500 matches"]},{"label":["IT Manager"],"value":["300 matches"]},{"label":["Medic"],"value":["100 matches"]}],"id":"recent_top_matches","updatedAt":1405329137}
+  data: {"items":[{"label":["IT Consultant"],"value":["1000 matches"]},{"label":["Auditor"],"value":["800 matches"]},{"label":["System Engineer"],"value":["500 matches"]},{"label":["IT Manager"],"value":["300 matches"]},{"label":["Medic"],"value":["100 matches"]}],"id":"recent_top_matches","updatedAt":1405332496}
 
 no_of_it_jobs: |+
-  data: {"current":"200","last":null,"id":"no_of_it_jobs","updatedAt":1405328637}
+  data: {"current":"200","last":null,"id":"no_of_it_jobs","updatedAt":1405332437}
 
 top_it_jobs: |+
-  data: {"series":[{"name":"Instruments","data":[1555,800,585,545,400,300,230,124,98,50]}],"categories":["HSQL","Windows 8","SMTP Server","Exchange Server","HSQL","Router","Active Directory","Windows Server","Linux","Domain Server"],"color":"#2c3e50","id":"top_it_jobs","updatedAt":1405329137}
+  data: {"series":[{"name":"Instruments","data":[1555,800,585,545,400,300,230,124,98,50]}],"categories":["HSQL","Windows 8","SMTP Server","Exchange Server","HSQL","Router","Active Directory","Windows Server","Linux","Domain Server"],"color":"#2c3e50","id":"top_it_jobs","updatedAt":1405332496}
 
 top_industries: |+
-  data: {"series":[{"type":"pie","name":"Type","data":[["Finance",1000],["Manufacturing",400],["Oil and Gas",98],["Biomedical",600],["POWER",300]]}],"color":"#f39c12","id":"top_industries","updatedAt":1405329137}
+  data: {"series":[{"type":"pie","name":"Type","data":[["Finance",1000],["Manufacturing",400],["Oil and Gas",98],["Biomedical",600],["POWER",300]]}],"color":"#f39c12","id":"top_industries","updatedAt":1405332496}
 
 seekers_nationality: |+
-  data: {"series":[{"data":[[50],[123],[300],[500],[600],[1000],[3000]]}],"categories":[["Bangladash"],["Myanmar"],["Malaysia"],["Singapore"],["Indonesia"],["India"],["Philippines"]],"color":"#efad1b","id":"seekers_nationality","updatedAt":1405329137}
+  data: {"series":[{"data":[[50],[123],[300],[500],[600],[1000],[3000]]}],"categories":[["Bangladash"],["Myanmar"],["Malaysia"],["Singapore"],["Indonesia"],["India"],["Philippines"]],"color":"#efad1b","id":"seekers_nationality","updatedAt":1405332496}
 
 top_job_titles: |+
-  data: {"series":[{"name":"Network Engineer","data":[2000],"pointWidth":500},{"name":"System Engineer","data":[1500],"pointWidth":500},{"name":"IT Administrator","data":[984],"pointWidth":500},{"name":"MC King1","data":[400],"pointWidth":500},{"name":"Chiong King","data":[200],"pointWidth":500}],"color":"#d35400","id":"top_job_titles","updatedAt":1405329137}
+  data: {"series":[{"name":"Network Engineer","data":[2000],"pointWidth":500},{"name":"System Engineer","data":[1500],"pointWidth":500},{"name":"IT Administrator","data":[984],"pointWidth":500},{"name":"MC King1","data":[400],"pointWidth":500},{"name":"Chiong King","data":[200],"pointWidth":500}],"color":"#d35400","id":"top_job_titles","updatedAt":1405332496}
 
 seeker_name: |+
   data: {"current":"1000","last":"201","id":"seeker_name","updatedAt":1405062463}
 
 seeker_profile: |+
-  data: {"current":"50","last":0,"id":"seeker_profile","updatedAt":1405328637}
+  data: {"current":"50","last":0,"id":"seeker_profile","updatedAt":1405332437}
 
 new_top_matches: |+
-  data: {"items":[{"score":["230"],"date":["7/7/14"],"rank":["23"],"job":["Network Admin"],"level":["Junior"],"salary":["2000-3000"]},{"score":["150"],"date":["10/7/14"],"rank":["20"],"job":["System Admin"],"level":["Junior"],"salary":["3000-5000"]},{"score":["100"],"date":["11/7/14"],"rank":["11"],"job":["IT Manager"],"level":["Manager"],"salary":["5000-8000"]},{"score":["300"],"date":["12/7/14"],"rank":["9"],"job":["IT Consultant "],"level":["Senior"],"salary":["7000-10000"]},{"score":["450"],"date":["12/7/14"],"rank":["1"],"job":["System Engineer"],"level":["Senior"],"salary":["4000-7000"]},{"score":["200"],"date":["13/7/14"],"rank":["4"],"job":["Software Developer"],"level":["Junior"],"salary":["4000-6000"]},{"score":["250"],"date":["15/7/14"],"rank":["15"],"job":["Application Support"],"level":["Junior"],"salary":["3000-4000"]},{"score":["100"],"date":["16/7/14"],"rank":["30"],"job":["Helpdesk"],"level":["Junior"],"salary":["2000-2500"]},{"score":["421"],"date":["16/7/14"],"rank":["12"],"job":["Network Admin"],"level":["Senior"],"salary":["2500-3500"]},{"score":["230"],"date":["20/7/14"],"rank":["5"],"job":["IT Manager"],"level":["Manager"],"salary":["8000-15000"]}],"id":"new_top_matches","updatedAt":1405329137}
+  data: {"items":[{"score":["230"],"date":["7/7/14"],"rank":["23"],"job":["Network Admin"],"level":["Junior"],"salary":["2000-3000"]},{"score":["150"],"date":["10/7/14"],"rank":["20"],"job":["System Admin"],"level":["Junior"],"salary":["3000-5000"]},{"score":["100"],"date":["11/7/14"],"rank":["11"],"job":["IT Manager"],"level":["Manager"],"salary":["5000-8000"]},{"score":["300"],"date":["12/7/14"],"rank":["9"],"job":["IT Consultant "],"level":["Senior"],"salary":["7000-10000"]},{"score":["450"],"date":["12/7/14"],"rank":["1"],"job":["System Engineer"],"level":["Senior"],"salary":["4000-7000"]},{"score":["200"],"date":["13/7/14"],"rank":["4"],"job":["Software Developer"],"level":["Junior"],"salary":["4000-6000"]},{"score":["250"],"date":["15/7/14"],"rank":["15"],"job":["Application Support"],"level":["Junior"],"salary":["3000-4000"]},{"score":["100"],"date":["16/7/14"],"rank":["30"],"job":["Helpdesk"],"level":["Junior"],"salary":["2000-2500"]},{"score":["421"],"date":["16/7/14"],"rank":["12"],"job":["Network Admin"],"level":["Senior"],"salary":["2500-3500"]},{"score":["230"],"date":["20/7/14"],"rank":["5"],"job":["IT Manager"],"level":["Manager"],"salary":["8000-15000"]}],"id":"new_top_matches","updatedAt":1405332496}
 
