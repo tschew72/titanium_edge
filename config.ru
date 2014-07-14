@@ -28,14 +28,19 @@ end
  end
 
 get '/' do
+  "This is the main page with the Login button"
+
+end
+ 
+get '/edge' do
   redirect to('/auth/twitter') unless current_user 
   erb :edge
 end
- 
-get '/login' do
-  redirect to("/auth/twitter")
-  #"You are now logged in"
-end
+
+#get '/login' do
+#  redirect to("/auth/twitter")
+#  "You are now logged in"
+#end
  
 get '/logout' do
   !session[:uid]=nil
@@ -46,7 +51,7 @@ get '/auth/twitter/callback' do
   session[:uid] = env['omniauth.auth']['uid']
   #session[:username] = env['omniauth.auth']['info']['name']
   # "<h1>Hi #{session[:username]}!</h1>"
-  redirect to('/')
+  redirect to('/edge')
 end
 
 get '/auth/failure' do
