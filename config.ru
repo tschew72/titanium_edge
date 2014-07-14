@@ -6,11 +6,12 @@ class SinatraWardenExample < Sinatra::Application
 
 
 configure do
-  #enable :sessions
-  set :sessions, true
+  enable :sessions
+
+
   use OmniAuth::Builder do
-  provider :twitter, 'j8KO3MW7efn9wxfVbTXDa07rH', 'R43vCtJoG5ef5yuALRbJItgC6XCG9kNs3rnFoFqFryk6AShHOS'
-end
+     provider :twitter, 'j8KO3MW7efn9wxfVbTXDa07rH', 'R43vCtJoG5ef5yuALRbJItgC6XCG9kNs3rnFoFqFryk6AShHOS'
+  end
 end
  
 helpers do
