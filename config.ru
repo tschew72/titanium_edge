@@ -45,7 +45,7 @@ end
  
 get '/logout' do
   !session[:uid]=nil
-  "You are now logged out"
+  redirect to('/')
 end
 
 get '/auth/twitter/callback' do
