@@ -24,7 +24,7 @@ s = Roo::CSV.new(file_path)
 			#puts ("do nothing!")
 		else
 			send_event('sreemus@yahoo.com-seeker_profile',   { current: current_score, last: $last_score})
-		    HTTParty.post('http://dashy3.herokuapp.com/widgets/sreemus@yahoo.com-seeker_profile', :body => { auth_token: "YOUR_AUTH_TOKEN", current: current_score, last: $last_score }.to_json)
+		    #HTTParty.post('http://dashy3.herokuapp.com/widgets/sreemus@yahoo.com-seeker_profile', :body => { auth_token: "YOUR_AUTH_TOKEN", current: current_score, last: $last_score }.to_json)
 		end
 		$last_score = current_score
 	end

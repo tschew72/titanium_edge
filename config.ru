@@ -36,20 +36,26 @@ end
  
 get '/edge' do
     erb :edge, :locals => {:loginemail => params[:email], :name => params[:firstname] }
-
 end
+
+
+get '/summary' do
+    erb :summary, :locals => {:loginemail => params[:email], :name => params[:firstname] }
+end
+
+
   get '/auth/login' do
     erb :login, :layout => :'auth_layout'
   end
 
-  post '/auth/login' do
+  post '/auth/login' do 
      email=params['user']['email']
      firstname=params['user']['firstname']
      #erb :edge, :locals => {:loginemail => email, :name => firstname}
-     #erb :edge, :locals => {:loginemail => "tschew@gmail.com", :name => "Vince Chew Teck"}
       #####
       #This is how to pass parameters to the URL
       newurl = "/edge?firstname=" + firstname + "&email=" + email
+      userlogin = true
       redirect to(newurl)
       #####
       #redirect '/edge'
