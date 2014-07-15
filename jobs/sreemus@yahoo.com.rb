@@ -2,7 +2,7 @@ require 'httparty'
 require 'json'
 require 'roo'
 
-seeker_email = "sreemus_yahoo_com" #to be inserted into the send_event
+seeker_email = "sreemus@yahoo.com" #to be inserted into the send_event
 file_path = "#{Dir.pwd}/#{seeker_email}.csv"  #Only CSV will not give us any issue.
 
 
