@@ -23,14 +23,14 @@ s = Roo::CSV.new(file_path)
 			#puts ("do nothing!")
 		else
 			send_event('seeker_profile',   { current: current_score, last: $last_score})
-		#HTTParty.post('http://dashy3.herokuapp.com/widgets/career_score', :body => { auth_token: "YOUR_AUTH_TOKEN", current: current_score, last: $last_score }.to_json)
+		#HTTParty.post('http://dashy3.herokuapp.com/widgets/seeker_profile', :body => { auth_token: "YOUR_AUTH_TOKEN", current: current_score, last: $last_score }.to_json)
 		end
 		$last_score = current_score
 	end
 	fetch_spreadsheet_data(file_path)
 
 ### RECENT TOP MATCHES ###
-    puts "TTT  #{@username}"
+ 
 	rt_labels=[]
 	rt_values=[]
 	(2..6).each do |i|
