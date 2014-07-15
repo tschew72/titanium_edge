@@ -2,8 +2,9 @@ require 'httparty'
 require 'json'
 require 'roo'
 
-file_path = "#{Dir.pwd}/tschew@gmail.com.csv"  #Only CSV will not give us any issue.
 seeker_email = "tschew@gmail.com" #to be inserted into the send_event
+file_path = "#{Dir.pwd}/#{seeker_email}.csv"  #Only CSV will not give us any issue.
+
 
 
 last_transaction = 0
