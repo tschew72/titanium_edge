@@ -52,7 +52,7 @@ end
       newurl = "/edge?firstname=" + firstname + "&email=" + email
       redirect to(newurl)
       #####
-     #redirect '/edge'
+      #redirect '/edge'
   end
  
 get '/logout' do
