@@ -1,11 +1,12 @@
 require 'rubygems'
 require 'data_mapper'
-require 'dm-mysql-adapter'
+#require 'dm-mysql-adapter'
+require 'dm-postgres-adapter'
 require 'bcrypt'
 
 # DataMapper.setup(:default, "sqlite://#{Dir.pwd}/db.sqlite")
-DataMapper.setup(:default, "mysql://root:itjobstreet@localhost/seekerdashdb")
-
+#DataMapper.setup(:default, "mysql://root:itjobstreet@localhost/seekerdashdb")
+DataMapper.setup(:default, "postgres://pmfpekijznvzjw:Hq_zObLrI-YKpLoHpKKy0QLgsH@ec2-54-225-101-164.compute-1.amazonaws.com:5432/d3ev2r7degfpm9")
 
 class User
   include DataMapper::Resource
