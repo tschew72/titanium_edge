@@ -112,7 +112,8 @@ end
        newurl = "/edge?firstname=" + user1.firstname + "&email=" + user1.email
        redirect to(newurl)
     else
-          redirect session[:return_to]
+        "here I am"
+        #redirect session[:return_to]
     end
     ##### New Code ############################
 
@@ -129,20 +130,17 @@ end
 get '/logout' do
     env['warden'].raw_session.inspect
     env['warden'].logout
-    flash[:success] = 'Successfully logged out'
-    redirect '/'
+    redirect '/auth/login'
 end
 
 
 
   post '/auth/unauthenticated' do
-    session[:return_to] = env['warden.options'][:attempted_path] if session[:return_to].nil?
-    puts env['warden.options'][:attempted_path]
-    puts env['warden']
-    #params['user']['username']
-    #params['user']['password']
-    "OUT!"
-    #redirect '/auth/login'
+    #session[:return_to] = env['warden.options'][:attempted_path] if session[:return_to].nil?
+    #puts env['warden.options'][:attempted_path]
+    #puts env['warden']
+    redirect '/auth/login'
+
   end
 
 end
