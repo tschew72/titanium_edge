@@ -11,7 +11,7 @@ last_transaction = 0
 $last_score=0
 
 
-SCHEDULER.every '5s', allow_overlapping: false do
+SCHEDULER.every '60m', allow_overlapping: false do
  
 s = Roo::CSV.new(file_path)
 
@@ -155,11 +155,6 @@ s = Roo::CSV.new(file_path)
     #HTTParty.post('http://dashy3.herokuapp.com/widgets/top_it_jobs', :body => { auth_token: "YOUR_AUTH_TOKEN", series: [{ name: 'Instruments', data: ti_data }], categories: ti_cats, color: '#2c3e50' }.to_json)
 
 
-
-
-
-
-
 ### # OF IT JOBS ###
 
 	def fetch_itjobsqty_data(path)
@@ -175,8 +170,5 @@ s = Roo::CSV.new(file_path)
 	end
 
 	fetch_itjobsqty_data(file_path)
-
-
-
 
 	end

@@ -1,3 +1,5 @@
+
+
 .navbar-static-top {
   margin-bottom:20px;
 }
@@ -30,6 +32,8 @@ footer {
   border-radius: 10px;
 }
 
+
+/* Used by login.erb */
 .form-signin
 {
     max-width: 330px;
@@ -105,3 +109,6 @@ footer {
     display: block;
     margin-top: 10px;
 }
+/********login.erb ***********/
+
+

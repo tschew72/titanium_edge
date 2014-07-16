@@ -1,10 +1,11 @@
-<h1 class="title" data-bind="title"></h1>
+<!-- <h1 class="title" data-bind="title"></h1> -->
 
 <script>
 
 </script>
 
-<div>
+
+<!-- <div>
     <table class="pure-table">
        <thead>
            <th>Date</th>
@@ -16,7 +17,6 @@
        </thead>
        <tbody data-foreach-item="items">
            <tr >
-               <!-- The table row number -->
                <td class="date" data-bind="item.date"></td>
                <td class="score" data-bind="item.score"></td>
                <td class="rank" data-bind="item.rank"></td>
@@ -26,6 +26,45 @@
            </tr>
        </tbody>
    </table>
+</div> -->
+
+
+
+<div class="container">
+    <div class="page-header">
+        <h1 id="timeline">Matching Timeline</h1>
+    </div>
+    <ul class="timeline" data-foreach-item="items">
+        <li >
+          <div class="timeline-badge"><i class="glyphicon glyphicon-check"></i></div>
+          <div class="timeline-panel">
+            <div class="timeline-heading">
+              <h4 class="timeline-title">We have a match!</h4>
+              <p><small class="text-muted" ><i class="glyphicon glyphicon-time"></i> Matched on <span data-bind="item.date"></span></small></p>
+            </div>
+            <div class="timeline-body">
+       <table class="pure-table">
+           <thead>
+               <th>Score</th>
+               <th>Rank</th>
+               <th>Job Function</th>
+               <th>Level</th>
+               <th>Salary</th>           
+           </thead>
+           <tbody>
+               <tr >
+                   <td class="score" data-bind="item.score"></td>
+                   <td class="rank" data-bind="item.rank"></td>
+                   <td class="job" data-bind="item.job"></td>
+                   <td class="level" data-bind="item.level"></td>
+                   <td class="salary" data-bind="item.salary"></td>               
+               </tr>
+           </tbody>
+       </table>
+            </div>
+          </div>
+        </li>
+    </ul>
+
 </div>
-
-
+   

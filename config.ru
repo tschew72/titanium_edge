@@ -74,7 +74,7 @@ end
    #pass if request.path_info =~ /^\/auth\//
    #Not sure why if I put this redirect statement, everything won't work.
    #redirect to('/auth/twitter') unless current_user 
-
+   
  end
 
 get '/' do
@@ -87,12 +87,16 @@ get '/edge' do
    # If user comes in directly here, if not authenticated, throw them to /auth/login
    redirect '/auth/login' unless env['warden'].authenticated?
    #erb :edge, :locals => {:loginemail => params[:email], :name => params[:firstname] }
-    erb :edge, :locals => {:loginemail => params[:email], :name => params[:firstname] }
+       user1 = env['warden'].user
+       @userme = user1.firstname
+       @emailme = user1.email
+   erb :edge
 end
 
 
 get '/summary' do
-    erb :summary, :locals => {:loginemail => params[:email], :name => params[:firstname] }
+    #erb :summary, :locals => {:loginemail => params[:email], :name => params[:firstname] }
+    erb :summary
 end
 
 
@@ -101,30 +105,29 @@ end
   end
 
   post '/auth/login' do 
-    #### New code to test login ###############
+    #### GOOD CODE! ###############
     env['warden'].authenticate!
-    #flash[:success] = env['warden'].message
     if session[:return_to].nil?
-      #redirect '/edge'
-       user1 = env['warden'].user
-       user1.firstname
-       user1.email
-       newurl = "/edge?firstname=" + user1.firstname + "&email=" + user1.email
-       redirect to(newurl)
+      
+       
+       #user1 = env['warden'].user
+       #user1.firstname
+       #user1.email
+       #newurl = "/edge?firstname=" + user1.firstname + "&email=" + user1.email
+       #redirect to(newurl)
+
+       #user1 = env['warden'].user
+       #@userme = user1.firstname
+       #@emailme = user1.email
+       redirect '/edge'
+       #erb :edge
     else
-        "here I am"
         #redirect session[:return_to]
     end
-    ##### New Code ############################
+
+   #################################
 
 
-
-     #####  Working codes  ####################
-     # email=params['user']['email']
-     #firstname=params['user']['firstname']
-     #newurl = "/edge?firstname=" + firstname + "&email=" + email
-     #redirect to(newurl)
-     ##########################################
   end   #/POST
  
 get '/logout' do

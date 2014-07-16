@@ -2,18 +2,15 @@ require 'httparty'
 require 'json'
 require 'roo'
 
+
+
+def executingc
+
 seeker_email = "tschew@gmail.com" #to be inserted into the send_event
 file_path = "#{Dir.pwd}/#{seeker_email}.csv"  #Only CSV will not give us any issue.
-
-
-
 last_transaction = 0
 $last_score=0
-
-
-SCHEDULER.every '5s', allow_overlapping: false do
- 
-s = Roo::CSV.new(file_path)
+	s = Roo::CSV.new(file_path)
 
 ### CAREER SCORE ###
 
@@ -22,7 +19,7 @@ s = Roo::CSV.new(file_path)
 		current_score = s.cell(2, 5)
 		if current_score == $last_score
 			#puts ("do nothing!")
-		else
+		else 
 	      send_event('tschew@gmail.com-seeker_profile',   { current: current_score, last: $last_score})
 		  HTTParty.post('http://dashy3.herokuapp.com/widgets/tschew@gmail.com-seeker_profile', :body => { auth_token: "YOUR_AUTH_TOKEN", current: current_score, last: $last_score }.to_json)
 		end
@@ -32,21 +29,21 @@ s = Roo::CSV.new(file_path)
 
 ### RECENT TOP MATCHES ###
  	
-	rt_labels=[]
-	rt_values=[]
-	(2..6).each do |i|
-		match_qty = s.cell(i,10)
-		rt_labels << [s.cell(i,9)]
-		rt_values << [match_qty+" matches"]
-	end 
-	rt_send=[]
-	(0..4).each do |i|
-		rt_hash = {}
-		rt_hash["label"] = rt_labels[i]
-		rt_hash["value"] = rt_values[i]
-		rt_send << rt_hash
-	end  
-	send_event('recent_top_matches', { items: rt_send })
+	# rt_labels=[]
+	# rt_values=[]
+	# (2..6).each do |i|
+	# 	match_qty = s.cell(i,10)
+	# 	rt_labels << [s.cell(i,9)]
+	# 	rt_values << [match_qty+" matches"]
+	# end 
+	# rt_send=[]
+	# (0..4).each do |i|
+	# 	rt_hash = {}
+	# 	rt_hash["label"] = rt_labels[i]
+	# 	rt_hash["value"] = rt_values[i]
+	# 	rt_send << rt_hash
+	# end  
+	# send_event('recent_top_matches', { items: rt_send })
 	#HTTParty.post('http://dashy3.herokuapp.com/widgets/recent_top_matches', :body => { auth_token: "YOUR_AUTH_TOKEN", items: rt_send }.to_json)
 
 
@@ -155,11 +152,6 @@ s = Roo::CSV.new(file_path)
     #HTTParty.post('http://dashy3.herokuapp.com/widgets/top_it_jobs', :body => { auth_token: "YOUR_AUTH_TOKEN", series: [{ name: 'Instruments', data: ti_data }], categories: ti_cats, color: '#2c3e50' }.to_json)
 
 
-
-
-
-
-
 ### # OF IT JOBS ###
 
 	def fetch_itjobsqty_data(path)
@@ -176,7 +168,12 @@ s = Roo::CSV.new(file_path)
 
 	fetch_itjobsqty_data(file_path)
 
+end
 
 
+#SCHEDULER.every '5s', allow_overlapping: false do
+SCHEDULER.every '5s', :first_at => Time.now do
+ 
+executingc
 
-	end
+end

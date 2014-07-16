@@ -18,6 +18,7 @@ class User
   property :email, String, length:80
   property :password, BCryptHash
 
+  has n, :matched_jobs
   def authenticate(attempted_password)
     if self.password == attempted_password
       true
@@ -25,7 +26,25 @@ class User
       false
     end
   end
+
 end
+
+
+class MatchedJob
+  include DataMapper::Resource
+
+  property :id, Serial, key: true
+  property :score, Integer
+  property :rank, Integer
+  property :jobfunction, String, length:80
+  property :joblevel, String, length:80
+  property :datematched, Date
+  property :salaryrange, Integer
+  property :user_id, Integer
+  
+  belongs_to :user 
+end
+
 
 # Tell DataMapper the models are done being defined
 DataMapper.finalize
@@ -34,10 +53,15 @@ DataMapper.finalize
 DataMapper.auto_upgrade!
 
 # Create a test User
-if User.count == 0
-  @user = User.create(username: "tschew")
-  @user.password = "tschew"
-  @user.firstname = "Vince"
-  @user.email = "tschew@gmail.com"
-  @user.save
-end
+# if User.count == 0
+#   @user = User.create(username: "tschew")
+#   @user.password = "tschew"
+#   @user.firstname = "Vince"
+#   @user.email = "tschew@gmail.com"
+#   @user.save
+#   @user = User.create(username: "shaun")
+#   @user.password = "shaun"
+#   @user.firstname = "Shaun"
+#   @user.email = "sreemus@yahoo.com"
+#   @user.save
+# end

@@ -1,0 +1,31 @@
+<h1 class="title" data-bind="title"></h1>
+
+<script>
+
+</script>
+
+<div>
+    <table class="pure-table">
+       <thead>
+           <th>Date</th>
+           <th>Score</th>
+           <th>Rank</th>
+           <th>Job Function</th>
+           <th>Level</th>
+           <th>Salary</th>           
+       </thead>
+       <tbody data-foreach-item="items">
+           <tr >
+               <!-- The table row number -->
+               <td class="date" data-bind="item.date"></td>
+               <td class="score" data-bind="item.score"></td>
+               <td class="rank" data-bind="item.rank"></td>
+               <td class="job" data-bind="item.job"></td>
+               <td class="level" data-bind="item.level"></td>
+               <td class="salary" data-bind="item.salary"></td>               
+           </tr>
+       </tbody>
+   </table>
+</div>
+
+
