@@ -95,13 +95,15 @@ end
 
 
 get '/summary' do
+   redirect '/auth/login' unless env['warden'].authenticated?
     #erb :summary, :locals => {:loginemail => params[:email], :name => params[:firstname] }
     erb :summary
 end
 
 
   get '/auth/login' do
-    erb :login, :layout => :'auth_layout'
+
+   erb :login, :layout => :'auth_layout'
   end
 
   post '/auth/login' do 
