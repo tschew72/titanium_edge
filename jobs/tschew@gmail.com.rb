@@ -74,8 +74,9 @@ $last_score=0
 		rtm_hash["level"] = rtm_level[i]
         rtm_hash["salary"] = rtm_salary[i]
 		rtm_send << rtm_hash
+		#puts "#{rtm_send}"
 	end
-	send_event('new_top_matches', { items: rtm_send })
+	#send_event('new_top_matches', { items: rtm_send })
 	#HTTParty.post('http://dashy3.herokuapp.com/widgets/new_top_matches', :body => { auth_token: "YOUR_AUTH_TOKEN", items: rtm_send }.to_json)
 
 

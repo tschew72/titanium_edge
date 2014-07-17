@@ -34,13 +34,14 @@
     <div class="page-header">
         <h1 id="timeline">Matching Timeline</h1>
     </div>
+    <!-- asdasdasd <span data-bind="items"> -->
     <ul class="timeline" data-foreach-item="items">
         <li >
           <div class="timeline-badge"><i class="glyphicon glyphicon-check"></i></div>
           <div class="timeline-panel">
             <div class="timeline-heading">
               <h4 class="timeline-title">We have a match!</h4>
-              <p><small class="text-muted" ><i class="glyphicon glyphicon-time"></i> Matched on <span data-bind="item.date"></span></small></p>
+              <p><small class="text-muted" ><i class="glyphicon glyphicon-time"></i> Matched on <span data-bind="item.datematched"></span></small></p>
             </div>
             <div class="timeline-body">
        <table class="pure-table">
@@ -55,9 +56,9 @@
                <tr >
                    <td class="score" data-bind="item.score"></td>
                    <td class="rank" data-bind="item.rank"></td>
-                   <td class="job" data-bind="item.job"></td>
-                   <td class="level" data-bind="item.level"></td>
-                   <td class="salary" data-bind="item.salary"></td>               
+                   <td class="job" data-bind="item.jobfunction"></td>
+                   <td class="level" data-bind="item.joblevel"></td>
+                   <td class="salary" data-bind="item.salaryrange"></td>               
                </tr>
            </tbody>
        </table>
@@ -65,6 +66,5 @@
           </div>
         </li>
     </ul>
-
 </div>
    

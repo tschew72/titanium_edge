@@ -1,5 +1,5 @@
 
-<% content_for(:title) { "Dashing w/ Highcharts!" } %>
+<% content_for(:title) { "Career Dashboard" } %>
 
 <script type='text/javascript'>
   // $(function() {
@@ -13,12 +13,12 @@
 <div class="gridster">
   <ul>
     <li data-row="1" data-col="1" data-sizex="2" data-sizey="1">
-      <div data-id="tschew@gmail.com-seeker_profile" data-view="Profile" data-image="/logo.png" data-seekername="<%= @userme %>" ></div>
+      <div data-id=<%= @emailme  + "-seeker_profile" %> data-view="Profile" data-image="/logo.png" data-seekername="<%= @userme %>" ></div>
 
     </li>    
 
-    <li data-row="1" data-col="1" data-sizex="2" data-sizey="1">
-      <div data-id="new_top_matches" data-title="Recent Top Matches" data-view="Topmatchlist" data-unordered="false" data-moreinfo="" style="background-color:#3498db;"></div>
+    <li data-row="1" data-col="1" data-sizex="4" data-sizey="1">
+      <div data-id="new_top_matches" data-view="Topmatchlist"  style="background-color:#FFFFFF;"></div>
     </li>
 
 
@@ -26,5 +26,3 @@
     
 
 </div>
-<br/><br/><br/><br/><br/><br/>
-
