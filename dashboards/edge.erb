@@ -9,8 +9,10 @@
 $(document).ready(function() {
     $('#example').dataTable( {
         "scrollY": 200,
-        "order": [[ 3, "desc" ]],
-        "scrollX": true
+        "iDisplayLength": 5,
+        "order": [[ 0, "desc" ]],
+        "scrollCollapse": true,
+        "jQueryUI": true,
     } );
 } );
 </script>
@@ -23,7 +25,8 @@ $(document).ready(function() {
 
     </li>    
 
-    <li style="color:grey;background:white" data-row="1" data-col="2" data-sizex="1" data-sizey="1">
+    <li style="color:grey;background:white" data-row="2" data-col="1" data-sizex="1" data-sizey="1">
+      Job Matching History
 <div>
             <table id="example" class="display" cellspacing="0" width="60%">
                     <thead>
