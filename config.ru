@@ -93,19 +93,8 @@ get '/edge' do
        user1 = env['warden'].user
        @userme = user1.firstname
        @emailme = user1.email
-       mjl_final = []
-       user1.matched_jobs.each do |i|         
-            mj_hash ={}
-               mj_hash["score"] = user1.matched_jobs.get(i).score
-               mj_hash["datematched"] = user1.matched_jobs.get(i).datematched
-               mj_hash["rank"] = user1.matched_jobs.get(i).rank
-               mj_hash["jobfunction"] = user1.matched_jobs.get(1).jobfunction
-               mj_hash["joblevel"] = user1.matched_jobs.get(1).joblevel
-             mj_hash["salaryrange"] = user1.matched_jobs.get(1).salaryrange
-             mjl_final << mj_hash
-        end      
-        send_event('new_top_matches', { items: mjl_final })
-   erb :edge
+       @usermatchjoblist = user1.matched_jobs
+        erb :edge
 end
 
 

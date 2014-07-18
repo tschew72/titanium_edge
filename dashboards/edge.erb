@@ -6,8 +6,14 @@
   //   Dashing.widget_base_dimensions = [310, 320]
   //   Dashing.numColumns = 4
   //  });    
+$(document).ready(function() {
+    $('#example').dataTable( {
+        "scrollY": 200,
+        "order": [[ 3, "desc" ]],
+        "scrollX": true
+    } );
+} );
 </script>
-
 
 
 <div class="gridster">
@@ -17,12 +23,52 @@
 
     </li>    
 
-    <li data-row="1" data-col="1" data-sizex="4" data-sizey="1">
-      <div data-id="new_top_matches" data-view="Topmatchlist"  style="background-color:#FFFFFF;"></div>
-    </li>
+    <li data-row="2" data-col="1" data-sizex="2" data-sizey="1">
+<div>
+            <table id="example" class="display" cellspacing="0" width="100%">
+                    <thead>
+                        <tr>
+                           <th>Date Matched</th>
+                           <th>Score</th>
+                           <th>Rank</th>
+                           <th>Job Function</th>
+                           <th>Level</th>
+                           <th>Salary</th>    
+                        </tr>
+                    </thead>
+                     <tfoot>
+                        <tr>
+                           <th>Date Matched</th>
+                           <th>Score</th>
+                           <th>Rank</th>
+                           <th>Job Function</th>
+                           <th>Level</th>
+                           <th>Salary</th>    
+                        </tr> 
+                    </tfoot>
+                    <tbody >
+                        <% @usermatchjoblist.each do |i| %>
+                        <tr>
+                           <td><%= @usermatchjoblist.get(i).datematched %></td>
+                           <td><%= @usermatchjoblist.get(i).score %></td>
+                           <td><%= @usermatchjoblist.get(i).rank %></td>
+                           <td><%= @usermatchjoblist.get(i).jobfunction %></td>
+                           <td><%= @usermatchjoblist.get(i).joblevel %></td>
+                           <td><%= @usermatchjoblist.get(i).salaryrange %></td>
+                        </tr>
+                        <% end %>
+                   </tbody>
+           </table>
+</div>  
 
-
+</li>
 </ul>
-    
+
+
+
 
 </div>
+
+
+
+

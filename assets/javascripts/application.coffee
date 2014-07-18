@@ -27,6 +27,8 @@ Dashing.on 'ready', ->
         stop: Dashing.showGridsterInstructions
         start: -> Dashing.currentWidgetPositions = Dashing.getWidgetPositions()
 
+
+
 Batman.DOM.readers.batmantarget = Batman.DOM.readers.target
 Batman.DOM.readers.target = null
 delete Batman.DOM.readers.target
