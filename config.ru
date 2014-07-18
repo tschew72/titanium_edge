@@ -107,7 +107,7 @@ end
 
   get '/auth/login' do
 
-   erb :login, :layout => :'auth_layout'
+   erb :login
   end
 
   post '/auth/login' do 
