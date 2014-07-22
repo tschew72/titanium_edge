@@ -2,18 +2,27 @@
 
 
 <script type='text/javascript'>
-  // $(function() {
-  //   Dashing.widget_base_dimensions = [310, 320]
-  //   Dashing.numColumns = 4
-  //  });    
+
+$.fn.editable.defaults.mode = 'inline';
+
 $(document).ready(function() {
-    $('#example').dataTable( {
+    
+    $('#firstname').editable();
+
+    $('#profiletable').dataTable( {
         "bsort": false,
         "scrollCollapse": true,
         "jQueryUI": true,
     } );
+  
+
 } );
+
+
+
 </script>
+
+
 
   <div class="container">
   
@@ -22,15 +31,19 @@ $(document).ready(function() {
 	          <img src="http://lorempixel.com/250/250/" />
 	    </div>
 	    <div class="col-md-6 column">
-	   		  <table id="example" class="display" cellspacing="0" width="100%">
+	   		  <table id="profiletable" class="display" cellspacing="0" width="100%">
                     <tbody >
                         <tr>
                            <td>First Name: </td>
-                           <td><%= @userme %> </td>
+
+                           <td> <a href="javascript:void(0)" id="firstname" data-type="text" data-pk="<%=@userprofile.id %>" data-url="/updateprofile" data-title="Enter first name"><%= @userprofile.firstname %></a>  
+                           <!-- Trying out AJAX INLINE EDIT
+                            <%= @userprofile.firstname %>  -->
+                            </td>
                         </tr>
                         <tr>
                            <td>Age</td>
-                           <td>40 </td>
+                           <td><%= @userprofile.age %> </td>
                         </tr>
                         <tr>
                            <td>Gender:</td>
@@ -38,80 +51,99 @@ $(document).ready(function() {
                         </tr>      
                         <tr>
                            <td>Nationality:</td>
-                           <td>Singaporean </td>
+                           <td><%= @userprofile.nationality %>  </td>
                         </tr>       
                         <tr>
                            <td>Contact #:</td>
-                           <td>947476444 </td>
+                           <td><%= @userprofile.contactnumber %>  </td>
                         </tr>  
                         <tr>
                            <td>Address:</td>
-                           <td>13 George Street Singapore 123122 </td>
+                           <td><%= @userprofile.address %>  </td>
                         </tr>                       
                         <tr>
                            <td>Email:</td>
-                           <td><%= @emailme %> </td>
+                           <td><%= @userprofile.email %> </td>
                         </tr>
                    </tbody>
               </table>
-              <div class="row">
-                        <br><br><br><br>
-              			<div class="btn-group btn-group-justified">
-
-		                        <a href="#" class="btn btn-info col-sm-3">
-		                        <i class="glyphicon glyphicon-plus"></i><br>Skill</a> 
-		                        <a href="#" class="btn btn-info col-sm-3">
-		                        <i class="glyphicon glyphicon-cloud"></i><br>Experience</a>
-		                        <a href="#" class="btn btn-info col-sm-3">
-		                        <i class="glyphicon glyphicon-cog"></i><br>Education</a>
-		                 	    <a href="#" class="btn btn-info col-sm-3">
-		                   		<i class="glyphicon glyphicon-question-sign"></i><br>Other functions</a>
-		                </div>
-       		  </div> <!-- Row -->           	   
-                         <p> Modal box pops up allowing user to Add/Delete/Edit Skills, Experience, Educations</p>
+	   
 	    </div> <!-- Column -->
 	</div> <!-- Row -->
   
-	  <div class="row">
-	    <div class="col-md-6 column">
-	          <p>--------------------------------------Career Timeline------------------------------------</p>
-	    </div>
-	    <div class="col-md-6 column">
-	          <div class="container">
-					<div class="row">
-						<div class="col-md-4">
-			                  <h3>My  <span class="semi-bold">Skills</span></h3>
+<ul class="nav nav-tabs">
+    <li class="active"><a class="btn btn-info col-sm-12 glyphicon glyphicon-plus" data-toggle="tab" href="#skills"> <br> Skills</a></li>
+    <li><a class="btn btn-info col-sm-12 glyphicon glyphicon-cloud" data-toggle="tab" href="#timeline"> <br>  Timeline</a></li>
+    <li><a class="btn btn-info col-sm-12 glyphicon glyphicon-cog" data-toggle="tab" href="#certificates"> <br>  Certificates</b></a></li>
+    <li><a class="btn btn-info col-sm-12 glyphicon glyphicon-question-sign" data-toggle="tab" href="#activities"> <br> Activities</a></li>
+</ul>
+<div class="tab-content">
+    <div id="skills" class="tab-pane fade in active">
 
-                  	<div class="col-md-11 skillspanel" >
-                    	<% @userskills.each do |i| %>
-                    	<div class="progress">
-                     		 <div data-percentage="0%" style="width: <%= @userskills.get(i).skillscore * 20 %>%;" class="progress-bar progress-bar-success" role="progressbar" aria-valuemin="0" aria-valuemax="100"><%= @skillname.get(@userskills.get(i).skill_id).skill %></div>
-                    	</div>
-                    	<% end %> 
-                    </div> <!-- Col Skillpanel-->
-                    </div> <!-- Row -->
-         	  </div> <!-- Container -->
-	    </div> <!-- Column MD-6 -->
-     </div> <!-- row -->
+             <h3>My  <span class="semi-bold">Skills</span></h3>
+        	<% @userskills.each do |i| %>
+        	<div class="progress">
+     		 <div data-percentage="0%" style="width: <%= @userskills.get(i).skillscore * 20 %>%;" class="progress-bar progress-bar-success" role="progressbar" aria-valuemin="0" aria-valuemax="100"><%= @skillname.get(@userskills.get(i).skill_id).skill %></div>
+        	</div>
+        	<% end %> 
+    </div>
+    <div id="timeline" class="tab-pane fade">
+		<div class="container">
+		    <div class="page-header">
+		        <h1 id="timeline">My Education and Job Timeline</h1>
+		    </div>
+		    <ul class="timeline">
+        	    <% @jobhistory.each do |i| %>
+		        <li>
+		          <div class="timeline-badge"><i class="glyphicon glyphicon-check"></i></div>
+		          <div class="timeline-panel">
+		            <div class="timeline-heading">
+		              <h3 class="timeline-title"><%= @jobhistory.get(i).company %></h3>
+		              <h4 class="timeline-title"><%= @jobhistory.get(i).position %></h4>
+		              <p><small class="text-muted"><i class="glyphicon glyphicon-time"></i> <%= @jobhistory.get(i).startdate %> to <%= @jobhistory.get(i).enddate %> </small></p>
+		            </div>
+		            <div class="timeline-body">
+		              <h4 class="timeline-title"> Responsibilities:</h4>
+		              <p><%= @jobhistory.get(i).responsibilities %></p>
+		              <br><br>
+		              <h4 class="timeline-title"> Achievements:</h4>
+		              <p><%= @jobhistory.get(i).achievements %></p>
+		              <hr>
+				            <div class="btn-group">
+				                <button type="button" class="btn btn-primary btn-sm dropdown-toggle" data-toggle="dropdown">
+				                  <i class="glyphicon glyphicon-cog"></i> <span class="caret"></span>
+				                </button>
+				                <ul class="dropdown-menu" role="menu">
+				                  <li><a href="#">Edit</a></li>
+				                  <li><a href="#">Delete</a></li>
+				                  <!-- <li class="divider"></li> -->
+				                </ul>
+				            </div>
+		            </div>
+		          </div>
+		        <% end %>
+		        </li>
+
+		    </ul>
+		</div>
+
+
+
+    </div>
+
+
+
+    <div id="certificates" class="tab-pane fade">
+        <p>Certificates</p>
+    </div>
+    <div id="activities" class="tab-pane fade">
+        <p>Activities</p>
+    </div>
+</div>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
 
 	  
-	  <div class="row">
-	    <div class="col-md-6 column">
-	          <p>--------------------------------------Certification List------------------------------------</p>
-	    </div>
-	    <div class="col-md-6 column">
-	          <p>          ------------------------Education Timeline--------------------------------</p>
-	    </div>
-	  </div>
 
-	  <div class="row">
-	    <div class="col-md-6 column">
-	          <p>--------------------------------------Activities------------------------------------</p>
-	          <p>To show all the latest activties carried out by the users on our site. For example, add new skills </p>
-	    </div>
-	    <div class="col-md-6 column">
-	          <p>          ------------------------Something else--------------------------------</p>
-	    </div>
-	  </div>
 
 </div> <!-- Container -->

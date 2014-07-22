@@ -18,6 +18,8 @@ class User
   property :email, String, length:80
   property :datejoined, Date
   property :age, Integer
+  property :gender, String, length: 1
+  property :dob, Date
   property :address, String
   property :nationality, String, length: 80
   property :contactnumber, String, length: 20
@@ -28,7 +30,8 @@ class User
   property :photolink, String, length:200
   property :password, BCryptHash
   property :singaporepr, Boolean, :default  => false   #next time get user to choose from a list of countries they have PR status
-
+  property :aboutme, String, length: 255
+  
   has n, :matched_jobs
   has n, :jobs
   has 1, :career_score
@@ -55,9 +58,10 @@ class Job
   property :enddate, Date
   property :position, String, length:120
   property :company, String, length:120
-  property :responsibilities, String
-  property :achievements, String
+  property :responsibilities, String, length:1000  #to create array of Responsiblities
+  property :achievements, String, length: 1000  #to create array of Achievements
   property :user_id, Integer
+  property :type, String, length:20 #to define if it is a job or education.
   #next time can include an array of skills that are being used in a job
   belongs_to :user 
 end

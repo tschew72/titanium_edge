@@ -7,6 +7,7 @@ require './model'
 require 'httparty'
 require 'json'
 require 'roo'
+require 'compass'
 
 
 class SinatraWardenExample < Sinatra::Application
@@ -107,12 +108,12 @@ end
 
 get '/profile' do
    redirect '/auth/login' unless env['warden'].authenticated?
-       user1 = env['warden'].user  #This is the most important query of all. it will identify the user of this session.
-       @userme = user1.firstname
-       @emailme = user1.email
-       @userskills= user1.skilltags
+       @userprofile = env['warden'].user  #This is the most important query of all. it will identify the user of this session.
+       #@userme = @userprofile.firstname
+       #@emailme = @userprofile.email
+       @userskills= @userprofile.skilltags.all(:order => [:skillscore.desc])
        @skillname = Skill.all
-       #@skill = Skill.all(:users => @user)
+       @jobhistory = @userprofile.jobs.all(:order => [:startdate.desc])
        erb :profile, :layout => :'profilelayout'
 end
 
@@ -121,6 +122,7 @@ end
 
    erb :login, :layout => :'auth_layout'
   end
+
 
   post '/auth/login' do 
     #### GOOD CODE! ###############
@@ -156,6 +158,14 @@ end
 
   end
 
+  post '/updateprofile' do
+    userdata = User.get(params["pk"])
+    #data.update(:params["name"] => params["value"])
+    userdata.update(:firstname => params["value"])
+    return 200
+  end
+
+  
 end
 
 map SinatraWardenExample.assets_prefix do
