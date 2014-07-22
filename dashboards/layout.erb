@@ -9,14 +9,15 @@
   <script src="http://cdn.datatables.net/1.10.1/js/jquery.dataTables.min.js"></script>
   
   <link rel="stylesheet" href="/assets/application.css">
+
   <link rel="stylesheet" href="http://cdn.datatables.net/1.10.1/css/jquery.dataTables.css">
   <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css">
   <link rel="stylesheet" href="//cdn.datatables.net/plug-ins/be7019ee387/integration/jqueryui/dataTables.jqueryui.css">
-  
+
   <link href="/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <link href='//fonts.googleapis.com/css?family=Open+Sans:300,400,600,700' rel='stylesheet' type='text/css'>
   <link rel="icon" href="/assets/favicon.ico">
-  <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/pure-min.css">
+  <!-- <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/pure-min.css"> -->
     <!--[if lt IE 9]>
     <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
@@ -30,16 +31,36 @@
       <button type="button" class="navbar-toggle" data-toggle="collapse" href=".nav-collapse">
           <span class="icon-toggle"></span>
       </button>
-      <a class="navbar-brand" href="#">Control Panel</a>
+      <a class="navbar-brand" href="#">My Career Dashboard</a>
     </div>
     <div class="navbar-collapse collapse">
       <ul class="nav navbar-nav navbar-right">
-       
+      
+              <li class="hidden-xs">
+                <a href="index.html" class="modal-link">
+                  <i class="fa fa-bell"></i>
+                  <span class="badge">7</span>
+                </a>
+              </li>
+              <li class="hidden-xs">
+                <a class="ajax-link" href="ajax/calendar.html">
+                  <i class="fa fa-calendar"></i>
+                  <span class="badge">7</span>
+                </a>
+              </li>
+              <li class="hidden-xs">
+                <a href="ajax/page_messages.html" class="ajax-link">
+                  <i class="fa fa-envelope"></i>
+                  <span class="badge">7</span>
+                </a>
+              </li>
+
+
         <li class="dropdown">
           <a class="dropdown-toggle" role="button" data-toggle="dropdown" href="#">
             <i class="glyphicon glyphicon-user"></i> <%= @userme %> <span class="caret"></span></a>
           <ul id="g-account-menu" class="dropdown-menu" role="menu">
-            <li><a href="#">My Profile</a></li>
+            <li><a href="/profile">My Profile</a></li>
             <li><a href="/logout"><i class="glyphicon glyphicon-lock"></i> Logout</a></li>
           </ul>
         </li>

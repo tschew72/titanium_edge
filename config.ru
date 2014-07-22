@@ -41,9 +41,9 @@ use Warden::Manager do |config|
     env['REQUEST_METHOD'] = 'POST'
   end
 
- Warden::Manager.before_failure do |env,opts|
-    env['REQUEST_METHOD'] = 'POST'
-  end
+ #Warden::Manager.before_failure do |env,opts|
+ #   env['REQUEST_METHOD'] = 'POST'
+ # end
 
   Warden::Strategies.add(:password) do
     def valid?
@@ -89,19 +89,31 @@ end
 get '/edge' do
    # If user comes in directly here, if not authenticated, throw them to /auth/login
    redirect '/auth/login' unless env['warden'].authenticated?
-   #erb :edge, :locals => {:loginemail => params[:email], :name => params[:firstname] }
-       user1 = env['warden'].user
+       user1 = env['warden'].user  #This is the most important query of all. it will identify the user of this session.
        @userme = user1.firstname
        @emailme = user1.email
        @usermatchjoblist = user1.matched_jobs
-        erb :edge
+       erb :edge
 end
 
 
 get '/summary' do
    redirect '/auth/login' unless env['warden'].authenticated?
-    #erb :summary, :locals => {:loginemail => params[:email], :name => params[:firstname] }
-    erb :summary
+       user1 = env['warden'].user  #This is the most important query of all. it will identify the user of this session.
+       @userme = user1.firstname
+       erb :summary
+end
+
+
+get '/profile' do
+   redirect '/auth/login' unless env['warden'].authenticated?
+       user1 = env['warden'].user  #This is the most important query of all. it will identify the user of this session.
+       @userme = user1.firstname
+       @emailme = user1.email
+       @userskills= user1.skilltags
+       @skillname = Skill.all
+       #@skill = Skill.all(:users => @user)
+       erb :profile, :layout => :'profilelayout'
 end
 
 
@@ -115,15 +127,7 @@ end
     env['warden'].authenticate!
     if session[:return_to].nil?
       
-       
-       #user1 = env['warden'].user
-       #user1.firstname
-       #user1.email
-       #newurl = "/edge?firstname=" + user1.firstname + "&email=" + user1.email
-       #redirect to(newurl)
 
-       #user1 = env['warden'].user
-       #@userme = user1.firstname
        #@emailme = user1.email
        redirect '/edge'
        #erb :edge

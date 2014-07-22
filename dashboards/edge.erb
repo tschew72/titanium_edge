@@ -18,6 +18,7 @@ $(document).ready(function() {
 </script>
 
 
+
 <div class="gridster">
   <ul>
     <li data-row="1" data-col="1" data-sizex="2" data-sizey="1">
@@ -57,7 +58,7 @@ $(document).ready(function() {
                            <td><%= @usermatchjoblist.get(i).rank %></td>
                            <td><%= @usermatchjoblist.get(i).jobfunction %></td>
                            <td><%= @usermatchjoblist.get(i).joblevel %></td>
-                           <td><%= @usermatchjoblist.get(i).salaryrange %></td>
+                           <td>$<%= @usermatchjoblist.get(i).salaryrange %></td>
                         </tr>
                         <% end %>
                    </tbody>

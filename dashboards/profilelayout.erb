@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+  <head>
+      <title><%= yield_content(:title) %></title>
+ 
+  <script type="text/javascript" src="/assets/application.js"></script>
+  <script src="/vendor/bootstrap/js/bootstrap.min.js"></script>
+  <script src="/vendor/bootstrap/js/scripts.js"></script>
+  <script src="http://cdn.datatables.net/1.10.1/js/jquery.dataTables.min.js"></script>
+  
+  <link rel="stylesheet" href="/assets/application.css">
+
+  <link rel="stylesheet" href="http://cdn.datatables.net/1.10.1/css/jquery.dataTables.css">
+  <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css">
+  <link rel="stylesheet" href="//cdn.datatables.net/plug-ins/be7019ee387/integration/jqueryui/dataTables.jqueryui.css">
+
+  <link href="/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href='//fonts.googleapis.com/css?family=Open+Sans:300,400,600,700' rel='stylesheet' type='text/css'>
+  <link rel="icon" href="/assets/favicon.ico">
+  <!-- <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/pure-min.css"> -->
+    <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <header>
+
+<div id="top-nav" class="navbar navbar-inverse navbar-static-top">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" href=".nav-collapse">
+          <span class="icon-toggle"></span>
+      </button>
+      <a class="navbar-brand" href="#">My Career Dashboard</a>
+    </div>
+    <div class="navbar-collapse collapse">
+      <ul class="nav navbar-nav navbar-right">
+      
+              <li class="hidden-xs">
+                <a href="index.html" class="modal-link">
+                  <i class="fa fa-bell"></i>
+                  <span class="badge">7</span>
+                </a>
+              </li>
+              <li class="hidden-xs">
+                <a class="ajax-link" href="ajax/calendar.html">
+                  <i class="fa fa-calendar"></i>
+                  <span class="badge">7</span>
+                </a>
+              </li>
+              <li class="hidden-xs">
+                <a href="ajax/page_messages.html" class="ajax-link">
+                  <i class="fa fa-envelope"></i>
+                  <span class="badge">7</span>
+                </a>
+              </li>
+
+
+        <li class="dropdown">
+          <a class="dropdown-toggle" role="button" data-toggle="dropdown" href="#">
+            <i class="glyphicon glyphicon-user"></i> <%= @userme %> <span class="caret"></span></a>
+          <ul id="g-account-menu" class="dropdown-menu" role="menu">
+            <li><a href="/profile">My Profile</a></li>
+            <li><a href="/logout"><i class="glyphicon glyphicon-lock"></i> Logout</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div><!-- /container -->
+</div>
+    </header>
+      <div class="row">
+  <div class="col-sm-2">
+      <!-- left -->
+      <h3><i class="glyphicon glyphicon-briefcase"></i> Toolbox</h3>
+      <hr>
+
+      <ul class="nav nav-stacked">
+        <li><a href="/summary"><i class="glyphicon glyphicon-flash"></i> Summary</a></li>
+        <li><a href="/edge"><i class="glyphicon glyphicon-link"></i> Jobseeker</a></li>
+        <li><a href="javascript:;"><i class="glyphicon glyphicon-list-alt"></i> Job</a></li>
+        <li><a href="javascript:;"><i class="glyphicon glyphicon-book"></i> ITJob Street</a></li>
+        <li><a href="javascript:;"><i class="glyphicon glyphicon-briefcase"></i> Industry</a></li>
+        <li><a href="javascript:;"><i class="glyphicon glyphicon-time"></i> Real-time</a></li>
+        <li><a href="javascript:;"><i class="glyphicon glyphicon-plus"></i> Advanced..</a></li>
+      </ul>
+
+  </div>
+    <div class="container">
+      <%= yield %>
+    </div> 
+  </body>
+</html>

@@ -21,8 +21,8 @@ jQuery(function($){
         slide_links        : 'blank',    // Individual links for each slide (Options: false, 'num', 'name', 'blank')
         slides             : [    // Slideshow Images
                                  {image : '/vendor/fullscreen-login/assets/img/backgrounds/1.jpg'},
-                                 {image : '/vendor/fullscreen-login/assets//img/backgrounds/2.jpg'},
-                                 {image : '/vendor/fullscreen-login/assets//img/backgrounds/3.jpg'}
+                                 {image : '/vendor/fullscreen-login/assets/img/backgrounds/2.jpg'},
+                                 {image : '/vendor/fullscreen-login/assets/mg/backgrounds/3.jpg'}
                              ]
 
     });

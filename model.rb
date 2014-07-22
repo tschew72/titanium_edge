@@ -16,9 +16,26 @@ class User
   property :username, String, length: 50
   property :firstname, String, length: 50
   property :email, String, length:80
+  property :datejoined, Date
+  property :age, Integer
+  property :address, String
+  property :nationality, String, length: 80
+  property :contactnumber, String, length: 20
+  property :facebooklink, String, length: 120
+  property :twitterlink, String, length: 120
+  property :linkedinlink, String, length: 120
+  property :githublink, String, length: 120
+  property :photolink, String, length:200
   property :password, BCryptHash
+  property :singaporepr, Boolean, :default  => false   #next time get user to choose from a list of countries they have PR status
 
   has n, :matched_jobs
+  has n, :jobs
+  has 1, :career_score
+
+  has n, :skills, :through => :skilltags   ###n-n###
+  has n, :skilltags                        ###n-n###
+  
   def authenticate(attempted_password)
     if self.password == attempted_password
       true
@@ -27,6 +44,22 @@ class User
     end
   end
 
+end
+
+
+class Job
+  include DataMapper::Resource
+
+  property :id, Serial, key: true
+  property :startdate, Date
+  property :enddate, Date
+  property :position, String, length:120
+  property :company, String, length:120
+  property :responsibilities, String
+  property :achievements, String
+  property :user_id, Integer
+  #next time can include an array of skills that are being used in a job
+  belongs_to :user 
 end
 
 
@@ -46,6 +79,39 @@ class MatchedJob
 end
 
 
+class CareerScore
+  include DataMapper::Resource
+
+  property :id, Serial, key: true
+  property :careerscore, Integer
+  property :user_id, Integer
+
+  belongs_to :user
+end
+
+
+class Skill    ###n-n###
+  include DataMapper::Resource
+
+  property :id, Serial , key: true
+  property :skill, String, length:100
+  
+  has n, :skilltags
+  has n, :users, :through => :skilltags
+end
+
+class Skilltag   ###n-n###
+  include DataMapper::Resource
+
+  property :id, Serial , key: true
+  property :skill_id, Integer
+  property :user_id, Integer
+  property :skillscore, Integer
+
+  belongs_to :skill, :key => true
+  belongs_to :user, :key => true
+end
+  
 # Tell DataMapper the models are done being defined
 DataMapper.finalize
 
