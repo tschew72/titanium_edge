@@ -1,32 +1,99 @@
 <!DOCTYPE html>
+<html lang="en">
 <html>
   <head>
       <title><%= yield_content(:title) %></title>
- 
+
+
+
+
+
   <script type="text/javascript" src="/assets/application.js"></script>
-  <script src="/vendor/bootstrap/js/bootstrap.min.js"></script>
+  
   <script src="/vendor/bootstrap/js/scripts.js"></script>
   <script src="http://cdn.datatables.net/1.10.1/js/jquery.dataTables.min.js"></script>
 
   <script src="//cdnjs.cloudflare.com/ajax/libs/x-editable/1.5.0/bootstrap3-editable/js/bootstrap-editable.min.js"></script>
+  <script src="/vendor/bootstrap/js/bootstrap.min.js"></script>
+  
 
 
-  <link href="//cdnjs.cloudflare.com/ajax/libs/x-editable/1.5.0/bootstrap3-editable/css/bootstrap-editable.css" rel="stylesheet"/>
   <link rel="stylesheet" href="/assets/application.css">
+  
+  <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
+  <link href="//cdnjs.cloudflare.com/ajax/libs/x-editable/1.5.0/bootstrap3-editable/css/bootstrap-editable.css" rel="stylesheet"/>
   <link rel="stylesheet" href="http://cdn.datatables.net/1.10.1/css/jquery.dataTables.css">
   <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css">
   <link rel="stylesheet" href="//cdn.datatables.net/plug-ins/be7019ee387/integration/jqueryui/dataTables.jqueryui.css">
-
-  <link href="/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-
+  
+  <!-- <link href="/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet"> -->
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
 
 
   <link href='//fonts.googleapis.com/css?family=Open+Sans:300,400,600,700' rel='stylesheet' type='text/css'>
   <link rel="icon" href="/assets/favicon.ico">
+
   <!-- <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/pure-min.css"> -->
     <!--[if lt IE 9]>
     <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
+
+
+
+
+      <script src="http://tinymce.cachefly.net/4.1/tinymce.min.js"></script>
+      <script type='text/javascript'>
+
+       $.fn.editable.defaults.mode = 'inline';
+
+
+        tinymce.init({
+                selector: "textarea",
+                plugins: [
+                        "advlist autolink autosave link image lists charmap print preview hr anchor pagebreak spellchecker",
+                        "searchreplace wordcount visualblocks visualchars code fullscreen insertdatetime media nonbreaking",
+                        "table contextmenu directionality emoticons template textcolor paste fullpage textcolor colorpicker textpattern"
+                ],
+
+                toolbar1: "bold italic underline strikethrough | alignleft aligncenter alignright alignjustify | styleselect formatselect fontselect fontsizeselect",
+                toolbar2: "cut copy paste | searchreplace | bullist numlist | outdent indent blockquote | undo redo | link unlink anchor image media code | insertdatetime preview | forecolor backcolor",
+                toolbar3: "table | hr removeformat | subscript superscript | charmap emoticons | print fullscreen | ltr rtl | spellchecker | visualchars visualblocks nonbreaking template pagebreak restoredraft",
+
+                menubar: false,
+                toolbar_items_size: 'small',
+
+                style_formats: [
+                        {title: 'Bold text', inline: 'b'},
+                        {title: 'Red text', inline: 'span', styles: {color: '#ff0000'}},
+                        {title: 'Red header', block: 'h1', styles: {color: '#ff0000'}},
+                        {title: 'Example 1', inline: 'span', classes: 'example1'},
+                        {title: 'Example 2', inline: 'span', classes: 'example2'},
+                        {title: 'Table styles'},
+                        {title: 'Table row 1', selector: 'tr', classes: 'tablerow1'}
+                ],
+
+                templates: [
+                        {title: 'Test template 1', content: 'Test 1'},
+                        {title: 'Test template 2', content: 'Test 2'}
+                ]
+        });
+
+       $(document).ready(function() {
+          
+          $('#firstname').editable();
+
+          $('#profiletable').dataTable( {
+              "bsort": false,
+              "scrollCollapse": true,
+              "jQueryUI": true,
+          } );
+        
+
+       } );
+
+      </script>
+
+
 
   </head>
   <body>
@@ -77,22 +144,22 @@
 </div>
     </header>
       <div class="row">
-  <div class="col-sm-2">
+           <div class="col-sm-2">
       <!-- left -->
-      <h3><i class="glyphicon glyphicon-briefcase"></i> Toolbox</h3>
-      <hr>
+                <h3><i class="glyphicon glyphicon-briefcase"></i> Toolbox</h3>
+                <hr>
 
-      <ul class="nav nav-stacked">
-        <li><a href="/summary"><i class="glyphicon glyphicon-flash"></i> Summary</a></li>
-        <li><a href="/edge"><i class="glyphicon glyphicon-link"></i> Jobseeker</a></li>
-        <li><a href="javascript:;"><i class="glyphicon glyphicon-list-alt"></i> Job</a></li>
-        <li><a href="javascript:;"><i class="glyphicon glyphicon-book"></i> ITJob Street</a></li>
-        <li><a href="javascript:;"><i class="glyphicon glyphicon-briefcase"></i> Industry</a></li>
-        <li><a href="javascript:;"><i class="glyphicon glyphicon-time"></i> Real-time</a></li>
-        <li><a href="javascript:;"><i class="glyphicon glyphicon-plus"></i> Advanced..</a></li>
-      </ul>
+                <ul class="nav nav-stacked">
+                  <li><a href="/summary"><i class="glyphicon glyphicon-flash"></i> Summary</a></li>
+                  <li><a href="/edge"><i class="glyphicon glyphicon-link"></i> Jobseeker</a></li>
+                  <li><a href="javascript:;"><i class="glyphicon glyphicon-list-alt"></i> Job</a></li>
+                  <li><a href="javascript:;"><i class="glyphicon glyphicon-book"></i> ITJob Street</a></li>
+                  <li><a href="javascript:;"><i class="glyphicon glyphicon-briefcase"></i> Industry</a></li>
+                  <li><a href="javascript:;"><i class="glyphicon glyphicon-time"></i> Real-time</a></li>
+                  <li><a href="javascript:;"><i class="glyphicon glyphicon-plus"></i> Advanced..</a></li>
+                </ul>
+            </div>
 
-  </div>
     <div class="container">
       <%= yield %>
     </div> 

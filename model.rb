@@ -58,10 +58,11 @@ class Job
   property :enddate, Date
   property :position, String, length:120
   property :company, String, length:120
-  property :responsibilities, String, length:1000  #to create array of Responsiblities
-  property :achievements, String, length: 1000  #to create array of Achievements
+  property :responsibilities, String, length:5000 
+  property :achievements, String, length: 5000 
   property :user_id, Integer
-  property :type, String, length:20 #to define if it is a job or education.
+  property :type, String, length:1 #to define if it is a job or education.
+  property :employerrating, Integer # to rate how good is this company in your opinion
   #next time can include an array of skills that are being used in a job
   belongs_to :user 
 end

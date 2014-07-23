@@ -1,149 +1,197 @@
 
 
 
-<script type='text/javascript'>
+<style>
+.modal .modal-dialog { width: 80%; } 
 
-$.fn.editable.defaults.mode = 'inline';
-
-$(document).ready(function() {
-    
-    $('#firstname').editable();
-
-    $('#profiletable').dataTable( {
-        "bsort": false,
-        "scrollCollapse": true,
-        "jQueryUI": true,
-    } );
-  
-
-} );
+</style>
 
 
 
-</script>
 
-
-
-  <div class="container">
-  
-	  <div class="row">
-	    <div class="col-md-4 column">
-	          <img src="http://lorempixel.com/250/250/" />
-	    </div>
-	    <div class="col-md-6 column">
-	   		  <table id="profiletable" class="display" cellspacing="0" width="100%">
-                    <tbody >
-                        <tr>
-                           <td>First Name: </td>
-
-                           <td> <a href="javascript:void(0)" id="firstname" data-type="text" data-pk="<%=@userprofile.id %>" data-url="/updateprofile" data-title="Enter first name"><%= @userprofile.firstname %></a>  
-                           <!-- Trying out AJAX INLINE EDIT
-                            <%= @userprofile.firstname %>  -->
-                            </td>
-                        </tr>
-                        <tr>
-                           <td>Age</td>
-                           <td><%= @userprofile.age %> </td>
-                        </tr>
-                        <tr>
-                           <td>Gender:</td>
-                           <td>Male </td>
-                        </tr>      
-                        <tr>
-                           <td>Nationality:</td>
-                           <td><%= @userprofile.nationality %>  </td>
-                        </tr>       
-                        <tr>
-                           <td>Contact #:</td>
-                           <td><%= @userprofile.contactnumber %>  </td>
-                        </tr>  
-                        <tr>
-                           <td>Address:</td>
-                           <td><%= @userprofile.address %>  </td>
-                        </tr>                       
-                        <tr>
-                           <td>Email:</td>
-                           <td><%= @userprofile.email %> </td>
-                        </tr>
-                   </tbody>
-              </table>
-	   
-	    </div> <!-- Column -->
-	</div> <!-- Row -->
-  
-<ul class="nav nav-tabs">
-    <li class="active"><a class="btn btn-info col-sm-12 glyphicon glyphicon-plus" data-toggle="tab" href="#skills"> <br> Skills</a></li>
-    <li><a class="btn btn-info col-sm-12 glyphicon glyphicon-cloud" data-toggle="tab" href="#timeline"> <br>  Timeline</a></li>
-    <li><a class="btn btn-info col-sm-12 glyphicon glyphicon-cog" data-toggle="tab" href="#certificates"> <br>  Certificates</b></a></li>
-    <li><a class="btn btn-info col-sm-12 glyphicon glyphicon-question-sign" data-toggle="tab" href="#activities"> <br> Activities</a></li>
-</ul>
-<div class="tab-content">
-    <div id="skills" class="tab-pane fade in active">
-
-             <h3>My  <span class="semi-bold">Skills</span></h3>
-        	<% @userskills.each do |i| %>
-        	<div class="progress">
-     		 <div data-percentage="0%" style="width: <%= @userskills.get(i).skillscore * 20 %>%;" class="progress-bar progress-bar-success" role="progressbar" aria-valuemin="0" aria-valuemax="100"><%= @skillname.get(@userskills.get(i).skill_id).skill %></div>
-        	</div>
-        	<% end %> 
-    </div>
-    <div id="timeline" class="tab-pane fade">
-		<div class="container">
-		    <div class="page-header">
-		        <h1 id="timeline">My Education and Job Timeline</h1>
+<div class="container">
+    <div class="col-md-10 column"> 
+		<div class="row">
+		    <div class="col-md-3 column">
+		          <img src="http://lorempixel.com/250/250/" />
 		    </div>
-		    <ul class="timeline">
-        	    <% @jobhistory.each do |i| %>
-		        <li>
-		          <div class="timeline-badge"><i class="glyphicon glyphicon-check"></i></div>
-		          <div class="timeline-panel">
-		            <div class="timeline-heading">
-		              <h3 class="timeline-title"><%= @jobhistory.get(i).company %></h3>
-		              <h4 class="timeline-title"><%= @jobhistory.get(i).position %></h4>
-		              <p><small class="text-muted"><i class="glyphicon glyphicon-time"></i> <%= @jobhistory.get(i).startdate %> to <%= @jobhistory.get(i).enddate %> </small></p>
-		            </div>
-		            <div class="timeline-body">
-		              <h4 class="timeline-title"> Responsibilities:</h4>
-		              <p><%= @jobhistory.get(i).responsibilities %></p>
-		              <br><br>
-		              <h4 class="timeline-title"> Achievements:</h4>
-		              <p><%= @jobhistory.get(i).achievements %></p>
-		              <hr>
-				            <div class="btn-group">
-				                <button type="button" class="btn btn-primary btn-sm dropdown-toggle" data-toggle="dropdown">
-				                  <i class="glyphicon glyphicon-cog"></i> <span class="caret"></span>
-				                </button>
-				                <ul class="dropdown-menu" role="menu">
-				                  <li><a href="#">Edit</a></li>
-				                  <li><a href="#">Delete</a></li>
-				                  <!-- <li class="divider"></li> -->
-				                </ul>
-				            </div>
-		            </div>
-		          </div>
-		        <% end %>
-		        </li>
+		    <div class="col-md-9 column">
+		   		  <table id="profiletable" class="display" cellspacing="0" width="100%">
+	                    <tbody >
+	                        <tr>
+	                           <td>First Name: </td>
 
-		    </ul>
-		</div>
+	                           <td> <a href="javascript:void(0)" id="firstname" data-type="text" data-pk="<%=@userprofile.id %>" data-url="/updateprofile" data-title="Enter first name"><%= @userprofile.firstname %></a>  
+	                            </td>
+	                        </tr>
+	                        <tr>
+	                           <td>Age</td>
+	                           <td><%= @userprofile.age %> </td>
+	                        </tr>
+	                        <tr>
+	                           <td>Gender:</td>
+	                           <td>Male </td>
+	                        </tr>      
+	                        <tr>
+	                           <td>Nationality:</td>
+	                           <td><%= @userprofile.nationality %>  </td>
+	                        </tr>       
+	                        <tr>
+	                           <td>Contact #:</td>
+	                           <td><%= @userprofile.contactnumber %>  </td>
+	                        </tr>  
+	                        <tr>
+	                           <td>Address:</td>
+	                           <td><%= @userprofile.address %>  </td>
+	                        </tr>                       
+	                        <tr>
+	                           <td>Email:</td>
+	                           <td><%= @userprofile.email %> </td>
+	                        </tr>
+	                   </tbody>
+	              </table>
+		   
+		    </div> <!-- Column -->
+		 </div> <!-- Row -->   	
+ <hr>
+<br><br><br><br>
+    	<div class="row">
+			<div class="col-md-12 column">	
+				<ul class="nav nav-tabs">
+				    <li class="active"><a class="btn btn-info col-sm-12 glyphicon glyphicon-plus" data-toggle="tab" href="#skills"> <br> Skills</a></li>
+				    <li><a class="btn btn-info col-sm-12 glyphicon glyphicon-cloud" data-toggle="tab" href="#timeline"> <br>  Timeline</a></li>
+				    <li><a class="btn btn-info col-sm-12 glyphicon glyphicon-cog" data-toggle="tab" href="#certificates"> <br>  Certificates</b></a></li>
+				    <li><a class="btn btn-info col-sm-12 glyphicon glyphicon-question-sign" data-toggle="tab" href="#projects"> <br> Projects</a></li>
+				    <li><a class="btn btn-info col-sm-12 glyphicon glyphicon-question-sign" data-toggle="tab" href="#videos"> <br> Video Resume</a></li>
+				    <li><a class="btn btn-info col-sm-12 glyphicon glyphicon-question-sign" data-toggle="tab" href="#activities"> <br> Activities</a></li>
+				</ul>
+				<div class="tab-content">
+				    <div id="skills" class="tab-pane fade in active">
+
+				             <h3>My  <span class="semi-bold">Skills</span></h3>
+				        	<% @userskills.each do |i| %>
+				        	<div class="progress">
+				     		 <div data-percentage="0%" style="width: <%= @userskills.get(i).skillscore * 20 %>%;" class="progress-bar progress-bar-success" role="progressbar" aria-valuemin="0" aria-valuemax="100"><%= @skillname.get(@userskills.get(i).skill_id).skill %></div>
+				        	</div>
+				        	<% end %> 
+				    </div>
+				    <div id="timeline" class="tab-pane fade">
+						<div class="container">
+						    <div class="page-header">
+						        <h1 id="timeline">My Education and Job Timeline</h1>
+						    </div>
+						    <a data-toggle="modal" href="#addjobmodal" class="btn btn-primary btn-lg">Add Job</a>
+						    <a data-toggle="modal" href="#addedumodal" class="btn btn-primary btn-lg">Add Education</a>
+
+							<!-- addjob Modal -->
+							  <div class="modal fade" id="addjobmodal" style="display: none;">
+							    <div class="modal-dialog">
+							      <div class="modal-content">
+							        <div class="modal-header">
+							          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+							          <h4 class="modal-title">Add Job</h4>
+							        </div>
+							        <div class="modal-body">
+							        
+							        <form action="/jobsubmit" method="post">
+							          <p><input type="text" name="companyname" class="form-control" placeholder="Company Name"></p>
+							          <p><input type="text" name="position" class="form-control" placeholder="Position Held"></p>
+							          <p><input type="text" name="startdate" class="form-control" placeholder="Start Date"></p>
+							          <p><input type="text" name="enddate" class="form-control" placeholder="End Date"></p>
+							          <textarea name="responsibilities"></textarea>
+							           <textarea name="achievements"></textarea>
+							          
+
+							          
+							          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+							          <button type="submit" class="btn btn-primary">Save changes</button>
+							        </form>
+
+							        </div>
+							        <div class="modal-footer">
+
+							        </div>
+							      </div><!-- /.modal-content -->
+							    </div><!-- /.modal-dialog -->
+							  </div><!-- /.modal -->			
+
+							  			    
+							<!-- addedu Modal -->
+							  <div class="modal fade" id="addedumodal" tabindex="-1" role="dialog" aria-labelledby="addedu" aria-hidden="true">
+							    <div class="modal-dialog">
+							      <div class="modal-content">
+							        <div class="modal-header">
+							          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+							          <h4 class="modal-title">Add Education</h4>
+							        </div>
+							        <div class="modal-body">
+							          ...
+							        </div>
+							        <div class="modal-footer">
+							          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+							          <button type="button" class="btn btn-primary">Save changes</button>
+							        </div>
+							      </div><!-- /.modal-content -->
+							    </div><!-- /.modal-dialog -->
+							  </div><!-- /.modal -->		
 
 
+						    <ul class="timeline">
+				        	    <% @jobhistory.each do |i| %>
+						        <li>
+					              	  <div class="timeline-badge"><i class="glyphicon glyphicon-check"></i></div>
+						              <div class="timeline-panel">
+							              <div class="timeline-heading">
+							              <h3 class="timeline-title"><%= @jobhistory.get(i).company %></h3>
+							              <h4 class="timeline-title"><%= @jobhistory.get(i).position %></h4>
+							              <p><small class="text-muted"><i class="glyphicon glyphicon-time"></i> <%= @jobhistory.get(i).startdate %> to <%= @jobhistory.get(i).enddate %> </small></p>
+							            </div>
+							            <div class="timeline-body">
+						            	    <h4 class="timeline-title"> Responsibilities:</h4>
+						                 	<p><%= @jobhistory.get(i).responsibilities %></p>
+						              		<br><br>
+						              		<h4 class="timeline-title"> Achievements:</h4>
+						              		<p><%= @jobhistory.get(i).achievements %></p>
+						               		<hr>
+								            <div class="btn-group">
+								                <button type="button" class="btn btn-primary btn-sm dropdown-toggle" data-toggle="dropdown">
+								                <i class="glyphicon glyphicon-cog"></i> <span class="caret"></span>
+								                </button>
+								                <ul class="dropdown-menu" role="menu">
+									                    <li><a href="#">Edit</a></li>
+										                <li><a href="/deletejob?recid=<%= @jobhistory.get(i).id %>">Delete</a></li>
+									                <!-- <li class="divider"></li> -->
+								                </ul>
+								            </div> <!-- End btn-group -->
+							            </div> <!-- End timeline-body -->
+							          </div> <!-- End timeline-panel -->						        
+						        </li>
+						        <% end %>	
+						    </ul> <!-- End ul timeline -->
+						</div> <!-- End container -->
+				    </div> <!-- End div timeline -->
 
-    </div>
+				    <div id="certificates" class="tab-pane fade">
+				        <p>Certificates</p>
 
 
+				    </div>
 
-    <div id="certificates" class="tab-pane fade">
-        <p>Certificates</p>
-    </div>
-    <div id="activities" class="tab-pane fade">
-        <p>Activities</p>
-    </div>
-</div>
-<br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+				    <div id="activities" class="tab-pane fade">
+				        <p>Projects</p>
+				    </div>
+				    
+				    <div id="activities" class="tab-pane fade">
+				        <p>Activities</p>
+				    </div>
+				
+				</div> <!-- End div tab-content -->
 
+		   	</div> <!-- Column -->
 
-	  
+        </div> <!-- Row -->
+
+	 </div> <!-- column -->  
 
 
 </div> <!-- Container -->

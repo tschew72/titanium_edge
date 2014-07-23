@@ -125,7 +125,7 @@ end
 
 
   post '/auth/login' do 
-    #### GOOD CODE! ###############
+
     env['warden'].authenticate!
     if session[:return_to].nil?
       
@@ -137,11 +137,13 @@ end
         #redirect session[:return_to]
     end
 
-   #################################
-
-
-  end   #/POST
+  end 
  
+
+
+
+
+
 get '/logout' do
     env['warden'].raw_session.inspect
     env['warden'].logout
@@ -160,12 +162,36 @@ end
 
   post '/updateprofile' do
     userdata = User.get(params["pk"])
-    #data.update(:params["name"] => params["value"])
     userdata.update(:firstname => params["value"])
     return 200
   end
 
-  
+
+  post '/jobsubmit' do 
+    userprofile = env['warden'].user 
+    newjob = Job.create(
+      :user_id => userprofile.id,
+      :company => params['companyname'],
+      :position => params['position'],
+      :startdate => params['startdate'],
+      :enddate => params['enddate'],
+      :responsibilities => params['responsibilities'],
+      :achievements => params['achievements']
+
+    )
+     redirect to('/profile')
+  end   
+
+
+  get '/deletejob' do 
+    #userprofile = env['warden'].user 
+    deljob = Job.get(params['recid'])
+    deljob.destroy
+    redirect to('/profile')
+  end  
+
+
+
 end
 
 map SinatraWardenExample.assets_prefix do
