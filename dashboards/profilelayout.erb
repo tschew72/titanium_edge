@@ -9,17 +9,17 @@
 
 
   <script type="text/javascript" src="/assets/application.js"></script>
-  
   <script src="/vendor/bootstrap/js/scripts.js"></script>
   <script src="http://cdn.datatables.net/1.10.1/js/jquery.dataTables.min.js"></script>
-
   <script src="//cdnjs.cloudflare.com/ajax/libs/x-editable/1.5.0/bootstrap3-editable/js/bootstrap-editable.min.js"></script>
   <script src="/vendor/bootstrap/js/bootstrap.min.js"></script>
+
   
 
-
+  <link rel="stylesheet" href="/vendor/responsive-timeline/css/timelinestyle.css" media="screen" type="text/css" />
   <link rel="stylesheet" href="/assets/application.css">
-  
+  <!-- <link rel="stylesheet" href="/vendor/responsive-timeline/css/normalize.css"> -->
+
   <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
   <link href="//cdnjs.cloudflare.com/ajax/libs/x-editable/1.5.0/bootstrap3-editable/css/bootstrap-editable.css" rel="stylesheet"/>
   <link rel="stylesheet" href="http://cdn.datatables.net/1.10.1/css/jquery.dataTables.css">
@@ -32,6 +32,8 @@
 
   <link href='//fonts.googleapis.com/css?family=Open+Sans:300,400,600,700' rel='stylesheet' type='text/css'>
   <link rel="icon" href="/assets/favicon.ico">
+  
+
 
   <!-- <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/pure-min.css"> -->
     <!--[if lt IE 9]>
@@ -49,33 +51,14 @@
 
         tinymce.init({
                 selector: "textarea",
-                plugins: [
-                        "advlist autolink autosave link image lists charmap print preview hr anchor pagebreak spellchecker",
-                        "searchreplace wordcount visualblocks visualchars code fullscreen insertdatetime media nonbreaking",
-                        "table contextmenu directionality emoticons template textcolor paste fullpage textcolor colorpicker textpattern"
-                ],
 
-                toolbar1: "bold italic underline strikethrough | alignleft aligncenter alignright alignjustify | styleselect formatselect fontselect fontsizeselect",
-                toolbar2: "cut copy paste | searchreplace | bullist numlist | outdent indent blockquote | undo redo | link unlink anchor image media code | insertdatetime preview | forecolor backcolor",
+                toolbar1: "bold italic underline strikethrough | alignleft aligncenter alignright alignjustify | styleselect formatselect",
+                toolbar2: "cut copy paste | searchreplace | bullist | outdent indent blockquote | undo redo | link unlink anchor image media code | insertdatetime preview | forecolor backcolor",
                 toolbar3: "table | hr removeformat | subscript superscript | charmap emoticons | print fullscreen | ltr rtl | spellchecker | visualchars visualblocks nonbreaking template pagebreak restoredraft",
 
                 menubar: false,
                 toolbar_items_size: 'small',
 
-                style_formats: [
-                        {title: 'Bold text', inline: 'b'},
-                        {title: 'Red text', inline: 'span', styles: {color: '#ff0000'}},
-                        {title: 'Red header', block: 'h1', styles: {color: '#ff0000'}},
-                        {title: 'Example 1', inline: 'span', classes: 'example1'},
-                        {title: 'Example 2', inline: 'span', classes: 'example2'},
-                        {title: 'Table styles'},
-                        {title: 'Table row 1', selector: 'tr', classes: 'tablerow1'}
-                ],
-
-                templates: [
-                        {title: 'Test template 1', content: 'Test 1'},
-                        {title: 'Test template 2', content: 'Test 2'}
-                ]
         });
 
        $(document).ready(function() {
@@ -87,9 +70,15 @@
               "scrollCollapse": true,
               "jQueryUI": true,
           } );
-        
+
 
        } );
+
+
+
+
+
+
 
       </script>
 
@@ -163,5 +152,6 @@
     <div class="container">
       <%= yield %>
     </div> 
+    <script src="/vendor/responsive-timeline/js/index.js"></script>
   </body>
 </html>

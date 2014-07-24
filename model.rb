@@ -56,13 +56,14 @@ class Job
   property :id, Serial, key: true
   property :startdate, Date
   property :enddate, Date
-  property :position, String, length:120
-  property :company, String, length:120
-  property :responsibilities, String, length:5000 
-  property :achievements, String, length: 5000 
+  property :position, String, length:120  # Graduate in what...
+  property :company, String, length:120   # School
+  property :responsibilities, String, length:5000 #Grades
+  property :achievements, String, length: 5000    #Projects
   property :user_id, Integer
   property :type, String, length:1 #to define if it is a job or education.
   property :employerrating, Integer # to rate how good is this company in your opinion
+
   #next time can include an array of skills that are being used in a job
   belongs_to :user 
 end

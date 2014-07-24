@@ -1,0 +1,7 @@
+.details {
+  font-size: 0;
+  text-indent: 0em;
+  -webkit-transition: font-size 0.5s;
+  transition: font-size 0.5s;
+}
+

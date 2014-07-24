@@ -1,12 +1,25 @@
 
-
-
 <style>
 .modal .modal-dialog { width: 80%; } 
+
 
 </style>
 
 
+<script language="javascript"> 
+	function toggle() {
+	    var ele = document.getElementById("toggleText");
+	    var text = document.getElementById("displayText");
+	    if(ele.style.display == "block") {
+	            ele.style.display = "none";
+	        text.innerHTML = "show";
+	    }
+	    else {
+	        ele.style.display = "block";
+	        text.innerHTML = "hide";
+	    }
+	} 
+</script>
 
 
 <div class="container">
@@ -55,6 +68,7 @@
 		 </div> <!-- Row -->   	
  <hr>
 <br><br><br><br>
+
     	<div class="row">
 			<div class="col-md-12 column">	
 				<ul class="nav nav-tabs">
@@ -75,6 +89,7 @@
 				        	</div>
 				        	<% end %> 
 				    </div>
+				    
 				    <div id="timeline" class="tab-pane fade">
 						<div class="container">
 						    <div class="page-header">
@@ -138,36 +153,48 @@
 
 						    <ul class="timeline">
 				        	    <% @jobhistory.each do |i| %>
-						        <li>
-					              	  <div class="timeline-badge"><i class="glyphicon glyphicon-check"></i></div>
-						              <div class="timeline-panel">
-							              <div class="timeline-heading">
-							              <h3 class="timeline-title"><%= @jobhistory.get(i).company %></h3>
-							              <h4 class="timeline-title"><%= @jobhistory.get(i).position %></h4>
-							              <p><small class="text-muted"><i class="glyphicon glyphicon-time"></i> <%= @jobhistory.get(i).startdate %> to <%= @jobhistory.get(i).enddate %> </small></p>
-							            </div>
-							            <div class="timeline-body">
-						            	    <h4 class="timeline-title"> Responsibilities:</h4>
-						                 	<p><%= @jobhistory.get(i).responsibilities %></p>
-						              		<br><br>
-						              		<h4 class="timeline-title"> Achievements:</h4>
-						              		<p><%= @jobhistory.get(i).achievements %></p>
-						               		<hr>
-								            <div class="btn-group">
-								                <button type="button" class="btn btn-primary btn-sm dropdown-toggle" data-toggle="dropdown">
-								                <i class="glyphicon glyphicon-cog"></i> <span class="caret"></span>
-								                </button>
-								                <ul class="dropdown-menu" role="menu">
-									                    <li><a href="#">Edit</a></li>
-										                <li><a href="/deletejob?recid=<%= @jobhistory.get(i).id %>">Delete</a></li>
-									                <!-- <li class="divider"></li> -->
-								                </ul>
-								            </div> <!-- End btn-group -->
-							            </div> <!-- End timeline-body -->
-							          </div> <!-- End timeline-panel -->						        
+						        <li class=<%= @jobhistory.get(i).type == "J" ? "" : "timeline-inverted" %>>
+					              	  <div class="timeline-badge <%= @jobhistory.get(i).type == "J" ? "danger" : "warning" %>"><i class= "<%= @jobhistory.get(i).type == "J" ? "glyphicon glyphicon-check" : "glyphicon glyphicon-floppy-disk" %>""></i></div> 
+						               <div class="timeline-panel"> 
+
+							              <div class="timeline-heading">	
+     
+								                <h3 class="timeline-title"><%= @jobhistory.get(i).position %></h3>
+								                <h4 class="timeline-title"><%= @jobhistory.get(i).company %></h4>
+								                <p><small class="text-muted"><i class="glyphicon glyphicon-time"></i> <%= @jobhistory.get(i).startdate %> to <%= @jobhistory.get(i).enddate %> </small></p>
+							              </div>
+
+
+							              <div class="timeline-body">
+							              		<div class="btn-group" style="float: right;">
+									                <button type="button" class="btn btn-primary btn-sm dropdown-toggle" data-toggle="dropdown" >
+									                <i class="glyphicon glyphicon-cog"></i> <span class="caret"></span>
+									                </button>
+									                <ul class="dropdown-menu" role="menu">
+										                    <li><a href="#">Edit</a></li>
+											                <li><a href="/deletejob?recid=<%= @jobhistory.get(i).id %>">Delete</a></li>
+										                    <li class="divider"></li>
+										                    <li></li> 
+									                </ul>
+
+									            </div> <!-- End btn-group -->						       
+<!-- @#@@@@##@@@@ -->
+							                    <span class="btn btn-primary more">View Details</span>
+							                    <div class="details">		
+								            	    <strong> <%= @jobhistory.get(i).type == "J" ? "Responsibilities" : "Grades" %>: </strong>
+								                 	<p style="margin-left: 40px;"><%= @jobhistory.get(i).responsibilities %></p>					     
+								              		<strong> <%= @jobhistory.get(i).type == "J" ? "Achievements" : "Projects" %>: </strong>
+								              		<p style="margin-left: 40px;"><%= @jobhistory.get(i).achievements %></p>	
+						              		    </div>
+											
+										  </div> <!-- timeline body div -->
+
+							          </div> <!-- End timeline-panel -->									        
 						        </li>
 						        <% end %>	
+							        
 						    </ul> <!-- End ul timeline -->
+
 						</div> <!-- End container -->
 				    </div> <!-- End div timeline -->
 
@@ -183,6 +210,10 @@
 				    
 				    <div id="activities" class="tab-pane fade">
 				        <p>Activities</p>
+
+
+
+
 				    </div>
 				
 				</div> <!-- End div tab-content -->
