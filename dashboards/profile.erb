@@ -1,228 +1,249 @@
 
-<style>
-.modal .modal-dialog { width: 80%; } 
 
 
-</style>
+<div class="container-fluid">
+     <div class="row">
+         <div class="col-md-3 column">
+               <img src="http://lorempixel.com/250/250/" />
+         </div>
+         <div class="col-md-6 column">
+                    <table id="profiletable" class="display" cellspacing="0" width="100%">
+                    <tbody >
+                        <tr>
+                           <td>First Name: </td>
+                           <td> <a href="javascript:void(0)" id="firstname" data-type="text" data-pk="<%=@userprofile.id %>" data-url="/updateprofile" data-title="Enter first name"><%= @userprofile.firstname %></a> </td>
+                        </tr>
+                        <tr>
+                           <td>Age</td>
+                           <td><a href="javascript:void(0)"  id="age" data-type="text" data-pk="<%=@userprofile.id %>" data-url="/updateprofile" data-title="Enter age"><%= @userprofile.age %></a>  </td>
+                        </tr>
+                        <tr>
+                           <td>Gender:</td>
+                           <td><a href="javascript:void(0)"  id="gender" data-type="select" data-pk="<%=@userprofile.id %>" data-url="/updateprofile" data-title="Enter gender"><%= @userprofile.gender == "M" ? "Male" : "Female" %> </a></td>
+                        </tr>     
+                        <tr>
+                           <td>Nationality:</td>
+                           <td><%= @userprofile.nationality %>  </td>
+                        </tr>      
+                        <tr>
+                           <td>Contact #:</td>
+                           <td><%= @userprofile.contactnumber %>  </td>
+                        </tr> 
+                        <tr>
+                           <td>Address:</td>
+                           <td><%= @userprofile.address %>  </td>
+                        </tr>                      
+                        <tr>
+                           <td>Email:</td>
+                           <td><%= @userprofile.email %> </td>
+                        </tr>
+                   </tbody>
+              </table>
+         </div> <!-- Column "col-md-6 column"-->
+      </div> <!-- Row -->       
+<hr>
+     <div class="row">
+          <div class="col-md-12 column">    
+               <ul class="nav nav-tabs">
+                   <li class="active"><a class="btn btn-info col-sm-12 glyphicon glyphicon-plus" data-toggle="tab" href="#skills"> <br> Skills</a></li>
+                   <li><a class="btn btn-info col-sm-12 glyphicon glyphicon-cloud" data-toggle="tab" href="#timeline"> <br>  Timeline</a></li>
+                   <li><a class="btn btn-info col-sm-12 glyphicon glyphicon-cog" data-toggle="tab" href="#certificates"> <br>  Certificates</b></a></li>
+                   <li><a class="btn btn-info col-sm-12 glyphicon glyphicon-question-sign" data-toggle="tab" href="#projects"> <br> Projects</a></li>
+                   <li><a class="btn btn-info col-sm-12 glyphicon glyphicon-question-sign" data-toggle="tab" href="#videos"> <br> Video Resume</a></li>
+                   <li><a class="btn btn-info col-sm-12 glyphicon glyphicon-question-sign" data-toggle="tab" href="#activities"> <br> Activities</a></li>
+               </ul>
+               <div class="tab-content">
+                   <div id="skills" class="tab-pane fade in active">
+
+                            <h3>My  <span class="semi-bold">Skills</span></h3>
+                            To implement knobs from http://anthonyterrien.com/knob/
+                            <% @userskills.each do |i| %>
+                            <div class="progress">
+                               <div data-percentage="0%" style="width: <%= @userskills.get(i).skillscore * 20 %>%;" class="progress-bar progress-bar-success" role="progressbar" aria-valuemin="0" aria-valuemax="100"><%= @skillname.get(@userskills.get(i).skill_id).skill %></div>
+                            </div>
+                            <% end %>
+                   </div>
+                  
+                   <div id="timeline" class="tab-pane fade">
+                         <div class="container-fluid">
+                             <div class="page-header">
+                                 <h1 class="timeline-title" id="timeline">My Education and Job Timeline</h1>
+                             </div>
+                             <a style="width: 150px !important;" data-toggle="modal" data-keyboard="false" data-backdrop="static" href="#addjobmodal" class="btn btn-primary btn-lg glyphicon glyphicon-briefcase"><br>Add Job</a>
+                             <a style="width: 150px !important;"  data-toggle="modal" data-keyboard="false" data-backdrop="static" href="#addedumodal" class="btn btn-primary btn-lg glyphicon glyphicon-book"><br>Add Education</a>
+
+                              <!-- addjob Modal -->
+                                <div class="modal fade" id="addjobmodal" style="display: none;">
+                                  <div class="modal-dialog">
+                                    <div class="modal-content">
+                                      <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                        <h4 class="modal-title">Add Job</h4>
+                                      </div>
+                                      <div class="modal-body">
+                                     
+                                           <form action="/jobsubmit" method="post">
+                                             <p><input type="text" name="companyname" class="form-control" placeholder="Company Name"></p>
+                                             <p><input type="text" name="position" class="form-control" placeholder="Position Held"></p>
+                                             <p><input type="text" name="startdate" class="form-control" placeholder="Start Date"></p>
+                                             <p><input type="text" name="enddate" class="form-control" placeholder="End Date"></p>
+                                             <hr>
+                                             <textarea name="responsibilities">Add your responsibilities here</textarea>
+                                             <hr>
+                                             <textarea name="achievements">Add your achievements here</textarea>
+                                             <input type="hidden" name="type" value="J">        
+                                                                                                            
+                                             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                             <button type="submit" class="btn btn-primary">Save changes</button>
+                                           </form>
+
+                                      </div> <!-- "modal-body" -->
+                                      <div class="modal-footer">
+
+                                      </div>
+                                    </div><!-- /.modal-content -->
+                                  </div><!-- /.modal-dialog -->
+                                </div><!-- /.modal -->              
+
+                                                  
+                              <!-- addedu Modal -->
+                                <div class="modal fade" id="addedumodal" tabindex="-1" role="dialog" aria-labelledby="addedu" aria-hidden="true">
+                                  <div class="modal-dialog">
+                                    <div class="modal-content">
+                                      <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                        <h4 class="modal-title glyphicon glyphicon-book">Add Education</h4>
+                                      </div>
+                                      <div class="modal-body">
+                                        	<form action="/jobsubmit" method="post">
+                                             <p><input type="text" name="companyname" class="form-control" placeholder="School/College"></p>
+                                             <p><input type="text" name="position" class="form-control" placeholder="Certificate/Diploma/Degree name"></p>
+                                             <p><input type="text" name="startdate" class="form-control" placeholder="Start Date"></p>
+                                             <p><input type="text" name="enddate" class="form-control" placeholder="End Date"></p>
+                                             <textarea name="responsibilities">Add you Grades here</textarea>
+                                             <textarea name="achievements">Add your projects and paper here</textarea>
+                                             <input type="hidden" name="type" value="E">                                                                       
+                                             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                             <button type="submit" class="btn btn-primary">Save changes</button>
+                                           </form>
+                                      </div>
+                                      <div class="modal-footer">
+                                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                        <button type="button" class="btn btn-primary">Save changes</button>
+                                      </div>
+                                    </div><!-- /.modal-content -->
+                                  </div><!-- /.modal-dialog -->
+                                </div><!-- /.modal -->         
 
 
-<script language="javascript"> 
-	function toggle() {
-	    var ele = document.getElementById("toggleText");
-	    var text = document.getElementById("displayText");
-	    if(ele.style.display == "block") {
-	            ele.style.display = "none";
-	        text.innerHTML = "show";
-	    }
-	    else {
-	        ele.style.display = "block";
-	        text.innerHTML = "hide";
-	    }
-	} 
-</script>
+                             <ul class="timeline">
+                                <% @jobhistory.each do |i| %>
+                                 <li class=<%= @jobhistory.get(i).type == "J" ? "" : "timeline-inverted" %>>
+                                         <div class="timeline-badge <%= @jobhistory.get(i).type == "J" ? "danger" : "warning" %>"><i class= "<%= @jobhistory.get(i).type == "J" ? "glyphicon glyphicon-briefcase" : "glyphicon glyphicon-book" %>""></i></div>
+                                        <div class="timeline-panel">
+
+                                            <div class="timeline-heading">    
+                                                        
+                                                   <h3 class="timeline-title"><%= @jobhistory.get(i).position %>
+                                                   <button style="float:right;" type="button" data-toggle="modal" data-keyboard="false" data-backdrop="static" class=" btn btn-sm btn-primary glyphicon glyphicon-zoom-in" href=<%= "#" + @jobhistory.get(i).id.to_s %> <span class="caret"></span></button> </h3>
+                                                   
+                                                   <h4 class="timeline-subtitle"><%= @jobhistory.get(i).company %> 
+                                                   <div style="float:right;"><div><i class="timeline-subtitle glyphicon glyphicon-time"></i> <%= @jobhistory.get(i).startdate %> to <%= @jobhistory.get(i).enddate %> </div></div></h4>
+                                                   
+                                            </div>
 
 
-<div class="container">
-    <div class="col-md-10 column"> 
-		<div class="row">
-		    <div class="col-md-3 column">
-		          <img src="http://lorempixel.com/250/250/" />
-		    </div>
-		    <div class="col-md-9 column">
-		   		  <table id="profiletable" class="display" cellspacing="0" width="100%">
-	                    <tbody >
-	                        <tr>
-	                           <td>First Name: </td>
+                                            <div class="timeline-body">
+                                                     <!--  <div class="btn-group" style="float: right;">
+                                                        <button type="button" class="btn btn-primary btn-sm dropdown-toggle" data-toggle="dropdown" >
+                                                        <i class="glyphicon glyphicon-cog"></i> <span class="caret"></span>
+                                                        </button>
+                                                        <ul class="dropdown-menu" role="menu">
+                                                                 <li><a href="#">Edit</a></li>
+                                                                  <li><a href="/deletejob?recid=<%= @jobhistory.get(i).id %>">Delete</a></li>
+                                                                 <li class="divider"></li>
+                                                                 <li></li>
+                                                        </ul>
 
-	                           <td> <a href="javascript:void(0)" id="firstname" data-type="text" data-pk="<%=@userprofile.id %>" data-url="/updateprofile" data-title="Enter first name"><%= @userprofile.firstname %></a>  
-	                            </td>
-	                        </tr>
-	                        <tr>
-	                           <td>Age</td>
-	                           <td><%= @userprofile.age %> </td>
-	                        </tr>
-	                        <tr>
-	                           <td>Gender:</td>
-	                           <td>Male </td>
-	                        </tr>      
-	                        <tr>
-	                           <td>Nationality:</td>
-	                           <td><%= @userprofile.nationality %>  </td>
-	                        </tr>       
-	                        <tr>
-	                           <td>Contact #:</td>
-	                           <td><%= @userprofile.contactnumber %>  </td>
-	                        </tr>  
-	                        <tr>
-	                           <td>Address:</td>
-	                           <td><%= @userprofile.address %>  </td>
-	                        </tr>                       
-	                        <tr>
-	                           <td>Email:</td>
-	                           <td><%= @userprofile.email %> </td>
-	                        </tr>
-	                   </tbody>
-	              </table>
-		   
-		    </div> <!-- Column -->
-		 </div> <!-- Row -->   	
- <hr>
-<br><br><br><br>
+                                                    </div> -->                             
 
-    	<div class="row">
-			<div class="col-md-12 column">	
-				<ul class="nav nav-tabs">
-				    <li class="active"><a class="btn btn-info col-sm-12 glyphicon glyphicon-plus" data-toggle="tab" href="#skills"> <br> Skills</a></li>
-				    <li><a class="btn btn-info col-sm-12 glyphicon glyphicon-cloud" data-toggle="tab" href="#timeline"> <br>  Timeline</a></li>
-				    <li><a class="btn btn-info col-sm-12 glyphicon glyphicon-cog" data-toggle="tab" href="#certificates"> <br>  Certificates</b></a></li>
-				    <li><a class="btn btn-info col-sm-12 glyphicon glyphicon-question-sign" data-toggle="tab" href="#projects"> <br> Projects</a></li>
-				    <li><a class="btn btn-info col-sm-12 glyphicon glyphicon-question-sign" data-toggle="tab" href="#videos"> <br> Video Resume</a></li>
-				    <li><a class="btn btn-info col-sm-12 glyphicon glyphicon-question-sign" data-toggle="tab" href="#activities"> <br> Activities</a></li>
-				</ul>
-				<div class="tab-content">
-				    <div id="skills" class="tab-pane fade in active">
+<!-- #########################################START OF ZOOM IN MODAL for JOB/EDUCATION######################################################### -->
+                                                       <!-- <a data-toggle="modal" data-keyboard="false" data-backdrop="static" class=" btn btn-primary" href=<%= "#" + @jobhistory.get(i).id.to_s %>  <br>Zoom in</a> -->
+                                                       <!-- zoomin Modal -->
+                                                         <div class="modal fade" id=<%= @jobhistory.get(i).id.to_s %>  style="display: none;">
+                                                           <div class="modal-dialog">
+                                                             <div class="modal-content">
 
-				             <h3>My  <span class="semi-bold">Skills</span></h3>
-				        	<% @userskills.each do |i| %>
-				        	<div class="progress">
-				     		 <div data-percentage="0%" style="width: <%= @userskills.get(i).skillscore * 20 %>%;" class="progress-bar progress-bar-success" role="progressbar" aria-valuemin="0" aria-valuemax="100"><%= @skillname.get(@userskills.get(i).skill_id).skill %></div>
-				        	</div>
-				        	<% end %> 
-				    </div>
-				    
-				    <div id="timeline" class="tab-pane fade">
-						<div class="container">
-						    <div class="page-header">
-						        <h1 id="timeline">My Education and Job Timeline</h1>
-						    </div>
-						    <a data-toggle="modal" href="#addjobmodal" class="btn btn-primary btn-lg">Add Job</a>
-						    <a data-toggle="modal" href="#addedumodal" class="btn btn-primary btn-lg">Add Education</a>
+                                                                <div class="modal-header">
+                                                                      <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                                                      <h4 class="modal-title">Detail</h4>                                                               
+                                                                </div> <!-- "modal-header" -->
 
-							<!-- addjob Modal -->
-							  <div class="modal fade" id="addjobmodal" style="display: none;">
-							    <div class="modal-dialog">
-							      <div class="modal-content">
-							        <div class="modal-header">
-							          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-							          <h4 class="modal-title">Add Job</h4>
-							        </div>
-							        <div class="modal-body">
-							        
-							        <form action="/jobsubmit" method="post">
-							          <p><input type="text" name="companyname" class="form-control" placeholder="Company Name"></p>
-							          <p><input type="text" name="position" class="form-control" placeholder="Position Held"></p>
-							          <p><input type="text" name="startdate" class="form-control" placeholder="Start Date"></p>
-							          <p><input type="text" name="enddate" class="form-control" placeholder="End Date"></p>
-							          <textarea name="responsibilities"></textarea>
-							           <textarea name="achievements"></textarea>
-							          
+                                                                    <div class="modal-body" style="padding-left:45px;">    
 
-							          
-							          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-							          <button type="submit" class="btn btn-primary">Save changes</button>
-							        </form>
+                                                                        <form id="ss" method="POST" style="margin-top: 40px;">                                                    
+                                                                            <strong> <%= @jobhistory.get(i).type == "J" ? "Responsibilities" : "Grades" %>: </strong>
+                                                                              
 
-							        </div>
-							        <div class="modal-footer">
+                                                                              <div style="margin-left: 40px;" id=<%= "responsibilities" + @jobhistory.get(i).id.to_s %> class="editables1"> <%= @jobhistory.get(i).responsibilities %>  </div>
 
-							        </div>
-							      </div><!-- /.modal-content -->
-							    </div><!-- /.modal-dialog -->
-							  </div><!-- /.modal -->			
+                                                                               <strong> <%= @jobhistory.get(i).type == "J" ? "Achievements" : "Projects" %>: </strong>
+                                                                               
+                                                                               <div style="margin-left: 40px;" id=<%= "achievements" + @jobhistory.get(i).id.to_s %> class="editables2"><%= @jobhistory.get(i).achievements %> </div>
+                                                                               
+                                                                               <input type="hidden" id="id" name="id" value="<%= @jobhistory.get(i).id %>" >
+                                                                               
+                                                                         </div> <!-- "modal-body" -->
 
-							  			    
-							<!-- addedu Modal -->
-							  <div class="modal fade" id="addedumodal" tabindex="-1" role="dialog" aria-labelledby="addedu" aria-hidden="true">
-							    <div class="modal-dialog">
-							      <div class="modal-content">
-							        <div class="modal-header">
-							          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-							          <h4 class="modal-title">Add Education</h4>
-							        </div>
-							        <div class="modal-body">
-							          ...
-							        </div>
-							        <div class="modal-footer">
-							          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-							          <button type="button" class="btn btn-primary">Save changes</button>
-							        </div>
-							      </div><!-- /.modal-content -->
-							    </div><!-- /.modal-dialog -->
-							  </div><!-- /.modal -->		
+                                                                         <div class="modal-footer">
+                                                                             <!-- <input type="submit" name="save" formaction="/jobupdate" value="Submit" /> -->
+                                                                             <button type="submit" formaction="/jobupdate" class="action btn btn-primary">Update</button>
+                                                                             <button type="submit" formaction="/deletejob" class="btn btn-primary">Delete</button>
+                                                                             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                                                         </div> <!-- footer -->
+                                                                      </form>     
+
+                                                              </div> <!-- modal-content -->
+                                                           </div><!-- modal-dialog -->
+                                                         </div><!-- modal -->         
+<!-- #########################################END OF ZOOM IN MODAL for JOB/EDUCATION######################################################### -->
+                                                 
+                                               </div> <!-- timeline body div -->
+
+                                        </div> <!-- End timeline-panel -->                                                    
+                                 </li>
+                                 <% end %>    
+                                     
+                             </ul> <!-- End ul timeline -->
+
+                         </div> <!-- End container -->
+                   </div> <!-- End div timeline -->
+
+                   <div id="certificates" class="tab-pane fade">
+                       <p>Certificates</p>
 
 
-						    <ul class="timeline">
-				        	    <% @jobhistory.each do |i| %>
-						        <li class=<%= @jobhistory.get(i).type == "J" ? "" : "timeline-inverted" %>>
-					              	  <div class="timeline-badge <%= @jobhistory.get(i).type == "J" ? "danger" : "warning" %>"><i class= "<%= @jobhistory.get(i).type == "J" ? "glyphicon glyphicon-check" : "glyphicon glyphicon-floppy-disk" %>""></i></div> 
-						               <div class="timeline-panel"> 
+                   </div>
 
-							              <div class="timeline-heading">	
-     
-								                <h3 class="timeline-title"><%= @jobhistory.get(i).position %></h3>
-								                <h4 class="timeline-title"><%= @jobhistory.get(i).company %></h4>
-								                <p><small class="text-muted"><i class="glyphicon glyphicon-time"></i> <%= @jobhistory.get(i).startdate %> to <%= @jobhistory.get(i).enddate %> </small></p>
-							              </div>
-
-
-							              <div class="timeline-body">
-							              		<div class="btn-group" style="float: right;">
-									                <button type="button" class="btn btn-primary btn-sm dropdown-toggle" data-toggle="dropdown" >
-									                <i class="glyphicon glyphicon-cog"></i> <span class="caret"></span>
-									                </button>
-									                <ul class="dropdown-menu" role="menu">
-										                    <li><a href="#">Edit</a></li>
-											                <li><a href="/deletejob?recid=<%= @jobhistory.get(i).id %>">Delete</a></li>
-										                    <li class="divider"></li>
-										                    <li></li> 
-									                </ul>
-
-									            </div> <!-- End btn-group -->						       
-<!-- @#@@@@##@@@@ -->
-							                    <span class="btn btn-primary more">View Details</span>
-							                    <div class="details">		
-								            	    <strong> <%= @jobhistory.get(i).type == "J" ? "Responsibilities" : "Grades" %>: </strong>
-								                 	<p style="margin-left: 40px;"><%= @jobhistory.get(i).responsibilities %></p>					     
-								              		<strong> <%= @jobhistory.get(i).type == "J" ? "Achievements" : "Projects" %>: </strong>
-								              		<p style="margin-left: 40px;"><%= @jobhistory.get(i).achievements %></p>	
-						              		    </div>
-											
-										  </div> <!-- timeline body div -->
-
-							          </div> <!-- End timeline-panel -->									        
-						        </li>
-						        <% end %>	
-							        
-						    </ul> <!-- End ul timeline -->
-
-						</div> <!-- End container -->
-				    </div> <!-- End div timeline -->
-
-				    <div id="certificates" class="tab-pane fade">
-				        <p>Certificates</p>
-
-
-				    </div>
-
-				    <div id="activities" class="tab-pane fade">
-				        <p>Projects</p>
-				    </div>
-				    
-				    <div id="activities" class="tab-pane fade">
-				        <p>Activities</p>
+                   <div id="activities" class="tab-pane fade">
+                       <p>Projects</p>
+                   </div>
+                  
+                   <div id="activities" class="tab-pane fade">
+                       <p>Activities</p>
 
 
 
 
-				    </div>
-				
-				</div> <!-- End div tab-content -->
+                   </div>
+              
+               </div> <!-- End div tab-content -->
 
-		   	</div> <!-- Column -->
+             </div> <!-- Column -->
 
-        </div> <!-- Row -->
+    </div> <!-- Row -->
 
-	 </div> <!-- column -->  
+
 
 
 </div> <!-- Container -->

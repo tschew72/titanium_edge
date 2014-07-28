@@ -162,7 +162,7 @@ end
 
   post '/updateprofile' do
     userdata = User.get(params["pk"])
-    userdata.update(:firstname => params["value"])
+    userdata.update(eval(":#{params['name']}") => params["value"])
     return 200
   end
 
@@ -175,6 +175,7 @@ end
       :position => params['position'],
       :startdate => params['startdate'],
       :enddate => params['enddate'],
+      :type => params['type'],
       :responsibilities => params['responsibilities'],
       :achievements => params['achievements']
 
@@ -182,15 +183,22 @@ end
      redirect to('/profile')
   end   
 
+  post '/jobupdate' do
+    jobdata = Job.get(params['id'])
+    res = params.values[0]
+    ach = params.values[1]
+    jobdata.update(:responsibilities => res)
+    jobdata.update(:achievements => ach)
 
-  get '/deletejob' do 
-    #userprofile = env['warden'].user 
-    deljob = Job.get(params['recid'])
-    deljob.destroy
     redirect to('/profile')
-  end  
+  end
 
 
+  post '/deletejob' do
+    jobdata = Job.get(params['id'])
+    jobdata.destroy
+    redirect to('/profile')
+  end
 
 end
 

@@ -4,6 +4,7 @@
     list-style: none;
     padding: 20px 0 20px;
     position: relative;
+
 }
 
     .timeline:before {
@@ -137,6 +138,17 @@
 .timeline-title {
     margin-top: 0;
     color: inherit;
+    font-family: 'Oswald', sans-serif;
+    font-weight: 300; 
+    font-size:20px;
+}
+
+.timeline-subtitle {
+    margin-top: 0;
+    color: inherit;
+    font-family: 'Oswald', sans-serif;
+    font-weight: 300; 
+    font-size:15px;
 }
 
 

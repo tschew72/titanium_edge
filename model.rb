@@ -58,10 +58,10 @@ class Job
   property :enddate, Date
   property :position, String, length:120  # Graduate in what...
   property :company, String, length:120   # School
-  property :responsibilities, String, length:5000 #Grades
-  property :achievements, String, length: 5000    #Projects
+  property :responsibilities, String, length:100000 #Grades
+  property :achievements, String, length: 100000    #Projects
   property :user_id, Integer
-  property :type, String, length:1 #to define if it is a job or education.
+  property :type, String, length:1 #to define if it is a job or education. J or E
   property :employerrating, Integer # to rate how good is this company in your opinion
 
   #next time can include an array of skills that are being used in a job
