@@ -211,7 +211,7 @@ $(function() {
 
                                 <div class="timeline-heading">        
                                    <h3 class="timeline-title"><%= @jobhistory.get(i).position %>
-                                   <button style="float:right;" type="button" data-toggle="modal" data-keyboard="false" data-backdrop="static" class=" btn btn-sm btn-primary glyphicon glyphicon-zoom-in" href=<%= "#" + @jobhistory.get(i).id.to_s %> <span class="caret"></span></button> </h3>
+                                   <button style="float:right; background-color: #4FC1E9; color: #fff;" type="button" data-toggle="modal" data-keyboard="false" data-backdrop="static" class=" btn btn-sm glyphicon glyphicon-zoom-in" href=<%= "#" + @jobhistory.get(i).id.to_s %> <span class="caret"></span></button> </h3>
                                    
                                    <h4 class="timeline-subtitle"><%= @jobhistory.get(i).company %> 
                                    <div style="float:right;"><div><i class="timeline-subtitle glyphicon glyphicon-time"></i> <%= @jobhistory.get(i).startdate %> to <%= @jobhistory.get(i).enddate %> </div></div></h4>
