@@ -1,6 +1,7 @@
 
 
 .timeline {
+
     list-style: none;
     padding: 20px 0 20px;
     position: relative;
@@ -13,7 +14,7 @@
         position: absolute;
         content: " ";
         width: 3px;
-        background-color: #eeeeee;
+        background-color: #eeeeee;  /*This is the backboneline color */
         left: 50%;
         margin-left: -1.5px;
     }
