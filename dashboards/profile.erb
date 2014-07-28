@@ -1,5 +1,17 @@
 
 
+<script>
+var activeEl = 2;
+$(function() {
+    var items = $('.btn-nav');
+    $( items[activeEl] ).addClass('active');
+    $( ".btn-nav" ).click(function() {
+        $( items[activeEl] ).removeClass('active');
+        $( this ).addClass('active');
+        activeEl = $( ".btn-nav" ).index( this );
+    });
+});
+</script>
 
 <div class="container-fluid">
      <div class="row">
@@ -43,15 +55,51 @@
       </div> <!-- Row -->       
 <hr>
      <div class="row">
-          <div class="col-md-12 column">    
-               <ul class="nav nav-tabs">
-                   <li class="active"><a class="btn btn-info col-sm-12 glyphicon glyphicon-plus" data-toggle="tab" href="#skills"> <br> Skills</a></li>
-                   <li><a class="btn btn-info col-sm-12 glyphicon glyphicon-cloud" data-toggle="tab" href="#timeline"> <br>  Timeline</a></li>
-                   <li><a class="btn btn-info col-sm-12 glyphicon glyphicon-cog" data-toggle="tab" href="#certificates"> <br>  Certificates</b></a></li>
-                   <li><a class="btn btn-info col-sm-12 glyphicon glyphicon-question-sign" data-toggle="tab" href="#projects"> <br> Projects</a></li>
-                   <li><a class="btn btn-info col-sm-12 glyphicon glyphicon-question-sign" data-toggle="tab" href="#videos"> <br> Video Resume</a></li>
-                   <li><a class="btn btn-info col-sm-12 glyphicon glyphicon-question-sign" data-toggle="tab" href="#activities"> <br> Activities</a></li>
-               </ul>
+          <div class="col-md-12 column">   
+          <ul class="nav nav-tabs"> 
+          	<div class="btn-group btn-group-justified">
+            <div class="btn-group">
+                <button type="button" class="btn btn-nav" data-toggle="tab" href="#skills">
+                    <span class="glyphicon glyphicon-folder-close"></span>
+    			    <p>Skills</p>
+                </button>
+            </div>
+            <div class="btn-group">
+                <button type="button" class="btn btn-nav"  data-toggle="tab" href="#timeline">
+                    <span class="glyphicon glyphicon-calendar"></span>
+    			    <p>Timeline</p>
+                </button>
+            </div>
+            <div class="btn-group">
+                <button type="button" class="btn btn-nav" data-toggle="tab" href="#certificates">
+                    <span class="glyphicon glyphicon-globe"></span>
+    			    <p>Certificates</p>
+                </button>
+            </div>
+            <div class="btn-group">
+                <button type="button" class="btn btn-nav" data-toggle="tab" href="#projects">
+                    <span class="glyphicon glyphicon-leaf"></span>
+    			    <p>Projects</p>
+                </button>
+            </div>
+            <div class="btn-group">
+                <button type="button" class="btn btn-nav" data-toggle="tab" href="#videos">
+                    <span class="glyphicon glyphicon-time"></span>
+    			    <p>Videos</p>
+                </button>
+            </div>
+            <div class="btn-group">
+                <button type="button" class="btn btn-nav" data-toggle="tab" href="#activities">
+                    <span class="glyphicon glyphicon-bell"></span>
+    			    <p>Activities</p>
+                </button>
+            </div>
+        </ul>
+        </div>
+        
+
+
+
                <div class="tab-content">
                    <div id="skills" class="tab-pane fade in active">
 

@@ -7,14 +7,17 @@
 
 .modal .modal-dialog { width: 80%; } 
 
-/* To ensure the bullets are aligned in the modal box */
+/* To ensure the bullets are aligned in the modal box 
 ul
 {
 list-style-position:inside;
 }
 
+*/
+
 #profiletable{
   font-family: 'Oswald', sans-serif;
-  font-size: 18px;
+  font-size: 17px;
   font-weight: 300; 
 }
+

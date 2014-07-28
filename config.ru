@@ -109,7 +109,7 @@ end
 get '/profile' do
    redirect '/auth/login' unless env['warden'].authenticated?
        @userprofile = env['warden'].user  #This is the most important query of all. it will identify the user of this session.
-       #@userme = @userprofile.firstname
+       @userme = @userprofile.firstname
        #@emailme = @userprofile.email
        @userskills= @userprofile.skilltags.all(:order => [:skillscore.desc])
        @skillname = Skill.all
