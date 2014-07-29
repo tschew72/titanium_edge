@@ -31,8 +31,8 @@ class User
   property :password, BCryptHash
   property :singaporepr, Boolean, :default  => false   #next time get user to choose from a list of countries they have PR status
   property :aboutme, String, length: 255
-  property :insingaporenow, Boolean :default =>true  #if non Singaporean, set this to false
-  property :activeseeker, Boolean :default =>true #Seeker to keep this updated.
+  property :insingaporenow, Boolean, :default =>true  #if non Singaporean, set this to false
+  property :activeseeker, Boolean, :default =>true #Seeker to keep this updated.
   
   has n, :matched_jobs
   has n, :jobs
