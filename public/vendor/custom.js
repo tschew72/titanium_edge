@@ -1,4 +1,22 @@
-   $.fn.editable.defaults.mode = 'inline';
+   $.fn.editable.defaults.mode = 'inline'; 
+   $(document).ready(function() {
+      
+      $('#firstname').editable();
+      $('#age').editable();
+      $('#gender').editable({   
+        source: [
+          {value: "M", text: 'Male'},
+          {value: "F", text: 'Female'},
+        ]
+      });
+
+      $('#profiletable').dataTable( {
+          "bsort": false,
+          "scrollCollapse": true,
+          "jQueryUI": true,
+      } );
+
+   });  
 
 
     tinymce.init({
@@ -36,58 +54,5 @@
 
     });
 
-   $(document).ready(function() {
-      
-      $('#firstname').editable();
-      $('#age').editable();
-      $('#gender').editable({   
-        source: [
-          {value: "M", text: 'Male'},
-          {value: "F", text: 'Female'},
-        ]
-      });
-
-      $('#profiletable').dataTable( {
-          "bsort": false,
-          "scrollCollapse": true,
-          "jQueryUI": true,
-      } );
 
 
-
-   } );
-
-
-/*
-function clickButton()
-  {
-    document.getElementByID('ss').click()
-
-  }
-
-function alertMsg()
-  {
-    alert ("Button I was clicked!")
-  }
-*/
-
-
-// $(document).on('submit','ss',function (e) {
-//     e.preventDefault();
-//     var ed = tinyMCE.get('responsibilities');
-//     var data = ed.getContent();
-//     var id = $('#id').val();
-
-//     console.log(id);
-//     $.ajax({
-//         type:       'GET',
-//         cache:      false,
-//         url:        '/jobupdate',
-//         data:       'id=' + id +'&responsibilities=' + escape(data),
-//         success:    function(){
-//                     $("#ss").remove();
-//                     $("#output").html(data);
-//         }
-//     });
-//     return false;
-// });

@@ -7,29 +7,67 @@
   //   Dashing.numColumns = 4
   //  });    
 $(document).ready(function() {
-    $('#example').dataTable( {
+    $('#matchjobtable').dataTable( {
         "scrollY": 200,
-        "iDisplayLength": 5,
+        "ScrollX": true,
+        "iDisplayLength": 10,
         "order": [[ 0, "desc" ]],
         "scrollCollapse": true,
-        "jQueryUI": true,
+        "jQueryUI": false,
     } );
 } );
 </script>
 
 
+<style>
+thead, tr, th, td { 
+        white-space: nowrap; 
 
-<div class="gridster">
+      }
+    div.dataTables_wrapper {
+        width: 500px;
+        margin: 0 auto;
+        text-align:center;
+    }
+table.dataTable thead th,
+table.dataTable tfoot th {
+
+  font-family: 'Oswald', sans-serif;
+  font-size: 12px;
+  font-weight: 300; 
+  }
+</style>
+
+
+<!-- <div class="gridster">
   <ul>
     <li data-row="1" data-col="1" data-sizex="2" data-sizey="1">
       <div data-id=<%= @emailme  + "-seeker_profile" %> data-view="Profile" data-image="/logo.png" data-seekername="<%= @userme %>" ></div>
 
     </li>    
 
-    <li style="color:grey;background:white" data-row="2" data-col="1" data-sizex="1" data-sizey="1">
-      Job Matching History
-<div>
-            <table id="example" class="display" cellspacing="0" width="60%">
+</div> 
+
+ <li style="color:grey;background:white" data-row="2" data-col="1" data-sizex="1" data-sizey="1"> 
+
+
+</li>
+</ul>
+
+  -->
+<div class="row">
+  <div class="col-md-6 column">  
+
+  </div>
+  <div class="col-md-6 column">  
+  </div>
+</div> 
+
+     
+<div class="row">   <!-- Tab content row -->
+      <div class="col-md-6 column">  
+            <h1 class="timeline-title" >Job Matching History</h1> 
+            <table id="matchjobtable" class="display compact" cellspacing="0" width="100%">
                     <thead>
                         <tr>
                            <th>Date Matched</th>
@@ -37,19 +75,9 @@ $(document).ready(function() {
                            <th>Rank</th>
                            <th>Job Function</th>
                            <th>Level</th>
-                           <th>Salary</th>    
+                           <th>Starting Salary</th>    
                         </tr>
                     </thead>
-                     <tfoot>
-                        <tr>
-                           <th>Date Matched</th>
-                           <th>Score</th>
-                           <th>Rank</th>
-                           <th>Job Function</th>
-                           <th>Level</th>
-                           <th>Salary</th>    
-                        </tr> 
-                    </tfoot>
                     <tbody >
                         <% @usermatchjoblist.each do |i| %>
                         <tr>
@@ -62,16 +90,15 @@ $(document).ready(function() {
                         </tr>
                         <% end %>
                    </tbody>
-           </table>
-</div>  
-
-</li>
-</ul>
-
+            </table>
+      </div> <!-- "col-md-6 column" --> 
+      <div class="col-md-6 column">  </div>
+</div> <!-- row 2 -->
 
 
 
-</div>
+
+
 
 
 
