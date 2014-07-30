@@ -37,7 +37,7 @@ class User
   has n, :matched_jobs
   has n, :jobs
   has 1, :career_score
-
+  has n, :skill_summary
   has n, :skills, :through => :skilltags   ###n-n###
   has n, :skilltags                        ###n-n###
   
@@ -121,6 +121,22 @@ class Skilltag   ###n-n###
   belongs_to :user, :key => true
 end
   
+
+class SkillSummary    
+  include DataMapper::Resource
+
+  property :id, Serial , key: true
+  property :user_id, Integer
+  property :skillrank, Integer
+  property :skill, String, length:100
+  property :skillcategory, Integer
+  
+  belongs_to :user 
+end
+
+
+
+
 # Tell DataMapper the models are done being defined
 DataMapper.finalize
 

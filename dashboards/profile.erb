@@ -131,16 +131,16 @@
                                     </div>
                                     <div id="collapseOne" class="panel-collapse collapse">
                                         <div class="panel-body">
-							                <% @userskills.each do |i| %>
+							                <% @userskills1.each do |i| %>
 							                      <div class="circular-bar">
-													<input type="text" class="dial" data-fgColor="#e74c3c" data-width="100" data-height="100" data-linecap=round  value=<%= @userskills.get(i).skillscore * 20 %> >
+													<input type="text" class="dial" data-fgColor="#e74c3c" data-width="100" data-height="100" data-linecap=round  value=<%= @userskills1.get(i).skillrank * 25 %> >
 														<div class="circular-bar-content">
-														<strong><%= @skillname.get(@userskills.get(i).skill_id).skill %></strong>
 														<label></label>
+														<br><br><br><br><strong><%= @userskills1.get(i).skill %></strong>
+
 														</div>
 												  </div>  
 											<% end %> 
-                                         
                                         </div>
                                     </div>
                                 </div>
@@ -153,12 +153,13 @@
                                     </div>
                                     <div id="collapseTwo" class="panel-collapse collapse">
                                         <div class="panel-body">
-							                <% @userskills.each do |i| %>
+							                <% @userskills2.each do |i| %>
 							                      <div class="circular-bar">
-													<input type="text" class="dial" data-fgColor="#e74c3c" data-width="100" data-height="100" data-linecap=round  value=<%= @userskills.get(i).skillscore * 20 %> >
+													<input type="text" class="dial" data-fgColor="#e74c3c" data-width="100" data-height="100" data-linecap=round  value=<%= @userskills2.get(i).skillrank * 25 %> >
 														<div class="circular-bar-content">
-														<strong><%= @skillname.get(@userskills.get(i).skill_id).skill %></strong>
+														
 														<label></label>
+														<br><br><br><br><strong><%= @userskills2.get(i).skill %></strong>
 														</div>
 												  </div>  
 											<% end %> 
@@ -173,12 +174,13 @@
                                     </div>
                                     <div id="collapseThree" class="panel-collapse collapse">
                                         <div class="panel-body">
-							                <% @userskills.each do |i| %>
+							                <% @userskills3.each do |i| %>
 							                      <div class="circular-bar">
-													<input type="text" class="dial" data-fgColor="#e74c3c" data-width="100" data-height="100" data-linecap=round  value=<%= @userskills.get(i).skillscore * 20 %> >
+													<input type="text" class="dial" data-fgColor="#e74c3c" data-width="100" data-height="100" data-linecap=round  value=<%= @userskills3.get(i).skillrank * 25 %> >
 														<div class="circular-bar-content">
-														<strong><%= @skillname.get(@userskills.get(i).skill_id).skill %></strong>
+														
 														<label></label>
+														<br><br><br><br><strong><%= @userskills3.get(i).skill %></strong>
 														</div>
 												  </div>  
 											<% end %> 
@@ -193,18 +195,40 @@
                                     </div>
                                     <div id="collapseFour" class="panel-collapse collapse">
                                         <div class="panel-body">
-							                <% @userskills.each do |i| %>
+							                <% @userskills4.each do |i| %>
 							                      <div class="circular-bar">
-													<input type="text" class="dial" data-fgColor="#e74c3c" data-width="100" data-height="100" data-linecap=round  value=<%= @userskills.get(i).skillscore * 20 %> >
+													<input type="text" class="dial" data-fgColor="#e74c3c" data-width="100" data-height="100" data-linecap=round  value=<%= @userskills4.get(i).skillrank * 25 %> >
 														<div class="circular-bar-content">
-														<strong><%= @skillname.get(@userskills.get(i).skill_id).skill %></strong>
+														
 														<label></label>
+														<br><br><br><br><strong><%= @userskills4.get(i).skill %></strong>
 														</div>
 												  </div>  
 											<% end %> 
                                         </div>
                                     </div>
-                                </div>                                
+                                </div> 
+                                <div class="panel panel-default">
+                                    <div class="panel-heading">
+
+                                            <a data-toggle="collapse" data-parent="#accordion" class="accordion-toggle collapsed bigger-150" href="#collapseFive"><i class="ace-icon fa fa-chevron-left pull-right" data-icon-hide="ace-icon fa fa-chevron-down" data-icon-show="ace-icon fa fa-chevron-left"></i><i class="ace-icon fa fa-cloud bigger-130"></i>
+                                            Management</a>
+                                    </div>
+                                    <div id="collapseFive" class="panel-collapse collapse">
+                                        <div class="panel-body">
+							                <% @userskills5.each do |i| %>
+							                      <div class="circular-bar">
+													<input type="text" class="dial" data-fgColor="#e74c3c" data-width="100" data-height="100" data-linecap=round  value=<%= @userskills5.get(i).skillrank * 25 %> >
+														<div class="circular-bar-content">
+														
+														<label></label>
+														<br><br><br><br><strong><%= @userskills5.get(i).skill %></strong>
+														</div>
+												  </div>  
+											<% end %> 
+                                        </div>
+                                    </div>
+                                </div>                               
                             </div> <!-- accordian -->
                         <!-- </div> -->
                         <!-- .panel-body -->
@@ -249,10 +273,30 @@
                           </div>
                           <form action="/jobsubmit" method="post">
                          	<div class="modal-body">
-								 <p><input type="text" name="companyname" class="form-control" placeholder="Company Name"></p>
-	                             <p><input type="text" name="position" class="form-control" placeholder="Position Held"></p>
-	                             <p><input type="text" name="startdate" class="form-control" placeholder="Start Date"></p>
-	                             <p><input type="text" name="enddate" class="form-control" placeholder="End Date"></p>
+								 <p><input type="text" name="companyname" class="form-control"  maxlength="100" size="100" placeholder="Company Name"></p>
+	                             <p><input type="text" name="position" class="form-control"  maxlength="80" size="80"placeholder="Position Held"></p>
+	                             <div class="row">
+									<div class="col-xs-3">
+			                             <div class="input-group input-group-sm">
+												<input type="text"  name="startdate" id="datepicker" class="form-control" />
+												<span class="input-group-addon">
+													<i class="ace-icon fa fa-calendar"></i>
+												</span>
+
+										 </div>
+									</div>
+								 
+								 
+								 	<div class="col-xs-3">
+			                             <div class="input-group input-group-sm">
+	                             				<input type="text" id="datepicker1" name="enddate"  class="form-control"  />
+												<span class="input-group-addon">
+													<i class="ace-icon fa fa-calendar"></i>
+												</span>
+										 </div>
+									</div>
+								 </div>
+	                             <!-- <p><input type="text" name="enddate" class="form-control" placeholder="End Date"></p> -->
 	                             <hr>
 	                             <textarea name="responsibilities">Add your responsibilities here</textarea>
 	                             <hr>
@@ -374,57 +418,127 @@
 
 
 
-<script>
+<script type="text/javascript">
+
 	var activeEl = 0;
+
+
+
 	$(function() {
 	    var items = $('.btn-nav');
 	    $( items[activeEl] ).addClass('active');
+
 	    $( ".btn-nav" ).click(function() {
 	        $( items[activeEl] ).removeClass('active');
 	        $( this ).addClass('active');
 	        activeEl = $( ".btn-nav" ).index( this );
 	    });
 
+	
+		$( "#datepicker" ).datepicker({
+					showOtherMonths: true,
+					selectOtherMonths: false,
+					//isRTL:true,
+					 beforeShow: function()
+				      {
+				           setTimeout(function()
+				           {
+				               $(".ui-datepicker").css("z-index", 1900);
+				           }, 10); 
+				      }
+					
+					/*
+					changeMonth: true,
+					changeYear: true,
+					
+					showButtonPanel: true,
+					beforeShow: function() {
+						//change button colors
+						var datepicker = $(this).datepicker( "widget" );
+						setTimeout(function(){
+							var buttons = datepicker.find('.ui-datepicker-buttonpane')
+							.find('button');
+							buttons.eq(0).addClass('btn btn-xs');
+							buttons.eq(1).addClass('btn btn-xs btn-success');
+							buttons.wrapInner('<span class="bigger-110" />');
+						}, 0);
+					}
+			*/
+				});
+
+		$( "#datepicker1" ).datepicker({
+					showOtherMonths: true,
+					selectOtherMonths: false,
+					//isRTL:true,
+					 beforeShow: function()
+				      {
+				           setTimeout(function()
+				           {
+				               $(".ui-datepicker").css("z-index", 1900);
+				           }, 10); 
+				      }
+					
+					/*
+					changeMonth: true,
+					changeYear: true,
+					
+					showButtonPanel: true,
+					beforeShow: function() {
+						//change button colors
+						var datepicker = $(this).datepicker( "widget" );
+						setTimeout(function(){
+							var buttons = datepicker.find('.ui-datepicker-buttonpane')
+							.find('button');
+							buttons.eq(0).addClass('btn btn-xs');
+							buttons.eq(1).addClass('btn btn-xs btn-success');
+							buttons.wrapInner('<span class="bigger-110" />');
+						}, 0);
+					}
+			*/
+				});
+	
 	});
 
 $(document).ready(function(){
 
-$('.dial').each(function () { 
+		$('.dial').each(function () { 
 
-          var elm = $(this);
-          var color = elm.attr("data-fgColor");  
-          var perc = elm.attr("value");  
- 
-          elm.knob({ 
-               'value': 0, 
-                'min':0,
-                'max':100,
-                "skin":"tron",
-                "readOnly":true,
-                "thickness":.1,                 'dynamicDraw': true,                "displayInput":false
-          });
+		          var elm = $(this);
+		          var color = elm.attr("data-fgColor");  
+		          var perc = elm.attr("value");  
+		 
+		          elm.knob({ 
+		               'value': 0, 
+		                'min':0,
+		                'max':100,
+		                "skin":"tron",
+		                "readOnly":true,
+		                "thickness":.1,                 'dynamicDraw': true,                "displayInput":false
+		          });
 
-          $({value: 0}).animate({ value: perc }, {
-              duration: 1000,
-              easing: 'swing',
-              progress: function () {                  elm.val(Math.ceil(this.value)).trigger('change')
-              }
-          });
+		          $({value: 0}).animate({ value: perc }, {
+		              duration: 1000,
+		              easing: 'swing',
+		              progress: function () {                  elm.val(Math.ceil(this.value)).trigger('change')
+		              }
+		          });
 
-          //circular progress bar color
-          $(this).append(function() {
-              elm.parent().parent().find('.circular-bar-content').css('color',color);
-              elm.parent().parent().find('.circular-bar-content label').text(perc+'%');
-          });
+		          //circular progress bar color
+		          $(this).append(function() {
+		              elm.parent().parent().find('.circular-bar-content').css('color',color);
+		              elm.parent().parent().find('.circular-bar-content label').text(perc+'%');
+		          });
 
-});
+		});
    
 
-
+   //http://stackoverflow.com/questions/19421869/jquery-knob-return-values-of-multiple-knobs-on-demand?rq=1 AJAX the return value.
  });
- 
 
 </script>
+
+
 <script src='http://anthonyterrien.com/js/jquery.knob.js'></script>
 <script src="/vendor/aceskin/ace.min.js"></script>
+
 
