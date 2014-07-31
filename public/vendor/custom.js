@@ -9,6 +9,7 @@
           {value: "F", text: 'Female'},
         ]
       });
+      $('#skillrank').editable();
 
       $('#profiletable').dataTable( {
           "bsort": false,
@@ -16,6 +17,7 @@
           "jQueryUI": true,
       } );
 
+      
    });  
 
 

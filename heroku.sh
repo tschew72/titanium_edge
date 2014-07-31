@@ -1,5 +1,6 @@
 bundle install
 git init
 git add .
-git commit -m "working version- simple login with no password. allow possing of parameters from auth/login to /edge"
+git commit -m "working version- with edits/delete/creates; Next version onwards, edits/delete/creates will be removed"
 git push heroku master
+git push

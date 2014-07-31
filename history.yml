@@ -24,22 +24,22 @@ career_score: |+
   data: {"current":"201","last":0,"id":"career_score","updatedAt":1405054599}
 
 recent_top_matches: |+
-  data: {"items":[{"label":["IT Consultant"],"value":["1000 matches"]},{"label":["Auditor"],"value":["800 matches"]},{"label":["System Engineer"],"value":["500 matches"]},{"label":["IT Manager"],"value":["300 matches"]},{"label":["Medic"],"value":["100 matches"]}],"id":"recent_top_matches","updatedAt":1406713212}
+  data: {"items":[{"label":["IT Consultant"],"value":["1000 matches"]},{"label":["Auditor"],"value":["800 matches"]},{"label":["System Engineer"],"value":["500 matches"]},{"label":["IT Manager"],"value":["300 matches"]},{"label":["Medic"],"value":["100 matches"]}],"id":"recent_top_matches","updatedAt":1406768959}
 
 no_of_it_jobs: |+
-  data: {"current":"Jobs Applied","last":null,"id":"no_of_it_jobs","updatedAt":1406717982}
+  data: {"current":"Jobs Applied","last":"300","id":"no_of_it_jobs","updatedAt":1406768959}
 
 top_it_jobs: |+
-  data: {"series":[{"name":"Instruments","data":[800,585,545,400,300,230,124,123,98,50]}],"categories":["Windows 8","SMTP Server","Exchange Server","HSQL","Router","Active Directory","Windows Server","aaa","Linux","Domain Server"],"color":"#2c3e50","id":"top_it_jobs","updatedAt":1406718410}
+  data: {"series":[{"name":"Instruments","data":[800,585,545,400,300,230,124,123,98,50]}],"categories":["Windows 8","SMTP Server","Exchange Server","HSQL","Router","Active Directory","Windows Server","aaa","Linux","Domain Server"],"color":"#2c3e50","id":"top_it_jobs","updatedAt":1406769195}
 
 top_industries: |+
-  data: {"series":[{"type":"pie","name":"Type","data":[["Finance",1000],["Manufacturing",400],["Oil and Gas",98],["Biomedical",600],["POWER",300]]}],"color":"#f39c12","id":"top_industries","updatedAt":1406718410}
+  data: {"series":[{"type":"pie","name":"Type","data":[["Finance",1000],["Manufacturing",400],["Oil and Gas",98],["Biomedical",600],["POWER",300]]}],"color":"#f39c12","id":"top_industries","updatedAt":1406769195}
 
 seekers_nationality: |+
-  data: {"series":[{"data":[[50],[123],[300],[500],[600],[1000],[3000]]}],"categories":[["Bangladash"],["Myanmar"],["Malaysia"],["Singapore"],["Indonesia"],["India"],["Philippines"]],"color":"#efad1b","id":"seekers_nationality","updatedAt":1406718410}
+  data: {"series":[{"data":[[50],[123],[300],[500],[600],[1000],[3000]]}],"categories":[["Bangladash"],["Myanmar"],["Malaysia"],["Singapore"],["Indonesia"],["India"],["Philippines"]],"color":"#efad1b","id":"seekers_nationality","updatedAt":1406769195}
 
 top_job_titles: |+
-  data: {"series":[{"name":"Network Engineer","data":[2000],"pointWidth":500},{"name":"System Engineer","data":[1500],"pointWidth":500},{"name":"IT Administrator","data":[984],"pointWidth":500},{"name":"POWERRANGER","data":[400],"pointWidth":500},{"name":"Chiong King","data":[200],"pointWidth":500}],"color":"#d35400","id":"top_job_titles","updatedAt":1406718410}
+  data: {"series":[{"name":"Network Engineer","data":[2000],"pointWidth":500},{"name":"System Engineer","data":[1500],"pointWidth":500},{"name":"IT Administrator","data":[984],"pointWidth":500},{"name":"POWERRANGER","data":[400],"pointWidth":500},{"name":"Chiong King","data":[200],"pointWidth":500}],"color":"#d35400","id":"top_job_titles","updatedAt":1406769195}
 
 seeker_name: |+
   data: {"current":"1000","last":"201","id":"seeker_name","updatedAt":1405062463}
@@ -54,10 +54,10 @@ Vince Chew-seeker_profile: |+
   data: {"current":"30","last":0,"id":"Vince Chew-seeker_profile","updatedAt":1405394720}
 
 tschew@gmail.com-seeker_profile: |+
-  data: {"current":"12345","last":0,"id":"tschew@gmail.com-seeker_profile","updatedAt":1406718409}
+  data: {"current":"12345","last":0,"id":"tschew@gmail.com-seeker_profile","updatedAt":1406769194}
 
 sreemus@yahoo.com-seeker_profile: |+
-  data: {"current":"300","last":0,"id":"sreemus@yahoo.com-seeker_profile","updatedAt":1406713211}
+  data: {"current":"300","last":0,"id":"sreemus@yahoo.com-seeker_profile","updatedAt":1406768959}
 
 "#{seeker_email}-seeker_profile": |+
   data: {"current":"400","last":"500","id":"#{seeker_email}-seeker_profile","updatedAt":1405408477}
