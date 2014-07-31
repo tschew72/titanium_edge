@@ -75,14 +75,14 @@ class MatchedJob
   include DataMapper::Resource
 
   property :id, Serial, key: true
-  property :score, Integer
-  property :rank, Integer
+  property :user_id, Integer
+  property :datematched, Date
+  property :matchscore, Integer
+  property :matchrank, Integer
   property :jobfunction, String, length:80
   property :joblevel, String, length:80
-  property :datematched, Date
-  property :salaryrange, Integer
-  property :user_id, Integer
-  
+  property :jobsalaryrange, String, length:100
+
   belongs_to :user 
 end
 

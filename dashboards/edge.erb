@@ -25,7 +25,7 @@ thead, tr, th, td {
 
       }
     div.dataTables_wrapper {
-        width: 500px;
+        width: 600px;
         margin: 0 auto;
         text-align:center;
     }
@@ -70,23 +70,24 @@ table.dataTable tfoot th {
             <table id="matchjobtable" class="display compact" cellspacing="0" width="100%">
                     <thead>
                         <tr>
-                           <th>Date Matched</th>
-                           <th>Score</th>
-                           <th>Rank</th>
-                           <th>Job Function</th>
-                           <th>Level</th>
-                           <th>Starting Salary</th>    
+                           <th class="align-center">>Match <br>Date </th>
+                           <th class="align-center">Match <br>Score</th>
+                           <th class="align-center">Match<br> Rank  </th>
+                           <th class="align-center">Job <br>Function</th> 
+                           <th class="align-center">Job <br> Level</th>
+                           <th class="align-center">Salary <br>Range</th>    
                         </tr>
                     </thead>
                     <tbody >
                         <% @usermatchjoblist.each do |i| %>
                         <tr>
-                           <td><%= @usermatchjoblist.get(i).datematched %></td>
-                           <td><%= @usermatchjoblist.get(i).score %></td>
-                           <td><%= @usermatchjoblist.get(i).rank %></td>
+                           <td><%= @usermatchjoblist.get(i).datematched.strftime("%d/%m/%Y") %></td>
+                           <td><%= @usermatchjoblist.get(i).matchscore %></td>
+                           <td><%= @usermatchjoblist.get(i).matchrank %></td>
                            <td><%= @usermatchjoblist.get(i).jobfunction %></td>
                            <td><%= @usermatchjoblist.get(i).joblevel %></td>
-                           <td>$<%= @usermatchjoblist.get(i).salaryrange %></td>
+                           <td><%= @usermatchjoblist.get(i).jobsalaryrange %></td>
+
                         </tr>
                         <% end %>
                    </tbody>
@@ -94,7 +95,6 @@ table.dataTable tfoot th {
       </div> <!-- "col-md-6 column" --> 
       <div class="col-md-6 column">  </div>
 </div> <!-- row 2 -->
-
 
 
 
