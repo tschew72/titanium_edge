@@ -6,8 +6,8 @@ require './model'
 
 require 'httparty'
 require 'json'
-require 'roo'
-require 'compass'
+#require 'roo'
+#require 'compass'
 
 
 class SinatraWardenExample < Sinatra::Application
@@ -120,9 +120,24 @@ get '/profile' do
        @userskills5 = @userprofile.skill_summary.all(:skillcategory => 5)
        
        @jobhistory = @userprofile.jobs.all(:order => [:startdate.desc])
-       erb :profile, :layout => :'profilelayout'
+       erb :profile
 end
 
+get '/settings' do
+       redirect '/auth/login' unless env['warden'].authenticated?
+       @userprofile = env['warden'].user  #This is the most important query of all. it will identify the user of this session.
+       @userme = @userprofile.firstname
+       #@emailme = @userprofile.email
+       #@userskills= @userprofile.skilltags.all(:order => [:skillscore.desc])
+       #@skillname = Skill.all
+       @userskills1 = @userprofile.skill_summary.all(:skillcategory => 1)
+       @userskills2 = @userprofile.skill_summary.all(:skillcategory => 2)
+       @userskills3 = @userprofile.skill_summary.all(:skillcategory => 3)
+       @userskills4 = @userprofile.skill_summary.all(:skillcategory => 4)
+       @userskills5 = @userprofile.skill_summary.all(:skillcategory => 5)
+       @jobhistory = @userprofile.jobs.all(:order => [:startdate.desc])
+       erb :settings
+end
 
   get '/auth/login' do
 
@@ -169,6 +184,7 @@ end
   post '/updateprofile' do
     userdata = User.get(params["pk"])
     userdata.update(eval(":#{params['name']}") => params["value"])
+    #userdata.update(:lastupdated => Time.now)
     return 200
   end
 

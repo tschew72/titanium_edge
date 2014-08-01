@@ -33,7 +33,8 @@ class User
   property :aboutme, String, length: 255
   property :insingaporenow, Boolean, :default =>true  #if non Singaporean, set this to false
   property :activeseeker, Boolean, :default =>true #Seeker to keep this updated.
-  
+  property :updated_at, DateTime
+
   has n, :matched_jobs
   has n, :jobs
   has 1, :career_score

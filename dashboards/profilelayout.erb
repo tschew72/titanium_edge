@@ -6,8 +6,6 @@
 
 
 
-
-
   <script type="text/javascript" src="/assets/application.js"></script>
   <script src="http://cdn.datatables.net/1.10.1/js/jquery.dataTables.min.js"></script>
   <script src="http://cdnjs.cloudflare.com/ajax/libs/x-editable/1.5.0/bootstrap3-editable/js/bootstrap-editable.min.js"></script>
@@ -31,9 +29,9 @@
   <link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.0/themes/smoothness/jquery-ui.css" />
   <link rel="stylesheet" href="/vendor/custom.css">
 
-<!--   <link rel="stylesheet" href="/vendor/aceskin/ace.css">  
+
   <link rel="stylesheet" href="/vendor/aceskin/ace-skins.min.css">
-  <link rel="stylesheet" href="/vendor/aceskin/ace-rtl.min.css">-->
+  <link rel="stylesheet" href="/vendor/aceskin/ace-rtl.min.css">
 
 
   <script type='text/javascript'>
@@ -54,73 +52,169 @@
   </head>
   <body>
   <header>
-          <div id="top-nav" class="navbar navbar-inverse navbar-static-top">
-              <div class="container-fluid">
-                <div class="navbar-header">
-                  <button type="button" class="navbar-toggle" data-toggle="collapse" href=".nav-collapse">
-                    <span class="icon-toggle"></span>
-                  </button>
-                  <a class="navbar-brand" href="/edge">My Career Dashboard</a>
-                </div> <!-- navbar-header div -->
+<div id="navbar" class="navbar navbar-default">
+      <script type="text/javascript">
+        try{ace.settings.check('navbar' , 'fixed')}catch(e){}
+      </script>
 
-                <div class="navbar-collapse collapse">
-                  <ul class="nav navbar-nav navbar-right"> 
-                    <li class="hidden-xs">
-                      <a href="index.html" class="modal-link">
-                        <i class="fa fa-bell"></i>
-                        <span class="badge">7</span>
-                      </a>
-                    </li>
-                    <li class="hidden-xs">
-                      <a class="ajax-link" href="ajax/calendar.html">
-                        <i class="fa fa-calendar"></i>
-                        <span class="badge">7</span>
-                      </a>
-                    </li>
-                    <li class="hidden-xs">
-                      <a href="ajax/page_messages.html" class="ajax-link">
-                        <i class="fa fa-envelope"></i>
-                        <span class="badge">7</span>
-                      </a>
-                    </li>
-                    <li class="dropdown">
-                      <a class="dropdown-toggle" role="button" data-toggle="dropdown" href="#">
-                        <i class="glyphicon glyphicon-user"></i> <%= @userprofile.firstname %><span class="caret"></span>
-                      </a>
-                      <ul id="g-account-menu" class="dropdown-menu" role="menu">
-                        <li><a href="/profile">My Profile</a></li>
-                        <li><a href="/logout"><i class="glyphicon glyphicon-lock"></i> Logout</a></li>
-                      </ul>
-                    </li>
-                  </ul> <!-- nav navbar-nav navbar-right -->
-                </div> <!-- navbar-collapse collapse -->
-              </div><!-- /container -->
-          </div> <!-- topnav navbar navbar-inverse navbar-static-top -->
+      <div class="navbar-container" id="navbar-container">
+        <button type="button" class="navbar-toggle menu-toggler pull-left" id="menu-toggler">
+          <span class="sr-only">Toggle sidebar</span>
+
+          <span class="icon-bar"></span>
+
+          <span class="icon-bar"></span>
+
+          <span class="icon-bar"></span>
+        </button>
+
+        <div class="navbar-header pull-left">
+          <a href="#" class="navbar-brand">
+            <small>
+              <i class="fa fa-plus-square"></i>
+              Career Dashboard
+            </small>
+          </a>
+        </div>
+
+        <div class="navbar-buttons navbar-header pull-right" role="navigation">
+          <ul class="nav ace-nav">
+
+            <li class="light-blue">
+              <a data-toggle="dropdown" href="#" class="dropdown-toggle">
+                
+                <i class="glyphicon glyphicon-user"></i> <%= @userme %> 
+                <i class="ace-icon fa fa-caret-down"></i>
+              </a>
+
+              <ul class="user-menu dropdown-menu-right dropdown-menu dropdown-yellow dropdown-caret dropdown-close">
+                <li>
+                  <a href="/settings">
+                    <i class="ace-icon fa fa-cog"></i>
+                    Settings
+                  </a>
+                </li>
+
+                <li>
+                  <a href="/profile">
+                    <i class="ace-icon fa fa-user"></i>
+                    Profile
+                  </a>
+                </li>
+
+                <li class="divider"></li>
+
+                <li>
+                  <a href="/logout">
+                    <i class="ace-icon fa fa-power-off"></i>
+                    Logout
+                  </a>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div><!-- /.navbar-container -->
+    </div>
+
   </header>
   
-  <div class="container-fluid">
-      <div class="row row-offcanvas row-offcanvas-left">
-        <div class="col-sm-3 col-md-2 sidebar-offcanvas">
-              <h3><i class="glyphicon glyphicon-briefcase"></i> Toolbox</h3>
-              <hr>
-              <ul class="nav nav-stacked">
-                <li><a href="/summary"><i class="glyphicon glyphicon-flash"></i> Summary</a></li>
-                <li><a href="/edge"><i class="glyphicon glyphicon-link"></i> Jobseeker</a></li>
-                <li><a href="javascript:;"><i class="glyphicon glyphicon-list-alt"></i> Job</a></li>
-                <li><a href="javascript:;"><i class="glyphicon glyphicon-book"></i> ITJob Street</a></li>
-                <li><a href="javascript:;"><i class="glyphicon glyphicon-briefcase"></i> Industry</a></li>
-                <li><a href="javascript:;"><i class="glyphicon glyphicon-time"></i> Real-time</a></li>
-                <li><a href="javascript:;"><i class="glyphicon glyphicon-plus"></i> Advanced..</a></li>
-              </ul>
-              <hr>
-        </div> <!-- "col-sm-3" -->
-        <div class="col-sm-9 col-md-10 main">
-  
-  
-          <%= yield %> 
+  <div class="main-container" id="main-container">
+      <script type="text/javascript">
+        try{ace.settings.check('main-container' , 'fixed')}catch(e){}
+      </script>
+
+      <div id="sidebar" class="sidebar                  responsive">
+        <script type="text/javascript">
+          try{ace.settings.check('sidebar' , 'fixed')}catch(e){}
+        </script>
+
+        <div class="sidebar-shortcuts" id="sidebar-shortcuts">
+          <div class="sidebar-shortcuts-large" id="sidebar-shortcuts-large">
+            <button class="btn btn-success">
+              <i class="ace-icon fa fa-signal"></i>
+            </button>
+
+            <button class="btn btn-info">
+              <i class="ace-icon fa fa-pencil"></i>
+            </button>
+
+            <button class="btn btn-warning">
+              <i class="ace-icon fa fa-users"></i>
+            </button>
+
+            <button class="btn btn-danger">
+              <i class="ace-icon fa fa-cogs"></i>
+            </button>
+          </div>
+
+          <div class="sidebar-shortcuts-mini" id="sidebar-shortcuts-mini">
+            <span class="btn btn-success"></span>
+
+            <span class="btn btn-info"></span>
+
+            <span class="btn btn-warning"></span>
+
+            <span class="btn btn-danger"></span>
+          </div>
+        </div><!-- /.sidebar-shortcuts -->
+
+        <ul class="nav nav-list">
+          <li class="">
+            <a href="/summary">
+              <i class="menu-icon fa fa-tachometer"></i>
+              <span class="menu-text"> Dashboard </span>
+            </a>
+
+            <b class="arrow"></b>
+          </li>
+
+          <!-- <li class="active"> -->
+          <li class="">
+            <a href="/edge" class="dropdown-toggle">
+              <i class="menu-icon fa fa-desktop"></i>
+              <span class="menu-text"> My Statistics</span>
+            </a>
+          </li>
+
+          <li class="">
+            <a href="/summary" class="dropdown-toggle">
+              <i class="menu-icon fa fa-list"></i>
+              <span class="menu-text"> Industry Analysis </span>
+            </a>
+
+          </li>
+
+          <li class="">
+            <a href="#">
+              <i class="menu-icon fa fa-list-alt"></i>
+              <span class="menu-text"> Competitive Analysis </span>
+            </a>
+          </li>
+
+        </ul><!-- /.nav-list -->
+
+        <div class="sidebar-toggle sidebar-collapse" id="sidebar-collapse">
+          <i class="ace-icon fa fa-angle-double-left" data-icon1="ace-icon fa fa-angle-double-left" data-icon2="ace-icon fa fa-angle-double-right"></i>
         </div>
-      </div> <!-- row -->
-  </div> <!-- Container -->
+
+        <script type="text/javascript">
+          try{ace.settings.check('sidebar' , 'collapsed')}catch(e){}
+        </script>
+      </div>
+
+      <div class="main-content">
+
+            <%= yield %>
+
+      </div><!-- /.main-content -->
+
+
+      <a href="#" id="btn-scroll-up" class="btn-scroll-up btn btn-sm btn-inverse">
+        <i class="ace-icon fa fa-angle-double-up icon-only bigger-110"></i>
+      </a>
+    </div><!-- /.main-container -->
+
 
   <script src="/vendor/custom.js"></script>
   </body>

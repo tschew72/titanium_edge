@@ -1,0 +1,244 @@
+
+
+        <div class="breadcrumbs" id="breadcrumbs">
+          <script type="text/javascript">
+            try{ace.settings.check('breadcrumbs' , 'fixed')}catch(e){}
+          </script>
+
+          <ul class="breadcrumb">
+            <li>
+              <i class="ace-icon fa fa-home home-icon"></i>
+              <a href="/edge">Home</a>
+            </li>
+            <li class="active">My Settings</li>
+          </ul><!-- /.breadcrumb -->
+
+        </div>
+
+        <div class="page-content">
+          
+
+          <div class="page-content-area">
+            <div class="page-header">
+            </div><!-- /.page-header -->
+
+
+
+<div class="container-fluid">
+     <div class="row">
+        <div class="col-md-3 column">
+           <span class="profile-picture">
+            <img id="avatar" class="editable img-responsive" alt="Alex's Avatar" src="/vendor/avatar.jpg"/>
+           </span>
+        </div>
+        <div class="col-md-6 column">   
+          <table id="profiletable" class="display compact" cellspacing="0" width="100%">
+                <tbody >
+                    <tr>
+                       <td>First Name: </td>
+                       <td> <a href="javascript:void(0)" id="firstname" data-type="text" data-pk="<%=@userprofile.id %>" data-url="/updateprofile" data-title="Enter first name"><%= @userprofile.firstname %></a> </td>
+                    </tr>
+                    <tr>
+                       <td>Age</td>
+                       <td><a href="javascript:void(0)"  id="age" data-type="text" data-pk="<%=@userprofile.id %>" data-url="/updateprofile" data-title="Enter age"><%= @userprofile.age %></a>  </td>
+                    </tr>
+                    <tr>
+                       <td>Gender:</td>
+                       <td><a href="javascript:void(0)"  id="gender" data-type="select" data-pk="<%=@userprofile.id %>" data-url="/updateprofile" data-title="Enter gender"><%= @userprofile.gender == "M" ? "Male" : "Female" %> </a></td>
+                    </tr>     
+                    <tr>
+                       <td>Nationality:</td>
+                       <td><%= @userprofile.nationality %>  </td>
+                    </tr>      
+                    <tr>
+                       <td>Contact #:</td>
+                       <td><%= @userprofile.contactnumber %>  </td>
+                    </tr> 
+                    <tr>
+                       <td>Address:</td>
+                       <td><%= @userprofile.address %>  </td>
+                    </tr>                      
+                    <tr>
+                       <td>Email:</td>
+                       <td><%= @userprofile.email %> </td>
+                    </tr>
+               </tbody>
+            </table>
+          </div> <!-- column -->
+     </div> <!-- row -->
+     <div class="row">
+         <div class="col-sm-12 column">
+           <form class="form-horizontal" role="form">
+              <div class="form-group">
+                  <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> I am active in looking for job </label>
+                      <label>
+                        <input name="switch-field-1" class="ace ace-switch ace-switch-5 btn-rotate" type="checkbox" />
+                        <!-- /*http://stackoverflow.com/questions/17517622/how-to-send-radio-button-value-with-ajax-and-recover-it-with-php*/ -->
+                        <span class="lbl"></span>
+                      </label>
+              </div> 
+              <div class="form-group">
+                  <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Upload new CV </label>
+              </div> 
+             <div class="form-group">
+                  <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Languages </label>
+              </div> 
+              <div class="form-group">
+                  <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Preferred job type </label>
+                  <p> <input type="text" id="form-field-1" /> </p>
+              </div> 
+              <div class="form-group">
+                  <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Expected salary </label>
+                  <p> <input type="text" id="form-field-1"   /> </p>
+              </div> 
+              <div class="form-group">
+                  <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Expected travel frequency </label>
+                  <p> <input type="text" id="form-field-1"  /> </p>
+              </div> 
+              <div class="form-group">
+                  <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Industry preference </label>
+                  <p> <input type="text" id="form-field-1"  /> </p>
+              </div> 
+         </div> <!-- "col-sm-12 column" -->
+     </div> <!-- Row -->
+   </div class="row">
+    Generate CV in PDF format
+   </div>
+     
+   </div class="row">
+    Manage your SKills:
+
+   </div>
+
+</div> <!-- Container -->
+
+               
+                  </div><!-- /.page-content-area -->
+        </div><!-- /.page-content -->              
+                      
+                      
+
+<script type="text/javascript">
+
+	var activeEl = 0;
+
+
+
+	$(function() {
+	    var items = $('.btn-nav');
+	    $( items[activeEl] ).addClass('active');
+
+	    $( ".btn-nav" ).click(function() {
+	        $( items[activeEl] ).removeClass('active');
+	        $( this ).addClass('active');
+	        activeEl = $( ".btn-nav" ).index( this );
+	    });
+
+	
+		$( "#datepicker" ).datepicker({
+					showOtherMonths: true,
+					selectOtherMonths: false,
+					//isRTL:true,
+					 beforeShow: function()
+				      {
+				           setTimeout(function()
+				           {
+				               $(".ui-datepicker").css("z-index", 1900);
+				           }, 10); 
+				      }
+					
+					/*
+					changeMonth: true,
+					changeYear: true,
+					
+					showButtonPanel: true,
+					beforeShow: function() {
+						//change button colors
+						var datepicker = $(this).datepicker( "widget" );
+						setTimeout(function(){
+							var buttons = datepicker.find('.ui-datepicker-buttonpane')
+							.find('button');
+							buttons.eq(0).addClass('btn btn-xs');
+							buttons.eq(1).addClass('btn btn-xs btn-success');
+							buttons.wrapInner('<span class="bigger-110" />');
+						}, 0);
+					}
+			*/
+				});
+
+		$( "#datepicker1" ).datepicker({
+					showOtherMonths: true,
+					selectOtherMonths: false,
+					//isRTL:true,
+					 beforeShow: function()
+				      {
+				           setTimeout(function()
+				           {
+				               $(".ui-datepicker").css("z-index", 1900);
+				           }, 10); 
+				      }
+					
+					/*
+					changeMonth: true,
+					changeYear: true,
+					
+					showButtonPanel: true,
+					beforeShow: function() {
+						//change button colors
+						var datepicker = $(this).datepicker( "widget" );
+						setTimeout(function(){
+							var buttons = datepicker.find('.ui-datepicker-buttonpane')
+							.find('button');
+							buttons.eq(0).addClass('btn btn-xs');
+							buttons.eq(1).addClass('btn btn-xs btn-success');
+							buttons.wrapInner('<span class="bigger-110" />');
+						}, 0);
+					}
+			*/
+				});
+	
+	});
+
+$(document).ready(function(){
+
+		$('.dial').each(function () { 
+
+		          var elm = $(this);
+		          var color = elm.attr("data-fgColor");  
+		          var perc = elm.attr("value");  
+		 
+		          elm.knob({ 
+		               'value': 0, 
+		                'min':0,
+		                'max':100,
+		                "skin":"tron",
+		                "readOnly":true,
+		                "thickness":.1,                 'dynamicDraw': true,                "displayInput":false
+		          });
+
+		          $({value: 0}).animate({ value: perc }, {
+		              duration: 1000,
+		              easing: 'swing',
+		              progress: function () {                  elm.val(Math.ceil(this.value)).trigger('change')
+		              }
+		          });
+
+		          //circular progress bar color
+		          $(this).append(function() {
+		              elm.parent().parent().find('.circular-bar-content').css('color',color);
+		              elm.parent().parent().find('.circular-bar-content label').text(perc+'%');
+		          });
+
+		});
+   
+
+   //http://stackoverflow.com/questions/19421869/jquery-knob-return-values-of-multiple-knobs-on-demand?rq=1 AJAX the return value.
+ });
+
+</script>
+
+
+<script src='http://anthonyterrien.com/js/jquery.knob.js'></script>
+<script src="/vendor/aceskin/ace.min.js"></script>
+
+
