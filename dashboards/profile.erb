@@ -2,310 +2,304 @@
 
 
 
-        <div class="breadcrumbs" id="breadcrumbs">
-          <script type="text/javascript">
-            try{ace.settings.check('breadcrumbs' , 'fixed')}catch(e){}
-          </script>
+<div class="breadcrumbs" id="breadcrumbs">
+  <script type="text/javascript">
+    try{ace.settings.check('breadcrumbs' , 'fixed')}catch(e){}
+  </script>
 
-          <ul class="breadcrumb">
-            <li>
-              <i class="ace-icon fa fa-home home-icon"></i>
-              <a href="/edge">Home</a>
-            </li>
-            <li class="active">Profile</li>
-          </ul><!-- /.breadcrumb -->
+  <ul class="breadcrumb">
+    <li>
+      <i class="ace-icon fa fa-home home-icon"></i>
+      <a href="/edge">Home</a>
+    </li>
+    <li class="active">Profile</li>
+  </ul><!-- /.breadcrumb -->
 
-        </div>
+</div>
 
-        <div class="page-content">
-          
-
-          <div class="page-content-area">
-            <div class="page-header">
-            </div><!-- /.page-header -->
-
-
-<div class="container-fluid">
-     <div class="row">
-         <div class="col-md-3 column">
+<div class="page-content">
+  <div class="page-content-area">
+    <div class="page-header"> </div>
+	<div class="container-fluid">
+	     <div class="row">
+	         <div class="col-md-3 column">
 
 
 
-         </div>
+	         </div>
 
-         <div class="col-md-6 column">
+	         <div class="col-md-6 column">
 
-         </div> <!-- Column "col-md-6 column"-->
-		<div class="col-md-3 column">  
+	         </div> <!-- Column "col-md-6 column"-->
+			<div class="col-md-3 column">  
 
-		      <span class="btn btn-app btn-lg btn-pink no-hover" style="float:right;">
-		          <span class=".align-center line-height-1 bigger-300"><%= @userprofile.career_score.careerscore%> </span>
-		          <br />
-		          <span class=".align-center line-height-1 smaller-80">Points</span>
-		      </span>
+			      <span class="btn btn-app btn-lg btn-pink no-hover" style="float:right;">
+			          <span class=".align-center line-height-1 bigger-300"><%= @userprofile.career_score.careerscore%> </span>
+			          <br />
+			          <span class=".align-center line-height-1 smaller-80">Points</span>
+			      </span>
 
-		</div>  <!-- "col-md-3 column" -->
-
-
-      </div> <!-- Row 1-->       
-<hr>
-     <div class="row">
-        <div class="col-md-12 column">   
-	          <ul class="nav nav-tabs"> 
-	          	<div class="btn-group btn-group-justified">
-		            <div class="btn-group">
-		                <button type="button" class="btn btn-nav" data-toggle="tab" href="#skills">
-		                    <span class="glyphicon glyphicon-folder-close"></span>
-		    			    <p>Skills</p>
-		                </button>
-		            </div>
-		            <div class="btn-group">
-		                <button type="button" class="btn btn-nav"  data-toggle="tab" href="#timeline">
-		                    <span class="glyphicon glyphicon-calendar"></span>
-		    			    <p>Timeline</p>
-		                </button>
-		            </div>
-		            <div class="btn-group">
-		                <button type="button" class="btn btn-nav" data-toggle="tab" href="#certificates">
-		                    <span class="glyphicon glyphicon-certificate"></span>
-		    			    <p>Certificates & Badges</p>
-		                </button>
-		            </div>
-		            <div class="btn-group">
-		                <button type="button" class="btn btn-nav" data-toggle="tab" href="#projects">
-		                    <span class="glyphicon glyphicon-tasks"></span>
-		    			    <p>Projects/Publications/Patents</p>
-		                </button>
-		            </div>
-		            <div class="btn-group">
-		                <button type="button" class="btn btn-nav" data-toggle="tab" href="#videos">
-		                    <span class="glyphicon glyphicon-expand"></span>
-		    			    <p>Videos</p>
-		                </button>
-		            </div>
-		            <div class="btn-group">
-		                <button type="button" class="btn btn-nav" data-toggle="tab" href="#endorsement">
-		                    <span class="glyphicon glyphicon-thumbs-up"></span>
-		    			    <p>Endorsement</p>
-		                </button>
-		           </div>
-		         </div>
-	   		 </ul>
-        </div> <!-- column-->
-        <hr>
-    </div> <!-- Row 2 -->    
-
-	   <!-- @@@@@@@@@@@@@@@ START OF TAB CONTENT @@@@@@@@@@@@@@@@@@@@@@ -->
-    <div class="row">   <!-- Tab content row -->
-      <div class="col-md-12 column">   
-       <div class="tab-content">
-           <div id="skills" class="tab-pane fade in active">
-           		<div class="container-fluid">
-           			<div class="page-header">
-                    	<h1 class="timeline-title" >My Skills</h1>
-                    </div>
+			</div>  <!-- "col-md-3 column" -->
 
 
-                        <!-- .panel-heading -->
-                        <!-- <div class="panel-body"> -->
-                            <div class="panel-group accordion-style1 accordion-style2" id="accordian" >
-                                <div class="panel panel-default">
-                                    <div class="panel-heading">
-                                      
-                                            <a data-toggle="collapse" data-parent="#accordion" class="accordion-toggle collapsed bigger-150" href="#collapseOne">
-                                            <i class="ace-icon fa fa-chevron-left pull-right" data-icon-hide="ace-icon fa fa-chevron-down" data-icon-show="ace-icon fa fa-chevron-left"></i><i class="ace-icon fa fa-terminal"></i>Programming</a>
-                                      
-                                    </div>
-                                    <div id="collapseOne" class="panel-collapse collapse">
-                                        <div class="panel-body">
-							                <% @userskills1.each do |i| %>
-							                      <div class="circular-bar">
-													<input type="text" class="dial" data-fgColor="#3498DB" data-width="100" data-height="100" data-linecap=round  value=<%= @userskills1.get(i).skillrank * 25 %> >
-														<div class="circular-bar-content">
-														<label></label>
-														<br><br><br><br><strong><%= @userskills1.get(i).skill %></strong>
-														
-														</div>
-												  </div>  
-											<% end %> 
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="panel panel-default">
-                                    <div class="panel-heading">
-                                            <a data-toggle="collapse" data-parent="#accordion" class="accordion-toggle collapsed bigger-150" href="#collapseTwo">
-                                            <i class="ace-icon fa fa-chevron-left pull-right" data-icon-hide="ace-icon fa fa-chevron-down" data-icon-show="ace-icon fa fa-chevron-left"></i><i class="ace-icon fa fa-database"></i>
-                                            Server / OS / Database</a>
+	      </div> <!-- Row 1-->       
+	<hr>
+	     <div class="row">
+	        <div class="col-md-12 column">   
+		          <ul class="nav nav-tabs"> 
+		          	<div class="btn-group btn-group-justified">
+			            <div class="btn-group">
+			                <button type="button" class="btn btn-nav" data-toggle="tab" href="#skills">
+			                    <span class="glyphicon glyphicon-folder-close"></span>
+			    			    <p>Skills</p>
+			                </button>
+			            </div>
+			            <div class="btn-group">
+			                <button type="button" class="btn btn-nav"  data-toggle="tab" href="#timeline">
+			                    <span class="glyphicon glyphicon-calendar"></span>
+			    			    <p>Timeline</p>
+			                </button>
+			            </div>
+			            <div class="btn-group">
+			                <button type="button" class="btn btn-nav" data-toggle="tab" href="#certificates">
+			                    <span class="glyphicon glyphicon-certificate"></span>
+			    			    <p>Certificates & Badges</p>
+			                </button>
+			            </div>
+			            <div class="btn-group">
+			                <button type="button" class="btn btn-nav" data-toggle="tab" href="#projects">
+			                    <span class="glyphicon glyphicon-tasks"></span>
+			    			    <p>Projects/Publications/Patents</p>
+			                </button>
+			            </div>
+			            <div class="btn-group">
+			                <button type="button" class="btn btn-nav" data-toggle="tab" href="#videos">
+			                    <span class="glyphicon glyphicon-expand"></span>
+			    			    <p>Videos</p>
+			                </button>
+			            </div>
+			            <div class="btn-group">
+			                <button type="button" class="btn btn-nav" data-toggle="tab" href="#endorsement">
+			                    <span class="glyphicon glyphicon-thumbs-up"></span>
+			    			    <p>Endorsement</p>
+			                </button>
+			           </div>
+			         </div>
+		   		 </ul>
+	        </div> <!-- column-->
+	        <hr>
+	    </div> <!-- Row 2 -->    
 
-                                    </div>
-                                    <div id="collapseTwo" class="panel-collapse collapse">
-                                        <div class="panel-body">
-							                <% @userskills2.each do |i| %>
-							                      <div class="circular-bar">
-													<input type="text" class="dial" data-fgColor="#9B59B6" data-width="100" data-height="100" data-linecap=round  value=<%= @userskills2.get(i).skillrank * 25 %> >
-														<div class="circular-bar-content">
-														
-														<label></label>
-														<br><br><br><br><strong><%= @userskills2.get(i).skill %></strong>
-														</div>
-												  </div>  
-											<% end %> 
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="panel panel-default">
-                                    <div class="panel-heading">
-
-                                            <a data-toggle="collapse" data-parent="#accordion" class="accordion-toggle collapsed bigger-150" href="#collapseThree"><i class="ace-icon fa fa-chevron-left pull-right" data-icon-hide="ace-icon fa fa-chevron-down" data-icon-show="ace-icon fa fa-chevron-left"></i><i class="ace-icon fa fa-cloud bigger-130"></i>
-                                            Network / Infrastructure</a>
-                                    </div>
-                                    <div id="collapseThree" class="panel-collapse collapse">
-                                        <div class="panel-body">
-							                <% @userskills3.each do |i| %>
-							                      <div class="circular-bar">
-													<input type="text" class="dial" data-fgColor="#27AE60" data-width="100" data-height="100" data-linecap=round  value=<%= @userskills3.get(i).skillrank * 25 %> >
-														<div class="circular-bar-content">
-														
-														<label></label>
-														<br><br><br><br><strong><%= @userskills3.get(i).skill %></strong>
-														</div>
-												  </div>  
-											<% end %> 
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="panel panel-default">
-                                    <div class="panel-heading">
-
-                                            <a data-toggle="collapse" data-parent="#accordion" class="accordion-toggle collapsed bigger-150" href="#collapseFour"><i class="ace-icon fa fa-chevron-left pull-right" data-icon-hide="ace-icon fa fa-chevron-down" data-icon-show="ace-icon fa fa-chevron-left"></i><i class="ace-icon fa fa-desktop bigger-130"></i>
-                                            Desktop / Mobile / OS / Apps</a>
-                                    </div>
-                                    <div id="collapseFour" class="panel-collapse collapse">
-                                        <div class="panel-body">
-							                <% @userskills4.each do |i| %>
-							                      <div class="circular-bar">
-													<input type="text" class="dial" data-fgColor="#D35400" data-width="100" data-height="100" data-linecap=round  value=<%= @userskills4.get(i).skillrank * 25 %> >
-														<div class="circular-bar-content">
-														
-														<label></label>
-														<br><br><br><br><strong><%= @userskills4.get(i).skill %></strong>
-														</div>
-												  </div>  
-											<% end %> 
-                                        </div>
-                                    </div>
-                                </div> 
-                                <div class="panel panel-default">
-                                    <div class="panel-heading">
-
-                                            <a data-toggle="collapse" data-parent="#accordion" class="accordion-toggle collapsed bigger-150" href="#collapseFive"><i class="ace-icon fa fa-chevron-left pull-right" data-icon-hide="ace-icon fa fa-chevron-down" data-icon-show="ace-icon fa fa-chevron-left"></i><i class="ace-icon fa fa-cloud bigger-130"></i>
-                                            Management</a>
-                                    </div>
-                                    <div id="collapseFive" class="panel-collapse collapse">
-                                        <div class="panel-body">
-							                <% @userskills5.each do |i| %>
-							                      <div class="circular-bar">
-													<input type="text" class="dial" data-fgColor="#34495E" data-width="100" data-height="100" data-linecap=round  value=<%= @userskills5.get(i).skillrank * 25 %> >
-														<div class="circular-bar-content">
-														
-														<label></label>
-														<br><br><br><br><strong><%= @userskills5.get(i).skill %></strong>
-														</div>
-												  </div>  
-											<% end %> 
-                                        </div>
-                                    </div>
-                                </div>                               
-                            </div> <!-- accordian -->
-                        <!-- </div> -->
-                        <!-- .panel-body -->
-                   
-                    
-           		</div> <!-- Container -->
-           </div>  <!-- class="tab-pane fade in active" -->
-          
-           <div id="timeline" class="tab-pane fade">
-                 <div class="container-fluid">
-                     <div class="page-header">
-                         <h1 class="timeline-title">My Education and Job Timeline</h1>
-                     </div>
-
-<!-- START OF TIMELINE -->
-				
-
-                 
-                     <ul class="timeline">
-                         <% @jobhistory.each do |i| %>
-                         <li class=<%= @jobhistory.get(i).type == "J" ? "" : "timeline-inverted" %>>
-                             <div class="timeline-badge <%= @jobhistory.get(i).type == "J" ? "danger" : "warning" %>"><i class= "<%= @jobhistory.get(i).type == "J" ? "glyphicon glyphicon-briefcase" : "glyphicon glyphicon-book" %>""></i></div>
-                             <div class="timeline-panel">
-
-                                <div class="timeline-heading">        
-                                   <h3 class="timeline-title"><%= @jobhistory.get(i).position %>
-                                   <button style="float:right; background-color: #4FC1E9; color: #fff;" type="button" data-toggle="modal" data-keyboard="false" data-backdrop="static" class=" btn btn-sm glyphicon glyphicon-zoom-in" href=<%= "#" + @jobhistory.get(i).id.to_s %> <span class="caret"></span></button> </h3>
-                                   
-                                   <h4 class="timeline-subtitle"><%= @jobhistory.get(i).company %> 
-                                   <div style="float:right;"><div><i class="timeline-subtitle glyphicon glyphicon-time"></i> <%= @jobhistory.get(i).startdate.strftime("%d/%m/%Y") %> to <%= @jobhistory.get(i).enddate.strftime("%d/%m/%Y") %> </div></div></h4>
-                                </div>
-                                
-                                <div class="timeline-body">
-                                     <!-- zoomin Modal -->
-                                     <div class="modal fade" id=<%= @jobhistory.get(i).id.to_s %>  style="display: none;">
-                                       <div class="modal-dialog">
-                                         <div class="modal-content">
-                                            <div class="modal-header">
-                                                  <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                                                  <h4 class="modal-title">Detail</h4>                                                               
-                                            </div> <!-- "modal-header" -->
-                                            <form id="ss" method="POST" style="margin-top: 40px;"> 
-                                            	<div class="modal-body" style="padding-left:45px;">    
-	                                                                                               
-	                                                <strong> <%= @jobhistory.get(i).type == "J" ? "Responsibilities" : "Grades" %>: </strong>
-	                                                  
-	                                                <div style="margin-left: 40px;" id=<%= "responsibilities" + @jobhistory.get(i).id.to_s %> class="editables1"> <%= @jobhistory.get(i).responsibilities %>  </div>
-
-	                                                <strong> <%= @jobhistory.get(i).type == "J" ? "Achievements" : "Projects" %>: </strong>
-	                                                   
-	                                                <div style="margin-left: 40px;" id=<%= "achievements" + @jobhistory.get(i).id.to_s %> class="editables2"><%= @jobhistory.get(i).achievements %> </div>
-	                                                   
-	                                                <input type="hidden" id="id" name="id" value="<%= @jobhistory.get(i).id %>" >
-												</div> <!-- "modal-body" -->
-	                                            <div class="modal-footer">
-	                                                 <!-- <input type="submit" name="save" formaction="/jobupdate" value="Submit" /> -->
-	                                                 <button type="submit" formaction="/jobupdate" class="action btn btn-primary">Update</button>
-	                                                 <button type="submit" formaction="/deletejob" class="btn btn-primary">Delete</button>
-	                                                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-	                                            </div> <!-- footer -->
-	                                        </form>     
-	                                        
-                                         </div> <!-- modal-content -->
-                                       </div><!-- modal-dialog -->
-                                     </div><!-- modal zoomin -->         
-                                </div> <!-- timeline body div -->
-                            </div> <!-- End timeline-panel -->                                                    
-                         </li>
-                         <% end %>     
-                     </ul> <!-- End ul timeline -->
-
-                 </div> <!-- End container -->
-           </div> <!-- End div timeline -->
-
-           <div id="certificates" class="tab-pane fade"> <p>Certificates</p> </div>
-               
-           <div id="activities" class="tab-pane fade"> <p>Projects</p> </div>
-          
-           <div id="activities" class="tab-pane fade"> <p>Activities</p> </div>
-      
-       </div> <!-- End div tab-content -->
-     </div> <!-- Column -->
-    </div> <!-- End of Tab content row -->
+		   <!-- @@@@@@@@@@@@@@@ START OF TAB CONTENT @@@@@@@@@@@@@@@@@@@@@@ -->
+	    <div class="row">   <!-- Tab content row -->
+	      <div class="col-md-12 column">   
+	       <div class="tab-content">
+	           <div id="skills" class="tab-pane fade in active">
+	           		<div class="container-fluid">
+	           			<div class="page-header">
+	                    	<h1 class="timeline-title" >My Skills</h1>
+	                    </div>
 
 
+	                        <!-- .panel-heading -->
+	                        <!-- <div class="panel-body"> -->
+	                            <div class="panel-group accordion-style1 accordion-style2" id="accordian" >
+	                                <div class="panel panel-default">
+	                                    <div class="panel-heading">
+	                                      
+	                                            <a data-toggle="collapse" data-parent="#accordion" class="accordion-toggle collapsed bigger-150" href="#collapseOne">
+	                                            <i class="ace-icon fa fa-chevron-left pull-right" data-icon-hide="ace-icon fa fa-chevron-down" data-icon-show="ace-icon fa fa-chevron-left"></i><i class="ace-icon fa fa-terminal"></i>Programming</a>
+	                                      
+	                                    </div>
+	                                    <div id="collapseOne" class="panel-collapse collapse">
+	                                        <div class="panel-body">
+								                <% @userskills1.each do |i| %>
+								                      <div class="circular-bar">
+														<input type="text" class="dial" data-fgColor="#3498DB" data-width="100" data-height="100" data-linecap=round  value=<%= @userskills1.get(i).skillrank * 25 %> >
+															<div class="circular-bar-content">
+															<label></label>
+															<br><br><br><br><strong><%= @userskills1.get(i).skill %></strong>
+															
+															</div>
+													  </div>  
+												<% end %> 
+	                                        </div>
+	                                    </div>
+	                                </div>
+	                                <div class="panel panel-default">
+	                                    <div class="panel-heading">
+	                                            <a data-toggle="collapse" data-parent="#accordion" class="accordion-toggle collapsed bigger-150" href="#collapseTwo">
+	                                            <i class="ace-icon fa fa-chevron-left pull-right" data-icon-hide="ace-icon fa fa-chevron-down" data-icon-show="ace-icon fa fa-chevron-left"></i><i class="ace-icon fa fa-database"></i>
+	                                            Server / OS / Database</a>
 
-</div> <!-- Container -->
+	                                    </div>
+	                                    <div id="collapseTwo" class="panel-collapse collapse">
+	                                        <div class="panel-body">
+								                <% @userskills2.each do |i| %>
+								                      <div class="circular-bar">
+														<input type="text" class="dial" data-fgColor="#9B59B6" data-width="100" data-height="100" data-linecap=round  value=<%= @userskills2.get(i).skillrank * 25 %> >
+															<div class="circular-bar-content">
+															
+															<label></label>
+															<br><br><br><br><strong><%= @userskills2.get(i).skill %></strong>
+															</div>
+													  </div>  
+												<% end %> 
+	                                        </div>
+	                                    </div>
+	                                </div>
+	                                <div class="panel panel-default">
+	                                    <div class="panel-heading">
 
-</div> <!-- page-header -->
+	                                            <a data-toggle="collapse" data-parent="#accordion" class="accordion-toggle collapsed bigger-150" href="#collapseThree"><i class="ace-icon fa fa-chevron-left pull-right" data-icon-hide="ace-icon fa fa-chevron-down" data-icon-show="ace-icon fa fa-chevron-left"></i><i class="ace-icon fa fa-cloud bigger-130"></i>
+	                                            Network / Infrastructure</a>
+	                                    </div>
+	                                    <div id="collapseThree" class="panel-collapse collapse">
+	                                        <div class="panel-body">
+								                <% @userskills3.each do |i| %>
+								                      <div class="circular-bar">
+														<input type="text" class="dial" data-fgColor="#27AE60" data-width="100" data-height="100" data-linecap=round  value=<%= @userskills3.get(i).skillrank * 25 %> >
+															<div class="circular-bar-content">
+															
+															<label></label>
+															<br><br><br><br><strong><%= @userskills3.get(i).skill %></strong>
+															</div>
+													  </div>  
+												<% end %> 
+	                                        </div>
+	                                    </div>
+	                                </div>
+	                                <div class="panel panel-default">
+	                                    <div class="panel-heading">
+
+	                                            <a data-toggle="collapse" data-parent="#accordion" class="accordion-toggle collapsed bigger-150" href="#collapseFour"><i class="ace-icon fa fa-chevron-left pull-right" data-icon-hide="ace-icon fa fa-chevron-down" data-icon-show="ace-icon fa fa-chevron-left"></i><i class="ace-icon fa fa-desktop bigger-130"></i>
+	                                            Desktop / Mobile / OS / Apps</a>
+	                                    </div>
+	                                    <div id="collapseFour" class="panel-collapse collapse">
+	                                        <div class="panel-body">
+								                <% @userskills4.each do |i| %>
+								                      <div class="circular-bar">
+														<input type="text" class="dial" data-fgColor="#D35400" data-width="100" data-height="100" data-linecap=round  value=<%= @userskills4.get(i).skillrank * 25 %> >
+															<div class="circular-bar-content">
+															
+															<label></label>
+															<br><br><br><br><strong><%= @userskills4.get(i).skill %></strong>
+															</div>
+													  </div>  
+												<% end %> 
+	                                        </div>
+	                                    </div>
+	                                </div> 
+	                                <div class="panel panel-default">
+	                                    <div class="panel-heading">
+
+	                                            <a data-toggle="collapse" data-parent="#accordion" class="accordion-toggle collapsed bigger-150" href="#collapseFive"><i class="ace-icon fa fa-chevron-left pull-right" data-icon-hide="ace-icon fa fa-chevron-down" data-icon-show="ace-icon fa fa-chevron-left"></i><i class="ace-icon fa fa-cloud bigger-130"></i>
+	                                            Management</a>
+	                                    </div>
+	                                    <div id="collapseFive" class="panel-collapse collapse">
+	                                        <div class="panel-body">
+								                <% @userskills5.each do |i| %>
+								                      <div class="circular-bar">
+														<input type="text" class="dial" data-fgColor="#34495E" data-width="100" data-height="100" data-linecap=round  value=<%= @userskills5.get(i).skillrank * 25 %> >
+															<div class="circular-bar-content">
+															
+															<label></label>
+															<br><br><br><br><strong><%= @userskills5.get(i).skill %></strong>
+															</div>
+													  </div>  
+												<% end %> 
+	                                        </div>
+	                                    </div>
+	                                </div>                               
+	                            </div> <!-- accordian -->
+	                        <!-- </div> -->
+	                        <!-- .panel-body -->
+	                   
+	                    
+	           		</div> <!-- Container -->
+	           </div>  <!-- class="tab-pane fade in active" -->
+	          
+	           <div id="timeline" class="tab-pane fade">
+	                 <div class="container-fluid">
+	                     <div class="page-header">
+	                         <h1 class="timeline-title">My Education and Job Timeline</h1>
+	                     </div>
+
+	<!-- START OF TIMELINE -->
+					
+
+	                 
+	                     <ul class="timeline">
+	                         <% @jobhistory.each do |i| %>
+	                         <li class=<%= @jobhistory.get(i).type == "J" ? "" : "timeline-inverted" %>>
+	                             <div class="timeline-badge <%= @jobhistory.get(i).type == "J" ? "danger" : "warning" %>"><i class= "<%= @jobhistory.get(i).type == "J" ? "glyphicon glyphicon-briefcase" : "glyphicon glyphicon-book" %>""></i></div>
+	                             <div class="timeline-panel">
+
+	                                <div class="timeline-heading">        
+	                                   <h3 class="timeline-title"><%= @jobhistory.get(i).position %>
+	                                   <button style="float:right; background-color: #4FC1E9; color: #fff;" type="button" data-toggle="modal" data-keyboard="false" data-backdrop="static" class=" btn btn-sm glyphicon glyphicon-zoom-in" href=<%= "#" + @jobhistory.get(i).id.to_s %> <span class="caret"></span></button> </h3>
+	                                   
+	                                   <h4 class="timeline-subtitle"><%= @jobhistory.get(i).company %> 
+	                                   <div style="float:right;"><div><i class="timeline-subtitle glyphicon glyphicon-time"></i> <%= @jobhistory.get(i).startdate.strftime("%d/%m/%Y") %> to <%= @jobhistory.get(i).enddate.strftime("%d/%m/%Y") %> </div></div></h4>
+	                                </div>
+	                                
+	                                <div class="timeline-body">
+	                                     <!-- zoomin Modal -->
+	                                     <div class="modal fade" id=<%= @jobhistory.get(i).id.to_s %>  style="display: none;">
+	                                       <div class="modal-dialog">
+	                                         <div class="modal-content">
+	                                            <div class="modal-header">
+	                                                  <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+	                                                  <h4 class="modal-title">Detail</h4>                                                               
+	                                            </div> <!-- "modal-header" -->
+	                                            <form id="ss" method="POST" style="margin-top: 40px;"> 
+	                                            	<div class="modal-body" style="padding-left:45px;">    
+		                                                                                               
+		                                                <strong> <%= @jobhistory.get(i).type == "J" ? "Responsibilities" : "Grades" %>: </strong>
+		                                                  
+		                                                <div style="margin-left: 40px;" id=<%= "responsibilities" + @jobhistory.get(i).id.to_s %> class="editables1"> <%= @jobhistory.get(i).responsibilities %>  </div>
+
+		                                                <strong> <%= @jobhistory.get(i).type == "J" ? "Achievements" : "Projects" %>: </strong>
+		                                                   
+		                                                <div style="margin-left: 40px;" id=<%= "achievements" + @jobhistory.get(i).id.to_s %> class="editables2"><%= @jobhistory.get(i).achievements %> </div>
+		                                                   
+		                                                <input type="hidden" id="id" name="id" value="<%= @jobhistory.get(i).id %>" >
+													</div> <!-- "modal-body" -->
+		                                            <div class="modal-footer">
+		                                                 <!-- <input type="submit" name="save" formaction="/jobupdate" value="Submit" /> -->
+		                                                 <button type="submit" formaction="/jobupdate" class="action btn btn-primary">Update</button>
+		                                                 <button type="submit" formaction="/deletejob" class="btn btn-primary">Delete</button>
+		                                                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+		                                            </div> <!-- footer -->
+		                                        </form>     
+		                                        
+	                                         </div> <!-- modal-content -->
+	                                       </div><!-- modal-dialog -->
+	                                     </div><!-- modal zoomin -->         
+	                                </div> <!-- timeline body div -->
+	                            </div> <!-- End timeline-panel -->                                                    
+	                         </li>
+	                         <% end %>     
+	                     </ul> <!-- End ul timeline -->
+
+	                 </div> <!-- End container -->
+	           </div> <!-- End div timeline -->
+
+	           <div id="certificates" class="tab-pane fade"> <p>Certificates</p> </div>
+	               
+	           <div id="activities" class="tab-pane fade"> <p>Projects</p> </div>
+	          
+	           <div id="activities" class="tab-pane fade"> <p>Activities</p> </div>
+	      
+	       </div> <!-- End div tab-content -->
+	     </div> <!-- Column -->
+	    </div> <!-- End of Tab content row -->
+
+
+
+	</div> <!-- Container -->
  </div> <!-- page-content-area -->
+ </div> <!--"page-content" -->
 
 
 <script type="text/javascript">
@@ -429,6 +423,7 @@ $(document).ready(function(){
 
 
 <script src='http://anthonyterrien.com/js/jquery.knob.js'></script>
-<script src="/vendor/aceskin/ace.min.js"></script>
+  <script src="/vendor/aceskin/ace-elements.min.js"></script>
+  <script src="/vendor/aceskin/ace.min.js"></script>
 
 

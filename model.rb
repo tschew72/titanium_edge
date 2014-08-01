@@ -128,10 +128,11 @@ class SkillSummary
 
   property :id, Serial , key: true
   property :user_id, Integer
-  property :skillrank, Integer
   property :skill, String, length:100
+  property :skillrank, Integer
   property :skillcategory, Integer
-  
+  property :updated_at, DateTime
+
   belongs_to :user 
 end
 

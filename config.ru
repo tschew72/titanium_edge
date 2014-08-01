@@ -130,6 +130,7 @@ get '/settings' do
        #@emailme = @userprofile.email
        #@userskills= @userprofile.skilltags.all(:order => [:skillscore.desc])
        #@skillname = Skill.all
+       @allskills =   @userprofile.skill_summary.all
        @userskills1 = @userprofile.skill_summary.all(:skillcategory => 1)
        @userskills2 = @userprofile.skill_summary.all(:skillcategory => 2)
        @userskills3 = @userprofile.skill_summary.all(:skillcategory => 3)
@@ -162,9 +163,6 @@ end
  
 
 
-
-
-
 get '/logout' do
     env['warden'].raw_session.inspect
     env['warden'].logout
@@ -184,10 +182,15 @@ end
   post '/updateprofile' do
     userdata = User.get(params["pk"])
     userdata.update(eval(":#{params['name']}") => params["value"])
-    #userdata.update(:lastupdated => Time.now)
     return 200
   end
 
+  post '/updateskill' do
+    userprofile = env['warden'].user  #This is the most important query of all. it will identify the user of this session.
+    myskill = userprofile.skill_summary.get(params["pk"])
+    myskill.update(eval(":#{params['name']}") => params["value"])
+    return 200
+  end
 
   post '/jobsubmit' do 
     userprofile = env['warden'].user 

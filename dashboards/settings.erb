@@ -1,26 +1,43 @@
 
 
-        <div class="breadcrumbs" id="breadcrumbs">
-          <script type="text/javascript">
-            try{ace.settings.check('breadcrumbs' , 'fixed')}catch(e){}
-          </script>
+<style>
+thead, tr, th, td { 
+        white-space: nowrap; 
 
-          <ul class="breadcrumb">
-            <li>
-              <i class="ace-icon fa fa-home home-icon"></i>
-              <a href="/edge">Home</a>
-            </li>
-            <li class="active">My Settings</li>
-          </ul><!-- /.breadcrumb -->
+      }
+    div.dataTables_wrapper {
+        width: 600px;
+        margin: 0 auto;
+        text-align:center;
+    }
+table.dataTable thead th,
+table.dataTable tfoot th {
 
-        </div>
+  font-family: 'Oswald', sans-serif;
+  font-size: 12px;
+  font-weight: 300; 
+  }
+</style>
 
-        <div class="page-content">
-          
 
-          <div class="page-content-area">
-            <div class="page-header">
-            </div><!-- /.page-header -->
+<div class="breadcrumbs" id="breadcrumbs">
+  <script type="text/javascript">
+    try{ace.settings.check('breadcrumbs' , 'fixed')}catch(e){}
+  </script>
+
+  <ul class="breadcrumb">
+    <li>
+      <i class="ace-icon fa fa-home home-icon"></i>
+      <a href="/edge">Home</a>
+    </li>
+    <li class="active">Profile</li>
+  </ul><!-- /.breadcrumb -->
+
+</div>
+
+<div class="page-content">
+  <div class="page-content-area">
+    <div class="page-header"> </div>
 
 
 
@@ -107,15 +124,41 @@
      
    </div class="row">
     Manage your SKills:
+    <table id="skillsettingtable" class="display compact" cellspacing="0" width="100%">
+                        <thead>
+                            <tr>
+                               <th class="align-center">Category</th>
+                               <th class="align-center">Skill Name</th>
+                               <th class="align-center">Skill Rank</th>
+                               <th class="align-center"></th>
 
+                            </tr>
+                        </thead>
+                        <tbody >
+                            <% @allskills.each do |i| %>
+                            <tr>
+                               <td><%= @allskills.get(i).skillcategory %>
+                               <!-- <td><%= @allskills.get(i).skill %></td> -->
+                               <td><a href="javascript:void(0)" id="skill" data-type="text" data-pk="<%= @allskills.get(i).id%>" data-url="/updateskill" data-title="Enter skill name"><%= @allskills.get(i).skill %>
+                               </a></td>
+
+                               <td><a href="javascript:void(0)" id="skillrank" data-type="text" data-pk="<%= @allskills.get(i).id%>" data-url="/updateskill" data-title="Enter skill rank"><%= @allskills.get(i).skillrank %></a></td>
+                               
+                               <td><button class="btn btn-xs btn-danger">
+                                <i class="ace-icon fa fa-trash-o bigger-120"></i>
+                              </button></td>
+
+
+                            </tr>
+                            <% end %>
+                       </tbody>
+                </table>
    </div>
 
-</div> <!-- Container -->
-
                
-                  </div><!-- /.page-content-area -->
-        </div><!-- /.page-content -->              
-                      
+  </div> <!-- Container -->
+ </div> <!-- page-content-area -->          
+ </div> <!--"page-content" -->                
                       
 
 <script type="text/javascript">
@@ -201,6 +244,15 @@
 
 $(document).ready(function(){
 
+    $('#skillsettingtable').dataTable( {
+        "scrollY": 200,
+        "ScrollX": true,
+        "iDisplayLength": 10,
+        "order": [[ 0, "desc" ]],
+        "scrollCollapse": true,
+        "jQueryUI": false,
+    } );
+
 		$('.dial').each(function () { 
 
 		          var elm = $(this);
@@ -239,6 +291,6 @@ $(document).ready(function(){
 
 
 <script src='http://anthonyterrien.com/js/jquery.knob.js'></script>
-<script src="/vendor/aceskin/ace.min.js"></script>
-
+  <script src="/vendor/aceskin/ace-elements.min.js"></script>
+  <script src="/vendor/aceskin/ace.min.js"></script>
 
