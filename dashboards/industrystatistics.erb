@@ -1,0 +1,56 @@
+<script src="http://code.highcharts.com/highcharts.js"></script>
+<script src="http://code.highcharts.com/modules/exporting.js"></script>
+
+<div id="sg-it-jobs" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+
+<script>
+$(function () {
+        $('#sg-it-jobs').highcharts({
+            title: {
+                text: 'IT Professionals Hired in Singapore',
+                x: -20 //center
+            },
+            subtitle: {
+                text: 'Source: IDA',
+                x: -20
+            },
+            legend: {
+            enabled: false
+        	},
+        	chart: {
+            type: 'line',
+            width: 400
+        	},
+            xAxis: {
+                categories: ['2009', '2010', '2011', '2012', '2013']
+            },
+            yAxis: {
+                title: {
+                    text: 'Number of Hired IT Professionals'
+                },
+                plotLines: [{
+                    value: 0,
+                    width: 1,
+                    color: '#808080'
+                }]
+            },
+            // tooltip: {
+            //     valueSuffix: '°C'
+            // },
+            // legend: {
+            //     layout: 'vertical',
+            //     align: 'right',
+            //     verticalAlign: 'middle',
+            //     borderWidth: 0
+            // },
+            exporting: { enabled: false },
+
+            series: [{
+                name: 'Hired IT Professionals',
+                data: <%= @chart1_data %>
+            
+            }]
+        });
+    });
+    
+</script>

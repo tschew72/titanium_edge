@@ -105,6 +105,16 @@ get '/summary' do
        erb :summary
 end
 
+get '/industrystatistics' do
+   redirect '/auth/login' unless env['warden'].authenticated?
+       user1 = env['warden'].user  #This is the most important query of all. it will identify the user of this session.
+       @userme = user1.firstname
+       @chart1_name="IT Professionals hired"
+       @chart1_source="IDA"
+       @chart1_data = [140800, 141300, 142900, 144300, 146700]
+       erb :industrystatistics
+end
+
 
 get '/profile' do
    redirect '/auth/login' unless env['warden'].authenticated?

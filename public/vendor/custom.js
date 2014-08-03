@@ -9,9 +9,17 @@
           {value: "F", text: 'Female'},
         ]
       });
-      $('#skillrank').editable();
-      $('#skill').editable();
-      
+
+
+      $('#skilltable').editable({
+        selector: 'a',
+        //url: '/updateskill',
+      });
+
+       // $('#skillrank').editable();
+
+       // $('#skill').editable();
+
       $('#profiletable').dataTable( {
           "bsort": false,
           "scrollCollapse": true,
@@ -56,6 +64,5 @@
             toolbar_items_size: 'small',
 
     });
-
 
 
