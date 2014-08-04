@@ -1,17 +1,51 @@
 <script src="http://code.highcharts.com/highcharts.js"></script>
 <script src="http://code.highcharts.com/modules/exporting.js"></script>
 
-<div id="sg-it-jobs" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+
+
+<div class="breadcrumbs" id="breadcrumbs">
+  <script type="text/javascript">
+    try{ace.settings.check('breadcrumbs' , 'fixed')}catch(e){}
+  </script>
+
+  <ul class="breadcrumb">
+    <li>
+      <i class="ace-icon fa fa-home home-icon"></i>
+      <a href="/edge">Home</a>
+    </li>
+    <li class="active">Profile</li>
+  </ul><!-- /.breadcrumb -->
+
+</div> <!-- "breadcrumbs" id="breadcrumbs" -->
+
+<div class="page-content">
+    <div class="page-content-area">
+        <div class="row">        
+            <div class="col-md-4 column"><div id="sg_it_jobs" style="min-width: 310px; height: 300px; margin: 0 auto"></div></div>
+            <div class="col-md-4 column"><div id="employers_type" style="min-width: 310px; height: 300px; max-width: 600px; margin: 0 auto"></div></div>
+        </div> <!-- row -->
+
+
+        <div class="row">
+            <div class="col-md-4 column"><div id="qualification" style="min-width: 310px; max-width: 600px; height: 300px; margin: 0 auto"></div></div>
+            <div class="col-md-4 column"><div id="gender" style="min-width: 310px; max-width: 600px; height: 300px; margin: 0 auto"></div></div>
+       </div>                
+    </div>
+</div>           
+
+
+
 
 <script>
 $(function () {
-        $('#sg-it-jobs').highcharts({
+ 
+        $('#sg_it_jobs').highcharts({
             title: {
                 text: 'IT Professionals Hired in Singapore',
                 x: -20 //center
             },
             subtitle: {
-                text: 'Source: IDA',
+                text: 'Source: IDA & Ministry of Manpower',
                 x: -20
             },
             legend: {
@@ -34,23 +68,147 @@ $(function () {
                     color: '#808080'
                 }]
             },
-            // tooltip: {
-            //     valueSuffix: '°C'
-            // },
-            // legend: {
-            //     layout: 'vertical',
-            //     align: 'right',
-            //     verticalAlign: 'middle',
-            //     borderWidth: 0
-            // },
             exporting: { enabled: false },
-
             series: [{
                 name: 'Hired IT Professionals',
                 data: <%= @chart1_data %>
             
             }]
-        });
-    });
+        }); //End SG_IT_JOBS
+
+        $('#employers_type').highcharts({
+            chart: {
+                plotBackgroundColor: null,
+                plotBorderWidth: 0,//null,
+                plotShadow: false,
+                type: 'pie',
+                width: 550
+            },
+            title: {
+                text: 'Types of Employers hiring IT Professionals, 2013'
+            },
+            subtitle: {
+                text: 'Source: IDA & Ministry of Manpower',
+                x: -20
+            },
+            tooltip: {
+                pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+            },
+            exporting: { enabled: false },
+            plotOptions: {
+                pie: {
+                    allowPointSelect: true,
+                    cursor: 'pointer',
+                    dataLabels: {
+                        enabled: true,
+                        format: '<b>{point.name}</b>: {point.percentage:.1f} %',
+                        style: {
+                            color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
+                        }
+                    }
+                }
+            },
+            series: [{
+                type: 'pie',
+                name: 'Hiring %',
+                data: [
+                    ['Infocomm',   48.0],
+                    {
+                        name: 'End-User',
+                        y: 52.8,
+                        selected: true
+                    },
+                    ]
+            }]
+        });  //End Employer's Type
+
+        $('#gender').highcharts({
+            chart: {
+                plotBackgroundColor: null,
+                plotBorderWidth: 0,//null,
+                plotShadow: false,
+                type: 'pie',
+                width: 550
+            },
+            title: {
+                text: 'IT Professionals hired by gender, 2013'
+            },
+            subtitle: {
+                text: 'Source: IDA & Ministry of Manpower',
+                x: -20
+            },
+            tooltip: {
+                pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+            },
+            exporting: { enabled: false },
+            plotOptions: {
+                pie: {
+                    allowPointSelect: true,
+                    cursor: 'pointer',
+                    dataLabels: {
+                        enabled: true,
+                        format: '<b>{point.name}</b>: {point.percentage:.1f} %',
+                        style: {
+                            color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
+                        }
+                    }
+                }
+            },
+            series: [{
+                type: 'pie',
+                name: 'Gender %',
+                data: [
+                    ['Male',   71.0],
+                    {
+                        name: 'Female',
+                        y: 29.0,
+                        selected: true
+                    },
+                    ]
+            }]
+        });  //End Gender
+
+       $('#qualification').highcharts({
+            chart: {
+                type: 'bar',
+                width: 400
+            },
+            title: {
+                text: 'IT Professionals hired by Qualification'
+            },
+            exporting: { enabled: false },
+            xAxis: {
+                 categories: ['IT Professionals']
+            },
+            yAxis: {
+                min: 0,
+                title: {
+                    text: 'IT Professionals Employed by Qualification'
+                }
+            },
+            legend: {
+                reversed: true
+            },
+            plotOptions: {
+                series: {
+                    stacking: 'normal'
+                }
+            },
+            series: [{
+                name: 'Bachelor and above',
+                data: [101223]
+            }, {
+                name: 'Diploma',
+                data: [23472]
+            }, {
+                name: 'A level and below',
+                data: [22005]
+            }]
+        }); //End Qualification
+
+
+
+
+}); //End Function
     
 </script>
