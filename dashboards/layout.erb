@@ -103,7 +103,7 @@
         <ul class="nav nav-list">
           <li class=""><a href="/summary"><i class="menu-icon fa fa-tachometer"></i><span class="menu-text"> Dashboard </span></a></li>
           <li class=""><a href="/edge" ><i class="menu-icon fa fa-desktop"></i><span class="menu-text"> My Statistics</span></a></li>     
-          <li class=""><a href="/industrystatistics" ><i class="menu-icon fa fa-list"></i><span class="menu-text"> Industry Statistics </span></a></li> 
+          <li class=""><a href="/industrystatistics" ><i class="menu-icon fa fa-list"></i><span class="menu-text"> General Statistics </span></a></li> 
           <li class=""><a href="#"><i class="menu-icon fa fa-list-alt"></i><span class="menu-text"> Competitive Analysis </span></a></li>    
         </ul><!-- /.nav-list -->
 
@@ -112,11 +112,22 @@
         </div>
         <script type="text/javascript"> try{ace.settings.check('sidebar' , 'collapsed')}catch(e){} </script>
       </div> <!--id="sidebar" class="sidebar responsive"-->
-      <div class="main-content"><%= yield %></div><!-- /.main-content -->
+      <div class="main-content">
+        <script src="/vendor/aceskin/ace.min.js"></script>
+        <script src="/vendor/aceskin/ace-elements.min.js"></script>
+        <script src="/vendor/aceskin/jquery.sparkline.min.js"></script>
+        <%= yield %></div><!-- /.main-content -->
       <a href="#" id="btn-scroll-up" class="btn-scroll-up btn btn-sm btn-inverse"><i class="ace-icon fa fa-angle-double-up icon-only bigger-110"></i></a>
+      
   </div><!-- /.main-container -->
-  <script src="/vendor/aceskin/ace-elements.min.js"></script>
-  <script src="/vendor/aceskin/ace.min.js"></script>
+
+  
+  <script src="/vendor/aceskin/jquery-ui.custom.min.js"></script>
+  <script src="/vendor/aceskin/jquery.ui.touch-punch.min.js"></script>
+  <script src="/vendor/aceskin/jquery.easypiechart.min.js"></script>
+  <script src="/vendor/aceskin/jquery.sparkline.min.js"></script>
+  <script src="/vendor/aceskin/ace-editable.min.js"></script>
+
 
 
 
@@ -127,6 +138,35 @@
     <!--[if !IE]> -->
     <script type="text/javascript">
       window.jQuery || document.write("<script src='assets/js/jquery.min.js'>"+"<"+"/script>");
+
+             $('.easy-pie-chart.percentage').each(function(){
+                    var $box = $(this).closest('.infobox');
+                    var barColor = $(this).data('color') || (!$box.hasClass('infobox-dark') ? $box.css('color') : 'rgba(255,255,255,0.95)');
+                    var trackColor = barColor == 'rgba(255,255,255,0.95)' ? 'rgba(255,255,255,0.25)' : '#E2E2E2';
+                    var size = parseInt($(this).data('size')) || 50;
+                    $(this).easyPieChart({
+                        barColor: barColor,
+                        trackColor: trackColor,
+                        scaleColor: false,
+                        lineCap: 'butt',
+                        lineWidth: parseInt(size/10),
+                        animate: /msie\s*(8|7|6)/.test(navigator.userAgent.toLowerCase()) ? false : 1000,
+                        size: size
+                    });
+                })
+            
+        $('.sparkline').each(function(){
+            var $box = $(this).closest('.infobox');
+            var barColor = !$box.hasClass('infobox-dark') ? $box.css('color') : '#FFF';
+            $(this).sparkline('html',
+                             {
+                                tagValuesAttribute:'data-values',
+                                type: 'bar',
+                                barColor: barColor ,
+                                chartRangeMin:$(this).data('min') || 0
+                             });
+        });
+    
     </script>
     <!-- <![endif]-->
     <!--[if IE]>

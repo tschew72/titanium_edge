@@ -34,6 +34,10 @@ class User
   property :insingaporenow, Boolean, :default =>true  #if non Singaporean, set this to false
   property :activeseeker, Boolean, :default =>true #Seeker to keep this updated.
   property :pictureurl, String
+  property :verifiedbadge, Boolean, :default=>false
+  property :verifiedstartdate, Date
+  property :verifiedenddate, Date
+  
   property :updated_at, DateTime
 
   has n, :matched_jobs

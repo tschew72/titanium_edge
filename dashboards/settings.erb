@@ -128,33 +128,30 @@ table.dataTable tfoot th {
     Manage your SKills:
       <div id="skilltable">
         <table id="skillsettingtable" class="display compact" cellspacing="0" width="100%">
-                            <thead>
-                                <tr>
-                                   <th class="align-center">Category</th>
-                                   <th class="align-center">Skill Name</th>
-                                   <th class="align-center">Skill Rank</th>
-                                   <th class="align-center"></th>
+                <thead>
+                    <tr>
+                       <th class="align-center">Category</th>
+                       <th class="align-center">Skill Name</th>
+                       <th class="align-center">Skill Rank</th>
+                       <th class="align-center"></th>
+                    </tr>
+                </thead>
+                <tbody >
+                    <% @allskills.each do |i| %>
+                    <tr>
+                       <td><%= @allskills.get(i).skillcategory %>
 
-                                </tr>
-                            </thead>
-                            <tbody >
-                                <% @allskills.each do |i| %>
-                                <tr>
-                                   <td><%= @allskills.get(i).skillcategory %>
+                       <td><a href="javascript:void(0)" class="editable-click" data-name="skill" data-type="text" data-pk="<%= @allskills.get(i).id%>" data-url="/updateskill" data-title="Enter skill name"><%= @allskills.get(i).skill %>
+                       </a></td>
 
-                                   <td><a href="javascript:void(0)" class="editable-click" data-name="skill" data-type="text" data-pk="<%= @allskills.get(i).id%>" data-url="/updateskill" data-title="Enter skill name"><%= @allskills.get(i).skill %>
-                                   </a></td>
-
-                                   <td><a href="javascript:void(0)" class="editable-click" data-name="skillrank" data-type="text" data-pk="<%= @allskills.get(i).id%>" data-url="/updateskill" data-title="Enter skill rank"><%= @allskills.get(i).skillrank %></a></td>
-                                   
-                                   <td><button class="btn btn-xs btn-danger">
-                                    <i class="ace-icon fa fa-trash-o bigger-120"></i>
-                                  </button></td>
-
-
-                                </tr>
-                                <% end %>
-                           </tbody>
+                       <td><a href="javascript:void(0)" class="editable-click" data-name="skillrank" data-type="text" data-pk="<%= @allskills.get(i).id%>" data-url="/updateskill" data-title="Enter skill rank"><%= @allskills.get(i).skillrank %></a></td>
+                       
+                       <td><button class="btn btn-xs btn-danger">
+                        <i class="ace-icon fa fa-trash-o bigger-120"></i>
+                      </button></td>
+                    </tr>
+                    <% end %>
+               </tbody>
           </table>
       </div>
    </div>
@@ -164,7 +161,8 @@ table.dataTable tfoot th {
  </div> <!-- page-content-area -->          
  </div> <!--"page-content" -->                
                       
- <script src="/vendor/aceskin/ace-editable.min.js"></script>
+
+
 <script type="text/javascript">
 
 
@@ -426,7 +424,6 @@ $(document).ready(function(){
 
 
 <script src='http://anthonyterrien.com/js/jquery.knob.js'></script>
-
 
   
 
