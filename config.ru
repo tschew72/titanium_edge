@@ -90,10 +90,10 @@ end
 get '/edge' do
    # If user comes in directly here, if not authenticated, throw them to /auth/login
    redirect '/auth/login' unless env['warden'].authenticated?
-       user1 = env['warden'].user  #This is the most important query of all. it will identify the user of this session.
-       @userme = user1.firstname
-       @emailme = user1.email
-       @usermatchjoblist = user1.matched_jobs
+       @userprofile = env['warden'].user  #This is the most important query of all. it will identify the user of this session.      
+       @userme = @userprofile.firstname
+       @emailme = @userprofile.email
+       @usermatchjoblist = @userprofile.matched_jobs
        erb :edge
 end
 
