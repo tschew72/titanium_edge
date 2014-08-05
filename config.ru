@@ -111,7 +111,7 @@ get '/industrystatistics' do
        @userme = user1.firstname
        @chart1_name="IT Professionals hired"
        @chart1_source="IDA"
-       @chart1_data = [140800, 141300, 142900, 144300, 146700]
+       @chart1_data = [140.8, 141.3, 142.9, 144.3, 146.7]
        erb :industrystatistics
 end
 
