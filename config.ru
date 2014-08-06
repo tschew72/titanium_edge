@@ -235,6 +235,14 @@ end
     redirect to('/profile')
   end
 
+  get '/deleteskill' do
+    userprofile = env['warden'].user
+    myskill = userprofile.skill_summary.get(params["id"])
+    myskill.destroy
+    #redirect to('/settings')
+    redirect to ('/settings#skilltable')
+  end
+
 end
 
 map SinatraWardenExample.assets_prefix do

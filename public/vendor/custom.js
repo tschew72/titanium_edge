@@ -11,23 +11,20 @@
       });
 
 
-      $('#skilltable').editable({
-        selector: 'a',
-        //url: '/updateskill',
-      });
+
 
        // $('#skillrank').editable();
 
        // $('#skill').editable();
 
-      $('#profiletable').dataTable( {
-          "bsort": false,
-          "scrollCollapse": true,
-          "jQueryUI": true,
-      } );
+         $('#profiletable').dataTable( {
+            "bsort": false,
+            "scrollCollapse": true,
+            "jQueryUI": true,
+        } );
 
 
-   });  
+   });  //end of ready(function)
 
 
     tinymce.init({
