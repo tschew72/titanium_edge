@@ -4556,7 +4556,7 @@
 }
 .breadcrumb>li+li:before
 {
-  font-family: 'Oswald', sans-serif;
+  font-family:FontAwesome;
   font-size:14px;
   content:"\f105";
   color:#b2b6bf;
@@ -5215,7 +5215,7 @@
   border:1px solid #DDD;
   background-color:#F2F2F2
 }
-/* TSCHEW
+
 .footer.footer-fixed+.btn-scroll-up
 {
   z-index:999
@@ -5264,17 +5264,17 @@
   button.btn:active
 {
   top:1px
-}*/
+}
 
 .btn,.btn-default,.btn-default:focus,.btn:focus
 {
-  /*background-color:#FFF!important;  Nav button inactive at the profile section */
-  /*border-color:#abbac3*/ /*TSCHEW*/
+  background-color:#abbac3!important;  /*Nav button inactive at the profile section TSCHEW*/
+  border-color:#abbac3  
 }
 .btn-default:active,.btn-default:hover,.btn:active,.btn:hover,.open .btn-default.dropdown-toggle,.open .btn.dropdown-toggle
 {
-  /*background-color:#FFF!important;*/
-  /*border-color:#abbac3*//*TSCHEW*/
+  background-color:#8b9aa3!important;
+  border-color:#abbac3 
 }
 .btn-default.no-border:active,.btn-default.no-border:hover,.btn.no-border:active,.btn.no-border:hover
 {
@@ -5286,8 +5286,8 @@
 }
 .btn-default.active,.btn.active
 {
-  /*background-color:#FFF!important;   Nav button active at the profile section */
-  /*border-color:#8799a4*//*TSCHEW*/
+  background-color:#FFF!important;  /* Nav button active at the profile section TSCHEW*/ 
+  border-color:#8799a4 
 }
 
 .btn-default.no-border.active,.btn.no-border.active
@@ -6169,8 +6169,8 @@
 
 .btn-group+.btn,.btn-group>.btn
 {
-/*  margin:0 1px 0 0;
-  border-width:3px*/ /*TSCHEW*/
+  margin:0 1px 0 0;
+  border-width:3px /*TSCHEW*/
 }
 
 .btn-group+.btn.active:after,.btn-group>.btn.active:after
@@ -6292,13 +6292,13 @@
 .btn.btn-app
 {
   display:inline-block;
-  width:250px;    /*used by badges for displaying numbers *//*TSCHEW*/
-  height:150px;
+  width:100px;    /*used by badges for displaying numbers *//*TSCHEW*/
+  /*height:150px;*/
   font-size:18px;
   font-weight:300;
   color:#FFF;
   text-align:center;
-/*  text-shadow:0 -1px -1px rgba(0,0,0,.2)!important;*//*TSCHEW*/
+  text-shadow:0 -1px -1px rgba(0,0,0,.2)!important; /*TSCHEW*/
   border:none;
   border-radius:12px;
   padding:12px 0 8px;
@@ -7534,7 +7534,7 @@
 {
   content:"\f00c";
   display:inline-block;
-  font-family:'Oswald', sans-serif;
+  font-family:FontAwesome;
   font-size:11px;
   color:#FFF;
   position:absolute;
@@ -8190,7 +8190,7 @@
   input[type=checkbox].ace+.lbl::before,input[type=radio].ace+.lbl::before
 {
   cursor:pointer;
-  font-family:'Oswald', sans-serif;
+  font-family:FontAwesome;
   font-weight:400;
   font-size:12px;
   color:#32a3ce;
@@ -8265,7 +8265,7 @@
 {
   border-radius:100%;
   font-size:10px;
-  font-family:'Oswald', sans-serif;
+  font-family:FontAwesome;
   text-shadow:0 0 1px #32a3ce;
   line-height:15px;
   height:17px;
@@ -8287,7 +8287,7 @@
 }
   input[type=checkbox].ace.ace-switch+.lbl::before
 {
-  font-family:'Open Sans';
+  font-family:'Oswald', sans-serif;
   content:"ON\a0\a0\a0\a0\a0\a0\a0\a0\a0OFF";
   color:#999;
   text-shadow:0 0 0 #999;
@@ -8314,7 +8314,7 @@
 }
   input[type=checkbox].ace.ace-switch+.lbl::after
 {
-  font-family:'Open Sans';
+  font-family:'Oswald', sans-serif;
   content:'III';
   font-size:12px;
   font-weight:400;
@@ -8356,7 +8356,7 @@
 }
   input[type=checkbox].ace.ace-switch.ace-switch-3+.lbl::after
 {
-  font-family:'Oswald', sans-serif;
+  font-family:FontAwesome;
   font-size:13px;
   line-height:22px;
   content:"\f00d";
@@ -8436,7 +8436,7 @@
 }
   input[type=checkbox].ace.ace-switch.ace-switch-6+.lbl::before
 {
-  font-family:'Oswald', sans-serif;
+  font-family:FontAwesome;
   content:"\f00d";
   text-shadow:0 -1px 0 rgba(0,0,0,.25);
   box-shadow:none;
@@ -8520,7 +8520,7 @@
   input[type=checkbox].ace.ace-switch.ace-switch-7+.lbl::after
 {
   content:'\f00d';
-  font-family:'Oswald', sans-serif;
+  font-family:FontAwesome;
   font-size:16px;
   position:absolute;
   top:3px;
@@ -8682,7 +8682,7 @@
   line-height:24px;
   width:26px;
   text-align:center;
-  font-family:'Oswald', sans-serif;
+  font-family:FontAwesome;
   font-size:13px;
   border:2px solid #FFF;
   color:#FFF;
@@ -8824,7 +8824,7 @@
   bottom:0;
   width:26px;
   text-align:center;
-  font-family:'Oswald', sans-serif;
+  font-family:FontAwesome;
   font-size:13px;
   border:2px solid #FFF;
   color:#FFF;
@@ -12954,7 +12954,7 @@
   line-height:26px;
   font-size:13px;
   font-weight:700;
-  font-family:"Open Sans";
+  font-family:'Oswald', sans-serif;
   padding:0 8px
 }
 .profile-users .user
@@ -14030,8 +14030,7 @@
   text-align:center;
   position:static
 }
-/*TSCHEW*/
-/*
+
 .dataTables_length select
 {
   width:70px;
@@ -14112,20 +14111,23 @@
 {
   margin-bottom:0
 }
+
 .dataTable>thead>tr>th[class*=sort]
 {
   cursor:pointer
 }
+
 .dataTable>thead>tr>th[class*=sort]:after
 {
   float:right;
   display:inline;
   content:"\f0dc";
-  font-family:'Oswald', sans-serif;
+  font-family:FontAwesome;
   font-size:13px;
   font-weight:400;
   color:#555
 }
+
 .dataTable>thead>tr>th[class*=sort]:hover
 {
   color:#547ea8
@@ -14162,6 +14164,7 @@
 {
   display:none
 }
+
 .dataTables_scrollHeadInner
 {
   width:auto!important
@@ -14223,7 +14226,7 @@
   margin-top:0!important;
   border-top:none
 }
-*/
+
 .DTTT_Print .main-content
 {
   margin-left:0!important;
@@ -14420,7 +14423,7 @@
   content:"\f0d7";
   display:inline-block;
   color:#888;
-  font-family:'Oswald', sans-serif;
+  font-family:FontAwesome;
   font-size:12px;
   position:relative;
   top:-1px;
@@ -14446,7 +14449,7 @@
   content:"\f002";
   display:inline-block;
   color:#888;
-  font-family:'Oswald', sans-serif;
+  font-family:FontAwesome;
   font-size:14px;
   position:absolute;
   top:8px;
@@ -14465,7 +14468,7 @@
   content:"\f00d";
   display:inline-block;
   color:#888;
-  font-family:'Oswald', sans-serif;
+  font-family:FontAwesome;
   font-size:13px;
   position:absolute;
   right:2px;
@@ -14488,7 +14491,7 @@
   content:"\f0d7";
   display:inline-block;
   color:#888;
-  font-family:'Oswald', sans-serif;
+  font-family:FontAwesome;
   font-size:12px;
   position:relative;
   top:-1px;
@@ -14512,7 +14515,7 @@
   content:"\f002";
   display:inline-block;
   color:#888;
-  font-family:'Oswald', sans-serif;
+  font-family:FontAwesome;
   font-size:14px;
   position:absolute;
   top:9px;
@@ -14657,7 +14660,7 @@
 }
 .select2-container .select2-choice abbr:before,.select2-search-choice-close:before
 {
-  font-family:'Oswald', sans-serif;
+  font-family:FontAwesome;
   font-size:12px;
   display:inline;
   content:"\f00d";
@@ -14711,7 +14714,7 @@
 }
 .select2-container .select2-choice .select2-arrow b:before
 {
-  font-family:'Oswald', sans-serif;
+  font-family:FontAwesome;
   font-size:12px;
   display:inline;
   content:"\f0d7";
@@ -14730,7 +14733,7 @@
 }
 .select2-search:after
 {
-  font-family:'Oswald', sans-serif;
+  font-family:FontAwesome;
   font-size:14px;
   display:inline;
   content:"\f002";
@@ -15052,7 +15055,7 @@
   content:"\f00c";
   background-color:#FFF;
   z-index:3;
-  font-family:'Oswald', sans-serif;
+  font-family:FontAwesome;
   font-size:17px;
   color:#87ba21
 }
@@ -15451,7 +15454,7 @@
 }
 .gritter-close:before
 {
-  font-family:'Oswald', sans-serif;
+  font-family:FontAwesome;
   font-size:16px;
   content:"\f00d"
 }
@@ -15856,6 +15859,7 @@
 {
   margin:0
 }
+
 .editable-clear-x
 {
   cursor:pointer;
@@ -15870,7 +15874,7 @@
 {
   display:inline-block;
   content:"\f057";
-  font-family:'Oswald', sans-serif;
+  font-family:FontAwesome;
   font-size:15px;
   position:absolute;
   margin-top:-9px;
@@ -15879,6 +15883,7 @@
   line-height:30px;
   text-align:center
 }
+
 .editable-input .ace-spinner
 {
   margin-right:8px
@@ -16323,7 +16328,7 @@
 .ui-datepicker .ui-datepicker-next:before,.ui-datepicker .ui-datepicker-prev:before
 {
   display:inline;
-  font-family:'Oswald', sans-serif;
+  font-family:FontAwesome;
   font-size:14px;
   content:"\f060";
   color:#393939
@@ -16450,7 +16455,7 @@
 {
   content:"\f00d";
   display:inline;
-  font-family:'Oswald', sans-serif;
+  font-family:FontAwesome;
   font-size:16px
 }
 .ui-dialog .ui-dialog-titlebar-close:hover,.ui-dialog .ui-jqdialog-titlebar-close:hover,.ui-jqdialog .ui-dialog-titlebar-close:hover,.ui-jqdialog .ui-jqdialog-titlebar-close:hover
@@ -16499,7 +16504,7 @@
 .ui-accordion .ui-accordion-header .ui-accordion-header-icon:before
 {
   display:inline;
-  font-family: 'Oswald', sans-serif;
+  font-family:FontAwesome;
   font-size:15px;
   content:"\f0da"
 }
@@ -16592,7 +16597,7 @@
 .ui-menu .ui-menu-item a .ui-menu-icon:before
 {
   content:"\f105";
-  font-family:'Oswald', sans-serif;
+  font-family:FontAwesome;
   font-size:14px;
   display:inline
 }
@@ -16940,7 +16945,7 @@
 {
   display:inline;
   content:"\f0d7";
-  font-family:'Oswald', sans-serif;
+  font-family:FontAwesome;
   font-size:12px
 }
 .ui-icon-asc:before
@@ -17031,7 +17036,7 @@
 }
 .ui-pg-div .ui-icon:before
 {
-  font-family:'Oswald', sans-serif;
+  font-family:FontAwesome;
   display:inline
 }
 .ui-icon-pencil
@@ -17359,7 +17364,7 @@
 .ui-jqgrid .ui-jqgrid-titlebar-close .ui-icon:before
 {
   display:inline-block;
-  font-family:'Oswald', sans-serif;
+  font-family:FontAwesome;
   content:"\f077";
   color:#FFF
 }
@@ -17590,7 +17595,7 @@
 }
 .dd-item>button:before
 {
-  font-family:'Oswald', sans-serif;
+  font-family:FontAwesome;
   content:'\f067';
   display:block;
   position:absolute;
@@ -17775,14 +17780,14 @@
 }
 .dropzone .dz-preview .dz-error-mark:before,.dropzone-previews .dz-preview .dz-error-mark:before
 {
-  font-family:'Oswald', sans-serif;
+  font-family:FontAwesome;
   font-size:30px;
   color:#DB6262;
   content:"\f00d"
 }
 .dropzone .dz-preview .dz-success-mark:before,.dropzone-previews .dz-preview .dz-success-mark:before
 {
-  font-family:'Oswald', sans-serif;
+  font-family:FontAwesome;
   font-size:30px;
   color:#6DA552;
   content:"\f00c"

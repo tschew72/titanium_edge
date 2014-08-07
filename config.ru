@@ -133,6 +133,22 @@ get '/profile' do
        erb :profile
 end
 
+get '/mycv' do
+   redirect '/auth/login' unless env['warden'].authenticated?
+       @userprofile = env['warden'].user  #This is the most important query of all. it will identify the user of this session.
+       @userme = @userprofile.firstname
+       #@emailme = @userprofile.email
+       #@userskills= @userprofile.skilltags.all(:order => [:skillscore.desc])
+       #@skillname = Skill.all
+       @userskills1 = @userprofile.skill_summary.all(:skillcategory => 1)
+       @userskills2 = @userprofile.skill_summary.all(:skillcategory => 2)
+       @userskills3 = @userprofile.skill_summary.all(:skillcategory => 3)
+       @userskills4 = @userprofile.skill_summary.all(:skillcategory => 4)
+       @userskills5 = @userprofile.skill_summary.all(:skillcategory => 5)       
+       @jobhistory = @userprofile.jobs.all(:order => [:startdate.desc])
+       erb :mycv
+end
+
 get '/settings' do
        redirect '/auth/login' unless env['warden'].authenticated?
        @userprofile = env['warden'].user  #This is the most important query of all. it will identify the user of this session.
@@ -242,6 +258,12 @@ end
     #redirect to('/settings')
     redirect to ('/settings#skilltable')
   end
+
+  get '/showsysadmin' do
+    userprofile = env['warden'].user
+    sysadminchart= userprofile.sysadmindata.all
+  end
+
 
 end
 
