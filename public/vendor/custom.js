@@ -13,6 +13,7 @@
 
 
 
+
        // $('#skillrank').editable();
 
        // $('#skill').editable();
