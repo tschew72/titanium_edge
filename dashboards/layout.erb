@@ -11,9 +11,10 @@
   <script src="http://cdn.datatables.net/1.10.1/js/jquery.dataTables.min.js"></script>
   <script src="http://cdnjs.cloudflare.com/ajax/libs/x-editable/1.5.0/bootstrap3-editable/js/bootstrap-editable.min.js"></script>
   <script src="/vendor/tinymce/js/tinymce/tinymce.min.js"></script>
-  <script src="/vendor/bootstrap/js/bootstrap.min.js"></script>
+  <!-- <script src="/vendor/bootstrap/js/bootstrap.min.js"></script> -->
   <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.0/jquery-ui.min.js"></script>
   <script src="/vendor/aceskin/ace-extra.min.js"></script>
+
   <link rel="stylesheet" href="/assets/application.css">
   <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/x-editable/1.5.0/bootstrap3-editable/css/bootstrap-editable.css" />
   <link rel="stylesheet" href="http://cdn.datatables.net/1.10.1/css/jquery.dataTables.css">
@@ -25,13 +26,22 @@
   <!-- 'http://fonts.googleapis.com/css?family=Varela+Round -->
   <link rel="stylesheet" href="/vendor/font-awesome-4.1.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.0/themes/smoothness/jquery-ui.css" />
-  <link rel="stylesheet" href="/vendor/custom.css">
+  <!-- <link rel="stylesheet" href="/vendor/aceskin/ace.css"> -->
     <!--[if lte IE 9]>
       <link rel="stylesheet" href="/vendor/aceskin/ace-part2.min.css" />
     <![endif]-->
 
-  <link rel="stylesheet" href="/vendor/aceskin/ace-skins.min.css">
+    <!--[if IE 7]>
+      <link rel="stylesheet" href="/vendor/aceskin/font-awesome-ie7.min.css" />
+    <![endif]-->
+
+    <!-- page specific plugin styles -->
+
+    <!-- fonts -->
+  <link rel="stylesheet" href="/vendor/aceskin/ace-fonts.css" />
+  <link rel="stylesheet" href="/vendor/aceskin/ace.css">
   <link rel="stylesheet" href="/vendor/aceskin/ace-rtl.min.css">
+  <link rel="stylesheet" href="/vendor/aceskin/ace-skins.min.css" />
   <!--[if lte IE 9]>
       <link rel="stylesheet" href="/vendor/aceskin/ace-ie.min.css" />
     <![endif]-->
@@ -114,31 +124,65 @@
         <script type="text/javascript"> try{ace.settings.check('sidebar' , 'collapsed')}catch(e){} </script>
       </div> <!--id="sidebar" class="sidebar responsive"-->
       <div class="main-content">
-        <script src="/vendor/aceskin/ace.min.js"></script>
-        <script src="/vendor/aceskin/ace-elements.min.js"></script>
-        <script src="/vendor/aceskin/jquery.sparkline.min.js"></script>
+
+
         <%= yield %></div><!-- /.main-content -->
       <a href="#" id="btn-scroll-up" class="btn-scroll-up btn btn-sm btn-inverse"><i class="ace-icon fa fa-angle-double-up icon-only bigger-110"></i></a>
       
   </div><!-- /.main-container -->
 
   
-  <script src="/vendor/aceskin/jquery-ui.custom.min.js"></script>
+ 
+
+
+    <!-- basic scripts -->
+
+    <!--[if !IE]> -->
+
+    <script type="text/javascript">
+      window.jQuery || document.write("<script src='/vendor/aceskin/jquery-2.0.3.min.js'>"+"<"+"/script>");
+    </script>
+
+    <!-- <![endif]-->
+
+    <!--[if IE]>
+<script type="text/javascript">
+ window.jQuery || document.write("<script src='assets/js/jquery-1.10.2.min.js'>"+"<"+"/script>");
+</script>
+<![endif]-->
+
+    <script type="text/javascript">
+      if("ontouchend" in document) document.write("<script src='/vendor/aceskin/jquery.mobile.custom.min.js'>"+"<"+"/script>");
+    </script>
+    <script src="/vendor/aceskin/bootstrap.min.js"></script>
+    <script src="/vendor/aceskin/typeahead-bs2.min.js"></script>
+
+    <!-- page specific plugin scripts -->
+
+    <!--[if lte IE 8]>
+      <script src="assets/js/excanvas.min.js"></script>
+    <![endif]-->
+
+  <!-- <script src="/vendor/aceskin/jquery-ui-1.10.3.custom.min.js"></script> -->
+  <script src="/vendor/aceskin/jquery-ui-1.10.3.custom.min.js"></script>
   <script src="/vendor/aceskin/jquery.ui.touch-punch.min.js"></script>
   <script src="/vendor/aceskin/jquery.easypiechart.min.js"></script>
   <script src="/vendor/aceskin/jquery.sparkline.min.js"></script>
-  <script src="/vendor/aceskin/ace-editable.min.js"></script>
+  <!-- <script src="/vendor/aceskin/ace-editable.min.js"></script> -->
 
+ <!--
+    <script src="/vendor/aceskin/jquery.slimscroll.min.js"></script>
+    <script src="/vendor/aceskin/jquery.flot.min.js"></script>
+    <script src="/vendor/aceskin/jquery.flot.pie.min.js"></script>
+    <script src="/vendor/aceskin/jquery.flot.resize.min.js"></script>
 
+-->
+    <script src="/vendor/aceskin/ace-elements.min.js"></script>
+    <script src="/vendor/aceskin/ace.min.js"></script>
+    
 
-
-
-    <!--[if IE]>
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-    <![endif]-->
-    <!--[if !IE]> -->
     <script type="text/javascript">
-      window.jQuery || document.write("<script src='assets/js/jquery.min.js'>"+"<"+"/script>");
+      window.jQuery || document.write("<script src='/vendor/aceskin/jquery.min.js'>"+"<"+"/script>");
 
              $('.easy-pie-chart.percentage').each(function(){
                     var $box = $(this).closest('.infobox');
@@ -172,7 +216,7 @@
     <!-- <![endif]-->
     <!--[if IE]>
     <script type="text/javascript">
-    window.jQuery || document.write("<script src='assets/js/jquery1x.min.js'>"+"<"+"/script>");
+    window.jQuery || document.write("<script src='/vendor/aceskin/jquery1x.min.js'>"+"<"+"/script>");
     </script>
     <![endif]-->
      <script src="/vendor/custom.js"></script>
