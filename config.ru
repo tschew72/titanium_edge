@@ -106,7 +106,7 @@ get '/summary' do
 end
 
 get '/industrystatistics' do
-   redirect '/auth/login' unless env['warden'].authenticated?
+       redirect '/auth/login' unless env['warden'].authenticated?
        user1 = env['warden'].user  #This is the most important query of all. it will identify the user of this session.
        @userme = user1.firstname
        @chart1_name="IT Professionals hired"
@@ -117,7 +117,7 @@ end
 
 
 get '/profile' do
-   redirect '/auth/login' unless env['warden'].authenticated?
+       redirect '/auth/login' unless env['warden'].authenticated?
        @userprofile = env['warden'].user  #This is the most important query of all. it will identify the user of this session.
        @userme = @userprofile.firstname
        #@emailme = @userprofile.email
@@ -134,7 +134,7 @@ get '/profile' do
 end
 
 get '/mycv' do
-   redirect '/auth/login' unless env['warden'].authenticated?
+       redirect '/auth/login' unless env['warden'].authenticated?
        @userprofile = env['warden'].user  #This is the most important query of all. it will identify the user of this session.
        @userme = @userprofile.firstname
        #@emailme = @userprofile.email
