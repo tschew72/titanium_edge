@@ -16,18 +16,13 @@
   <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.0/jquery-ui.min.js"></script>
   
 
-  <link rel="stylesheet" href="/assets/application.css">
+
   <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/x-editable/1.5.0/bootstrap3-editable/css/bootstrap-editable.css" />
-  <!-- <link rel="stylesheet" href="http://cdn.datatables.net/1.10.1/css/jquery.dataTables.css"> -->
-  <!-- <link rel="stylesheet" href="http://cdn.datatables.net/plug-ins/be7019ee387/integration/jqueryui/dataTables.jqueryui.css"> -->
   <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/vendor/font-awesome-4.1.0/css/font-awesome.min.css"> 
+  <link rel="stylesheet" href="/vendor/aceskin/font-awesome.min.css" />
   <link rel="icon" href="/assets/favicon.ico">
   <link href='http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700' rel='stylesheet' type='text/css'>
-  <!-- Can consider this font which is used by google http://fonts.googleapis.com/css?family=Lato:300,400,700 -->
-  <!-- 'http://fonts.googleapis.com/css?family=Varela+Round -->
-  <link rel="stylesheet" href="/vendor/font-awesome-4.1.0/css/font-awesome.min.css">
-  <!-- <link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.0/themes/smoothness/jquery-ui.css" /> -->
-  <!-- <link rel="stylesheet" href="/vendor/aceskin/ace.css"> -->
     <!--[if lte IE 9]>
       <link rel="stylesheet" href="/vendor/aceskin/ace-part2.min.css" />
     <![endif]-->
@@ -163,7 +158,7 @@
 
               <ul class="pull-right dropdown-navbar navbar-pink dropdown-menu dropdown-caret dropdown-close">
                 <li class="dropdown-header">
-                  <i class="icon-warning-sign"></i>
+                  <i class="ace-icon glyphicon glyphicon-warning-sign"></i>
                   8 Notifications
                 </li>
 
@@ -315,7 +310,7 @@
                 <li class="divider"></li>
 
                 <li>
-                  <a href="#">
+                  <a href="/logout">
                     <i class="icon-off"></i>
                     Logout
                   </a>
@@ -369,13 +364,6 @@
 
     <!-- basic scripts -->
 
-    <!--[if !IE]> -->
-
-    <script type="text/javascript">
-      window.jQuery || document.write("<script src='/vendor/aceskin/jquery-2.0.3.min.js'>"+"<"+"/script>");
-    </script>
-
-    <!-- <![endif]-->
 
     <!--[if IE]>
 <script type="text/javascript">
@@ -383,9 +371,7 @@
 </script>
 <![endif]-->
 
-    <script type="text/javascript">
-      if("ontouchend" in document) document.write("<script src='/vendor/aceskin/jquery.mobile.custom.min.js'>"+"<"+"/script>");
-    </script>
+
     <script src="/vendor/aceskin/bootstrap.min.js"></script>
     <script src="/vendor/aceskin/typeahead-bs2.min.js"></script>
 
@@ -407,13 +393,12 @@
   <script src="/vendor/aceskin/jquery.flot.pie.min.js"></script>
   <script src="/vendor/aceskin/jquery.flot.resize.min.js"></script>
 
-    <script src="/vendor/aceskin/ace-elements.min.js"></script>
+    
+<script src="/vendor/aceskin/ace-elements.min.js"></script>
     <script src="/vendor/aceskin/ace.min.js"></script>
 
 
-
     <script type="text/javascript">
-      window.jQuery || document.write("<script src='/vendor/aceskin/jquery.min.js'>"+"<"+"/script>");
 
              $('.easy-pie-chart.percentage').each(function(){
                     var $box = $(this).closest('.infobox');
@@ -615,6 +600,7 @@
     window.jQuery || document.write("<script src='/vendor/aceskin/jquery1x.min.js'>"+"<"+"/script>");
     </script>
     <![endif]-->
+
      <script src="/vendor/custom.js"></script>
 
 

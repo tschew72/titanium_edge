@@ -1,26 +1,4 @@
 
-<% content_for(:title) { "Career Dashboard" } %>
-
-<script type='text/javascript'>
-  // $(function() {
-  //   Dashing.widget_base_dimensions = [310, 320]
-  //   Dashing.numColumns = 4
-  //  });    
-      $(document).ready(function() {
-        $('#matchjobtable').dataTable( {
-            "scrollY": 200,
-            "ScrollX": true,
-            "iDisplayLength": 10,
-            "order": [[ 0, "desc" ]],
-            "scrollCollapse": true,
-            "jQueryUI": true,
-        } );
-
-} );
-
-
-</script>
-
 
 <style>
 
@@ -34,8 +12,6 @@
 
 
 </style>
-
-
 
 
 
@@ -61,16 +37,21 @@
             <!-- PAGE CONTENT BEGINS -->
 
                 <div class="alert alert-block alert-success">
-                  <button type="button" class="close" data-dismiss="alert"> <i class="icon-remove"></i></button>
+                  <button type="button" class="close" data-dismiss="alert">
+                    <i class="icon-remove"></i>
+                  </button>
+
                   <i class="icon-ok green"></i>
+
                   Welcome to
                   <strong class="green">
-                    your Career Dashboard
+                    your personal career dashboard
                     <small>(v1.2)</small>
                   </strong>
                   ,
-                    the lightweight, feature-rich and easy to use admin template.
+                the lightweight, feature-rich and easy to use admin template.
                 </div>
+
             
                           <div class="row">
                             <div class="space-6"></div>
@@ -120,7 +101,9 @@
                                       
 
                               </div> <!-- infobox infobox-red -->
+
                               </a>
+                              <div class="hr hr32 hr-dotted"></div>
                                       !--  Modal -->
                                <div class="modal fade" id="badgemodal" >
                                  <div class="modal-dialog">
@@ -144,9 +127,9 @@
                                  </div><!-- modal-dialog -->
                                </div><!-- modal  -->    
 
-                            </div>
+                            </div><!-- "col-sm-12 infobox-container" -->
 
-                         <div class="hr hr32 hr-dotted"></div>   
+                     
                 <div class="row">
                   <div class="col-sm-7 ">
                       <div class="widget-box">
@@ -235,7 +218,7 @@
                       <div class="col-sm-5 ">
                           <div class="widget-box transparent">
                               <div class="widget-header widget-header-flat">
-                                  <h4 class="widget-title lighter"><i class="ace-icon fa fa-signal"></i>XXX</h4>                    
+                                  <h4 class="lighter"><i class="ace-icon fa fa-signal"></i>XXX</h4>                    
                                    <div class="widget-toolbar"><a href="#" data-action="collapse"><i class="ace-icon fa fa-chevron-up"></i></a></div>
                               </div> <!-- "widget-header widget-header-flat" -->
                               <div class="widget-body">
@@ -245,12 +228,12 @@
                       </div> <!-- "col-md-5 column" -->
 
                   </div> <!-- row -->
-
+                  <div class="hr hr32 hr-dotted"></div>
                 <div class="row">   <!-- Tab content row -->
                   <div class="col-sm-7 ">  
                       <div class="widget-box transparent">
                         <div class="widget-header widget-header-flat">
-                          <h4 class="widget-title lighter"><i class="ace-icon fa fa-signal"></i>Job Matching History</h4>                    
+                          <h4 class="lighter"><i class="ace-icon fa fa-signal"></i>Job Matching History</h4>                    
                           <div class="widget-toolbar"><a href="#" data-action="collapse"><i class="ace-icon fa fa-chevron-up"></i></a></div>
                         </div> <!-- "widget-header widget-header-flat" -->
                         <div class="widget-body">
@@ -258,12 +241,12 @@
                               <table id="matchjobtable" class="table table-striped table-bordered table-hover">
                                   <thead>
                                       <tr>
-                                         <th class="align-center">Match <br>Date </th>
-                                         <th class="align-center">Match <br>Score</th>
-                                         <th class="align-center">Match<br> Rank  </th>
-                                         <th class="align-center">Job <br>Function</th> 
-                                         <th class="align-center">Job <br> Level</th>
-                                         <th class="align-center">Salary <br>Range</th>    
+                                         <th class="align-center">Match Date </th>
+                                         <th class="align-center">Match Score</th>
+                                         <th class="align-center">Match Rank  </th>
+                                         <th class="align-center">Job Function</th> 
+                                         <th class="align-center">Job Level</th>
+                                         <th class="align-center">Salary Range</th>    
                                       </tr>
                                   </thead>
                                   <tbody >
@@ -282,7 +265,7 @@
                             </div> <!-- "widget-main padding-4" -->
                         </div> <!-- "widget-body" -->
                       </div> <!-- "widget-box transparent" -->
-                  </div> <!-- "col-md-7 column" --> 
+                  </div> <!-- "col-md-7 " --> 
                   <div class="col-sm-5">
                     <div class="widget-box transparent">
                       <div class="widget-header widget-header-flat">
@@ -291,12 +274,13 @@
                       </div> <!-- "widget-header widget-header-flat" -->
                       <div class="widget-body">
                           <div class="widget-main padding-7">
-                            <div id="top5jobtitles" style="min-width: 310px; height: 250px; margin: 0 auto"></div>
+                            <div id="top5jobtitles" style="min-width: 1000px; height: 300px; margin: 0 auto"></div>
                           </div><!-- /.widget-main -->
                       </div><!-- /.widget-body -->
                     </div><!-- /.widget-box -->
-                  </div>  <!-- "col-md-5 column" -->
+                  </div>  <!-- "col-md-5 " -->
                 </div> <!-- row 1 -->
+                <div class="hr hr32 hr-dotted"></div>
                 <div class="row">
                   <div class="col-sm-5">
                       <div class="widget-box transparent">
@@ -306,13 +290,13 @@
                         </div> <!-- "widget-header widget-header-flat" -->
                         <div class="widget-body">
                           <div class="widget-main padding-4">   
-                              <table id="matchjobtable" class="display compact" cellspacing="0" width="100%">
+                              <table id="matchjobtable" class="table table-striped table-bordered table-hover">
                                   <thead>
                                       <tr> 
-                                         <th class="align-center">Job <br> Type </th> <!-- different job titles consolidated into a few high level type -->
-                                         <th class="align-center">No. of <br> Positions</th>
-                                         <th class="align-center">No. of<br> Job Seekers  </th>
-                                         <th class="align-center">Your <br> Score</th> 
+                                         <th class="align-center">Job Type </th> <!-- different job titles consolidated into a few high level type -->
+                                         <th class="align-center">No. of Positions</th>
+                                         <th class="align-center">No. of Job Seekers  </th>
+                                         <th class="align-center">Your Score</th> 
                                          <th class="align-center">Your <br> Rank</th> 
                                       </tr>
                                       <tr>
@@ -341,7 +325,7 @@
                   </div> <!-- "col-md-7 column"-->
                 </div> <!-- row -->
 
-
+                <div class="hr hr32 hr-dotted"></div>
                 <div class="row"> <!-- Start of Row 2 -->
 
                   <div class="col-sm-6">
@@ -403,7 +387,7 @@
                     </div>  <!-- "col-md-6 column" -->
 
                 </div> <!-- End of row 3 -->
-          
+                <div class="hr hr32 hr-dotted"></div>
           </div><!-- /.col -->
       </div> <!-- row -->
    </div> <!--"page-content" -->
@@ -413,7 +397,7 @@
                $('#top5jobtitles').highcharts({
             chart: {
                 type: 'bar',
-                width: 480
+                width: 400
             },
             title: {
                 text: ''
@@ -653,9 +637,20 @@
         }); //competitive chart
  
 
+
+
     });
     
+
+        $('#matchjobtable').dataTable( {
+            "scrollY": 200,
+            "ScrollX": true,
+            "iDisplayLength": 5,
+            "order": [[ 0, "desc" ]],
+            "scrollCollapse": true,
+            "jQueryUI": true,
+           
+        } );
+
 </script>
-
-
 

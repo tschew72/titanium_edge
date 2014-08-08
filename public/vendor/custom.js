@@ -18,11 +18,6 @@
 
        // $('#skill').editable();
 
-         $('#profiletable').dataTable( {
-            "bsort": false,
-            "scrollCollapse": true,
-            "jQueryUI": true,
-        } );
 
 
    });  //end of ready(function)
