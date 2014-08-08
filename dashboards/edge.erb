@@ -7,35 +7,24 @@
   //   Dashing.numColumns = 4
   //  });    
 $(document).ready(function() {
-    $('#matchjobtable').dataTable( {
-        "scrollY": 200,
-        "ScrollX": true,
-        "iDisplayLength": 10,
-        "order": [[ 0, "desc" ]],
-        "scrollCollapse": true,
-        "jQueryUI": false,
-    } );
+        $('#matchjobtable').dataTable( {
+            "scrollY": 200,
+            "ScrollX": true,
+            "iDisplayLength": 10,
+            "order": [[ 0, "desc" ]],
+            "scrollCollapse": true,
+            "jQueryUI": false,
+        } );
+
 } );
+
+
+
 </script>
 
 
 <style>
-thead, tr, th, td { 
-        white-space: nowrap; 
 
-      }
-    div.dataTables_wrapper {
-        width: 600px;
-        margin: 0 auto;
-        text-align:center;
-    }
-table.dataTable thead th,
-table.dataTable tfoot th {
-
-  font-family: 'Oswald', sans-serif;
-  font-size: 12px;
-  font-weight: 300; 
-  }
 
 #badges {width:1000px; margin:15px 15px 15px 15px; text-align:center; }
 #badges > *{
@@ -266,7 +255,7 @@ table.dataTable tfoot th {
                         </div> <!-- "widget-header widget-header-flat" -->
                         <div class="widget-body">
                           <div class="widget-main padding-4">   
-                              <table id="matchjobtable" class="display compact" cellspacing="0" width="100%">
+                              <table id="matchjobtable" class="table table-striped table-bordered table-hover">
                                   <thead>
                                       <tr>
                                          <th class="align-center">Match <br>Date </th>
@@ -418,7 +407,6 @@ table.dataTable tfoot th {
           </div><!-- /.col -->
       </div> <!-- row -->
    </div> <!--"page-content" -->
-
 
 <script>
   $(function () {
@@ -667,4 +655,6 @@ table.dataTable tfoot th {
     });
     
 </script>
+
+
 
