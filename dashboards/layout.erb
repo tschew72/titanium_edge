@@ -56,7 +56,8 @@
     <script src="/vendor/aceskin/html5shiv.js"></script>
     <script src="/vendor/aceskin/respond.min.js"></script>
     <![endif]-->
-
+<script src="/vendor/aceskin/ace-elements.min.js"></script>
+    <script src="/vendor/aceskin/ace.min.js"></script>
   </head>
   <body>
   <header>
@@ -346,10 +347,12 @@
           <li class=""><a href="/mycv" ><i class="menu-icon fa fa-list"></i><span class="menu-text"> My CV </span></a></li> 
         </ul><!-- /.nav-list -->
 
-        <div class="sidebar-toggle sidebar-collapse" id="sidebar-collapse">
-          <i class="ace-icon fa fa-angle-double-left" data-icon1="ace-icon fa fa-angle-double-left" data-icon2="ace-icon fa fa-angle-double-right"></i>
-        </div>
-        <script type="text/javascript"> try{ace.settings.check('sidebar' , 'collapsed')}catch(e){} </script>
+        <div class="sidebar-collapse" id="sidebar-collapse">
+            <i class="icon-double-angle-left" data-icon1="icon-double-angle-left" data-icon2="icon-double-angle-right"></i>
+          </div>
+        <script type="text/javascript">
+            try{ace.settings.check('sidebar' , 'collapsed')}catch(e){}
+          </script>
       </div> <!--id="sidebar" class="sidebar responsive"-->
 
       <div class="main-content">
@@ -394,8 +397,7 @@
   <script src="/vendor/aceskin/jquery.flot.resize.min.js"></script>
 
     
-<script src="/vendor/aceskin/ace-elements.min.js"></script>
-    <script src="/vendor/aceskin/ace.min.js"></script>
+
 
 
     <script type="text/javascript">
@@ -417,15 +419,9 @@
                 })
             
         $('.sparkline').each(function(){
-            var $box = $(this).closest('.infobox');
-            var barColor = !$box.hasClass('infobox-dark') ? $box.css('color') : '#FFF';
-            $(this).sparkline('html',
-                             {
-                                tagValuesAttribute:'data-values',
-                                type: 'bar',
-                                barColor: barColor ,
-                                chartRangeMin:$(this).data('min') || 0
-                             });
+          var $box = $(this).closest('.infobox');
+          var barColor = !$box.hasClass('infobox-dark') ? $box.css('color') : '#FFF';
+          $(this).sparkline('html', {tagValuesAttribute:'data-values', type: 'bar', barColor: barColor , chartRangeMin:$(this).data('min') || 0} );
         });
 
         var placeholder = $('#piechart-placeholder').css({'width':'90%' , 'min-height':'150px'});
