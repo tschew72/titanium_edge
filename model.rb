@@ -135,9 +135,11 @@ class SkillSummary
 
   property :id, Serial , key: true
   property :user_id, Integer
-  property :skill, String, length:100
+  property :skillid, Integer
+  property :skillname, String, length:100
   property :skillrank, Integer                  #1=Basic 2=Intermediate 3=Advance 4=Expert
-  property :skillcategory, Integer
+  property :skillcatid, Integer
+  property :skillcategory, String, length:100
   property :status, Integer, :default  => 2     #0=delete, 1=edited, 2=active
   property :updated_at, DateTime                #When was it last edited
 
@@ -148,10 +150,11 @@ class SkillSource                               #This is for Skill Management Ta
   include DataMapper::Resource                  #Matching skills to category
 
   property :id, Serial , key: true
+  property :skilltype, Integer                 #1=Tech 2=Soft
+  property :skill_name, String, length:100      
   property :skillcategory_id, Integer
-  property :skillcategory_name, String, length:50
-  property :skill_id, Integer
-  property :skill_name, String, length:50
+  property :skillcategory_name, String, length:100
+  
 
 end
 

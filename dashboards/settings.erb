@@ -184,9 +184,9 @@
                   <% if @allskills.get(i).status != 0 %>
                   <tr class="usertr">
                    
-                     <td><a class="skillcat" href="javascript:void(0)" class="editable-click" data-name="skillcategory" data-type="select" data-pk="<%= @allskills.get(i).id%>" data-url="/updateskill"  data-title="Enter skill category "><%= @allskills.get(i).skillcategory %></a></td>
+                     <td><a class="skillcat" href="javascript:void(0)" class="editable-click" data-name="skillcategory" data-type="select" data-pk="<%= @allskills.get(i).id%>" data-url="/updateskill"  data-title="Enter skill category "><%= i.skillcategory %></a></td>
                       
-                     <td><a class="skills" href="javascript:void(0)" class="editable-click" data-name="skill" data-type="select" data-pk="<%= @allskills.get(i).id%>" data-url="/updateskill"  data-title="Enter skill "><%= @allskills.get(i).skill %> </a></td>
+                     <td><a class="skills" href="javascript:void(0)" class="editable-click" data-name="skill" data-type="select" data-pk="<%= @allskills.get(i).id%>" data-url="/updateskill"  data-title="Enter skill "><%= i.skillname %> </a></td>
 
                      <td><a class="can_update" href="javascript:void(0)" class="editable-click" data-name="skillrank" data-type="select" data-pk="<%= @allskills.get(i).id%>" data-url="/updateskill" data-source="[{value: 1, text: 'fine'}, {value: 2, text: 'bad'}]"   data-title="Enter skill rank">  <%= @sr.get(i.skillrank).skillrankname %>
                      </a></td> 
@@ -496,14 +496,19 @@ $(document).ready(function(){
 
               //alert($(this).closest(":has(td)").find('.skillcat').text());
               //$(this).closest(":has(td)").find('.skillcat').text()
-              if ($(this).closest(":has(td)").find('.skillcat').text() == "1"){
-                return <%= @sst1 %>
+              //$('.a1').closest('td').prev().text()
+              //alert($(this).closest("td").prev().text())
+              if ($(this).closest("td").prev().text() == "General Skills Management / Customers"){
+                return <%= @sst19 %>
               }
-              if ($(this).closest(":has(td)").find('.skillcat').text() == "2"){
-                return <%= @sst2 %>
+              if ($(this).closest("td").prev().text()  == "Networking Skills"){
+                return <%= @sst23 %>
               }
-                if ($(this).closest(":has(td)").find('.skillcat').text() == "3"){
-                return <%= @sst3 %>
+              if ($(this).closest("td").prev().text()  == "General Skills Technical"){
+                return <%= @sst20 %>
+              }
+              if ($(this).closest("td").prev().text()  == "Operating Systems"){
+                return <%= @sst28 %>
               }
         //return (sources[1])
         },
