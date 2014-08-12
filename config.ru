@@ -150,19 +150,47 @@ get '/mycv' do
 end
 
 get '/settings' do
+
        redirect '/auth/login' unless env['warden'].authenticated?
        @userprofile = env['warden'].user  #This is the most important query of all. it will identify the user of this session.
        @userme = @userprofile.firstname
-       #@emailme = @userprofile.email
-       #@userskills= @userprofile.skilltags.all(:order => [:skillscore.desc])
-       #@skillname = Skill.all
        @allskills =   @userprofile.skill_summary.all
-       @userskills1 = @userprofile.skill_summary.all(:skillcategory => 1)
-       @userskills2 = @userprofile.skill_summary.all(:skillcategory => 2)
-       @userskills3 = @userprofile.skill_summary.all(:skillcategory => 3)
-       @userskills4 = @userprofile.skill_summary.all(:skillcategory => 4)
-       @userskills5 = @userprofile.skill_summary.all(:skillcategory => 5)
-       @jobhistory = @userprofile.jobs.all(:order => [:startdate.desc])
+       @ss1 = SkillSource.all(:skillcategory_id =>1)
+       @ss2 = SkillSource.all(:skillcategory_id =>2)
+       @ss3 = SkillSource.all(:skillcategory_id =>3)
+       @ss4 = SkillSource.all(:skillcategory_id =>4)
+       @ss5 = SkillSource.all(:skillcategory_id =>5)
+
+        temp1 = []  #Skillsource translated sst  
+           @ss1.each do |x|
+           temp1 << {value: x.id, text: "#{x.skill_name}"}
+           @sst1 = temp1.to_json
+        end
+        temp2 = []  #Skillsource translated sst  
+           @ss2.each do |x|
+           temp2 << {value: x.id, text: "#{x.skill_name}"}
+           @sst2 = temp2.to_json
+        end
+        temp3 = []  #Skillsource translated sst  
+           @ss3.each do |x|
+           temp3 << {value: x.id, text: "#{x.skill_name}"}
+           @sst3 = temp3.to_json
+        end
+        temp4 = []  #Skillsource translated sst  
+           @ss4.each do |x|
+           temp4 << {value: x.id, text: "#{x.skill_name}"}
+           @sst4 = temp4.to_json
+        end
+        temp5 = []  #Skillsource translated sst  
+           @ss5.each do |x|
+           temp5 << {value: x.id, text: "#{x.skill_name}"}
+           @sst5 = temp5.to_json
+        end
+       #@jobhistory = @userprofile.jobs.all(:order => [:startdate.desc])
+       @sr = SkillRank.all
+
+
+
        erb :settings
 end
 
@@ -211,12 +239,6 @@ end
     return 200
   end
 
-  post '/updateskill' do
-    userprofile = env['warden'].user  #This is the most important query of all. it will identify the user of this session.
-    myskill = userprofile.skill_summary.get(params["pk"])
-    myskill.update(eval(":#{params['name']}") => params["value"])
-    return 200
-  end
 
   post '/jobsubmit' do 
     userprofile = env['warden'].user 
@@ -254,10 +276,19 @@ end
   get '/deleteskill' do
     userprofile = env['warden'].user
     myskill = userprofile.skill_summary.get(params["id"])
-    myskill.destroy
-    #redirect to('/settings')
+    #myskill.destroy
+    myskill.update(:status => 0)
     redirect to ('/settings#skilltable')
   end
+
+  post '/updateskill' do
+    userprofile = env['warden'].user  #This is the most important query of all. it will identify the user of this session.
+    myskill = userprofile.skill_summary.get(params["pk"])
+    myskill.update(eval(":#{params['name']}") => params["value"])
+    myskill.update(:status => 1)
+    return 200
+  end
+
 
   get '/showsysadmin' do
     userprofile = env['warden'].user

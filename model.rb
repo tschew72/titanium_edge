@@ -128,21 +128,41 @@ class Skilltag   ###n-n###
 end
   
 
+
+########### START Generated from HSQL ##################
 class SkillSummary    
   include DataMapper::Resource
 
   property :id, Serial , key: true
   property :user_id, Integer
   property :skill, String, length:100
-  property :skillrank, Integer
+  property :skillrank, Integer                  #1=Basic 2=Intermediate 3=Advance 4=Expert
   property :skillcategory, Integer
-  property :updated_at, DateTime
+  property :status, Integer, :default  => 2     #0=delete, 1=edited, 2=active
+  property :updated_at, DateTime                #When was it last edited
 
   belongs_to :user 
 end
 
+class SkillSource                               #This is for Skill Management Table.
+  include DataMapper::Resource                  #Matching skills to category
 
+  property :id, Serial , key: true
+  property :skillcategory_id, Integer
+  property :skillcategory_name, String, length:50
+  property :skill_id, Integer
+  property :skill_name, String, length:50
 
+end
+
+class SkillRank    
+  include DataMapper::Resource
+
+  property :id, Serial , key: true
+  property :skillrankname, String, length:30 
+
+end
+########### END Generated from HSQL ##################
 
 # Tell DataMapper the models are done being defined
 DataMapper.finalize
