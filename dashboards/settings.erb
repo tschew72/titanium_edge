@@ -182,13 +182,13 @@
                   <% @allskills.each do |i| %>
                   <!-- If flag is set to delete, break. and find next record -->
                   <% if @allskills.get(i).status != 0 %>
-                  <tr class="usertr">
+                  <tr>
                    
-                     <td><a class="skillcat" href="javascript:void(0)" class="editable-click" data-name="skillcategory" data-type="select" data-pk="<%= @allskills.get(i).id%>" data-url="/updateskill"  data-title="Enter skill category "><%= i.skillcategory %></a></td>
+                     <td><a class="skillcat" href="javascript:void(0)" class="editable-click" data-name="skillcatid" data-type="text" data-pk="<%= @allskills.get(i).id%>" data-url="/updateskillcat"  data-title="Enter skill category "><%= i.skillcategory %></a></td> <!--<%= i.skillcategory %>-->
                       
-                     <td><a class="skills" href="javascript:void(0)" class="editable-click" data-name="skill" data-type="select" data-pk="<%= @allskills.get(i).id%>" data-url="/updateskill"  data-title="Enter skill "><%= i.skillname %> </a></td>
+                     <td><a class="skills" href="javascript:void(0)" class="editable-click" data-name="skillid" data-type="select" data-pk="<%= @allskills.get(i).id%>" data-url="/updateskill"  data-title="Enter skill "><%= @ssmaster.get(i.skillid).skill_name %> </a></td>
 
-                     <td><a class="can_update" href="javascript:void(0)" class="editable-click" data-name="skillrank" data-type="select" data-pk="<%= @allskills.get(i).id%>" data-url="/updateskill" data-source="[{value: 1, text: 'fine'}, {value: 2, text: 'bad'}]"   data-title="Enter skill rank">  <%= @sr.get(i.skillrank).skillrankname %>
+                     <td><a class="skillrank" href="javascript:void(0)" class="editable-click" data-name="skillrank" data-type="select" data-pk="<%= @allskills.get(i).id%>" data-url="/updateskillrank" data-source="[{value: 1, text: 'Basic'}, {value: 2, text: 'Intermediate'}, {value: 3, text: 'Advance'}, {value: 4, text: 'Expert'}]"   data-title="Enter skill rank">  <%= @sr.get(i.skillrank).skillrankname %>
                      </a></td> 
 
                      
@@ -483,11 +483,13 @@ $(document).ready(function(){
 
 
       $('#skilltable').editable({
-        selector: 'a.can_update',
+        selector: 'a.skillrank',
         //url: '/updateskill',
 
 
       });
+
+
 
       $('#skilltable').editable({
         selector: 'a.skills',
@@ -515,6 +517,11 @@ $(document).ready(function(){
 
       });
    
+         $('#skillcat').editable({
+        selector: 'a.skillcat'
+        //url: '/updateskill',
+      });
+
 
               $('#skillsettingtable').dataTable( {
             "scrollY": 200,

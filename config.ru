@@ -123,11 +123,11 @@ get '/profile' do
        #@emailme = @userprofile.email
        #@userskills= @userprofile.skilltags.all(:order => [:skillscore.desc])
        #@skillname = Skill.all
-       @userskills1 = @userprofile.skill_summary.all(:skillcategory => 1)
-       @userskills2 = @userprofile.skill_summary.all(:skillcategory => 2)
-       @userskills3 = @userprofile.skill_summary.all(:skillcategory => 3)
-       @userskills4 = @userprofile.skill_summary.all(:skillcategory => 4)
-       @userskills5 = @userprofile.skill_summary.all(:skillcategory => 5)
+       @userskills1 = @userprofile.skill_summaries.all(:skillcategory => 1)
+       @userskills2 = @userprofile.skill_summaries.all(:skillcategory => 2)
+       @userskills3 = @userprofile.skill_summaries.all(:skillcategory => 3)
+       @userskills4 = @userprofile.skill_summaries.all(:skillcategory => 4)
+       @userskills5 = @userprofile.skill_summaries.all(:skillcategory => 5)
        
        @jobhistory = @userprofile.jobs.all(:order => [:startdate.desc])
        erb :profile
@@ -140,11 +140,11 @@ get '/mycv' do
        #@emailme = @userprofile.email
        #@userskills= @userprofile.skilltags.all(:order => [:skillscore.desc])
        #@skillname = Skill.all
-       @userskills1 = @userprofile.skill_summary.all(:skillcategory => 1)
-       @userskills2 = @userprofile.skill_summary.all(:skillcategory => 2)
-       @userskills3 = @userprofile.skill_summary.all(:skillcategory => 3)
-       @userskills4 = @userprofile.skill_summary.all(:skillcategory => 4)
-       @userskills5 = @userprofile.skill_summary.all(:skillcategory => 5)       
+       @userskills1 = @userprofile.skill_summaries.all(:skillcategory => 1)
+       @userskills2 = @userprofile.skill_summaries.all(:skillcategory => 2)
+       @userskills3 = @userprofile.skill_summaries.all(:skillcategory => 3)
+       @userskills4 = @userprofile.skill_summaries.all(:skillcategory => 4)
+       @userskills5 = @userprofile.skill_summaries.all(:skillcategory => 5)       
        @jobhistory = @userprofile.jobs.all(:order => [:startdate.desc])
        erb :mycv
 end
@@ -154,8 +154,9 @@ get '/settings' do
        redirect '/auth/login' unless env['warden'].authenticated?
        @userprofile = env['warden'].user  #This is the most important query of all. it will identify the user of this session.
        @userme = @userprofile.firstname
-       @allskills =   @userprofile.skill_summary.all
+       @allskills =   @userprofile.skill_summaries.all
        @ssmaster = SkillSource.all  #master skill source for cross referencing
+
        @ss0 = SkillSource.all(:skillcategory_id =>0)
        @ss1 = SkillSource.all(:skillcategory_id =>1)
        @ss2 = SkillSource.all(:skillcategory_id =>2)
@@ -343,7 +344,7 @@ end
 
   get '/deleteskill' do
     userprofile = env['warden'].user
-    myskill = userprofile.skill_summary.get(params["id"])
+    myskill = userprofile.skill_summaries.get(params["id"])
     #myskill.destroy
     myskill.update(:status => 0)
     redirect to ('/settings#skilltable')
@@ -351,9 +352,35 @@ end
 
   post '/updateskill' do
     userprofile = env['warden'].user  #This is the most important query of all. it will identify the user of this session.
-    myskill = userprofile.skill_summary.get(params["pk"])
-    myskill.update(eval(":#{params['name']}") => params["value"])
-    myskill.update(:status => 1)
+    myskill = userprofile.skill_summaries.get(params["pk"])
+    #myskill.update(eval(":#{params['name']}") => params["value"])
+    myskill.update(:skillid => params["value"])
+    myskill.update(:status =>1)
+    #myskill.skillid=params["value"]
+    #myskill.status=1
+    #myskill.save
+    return 200
+  end
+
+  post '/updateskillcat' do
+    userprofile = env['warden'].user  #This is the most important query of all. it will identify the user of this session.
+    myskill = userprofile.skill_summaries.get(params["pk"])
+    #myskill.update(eval(":#{params['name']}") => params["value"])
+    #myskill.reload.update(eval(":#{params['name']}") => params["value"])
+    myskill.update(:skillcatid => params["value"])
+    #myskill.update(:status =>1)
+
+    return 200
+  end
+
+ post '/updateskillrank' do
+    userprofile = env['warden'].user  #This is the most important query of all. it will identify the user of this session.
+    myskill = userprofile.skill_summaries.get(params["pk"])
+    #myskill.update(eval(":#{params['name']}") => params["value"])
+    #myskill.reload.update(eval(":#{params['name']}") => params["value"])
+    myskill.update(:skillrank => params["value"])
+    #myskill.update(:status =>1)
+
     return 200
   end
 

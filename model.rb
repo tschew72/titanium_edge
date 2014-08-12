@@ -43,7 +43,7 @@ class User
   has n, :matched_jobs
   has n, :jobs
   has 1, :career_score
-  has n, :skill_summary
+  has n, :skill_summaries
   has n, :skills, :through => :skilltags   ###n-n###
   has n, :skilltags                        ###n-n###
   
@@ -133,12 +133,12 @@ end
 class SkillSummary    
   include DataMapper::Resource
 
-  property :id, Serial , key: true
-  property :user_id, Integer
-  property :skillid, Integer
+  property :id, Serial , key: true, :index => true
+  property :user_id, Integer, :index => true
+  property :skillid, Integer, :index => true
   property :skillname, String, length:100
   property :skillrank, Integer                  #1=Basic 2=Intermediate 3=Advance 4=Expert
-  property :skillcatid, Integer
+  property :skillcatid, Integer, :index => true
   property :skillcategory, String, length:100
   property :status, Integer, :default  => 2     #0=delete, 1=edited, 2=active
   property :updated_at, DateTime                #When was it last edited
@@ -149,10 +149,10 @@ end
 class SkillSource                               #This is for Skill Management Table.
   include DataMapper::Resource                  #Matching skills to category
 
-  property :id, Serial , key: true
+  property :id, Serial , key: true, :index => true
   property :skilltype, Integer                 #1=Tech 2=Soft
   property :skill_name, String, length:100      
-  property :skillcategory_id, Integer
+  property :skillcategory_id, Integer, :index => true
   property :skillcategory_name, String, length:100
   
 
@@ -161,7 +161,7 @@ end
 class SkillRank    
   include DataMapper::Resource
 
-  property :id, Serial , key: true
+  property :id, Serial , key: true, :index => true
   property :skillrankname, String, length:30 
 
 end

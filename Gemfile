@@ -11,6 +11,7 @@ gem 'warden'
 gem 'dm-postgres-adapter'
 gem 'data_mapper'
 gem 'compass'
+gem 'font_assets'
 #gem "pg"
 #gem 'dm-sqlite-adapter', '1.2.0'
 #gem  'omniauth-twitter'
