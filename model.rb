@@ -136,11 +136,11 @@ class SkillSummary
   property :id, Serial , key: true, :index => true
   property :user_id, Integer, :index => true
   property :skillid, Integer, :index => true
-  property :skillname, String, length:100
-  property :skillrank, Integer                  #1=Basic 2=Intermediate 3=Advance 4=Expert
+  property :skillname, String, length:100, :index => true
+  property :skillrank, Integer, :index => true                  #1=Basic 2=Intermediate 3=Advance 4=Expert
   property :skillcatid, Integer, :index => true
-  property :skillcategory, String, length:100
-  property :status, Integer, :default  => 2     #0=delete, 1=edited, 2=active
+  property :skillcategory, String, length:100, :index => true
+  property :status, Integer, :default  => 2,:index => true     #0=delete, 1=edited, 2=active
   property :updated_at, DateTime                #When was it last edited
 
   belongs_to :user 
@@ -151,9 +151,9 @@ class SkillSource                               #This is for Skill Management Ta
 
   property :id, Serial , key: true, :index => true
   property :skilltype, Integer                 #1=Tech 2=Soft
-  property :skill_name, String, length:100      
+  property :skill_name, String, length:100, :index => true      
   property :skillcategory_id, Integer, :index => true
-  property :skillcategory_name, String, length:100
+  property :skillcategory_name, String, length:100, :index => true
   
 
 end
