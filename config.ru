@@ -158,47 +158,103 @@ get '/settings' do
        @ssmaster = SkillSource  #master skill source for cross referencing
  
 
+    
+@ss0 = @ssmaster.all(:skillcategory_id =>0)
+
+       @ss1 = @ssmaster.all(:skillcategory_id =>1)
+       @ss2 = @ssmaster.all(:skillcategory_id =>2)
+       @ss3 = @ssmaster.all(:skillcategory_id =>3)
+       @ss4 = @ssmaster.all(:skillcategory_id =>4)
+       @ss5 = @ssmaster.all(:skillcategory_id =>5)
+       @ss6 = @ssmaster.all(:skillcategory_id =>6)
+       @ss7 = @ssmaster.all(:skillcategory_id =>7)
+       @ss8 = @ssmaster.all(:skillcategory_id =>8)
+       @ss9 = @ssmaster.all(:skillcategory_id =>9)
+      
+
+
+
        @ss19 = @ssmaster.all(:skillcategory_id =>19)
        @ss20 = @ssmaster.all(:skillcategory_id =>20)
+       @ss21 = @ssmaster.all(:skillcategory_id =>21)
+       @ss22 = @ssmaster.all(:skillcategory_id =>22)
        @ss23 = @ssmaster.all(:skillcategory_id =>23)
+       @ss24 = @ssmaster.all(:skillcategory_id =>24)
+       @ss25 = @ssmaster.all(:skillcategory_id =>25)
+       @ss26 = @ssmaster.all(:skillcategory_id =>26)
+       @ss27 = @ssmaster.all(:skillcategory_id =>27)
        @ss28 = @ssmaster.all(:skillcategory_id =>28)
+       @ss29 = @ssmaster.all(:skillcategory_id =>29)
+       @ss30 = @ssmaster.all(:skillcategory_id =>30)
 
 
 
-
-        
-   
-        temp19 = []  #Skillsource translated sst  
+       
+        temp1 = []  #Skillsource translated sst 
+           @ss1.each do |x|
+           temp1 << {value: x.id, text: "#{x.skill_name}"}
+           @sst1 = temp1.to_json
+        end
+        temp2 = []  #Skillsource translated sst 
+           @ss2.each do |x|
+           temp2 << {value: x.id, text: "#{x.skill_name}"}
+           @sst2 = temp2.to_json
+        end
+        temp3 = []  #Skillsource translated sst 
+           @ss3.each do |x|
+           temp3 << {value: x.id, text: "#{x.skill_name}"}
+           @sst3 = temp3.to_json
+        end
+        temp4 = []  #Skillsource translated sst 
+           @ss4.each do |x|
+           temp4 << {value: x.id, text: "#{x.skill_name}"}
+           @sst4 = temp4.to_json
+        end
+        temp5 = []  #Skillsource translated sst 
+           @ss5.each do |x|
+           temp5 << {value: x.id, text: "#{x.skill_name}"}
+           @sst5 = temp5.to_json
+        end
+        temp6 = []  #Skillsource translated sst 
+           @ss6.each do |x|
+           temp6 << {value: x.id, text: "#{x.skill_name}"}
+           @sst6 = temp6.to_json
+        end
+        temp7 = []  #Skillsource translated sst 
+           @ss7.each do |x|
+           temp7 << {value: x.id, text: "#{x.skill_name}"}
+           @sst7 = temp7.to_json
+        end
+        temp8 = []  #Skillsource translated sst 
+           @ss8.each do |x|
+           temp8 << {value: x.id, text: "#{x.skill_name}"}
+           @sst8 = temp8.to_json
+        end
+        temp9 = []  #Skillsource translated sst 
+           @ss9.each do |x|
+           temp9 << {value: x.id, text: "#{x.skill_name}"}
+           @sst9 = temp9.to_json
+        end
+        temp19 = []  #Skillsource translated sst 
            @ss19.each do |x|
            temp19 << {value: x.id, text: "#{x.skill_name}"}
            @sst19 = temp19.to_json
         end
-        temp20 = []  #Skillsource translated sst  
+        temp20 = []  #Skillsource translated sst 
            @ss20.each do |x|
            temp20 << {value: x.id, text: "#{x.skill_name}"}
            @sst20 = temp20.to_json
         end
-        temp23 = []  #Skillsource translated sst  
+        temp23 = []  #Skillsource translated sst 
            @ss23.each do |x|
            temp23 << {value: x.id, text: "#{x.skill_name}"}
            @sst23 = temp23.to_json
         end
-        temp28 = []  #Skillsource translated sst  
+        temp28 = []  #Skillsource translated sst 
            @ss28.each do |x|
            temp28 << {value: x.id, text: "#{x.skill_name}"}
            @sst28 = temp28.to_json
         end
-
-       #@allskills.each do |i|
-       # if @allskills.get(i).skillid == 19
-       #   @ss19 = @ssmaster.all(:skillcategory_id =>19)
-       #   @ss19.each do |x|
-       #     temp19 = []  #Skillsource translated sst   
-       #     temp19 << {value: x.id, text: "#{x.skill_name}"}
-       #     @sst19 = temp19.to_json
-       #   end
-       # end
-       #end
 
        #@jobhistory = @userprofile.jobs.all(:order => [:startdate.desc])
        @sr = SkillRank.all
