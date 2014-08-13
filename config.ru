@@ -170,10 +170,6 @@ get '/settings' do
        @ss7 = @ssmaster.all(:skillcategory_id =>7)
        @ss8 = @ssmaster.all(:skillcategory_id =>8)
        @ss9 = @ssmaster.all(:skillcategory_id =>9)
-      
-
-
-
        @ss19 = @ssmaster.all(:skillcategory_id =>19)
        @ss20 = @ssmaster.all(:skillcategory_id =>20)
        @ss21 = @ssmaster.all(:skillcategory_id =>21)

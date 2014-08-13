@@ -12,7 +12,7 @@ class User
   include DataMapper::Resource
   include BCrypt
 
-  property :id, Serial, key: true
+  property :id, Serial, key: true, :index => true  
   property :username, String, length: 50
   property :firstname, String, length: 50
   property :email, String, length:80
@@ -80,7 +80,7 @@ end
 class MatchedJob
   include DataMapper::Resource
 
-  property :id, Serial, key: true
+  property :id, Serial, key: true, :index => true  
   property :user_id, Integer
   property :datematched, Date
   property :matchscore, Integer
@@ -150,7 +150,7 @@ class SkillSource                               #This is for Skill Management Ta
   include DataMapper::Resource                  #Matching skills to category
 
   property :id, Serial , key: true, :index => true
-  property :skilltype, Integer                 #1=Tech 2=Soft
+  property :skilltype, Integer, :index => true                   #1=Tech 2=Soft
   property :skill_name, String, length:100, :index => true      
   property :skillcategory_id, Integer, :index => true
   property :skillcategory_name, String, length:100, :index => true
@@ -162,7 +162,7 @@ class SkillRank
   include DataMapper::Resource
 
   property :id, Serial , key: true, :index => true
-  property :skillrankname, String, length:30 
+  property :skillrankname, String, length:30, :index => true   
 
 end
 ########### END Generated from HSQL ##################
