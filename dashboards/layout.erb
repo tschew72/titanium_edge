@@ -11,7 +11,7 @@
   <script type="text/javascript" src="/assets/application.js"></script>
   <!-- <script src="http://cdn.datatables.net/1.10.1/js/jquery.dataTables.min.js"></script> -->
   <script src="http://cdnjs.cloudflare.com/ajax/libs/x-editable/1.5.0/bootstrap3-editable/js/bootstrap-editable.min.js"></script>
-  <script src="/vendor/tinymce/js/tinymce/tinymce.min.js"></script>
+  <!-- <script src="/vendor/tinymce/js/tinymce/tinymce.min.js"></script> -->
   <!-- <script src="/vendor/bootstrap/js/bootstrap.min.js"></script> -->
   <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.0/jquery-ui.min.js"></script>
   
@@ -49,19 +49,25 @@
     <script src="/vendor/aceskin/ace-extra.min.js"></script>
     <script src="/vendor/aceskin/jquery.dataTables.min.js"></script>
     <script src="/vendor/aceskin/jquery.dataTables.bootstrap.js"></script>
-
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
 
     <!--[if lt IE 9]>
     <script src="/vendor/aceskin/html5shiv.js"></script>
     <script src="/vendor/aceskin/respond.min.js"></script>
     <![endif]-->
+
+
     <script src="/vendor/aceskin/ace-elements.min.js"></script>
     <script src="/vendor/aceskin/ace.min.js"></script>
     <script src="/vendor/aceskin/jquery.sparkline.min.js"></script> 
 
+<!-- <link href="/vendor/select2/select2-bootstrap.css" rel="stylesheet" type="text/css"></link>    -->
+<link href="/vendor/select2/select2.css" rel="stylesheet" type="text/css"></link>  
+
+
   </head>
   <body>
+
   <header>
 <div class="navbar navbar-default" id="navbar">
       <script type="text/javascript">
@@ -83,75 +89,32 @@
             <li class="grey">
               <a data-toggle="dropdown" class="dropdown-toggle" href="#">
                 <i class="icon-tasks"></i>
-                <span class="badge badge-grey">4</span>
               </a>
 
               <ul class="pull-right dropdown-navbar dropdown-menu dropdown-caret dropdown-close">
                 <li class="dropdown-header">
                   <i class="icon-ok"></i>
-                  4 Tasks to complete
+                  Guided Tour
                 </li>
 
                 <li>
                   <a href="#">
                     <div class="clearfix">
-                      <span class="pull-left">Software Update</span>
-                      <span class="pull-right">65%</span>
-                    </div>
-
-                    <div class="progress progress-mini ">
-                      <div style="width:65%" class="progress-bar "></div>
+                      <span class="pull-left">Tour this page</span>
                     </div>
                   </a>
                 </li>
+                
 
                 <li>
                   <a href="#">
-                    <div class="clearfix">
-                      <span class="pull-left">Hardware Upgrade</span>
-                      <span class="pull-right">35%</span>
-                    </div>
-
-                    <div class="progress progress-mini ">
-                      <div style="width:35%" class="progress-bar progress-bar-danger"></div>
-                    </div>
-                  </a>
-                </li>
-
-                <li>
-                  <a href="#">
-                    <div class="clearfix">
-                      <span class="pull-left">Unit Testing</span>
-                      <span class="pull-right">15%</span>
-                    </div>
-
-                    <div class="progress progress-mini ">
-                      <div style="width:15%" class="progress-bar progress-bar-warning"></div>
-                    </div>
-                  </a>
-                </li>
-
-                <li>
-                  <a href="#">
-                    <div class="clearfix">
-                      <span class="pull-left">Bug Fixes</span>
-                      <span class="pull-right">90%</span>
-                    </div>
-
-                    <div class="progress progress-mini progress-striped active">
-                      <div style="width:90%" class="progress-bar progress-bar-success"></div>
-                    </div>
-                  </a>
-                </li>
-
-                <li>
-                  <a href="#">
-                    See tasks with details
+                    See other tours
                     <i class="icon-arrow-right"></i>
                   </a>
                 </li>
               </ul>
             </li>
+
 
             <li class="purple">
               <a data-toggle="dropdown" class="dropdown-toggle" href="#">
@@ -170,7 +133,7 @@
                     <div class="clearfix">
                       <span class="pull-left">
                         <i class="btn btn-xs no-hover btn-pink icon-comment"></i>
-                        New Comments
+                        Things to do
                       </span>
                       <span class="pull-right badge badge-info">+12</span>
                     </div>
@@ -180,7 +143,7 @@
                 <li>
                   <a href="#">
                     <i class="btn btn-xs btn-primary icon-user"></i>
-                    Bob just signed up as an editor ...
+                    New job matches
                   </a>
                 </li>
 
@@ -189,7 +152,7 @@
                     <div class="clearfix">
                       <span class="pull-left">
                         <i class="btn btn-xs no-hover btn-success icon-shopping-cart"></i>
-                        New Orders
+                        New Endorsement
                       </span>
                       <span class="pull-right badge badge-success">+8</span>
                     </div>
@@ -201,7 +164,7 @@
                     <div class="clearfix">
                       <span class="pull-left">
                         <i class="btn btn-xs no-hover btn-info icon-twitter"></i>
-                        Followers
+                        New courses/seminars
                       </span>
                       <span class="pull-right badge badge-info">+11</span>
                     </div>
@@ -345,7 +308,7 @@
           <li class=""><a href="/edge" ><i class="menu-icon fa fa-desktop"></i><span class="menu-text"> My Dashboard</span></a></li>     
           <li class=""><a href="/industrystatistics" ><i class="menu-icon fa fa-list"></i><span class="menu-text"> General Statistics </span></a></li> 
           <li class=""><a href="/community" ><i class="menu-icon fa fa-list"></i><span class="menu-text"> Community </span></a></li> 
-          <li class=""><a href="/settings" ><i class="menu-icon fa fa-list"></i><span class="menu-text"> About me </span></a></li> 
+          <li class=""><a href="/settings" class="ajax-call"><i class="menu-icon fa fa-list"></i><span class="menu-text"> About me </span></a></li> 
           <li class=""><a href="/mycv" ><i class="menu-icon fa fa-list"></i><span class="menu-text"> My CV </span></a></li> 
         </ul><!-- /.nav-list -->
 
@@ -372,8 +335,6 @@
 
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 
-    <script src="/vendor/aceskin/typeahead-bs2.min.js"></script>
-
     <!-- page specific plugin scripts -->
 
     <!--[if lte IE 8]>
@@ -390,8 +351,10 @@
     <script src="/vendor/aceskin/jquery.flot.min.js"></script>
     <script src="/vendor/aceskin/jquery.flot.pie.min.js"></script>
     <script src="/vendor/aceskin/jquery.flot.resize.min.js"></script>
-
-  
+    
+<script src="/vendor/aceskin/typeahead-bs2.min.js"></script>
+<script src="/vendor/aceskin/bootstrap-tag.min.js"></script>
+<script src="/vendor/select2/select2.js"></script>  
     <!-- <![endif]-->
     <!--[if IE]>
     <script type="text/javascript">
@@ -401,6 +364,6 @@
 
      <script src="/vendor/custom.js"></script>
 
-
 </body>
 </html>
+

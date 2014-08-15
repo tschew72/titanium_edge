@@ -15,7 +15,7 @@ class User
   property :id, Serial, key: true, :index => true  
   property :username, String, length: 50
   property :firstname, String, length: 50
-  property :email, String, length:80
+  property :email, String, length:80, format: :email_address
   property :datejoined, Date
   property :age, Integer
   property :gender, String, length: 1
@@ -44,6 +44,8 @@ class User
   has n, :jobs
   has 1, :career_score
   has n, :skill_summaries
+  has n, :job_industries
+  has n, :preferred_locations
   has n, :skills, :through => :skilltags   ###n-n###
   has n, :skilltags                        ###n-n###
   
@@ -162,8 +164,44 @@ class SkillRank
   include DataMapper::Resource
 
   property :id, Serial , key: true, :index => true
-  property :skillrankname, String, length:30, :index => true   
+  property :skillrankname, String, length:100, :index => true   
 
+end
+
+class JobIndustry     #Preferred Industry
+  include DataMapper::Resource
+
+  property :id, Serial , key: true, :index => true
+  property :user_id, Integer
+  property :industryid, Integer, :index => true   
+
+belongs_to :user
+end
+
+class IndustryMaster  
+  include DataMapper::Resource
+
+  property :id, Serial , key: true, :index => true
+  property :industryname, String, length:100, :index => true   
+
+end
+
+class CountryMaster  
+  include DataMapper::Resource
+
+  property :id, Serial , key: true, :index => true
+  property :countryname, String, length:150, :index => true   
+
+end
+
+class PreferredLocation      
+  include DataMapper::Resource
+
+  property :id, Serial , key: true, :index => true
+  property :user_id, Integer
+  property :countryid, Integer, :index => true   
+
+belongs_to :user
 end
 ########### END Generated from HSQL ##################
 

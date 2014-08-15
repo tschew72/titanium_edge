@@ -4,6 +4,7 @@
 </style>
 
 
+
 <div class="breadcrumbs" id="breadcrumbs">
   <script type="text/javascript">
     try{ace.settings.check('breadcrumbs' , 'fixed')}catch(e){}
@@ -67,10 +68,6 @@
           </div> <!-- column -->
      </div> <!-- row -->
      <div class="row">
-        <h3 class="header smaller lighter blue">My Social Networks</h3>
-
-     </div>
-     <div class="row">
       <h3 class="header smaller lighter blue">Preference Management</h3>
          <div class="col-sm-12 column">
            <form class="form-horizontal" role="form">
@@ -82,40 +79,66 @@
                         <span class="lbl"></span>
                       </label>
               </div> 
+
+
+
+
+                  <div class="form-group">
+                    <label class="col-sm-3 control-label no-padding-right" for="form-field-tags-joblevels">Preferred Job Levels</label>
+
+                    <div class="col-sm-9">
+                      <input type="text" name="tags" id="form-field-tags-joblevels" value="Tag Input Control" placeholder="Enter job level ..." />
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <label class="col-sm-3 control-label no-padding-right" for="form-field-tags-jobfunctions">Preferred Job Functions</label>
+
+                    <div class="col-sm-9">
+                      <input type="text" name="tags" id="form-field-tags-jobfunctions" value="Tag Input Control" placeholder="Enter job functions ..." />
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <label class="col-sm-3 control-label no-padding-right" for="form-field-tags-industries">Preferred Industries</label>
+
+                    <div class="col-sm-6">
+                       <a href="#" id="industries" data-type="select2" data-value="<%= @pref_ind %>"  data-pk="<%=@userprofile.id %>" data-url="/updateindpref" data-title="Enter preferred industries"></a>
+                      
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <label class="col-sm-3 control-label no-padding-right" for="form-field-tags-locations">Preferred Locations</label>
+
+                    <div class="col-sm-9">
+                      <a href="#" id="locations" data-type="select2" data-value="<%= @pref_loc %>"  data-pk="<%=@userprofile.id %>" data-url="/updatelocpref" data-title="Enter preferred locations"></a>
+                    </div>
+                  </div>
+
               <div class="form-group">
-                  <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Upload new CV </label>
-              </div> 
-              <div class="form-group">
-                  <!-- To be able to display the chart that is based on his preferred job type -->
-                  <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Preferred job type </label>
-                  <p> <input type="text" id="form-field-1" /> </p>
-              </div> 
-              <div class="form-group">
-                  <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Preferred Countries </label>
-                  <p> <input type="text" id="form-field-1" /> </p>
-              </div>               
-              <div class="form-group">
-                  <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Expected salary </label>
+                  <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Expected salary S$</label>
                   <p> <input type="text" id="form-field-1"   /> </p>
               </div> 
               <div class="form-group">
                   <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Expected travel frequency </label>
-                  <p> <input type="text" id="form-field-1"  /> </p>
+                  <p> <input type="text" id="form-field-1"  /> </p> <!--dropdown -->
               </div> 
               <div class="form-group">
                   <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Industry preference </label>
                   <p> <input type="text" id="form-field-1"  /> </p>
               </div> 
-              <div class="form-group">
-                  <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Change password </label>
-                  <p> <input type="text" id="form-field-1"  /> </p>
-              </div> 
+
             </form>
          </div> <!-- "col-sm-12 column" -->
      </div> <!-- Row -->
 
      <div class="row">
       Generate CV in PDF format
+                    <div class="form-group">
+                  <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Upload new CV </label>
+              </div> 
+
      </div>
      
    <div class="row">
@@ -186,7 +209,7 @@
                    
                      <td><a class="skillcat" href="javascript:void(0)" class="editable-click" data-name="skillcatid" data-type="text" data-pk="<%= @allskills.get(i).id%>" data-url="/updateskillcat"  data-title="Enter skill category "><%= i.skillcategory %></a></td> <!--<%= i.skillcategory %>-->
                       
-                     <td><a class="skills" href="javascript:void(0)" class="editable-click" data-name="skillid" data-type="select" data-pk="<%= @allskills.get(i).id%>" data-url="/updateskill"  data-title="Enter skill "><%= @ssmaster.get(i.skillid).skill_name %> </a></td>
+                     <td><a class="skills" href="javascript:void(0)" class="editable-click" data-value="i.skillid" data-name="skillid" data-type="select" data-pk="<%= @allskills.get(i).id%>" data-url="/updateskill"  data-title="Enter skill "><%= @ssmaster.get(i.skillid).skill_name %> </a></td>
                      
                      <td><a class="skillrank" href="javascript:void(0)" class="editable-click" data-name="skillrank" data-type="select" data-pk="<%= @allskills.get(i).id%>" data-url="/updateskillrank" data-source="[{value: 1, text: 'Basic'}, {value: 2, text: 'Intermediate'}, {value: 3, text: 'Advance'}, {value: 4, text: 'Expert'}]"   data-title="Enter skill rank">  <%= @sr.get(i.skillrank).skillrankname %>
                      </a></td> 
@@ -221,7 +244,9 @@
   </div> <!-- Container -->
  </div> <!-- page-content-area -->          
  </div> <!--"page-content" -->                
-                      
+
+
+
 
 
 <script type="text/javascript">
@@ -431,9 +456,52 @@
         }catch(e) {}
         
         
-
-  
+ 
+        var tag_input = $('#form-field-tags-locations');
+        if(! ( /msie\s*(8|7|6)/.test(navigator.userAgent.toLowerCase())) ) 
+        {
+          tag_input.tag(
+            {
+            placeholder:tag_input.attr('placeholder'),
+            //enable typeahead by specifying the source array
+            source: ace.variable_US_STATES,//defined in ace.js >> ace.enable_search_ahead
+            }
+          );
+        }
+        else {
+          //display a textarea for old IE, because it doesn't support this plugin or another one I tried!
+          tag_input.after('<textarea id="'+tag_input.attr('id')+'" name="'+tag_input.attr('name')+'" rows="3">'+tag_input.val()+'</textarea>').remove();
+          //$('#form-field-tags').autosize({append: "\n"});
+        }          
       
+
+      $('#industries').editable({
+        
+           source: function() {
+                return (<%= @industries%>)
+              },
+        select2: {
+           multiple: true
+        },
+        allowClear: true,
+        minimumInputLength: 3,
+      });
+
+      $('#locations').editable({
+        
+           source: function() {
+                return (<%= @countries%>)
+              },
+        select2: {
+           multiple: true
+        },
+        allowClear: true,
+        minimumInputLength: 3,
+      });
+
+
+
+
 	});
 
 $(document).ready(function(){
@@ -521,13 +589,14 @@ $(document).ready(function(){
 
       });
    
-         $('#skillcat').editable({
+      $('#skillcat').editable({
         selector: 'a.skillcat'
         //url: '/updateskill',
       });
 
 
-              $('#skillsettingtable').dataTable( {
+
+        $('#skillsettingtable').dataTable( {
             "scrollY": 200,
             "ScrollX": true,
             "iDisplayLength": 10,
@@ -539,6 +608,8 @@ $(document).ready(function(){
                 { "bSortable": false }
               ]
         } );
+
+
 
 </script>
 

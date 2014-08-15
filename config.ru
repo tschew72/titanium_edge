@@ -156,8 +156,35 @@ get '/settings' do
        @userme = @userprofile.firstname
        @allskills =   @userprofile.skill_summaries.all
        @ssmaster = SkillSource  #master skill source for cross referencing
- 
+      
+       #Preferred Industries
+       pind = @userprofile.job_industries.all
+       @pref_ind=""
+       pind.each do |i|
+          @pref_ind  = @pref_ind + pind.get(i).industryid.to_s + ","
+       end
 
+
+       #Preferred Countries
+       pc= @userprofile.preferred_locations.all
+       @pref_loc=""
+       pc.each do |i|
+          @pref_loc = @pref_loc + pc.get(i).countryid.to_s + ","
+       end
+
+       @indmaster = IndustryMaster.all
+       indtemp = []  
+           @indmaster.each do |x|
+           indtemp << {id: x.id, text: "#{x.industryname}"}
+           @industries = indtemp.to_json
+        end
+
+       @cmaster = CountryMaster.all
+       ctemp = []  
+           @cmaster.each do |x|
+           ctemp << {id: x.id, text: "#{x.countryname}"}
+           @countries = ctemp.to_json
+        end
     
 @ss0 = @ssmaster.all(:skillcategory_id =>0)
 
@@ -389,7 +416,21 @@ end
   end
 
 
+    get '/updatelocpref'do
+     userprofile = env['warden'].user  
+     pc= userprofile.preferred_locations.get(params["pk"])
+     pc.update(eval(":#{params['name']}") => params["value"])
+  end
+
+    get '/updateindpref'do
+     userprofile = env['warden'].user 
+     pind = userprofile.job_industries.get(params["pk"])
+     pind.update(eval(":#{params['name']}") => params["value"])
+  end
+
 end
+
+
 
 map SinatraWardenExample.assets_prefix do
   run SinatraWardenExample.sprockets
