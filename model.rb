@@ -83,13 +83,13 @@ class MatchedJob
   include DataMapper::Resource
 
   property :id, Serial, key: true, :index => true  
-  property :user_id, Integer
-  property :datematched, Date
-  property :matchscore, Integer
-  property :matchrank, Integer
-  property :jobfunction, String, length:80
-  property :joblevel, String, length:80
-  property :jobsalaryrange, String, length:100
+  property :user_id, Integer, :index => true  
+  property :datematched, Date, :index => true  
+  property :matchscore, Integer, :index => true  
+  property :matchrank, Integer, :index => true  
+  property :jobfunction, String, length:80, :index => true  
+  property :joblevel, String, length:80, :index => true  
+  property :jobsalaryrange, String, length:100, :index => true  
 
   belongs_to :user 
 end
