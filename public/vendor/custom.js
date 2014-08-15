@@ -1,4 +1,4 @@
-   $.fn.editable.defaults.mode = 'inline'; 
+   $.fn.editable.defaults.mode = 'popup'; 
    $(document).ready(function() {
       
       $('#firstname').editable();

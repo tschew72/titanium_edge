@@ -475,6 +475,51 @@
         }          
       
 
+      $('#skilltable').editable({
+        selector: 'a.skillrank',
+        //url: '/updateskill',
+
+
+      });
+
+
+
+      $('#skilltable').editable({
+        selector: 'a.skills',
+        source: function() {
+
+        
+
+              //alert($(this).closest(":has(td)").find('.skillcat').text());
+              //$(this).closest(":has(td)").find('.skillcat').text()
+              //$('.a1').closest('td').prev().text()
+              //alert($(this).closest("td").prev().text())
+              if ($(this).closest("td").prev().text() == "General Skills Management / Customers"){
+                return (<%= @sst19 %>)
+                
+              }
+              if ($(this).closest("td").prev().text()  == "Networking Skills"){
+                return <%= @sst23 %>
+                
+              }
+              if ($(this).closest("td").prev().text()  == "General Skills Technical"){
+                return <%= @sst20 %>
+               
+              }
+              if ($(this).closest("td").prev().text()  == "Operating Systems"){
+                return <%= @sst28 %>
+              
+              }
+        //return (sources[1])
+        },
+
+      });
+   
+      $('#skillcat').editable({
+        selector: 'a.skillcat'
+        //url: '/updateskill',
+      });
+
       $('#industries').editable({
         
            source: function() {
@@ -485,6 +530,7 @@
         },
         allowClear: true,
         minimumInputLength: 3,
+        mode: 'popup',
       });
 
       $('#locations').editable({
@@ -497,8 +543,23 @@
         },
         allowClear: true,
         minimumInputLength: 3,
+        mode: 'popup',
       });
 
+
+
+        $('#skillsettingtable').dataTable( {
+            "scrollY": 200,
+            "ScrollX": true,
+            "iDisplayLength": 10,
+            "order": [[ 0, "desc" ]],
+            "scrollCollapse": true,
+            "jQueryUI": true,
+            "aoColumns": [          
+                null, null, null,
+                { "bSortable": false }
+              ]
+        } );
 
 
 
@@ -549,65 +610,10 @@ $(document).ready(function(){
 <script>
 
 
-      $('#skilltable').editable({
-        selector: 'a.skillrank',
-        //url: '/updateskill',
-
-
-      });
+      
 
 
 
-      $('#skilltable').editable({
-        selector: 'a.skills',
-        source: function() {
-
-        
-
-              //alert($(this).closest(":has(td)").find('.skillcat').text());
-              //$(this).closest(":has(td)").find('.skillcat').text()
-              //$('.a1').closest('td').prev().text()
-              //alert($(this).closest("td").prev().text())
-              if ($(this).closest("td").prev().text() == "General Skills Management / Customers"){
-                return (<%= @sst19 %>)
-                
-              }
-              if ($(this).closest("td").prev().text()  == "Networking Skills"){
-                return <%= @sst23 %>
-                
-              }
-              if ($(this).closest("td").prev().text()  == "General Skills Technical"){
-                return <%= @sst20 %>
-               
-              }
-              if ($(this).closest("td").prev().text()  == "Operating Systems"){
-                return <%= @sst28 %>
-              
-              }
-        //return (sources[1])
-        },
-
-      });
-   
-      $('#skillcat').editable({
-        selector: 'a.skillcat'
-        //url: '/updateskill',
-      });
-
-
-
-        $('#skillsettingtable').dataTable( {
-            "scrollY": 200,
-            "ScrollX": true,
-            "iDisplayLength": 10,
-            "order": [[ 0, "desc" ]],
-            "scrollCollapse": true,
-            "jQueryUI": true,
-            "aoColumns": [          
-                null, null, null,
-                { "bSortable": false }
-              ]
-        } );
 
 
 

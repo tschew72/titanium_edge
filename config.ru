@@ -165,7 +165,7 @@ get '/settings' do
        end
 
 
-       #Preferred Countries
+       #Preferred Locations
        pc= @userprofile.preferred_locations.all
        @pref_loc=""
        pc.each do |i|
@@ -417,6 +417,8 @@ end
 
 
     get '/updatelocpref'do
+    # If shaun cannot provide a string as data. Then what we will do is we will send back a new table to him with a string containing all the location ID
+    # And in /settings, we will have to build this new table. 
      userprofile = env['warden'].user  
      pc= userprofile.preferred_locations.get(params["pk"])
      pc.update(eval(":#{params['name']}") => params["value"])
