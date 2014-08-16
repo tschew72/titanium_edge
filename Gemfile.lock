@@ -91,6 +91,7 @@ GEM
     mini_portile (0.6.0)
     multi_json (1.10.1)
     multi_xml (0.5.5)
+    newrelic_rpm (3.9.1.236)
     nokogiri (1.6.2.1)
       mini_portile (= 0.6.0)
     passenger (4.0.45)
@@ -155,6 +156,7 @@ DEPENDENCIES
   font_assets
   httparty
   json
+  newrelic_rpm
   passenger
   roo
   warden
