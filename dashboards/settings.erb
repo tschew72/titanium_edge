@@ -212,10 +212,11 @@
                    <th class="align-center"></th>
                 </tr>
               </thead>
-              <tbody >
+              <tbody id="aat" >
                   <% @allskills.each do |i| %>
                   <!-- If flag is set to delete, break. and find next record -->
                   <% if @allskills.get(i).status != 0 %>
+                 
                   <tr>
                    
                      <td><a class="skillcat" href="javascript:void(0)" class="editable-click" data-name="skillcatid" data-type="text" data-pk="<%= @allskills.get(i).id%>" data-url="/updateskillcat"  data-title="Enter skill category "><%= i.skillcategory %></a></td> <!--<%= i.skillcategory %>-->
@@ -227,14 +228,19 @@
 
                      
                      <td>
+
                       <div class="hidden-sm hidden-xs action-buttons">
 
-                          <a class="red" href="/deleteskill?id=<%= @allskills.get(i).id %>"> <!-- Set a flag to say it is deleted.  -->
+                          <!-- <a id="skilldel" class="red" href="/deleteskill?id=<%= @allskills.get(i).id %>"> -->
+                          <a onclick="delskill(this, <%=i.id%>)" class="red" href="javascript:void(0)">
                             <i class="icon-trash bigger-130"></i>
+                             
                           </a>
+
                       </div>
                      </td>
                   </tr>
+
                  <% end %>
                   <% end %>
               </tbody>
@@ -611,11 +617,13 @@
          
       });
 
+  
+
+
+
 	});
 
 $(document).ready(function(){
-
-
 
 		$('.dial').each(function () { 
 
@@ -678,6 +686,35 @@ document.getElementById( 'abc' ).style.visibility = 'visible';
 
 
 }
+
+
+</script>
+
+
+<script>
+
+
+function delskill(element,i){
+
+  $.ajax({
+          url: '/deleteskill',
+          type: 'POST',
+          data: {"pk" : i},
+          success: function(response){
+             //$(element).parents('tr').remove();
+            
+            //var row = $(this).closest('tr');
+            var row=$(element).parents('tr')
+            $('#skillsettingtable').dataTable().fnDeleteRow(row[0]);
+
+          }
+
+        });
+
+
+}//function
+
+ 
 
 
 

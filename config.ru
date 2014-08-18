@@ -394,6 +394,15 @@ end
     redirect to ('/settings#skilltable')
   end
 
+
+  post '/deleteskill' do
+    userprofile = env['warden'].user
+    myskill = userprofile.skill_summaries.get(params["pk"])
+    myskill.update(:status => 0)
+    return 200
+  end
+
+
   post '/updateskill' do
     userprofile = env['warden'].user  #This is the most important query of all. it will identify the user of this session.
     myskill = userprofile.skill_summaries.get(params["pk"])

@@ -48,33 +48,15 @@ Social Media
 
 
 
-<p>This example uses the HTML DOM to assign an "onclick" event to a p element.</p>
-
-<p id="demo">Click me.</p>
-<p > asdasd </p>
-
-<div class="checkbox" id="abc" style="visibility: hidden">
-<label>
-<input name="form-field-checkbox" value="1" type="checkbox" class="ace" />
-<span class="lbl"> choice aa</span>
-</label>
-</div>
-
+<a onclick="clickme(23)"> sksk393jwelkfnsf  </a>
 
 <script>
-document.getElementById("testing").onclick = function() {myFunction1()};
+// $('#clickme').on("click",function(){alert('hello world');});
 
-function myFunction1() {
-document.getElementById("testing").innerHTML = "YOU CLICKED ME!";
-document.getElementById( 'abc' ).style.visibility = 'visible'; 
+function clickme(i){
+
+	alert(i)
 }
-
-function spr_on()
-{
-document.getElementById( 'spr_block' ).style.visibility = 'visible'; 
-}
-
-
 
 document.getElementById("demo").onclick = function() {myFunction()};
 
@@ -83,5 +65,3 @@ function myFunction() {
 }
 </script>
 
-
-<script>
