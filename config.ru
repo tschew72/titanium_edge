@@ -149,6 +149,10 @@ get '/mycv' do
        erb :mycv
 end
 
+get '/account' do
+       erb :account
+end
+
 get '/settings' do
 
        redirect '/auth/login' unless env['warden'].authenticated?
@@ -182,7 +186,7 @@ get '/settings' do
        @cmaster = CountryMaster.all
        ctemp = []  
            @cmaster.each do |x|
-           ctemp << {id: x.id, text: "#{x.countryname}"}
+           ctemp << {value: x.id, text: "#{x.countryname}"}
            @countries = ctemp.to_json
         end
     
@@ -284,6 +288,10 @@ get '/settings' do
 
 
 
+                                  
+                                
+                            
+
        erb :settings
 end
 
@@ -333,6 +341,17 @@ end
     return 200
   end
 
+  post '/updatespr' do
+    userdata = User.get(params["pk"])
+    userdata.update(:singaporepr => params['singaporepr'])
+    return 200
+  end
+
+  post '/updateactive' do
+    userdata = User.get(params["pk"])
+    userdata.update(:activeseeker => params['activeseeker'])
+    return 200
+  end
 
   post '/jobsubmit' do 
     userprofile = env['warden'].user 
@@ -378,12 +397,9 @@ end
   post '/updateskill' do
     userprofile = env['warden'].user  #This is the most important query of all. it will identify the user of this session.
     myskill = userprofile.skill_summaries.get(params["pk"])
-    #myskill.update(eval(":#{params['name']}") => params["value"])
     myskill.update(:skillid => params["value"])
     myskill.update(:status =>1)
-    #myskill.skillid=params["value"]
-    #myskill.status=1
-    #myskill.save
+
     return 200
   end
 

@@ -49,19 +49,32 @@
                     </tr>     
                     <tr>
                        <td>Nationality:</td>
-                       <td><%= @userprofile.nationality %>  </td>
-                    </tr>      
+                       <td><a href="javascript:void(0)" id="nationality" data-type="select"  data-pk="<%=@userprofile.id %>" data-url="/updateprofile" data-title="Enter nationality"><%= @cmaster.get(@userprofile.nationality).countryname %> </a> </td>
+                       <td id="spr_block" style="visibility: hidden"> 
+                        <div class="checkbox">
+                          <label>
+                            <input id="sprcheck" name="singaporepr" type="checkbox" class="ace" <%= @userprofile.singaporepr.to_s == "true" ? "checked" : "unchecked" %> />
+                            <span class="lbl"> Singapore PR?</span>
+                          </label>
+                        </div>
+                       </td>
+
+
+                    </tr> 
+
+                     
                     <tr>
                        <td>Mobile #:</td>
-                       <td><%= @userprofile.contactnumber %>  </td>
+                       <td><a href="javascript:void(0)"  id="contactnumber" data-type="text" data-pk="<%=@userprofile.id %>" data-url="/updateprofile" data-title="Enter mobile number"><%= @userprofile.contactnumber %> </a>  </td>
+                      
                     </tr> 
                     <tr>
                        <td>Address:</td>
-                       <td><%= @userprofile.address %>  </td>
+                       <td><a href="javascript:void(0)"  id="address" data-type="text" data-pk="<%=@userprofile.id %>" data-url="/updateprofile" data-title="Enter address"><%= @userprofile.address %>   </a> </td>
                     </tr>                      
                     <tr>
                        <td>Email:</td>
-                       <td><%= @userprofile.email %> </td>
+                       <td><a href="javascript:void(0)"  id="email" data-type="text" data-pk="<%=@userprofile.id %>" data-url="/updateprofile" data-title="Enter email address"><%= @userprofile.email %>   </a> </td>
                     </tr>
                </tbody>
             </table>
@@ -74,7 +87,7 @@
               <div class="form-group">
                   <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> I am active in looking for job </label>
                       <label>
-                        <input name="switch-field-1" class="ace ace-switch ace-switch-5 btn-rotate" type="checkbox" />
+                        <input id="activecheck" name="activeseeker" class="ace ace-switch ace-switch-5 btn-rotate" type="checkbox" <%= @userprofile.activeseeker.to_s == "true" ? "checked" : "unchecked" %> />
                         <!-- /*http://stackoverflow.com/questions/17517622/how-to-send-radio-button-value-with-ajax-and-recover-it-with-php*/ -->
                         <span class="lbl"></span>
                       </label>
@@ -124,17 +137,15 @@
                   <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Expected travel frequency </label>
                   <p> <input type="text" id="form-field-1"  /> </p> <!--dropdown -->
               </div> 
-              <div class="form-group">
-                  <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Industry preference </label>
-                  <p> <input type="text" id="form-field-1"  /> </p>
-              </div> 
 
             </form>
          </div> <!-- "col-sm-12 column" -->
      </div> <!-- Row -->
 
      <div class="row">
-      Generate CV in PDF format
+       <p id="testing"> Generate CV in PDF format </p>
+
+
                     <div class="form-group">
                   <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Upload new CV </label>
               </div> 
@@ -209,7 +220,7 @@
                    
                      <td><a class="skillcat" href="javascript:void(0)" class="editable-click" data-name="skillcatid" data-type="text" data-pk="<%= @allskills.get(i).id%>" data-url="/updateskillcat"  data-title="Enter skill category "><%= i.skillcategory %></a></td> <!--<%= i.skillcategory %>-->
                       
-                     <td><a class="skills" href="javascript:void(0)" class="editable-click" data-value="i.skillid" data-name="skillid" data-type="select" data-pk="<%= @allskills.get(i).id%>" data-url="/updateskill"  data-title="Enter skill "><%= @ssmaster.get(i.skillid).skill_name %> </a></td>
+                     <td><a class="skills" href="javascript:void(0)" class="editable-click" data-name="skillid" data-type="select" data-pk="<%= @allskills.get(i).id%>" data-url="/updateskill"  data-title="Enter skill "><%= @ssmaster.get(i.skillid).skill_name %> </a></td>
                      
                      <td><a class="skillrank" href="javascript:void(0)" class="editable-click" data-name="skillrank" data-type="select" data-pk="<%= @allskills.get(i).id%>" data-url="/updateskillrank" data-source="[{value: 1, text: 'Basic'}, {value: 2, text: 'Intermediate'}, {value: 3, text: 'Advance'}, {value: 4, text: 'Expert'}]"   data-title="Enter skill rank">  <%= @sr.get(i.skillrank).skillrankname %>
                      </a></td> 
@@ -476,7 +487,7 @@
       
 
       $('#skilltable').editable({
-        selector: 'a.skillrank',
+        selector: 'a.skillrank'
         //url: '/updateskill',
 
 
@@ -511,7 +522,7 @@
               
               }
         //return (sources[1])
-        },
+        }
 
       });
    
@@ -530,22 +541,21 @@
         },
         allowClear: true,
         minimumInputLength: 3,
-        mode: 'popup',
+        mode: 'popup'
       });
 
       $('#locations').editable({
         
            source: function() {
-                return (<%= @countries%>)
+                return (<%= @countries %>)
               },
         select2: {
            multiple: true
         },
         allowClear: true,
         minimumInputLength: 3,
-        mode: 'popup',
+        mode: 'popup'
       });
-
 
 
         $('#skillsettingtable').dataTable( {
@@ -561,7 +571,45 @@
               ]
         } );
 
+      $('#nationality').editable({
+        
+           source: function() {
+                return (<%= @countries %>)
+              },
+           success: function(response, newValue) {
+              
+              if (newValue != 156){
+                 document.getElementById( 'spr_block' ).style.visibility = 'visible'; 
+              };
 
+              if (newValue == 156){
+                document.getElementById( 'spr_block' ).style.visibility = 'hidden'; 
+              } ;
+           
+            
+            } //success
+
+      });
+
+      $("#sprcheck").on('change', function(){
+          $.ajax({
+            url: '/updatespr',
+            type: 'POST',
+            data: {"singaporepr": this.checked, "pk" : <%=@userprofile.id %>}
+            
+          });
+         
+      });
+
+      $("#activecheck").on('change', function(){
+          $.ajax({
+            url: '/updateactive',
+            type: 'POST',
+            data: {"activeseeker": this.checked, "pk" : <%=@userprofile.id %>}
+            
+          });
+         
+      });
 
 	});
 
@@ -600,20 +648,36 @@ $(document).ready(function(){
 		});
    
 
+    var nation=document.getElementById( 'nationality' ).textContent;
+              if (nation.indexOf("Singapore") > -1){
+                document.getElementById( 'spr_block' ).style.visibility = 'hidden'; 
+              
+              } else
+              {
+                document.getElementById( 'spr_block' ).style.visibility = 'visible'; 
+                
+              }; 
+              
+          
+
    //http://stackoverflow.com/questions/19421869/jquery-knob-return-values-of-multiple-knobs-on-demand?rq=1 AJAX the return value.
  });
 
 </script>
 
 
-
 <script>
 
 
-      
+document.getElementById("testing").onclick = function() {spr_on()};
+
+function spr_on()
+{
+document.getElementById( 'spr_block' ).style.visibility = 'visible'; 
+document.getElementById( 'abc' ).style.visibility = 'visible'; 
 
 
-
+}
 
 
 

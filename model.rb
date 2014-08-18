@@ -15,13 +15,14 @@ class User
   property :id, Serial, key: true, :index => true  
   property :username, String, length: 50
   property :firstname, String, length: 50
+  property :lastname, String, length:50
   property :email, String, length:80, format: :email_address
   property :datejoined, Date
   property :age, Integer
   property :gender, String, length: 1
   property :dob, Date
   property :address, String
-  property :nationality, String, length: 80
+  property :nationality, Integer
   property :contactnumber, String, length: 20
   property :facebooklink, String, length: 120
   property :twitterlink, String, length: 120
