@@ -27,65 +27,118 @@
      <!-- <div class="row"> -->
       <div id="user-profile-1" class="user-profile row">
         <h3 class="header smaller lighter blue">My Profile</h3>
-        <div class="col-md-3 column">
+        <div class="col-md-2 column">
             <span class="profile-picture">
                 <img id="avatar" class="editable img-responsive" alt="Avatar" src="/vendor/avatar.jpg" />
             </span>
         </div>
-        <div class="col-md-6 column">   
-          <table id="profiletable" class="display compact" cellspacing="0" width="100%">
-                <tbody >
-                    <tr>
-                       <td>First Name: </td>
-                       <td> <a href="javascript:void(0)" id="firstname" data-type="text" data-pk="<%=@userprofile.id %>" data-url="/updateprofile" data-title="Enter first name"><%= @userprofile.firstname %></a> </td>
-                    </tr>
-                    <tr>
-                       <td>Age</td>
-                       <td><a href="javascript:void(0)"  id="age" data-type="text" data-pk="<%=@userprofile.id %>" data-url="/updateprofile" data-title="Enter age"><%= @userprofile.age %></a>  </td>
-                    </tr>
-                    <tr>
-                       <td>Gender:</td>
-                       <td><a href="javascript:void(0)"  id="gender" data-type="select" data-pk="<%=@userprofile.id %>" data-url="/updateprofile" data-title="Enter gender"><%= @userprofile.gender == "M" ? "Male" : "Female" %> </a></td>
-                    </tr>     
-                    <tr>
-                       <td>Nationality:</td>
-                       <td><a href="javascript:void(0)" id="nationality" data-type="select"  data-pk="<%=@userprofile.id %>" data-url="/updateprofile" data-title="Enter nationality"><%= @cmaster.get(@userprofile.nationality).countryname %> </a> </td>
-                       <td id="spr_block" style="visibility: hidden"> 
-                        <div class="checkbox">
-                          <label>
-                            <input id="sprcheck" name="singaporepr" type="checkbox" class="ace" <%= @userprofile.singaporepr.to_s == "true" ? "checked" : "unchecked" %> />
-                            <span class="lbl"> Singapore PR?</span>
-                          </label>
-                        </div>
-                       </td>
+        <div class="col-md-10 column">   
+          <div class="row">
+            <div class="col-md-2 column">   
+               First Name:
+            </div>
+            <div class="col-md-2 column"> 
+               <a href="javascript:void(0)" id="firstname" data-type="text" data-pk="<%=@userprofile.id %>" data-url="/updateprofile" data-title="Enter first name"><%= @userprofile.firstname %></a>
+            </div>
+            <div class="col-md-2 column">   
+               Last Name:
+            </div>
+            <div class="col-md-2 column">   
+            <a href="javascript:void(0)" id="lastname" data-type="text" data-pk="<%=@userprofile.id %>" data-url="/updateprofile" data-title="Enter last name"><%= @userprofile.lastname %></a>
+            </div>
+             <div class="col-md-4 column">  </div>        
+          </div>
+          <div class="space-6"></div>
+          <div class="row">
+            <div class="col-md-2 column">    
+              Age:
+            </div>
+            <div class="col-md-2 column">  
+            <a href="javascript:void(0)"  id="age" data-type="text" data-pk="<%=@userprofile.id %>" data-url="/updateprofile" data-title="Enter age"><%= @userprofile.age %></a>
+            </div>
+            <div class="col-md-2 column"> 
 
+     
+              <label class="custo1 control-label no-padding-right" for="id-date-picker-1"> Date of Birth</label>
+            </div>
+            <div class="col-md-4 column"> 
+              <div class="input-group">
+                <input class="form-control date-picker" id="id-date-picker-1" type="text" data-date-format="dd-mm-yyyy" />
+                <span class="input-group-addon">
+                  <i class="icon-calendar bigger-110"></i>
+                </span>
+              </div>
+            </div>
+            <div class="col-md-1 column">  
+            </div>
+          </div>
+          
+          <div class="row">   
+            <div class="col-md-2 column">                      
+              Gender:
+            </div>
+            <div class="col-md-3 column">  
+              <a href="javascript:void(0)"  id="gender" data-type="select" data-pk="<%=@userprofile.id %>" data-url="/updateprofile" data-title="Enter gender"><%= @userprofile.gender == "M" ? "Male" : "Female" %> </a>
+            </div>
+          </div>
+          <div class="space-6"></div>
+          <div class="row">   
 
-                    </tr> 
+            <div class="col-md-2 column">  
+              Nationality:
+            </div>
+            <div class="col-md-2 column">  
+              <a href="javascript:void(0)" id="nationality" data-type="select"  data-pk="<%=@userprofile.id %>" data-url="/updateprofile" data-title="Enter nationality"><%= @cmaster.get(@userprofile.nationality).countryname %> </a>
+            </div>
+            <div class="col-md-2 column">   
+                <div id="spr_block" style="visibility: hidden">                
+                      Singapore PR?
+                        <label>
+                          <input id="sprcheck" name="singaporepr" type="checkbox" class="ace" <%= @userprofile.singaporepr.to_s == "true" ? "checked" : "unchecked" %> />
+                          <span class="lbl"> </span>
+                        </label>
+                </div>
+            </div>
+            <div class="col-md-4 column">  </div>
+          </div>
+          <div class="space-6"></div>
+          <div class="row">   
+            <div class="col-md-2 column">  
+               Mobile #:
+            </div>
+            <div class="col-md-3 column">  
+               <td><a href="javascript:void(0)"  id="contactnumber" data-type="text" data-pk="<%=@userprofile.id %>" data-url="/updateprofile" data-title="Enter mobile number"><%= @userprofile.contactnumber %> </a> 
+            </div>
+          </div>
+          <div class="space-6"></div>
+          <div class="row">  
+            <div class="col-md-2 column">     
+               Address:
+            </div>
+            <div class="col-md-3 column">  
+               <a href="javascript:void(0)"  id="address" data-type="text" data-pk="<%=@userprofile.id %>" data-url="/updateprofile" data-title="Enter address"><%= @userprofile.address %>   </a>
+            </div>
+          </div>
+          <div class="space-6"></div>
+          <div class="row">  
+            <div class="col-md-2 column">  
+               Email:
+            </div>
+            <div class="col-md-3 column">  
+               <a href="javascript:void(0)"  id="email" data-type="text" data-pk="<%=@userprofile.id %>" data-url="/updateprofile" data-title="Enter email address"><%= @userprofile.email %>   </a>
+            </div>
+          </div>
 
-                     
-                    <tr>
-                       <td>Mobile #:</td>
-                       <td><a href="javascript:void(0)"  id="contactnumber" data-type="text" data-pk="<%=@userprofile.id %>" data-url="/updateprofile" data-title="Enter mobile number"><%= @userprofile.contactnumber %> </a>  </td>
-                      
-                    </tr> 
-                    <tr>
-                       <td>Address:</td>
-                       <td><a href="javascript:void(0)"  id="address" data-type="text" data-pk="<%=@userprofile.id %>" data-url="/updateprofile" data-title="Enter address"><%= @userprofile.address %>   </a> </td>
-                    </tr>                      
-                    <tr>
-                       <td>Email:</td>
-                       <td><a href="javascript:void(0)"  id="email" data-type="text" data-pk="<%=@userprofile.id %>" data-url="/updateprofile" data-title="Enter email address"><%= @userprofile.email %>   </a> </td>
-                    </tr>
-               </tbody>
-            </table>
-          </div> <!-- column -->
-     </div> <!-- row -->
+        
+        </div> <!-- column -->
+    </div> <!-- row -->
+
      <div class="row">
       <h3 class="header smaller lighter blue">Preference Management</h3>
          <div class="col-sm-12 column">
            <form class="form-horizontal" role="form">
               <div class="form-group">
-                  <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> I am active in looking for job </label>
+                   I am active in looking for job
                       <label>
                         <input id="activecheck" name="activeseeker" class="ace ace-switch ace-switch-5 btn-rotate" type="checkbox" <%= @userprofile.activeseeker.to_s == "true" ? "checked" : "unchecked" %> />
                         <!-- /*http://stackoverflow.com/questions/17517622/how-to-send-radio-button-value-with-ajax-and-recover-it-with-php*/ -->
@@ -93,7 +146,17 @@
                       </label>
               </div> 
 
+                  <div class="form-group">
+                    <label class="col-sm-3 control-label no-padding-right" for="form-field-tags-joblevels">If not SPR/SG, indicate duration of stay in SG</label>
+                    <div class="input-group">
+                      <span class="input-group-addon">
+                        <i class="icon-calendar bigger-110"></i>
+                      </span>
 
+                      <input class="form-control" type="text" name="date-range-picker" id="id-date-range-picker-1" />
+                    </div>
+
+                  </div>
 
 
                   <div class="form-group">
@@ -130,13 +193,18 @@
                   </div>
 
               <div class="form-group">
-                  <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Expected salary S$</label>
+                  <label class="col-sm-3 control-label no-padding-right custo1" for="form-field-1"> Expected salary S$</label>
                   <p> <input type="text" id="form-field-1"   /> </p>
               </div> 
-              <div class="form-group">
-                  <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Expected travel frequency </label>
-                  <p> <input type="text" id="form-field-1"  /> </p> <!--dropdown -->
-              </div> 
+              
+
+
+                <div class="form-group">
+                            <label class="col-sm-3 custo1 control-label no-padding-right" for="form-field-1"> Preferred Travel Frequency:</label>
+                            <input type="text" class="input-mini" id="spinner2" />
+
+                </div>             
+
 
             </form>
          </div> <!-- "col-sm-12 column" -->
@@ -268,10 +336,15 @@
 
 <script type="text/javascript">
 
-
-	$(function() {
-	
-      
+ 
+	$(function() {  //this is the same as $(document).ready(function(){  http://stackoverflow.com/questions/3908724/what-event-does-jquery-function-fire-on
+	      
+       $('.date-picker').datepicker({autoclose:true}).next().on(ace.click_event, function(){
+          $(this).prev().focus();
+      });
+       $('input[name=date-range-picker]').daterangepicker().prev().on(ace.click_event, function(){
+          $(this).next().focus();
+        });
         // *** editable avatar *** //
         try {//ie8 throws some harmless exceptions, so let's catch'em
       
@@ -617,9 +690,8 @@
          
       });
 
-  
-
-
+     
+     
 
 	});
 
@@ -666,7 +738,14 @@ $(document).ready(function(){
                 
               }; 
               
-          
+        $('#spinner1').ace_spinner({value:0,min:0,max:100,step:25, btn_up_class:'btn-info' , btn_down_class:'btn-info'})
+        .on('change', function(){
+          //alert(this.value)
+        });
+        $('#spinner2').ace_spinner({value:0,min:0,max:10000,step:100, touch_spinner: true, icon_up:'icon-caret-up', icon_down:'icon-caret-down'});
+        $('#spinner3').ace_spinner({value:0,min:-100,max:100,step:10, on_sides: true, icon_up:'icon-plus smaller-75', icon_down:'icon-minus smaller-75', btn_up_class:'btn-success' , btn_down_class:'btn-danger'});
+        
+ 
 
    //http://stackoverflow.com/questions/19421869/jquery-knob-return-values-of-multiple-knobs-on-demand?rq=1 AJAX the return value.
  });
@@ -677,7 +756,6 @@ $(document).ready(function(){
 <script>
 
 
-document.getElementById("testing").onclick = function() {spr_on()};
 
 function spr_on()
 {
@@ -716,11 +794,14 @@ function delskill(element,i){
 
  
 
+        
+      
+
 
 
 </script>
 
 <script src='http://anthonyterrien.com/js/jquery.knob.js'></script>
 
-  
+  <script src="/vendor/aceskin/ace-elements.min.js"></script>
 

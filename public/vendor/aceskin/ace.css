@@ -3965,11 +3965,12 @@ fieldset[disabled] .btn-light.active {
   -webkit-box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.08) inset !important;
   box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.08) inset !important;
 }
-/* labels & badges */
+/* labels & badges TSCHEW*/ 
 .label {
   border-radius: 0;
   text-shadow: none;
   font-weight: normal;
+  
   display: inline-block;
   background-color: #abbac3 !important;
 }
@@ -14348,4 +14349,11 @@ th[aria-selected=true] .ui-jqgrid-sortable {
   body.breadcrumbs-fixed .ace-settings-container {
     top: 65px;
   }
+}
+
+.custo1{
+  font-family: 'Open Sans';
+  font-size: 13px;
+  padding-top: 4px;
+  margin-bottom: 4px;
 }

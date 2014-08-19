@@ -2,6 +2,7 @@
    $(document).ready(function() {
       
       $('#firstname').editable();
+      $('#lastname').editable();
       $('#age').editable();
       $('#gender').editable({   
         source: [
