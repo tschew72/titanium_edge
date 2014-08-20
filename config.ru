@@ -340,6 +340,25 @@ end
     userdata.update(eval(":#{params['name']}") => params["value"])
     return 200
   end
+  
+  post '/updatedob' do
+    userdata = User.get(params["pk"])
+    str=params["dob"]
+    date=Date.parse str
+    userdata.update(:dob => date)
+    return 200
+  end
+
+  post '/update_inSG_Date' do  # To update the start and end date of seeker in Singapore.
+    userdata = User.get(params["pk"])
+    str1=params["insg_start"]
+    date1=Date.parse str1
+    str2=params["insg_end"]
+    date2=Date.parse str2
+    userdata.update(:insg_start=> date1)
+    userdata.update(:insg_end => date2)
+    return 200
+  end
 
   post '/updatespr' do
     userdata = User.get(params["pk"])

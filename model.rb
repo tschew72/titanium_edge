@@ -33,6 +33,8 @@ class User
   property :singaporepr, Boolean, :default  => false   #next time get user to choose from a list of countries they have PR status
   property :aboutme, String, length: 255
   property :insingaporenow, Boolean, :default =>true  #if non Singaporean, set this to false
+  property :insg_start, Date  #Start date when Seeker is in Singapore (Only if he is non Singaporean/PR)
+  property :insg_end, Date    #End date when Seeker is in Singapore (Only if he is non Singaporean/PR)
   property :activeseeker, Boolean, :default =>true #Seeker to keep this updated.
   property :pictureurl, String
   property :verifiedbadge, Boolean, :default=>false
