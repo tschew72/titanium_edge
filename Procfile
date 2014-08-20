@@ -1,1 +1,1 @@
-web: bundle exec passenger start -p $PORT --spawn-method conservative
+web: bundle exec unicorn start -p $PORT --spawn-method conservative

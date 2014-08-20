@@ -63,10 +63,7 @@
             </div>
             <div class="col-md-3 column"> 
               <div class="input-group">
-                <input class="form-control date-picker" id="id-date-picker-1"  type="text" data-date-format="dd-mm-yyyy" value="<%= @userprofile.dob.strftime("%d/%m/%Y") %>"></input>
-                <span class="input-group-addon">
-                  <i class="icon-calendar bigger-110"></i>
-                </span>
+                <input style="width: 100px; height: 25px;" class="form-control date-picker" id="id-date-picker-1"  type="text" data-date-format="dd-mm-yyyy" value="<%= @userprofile.dob.strftime("%d/%m/%Y") %>"></input>
               </div>
             </div>
             <div class="col-md-1 column">  
@@ -135,121 +132,77 @@
 
      <div class="row">
       <h3 class="header smaller lighter blue">Preference Management</h3>
-         <div class="col-sm-12 column">
-           <form class="form-horizontal" role="form">
+        <div class="row">  <!-- 1st row in the Preference Management section -->
+          <div class="col-sm-12 column"> 
               <div class="form-group">
-                   I am active in looking for job
-                      <label>
-                        <input id="activecheck" name="activeseeker" class="ace ace-switch ace-switch-5 btn-rotate" type="checkbox" <%= @userprofile.activeseeker.to_s == "true" ? "checked" : "unchecked" %> />
-                        <!-- /*http://stackoverflow.com/questions/17517622/how-to-send-radio-button-value-with-ajax-and-recover-it-with-php*/ -->
-                        <span class="lbl"></span>
-                      </label>
+                   I am active in looking for job <label><input id="activecheck" name="activeseeker" class="ace ace-switch ace-switch-5 btn-rotate" type="checkbox" <%= @userprofile.activeseeker.to_s == "true" ? "checked" : "unchecked" %> /><span class="lbl"></span></label>    
               </div> 
-
-                  <div class="form-group">
-                     <label class="col-sm-3 custo1 control-label no-padding-right">I am in Singapore now (checkbox) on these dates</label>
-                    <div class="input-group">
-                      
-
-                     
-                     <form class="form-horizontal">
-                 <fieldset>
-                  <div class="control-group">
-                    <div class="controls">
-                     <div class="input-prepend input-group">
-                      <span class="input-group-addon"><i class="icon-calendar bigger-110"></i></span><input type="text" style="width: 400px" name="date-range-picker" id="id-date-range-picker-1"  class="form-control" value="08/01/2013 - 08/01/2013"  class="span4"></input>
-                      </div>
-                    </div>
-                  </div>
-                 </fieldset>
-               </form>
-                        
-                      
-                    
-                    </div>
-
-                  </div>
-                  <script type="text/javascript">
-                    $(document).ready(function() {
-                       $('input[name="date-range-picker"]').daterangepicker({
-                        timePicker: false,
-                        showDropdowns: true,
-                        format: 'DD/MM/YYYY'
-                      }, function(start, end, label) {
-                        console.log(moment(start.format('YYYY-MM-DDTHH:mm:ss') + 'Z').utc().toISOString());
-                        from = moment(start.format('YYYY-MM-DDTHH:mm:ss') + 'Z').utc().toISOString();
-                        end =moment(end.format('YYYY-MM-DDTHH:mm:ss') + 'Z').utc().toISOString();
-                         $.ajax({
-                            url: '/update_inSG_Date',
-                            type: 'POST',
-                            data: {"insg_start": from, "insg_end": end, "pk" : <%=@userprofile.id %>}
-                            
-                          });
-                      }); 
-                  });
-                  </script>
-
-                  <div class="form-group">
-                    <label class="col-sm-3 control-label no-padding-right" for="form-field-tags-joblevels">Preferred Job Levels</label>
-
-                    <div class="col-sm-9">
-                      <input type="text" name="tags" id="form-field-tags-joblevels" value="Tag Input Control" placeholder="Enter job level ..." />
-                    </div>
-                  </div>
-
-                  <div class="form-group">
-                    <label class="col-sm-3 control-label no-padding-right" for="form-field-tags-jobfunctions">Preferred Job Functions</label>
-
-                    <div class="col-sm-9">
-                      <input type="text" name="tags" id="form-field-tags-jobfunctions" value="Tag Input Control" placeholder="Enter job functions ..." />
-                    </div>
-                  </div>
-
-                  <div class="form-group">
-                    <label class="col-sm-3 control-label no-padding-right" for="form-field-tags-industries">Preferred Industries</label>
-
-                    <div class="col-sm-6">
-                       <a href="#" id="industries" data-type="select2" data-value="<%= @pref_ind %>"  data-pk="<%=@userprofile.id %>" data-url="/updateindpref" data-title="Enter preferred industries"></a>
-                      
-                    </div>
-                  </div>
-
-                  <div class="form-group">
-                    <label class="col-sm-3 control-label no-padding-right" for="form-field-tags-locations">Preferred Locations</label>
-
-                    <div class="col-sm-9">
-                      <a href="#" id="locations" data-type="select2" data-value="<%= @pref_loc %>"  data-pk="<%=@userprofile.id %>" data-url="/updatelocpref" data-title="Enter preferred locations"></a>
-                    </div>
-                  </div>
-
-              <div class="form-group">
-                  <label class="col-sm-3 control-label no-padding-right custo1" for="form-field-1"> Expected salary S$</label>
-                  <p> <input type="text" id="form-field-1"   /> </p>
-              </div> 
+          </div>
+        </div>
+        <div class="row">  <!-- 1st row in the Preference Management section -->
+          <div class="col-sm-12 column">
+            <div class="form-group">          
+                  I am in Singapore <label><input id="insgcheck" name="insingaporenow" class="ace ace-switch ace-switch-5 btn-rotate" type="checkbox" <%= @userprofile.insingaporenow.to_s == "true" ? "checked" : "unchecked" %> /><span class="lbl"></span></label>    
+                  on these dates <label><input type="text" style="width: 200px;" name="date-range-picker" id="id-date-range-picker-1"  class="form-control" value="<%=@userprofile.insg_start.strftime("%d/%m/%Y") %> - <%=@userprofile.insg_end.strftime("%d/%m/%Y") %> "  class="span4"></input></label>
+            </div>      
+              <!-- Infobox: If you are in Singapore, and there is seminar or related IT events, we will notify you -->
               
-
-
-                <div class="form-group">
-                            <label class="col-sm-3 custo1 control-label no-padding-right" for="form-field-1"> Preferred Travel Frequency:</label>
-                            <input type="text" class="input-mini" id="spinner2" />
-
-                </div>             
-
-
-            </form>
-         </div> <!-- "col-sm-12 column" -->
-     </div> <!-- Row -->
-
-     <div class="row">
-       <p id="testing"> Generate CV in PDF format </p>
-
-
-                    <div class="form-group">
-                  <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Upload new CV </label>
+          </div>
+        </div>
+        <div class="row">  <!-- 2nd row in the Preference Management section  -->
+          
+        </div>
+        <div class="row">  <!-- 3rd row in the Preference Management section -->     
+          <div class="col-sm-12 column"> 
+            <div class="form-group">
+              Preferred Job Levels <input type="text" name="tags" id="form-field-tags-joblevels" value="Tag Input Control" placeholder="Enter job level ..." />
+            </div>
+          </div>
+        </div>
+        <div class="row">  <!-- 4th row in the Preference Management section -->  
+          <div class="col-sm-12 column"> 
+            <div class="form-group">
+              
+              <label class="custo1">Preferred Job Functions<input type="text" name="tags" id="form-field-tags-jobfunctions" value="Tag Input Control" placeholder="Enter job functions ..." /></label>
+            </div>
+          </div>
+        </div>
+        <div class="row">  <!-- 5th row in the Preference Management section -->  
+          <div class="col-sm-8 column"> 
+            <div class="form-group">
+              Preferred Industries: <a href="#" id="industries" data-type="select2" data-value="<%= @pref_ind %>"  data-pk="<%=@userprofile.id %>" data-url="/updateindpref" data-title="Enter preferred industries"></a> 
+            </div>
+          </div>
+        </div>
+        <div class="row">  <!-- 6th row in the Preference Management section -->  
+          <div class="col-sm-8 column"> 
+            <div class="form-group">
+              Preferred Locations: <a href="#" id="locations" data-type="select2" data-value="<%= @pref_loc %>"  data-pk="<%=@userprofile.id %>" data-url="/updatelocpref" data-title="Enter preferred locations"></a>
+            </div>
+          </div>
+        </div>
+        <div class="row">  <!-- 5th row in the Preference Management section -->  
+          <div class="col-sm-12 column"> 
+              <div class="form-group">
+                  Expected salary S$ <input type="text" id="form-field-1"   />
+                  
               </div> 
+          </div>
+        </div>
+        <div class="row">  <!-- 5th row in the Preference Management section -->   
+          <div class="col-sm-12 column">    
+              <div class="form-group">
+                  Preferred Travel Frequency:<input type="text" class="input-mini" id="spinner2" />        
+              </div>     
+          </div>
+        </div>        
 
-     </div>
-     
+  </div> <!-- Row -->
+
+   <div class="row">
+     Upload new CV
+   </div>
+ 
    <div class="row">
       <div class="col-sm-6 ">
       <h3 class="header smaller lighter blue">Skills Management</h3>
@@ -722,6 +675,15 @@
          
       });
 
+      $("#insgcheck").on('change', function(){
+          $.ajax({
+            url: '/updateinsgnow',
+            type: 'POST',
+            data: {"insingaporenow": this.checked, "pk" : <%=@userprofile.id %>}
+            
+          });
+         
+      });
       $("#id-date-picker-1").on('change', function(){
           $.ajax({
             url: '/updatedob',
@@ -797,7 +759,15 @@ $(document).ready(function(){
         .on('change', function(){
           //alert(this.value)
         });
-        $('#spinner2').ace_spinner({value:0,min:0,max:10000,step:100, touch_spinner: true, icon_up:'icon-caret-up', icon_down:'icon-caret-down'});
+        $('#spinner2').ace_spinner({value:0,min:0,max:100,step:25, touch_spinner: true, icon_up:'icon-caret-up', icon_down:'icon-caret-down'})
+        .on('change', function(){
+          $.ajax({
+            url: '/updatetravelfreq',
+            type: 'POST',
+            data: {"travelfreq": this.value, "pk" : <%=@userprofile.id %>}
+            
+          });
+        });
         $('#spinner3').ace_spinner({value:0,min:-100,max:100,step:10, on_sides: true, icon_up:'icon-plus smaller-75', icon_down:'icon-minus smaller-75', btn_up_class:'btn-success' , btn_down_class:'btn-danger'});
         
  
@@ -855,7 +825,25 @@ function delskill(element,i){
 
 
 </script>
-
+<script type="text/javascript">
+                    $(document).ready(function() {
+                       $('input[name="date-range-picker"]').daterangepicker({
+                        timePicker: false,
+                        showDropdowns: true,
+                        format: 'DD/MM/YYYY'
+                      }, function(start, end, label) {
+                        console.log(moment(start.format('YYYY-MM-DDTHH:mm:ss') + 'Z').utc().toISOString());
+                        from = moment(start.format('YYYY-MM-DDTHH:mm:ss') + 'Z').utc().toISOString();
+                        end =moment(end.format('YYYY-MM-DDTHH:mm:ss') + 'Z').utc().toISOString();
+                         $.ajax({
+                            url: '/update_inSG_Date',
+                            type: 'POST',
+                            data: {"insg_start": from, "insg_end": end, "pk" : <%=@userprofile.id %>}
+                            
+                          });
+                      }); 
+                  });
+                  </script>
 <script src='http://anthonyterrien.com/js/jquery.knob.js'></script>
 
   <script src="/vendor/aceskin/ace-elements.min.js"></script>

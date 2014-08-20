@@ -36,6 +36,7 @@ class User
   property :insg_start, Date  #Start date when Seeker is in Singapore (Only if he is non Singaporean/PR)
   property :insg_end, Date    #End date when Seeker is in Singapore (Only if he is non Singaporean/PR)
   property :activeseeker, Boolean, :default =>true #Seeker to keep this updated.
+  property :travelfreq, Integer
   property :pictureurl, String
   property :verifiedbadge, Boolean, :default=>false
   property :verifiedstartdate, Date

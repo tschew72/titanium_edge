@@ -190,6 +190,7 @@ get '/settings' do
            @countries = ctemp.to_json
         end
     
+
 @ss0 = @ssmaster.all(:skillcategory_id =>0)
 
        @ss1 = @ssmaster.all(:skillcategory_id =>1)
@@ -360,6 +361,13 @@ end
     return 200
   end
 
+
+  post '/updatetravelfreq' do
+    userdata = User.get(params["pk"])
+    userdata.update(:travelfreq => params['travelfreq'])
+    return 200
+  end
+
   post '/updatespr' do
     userdata = User.get(params["pk"])
     userdata.update(:singaporepr => params['singaporepr'])
@@ -371,6 +379,13 @@ end
     userdata.update(:activeseeker => params['activeseeker'])
     return 200
   end
+
+  post '/updateinsgnow' do
+    userdata = User.get(params["pk"])
+    userdata.update(:insingaporenow => params['insingaporenow'])
+    return 200
+  end
+  
 
   post '/jobsubmit' do 
     userprofile = env['warden'].user 
