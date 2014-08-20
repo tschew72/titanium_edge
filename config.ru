@@ -152,6 +152,16 @@ get '/mycv' do
 end
 
 get '/account' do
+       redirect '/auth/login' unless env['warden'].authenticated?
+       @userprofile = env['warden'].user  #This is the most important query of all. it will identify the user of this session.
+       @userme = @userprofile.firstname
+       @cmaster = CountryMaster.all
+       ctemp = []  
+           @cmaster.each do |x|
+           ctemp << {value: x.id, text: "#{x.countryname}"}
+           @countries = ctemp.to_json
+        end
+    
        erb :account
 end
 

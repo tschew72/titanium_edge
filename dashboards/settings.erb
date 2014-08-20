@@ -1,10 +1,4 @@
 
-<style>
- .hilight { background:yellow; }
-</style>
-
-
-
 <div class="breadcrumbs" id="breadcrumbs">
   <script type="text/javascript">
     try{ace.settings.check('breadcrumbs' , 'fixed')}catch(e){}
@@ -15,152 +9,42 @@
       <i class="ace-icon fa fa-home home-icon"></i>
       <a href="/edge">Home</a>
     </li>
-    <li class="active">Profile</li>
+    <li class="active">My Setup</li>
   </ul><!-- /.breadcrumb -->
 
 </div>
 
 <div class="page-content">
-  <div class="page-content-area">
 
-<div class="container-fluid">
      <!-- <div class="row"> -->
-      <div id="user-profile-1" class="user-profile row">
-        <h3 class="header smaller lighter blue">My Profile</h3>
-        <div class="col-md-2 column">
-            <span class="profile-picture">
-                <img id="avatar" class="editable img-responsive" alt="Avatar" src="/vendor/avatar.jpg" />
-            </span>
-        </div>
-        <div class="col-md-10 column">   
-          <div class="row">
-            <div class="col-md-2 column">   
-               First Name:
-            </div>
-            <div class="col-md-2 column"> 
-               <a href="javascript:void(0)" id="firstname" data-type="text" data-pk="<%=@userprofile.id %>" data-url="/updateprofile" data-title="Enter first name"><%= @userprofile.firstname %></a>
-            </div>
-            <div class="col-md-2 column">   
-               Last Name:
-            </div>
-            <div class="col-md-2 column">   
-            <a href="javascript:void(0)" id="lastname" data-type="text" data-pk="<%=@userprofile.id %>" data-url="/updateprofile" data-title="Enter last name"><%= @userprofile.lastname %></a>
-            </div>
-             <div class="col-md-4 column">  </div>        
-          </div>
-          <div class="space-6"></div>
-          <div class="row">
-            <div class="col-md-2 column">    
-              Age:
-            </div>
-            <div class="col-md-2 column">  
-            <a href="javascript:void(0)"  id="age" data-type="text" data-pk="<%=@userprofile.id %>" data-url="/updateprofile" data-title="Enter age"><%= @userprofile.age %></a>
-            </div>
-            <div class="col-md-2 column"> 
-
-     
-              <label class="custo1 control-label no-padding-right" for="id-date-picker-1"> Date of Birth</label>
-            </div>
-            <div class="col-md-3 column"> 
-              <div class="input-group">
-                <input style="width: 100px; height: 25px;" class="form-control date-picker" id="id-date-picker-1"  type="text" data-date-format="dd-mm-yyyy" value="<%= @userprofile.dob.strftime("%d/%m/%Y") %>"></input>
-              </div>
-            </div>
-            <div class="col-md-1 column">  
-            </div>
-          </div>
-          
-          <div class="row">   
-            <div class="col-md-2 column">                      
-              Gender:
-            </div>
-            <div class="col-md-3 column">  
-              <a href="javascript:void(0)"  id="gender" data-type="select" data-pk="<%=@userprofile.id %>" data-url="/updateprofile" data-title="Enter gender"><%= @userprofile.gender == "M" ? "Male" : "Female" %> </a>
-            </div>
-          </div>
-          <div class="space-6"></div>
-          <div class="row">   
-
-            <div class="col-md-2 column">  
-              Nationality:
-            </div>
-            <div class="col-md-2 column">  
-              <a href="javascript:void(0)" id="nationality" data-type="select"  data-pk="<%=@userprofile.id %>" data-url="/updateprofile" data-title="Enter nationality"><%= @cmaster.get(@userprofile.nationality).countryname %> </a>
-            </div>
-            <div class="col-md-2 column">   
-                <div id="spr_block" style="visibility: hidden">                
-                      Singapore PR?
-                        <label>
-                          <input id="sprcheck" name="singaporepr" type="checkbox" class="ace" <%= @userprofile.singaporepr.to_s == "true" ? "checked" : "unchecked" %> />
-                          <span class="lbl"> </span>
-                        </label>
-                </div>
-            </div>
-            <div class="col-md-4 column">  </div>
-          </div>
-          <div class="space-6"></div>
-          <div class="row">   
-            <div class="col-md-2 column">  
-               Mobile #:
-            </div>
-            <div class="col-md-3 column">  
-               <td><a href="javascript:void(0)"  id="contactnumber" data-type="text" data-pk="<%=@userprofile.id %>" data-url="/updateprofile" data-title="Enter mobile number"><%= @userprofile.contactnumber %> </a> 
-            </div>
-          </div>
-          <div class="space-6"></div>
-          <div class="row">  
-            <div class="col-md-2 column">     
-               Address:
-            </div>
-            <div class="col-md-3 column">  
-               <a href="javascript:void(0)"  id="address" data-type="text" data-pk="<%=@userprofile.id %>" data-url="/updateprofile" data-title="Enter address"><%= @userprofile.address %>   </a>
-            </div>
-          </div>
-          <div class="space-6"></div>
-          <div class="row">  
-            <div class="col-md-2 column">  
-               Email:
-            </div>
-            <div class="col-md-3 column">  
-               <a href="javascript:void(0)"  id="email" data-type="text" data-pk="<%=@userprofile.id %>" data-url="/updateprofile" data-title="Enter email address"><%= @userprofile.email %>   </a>
-            </div>
-          </div>
-
-        
-        </div> <!-- column -->
-    </div> <!-- row -->
-
-     <div class="row">
-      <h3 class="header smaller lighter blue">Preference Management</h3>
+     <h3 class="header smaller lighter blue">My Setup</h3>
+ 
+    <div class="col-xs-12">
         <div class="row">  <!-- 1st row in the Preference Management section -->
-          <div class="col-sm-12 column"> 
+          <div class="col-sm-12"> 
               <div class="form-group">
                    I am active in looking for job <label><input id="activecheck" name="activeseeker" class="ace ace-switch ace-switch-5 btn-rotate" type="checkbox" <%= @userprofile.activeseeker.to_s == "true" ? "checked" : "unchecked" %> /><span class="lbl"></span></label>    
               </div> 
           </div>
         </div>
-        <div class="row">  <!-- 1st row in the Preference Management section -->
-          <div class="col-sm-12 column">
+        <div class="row">  <!-- 2nd row in the Preference Management section -->
+          <div class="col-sm-12">
             <div class="form-group">          
                   I am in Singapore <label><input id="insgcheck" name="insingaporenow" class="ace ace-switch ace-switch-5 btn-rotate" type="checkbox" <%= @userprofile.insingaporenow.to_s == "true" ? "checked" : "unchecked" %> /><span class="lbl"></span></label>    
                   on these dates <label><input type="text" style="width: 200px;" name="date-range-picker" id="id-date-range-picker-1"  class="form-control" value="<%=@userprofile.insg_start.strftime("%d/%m/%Y") %> - <%=@userprofile.insg_end.strftime("%d/%m/%Y") %> "  class="span4"></input></label>
+                  <!-- Infobox: If you are in Singapore, and there is seminar or related IT events, we will notify you -->
             </div>      
-              <!-- Infobox: If you are in Singapore, and there is seminar or related IT events, we will notify you -->
-              
           </div>
         </div>
-        <div class="row">  <!-- 2nd row in the Preference Management section  -->
-          
-        </div>
         <div class="row">  <!-- 3rd row in the Preference Management section -->     
-          <div class="col-sm-12 column"> 
+          <div class="col-sm-12"> 
             <div class="form-group">
               Preferred Job Levels <input type="text" name="tags" id="form-field-tags-joblevels" value="Tag Input Control" placeholder="Enter job level ..." />
             </div>
           </div>
         </div>
         <div class="row">  <!-- 4th row in the Preference Management section -->  
-          <div class="col-sm-12 column"> 
+          <div class="col-sm-12"> 
             <div class="form-group">
               
               <label class="custo1">Preferred Job Functions<input type="text" name="tags" id="form-field-tags-jobfunctions" value="Tag Input Control" placeholder="Enter job functions ..." /></label>
@@ -168,21 +52,21 @@
           </div>
         </div>
         <div class="row">  <!-- 5th row in the Preference Management section -->  
-          <div class="col-sm-8 column"> 
+          <div class="col-sm-8"> 
             <div class="form-group">
               Preferred Industries: <a href="#" id="industries" data-type="select2" data-value="<%= @pref_ind %>"  data-pk="<%=@userprofile.id %>" data-url="/updateindpref" data-title="Enter preferred industries"></a> 
             </div>
           </div>
         </div>
         <div class="row">  <!-- 6th row in the Preference Management section -->  
-          <div class="col-sm-8 column"> 
+          <div class="col-sm-8"> 
             <div class="form-group">
               Preferred Locations: <a href="#" id="locations" data-type="select2" data-value="<%= @pref_loc %>"  data-pk="<%=@userprofile.id %>" data-url="/updatelocpref" data-title="Enter preferred locations"></a>
             </div>
           </div>
         </div>
         <div class="row">  <!-- 5th row in the Preference Management section -->  
-          <div class="col-sm-12 column"> 
+          <div class="col-sm-12"> 
               <div class="form-group">
                   Expected salary S$ <input type="text" id="form-field-1"   />
                   
@@ -190,7 +74,7 @@
           </div>
         </div>
         <div class="row">  <!-- 5th row in the Preference Management section -->   
-          <div class="col-sm-12 column">    
+          <div class="col-sm-12">    
               <div class="form-group">
                   Preferred Travel Frequency:<input type="text" class="input-mini" id="spinner2" />        
               </div>     
@@ -312,8 +196,8 @@
    </div> <!-- row -->
 
                
-  </div> <!-- Container -->
- </div> <!-- page-content-area -->          
+</div>
+      
  </div> <!--"page-content" -->                
 
 
@@ -635,35 +519,9 @@
               ]
         } );
 
-      $('#nationality').editable({
-        
-           source: function() {
-                return (<%= @countries %>)
-              },
-           success: function(response, newValue) {
-              
-              if (newValue != 156){
-                 document.getElementById( 'spr_block' ).style.visibility = 'visible'; 
-              };
 
-              if (newValue == 156){
-                document.getElementById( 'spr_block' ).style.visibility = 'hidden'; 
-              } ;
-           
-            
-            } //success
 
-      });
 
-      $("#sprcheck").on('change', function(){
-          $.ajax({
-            url: '/updatespr',
-            type: 'POST',
-            data: {"singaporepr": this.checked, "pk" : <%=@userprofile.id %>}
-            
-          });
-         
-      });
 
       $("#activecheck").on('change', function(){
           $.ajax({
@@ -745,15 +603,6 @@ $(document).ready(function(){
 		});
    
 
-    var nation=document.getElementById( 'nationality' ).textContent;
-              if (nation.indexOf("Singapore") > -1){
-                document.getElementById( 'spr_block' ).style.visibility = 'hidden'; 
-              
-              } else
-              {
-                document.getElementById( 'spr_block' ).style.visibility = 'visible'; 
-                
-              }; 
               
         $('#spinner1').ace_spinner({value:0,min:0,max:100,step:25, btn_up_class:'btn-info' , btn_down_class:'btn-info'})
         .on('change', function(){
@@ -778,21 +627,6 @@ $(document).ready(function(){
 </script>
 
 
-<script>
-
-
-
-function spr_on()
-{
-document.getElementById( 'spr_block' ).style.visibility = 'visible'; 
-document.getElementById( 'abc' ).style.visibility = 'visible'; 
-
-
-}
-
-
-</script>
-
 
 <script>
 
@@ -816,15 +650,8 @@ function delskill(element,i){
 
 
 }//function
-
- 
-
-        
-      
-
-
-
 </script>
+
 <script type="text/javascript">
                     $(document).ready(function() {
                        $('input[name="date-range-picker"]').daterangepicker({
