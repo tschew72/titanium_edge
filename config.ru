@@ -9,7 +9,9 @@ require 'json'
 #require 'roo'
 #require 'compass'
 
+require 'newrelic_rpm'
 
+    
 class SinatraWardenExample < Sinatra::Application
 
 #use Rack::Session::Pool, :expire_after => 2592000
@@ -497,5 +499,5 @@ map SinatraWardenExample.assets_prefix do
   run SinatraWardenExample.sprockets
 end
     
-    
+
 run SinatraWardenExample
