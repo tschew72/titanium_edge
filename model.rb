@@ -48,6 +48,7 @@ class User
   has n, :jobs
   has 1, :career_score
   has n, :skill_summaries
+  has n, :languages
   has n, :job_industries
   has n, :preferred_locations
   has n, :skills, :through => :skilltags   ###n-n###
@@ -135,6 +136,29 @@ end
   
 
 
+
+class Language   
+  include DataMapper::Resource
+
+  property :id, Serial , key: true, :index => true
+  property :user_id, Integer, :index => true
+  property :languageid, Integer, :index => true
+  property :writtenrank, Integer, :index => true                  #1=Basic 2=Intermediate 3=Advance 4=Expert
+  property :spokenrank, Integer, :index => true                  #1=Basic 2=Intermediate 3=Advance 4=Expert
+  property :status, Integer, :default  => 2,:index => true     #0=delete, 1=edited, 2=active
+  property :updated_at, DateTime                #When was it last edited
+
+  belongs_to :user 
+end
+
+class LanguageSource                           
+  include DataMapper::Resource                 
+
+  property :id, Serial , key: true, :index => true
+  property :languagename, String, length:100, :index => true        
+
+end
+
 ########### START Generated from HSQL ##################
 class SkillSummary    
   include DataMapper::Resource
@@ -142,7 +166,6 @@ class SkillSummary
   property :id, Serial , key: true, :index => true
   property :user_id, Integer, :index => true
   property :skillid, Integer, :index => true
-  property :skillname, String, length:100, :index => true
   property :skillrank, Integer, :index => true                  #1=Basic 2=Intermediate 3=Advance 4=Expert
   property :skillcatid, Integer, :index => true
   property :skillcategory, String, length:100, :index => true
@@ -156,7 +179,6 @@ class SkillSource                               #This is for Skill Management Ta
   include DataMapper::Resource                  #Matching skills to category
 
   property :id, Serial , key: true, :index => true
-  property :skilltype, Integer, :index => true                   #1=Tech 2=Soft
   property :skill_name, String, length:100, :index => true      
   property :skillcategory_id, Integer, :index => true
   property :skillcategory_name, String, length:100, :index => true

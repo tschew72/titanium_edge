@@ -171,6 +171,7 @@ get '/settings' do
        @userprofile = env['warden'].user  #This is the most important query of all. it will identify the user of this session.
        @userme = @userprofile.firstname
        @allskills =   @userprofile.skill_summaries.all
+       @languages = @userprofile.languages.all
        @ssmaster = SkillSource  #master skill source for cross referencing
       
        #Preferred Industries
@@ -432,13 +433,13 @@ end
     redirect to('/profile')
   end
 
-  get '/deleteskill' do
-    userprofile = env['warden'].user
-    myskill = userprofile.skill_summaries.get(params["id"])
-    #myskill.destroy
-    myskill.update(:status => 0)
-    redirect to ('/settings#skilltable')
-  end
+  #get '/deleteskill' do
+  #  userprofile = env['warden'].user
+  #  myskill = userprofile.skill_summaries.get(params["id"])
+  #  #myskill.destroy
+  #  myskill.update(:status => 0)
+  #  redirect to ('/settings#skilltable')
+  #end
 
 
   post '/deleteskill' do
@@ -448,18 +449,31 @@ end
     return 200
   end
 
+  post '/del_language' do
+    userprofile = env['warden'].user
+    mylanguage = userprofile.languages.get(params["pk"])
+    mylanguage.update(:status => 0)
+    return 200
+  end
 
   post '/updateskill' do
-    userprofile = env['warden'].user  #This is the most important query of all. it will identify the user of this session.
+    userprofile = env['warden'].user 
     myskill = userprofile.skill_summaries.get(params["pk"])
     myskill.update(:skillid => params["value"])
     myskill.update(:status =>1)
+    return 200
+  end
 
+  post '/update_language' do
+    userprofile = env['warden'].user 
+    mylanguage = userprofile.languages.get(params["pk"])
+    mylanguage.update(:languageid => params["value"])
+    mylanguage.update(:status =>1)
     return 200
   end
 
   post '/updateskillcat' do
-    userprofile = env['warden'].user  #This is the most important query of all. it will identify the user of this session.
+    userprofile = env['warden'].user 
     myskill = userprofile.skill_summaries.get(params["pk"])
     #myskill.update(eval(":#{params['name']}") => params["value"])
     #myskill.reload.update(eval(":#{params['name']}") => params["value"])
