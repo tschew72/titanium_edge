@@ -713,6 +713,9 @@
                      //show messages
                      var msg = 'New skill created! Now editables submit individually.';
                      $('#msg').addClass('alert-success').removeClass('alert-error').html(msg).show();
+                      $('.myeditable').editable('setValue', null)  //clear values
+                      .editable('option', 'pk', null)          //clear pk
+                      .removeClass('editable-unsaved');        //remove bold css
                      $('#save-btn').hide(); 
                      $(this).off('save.newskill');                     
                  } else if(data && data.errors){ 
@@ -842,6 +845,5 @@ function delskill(element,i){
                       }); 
                   });
 </script>
-<script src='http://anthonyterrien.com/js/jquery.knob.js'></script>
 
   

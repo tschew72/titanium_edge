@@ -11,7 +11,7 @@ require 'json'
 
 require 'newrelic_rpm'
 
-    
+   
 class SinatraWardenExample < Sinatra::Application
 
 #use Rack::Session::Pool, :expire_after => 2592000
@@ -79,8 +79,8 @@ end
  before do
    #pass if request.path_info =~ /^\/auth\//
    #Not sure why if I put this redirect statement, everything won't work.
-   #redirect to('/auth/twitter') unless current_user 
-   
+   #redirect to('/auth/twitter') unless current_user
+  
  end
 
 get '/' do
@@ -92,7 +92,7 @@ end
 get '/edge' do
    # If user comes in directly here, if not authenticated, throw them to /auth/login
    redirect '/auth/login' unless env['warden'].authenticated?
-       @userprofile = env['warden'].user  #This is the most important query of all. it will identify the user of this session.      
+       @userprofile = env['warden'].user  #This is the most important query of all. it will identify the user of this session.     
        @userme = @userprofile.firstname
        @emailme = @userprofile.email
        @usermatchjoblist = @userprofile.matched_jobs
@@ -130,7 +130,7 @@ get '/profile' do
        @userskills3 = @userprofile.skill_summaries.all(:skillcategory => 3)
        @userskills4 = @userprofile.skill_summaries.all(:skillcategory => 4)
        @userskills5 = @userprofile.skill_summaries.all(:skillcategory => 5)
-       
+      
        @jobhistory = @userprofile.jobs.all(:order => [:startdate.desc])
        erb :profile
 end
@@ -146,7 +146,7 @@ get '/mycv' do
        @userskills2 = @userprofile.skill_summaries.all(:skillcategory => 2)
        @userskills3 = @userprofile.skill_summaries.all(:skillcategory => 3)
        @userskills4 = @userprofile.skill_summaries.all(:skillcategory => 4)
-       @userskills5 = @userprofile.skill_summaries.all(:skillcategory => 5)       
+       @userskills5 = @userprofile.skill_summaries.all(:skillcategory => 5)      
        @jobhistory = @userprofile.jobs.all(:order => [:startdate.desc])
        erb :mycv
 end
@@ -156,12 +156,12 @@ get '/account' do
        @userprofile = env['warden'].user  #This is the most important query of all. it will identify the user of this session.
        @userme = @userprofile.firstname
        @cmaster = CountryMaster.all
-       ctemp = []  
+       ctemp = [] 
            @cmaster.each do |x|
            ctemp << {value: x.id, text: "#{x.countryname}"}
            @countries = ctemp.to_json
         end
-    
+   
        erb :account
 end
 
@@ -171,11 +171,11 @@ get '/settings' do
        @userprofile = env['warden'].user  #This is the most important query of all. it will identify the user of this session.
        @userme = @userprofile.firstname
        @allskills =   @userprofile.skill_summaries.all
-       
+      
        @languages = @userprofile.languages.all
        @lmaster = LanguageSource.all
        @ssmaster = SkillSource  #master skill source for cross referencing
-      
+     
        #Preferred Industries
        pind = @userprofile.job_industries.all
        @pref_ind=""
@@ -192,21 +192,21 @@ get '/settings' do
        end
 
        @indmaster = IndustryMaster.all   #Industry Master
-       indtemp = []  
+       indtemp = [] 
            @indmaster.each do |x|
            indtemp << {id: x.id, text: "#{x.industryname}"}
            @industries = indtemp.to_json
         end
 
        @cmaster = CountryMaster.all   #Country Master
-       ctemp = []  
+       ctemp = [] 
            @cmaster.each do |x|
            ctemp << {value: x.id, text: "#{x.countryname}"}
            @countries = ctemp.to_json
         end
-    
+   
        @scmaster = SkillCategory.all   #Skill Category Master
-       cattemp = []  
+       cattemp = [] 
            @scmaster.each do |x|
            cattemp << {value: x.id, text: "#{x.categoryname}"}
            @skillcat= cattemp.to_json
@@ -262,118 +262,118 @@ get '/settings' do
 
 
 
-       
-        temp1 = []  #Skillsource translated sst 
+      
+        temp1 = []  #Skillsource translated sst
            @ss1.each do |x|
            temp1 << {value: x.id, text: "#{x.skill_name}"}
            @sst1 = temp1.to_json
         end
-        temp2 = []  #Skillsource translated sst 
+        temp2 = []  #Skillsource translated sst
            @ss2.each do |x|
            temp2 << {value: x.id, text: "#{x.skill_name}"}
            @sst2 = temp2.to_json
         end
-        temp3 = []  #Skillsource translated sst 
+        temp3 = []  #Skillsource translated sst
            @ss3.each do |x|
            temp3 << {value: x.id, text: "#{x.skill_name}"}
            @sst3 = temp3.to_json
         end
-        temp4 = []  #Skillsource translated sst 
+        temp4 = []  #Skillsource translated sst
            @ss4.each do |x|
            temp4 << {value: x.id, text: "#{x.skill_name}"}
            @sst4 = temp4.to_json
         end
-        temp5 = []  #Skillsource translated sst 
+        temp5 = []  #Skillsource translated sst
            @ss5.each do |x|
            temp5 << {value: x.id, text: "#{x.skill_name}"}
            @sst5 = temp5.to_json
         end
-        temp6 = []  #Skillsource translated sst 
+        temp6 = []  #Skillsource translated sst
            @ss6.each do |x|
            temp6 << {value: x.id, text: "#{x.skill_name}"}
            @sst6 = temp6.to_json
         end
-        temp7 = []  #Skillsource translated sst 
+        temp7 = []  #Skillsource translated sst
            @ss7.each do |x|
            temp7 << {value: x.id, text: "#{x.skill_name}"}
            @sst7 = temp7.to_json
         end
-        temp8 = []  #Skillsource translated sst 
+        temp8 = []  #Skillsource translated sst
            @ss8.each do |x|
            temp8 << {value: x.id, text: "#{x.skill_name}"}
            @sst8 = temp8.to_json
         end
-        temp9 = []  #Skillsource translated sst 
+        temp9 = []  #Skillsource translated sst
            @ss9.each do |x|
            temp9 << {value: x.id, text: "#{x.skill_name}"}
            @sst9 = temp9.to_json
         end
-        temp10 = []  #Skillsource translated sst 
+        temp10 = []  #Skillsource translated sst
            @ss10.each do |x|
            temp10 << {value: x.id, text: "#{x.skill_name}"}
            @sst10 = temp10.to_json
         end
-        temp11 = []  #Skillsource translated sst 
+        temp11 = []  #Skillsource translated sst
            @ss11.each do |x|
            temp11 << {value: x.id, text: "#{x.skill_name}"}
            @sst11 = temp11.to_json
         end
-        temp12 = []  #Skillsource translated sst 
+        temp12 = []  #Skillsource translated sst
            @ss12.each do |x|
            temp12 << {value: x.id, text: "#{x.skill_name}"}
            @sst12 = temp12.to_json
         end
-        temp13 = []  #Skillsource translated sst 
+        temp13 = []  #Skillsource translated sst
            @ss13.each do |x|
            temp13 << {value: x.id, text: "#{x.skill_name}"}
            @sst13 = temp13.to_json
         end
-        temp14 = []  #Skillsource translated sst 
+        temp14 = []  #Skillsource translated sst
            @ss14.each do |x|
            temp14 << {value: x.id, text: "#{x.skill_name}"}
            @sst14 = temp14.to_json
         end
-        temp14 = []  #Skillsource translated sst 
+        temp14 = []  #Skillsource translated sst
            @ss14.each do |x|
            temp14 << {value: x.id, text: "#{x.skill_name}"}
            @sst14 = temp14.to_json
         end
-        temp15 = []  #Skillsource translated sst 
+        temp15 = []  #Skillsource translated sst
            @ss15.each do |x|
            temp15 << {value: x.id, text: "#{x.skill_name}"}
            @sst15 = temp15.to_json
         end
-        temp16 = []  #Skillsource translated sst 
+        temp16 = []  #Skillsource translated sst
            @ss16.each do |x|
            temp16 << {value: x.id, text: "#{x.skill_name}"}
            @sst16 = temp16.to_json
         end
-        temp17 = []  #Skillsource translated sst 
+        temp17 = []  #Skillsource translated sst
            @ss17.each do |x|
            temp17 << {value: x.id, text: "#{x.skill_name}"}
            @sst17 = temp17.to_json
         end
-        temp18 = []  #Skillsource translated sst 
+        temp18 = []  #Skillsource translated sst
            @ss18.each do |x|
            temp18 << {value: x.id, text: "#{x.skill_name}"}
            @sst18 = temp18.to_json
         end
-        temp19 = []  #Skillsource translated sst 
+        temp19 = []  #Skillsource translated sst
            @ss19.each do |x|
            temp19 << {value: x.id, text: "#{x.skill_name}"}
            @sst19 = temp19.to_json
         end
-        temp20 = []  #Skillsource translated sst 
+        temp20 = []  #Skillsource translated sst
            @ss20.each do |x|
            temp20 << {value: x.id, text: "#{x.skill_name}"}
            @sst20 = temp20.to_json
         end
-        temp23 = []  #Skillsource translated sst 
+        temp23 = []  #Skillsource translated sst
            @ss23.each do |x|
            temp23 << {value: x.id, text: "#{x.skill_name}"}
            @sst23 = temp23.to_json
         end
-        temp28 = []  #Skillsource translated sst 
+        temp28 = []  #Skillsource translated sst
            @ss28.each do |x|
            temp28 << {value: x.id, text: "#{x.skill_name}"}
            @sst28 = temp28.to_json
@@ -384,9 +384,9 @@ get '/settings' do
 
 
 
-                                  
-                                
-                            
+                                 
+                               
+                           
 
        erb :settings
 end
@@ -398,11 +398,11 @@ end
   end
 
 
-  post '/auth/login' do 
+  post '/auth/login' do
 
     env['warden'].authenticate!
     if session[:return_to].nil?
-      
+     
 
        #@emailme = user1.email
        redirect '/edge'
@@ -411,7 +411,7 @@ end
         #redirect session[:return_to]
     end
 
-  end 
+  end
  
 
 
@@ -436,7 +436,7 @@ end
     userdata.update(eval(":#{params['name']}") => params["value"])
     return 200
   end
-  
+ 
   post '/updatedob' do
     userdata = User.get(params["pk"])
     str=params["dob"]
@@ -480,10 +480,10 @@ end
     userdata.update(:insingaporenow => params['insingaporenow'])
     return 200
   end
-  
+ 
 
-  post '/jobsubmit' do 
-    userprofile = env['warden'].user 
+  post '/jobsubmit' do
+    userprofile = env['warden'].user
     newjob = Job.create(
       :user_id => userprofile.id,
       :company => params['companyname'],
@@ -496,7 +496,7 @@ end
 
     )
      redirect to('/profile')
-  end   
+  end  
 
   post '/jobupdate' do
     jobdata = Job.get(params['id'])
@@ -515,13 +515,6 @@ end
     redirect to('/profile')
   end
 
-  #get '/deleteskill' do
-  #  userprofile = env['warden'].user
-  #  myskill = userprofile.skill_summaries.get(params["id"])
-  #  #myskill.destroy
-  #  myskill.update(:status => 0)
-  #  redirect to ('/settings#skilltable')
-  #end
 
 
   post '/deleteskill' do
@@ -539,7 +532,7 @@ end
   end
 
   post '/updateskill' do
-    userprofile = env['warden'].user 
+    userprofile = env['warden'].user
     myskill = userprofile.skill_summaries.get(params["pk"])
     myskill.update(:skillid => params["value"])
     myskill.update(:status =>1)
@@ -547,17 +540,13 @@ end
   end
 
   post '/newskill' do
-    userprofile = env['warden'].user 
-
-    #newskill_json = JSON.parse(params["value"])
-    #newskill = SkillSummary.create(:skillcatid =>newskill_json["skillcatid"], :skillid => newskill_json["skillid"], :skillrank => newskill_json["skillrank"], :user_id => userprofile.id)
-    newskill = SkillSummary.first_or_create({:skillcatid => params["skillcatid"]}, {:skillid => params["skillid"], :skillrank => params["skillrank"], :user_id => userprofile.id})
-    #newskill = SkillSummary.first_or_create(:skillid => )
+    userprofile = env['warden'].user
+    newskill = SkillSummary.create(:skillcatid => params["skillcatid"], :skillid => params["skillid"], :skillrank => params["skillrank"], :user_id => userprofile.id)
     return 200
   end
 
   post '/update_language' do
-    userprofile = env['warden'].user 
+    userprofile = env['warden'].user
     mylanguage = userprofile.languages.get(params["pk"])
     mylanguage.update(:languageid => params["value"])
     mylanguage.update(:status =>1)
@@ -565,7 +554,7 @@ end
   end
 
   post '/updateskillcat' do
-    userprofile = env['warden'].user 
+    userprofile = env['warden'].user
     myskill = userprofile.skill_summaries.get(params["pk"])
     #myskill.update(eval(":#{params['name']}") => params["value"])
     #myskill.reload.update(eval(":#{params['name']}") => params["value"])
@@ -595,14 +584,14 @@ end
 
     get '/updatelocpref'do
     # If shaun cannot provide a string as data. Then what we will do is we will send back a new table to him with a string containing all the location ID
-    # And in /settings, we will have to build this new table. 
-     userprofile = env['warden'].user  
+    # And in /settings, we will have to build this new table.
+     userprofile = env['warden'].user 
      pc= userprofile.preferred_locations.get(params["pk"])
      pc.update(eval(":#{params['name']}") => params["value"])
   end
 
     get '/updateindpref'do
-     userprofile = env['warden'].user 
+     userprofile = env['warden'].user
      pind = userprofile.job_industries.get(params["pk"])
      pind.update(eval(":#{params['name']}") => params["value"])
   end
@@ -614,6 +603,6 @@ end
 map SinatraWardenExample.assets_prefix do
   run SinatraWardenExample.sprockets
 end
-    
+   
 
 run SinatraWardenExample
