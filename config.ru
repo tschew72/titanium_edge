@@ -541,8 +541,8 @@ end
 
   post '/newskill' do
     userprofile = env['warden'].user
-    #newskill = SkillSummary.create(:skillcatid => params["skillcatid"], :skillid => params["skillid"], :skillrank => params["skillrank"], :user_id => userprofile.id)
-    newskill = SkillSummary.create(:skillid => params["skillid"])
+    newskill = SkillSummary.create(:skillcatid => params["skillcatid"], :skillid => params["skillid"], :skillrank => params["skillrank"], :user_id => userprofile.id)
+    #newskill = SkillSummary.create(:skillid => params["skillid"])
     return 200
   end
 

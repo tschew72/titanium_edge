@@ -116,9 +116,6 @@
               <a class="red" href="#addskillmodal" data-toggle="modal"> <!-- Set a flag to say it is deleted.  -->
                 <i class="icon-pencil bigger-130">Add a skill</i>
               </a>
-              <a class="red" href="#addskillmodal" data-toggle="modal"> <!-- Set a flag to say it is deleted.  -->
-                <i class="icon-pencil bigger-130">Report new skill</i>
-              </a>
           </div>          
 
                   <!--  Modal -->
@@ -136,30 +133,30 @@
                               <table id="user" class="table table-bordered table-striped">
                                   <tbody> 
                                       <tr>         
-                                          <td width="40%">Skill category</td>
-                                          <td><a href="#" class="newskill" data-type="text" data-name="skillcatid" data-original-title="Select skill category"></a></td>
+                                          <td width="100%">Skill category</td>
+                                          <td width="100%"><a href="#" class="newskill" data-emptytext="Select..." data-type="text" data-name="skillcatid" data-original-title="Select skill category"></a></td>
                                       </tr>
                                       <tr>         
-                                          <td>Skill name</td>
-                                          <td><a href="#" class="newskill" data-type="text" data-name="skillid" data-original-title="Select skill"></a></td>
+                                          <td width="100%">Skill name</td>
+                                          <td width="100%"><a href="#" class="newskill" data-emptytext="Select..." data-type="text" data-name="skillid" data-original-title="Select skill"></a></td>
                                       </tr>  
                                       <tr>         
-                                          <td>Skill rank</td>
-                                          <td><a href="#" class="newskill" data-type="select" data-name="skillrank" data-source="[{value: 1, text: 'Basic'}, {value: 2, text: 'Intermediate'}, {value: 3, text: 'Advance'}, {value: 4, text: 'Expert'}]" data-original-title="Select rank"></a></td>
+                                          <td width="100%">Skill rank</td>
+                                          <td width="100%"><a href="#" class="newskill" data-emptytext="Select..." data-type="select" data-name="skillrank" data-source="[{value: 1, text: 'Basic'}, {value: 2, text: 'Intermediate'}, {value: 3, text: 'Advance'}, {value: 4, text: 'Expert'}]" data-original-title="Select rank"></a></td>
                                       </tr>     
                                   </tbody>
                               </table>
+
                               <div>
-                              <button id="saveskill-btn" class="btn btn-primary">Save new user!</button>
-                              <button id="reset-btn" class="btn pull-right">Reset</button>
+                              <button id="saveskill-btn" class="btn btn-primary">Save and add new</button>
                               </div>
+                              Suggest new skill if yours is not listed here
                           </div>                            
 
                       </div> <!-- "modal-body" -->
                       <div class="modal-footer">
                            <!-- <input type="submit" name="save" formaction="/jobupdate" value="Submit" /> -->
-                           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                           <button type="button" class="btn btn-default">Add</button>
+                           <button type="button" class="btn btn-default" id="closeskill-btn" data-dismiss="modal">Close</button>
                       </div> <!-- footer -->
                </div> <!-- modal-content -->
              </div><!-- modal-dialog -->
@@ -705,23 +702,14 @@
                  dataType: 'json' //assuming json response
              },           
              success: function(data, config) {
-                 if(data && data.id) {  //record created, response like {"id": 2}
-                     //set pk
-                     $(this).editable('option', 'pk', data.id);
-                     //remove unsaved class
-                     $(this).removeClass('editable-unsaved');
-                     //show messages
-                     var msg = 'New skill created! Now editables submit individually.';
-                     $('#msg').addClass('alert-success').removeClass('alert-error').html(msg).show();
-                      $('.myeditable').editable('setValue', null)  //clear values
-                      .editable('option', 'pk', null)          //clear pk
-                      .removeClass('editable-unsaved');        //remove bold css
-                     $('#save-btn').hide(); 
-                     $(this).off('save.newskill');                     
-                 } else if(data && data.errors){ 
+                 
+                  if(data && data.errors){ 
                      //server-side validation error, response like {"errors": {"username": "username already exist"} }
+                     alert("Problem2!")
                      config.error.call(this, data.errors);
-                 }               
+                 }   else{
+                 $('.newskill').editable('setValue', null)  //clear values     
+                 }       
              },
              error: function(errors) {
                  var msg = '';
@@ -735,6 +723,17 @@
              }
          });
       });
+
+
+      $('#closeskill-btn').click(function() {
+          $('.newskill').editable('setValue', null)  //clear values
+              .editable('option', 'pk', null)          //clear pk
+              .removeClass('editable-unsaved');        //remove bold css
+                         
+          $('#save-btn').show();
+          $('#msg').hide();                
+      });
+
 
 
 	});
