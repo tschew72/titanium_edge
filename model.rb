@@ -37,6 +37,8 @@ class User
   property :insg_end, Date    #End date when Seeker is in Singapore (Only if he is non Singaporean/PR)
   property :activeseeker, Boolean, :default =>true #Seeker to keep this updated.
   property :travelfreq, Integer
+  property :currentsalary, Integer, :default  => 0
+  property :expectedsalary, Integer, :default  => 0
   property :pictureurl, String
   property :verifiedbadge, Boolean, :default=>false
   property :verifiedstartdate, Date
@@ -181,7 +183,7 @@ class SkillSource                               #This is for Skill Management Ta
   property :id, Serial , key: true, :index => true
   property :skill_name, String, length:100, :index => true      
   property :skillcategory_id, Integer, :index => true
-  property :skillcategory_name, String, length:100, :index => true
+  property :skillcategory_name, String, length:100, :index => true  # to be removed. Category name in Class SkillCategory
   
 
 end
@@ -193,6 +195,16 @@ class SkillRank
   property :skillrankname, String, length:100, :index => true   
 
 end
+
+
+class SkillCategory    
+  include DataMapper::Resource
+
+  property :id, Serial , key: true, :index => true
+  property :categoryname, String, length:100, :index => true   
+
+end
+
 
 class JobIndustry     #Preferred Industry
   include DataMapper::Resource

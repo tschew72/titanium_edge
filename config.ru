@@ -171,7 +171,9 @@ get '/settings' do
        @userprofile = env['warden'].user  #This is the most important query of all. it will identify the user of this session.
        @userme = @userprofile.firstname
        @allskills =   @userprofile.skill_summaries.all
+       
        @languages = @userprofile.languages.all
+       @lmaster = LanguageSource.all
        @ssmaster = SkillSource  #master skill source for cross referencing
       
        #Preferred Industries
@@ -189,24 +191,29 @@ get '/settings' do
           @pref_loc = @pref_loc + pc.get(i).countryid.to_s + ","
        end
 
-       @indmaster = IndustryMaster.all
+       @indmaster = IndustryMaster.all   #Industry Master
        indtemp = []  
            @indmaster.each do |x|
            indtemp << {id: x.id, text: "#{x.industryname}"}
            @industries = indtemp.to_json
         end
 
-       @cmaster = CountryMaster.all
+       @cmaster = CountryMaster.all   #Country Master
        ctemp = []  
            @cmaster.each do |x|
            ctemp << {value: x.id, text: "#{x.countryname}"}
            @countries = ctemp.to_json
         end
     
+       @scmaster = SkillCategory.all   #Skill Category Master
+       cattemp = []  
+           @scmaster.each do |x|
+           cattemp << {value: x.id, text: "#{x.categoryname}"}
+           @skillcat= cattemp.to_json
+       end
 
-@ss0 = @ssmaster.all(:skillcategory_id =>0)
 
-       @ss1 = @ssmaster.all(:skillcategory_id =>1)
+       @ss1 = @ssmaster.all(:skillcategory_id =>1)  # Class SkillSummary
        @ss2 = @ssmaster.all(:skillcategory_id =>2)
        @ss3 = @ssmaster.all(:skillcategory_id =>3)
        @ss4 = @ssmaster.all(:skillcategory_id =>4)
@@ -215,6 +222,15 @@ get '/settings' do
        @ss7 = @ssmaster.all(:skillcategory_id =>7)
        @ss8 = @ssmaster.all(:skillcategory_id =>8)
        @ss9 = @ssmaster.all(:skillcategory_id =>9)
+       @ss10 = @ssmaster.all(:skillcategory_id =>10)
+       @ss11 = @ssmaster.all(:skillcategory_id =>11)
+       @ss12 = @ssmaster.all(:skillcategory_id =>12)
+       @ss13 = @ssmaster.all(:skillcategory_id =>13)
+       @ss14 = @ssmaster.all(:skillcategory_id =>14)
+       @ss15 = @ssmaster.all(:skillcategory_id =>15)
+       @ss16 = @ssmaster.all(:skillcategory_id =>16)
+       @ss17 = @ssmaster.all(:skillcategory_id =>17)
+       @ss18 = @ssmaster.all(:skillcategory_id =>18)
        @ss19 = @ssmaster.all(:skillcategory_id =>19)
        @ss20 = @ssmaster.all(:skillcategory_id =>20)
        @ss21 = @ssmaster.all(:skillcategory_id =>21)
@@ -227,6 +243,22 @@ get '/settings' do
        @ss28 = @ssmaster.all(:skillcategory_id =>28)
        @ss29 = @ssmaster.all(:skillcategory_id =>29)
        @ss30 = @ssmaster.all(:skillcategory_id =>30)
+       @ss31 = @ssmaster.all(:skillcategory_id =>31)
+       @ss32 = @ssmaster.all(:skillcategory_id =>32)
+       @ss33 = @ssmaster.all(:skillcategory_id =>33)
+       @ss34 = @ssmaster.all(:skillcategory_id =>34)
+       @ss35 = @ssmaster.all(:skillcategory_id =>35)
+       @ss36 = @ssmaster.all(:skillcategory_id =>36)
+       @ss37 = @ssmaster.all(:skillcategory_id =>37)
+       @ss38 = @ssmaster.all(:skillcategory_id =>38)
+       @ss39 = @ssmaster.all(:skillcategory_id =>39)
+       @ss40 = @ssmaster.all(:skillcategory_id =>40)
+       @ss41 = @ssmaster.all(:skillcategory_id =>41)
+       @ss42 = @ssmaster.all(:skillcategory_id =>42)
+       @ss43 = @ssmaster.all(:skillcategory_id =>43)
+       @ss44 = @ssmaster.all(:skillcategory_id =>44)
+
+
 
 
 
@@ -275,6 +307,56 @@ get '/settings' do
            @ss9.each do |x|
            temp9 << {value: x.id, text: "#{x.skill_name}"}
            @sst9 = temp9.to_json
+        end
+        temp10 = []  #Skillsource translated sst 
+           @ss10.each do |x|
+           temp10 << {value: x.id, text: "#{x.skill_name}"}
+           @sst10 = temp10.to_json
+        end
+        temp11 = []  #Skillsource translated sst 
+           @ss11.each do |x|
+           temp11 << {value: x.id, text: "#{x.skill_name}"}
+           @sst11 = temp11.to_json
+        end
+        temp12 = []  #Skillsource translated sst 
+           @ss12.each do |x|
+           temp12 << {value: x.id, text: "#{x.skill_name}"}
+           @sst12 = temp12.to_json
+        end
+        temp13 = []  #Skillsource translated sst 
+           @ss13.each do |x|
+           temp13 << {value: x.id, text: "#{x.skill_name}"}
+           @sst13 = temp13.to_json
+        end
+        temp14 = []  #Skillsource translated sst 
+           @ss14.each do |x|
+           temp14 << {value: x.id, text: "#{x.skill_name}"}
+           @sst14 = temp14.to_json
+        end
+        temp14 = []  #Skillsource translated sst 
+           @ss14.each do |x|
+           temp14 << {value: x.id, text: "#{x.skill_name}"}
+           @sst14 = temp14.to_json
+        end
+        temp15 = []  #Skillsource translated sst 
+           @ss15.each do |x|
+           temp15 << {value: x.id, text: "#{x.skill_name}"}
+           @sst15 = temp15.to_json
+        end
+        temp16 = []  #Skillsource translated sst 
+           @ss16.each do |x|
+           temp16 << {value: x.id, text: "#{x.skill_name}"}
+           @sst16 = temp16.to_json
+        end
+        temp17 = []  #Skillsource translated sst 
+           @ss17.each do |x|
+           temp17 << {value: x.id, text: "#{x.skill_name}"}
+           @sst17 = temp17.to_json
+        end
+        temp18 = []  #Skillsource translated sst 
+           @ss18.each do |x|
+           temp18 << {value: x.id, text: "#{x.skill_name}"}
+           @sst18 = temp18.to_json
         end
         temp19 = []  #Skillsource translated sst 
            @ss19.each do |x|
@@ -515,6 +597,10 @@ end
      pind.update(eval(":#{params['name']}") => params["value"])
   end
 
+    get '/updatesalary'do
+     userprofile = env['warden'].user 
+     userprofile.update(eval(":#{params['name']}") => params["value"])
+  end
 end
 
 

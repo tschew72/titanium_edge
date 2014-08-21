@@ -68,15 +68,21 @@
         <div class="row">  <!-- 5th row in the Preference Management section -->  
           <div class="col-sm-12"> 
               <div class="form-group">
-                  Expected salary S$ <input type="text" id="form-field-1"   />
-                  
+                  Current salary S$ <a href="#" id="currentsalary" data-name="currentsalary" data-type="text"  data-pk="<%=@userprofile.id %>" data-url="/updatesalary" data-title="Enter current salary"><%= @userprofile.currentsalary %></a>
+              </div> 
+          </div>
+        </div>
+        <div class="row">  <!-- 5th row in the Preference Management section -->  
+          <div class="col-sm-12"> 
+              <div class="form-group">
+                  Expected salary S$ <a href="#" id="expectedsalary" data-name="expectedsalary" data-type="text"  data-pk="<%=@userprofile.id %>" data-url="/updatesalary" data-title="Enter expected salary"><%= @userprofile.expectedsalary %></a>
               </div> 
           </div>
         </div>
         <div class="row">  <!-- 5th row in the Preference Management section -->   
           <div class="col-sm-12">    
               <div class="form-group">
-                  Preferred Travel Frequency:<input type="text" class="input-mini" id="spinner2" />        
+                  Preferred Travel Frequency %:<input type="text" class="input-mini" id="spinner2" value="<%=@userprofile.travelfreq %>" />        
               </div>     
           </div>
         </div>        
@@ -151,15 +157,15 @@
                 </tr>
               </thead>
               <tbody id="aat" >
-                  <% @allskills.each do |i| %>
+                  <% @allskills.each do |i| %>  <!--From Skill Summary Class -->
                   <!-- If flag is set to delete, break. and find next record -->
                   <% if @allskills.get(i).status != 0 %>
                  
                   <tr>
                    
-                     <td><a class="skillcat" href="javascript:void(0)" class="editable-click" data-name="skillcatid" data-type="text" data-pk="<%= @allskills.get(i).id%>" data-url="/updateskillcat"  data-title="Enter skill category "><%= i.skillcategory %></a></td> <!--<%= i.skillcategory %>-->
+                     <td><%= @scmaster.get(i.skillcatid).categoryname %></td> 
                       
-                     <td><a class="skills" href="javascript:void(0)" class="editable-click" data-name="skillid" data-type="select" data-pk="<%= @allskills.get(i).id%>" data-url="/updateskill"  data-title="Enter skill "><%= @ssmaster.get(i.skillid).skill_name %> </a></td>
+                     <td><%= @ssmaster.get(i.skillid).skill_name %> </a></td>
                      
                      <td><a class="skillrank" href="javascript:void(0)" class="editable-click" data-name="skillrank" data-type="select" data-pk="<%= @allskills.get(i).id%>" data-url="/updateskillrank" data-source="[{value: 1, text: 'Basic'}, {value: 2, text: 'Intermediate'}, {value: 3, text: 'Advance'}, {value: 4, text: 'Expert'}]"   data-title="Enter skill rank">  <%= @sr.get(i.skillrank).skillrankname %>
                      </a></td> 
@@ -196,10 +202,10 @@
           <div class="action-buttons">
 
               <a class="red" href="#addlanguagemodal" data-toggle="modal"> <!-- Set a flag to say it is deleted.  -->
-                <i class="icon-pencil bigger-130">Add a skill</i>
+                <i class="icon-pencil bigger-130">Add a language</i>
               </a>
               <a class="red" href="#addlanguagemodal" data-toggle="modal"> <!-- Set a flag to say it is deleted.  -->
-                <i class="icon-pencil bigger-130">Report new skill</i>
+                <i class="icon-pencil bigger-130">Report new language</i>
               </a>
           </div>          
 
@@ -257,12 +263,12 @@
                  
                   <tr>
                    
-                     <td><a class="skillcat" href="javascript:void(0)" class="editable-click" data-name="skillcatid" data-type="text" data-pk="<%= @languages.get(i).id%>" data-url="/update_language"  data-title="Enter skill category "><%= i.languagename %></a></td> <!--<%= i.skillcategory %>-->
+                     <td><a class="languagename" href="javascript:void(0)" class="editable-click" data-name="languageid" data-type="text" data-pk="<%= @languages.get(i).id%>" data-url="/update_language"  data-title="Enter skill category "><%= @lmaster.get(languageid).languagename %></a></td> 
                       
-                    <td><a class="skillrank" href="javascript:void(0)" class="editable-click" data-name="skillrank" data-type="select" data-pk="<%= @languages.get(i).id%>" data-url="/update_language" data-source="[{value: 1, text: 'Basic'}, {value: 2, text: 'Intermediate'}, {value: 3, text: 'Advance'}, {value: 4, text: 'Expert'}]"   data-title="Enter skill rank">  <%= @sr.get(i.writtenrank).skillrankname %>
+                    <td><a class="writtenrank" href="javascript:void(0)" class="editable-click" data-name="writtenrank" data-type="select" data-pk="<%= @languages.get(i).id%>" data-url="/update_language" data-source="[{value: 1, text: 'Basic'}, {value: 2, text: 'Intermediate'}, {value: 3, text: 'Advance'}, {value: 4, text: 'Expert'}]"   data-title="Enter skill rank">  <%= @sr.get(i.writtenrank).skillrankname %>
                      </a></td> 
                      
-                     <td><a class="skillrank" href="javascript:void(0)" class="editable-click" data-name="skillrank" data-type="select" data-pk="<%= @languages.get(i).id%>" data-url="/update_language" data-source="[{value: 1, text: 'Basic'}, {value: 2, text: 'Intermediate'}, {value: 3, text: 'Advance'}, {value: 4, text: 'Expert'}]"   data-title="Enter skill rank">  <%= @sr.get(i.spokenrank).skillrankname %>
+                     <td><a class="spokenrank" href="javascript:void(0)" class="editable-click" data-name="spokenrank" data-type="select" data-pk="<%= @languages.get(i).id%>" data-url="/update_language" data-source="[{value: 1, text: 'Basic'}, {value: 2, text: 'Intermediate'}, {value: 3, text: 'Advance'}, {value: 4, text: 'Expert'}]"   data-title="Enter skill rank">  <%= @sr.get(i.spokenrank).skillrankname %>
                      </a></td> 
                      <td>
 
@@ -524,55 +530,64 @@
         }          
       
 
-      // $('#skilltable').editable({
-      //   selector: 'a.skillrank'
-      //   //url: '/updateskill',
-
-
-      // });
+     
 
       $('#languagetable').editable({
+        selector: 'a.languagename'
+      });
+
+      $('#languagetable').editable({
+        selector: 'a.spokenrank'
+      });
+
+      $('#languagetable').editable({
+        selector: 'a.writtenrank'
+      });
+
+
+      $('#skilltable').editable({
         selector: 'a.skillrank'
-        //url: '/updateskill',
-
-
       });
 
       $('#skilltable').editable({
         selector: 'a.skills',
         source: function() {
-
-        
-
               //alert($(this).closest(":has(td)").find('.skillcat').text());
               //$(this).closest(":has(td)").find('.skillcat').text()
               //$('.a1').closest('td').prev().text()
-              //alert($(this).closest("td").prev().text())
-              if ($(this).closest("td").prev().text() == "General Skills Management / Customers"){
-                return (<%= @sst19 %>)
+              //alert($(this).closest("td").prev().text())  
+              // string compare example: nation.indexOf("Singapore")
+
+              // if ($(this).closest("td").prev().text() == "General Skills Management / Customers"){
+              //   return (<%= @sst19 %>)
                 
-              }
-              if ($(this).closest("td").prev().text()  == "Networking Skills"){
-                return <%= @sst23 %>
+              // }
+              // if ($(this).closest("td").prev().text() == "Networking Skills"){
+              //   return <%= @sst23 %>
                 
-              }
-              if ($(this).closest("td").prev().text()  == "General Skills Technical"){
-                return <%= @sst20 %>
+              // }
+              // if ($(this).closest("td").prev().text() == "General Skills Technical"){
+              //   return <%= @sst20 %>
                
-              }
-              if ($(this).closest("td").prev().text()  == "Operating Systems"){
-                return <%= @sst28 %>
+              // }
+              // if ($(this).closest("td").prev().text() == "Operating Systems"){
+              //   return <%= @sst28 %>
               
-              }
-        //return (sources[1])
+              // }
         }
 
       });
    
-      $('#skillcat').editable({
+
+      $('#currentsalary').editable();
+      $('#expectedsalary').editable();
+
+
+      $('#skilltable').editable({
         selector: 'a.skillcat'
-        //url: '/updateskill',
       });
+
+
 
       $('#industries').editable({
         
