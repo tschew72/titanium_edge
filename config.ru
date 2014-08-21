@@ -546,6 +546,16 @@ end
     return 200
   end
 
+  post '/newskill' do
+    userprofile = env['warden'].user 
+
+    #newskill_json = JSON.parse(params["value"])
+    #newskill = SkillSummary.create(:skillcatid =>newskill_json["skillcatid"], :skillid => newskill_json["skillid"], :skillrank => newskill_json["skillrank"], :user_id => userprofile.id)
+    newskill = SkillSummary.first_or_create({:skillcatid => params["skillcatid"]}, {:skillid => params["skillid"], :skillrank => params["skillrank"], :user_id => userprofile.id})
+    #newskill = SkillSummary.first_or_create(:skillid => )
+    return 200
+  end
+
   post '/update_language' do
     userprofile = env['warden'].user 
     mylanguage = userprofile.languages.get(params["pk"])
