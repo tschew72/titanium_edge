@@ -36,21 +36,27 @@
             </div>      
           </div>
         </div>
-        <div class="row">  <!-- 3rd row in the Preference Management section -->     
-          <div class="col-sm-12"> 
-            <div class="form-group">
-              Preferred Job Levels <input type="text" name="tags" id="form-field-tags-joblevels" value="Tag Input Control" placeholder="Enter job level ..." />
-            </div>
+
+        <div class="row">  <!-- 5th row in the Preference Management section -->  
+          <div class="col-sm-5"> 
+              Preferred Job Levels: 
           </div>
-        </div>
-        <div class="row">  <!-- 4th row in the Preference Management section -->  
-          <div class="col-sm-12"> 
-            <div class="form-group">
-              <label class="custo1">Preferred Job Functions<input type="text" name="tags" id="form-field-tags-jobfunctions" value="Tag Input Control" placeholder="Enter job functions ..." /></label>
-            </div>
+          <div class="col-sm-5"> 
+              Preferred Job Functions:
           </div>
+          <div class="col-sm-2"></div>
         </div>
 
+        <div class="row">
+          <div class="col-sm-5"> 
+              <a href="#" id="joblevel" data-type="select2" data-value="<%= @pref_ind %>"  data-pk="<%=@userprofile.id %>" data-url="/updateindpref" data-title="Enter preferred job levels"></a> 
+          </div>
+          <div class="col-sm-5">   
+               <a href="#" id="jobfunction" data-type="select2" data-value="<%= @pref_loc %>"  data-pk="<%=@userprofile.id %>" data-url="/updatelocpref" data-title="Enter preferred job functions"></a>
+          </div>
+          <div class="col-sm-2"></div>
+        </div>
+        <br>
         <div class="row">  <!-- 5th row in the Preference Management section -->  
           <div class="col-sm-5"> 
               Preferred Industries: 
@@ -95,7 +101,9 @@
   </div> <!-- col -->
   <br><br>
    <div class="row">
+    <div class="col-sm-6">  
      Upload new CV
+    </div>
    </div>
  
    <div class="row">
