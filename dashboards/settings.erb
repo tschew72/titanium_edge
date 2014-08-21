@@ -68,14 +68,8 @@
         <div class="row">  <!-- 5th row in the Preference Management section -->  
           <div class="col-sm-12"> 
               <div class="form-group">
-                  Current salary S$ <a href="#" id="currentsalary" data-name="currentsalary" data-type="text"  data-pk="<%=@userprofile.id %>" data-url="/updatesalary" data-title="Enter current salary"><%= @userprofile.currentsalary %></a>
-              </div> 
-          </div>
-        </div>
-        <div class="row">  <!-- 5th row in the Preference Management section -->  
-          <div class="col-sm-12"> 
-              <div class="form-group">
-                  Expected salary S$ <a href="#" id="expectedsalary" data-name="expectedsalary" data-type="text"  data-pk="<%=@userprofile.id %>" data-url="/updatesalary" data-title="Enter expected salary"><%= @userprofile.expectedsalary %></a>
+                  Expected salary S$ <input type="text" id="form-field-1"   />
+                  
               </div> 
           </div>
         </div>
@@ -578,11 +572,6 @@
 
       });
    
-
-      $('#currentsalary').editable();
-      $('#expectedsalary').editable();
-
-
       $('#skilltable').editable({
         selector: 'a.skillcat'
       });

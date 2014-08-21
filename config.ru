@@ -597,10 +597,6 @@ end
      pind.update(eval(":#{params['name']}") => params["value"])
   end
 
-    get '/updatesalary'do
-     userprofile = env['warden'].user 
-     userprofile.update(eval(":#{params['name']}") => params["value"])
-  end
 end
 
 
