@@ -257,7 +257,7 @@ get '/settings' do
        @ss42 = @ssmaster.all(:skillcategory_id =>42)
        @ss43 = @ssmaster.all(:skillcategory_id =>43)
        @ss44 = @ssmaster.all(:skillcategory_id =>44)
-       @ss45 = @ssmaster.all(:skillcategory_id =>44)
+       @ss45 = @ssmaster.all(:skillcategory_id =>45)
 
 
 
@@ -368,6 +368,16 @@ get '/settings' do
            @ss20.each do |x|
            temp20 << {value: x.id, text: "#{x.skill_name}"}
            @sst20 = temp20.to_json
+        end
+        temp21 = []  #Skillsource translated sst
+           @ss21.each do |x|
+           temp21 << {value: x.id, text: "#{x.skill_name}"}
+           @sst21 = temp21.to_json
+        end
+        temp22 = []  #Skillsource translated sst
+           @ss22.each do |x|
+           temp22 << {value: x.id, text: "#{x.skill_name}"}
+           @sst22 = temp22.to_json
         end
         temp23 = []  #Skillsource translated sst
            @ss23.each do |x|
