@@ -43,6 +43,7 @@ class User
   property :verifiedbadge, Boolean, :default=>false
   property :verifiedstartdate, Date
   property :verifiedenddate, Date
+  property :lastlogin, Date
   
   property :updated_at, DateTime
 
@@ -170,7 +171,6 @@ class SkillSummary
   property :skillid, Integer, :index => true
   property :skillrank, Integer, :index => true                  #1=Basic 2=Intermediate 3=Advance 4=Expert
   property :skillcatid, Integer, :index => true
-  property :skillcategory, String, length:100, :index => true
   property :status, Integer, :default  => 2,:index => true     #0=delete, 1=edited, 2=active
   property :updated_at, DateTime                #When was it last edited
 
