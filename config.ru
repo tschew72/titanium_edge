@@ -4,12 +4,13 @@ require 'bundler'
 require 'warden'
 require './model'
 
-require 'httparty'
+#require 'httparty'
 require 'json'
 #require 'roo'
 #require 'compass'
 
 require 'newrelic_rpm'
+
 
    
 class SinatraWardenExample < Sinatra::Application
@@ -292,32 +293,32 @@ get '/settings' do
           @pref_loc = @pref_loc + pc.get(i).countryid.to_s + ","
        end
 
-       @indmaster = IndustryMaster.all   #Industry Master
+       @indmaster = IndustryMaster.all   #Industry Master       #Hardcode to HTML. Remove from Database.
        indtemp = [] 
            @indmaster.each do |x|
            indtemp << {id: x.id, text: "#{x.industryname}"}
            @industries = indtemp.to_json
         end
 
-       @cmaster = CountryMaster.all   #Country Master
+       @cmaster = CountryMaster.all   #Country Master  #Hardcode to HTML. Remove from Database.
        ctemp = [] 
            @cmaster.each do |x|
            ctemp << {value: x.id, text: "#{x.countryname}"}
            @countries = ctemp.to_json
         end
    
-       @scmaster = SkillCategory.all   #Skill Category Master
+       @scmaster = SkillCategory.all   #Skill Category Master     #Hardcode to HTML. Remove from Database. Push this to the /admin for churning json.
        cattemp = [] 
            @scmaster.each do |x|
            cattemp << {value: x.id, text: "#{x.categoryname}"}
            @skillcat= cattemp.to_json
        end
 
-       #@jobhistory = @userprofile.jobs.all(:order => [:startdate.desc])
-       @sr = SkillRank.all
+       @sr = SkillRank.all  #Hardcode to HTML. Remove from Database.
 
 
        erb :settings
+       #TidyFFI::Tidy.new( erb :'settings' ).clean 
 end
 
 
