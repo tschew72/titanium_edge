@@ -39,10 +39,10 @@
         <div class="well well-lg">
             <div class="row">  <!-- 5th row in the Preference Management section -->  
               <div class="col-sm-5"> 
-                  Preferred Job Levels: 
+                  <h4 class="header smaller lighter blue">Preferred Job Levels </h4>
               </div>
               <div class="col-sm-5"> 
-                  Preferred Job Functions:
+                  <h4 class="header smaller lighter blue">Preferred Job Functions </h4>
               </div>
               <div class="col-sm-2"></div>
             </div>
@@ -60,10 +60,10 @@
         
             <div class="row">  <!-- 5th row in the Preference Management section -->  
               <div class="col-sm-5"> 
-                  Preferred Industries: 
+                  <h4 class="header smaller lighter blue">Preferred Industries </h4>
               </div>
               <div class="col-sm-5"> 
-                  Preferred Locations:
+                  <h4 class="header smaller lighter blue">Preferred Locations </h4>
               </div>
               <div class="col-sm-2"></div>
             </div>
@@ -705,11 +705,20 @@
              success: function(data, config) {
                  
                   if(data && data.errors){ 
-                     //server-side validation error, response like {"errors": {"username": "username already exist"} }
-                     alert("Problem2!")
-                     config.error.call(this, data.errors);
+                       //server-side validation error, response like {"errors": {"username": "username already exist"} }
+                       alert("Problem2!")
+                       config.error.call(this, data.errors);
                  }   else{
-                 $('.newskill').editable('setValue', null)  //clear values     
+
+                      $.gritter.add({
+                        title: 'New Skill Added',
+                        text: 'Go ahead to add more skill or close this window',
+                        sticky: false,
+                        time: '1500',
+                        class_name: 'gritter-light gritter-info'
+                      });
+
+                      $('.newskill').editable('setValue', null)  //clear values     
                  }       
              },
              error: function(errors) {
@@ -724,6 +733,7 @@
              }
          });
       });
+
 
 
       $('#closeskill-btn').click(function() {
