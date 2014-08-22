@@ -383,7 +383,6 @@ get '/settings' do
        @sr = SkillRank.all
 
 
-
                                  
                                
                            
@@ -542,9 +541,17 @@ end
 
   post '/newskill' do
     userprofile = env['warden'].user
-    newskill = SkillSummary.create(:skillcatid => params["skillcatid"], :skillid => params["skillid"], :skillrank => params["skillrank"], :user_id => userprofile.id)
-    #newskill = SkillSummary.create(:skillid => params["skillid"])
-    return 200
+    newskill = SkillSummary.first_or_create({:skillid => params["skillid"]}).update(:skillcatid => params["skillcatid"],  :skillrank => params["skillrank"], :user_id => userprofile.id)  #If similar skillID detected, just update it with new set of data.
+
+     #if newskill.save
+     #   {:responsemsg => "New skill added" }.to_json
+     #else 
+     #   {:responsemsg => newskill.errors.on(:skillid) }.to_json
+     #end
+     #@sr = SkillRank.all
+     #@allskills =   @userprofile.skill_summaries.all
+     #@scmaster = SkillCategory.all   #Skill Category Master
+     return 200
   end
 
   post '/update_language' do

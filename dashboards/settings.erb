@@ -626,7 +626,7 @@
       });
 
 
-        $('#skillsettingtable').dataTable( {
+        $('#skillsettingtable').dataTable( {   //need to include the Ajax source so that I can reload it from anywhere
             "scrollY": 200,
             "ScrollX": true,
             "iDisplayLength": 10,
@@ -708,7 +708,7 @@
       $('.newskill').on('save.newskill', function(){
           var that = this;
           setTimeout(function() {
-              $(that).closest('tr').next().find('.myeditable').editable('show');
+              $(that).closest('tr').next().find('.newskill').editable('show');
           }, 200);
       });     
 
@@ -722,15 +722,15 @@
                  
                   if(data && data.errors){ 
                        //server-side validation error, response like {"errors": {"username": "username already exist"} }
-                       alert("Problem2!")
                        config.error.call(this, data.errors);
+
                  }   else{
 
                       $.gritter.add({
-                        title: 'New Skill Added',
+                        title: "New Skill added!",
                         text: 'Go ahead to add more skill or close this window',
                         sticky: false,
-                        time: '1500',
+                        time: '2500',
                         class_name: 'gritter-light gritter-info'
                       });
 
@@ -744,8 +744,14 @@
                  } else { //validation error (client-side or server-side)
                      $.each(errors, function(k, v) { msg += k+": "+v+"<br>"; });
                  } 
-                 alert("Problem!")
-                 $('#msg').removeClass('alert-success').addClass('alert-error').html(msg).show();
+                 var data = JSON.parse(errors);
+                 $.gritter.add({
+                        title: "WAAA",
+                        text: 'Message here',
+                        sticky: false,
+                        time: '3500',
+                        class_name: 'gritter-light gritter-warning'
+                 });
              }
          });
       });
@@ -756,7 +762,7 @@
           $('.newskill').editable('setValue', null)  //clear values
               .editable('option', 'pk', null)          //clear pk
               .removeClass('editable-unsaved');        //remove bold css
-                         
+          $('#skillsettingtable').dataTable().fnDraw();           // need to do a AJAX RELOAD     
           $('#save-btn').show();
           $('#msg').hide();                
       });
