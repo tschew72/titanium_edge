@@ -1,5 +1,5 @@
 bundle install
 git init
 git add .
-git commit -m "Version without edit/create/delete functionality"
+git commit -m "Add Skill functionality established."
 git push heroku master

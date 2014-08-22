@@ -137,12 +137,15 @@
                               <table id="user" class="table table-bordered table-striped">
                                   <tbody> 
                                       <tr>         
-                                          <td width="100%">Skill category</td>
-                                          <td width="100%"><a href="#" class="newskill" data-emptytext="Select..." data-type="text" data-name="skillcatid" data-original-title="Select skill category"></a></td>
+                                          <td width="100%">Skill category</td> <!--TSCHEW-->
+                                          <td width="100%">
+                                            <a href="#" class="newskill" data-emptytext="Select..." data-type="select" id="skillcat" data-name="skillcatid"  data-original-title="Select skill category"></a>
+
+                                          <!--   <a href="#" class="newskill" id="skillcat" data-type"select" data-emptytext="Select..." data-name="skillcatid" data-original-title="Select skill category"></a></td> -->
                                       </tr>
                                       <tr>         
                                           <td width="100%">Skill name</td>
-                                          <td width="100%"><a href="#" class="newskill" data-emptytext="Select..." data-type="text" data-name="skillid" data-original-title="Select skill"></a></td>
+                                          <td width="100%"><a href="#" class="newskill" id="skillname"  data-emptytext="Select..." data-type="select" data-name="skillid" data-original-title="Select skill"></a></td>
                                       </tr>  
                                       <tr>         
                                           <td width="100%">Skill rank</td>
@@ -302,7 +305,7 @@
     </div> <!-- "col-sm-6 column" -->
    </div> <!-- row -->
 
-               
+            
 </div>
       
  </div> <!--"page-content" -->                
@@ -593,9 +596,9 @@
 
       $('#expectedsalary').editable();
       $('#currentsalary').editable();
-      $('#skilltable').editable({
-        selector: 'a.skillcat'
-      });
+      // $('#skilltable').editable({
+      //   selector: 'a.skillcat'
+      // });
 
 
 
@@ -697,7 +700,22 @@
          
       });     
 
+//TSCHEW
 
+  var sources = {
+    1: <%= @sst1 %>, 2: <%= @sst2 %>, 3: <%= @sst3 %>, 4: <%= @sst4 %>, 5: <%= @sst5 %>, 6: <%= @sst6 %>, 7: <%= @sst7 %>,8: <%= @sst8 %>, 9: <%= @sst9 %>, 10: <%= @sst10 %>, 11: <%= @sst11 %>, 12: <%= @sst12 %>, 13: <%= @sst13 %>, 14: <%= @sst14 %>, 15: <%= @sst15 %>, 16: <%= @sst16 %>, 17: <%= @sst17 %>, 18: <%= @sst18 %>,19: <%= @sst19 %>,20: <%= @sst20 %>,21: <%= @sst21 %>,22: <%= @sst22 %>, 23: <%= @sst23 %>, 24: <%= @sst24 %>, 25: <%= @sst25 %>,26: <%= @sst26 %>, 27: <%= @sst27 %>,28: <%= @sst28 %>
+  };  
+
+
+      $('#skillcat').editable({   
+        source: <%= @skillcat %> ,
+        success: function(response, newValue) {
+           $('#skillname').editable('option', 'source', sources[newValue]);  
+           $('#skillname').editable('setValue', null);
+  }
+      });
+
+      $('#skillname').editable();
       //init editables 
       $('.newskill').editable('option', 'validate', function(v) {
           if(!v) return 'Required field!';

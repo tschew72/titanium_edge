@@ -257,6 +257,7 @@ get '/settings' do
        @ss42 = @ssmaster.all(:skillcategory_id =>42)
        @ss43 = @ssmaster.all(:skillcategory_id =>43)
        @ss44 = @ssmaster.all(:skillcategory_id =>44)
+       @ss45 = @ssmaster.all(:skillcategory_id =>44)
 
 
 
@@ -549,7 +550,7 @@ end
      #   {:responsemsg => newskill.errors.on(:skillid) }.to_json
      #end
      #@sr = SkillRank.all
-     #@allskills =   @userprofile.skill_summaries.all
+     @allskills =   @userprofile.skill_summaries.all
      #@scmaster = SkillCategory.all   #Skill Category Master
      return 200
   end
