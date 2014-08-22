@@ -20,22 +20,25 @@
      <h3 class="header smaller lighter blue">My Setup</h3>
  
     <div class="col-xs-12">
-        <div class="row">  <!-- 1st row in the Preference Management section -->
-          <div class="col-sm-12"> 
-              <div class="form-group">
-                   I am active in looking for job <label><input id="activecheck" name="activeseeker" class="ace ace-switch ace-switch-5 btn-rotate" type="checkbox" <%= @userprofile.activeseeker.to_s == "true" ? "checked" : "unchecked" %> /><span class="lbl"></span></label>    
-              </div> 
+               
+          <div class="row">  <!-- 1st row in the Preference Management section -->
+            <div class="col-sm-12"> 
+                <div class="form-group">
+                     I am active in looking for job <label><input id="activecheck" name="activeseeker" class="ace ace-switch ace-switch-5 btn-rotate" type="checkbox" <%= @userprofile.activeseeker.to_s == "true" ? "checked" : "unchecked" %> /><span class="lbl"></span></label>    
+                </div> 
+            </div>
           </div>
-        </div>
-        <div class="row">  <!-- 2nd row in the Preference Management section -->
-          <div class="col-sm-12">
-            <div class="form-group">          
-                  I am in Singapore <label><input id="insgcheck" name="insingaporenow" class="ace ace-switch ace-switch-5 btn-rotate" type="checkbox" <%= @userprofile.insingaporenow.to_s == "true" ? "checked" : "unchecked" %> /><span class="lbl"></span></label>    
-                  on these dates <label><input type="text" style="width: 200px;" name="date-range-picker" id="id-date-range-picker-1"  class="form-control" value="<%=@userprofile.insg_start.strftime("%d/%m/%Y") %> - <%=@userprofile.insg_end.strftime("%d/%m/%Y") %> "  class="span4"></input></label>
-                  <!-- Infobox: If you are in Singapore, and there is seminar or related IT events, we will notify you -->
-            </div>      
+        
+          <div class="row" id="spr_block" style="visibility: hidden">  <!-- 2nd row in the Preference Management section -->
+            <div class="col-sm-12">
+              <div class="form-group">          
+                    I am in Singapore <label><input id="insgcheck" name="insingaporenow" class="ace ace-switch ace-switch-5 btn-rotate" type="checkbox" <%= @userprofile.insingaporenow.to_s == "true" ? "checked" : "unchecked" %> /><span class="lbl"></span></label>    
+                    on these dates <label><input type="text" style="width: 200px;" name="date-range-picker" id="id-date-range-picker-1"  class="form-control" value="<%=@userprofile.insg_start.strftime("%d/%m/%Y") %> - <%=@userprofile.insg_end.strftime("%d/%m/%Y") %> "  class="span4"></input></label>
+                    <!-- Infobox: If you are in Singapore, and there is seminar or related IT events, we will notify you -->
+              </div>      
+            </div>
           </div>
-        </div>
+        
         <div class="well well-lg">
             <div class="row">  <!-- 5th row in the Preference Management section -->  
               <div class="col-sm-5"> 
@@ -656,9 +659,22 @@
           $.ajax({
             url: '/updateactive',
             type: 'POST',
-            data: {"activeseeker": this.checked, "pk" : <%=@userprofile.id %>}
-            
+            data: {"activeseeker": this.checked, "pk" : <%=@userprofile.id %>},
+
+            success: function(response){
+              var data = JSON.parse(response);
+
+              if (data.active){  
+                 document.getElementById( 'spr_block' ).style.visibility = 'visible'; 
+              } else{
+                document.getElementById( 'spr_block' ).style.visibility = 'hidden'; 
+              };
+
+          }
+
+
           });
+              
          
       });
 
@@ -750,8 +766,14 @@
 	});
 
 $(document).ready(function(){
+                //non singaporean and non-PR and active in seeking for job, show it!
+              if (<%= @userprofile.nationality %> != 156 && !<%= @userprofile.singaporepr %> && <%= @userprofile.activeseeker %>){  
+                 document.getElementById( 'spr_block' ).style.visibility = 'visible'; 
+              };
 
-      
+              if (<%= @userprofile.nationality %> == 156){
+                document.getElementById( 'spr_block' ).style.visibility = 'hidden'; 
+              } ;
 
 
 		$('.dial').each(function () { 

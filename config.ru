@@ -472,7 +472,8 @@ end
   post '/updateactive' do
     userdata = User.get(params["pk"])
     userdata.update(:activeseeker => params['activeseeker'])
-    return 200
+    { :active => userdata.activeseeker }.to_json
+    #return 200
   end
 
   post '/updateinsgnow' do
