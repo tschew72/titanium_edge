@@ -403,13 +403,12 @@ end
     userdata = User.get(params["pk"])
     userdata.update(:activeseeker => params['activeseeker'])
     { :active => userdata.activeseeker }.to_json
-    #return 200
   end
 
   post '/updateinsgnow' do
     userdata = User.get(params["pk"])
     userdata.update(:insingaporenow => params['insingaporenow'])
-    return 200
+    { :insingaporenow => userdata.insingaporenow}.to_json
   end
  
 

@@ -32,8 +32,8 @@
           <div class="row" id="spr_block" style="visibility: hidden">  <!-- 2nd row in the Preference Management section -->
             <div class="col-sm-12">
               <div class="form-group">         
-                    I am in Singapore <label><input id="insgcheck" name="insingaporenow" class="ace ace-switch ace-switch-5 btn-rotate" type="checkbox" <%= @userprofile.insingaporenow.to_s == "true" ? "checked" : "unchecked" %> /><span class="lbl"></span></label>   
-                    on these dates <label><input type="text" style="width: 200px;" name="date-range-picker" id="id-date-range-picker-1"  class="form-control" value="<%=@userprofile.insg_start.strftime("%d/%m/%Y") %> - <%=@userprofile.insg_end.strftime("%d/%m/%Y") %> "  class="span4"></input></label>
+                    I am in Singapore <label><input id="insgcheck" name="insingaporenow" class="ace ace-switch ace-switch-5 btn-rotate" type="checkbox" <%= @userprofile.insingaporenow.to_s == "true" ? "checked" : "unchecked" %> /><span class="lbl"></span></label><span id="insg_block">   
+                    on these dates <label><input type="text" style="width: 200px;" name="date-range-picker" id="id-date-range-picker-1"  class="form-control" value="<%=@userprofile.insg_start.strftime("%d/%m/%Y") %> - <%=@userprofile.insg_end.strftime("%d/%m/%Y") %> "  class="span4"></input></label> </span>
                     <!-- Infobox: If you are in Singapore, and there is seminar or related IT events, we will notify you -->
               </div>     
             </div>
@@ -646,26 +646,58 @@
 
               if (data.active){ 
                  document.getElementById( 'spr_block' ).style.visibility = 'visible';
+               $.gritter.add({
+                      title: "Active Seeker",
+                      text: 'We are glad you are actively looking for job. We will be matching you with jobs',
+                      sticky: false,
+                      time: '3500',
+                      class_name: 'gritter-light gritter-info'
+               });                    
               } else{
-                document.getElementById( 'spr_block' ).style.visibility = 'hidden';
-              };
-
-          }
-
-
-          });
-             
-        
-      });
+                 document.getElementById( 'spr_block' ).style.visibility = 'hidden';
+                 $.gritter.add({
+                        title: "You are taking a break from looking for a job",
+                        text: 'We will not match you to any jobs unless its 100% matched!',
+                        sticky: false,
+                        time: '3500',
+                        class_name: 'gritter-light gritter-info'
+                 });                   
+              }; //else
+            } //success function
+          }); //ajax
+      }); //activecheck function
 
       $("#insgcheck").on('change', function(){
           $.ajax({
             url: '/updateinsgnow',
             type: 'POST',
-            data: {"insingaporenow": this.checked, "pk" : <%=@userprofile.id %>}
+            data: {"insingaporenow": this.checked, "pk" : <%=@userprofile.id %>},
+            success: function(response){
+              var data = JSON.parse(response);
+
+              if (data.insingaporenow){ 
+                 document.getElementById( 'insg_block' ).style.visibility = 'visible';
+               $.gritter.add({
+                      title: "Welcome to Singapore!",
+                      text: 'You will be given priority in job matches. Furthermore, you will also be informed of any latest IT events/seminars/courses during your stay in Singapore.',
+                      sticky: false,
+                      time: '3500',
+                      class_name: 'gritter-light gritter-info'
+               });                    
+              } else{
+                 document.getElementById( 'insg_block' ).style.visibility = 'hidden';
+                 $.gritter.add({
+                        title: "Look forward to see you in Singapore",
+                        text: 'As the job market is competitive, it is better for you to be in Singapore for the purpose of interviews.',
+                        sticky: false,
+                        time: '3500',
+                        class_name: 'gritter-light gritter-info'
+                 });                   
+              }; //else
+            } //success function
+
            
           });
-        
       });
       $("#id-date-picker-1").on('change', function(){
           $.ajax({
@@ -850,7 +882,13 @@ function delskill(element,i){
             //var row = $(this).closest('tr');
             var row=$(element).parents('tr')
             $('#skillsettingtable').dataTable().fnDeleteRow(row[0]);
-
+            $.gritter.add({
+                        title: "Skill deleted!",
+                        text: 'You can add more skills by clicking on "Add a Skill" on top of the Skill Table',
+                        sticky: false,
+                        time: '2500',
+                        class_name: 'gritter-light gritter-info'
+                      });
           }
 
         });
