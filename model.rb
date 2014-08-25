@@ -108,6 +108,7 @@ class CareerScore
 
   property :id, Serial, key: true
   property :careerscore, Integer
+  property :last9careerscore, String
   property :user_id, Integer
 
   belongs_to :user

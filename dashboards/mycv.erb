@@ -95,6 +95,64 @@
      <div class="row">
         <div class="col-md-6 column">
           <h3 class="header smaller lighter blue">Timeline</h3>
+
+                               <ul class="timeline">
+                           <% @jobhistory.each do |i| %>
+                           <li class=<%= @jobhistory.get(i).type == "J" ? "" : "timeline-inverted" %>>
+                               <div class="timeline-badge <%= @jobhistory.get(i).type == "J" ? "danger" : "warning" %>"><i class= "<%= @jobhistory.get(i).type == "J" ? "glyphicon glyphicon-briefcase" : "glyphicon glyphicon-book" %>""></i></div>
+                               <div class="timeline-panel">
+
+                                  <div class="timeline-heading">        
+                                     <h3 class="timeline-title"><%= @jobhistory.get(i).position %>
+                                     <button style="float:right; background-color: #4FC1E9; color: #fff;" type="button" data-toggle="modal" data-keyboard="false" data-backdrop="static" class=" btn btn-sm glyphicon glyphicon-zoom-in" href=<%= "#" + @jobhistory.get(i).id.to_s %> <span class="caret"></span></button> </h3>
+                                     
+                                     <h4 class="timeline-subtitle"><%= @jobhistory.get(i).company %> 
+                                     <div style="float:right;"><div><i class="timeline-subtitle glyphicon glyphicon-time"></i> <%= @jobhistory.get(i).startdate.strftime("%d/%m/%Y") %> to <%= @jobhistory.get(i).enddate.strftime("%d/%m/%Y") %> </div></div></h4>
+                                  </div>
+                                  
+                                  <div class="timeline-body">
+                                       <!-- zoomin Modal -->
+                                       <div class="modal fade" id=<%= @jobhistory.get(i).id.to_s %>  style="display: none;">
+                                         <div class="modal-dialog">
+                                           <div class="modal-content">
+                                              <div class="modal-header">
+                                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                                    <h4 class="modal-title">Detail</h4>                                                               
+                                              </div> <!-- "modal-header" -->
+                                              <form id="ss" method="POST" style="margin-top: 40px;"> 
+                                                <div class="modal-body" style="padding-left:45px;">    
+                                                                                                   
+                                                    <strong> <%= @jobhistory.get(i).type == "J" ? "Responsibilities" : "Grades" %>: </strong>
+                                                      
+                                                    <div style="margin-left: 40px;" id=<%= "responsibilities" + @jobhistory.get(i).id.to_s %> class="editables1"> <%= @jobhistory.get(i).responsibilities %>  </div>
+
+                                                    <strong> <%= @jobhistory.get(i).type == "J" ? "Achievements" : "Projects" %>: </strong>
+                                                       
+                                                    <div style="margin-left: 40px;" id=<%= "achievements" + @jobhistory.get(i).id.to_s %> class="editables2"><%= @jobhistory.get(i).achievements %> </div>
+                                                       
+                                                    <input type="hidden" id="id" name="id" value="<%= @jobhistory.get(i).id %>" >
+                          </div> <!-- "modal-body" -->
+                                                <div class="modal-footer">
+                                                     <!-- <input type="submit" name="save" formaction="/jobupdate" value="Submit" /> -->
+                                                     <button type="submit" formaction="/jobupdate" class="action btn btn-primary">Update</button>
+                                                     <button type="submit" formaction="/deletejob" class="btn btn-primary">Delete</button>
+                                                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                                </div> <!-- footer -->
+                                            </form>     
+                                            
+                                           </div> <!-- modal-content -->
+                                         </div><!-- modal-dialog -->
+                                       </div><!-- modal zoomin -->         
+                                  </div> <!-- timeline body div -->
+                              </div> <!-- End timeline-panel -->                                                    
+                           </li>
+                           <% end %>     
+                       </ul> <!-- End ul timeline -->
+
+                   </div> <!-- End container -->
+             </div> <!-- End div timeline -->
+
+             
         </div>
         <div class="col-md-6 column">
           <h3 class="header smaller lighter blue">Publications/Patents</h3>

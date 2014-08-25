@@ -533,8 +533,61 @@ end
      pind.update(eval(":#{params['name']}") => params["value"])
   end
 
-end
 
+
+  get '/table' do
+       redirect '/auth/login' unless env['warden'].authenticated?
+       @userprofile = env['warden'].user  #This is the most important query of all. it will identify the user of this session.
+       @userme = @userprofile.firstname
+       @allskills =   @userprofile.skill_summaries.all
+      
+       @languages = @userprofile.languages.all
+       @lmaster = LanguageSource.all
+       @ssmaster = SkillSource  #master skill source for cross referencing
+     
+       #Preferred Industries
+       pind = @userprofile.job_industries.all
+       @pref_ind=""
+       pind.each do |i|
+          @pref_ind  = @pref_ind + pind.get(i).industryid.to_s + ","
+       end
+
+
+       #Preferred Locations
+       pc= @userprofile.preferred_locations.all
+       @pref_loc=""
+       pc.each do |i|
+          @pref_loc = @pref_loc + pc.get(i).countryid.to_s + ","
+       end
+
+       @indmaster = IndustryMaster.all   #Industry Master       #Hardcode to HTML. Remove from Database.
+       indtemp = [] 
+           @indmaster.each do |x|
+           indtemp << {id: x.id, text: "#{x.industryname}"}
+           @industries = indtemp.to_json
+        end
+
+       @cmaster = CountryMaster.all   #Country Master  #Hardcode to HTML. Remove from Database.
+       ctemp = [] 
+           @cmaster.each do |x|
+           ctemp << {value: x.id, text: "#{x.countryname}"}
+           @countries = ctemp.to_json
+        end
+   
+       @scmaster = SkillCategory.all   #Skill Category Master     #Hardcode to HTML. Remove from Database. Push this to the /admin for churning json.
+       cattemp = [] 
+           @scmaster.each do |x|
+           cattemp << {value: x.id, text: "#{x.categoryname}"}
+           @skillcat= cattemp.to_json
+       end
+
+       @sr = SkillRank.all  #Hardcode to HTML. Remove from Database.
+
+
+       erb :table
+
+end
+end
 
 
 map SinatraWardenExample.assets_prefix do

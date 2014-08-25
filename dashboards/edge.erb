@@ -58,7 +58,7 @@
             
                 <div class="row"> <!-- row 1 -->
                   <div class="space-6"></div>
-                  <div class="col-sm-7 infobox-container">
+                  <div class="col-sm-7 infobox-container">     
                     <div class="infobox infobox-orange2">
                         <div class="infobox-chart">
                             <span class="sparkline" data-values="196,128,202,177,154,94,100,170,224"></span>
@@ -186,6 +186,45 @@
                      </div><!-- modal  -->    
 
                   </div><!-- "col-sm-12 infobox-container" -->
+
+                  <div class="col-sm-5">
+                      <div class="widget-box transparent">
+                        <div class="widget-header widget-header-flat">
+                          <h4 class="widget-title lighter"><i class="icon-signal"></i>Job Seeking Leadership Board</h4>                    
+                          <div class="widget-toolbar"><a href="#" data-action="collapse"><i class="icon-chevron-up"></i></a></div>
+                        </div> <!-- "widget-header widget-header-flat" -->
+                        <div class="widget-body">
+                          <div class="widget-main padding-4">   
+                              <table id="leadership" class="table table-striped table-bordered table-hover">
+                                  <thead>
+                                      <tr> 
+                                         <th class="align-center">Job Type </th> <!-- different job titles consolidated into a few high level type -->
+                                         <th class="align-center">No. of Positions</th>
+                                         <th class="align-center">No. of Job Seekers  </th>
+                                         <th class="align-center">Your Score</th> 
+                                         <th class="align-center">Your <br> Rank</th> 
+                                      </tr>
+                                      <tr>
+                                          <td class="align-center">System Administrator</td>
+                                          <td class="align-center">100</td>
+                                          <td class="align-center">250</td>
+                                          <td class="align-center">89</td>
+                                          <td class="align-center">4</td>
+                                      </tr>
+                                  </thead>
+                                  <tbody >
+                                      <% @usermatchjoblist.each do |i| %>
+                                      <tr>
+
+                                      </tr>
+                                      <% end %>
+                                 </tbody>
+                              </table>
+                            </div> <!-- "widget-main padding-4" -->
+                        </div> <!-- "widget-body" -->
+                      </div> <!-- "widget-box transparent" -->
+                  </div> <!-- "col-md-5 column"-->
+
                 </div> <!-- row 1 -->
 
                  <div class="hr hr32 hr-dotted"></div>     
@@ -242,6 +281,11 @@
                               <div class="widget-body">
                                   <div class="widget-main">
                                       <!-- <div id="piechart-placeholder"></div> -->
+
+
+
+
+
 
                                       <div class="hr hr8 hr-double"></div>
 
@@ -315,50 +359,6 @@
                     </div><!-- /.widget-box -->
                   </div>  <!-- "col-md-5 " -->
                 </div> <!-- row 1 -->
-                <div class="hr hr32 hr-dotted"></div>
-                <div class="row">
-                  <div class="col-sm-7">
-                      <div class="widget-box transparent">
-                        <div class="widget-header widget-header-flat">
-                          <h4 class="widget-title lighter"><i class="icon-signal"></i>Job Seeking Leadership Board</h4>                    
-                          <div class="widget-toolbar"><a href="#" data-action="collapse"><i class="icon-chevron-up"></i></a></div>
-                        </div> <!-- "widget-header widget-header-flat" -->
-                        <div class="widget-body">
-                          <div class="widget-main padding-4">   
-                              <table id="matchjobtable" class="table table-striped table-bordered table-hover">
-                                  <thead>
-                                      <tr> 
-                                         <th class="align-center">Job Type </th> <!-- different job titles consolidated into a few high level type -->
-                                         <th class="align-center">No. of Positions</th>
-                                         <th class="align-center">No. of Job Seekers  </th>
-                                         <th class="align-center">Your Score</th> 
-                                         <th class="align-center">Your <br> Rank</th> 
-                                      </tr>
-                                      <tr>
-                                          <td class="align-center">System Administrator</td>
-                                          <td class="align-center">100</td>
-                                          <td class="align-center">250</td>
-                                          <td class="align-center">89</td>
-                                          <td class="align-center">4</td>
-                                      </tr>
-                                  </thead>
-                                  <tbody >
-                                      <% @usermatchjoblist.each do |i| %>
-                                      <tr>
-
-                                      </tr>
-                                      <% end %>
-                                 </tbody>
-                              </table>
-                            </div> <!-- "widget-main padding-4" -->
-                        </div> <!-- "widget-body" -->
-                      </div> <!-- "widget-box transparent" -->
-                  </div> <!-- "col-md-5 column"-->
-                  <div class="col-md-5">
-                      
-
-                  </div> <!-- "col-md-7 column"-->
-                </div> <!-- row -->
 
                 <div class="hr hr32 hr-dotted"></div>
                 <div class="row"> <!-- Start of Row 2 -->
