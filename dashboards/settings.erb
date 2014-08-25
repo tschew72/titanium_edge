@@ -170,7 +170,7 @@
            </div><!-- modal  -->   
 
 
-
+        <div id="st">
           <table id="skillsettingtable" class="table table-striped table-bordered table-hover">
               <thead>
                 <tr>
@@ -213,7 +213,7 @@
                   <% end %>
               </tbody>
             </table>
-     
+          </div> <!-- id="st"-->
         <br><br>
 
 
@@ -757,9 +757,9 @@
           $('.newskill').editable('setValue', null)  //clear values
               .editable('option', 'pk', null)          //clear pk
               .removeClass('editable-unsaved');        //remove bold css
-          $('#skillsettingtable').dataTable().fnDraw();           // need to do a AJAX RELOAD    
-          $('#save-btn').show();
-          $('#msg').hide();               
+          $("#st").load("/table");  
+          //$('#save-btn').show();
+          //$('#msg').hide();               
       });
 
 

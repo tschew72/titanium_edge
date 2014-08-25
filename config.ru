@@ -482,6 +482,7 @@ end
   end
 
   post '/update_language' do
+    redirect '/auth/login' unless env['warden'].authenticated?
     userprofile = env['warden'].user
     mylanguage = userprofile.languages.get(params["pk"])
     mylanguage.update(:languageid => params["value"])
@@ -534,24 +535,11 @@ end
 
 
  get '/table' do
-       redirect '/auth/login' unless env['warden'].authenticated?
        @userprofile = env['warden'].user  #This is the most important query of all. it will identify the user of this session.
-       @userme = @userprofile.firstname
        @allskills =   @userprofile.skill_summaries.all
-
        @ssmaster = SkillSource  #master skill source for cross referencing
-  
-  
        @scmaster = SkillCategory.all   #Skill Category Master     #Hardcode to HTML. Remove from Database. Push this to the /admin for churning json.
-       cattemp = []
-           @scmaster.each do |x|
-           cattemp << {value: x.id, text: "#{x.categoryname}"}
-           @skillcat= cattemp.to_json
-       end
-
        @sr = SkillRank.all  #Hardcode to HTML. Remove from Database.
-
-
        erb :table, :layout => false
 
     end
