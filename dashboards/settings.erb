@@ -65,18 +65,19 @@
               <div class="row">  <!-- 1st row in the Preference Management section -->
                 <div class="col-sm-12">
                     <div class="form-group">
-                         <span class="tooltip-success" data-rel="tooltip" data-placement="right" title="If you do not wish to be matched for jobs during this period, please swtich it off">
+                         
                          I am active in looking for job <label><input id="activecheck" name="activeseeker" class="ace ace-switch ace-switch-5 btn-rotate" type="checkbox" <%= @userprofile.activeseeker.to_s == "true" ? "checked" : "unchecked" %> /><span class="lbl"></span></label>   
-                         </span>
+                         
+                        <span class="tooltip-success" data-rel="tooltip" data-placement="right" title="If you do not wish to be matched for jobs during this period, please swtich it off"><i class="icon-info-sign"></i></span>
                     </div>
                 </div>
               </div>
               <div class="row" id="spr_block" style="visibility: hidden">  <!-- 2nd row in the Preference Management section -->
                 <div class="col-sm-12">
                   <div class="form-group"> 
-                        <span class="tooltip-success" data-rel="tooltip" data-placement="right" title="Higher priorty will be given to job seekers who are currently in Singapore. Employers prefer candidates to be available for interviews. However, for certain jobs, this may not impact your chances as phone interviews are also common place these days. You will also be informed by us if there are any suitable courses, seminars or special events that you should attend to increase your career score">        
+                                
                         I am in Singapore <label><input id="insgcheck" name="insingaporenow" class="ace ace-switch ace-switch-5 btn-rotate" type="checkbox" <%= @userprofile.insingaporenow.to_s == "true" ? "checked" : "unchecked" %> /><span class="lbl"></span></label><span id="insg_block">   
-                        on these dates <label><input type="text" style="width: 200px;" name="date-range-picker" id="id-date-range-picker-1"  class="form-control" value="<%=@userprofile.insg_start.strftime("%d/%m/%Y") %> - <%=@userprofile.insg_end.strftime("%d/%m/%Y") %> "  class="span4"></input></label> </span>
+                        on these dates <label><input type="text" style="width: 200px;" name="date-range-picker" id="id-date-range-picker-1"  class="form-control" value="<%=@userprofile.insg_start.strftime("%d/%m/%Y") %> - <%=@userprofile.insg_end.strftime("%d/%m/%Y") %> "  class="span4"></input></label> <span class="tooltip-success" data-rel="tooltip" data-placement="right" title="Higher priorty will be given to job seekers who are currently in Singapore. Employers prefer candidates to be available for interviews. However, for certain jobs, this may not impact your chances as phone interviews are also common place these days. You will also be informed by us if there are any suitable courses, seminars or special events that you should attend to increase your career score"><i class="icon-info-sign"></i></span>
                       </span> <!-- Tool Tip -->
                   </div>     
                 </div>
@@ -101,6 +102,14 @@
                        <a href="#" id="jobfunction" data-type="select2" data-value="<%= @pref_loc %>"  data-pk="<%=@userprofile.id %>" data-url="/updatelocpref" data-title="Enter preferred job functions"></a>
                   </div>
                   <div class="col-sm-2"></div>
+                </div>
+
+                <div class="row">
+                  Checboxes/switches
+                  <p>Part-time</p>
+                  <p>Full-time</p>
+                  <p>Shift Work</p>
+                  <p>Out-of-hours/Emergencies</p>
                 </div>
                 <br>
       </div> 
@@ -573,7 +582,7 @@
       $('#skillname').editable();
       //init editables
       $('.newskill').editable('option', 'validate', function(v) {
-          if(!v) return 'Required field!';
+          if(!v) return 'This is a required field!';
       });
       
 
@@ -615,17 +624,18 @@
                  var msg = '';
                  if(errors && errors.responseText) { //ajax error, errors = xhr object
                      msg = errors.responseText;
+                     //We do not have any response text from backend at the moment
                  } else { //validation error (client-side or server-side)
                      $.each(errors, function(k, v) { msg += k+": "+v+"<br>"; });
-                 }
-                 var data = JSON.parse(errors);
-                 $.gritter.add({
-                        title: "WAAA",
-                        text: 'Message here',
+                     $.gritter.add({
+                        title: "ERROR!",
+                        text: msg,
                         sticky: false,
                         time: '3500',
                         class_name: 'gritter-light gritter-warning'
                  });
+                 }
+                 
              }
          });
       });
