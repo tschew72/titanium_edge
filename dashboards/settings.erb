@@ -729,7 +729,8 @@
                         class_name: 'gritter-light gritter-info'
                       });
 
-                      $('.newskill').editable('setValue', null)  //clear values    
+                      $('.newskill').editable('setValue', null);  //clear values 
+                      $("#st").load("/table");    
                  }      
              },
              error: function(errors) {
@@ -757,9 +758,8 @@
           $('.newskill').editable('setValue', null)  //clear values
               .editable('option', 'pk', null)          //clear pk
               .removeClass('editable-unsaved');        //remove bold css
-          $("#st").load("/table");  
-          //$('#save-btn').show();
-          //$('#msg').hide();               
+          
+             
       });
 
 

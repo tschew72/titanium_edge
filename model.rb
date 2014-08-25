@@ -184,7 +184,7 @@ class SkillSource                               #This is for Skill Management Ta
   property :id, Serial , key: true, :index => true
   property :skill_name, String, length:100, :index => true      
   property :skillcategory_id, Integer, :index => true
-  property :skillcategory_name, String, length:100, :index => true  # to be removed. Category name in Class SkillCategory
+  #property :skillcategory_name, String, length:100, :index => true  # to be removed. Category name in Class SkillCategory
   
 
 end
