@@ -12,7 +12,7 @@ require 'json'
 require 'newrelic_rpm'
 
 
-   
+  
 class SinatraWardenExample < Sinatra::Application
 
 #use Rack::Session::Pool, :expire_after => 2592000
@@ -81,7 +81,7 @@ end
    #pass if request.path_info =~ /^\/auth\//
    #Not sure why if I put this redirect statement, everything won't work.
    #redirect to('/auth/twitter') unless current_user
-  
+ 
  end
 
 get '/' do
@@ -93,7 +93,7 @@ end
 get '/edge' do
    # If user comes in directly here, if not authenticated, throw them to /auth/login
    redirect '/auth/login' unless env['warden'].authenticated?
-       @userprofile = env['warden'].user  #This is the most important query of all. it will identify the user of this session.     
+       @userprofile = env['warden'].user  #This is the most important query of all. it will identify the user of this session.    
        @userme = @userprofile.firstname
        @emailme = @userprofile.email
        @usermatchjoblist = @userprofile.matched_jobs
@@ -131,7 +131,7 @@ get '/profile' do
        @userskills3 = @userprofile.skill_summaries.all(:skillcategory => 3)
        @userskills4 = @userprofile.skill_summaries.all(:skillcategory => 4)
        @userskills5 = @userprofile.skill_summaries.all(:skillcategory => 5)
-      
+     
        @jobhistory = @userprofile.jobs.all(:order => [:startdate.desc])
        erb :profile
 end
@@ -147,7 +147,7 @@ get '/mycv' do
        @userskills2 = @userprofile.skill_summaries.all(:skillcatid => 2)
        @userskills3 = @userprofile.skill_summaries.all(:skillcatid => 3)
        @userskills4 = @userprofile.skill_summaries.all(:skillcatid => 4)
-       @userskills5 = @userprofile.skill_summaries.all(:skillcatid => 5)      
+       @userskills5 = @userprofile.skill_summaries.all(:skillcatid => 5)     
        @jobhistory = @userprofile.jobs.all(:order => [:startdate.desc])
        erb :mycv
 end
@@ -157,12 +157,12 @@ get '/account' do
        @userprofile = env['warden'].user  #This is the most important query of all. it will identify the user of this session.
        @userme = @userprofile.firstname
        @cmaster = CountryMaster.all
-       ctemp = [] 
+       ctemp = []
            @cmaster.each do |x|
            ctemp << {value: x.id, text: "#{x.countryname}"}
            @countries = ctemp.to_json
         end
-   
+  
        erb :account
 end
 
@@ -176,11 +176,11 @@ get '/admin' do
        @userprofile = env['warden'].user  #This is the most important query of all. it will identify the user of this session.
        @userme = @userprofile.firstname
        @allskills =   @userprofile.skill_summaries.all
-      
+     
        @languages = @userprofile.languages.all
        @lmaster = LanguageSource.all
        @ssmaster = SkillSource  #master skill source for cross referencing
-     
+    
        #Preferred Industries
        pind = @userprofile.job_industries.all
        @pref_ind=""
@@ -199,21 +199,21 @@ get '/admin' do
        end
 
        @indmaster = IndustryMaster.all   #Industry Master
-       indtemp = [] 
+       indtemp = []
            @indmaster.each do |x|
            indtemp << {id: x.id, text: "#{x.industryname}"}
            @industries = indtemp.to_json
         end
 
        @cmaster = CountryMaster.all   #Country Master
-       ctemp = [] 
+       ctemp = []
            @cmaster.each do |x|
            ctemp << {value: x.id, text: "#{x.countryname}"}
            @countries = ctemp.to_json
         end
-   
+  
        @scmaster = SkillCategory.all   #Skill Category Master
-       cattemp = [] 
+       cattemp = []
            @scmaster.each do |x|
            cattemp << {value: x.id, text: "#{x.categoryname}"}
            @skillcat= cattemp.to_json
@@ -273,11 +273,11 @@ get '/settings' do
        @userprofile = env['warden'].user  #This is the most important query of all. it will identify the user of this session.
        @userme = @userprofile.firstname
        @allskills =   @userprofile.skill_summaries.all
-      
+     
        @languages = @userprofile.languages.all
        @lmaster = LanguageSource.all
        @ssmaster = SkillSource  #master skill source for cross referencing
-     
+    
        #Preferred Industries
        pind = @userprofile.job_industries.all
        @pref_ind=""
@@ -294,21 +294,21 @@ get '/settings' do
        end
 
        @indmaster = IndustryMaster.all   #Industry Master       #Hardcode to HTML. Remove from Database.
-       indtemp = [] 
+       indtemp = []
            @indmaster.each do |x|
            indtemp << {id: x.id, text: "#{x.industryname}"}
            @industries = indtemp.to_json
         end
 
        @cmaster = CountryMaster.all   #Country Master  #Hardcode to HTML. Remove from Database.
-       ctemp = [] 
+       ctemp = []
            @cmaster.each do |x|
            ctemp << {value: x.id, text: "#{x.countryname}"}
            @countries = ctemp.to_json
         end
-   
+  
        @scmaster = SkillCategory.all   #Skill Category Master     #Hardcode to HTML. Remove from Database. Push this to the /admin for churning json.
-       cattemp = [] 
+       cattemp = []
            @scmaster.each do |x|
            cattemp << {value: x.id, text: "#{x.categoryname}"}
            @skillcat= cattemp.to_json
@@ -318,7 +318,7 @@ get '/settings' do
 
 
        erb :settings
-       #TidyFFI::Tidy.new( erb :'settings' ).clean 
+       #TidyFFI::Tidy.new( erb :'settings' ).clean
 end
 
 
@@ -332,7 +332,7 @@ end
 
     env['warden'].authenticate!
     if session[:return_to].nil?
-     
+    
 
        #@emailme = user1.email
        redirect '/edge'
@@ -427,7 +427,7 @@ end
 
     )
      redirect to('/profile')
-  end  
+  end 
 
   post '/jobupdate' do
     jobdata = Job.get(params['id'])
@@ -472,11 +472,10 @@ end
 
   post '/newskill' do
     userprofile = env['warden'].user
-    newskill = SkillSummary.first_or_create({:skillid => params["skillid"]}).update(:skillcatid => params["skillcatid"],  :skillrank => params["skillrank"], :user_id => userprofile.id)  #If similar skillID detected, just update it with new set of data.
-
+    newskill = SkillSummary.first_or_create({:skillid => params["skillid"]}).update(:skillcatid => params["skillcatid"],  :skillrank => params["skillrank"], :user_id => userprofile.id, :status =>1)  #If similar skillID detected, just update it with new set of data.
      #if newskill.save
      #   {:responsemsg => "New skill added" }.to_json
-     #else 
+     #else
      #   {:responsemsg => newskill.errors.on(:skillid) }.to_json
      #end
      return 200
@@ -522,7 +521,7 @@ end
     get '/updatelocpref'do
     # If shaun cannot provide a string as data. Then what we will do is we will send back a new table to him with a string containing all the location ID
     # And in /settings, we will have to build this new table.
-     userprofile = env['warden'].user 
+     userprofile = env['warden'].user
      pc= userprofile.preferred_locations.get(params["pk"])
      pc.update(eval(":#{params['name']}") => params["value"])
   end
@@ -534,48 +533,17 @@ end
   end
 
 
-
-  get '/table' do
+ get '/table' do
        redirect '/auth/login' unless env['warden'].authenticated?
        @userprofile = env['warden'].user  #This is the most important query of all. it will identify the user of this session.
        @userme = @userprofile.firstname
        @allskills =   @userprofile.skill_summaries.all
-      
-       @languages = @userprofile.languages.all
-       @lmaster = LanguageSource.all
+
        @ssmaster = SkillSource  #master skill source for cross referencing
-     
-       #Preferred Industries
-       pind = @userprofile.job_industries.all
-       @pref_ind=""
-       pind.each do |i|
-          @pref_ind  = @pref_ind + pind.get(i).industryid.to_s + ","
-       end
-
-
-       #Preferred Locations
-       pc= @userprofile.preferred_locations.all
-       @pref_loc=""
-       pc.each do |i|
-          @pref_loc = @pref_loc + pc.get(i).countryid.to_s + ","
-       end
-
-       @indmaster = IndustryMaster.all   #Industry Master       #Hardcode to HTML. Remove from Database.
-       indtemp = [] 
-           @indmaster.each do |x|
-           indtemp << {id: x.id, text: "#{x.industryname}"}
-           @industries = indtemp.to_json
-        end
-
-       @cmaster = CountryMaster.all   #Country Master  #Hardcode to HTML. Remove from Database.
-       ctemp = [] 
-           @cmaster.each do |x|
-           ctemp << {value: x.id, text: "#{x.countryname}"}
-           @countries = ctemp.to_json
-        end
-   
+  
+  
        @scmaster = SkillCategory.all   #Skill Category Master     #Hardcode to HTML. Remove from Database. Push this to the /admin for churning json.
-       cattemp = [] 
+       cattemp = []
            @scmaster.each do |x|
            cattemp << {value: x.id, text: "#{x.categoryname}"}
            @skillcat= cattemp.to_json
@@ -584,15 +552,16 @@ end
        @sr = SkillRank.all  #Hardcode to HTML. Remove from Database.
 
 
-       erb :table
+       erb :table, :layout => false
 
+    end
 end
-end
+
 
 
 map SinatraWardenExample.assets_prefix do
   run SinatraWardenExample.sprockets
 end
-   
+  
 
 run SinatraWardenExample
