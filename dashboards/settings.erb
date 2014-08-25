@@ -19,96 +19,101 @@
      <!-- <div class="row"> -->
      <h3 class="header smaller lighter blue">My Setup</h3>
  
-    <div class="col-xs-12">
-              
-          <div class="row">  <!-- 1st row in the Preference Management section -->
-            <div class="col-sm-12">
-                <div class="form-group">
-                     I am active in looking for job <label><input id="activecheck" name="activeseeker" class="ace ace-switch ace-switch-5 btn-rotate" type="checkbox" <%= @userprofile.activeseeker.to_s == "true" ? "checked" : "unchecked" %> /><span class="lbl"></span></label>   
+     <div class="tab-content">
+        <div class="col-xs-12">
+                  
+              <div class="row">  <!-- 1st row in the Preference Management section -->
+                <div class="col-sm-12">
+                    <div class="form-group">
+                         <span class="tooltip-success" data-rel="tooltip" data-placement="right" title="If you do not wish to be matched for jobs during this period, please swtich it off">
+                         I am active in looking for job <label><input id="activecheck" name="activeseeker" class="ace ace-switch ace-switch-5 btn-rotate" type="checkbox" <%= @userprofile.activeseeker.to_s == "true" ? "checked" : "unchecked" %> /><span class="lbl"></span></label>   
+                         </span>
+                    </div>
+                </div>
+              </div>
+           
+              <div class="row" id="spr_block" style="visibility: hidden">  <!-- 2nd row in the Preference Management section -->
+                <div class="col-sm-12">
+                  <div class="form-group"> 
+                        <span class="tooltip-success" data-rel="tooltip" data-placement="right" title="Higher priorty will be given to job seekers who are currently in Singapore. Employers prefer candidates to be available for interviews. However, for certain jobs, this may not impact your chances as phone interviews are also common place these days. You will also be informed by us if there are any suitable courses, seminars or special events that you should attend to increase your career score">        
+                        I am in Singapore <label><input id="insgcheck" name="insingaporenow" class="ace ace-switch ace-switch-5 btn-rotate" type="checkbox" <%= @userprofile.insingaporenow.to_s == "true" ? "checked" : "unchecked" %> /><span class="lbl"></span></label><span id="insg_block">   
+                        on these dates <label><input type="text" style="width: 200px;" name="date-range-picker" id="id-date-range-picker-1"  class="form-control" value="<%=@userprofile.insg_start.strftime("%d/%m/%Y") %> - <%=@userprofile.insg_end.strftime("%d/%m/%Y") %> "  class="span4"></input></label> </span>
+                      </span> <!-- Tool Tip -->
+                  </div>     
+                </div>
+              </div>
+           
+            <div class="well well-lg">
+                <div class="row">  <!-- 5th row in the Preference Management section --> 
+                  <div class="col-sm-5">
+                      <h4 class="header smaller lighter blue">Preferred Job Levels </h4>
+                  </div>
+                  <div class="col-sm-5">
+                      <h4 class="header smaller lighter blue">Preferred Job Functions </h4>
+                  </div>
+                  <div class="col-sm-2"></div>
+                </div>
+
+                <div class="row">
+                  <div class="col-sm-5">
+                      <a href="#" id="joblevel" data-type="select2" data-value="<%= @pref_ind %>"  data-pk="<%=@userprofile.id %>" data-url="/updateindpref" data-title="Enter preferred job levels"></a>
+                  </div>
+                  <div class="col-sm-5">  
+                       <a href="#" id="jobfunction" data-type="select2" data-value="<%= @pref_loc %>"  data-pk="<%=@userprofile.id %>" data-url="/updatelocpref" data-title="Enter preferred job functions"></a>
+                  </div>
+                  <div class="col-sm-2"></div>
+                </div>
+                <br>
+           
+                <div class="row">  <!-- 5th row in the Preference Management section --> 
+                  <div class="col-sm-5">
+                      <h4 class="header smaller lighter blue">Preferred Industries </h4>
+                  </div>
+                  <div class="col-sm-5">
+                      <h4 class="header smaller lighter blue">Preferred Locations </h4>
+                  </div>
+                  <div class="col-sm-2"></div>
+                </div>
+                <div class="row ">
+                  <div class="col-sm-5">
+                      <a href="#" id="industries" data-type="select2" data-value="<%= @pref_ind %>"  data-pk="<%=@userprofile.id %>" data-url="/updateindpref" data-title="Enter preferred industries"></a>
+                  </div>
+                  <div class="col-sm-5">  
+                       <a href="#" id="locations" data-type="select2" data-value="<%= @pref_loc %>"  data-pk="<%=@userprofile.id %>" data-url="/updatelocpref" data-title="Enter preferred locations"></a>
+                  </div>
+                  <div class="col-sm-2"></div>
                 </div>
             </div>
-          </div>
-       
-          <div class="row" id="spr_block" style="visibility: hidden">  <!-- 2nd row in the Preference Management section -->
-            <div class="col-sm-12">
-              <div class="form-group">         
-                    I am in Singapore <label><input id="insgcheck" name="insingaporenow" class="ace ace-switch ace-switch-5 btn-rotate" type="checkbox" <%= @userprofile.insingaporenow.to_s == "true" ? "checked" : "unchecked" %> /><span class="lbl"></span></label><span id="insg_block">   
-                    on these dates <label><input type="text" style="width: 200px;" name="date-range-picker" id="id-date-range-picker-1"  class="form-control" value="<%=@userprofile.insg_start.strftime("%d/%m/%Y") %> - <%=@userprofile.insg_end.strftime("%d/%m/%Y") %> "  class="span4"></input></label> </span>
-                    <!-- Infobox: If you are in Singapore, and there is seminar or related IT events, we will notify you -->
-              </div>     
-            </div>
-          </div>
-       
-        <div class="well well-lg">
+            <br> 
             <div class="row">  <!-- 5th row in the Preference Management section --> 
-              <div class="col-sm-5">
-                  <h4 class="header smaller lighter blue">Preferred Job Levels </h4>
+              <div class="col-sm-2">
+                  <div class="form-group">
+                      Current salary: S$ <a href="#" id="currentsalary" data-name="currentsalary" data-type="text" data-pk="<%=@userprofile.id %>" data-url="/updateprofile" data-title="Enter current salary"><%= @userprofile.currentsalary %></a>
+                  </div>
               </div>
-              <div class="col-sm-5">
-                  <h4 class="header smaller lighter blue">Preferred Job Functions </h4>
+              <div class="col-sm-2">
+                  <div class="form-group">
+                      Expected salary: S$ <a href="#" id="expectedsalary" data-name="expectedsalary" data-type="text"  data-pk="<%=@userprofile.id %>" data-url="/updateprofile" data-title="Enter expected salary"><%= @userprofile.expectedsalary %></a>
+                  </div>
               </div>
-              <div class="col-sm-2"></div>
+              <div class="col-sm-8"> </div>
             </div>
+            <div class="row">  <!-- 5th row in the Preference Management section -->  
+              <div class="col-sm-6">   
+                
+                      Preferred Travel Frequency %: <label><input type="text" class="input-mini" id="spinner2" value="<%=@userprofile.travelfreq %>" /></label>       
+                
+              </div>
+            </div>       
+             <br><br>
+               <div class="row">
+                <div class="col-sm-6"> 
+                 Upload new CV
+                </div>
+               </div>
+      </div> <!-- col -->
 
-            <div class="row">
-              <div class="col-sm-5">
-                  <a href="#" id="joblevel" data-type="select2" data-value="<%= @pref_ind %>"  data-pk="<%=@userprofile.id %>" data-url="/updateindpref" data-title="Enter preferred job levels"></a>
-              </div>
-              <div class="col-sm-5">  
-                   <a href="#" id="jobfunction" data-type="select2" data-value="<%= @pref_loc %>"  data-pk="<%=@userprofile.id %>" data-url="/updatelocpref" data-title="Enter preferred job functions"></a>
-              </div>
-              <div class="col-sm-2"></div>
-            </div>
-            <br>
-       
-            <div class="row">  <!-- 5th row in the Preference Management section --> 
-              <div class="col-sm-5">
-                  <h4 class="header smaller lighter blue">Preferred Industries </h4>
-              </div>
-              <div class="col-sm-5">
-                  <h4 class="header smaller lighter blue">Preferred Locations </h4>
-              </div>
-              <div class="col-sm-2"></div>
-            </div>
-            <div class="row ">
-              <div class="col-sm-5">
-                  <a href="#" id="industries" data-type="select2" data-value="<%= @pref_ind %>"  data-pk="<%=@userprofile.id %>" data-url="/updateindpref" data-title="Enter preferred industries"></a>
-              </div>
-              <div class="col-sm-5">  
-                   <a href="#" id="locations" data-type="select2" data-value="<%= @pref_loc %>"  data-pk="<%=@userprofile.id %>" data-url="/updatelocpref" data-title="Enter preferred locations"></a>
-              </div>
-              <div class="col-sm-2"></div>
-            </div>
-        </div>
-        <br> 
-        <div class="row">  <!-- 5th row in the Preference Management section --> 
-          <div class="col-sm-2">
-              <div class="form-group">
-                  Current salary: S$ <a href="#" id="currentsalary" data-name="currentsalary" data-type="text" data-pk="<%=@userprofile.id %>" data-url="/updateprofile" data-title="Enter current salary"><%= @userprofile.currentsalary %></a>
-              </div>
-          </div>
-          <div class="col-sm-2">
-              <div class="form-group">
-                  Expected salary: S$ <a href="#" id="expectedsalary" data-name="expectedsalary" data-type="text"  data-pk="<%=@userprofile.id %>" data-url="/updateprofile" data-title="Enter expected salary"><%= @userprofile.expectedsalary %></a>
-              </div>
-          </div>
-          <div class="col-sm-8"> </div>
-        </div>
-        <div class="row">  <!-- 5th row in the Preference Management section -->  
-          <div class="col-sm-6">   
-            
-                  Preferred Travel Frequency %: <label><input type="text" class="input-mini" id="spinner2" value="<%=@userprofile.travelfreq %>" /></label>       
-            
-          </div>
-        </div>       
-         <br><br>
-           <div class="row">
-            <div class="col-sm-6"> 
-             Upload new CV
-            </div>
-           </div>
-  </div> <!-- col -->
-
+    </div> <!-- Tab -->
  
    <div class="row">
       <div class="col-sm-6 ">
@@ -795,8 +800,11 @@
       });
 
 
+      $('[data-rel=tooltip]').tooltip();
+      $('[data-rel=popover]').popover({html:true});
 
-     });
+
+  });
 
 $(document).ready(function(){
                 //non singaporean and non-PR and active in seeking for job, show it!
