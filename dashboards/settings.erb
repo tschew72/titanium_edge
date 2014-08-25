@@ -15,13 +15,53 @@
 </div>
 
 <div class="page-content">
-
+  <div class="col-xs-12">
      <!-- <div class="row"> -->
      <h3 class="header smaller lighter blue">My Setup</h3>
- 
+     <div class="tabbable">
+                      <ul class="nav nav-tabs" id="myTab">
+                        <li class="active">
+                          <a data-toggle="tab" href="#t1">
+                            <i class="green icon-home bigger-110"></i>
+                            Home
+                          </a>
+                        </li>
+                        <li>
+                          <a data-toggle="tab" href="#t3">
+                            Preferred Job
+                          </a>
+                        </li>
+                        <li>
+                          <a data-toggle="tab" href="#t4">
+                            Preferred Industries
+                          </a>
+                        </li>
+                        <li>
+                          <a data-toggle="tab" href="#loc">
+                            Preferred Locations
+                          </a>
+                        </li>                        
+                        <li>
+                          <a data-toggle="tab" href="#t5">
+                            Salary
+                          </a>
+                        </li>
+                        <li>
+                          <a data-toggle="tab" href="#t6">
+                            Preferred Travel Frequency
+                          </a>
+                        </li>
+                        <li>
+                          <a data-toggle="tab" href="#t7">
+                            Upload CV
+                          </a>
+                        </li>
+                          </ul>
+                        </li>
+                      </ul>   
+     
      <div class="tab-content">
-        <div class="col-xs-12">
-                  
+      <div id="t1" class="tab-pane in active">
               <div class="row">  <!-- 1st row in the Preference Management section -->
                 <div class="col-sm-12">
                     <div class="form-group">
@@ -31,7 +71,6 @@
                     </div>
                 </div>
               </div>
-           
               <div class="row" id="spr_block" style="visibility: hidden">  <!-- 2nd row in the Preference Management section -->
                 <div class="col-sm-12">
                   <div class="form-group"> 
@@ -42,8 +81,8 @@
                   </div>     
                 </div>
               </div>
-           
-            <div class="well well-lg">
+      </div> <!-- tab -->
+      <div id="t3" class="tab-pane">     
                 <div class="row">  <!-- 5th row in the Preference Management section --> 
                   <div class="col-sm-5">
                       <h4 class="header smaller lighter blue">Preferred Job Levels </h4>
@@ -55,49 +94,67 @@
                 </div>
 
                 <div class="row">
-                  <div class="col-sm-5">
+                  <div class="col-sm-10">
                       <a href="#" id="joblevel" data-type="select2" data-value="<%= @pref_ind %>"  data-pk="<%=@userprofile.id %>" data-url="/updateindpref" data-title="Enter preferred job levels"></a>
                   </div>
-                  <div class="col-sm-5">  
+                  <div class="col-sm-10">  
                        <a href="#" id="jobfunction" data-type="select2" data-value="<%= @pref_loc %>"  data-pk="<%=@userprofile.id %>" data-url="/updatelocpref" data-title="Enter preferred job functions"></a>
                   </div>
                   <div class="col-sm-2"></div>
                 </div>
                 <br>
-           
+      </div> 
+      <div id="t4" class="tab-pane">   
                 <div class="row">  <!-- 5th row in the Preference Management section --> 
-                  <div class="col-sm-5">
-                      <h4 class="header smaller lighter blue">Preferred Industries </h4>
+                  <div class="col-sm-10">
+                      <p class="header smaller lighter blue">Please select your preferred industries </p>
                   </div>
-                  <div class="col-sm-5">
-                      <h4 class="header smaller lighter blue">Preferred Locations </h4>
-                  </div>
-                  <div class="col-sm-2"></div>
+                 
                 </div>
                 <div class="row ">
-                  <div class="col-sm-5">
+                  <div class="col-sm-10">
                       <a href="#" id="industries" data-type="select2" data-value="<%= @pref_ind %>"  data-pk="<%=@userprofile.id %>" data-url="/updateindpref" data-title="Enter preferred industries"></a>
                   </div>
-                  <div class="col-sm-5">  
+                 
+                </div>
+          
+      </div>
+      <div id="loc" class="tab-pane">  
+                <div class="row">
+                  <div class="col-sm-5">
+                      <p class="header smaller lighter blue">Please select your preferred locations</p>
+                  </div>
+                </div>
+                <div class="row ">
+                   <div class="col-sm-5">  
                        <a href="#" id="locations" data-type="select2" data-value="<%= @pref_loc %>"  data-pk="<%=@userprofile.id %>" data-url="/updatelocpref" data-title="Enter preferred locations"></a>
                   </div>
-                  <div class="col-sm-2"></div>
+                </div>
+                 
+      </div>
+
+      <div id="t5" class="tab-pane">        
+            <div class="row">
+                <div class="col-sm-5">
+                  <p class="header smaller lighter blue">Please key in your current and expected annual salary in Singapore Dollar </p>
                 </div>
             </div>
-            <br> 
             <div class="row">  <!-- 5th row in the Preference Management section --> 
+                
               <div class="col-sm-2">
                   <div class="form-group">
-                      Current salary: S$ <a href="#" id="currentsalary" data-name="currentsalary" data-type="text" data-pk="<%=@userprofile.id %>" data-url="/updateprofile" data-title="Enter current salary"><%= @userprofile.currentsalary %></a>
+                      Current annual salary: S$ <a href="#" id="currentsalary" data-name="currentsalary" data-type="text" data-pk="<%=@userprofile.id %>" data-url="/updateprofile" data-title="Enter current salary"><%= @userprofile.currentsalary %></a>
                   </div>
               </div>
               <div class="col-sm-2">
                   <div class="form-group">
-                      Expected salary: S$ <a href="#" id="expectedsalary" data-name="expectedsalary" data-type="text"  data-pk="<%=@userprofile.id %>" data-url="/updateprofile" data-title="Enter expected salary"><%= @userprofile.expectedsalary %></a>
+                      Expected annual salary: S$ <a href="#" id="expectedsalary" data-name="expectedsalary" data-type="text"  data-pk="<%=@userprofile.id %>" data-url="/updateprofile" data-title="Enter expected salary"><%= @userprofile.expectedsalary %></a>
                   </div>
               </div>
               <div class="col-sm-8"> </div>
             </div>
+      </div>
+      <div id="t6" class="tab-pane">
             <div class="row">  <!-- 5th row in the Preference Management section -->  
               <div class="col-sm-6">   
                 
@@ -105,15 +162,18 @@
                 
               </div>
             </div>       
-             <br><br>
+      </div>
+      <div id="t7" class="tab-pane">
                <div class="row">
                 <div class="col-sm-6"> 
                  Upload new CV
                 </div>
                </div>
-      </div> <!-- col -->
-
+      </div>        
     </div> <!-- Tab -->
+    </div> <!-- col -->
+
+    
  
    <div class="row">
       <div class="col-sm-6 ">
@@ -331,228 +391,7 @@
       });
       
 
-        // *** editable avatar *** //
-        try {//ie8 throws some harmless exceptions, so let's catch'em
-     
-          //first let's add a fake appendChild method for Image element for browsers that have a problem with this
-          //because editable plugin calls appendChild, and it causes errors on IE at unpredicted points
-          try {
-            document.createElement('IMG').appendChild(document.createElement('B'));
-          } catch(e) {
-            Image.prototype.appendChild = function(el){}
-          }
-     
-          var last_gritter
-          $('#avatar').editable({
-            type: 'image',
-            name: 'avatar',
-            value: null,
-            image: {
-              //specify ace file input plugin's options here
-              btn_choose: 'Change Avatar',
-              droppable: true,
-              maxSize: 110000,//~100Kb
-     
-              //and a few extra ones here
-              name: 'avatar',//put the field name here as well, will be used inside the custom plugin
-              on_error : function(error_type) {//on_error function will be called when the selected file has a problem
-                if(last_gritter) $.gritter.remove(last_gritter);
-                if(error_type == 1) {//file format error
-                  last_gritter = $.gritter.add({
-                    title: 'File is not an image!',
-                    text: 'Please choose a jpg|gif|png image!',
-                    class_name: 'gritter-error gritter-center'
-                  });
-                } else if(error_type == 2) {//file size rror
-                  last_gritter = $.gritter.add({
-                    title: 'File too big!',
-                    text: 'Image size should not exceed 100Kb!',
-                    class_name: 'gritter-error gritter-center'
-                  });
-                }
-                else {//other error
-                }
-              },
-              on_success : function() {
-                $.gritter.removeAll();
-              }
-            },
-              url: function(params) {
-              // ***UPDATE AVATAR HERE*** //
-              //for a working upload example you can replace the contents of this function with
-              //examples/profile-avatar-update.js
-             
-              //please modify submit_url accordingly
-              var submit_url = '/updateprofile';
-              var deferred;
-
-
-              //if value is empty, means no valid files were selected
-              //but it may still be submitted by the plugin, because "" (empty string) is different from previous non-empty value whatever it was
-              //so we return just here to prevent problems
-              var value = $('#avatar').next().find('input[type=hidden]:eq(0)').val();
-              if(!value || value.length == 0) {
-                deferred = new $.Deferred
-                deferred.resolve();
-                return deferred.promise();
-              }
-
-              var $form = $('#avatar').next().find('.editableform:eq(0)')
-              var file_input = $form.find('input[type=file]:eq(0)');
-
-              //user iframe for older browsers that don't support file upload via FormData & Ajax
-              if( !("FormData" in window) ) {
-                deferred = new $.Deferred
-
-                var iframe_id = 'temporary-iframe-'+(new Date()).getTime()+'-'+(parseInt(Math.random()*1000));
-                $form.after('<iframe id="'+iframe_id+'" name="'+iframe_id+'" frameborder="0" width="0" height="0" src="about:blank" style="position:absolute;z-index:-1;"></iframe>');
-                $form.append('<input type="hidden" name="temporary-iframe-id" value="'+iframe_id+'" />');
-                $form.next().data('deferrer' , deferred);//save the deferred object to the iframe
-                $form.attr({'method' : 'POST', 'enctype' : 'multipart/form-data',
-                      'target':iframe_id, 'action':submit_url});
-
-                $form.get(0).submit();
-
-                //if we don't receive the response after 60 seconds, declare it as failed!
-                setTimeout(function(){
-                  var iframe = document.getElementById(iframe_id);
-                  if(iframe != null) {
-                    iframe.src = "about:blank";
-                    $(iframe).remove();
-
-                    deferred.reject({'status':'fail','message':'Timeout!'});
-                  }
-                } , 60000);
-              }
-              else {
-                var fd = null;
-                try {
-                  fd = new FormData($form.get(0));
-                } catch(e) {
-                  //IE10 throws "SCRIPT5: Access is denied" exception,
-                  //so we need to add the key/value pairs one by one
-                  fd = new FormData();
-                  $.each($form.serializeArray(), function(index, item) {
-                    fd.append(item.name, item.value);
-                  });
-                  //and then add files because files are not included in serializeArray()'s result
-                  $form.find('input[type=file]').each(function(){
-                    if(this.files.length > 0) fd.append(this.getAttribute('name'), this.files[0]);
-                  });
-                }
-
-                //if file has been drag&dropped , append it to FormData
-                if(file_input.data('ace_input_method') == 'drop') {
-                  var files = file_input.data('ace_input_files');
-                  if(files && files.length > 0) {
-                    fd.append(file_input.attr('name'), files[0]);
-                  }
-                }
-
-                deferred = $.ajax({
-                  url: submit_url,
-                  type: 'POST',
-                  processData: false,
-                  contentType: false,
-                  dataType: 'json',
-                  data: fd,
-                  xhr: function() {
-                    var req = $.ajaxSettings.xhr();
-                    /*if (req && req.upload) {
-                      req.upload.addEventListener('progress', function(e) {
-                        if(e.lengthComputable) { 
-                          var done = e.loaded || e.position, total = e.total || e.totalSize;
-                          var percent = parseInt((done/total)*100) + '%';
-                          //bar.css('width', percent).parent().attr('data-percent', percent);
-                        }
-                      }, false);
-                    }*/
-                    return req;
-                  },
-                  beforeSend : function() {
-                    //bar.css('width', '0%').parent().attr('data-percent', '0%');
-                  },
-                  success : function() {
-                    //bar.css('width', '100%').parent().attr('data-percent', '100%');
-                  }
-                })
-              }
-
-
-
-              deferred.done(function(res){
-                if(res.status == 'OK') $('#avatar').get(0).src = res.url;
-                else alert(res.message);
-              }).fail(function(res){
-                alert("Failure");
-              });
-
-
-              return deferred.promise();
-
-              //------------
-
-
-              var deferred = new $.Deferred
-     
-              var value = $('#avatar').next().find('input[type=hidden]:eq(0)').val();
-              if(!value || value.length == 0) {
-                deferred.resolve();
-                return deferred.promise();
-              }
-     
-     
-              //dummy upload
-              setTimeout(function(){
-                if("FileReader" in window) {
-                  //for browsers that have a thumbnail of selected image
-                  var thumb = $('#avatar').next().find('img').data('thumb');
-                  if(thumb) $('#avatar').get(0).src = thumb;
-                }
-               
-                deferred.resolve({'status':'OK'});
-     
-                if(last_gritter) $.gritter.remove(last_gritter);
-                last_gritter = $.gritter.add({
-                  title: 'Avatar Updated!',
-                  text: 'Uploading to server can be easily implemented. A working example is included with the template.',
-                  class_name: 'gritter-info gritter-center'
-                });
-               
-               } , parseInt(Math.random() * 800 + 800))
-     
-              return deferred.promise();
-             
-              // ***END OF UPDATE AVATAR HERE*** //
-            },
-           
-            success: function(response, newValue) {
-            }
-          })
-        }catch(e) {}
-       
-       
- 
-        var tag_input = $('#form-field-tags-locations');
-        if(! ( /msie\s*(8|7|6)/.test(navigator.userAgent.toLowerCase())) )
-        {
-          tag_input.tag(
-            {
-            placeholder:tag_input.attr('placeholder'),
-            //enable typeahead by specifying the source array
-            source: ace.variable_US_STATES,//defined in ace.js >> ace.enable_search_ahead
-            }
-          );
-        }
-        else {
-          //display a textarea for old IE, because it doesn't support this plugin or another one I tried!
-          tag_input.after('<textarea id="'+tag_input.attr('id')+'" name="'+tag_input.attr('name')+'" rows="3">'+tag_input.val()+'</textarea>').remove();
-          //$('#form-field-tags').autosize({append: "\n"});
-        }         
-     
-
-    
-
+          
       $('#languagetable').editable({
         selector: 'a.languagename'
       });
@@ -593,7 +432,8 @@
         allowClear: true,
         minimumInputLength: 3,
         mode: 'popup',
-        showbuttons: 'bottom'
+        showbuttons: 'bottom',
+        placement: 'bottom'
       });
 
       $('#locations').editable({
@@ -607,7 +447,8 @@
         allowClear: true,
         minimumInputLength: 3,
         mode: 'popup',
-        showbuttons: 'bottom'
+        showbuttons: 'bottom',
+        placement: 'bottom'
       });
 
 
