@@ -1,14 +1,8 @@
-require 'dashing'
+require 'sinatra'
 require 'bundler'
-
 require 'warden'
 require './model'
-
-#require 'httparty'
 require 'json'
-#require 'roo'
-#require 'compass'
-
 require 'newrelic_rpm'
 
   
@@ -497,12 +491,7 @@ end
   post '/newskill' do
     userprofile = env['warden'].user
     newskill = SkillSummary.first_or_create({:skillid => params["skillid"]}).update(:skillcatid => params["skillcatid"],  :skillrank => params["skillrank"], :user_id => userprofile.id, :status =>1)  #If similar skillID detected, just update it with new set of data.
-     #if newskill.save
-     #   {:responsemsg => "New skill added" }.to_json
-     #else
-     #   {:responsemsg => newskill.errors.on(:skillid) }.to_json
-     #end
-     return 200
+        {:responsemsg => "New skill added!" }.to_json
   end
 
   post '/update_language' do
@@ -548,13 +537,13 @@ end
     # And in /settings, we will have to build this new table.
      userprofile = env['warden'].user
      pc= userprofile.preferred_locations.get(params["pk"])
-     pc.update(eval(":#{params['name']}") => params["value"])
+     #pc.update(:countryid=> params["value"])
   end
 
     get '/updateindpref'do
      userprofile = env['warden'].user
      pind = userprofile.job_industries.get(params["pk"])
-     pind.update(eval(":#{params['name']}") => params["value"])
+     #pind.update(eval(":#{params['name']}") => params["value"])
   end
 
 
@@ -569,11 +558,6 @@ end
     end
 end
 
-
-
-map SinatraWardenExample.assets_prefix do
-  run SinatraWardenExample.sprockets
-end
   
 
 run SinatraWardenExample
