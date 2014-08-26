@@ -4,16 +4,18 @@ require 'bundler'
 require 'warden'
 require './model'
 
-require 'httparty'
+#require 'httparty'
 require 'json'
 #require 'roo'
 #require 'compass'
 
+require 'newrelic_rpm'
 
+  
 class SinatraWardenExample < Sinatra::Application
 
-use Rack::Session::Pool, :expire_after => 2592000
-
+#use Rack::Session::Pool, :expire_after => 2592000
+ use Rack::Session::Cookie, :expire_after => 14400
  
 use Warden::Manager do |config|
 
@@ -71,14 +73,16 @@ helpers do
   def current_user
      !session[:uid].nil?
   end
+  def controller() nil end
+  def config() nil end 
 end
  
 
  before do
    #pass if request.path_info =~ /^\/auth\//
    #Not sure why if I put this redirect statement, everything won't work.
-   #redirect to('/auth/twitter') unless current_user 
-   
+   #redirect to('/auth/twitter') unless current_user
+ 
  end
 
 get '/' do
@@ -90,7 +94,7 @@ end
 get '/edge' do
    # If user comes in directly here, if not authenticated, throw them to /auth/login
    redirect '/auth/login' unless env['warden'].authenticated?
-       @userprofile = env['warden'].user  #This is the most important query of all. it will identify the user of this session.      
+       @userprofile = env['warden'].user  #This is the most important query of all. it will identify the user of this session.    
        @userme = @userprofile.firstname
        @emailme = @userprofile.email
        @usermatchjoblist = @userprofile.matched_jobs
@@ -106,7 +110,7 @@ get '/summary' do
 end
 
 get '/industrystatistics' do
-   redirect '/auth/login' unless env['warden'].authenticated?
+       redirect '/auth/login' unless env['warden'].authenticated?
        user1 = env['warden'].user  #This is the most important query of all. it will identify the user of this session.
        @userme = user1.firstname
        @chart1_name="IT Professionals hired"
@@ -117,38 +121,207 @@ end
 
 
 get '/profile' do
-   redirect '/auth/login' unless env['warden'].authenticated?
-       @userprofile = env['warden'].user  #This is the most important query of all. it will identify the user of this session.
-       @userme = @userprofile.firstname
-       #@emailme = @userprofile.email
-       #@userskills= @userprofile.skilltags.all(:order => [:skillscore.desc])
-       #@skillname = Skill.all
-       @userskills1 = @userprofile.skill_summary.all(:skillcategory => 1)
-       @userskills2 = @userprofile.skill_summary.all(:skillcategory => 2)
-       @userskills3 = @userprofile.skill_summary.all(:skillcategory => 3)
-       @userskills4 = @userprofile.skill_summary.all(:skillcategory => 4)
-       @userskills5 = @userprofile.skill_summary.all(:skillcategory => 5)
-       
-       @jobhistory = @userprofile.jobs.all(:order => [:startdate.desc])
-       erb :profile
-end
-
-get '/settings' do
        redirect '/auth/login' unless env['warden'].authenticated?
        @userprofile = env['warden'].user  #This is the most important query of all. it will identify the user of this session.
        @userme = @userprofile.firstname
        #@emailme = @userprofile.email
        #@userskills= @userprofile.skilltags.all(:order => [:skillscore.desc])
        #@skillname = Skill.all
-       @allskills =   @userprofile.skill_summary.all
-       @userskills1 = @userprofile.skill_summary.all(:skillcategory => 1)
-       @userskills2 = @userprofile.skill_summary.all(:skillcategory => 2)
-       @userskills3 = @userprofile.skill_summary.all(:skillcategory => 3)
-       @userskills4 = @userprofile.skill_summary.all(:skillcategory => 4)
-       @userskills5 = @userprofile.skill_summary.all(:skillcategory => 5)
+       @userskills1 = @userprofile.skill_summaries.all(:skillcategory => 1)
+       @userskills2 = @userprofile.skill_summaries.all(:skillcategory => 2)
+       @userskills3 = @userprofile.skill_summaries.all(:skillcategory => 3)
+       @userskills4 = @userprofile.skill_summaries.all(:skillcategory => 4)
+       @userskills5 = @userprofile.skill_summaries.all(:skillcategory => 5)
+     
        @jobhistory = @userprofile.jobs.all(:order => [:startdate.desc])
-       erb :settings
+       erb :profile
 end
+
+get '/mycv' do
+       redirect '/auth/login' unless env['warden'].authenticated?
+       @userprofile = env['warden'].user  #This is the most important query of all. it will identify the user of this session.
+       @userme = @userprofile.firstname
+       #@emailme = @userprofile.email
+       #@userskills= @userprofile.skilltags.all(:order => [:skillscore.desc])
+       #@skillname = Skill.all
+       @userskills1 = @userprofile.skill_summaries.all(:skillcatid => 1)
+       @userskills2 = @userprofile.skill_summaries.all(:skillcatid => 2)
+       @userskills3 = @userprofile.skill_summaries.all(:skillcatid => 3)
+       @userskills4 = @userprofile.skill_summaries.all(:skillcatid => 4)
+       @userskills5 = @userprofile.skill_summaries.all(:skillcatid => 5)     
+       @jobhistory = @userprofile.jobs.all(:order => [:startdate.desc])
+       erb :mycv
+end
+
+get '/account' do
+       redirect '/auth/login' unless env['warden'].authenticated?
+       @userprofile = env['warden'].user  #This is the most important query of all. it will identify the user of this session.
+       @userme = @userprofile.firstname
+       @cmaster = CountryMaster.all
+       ctemp = []
+           @cmaster.each do |x|
+           ctemp << {value: x.id, text: "#{x.countryname}"}
+           @countries = ctemp.to_json
+        end
+  
+       erb :account
+end
+
+
+get '/admin' do
+
+#make sure only admin can access
+#Create a section where we can dump the json of categories and skills.
+#To create new users
+ redirect '/auth/login' unless env['warden'].authenticated?
+       @userprofile = env['warden'].user  #This is the most important query of all. it will identify the user of this session.
+       @userme = @userprofile.firstname
+       @allskills =   @userprofile.skill_summaries.all
+     
+       @languages = @userprofile.languages.all
+       @lmaster = LanguageSource.all
+       @ssmaster = SkillSource  #master skill source for cross referencing
+    
+       #Preferred Industries
+       pind = @userprofile.job_industries.all
+       @pref_ind=""
+       pind.each do |i|
+          @pref_ind  = @pref_ind + pind.get(i).industryid.to_s + ","
+       end
+
+
+#all the following should just be JSON. Don't need to pick up from database!!!
+
+       #Preferred Locations
+       pc= @userprofile.preferred_locations.all
+       @pref_loc=""
+       pc.each do |i|
+          @pref_loc = @pref_loc + pc.get(i).countryid.to_s + ","
+       end
+
+       @indmaster = IndustryMaster.all   #Industry Master
+       indtemp = []
+           @indmaster.each do |x|
+           indtemp << {id: x.id, text: "#{x.industryname}"}
+           @industries = indtemp.to_json
+        end
+
+       @cmaster = CountryMaster.all   #Country Master
+       ctemp = []
+           @cmaster.each do |x|
+           ctemp << {value: x.id, text: "#{x.countryname}"}
+           @countries = ctemp.to_json
+        end
+  
+       @scmaster = SkillCategory.all   #Skill Category Master
+       cattemp = []
+           @scmaster.each do |x|
+           cattemp << {value: x.id, text: "#{x.categoryname}"}
+           @skillcat= cattemp.to_json
+       end
+
+       @ss21 = @ssmaster.all(:skillcategory_id =>21)
+       @ss22 = @ssmaster.all(:skillcategory_id =>22)
+       @ss23 = @ssmaster.all(:skillcategory_id =>23)
+       @ss24 = @ssmaster.all(:skillcategory_id =>24)
+       @ss25 = @ssmaster.all(:skillcategory_id =>25)
+       @ss26 = @ssmaster.all(:skillcategory_id =>26)
+       @ss27 = @ssmaster.all(:skillcategory_id =>27)
+       @ss28 = @ssmaster.all(:skillcategory_id =>28)
+       @ss29 = @ssmaster.all(:skillcategory_id =>29)
+       @ss30 = @ssmaster.all(:skillcategory_id =>30)
+       @ss31 = @ssmaster.all(:skillcategory_id =>31)
+       @ss32 = @ssmaster.all(:skillcategory_id =>32)
+       @ss33 = @ssmaster.all(:skillcategory_id =>33)
+       @ss34 = @ssmaster.all(:skillcategory_id =>34)
+       @ss35 = @ssmaster.all(:skillcategory_id =>35)
+       @ss36 = @ssmaster.all(:skillcategory_id =>36)
+       @ss37 = @ssmaster.all(:skillcategory_id =>37)
+       @ss38 = @ssmaster.all(:skillcategory_id =>38)
+       @ss39 = @ssmaster.all(:skillcategory_id =>39)
+       @ss40 = @ssmaster.all(:skillcategory_id =>40)
+       @ss41 = @ssmaster.all(:skillcategory_id =>41)
+       @ss42 = @ssmaster.all(:skillcategory_id =>42)
+       @ss43 = @ssmaster.all(:skillcategory_id =>43)
+       @ss44 = @ssmaster.all(:skillcategory_id =>44)
+       @ss45 = @ssmaster.all(:skillcategory_id =>45)
+
+       temp21 = []  #Skillsource translated sst
+           @ss21.each do |x|
+           temp21 << {value: x.id, text: "#{x.skill_name}"}
+           @sst21 = temp21.to_json
+        end
+        temp22 = []  #Skillsource translated sst
+           @ss22.each do |x|
+           temp22 << {value: x.id, text: "#{x.skill_name}"}
+           @sst22 = temp22.to_json
+        end
+        temp23 = []  #Skillsource translated sst
+           @ss23.each do |x|
+           temp23 << {value: x.id, text: "#{x.skill_name}"}
+           @sst23 = temp23.to_json
+        end
+        temp28 = []  #Skillsource translated sst
+           @ss28.each do |x|
+           temp28 << {value: x.id, text: "#{x.skill_name}"}
+           @sst28 = temp28.to_json
+        end
+end
+
+get '/settings' do
+
+       redirect '/auth/login' unless env['warden'].authenticated?
+       @userprofile = env['warden'].user  #This is the most important query of all. it will identify the user of this session.
+       @userme = @userprofile.firstname
+       @allskills =   @userprofile.skill_summaries.all
+     
+       @languages = @userprofile.languages.all
+       @lmaster = LanguageSource.all
+       @ssmaster = SkillSource  #master skill source for cross referencing
+    
+       #Preferred Industries
+       pind = @userprofile.job_industries.all
+       @pref_ind=""
+       pind.each do |i|
+          @pref_ind  = @pref_ind + pind.get(i).industryid.to_s + ","
+       end
+
+
+       #Preferred Locations
+       pc= @userprofile.preferred_locations.all
+       @pref_loc=""
+       pc.each do |i|
+          @pref_loc = @pref_loc + pc.get(i).countryid.to_s + ","
+       end
+
+       @indmaster = IndustryMaster.all   #Industry Master       #Hardcode to HTML. Remove from Database.
+       indtemp = []
+           @indmaster.each do |x|
+           indtemp << {id: x.id, text: "#{x.industryname}"}
+           @industries = indtemp.to_json
+        end
+
+       @cmaster = CountryMaster.all   #Country Master  #Hardcode to HTML. Remove from Database.
+       ctemp = []
+           @cmaster.each do |x|
+           ctemp << {value: x.id, text: "#{x.countryname}"}
+           @countries = ctemp.to_json
+        end
+  
+       @scmaster = SkillCategory.all   #Skill Category Master     #Hardcode to HTML. Remove from Database. Push this to the /admin for churning json.
+       cattemp = []
+           @scmaster.each do |x|
+           cattemp << {value: x.id, text: "#{x.categoryname}"}
+           @skillcat= cattemp.to_json
+       end
+
+       @sr = SkillRank.all  #Hardcode to HTML. Remove from Database.
+
+
+       erb :settings
+       #TidyFFI::Tidy.new( erb :'settings' ).clean
+end
+
 
   get '/auth/login' do
 
@@ -156,11 +329,11 @@ end
   end
 
 
-  post '/auth/login' do 
+  post '/auth/login' do
 
     env['warden'].authenticate!
     if session[:return_to].nil?
-      
+    
 
        #@emailme = user1.email
        redirect '/edge'
@@ -169,7 +342,7 @@ end
         #redirect session[:return_to]
     end
 
-  end 
+  end
  
 
 
@@ -194,16 +367,79 @@ end
     userdata.update(eval(":#{params['name']}") => params["value"])
     return 200
   end
-
-  post '/updateskill' do
-    userprofile = env['warden'].user  #This is the most important query of all. it will identify the user of this session.
-    myskill = userprofile.skill_summary.get(params["pk"])
-    myskill.update(eval(":#{params['name']}") => params["value"])
+ 
+  post '/updatedob' do
+    userdata = User.get(params["pk"])
+    str=params["dob"]
+    date=Date.parse str
+    userdata.update(:dob => date)
     return 200
   end
 
-  post '/jobsubmit' do 
-    userprofile = env['warden'].user 
+  post '/update_inSG_Date' do  # To update the start and end date of seeker in Singapore.
+    userdata = User.get(params["pk"])
+    str1=params["insg_start"]
+    date1=Date.parse str1
+    str2=params["insg_end"]
+    date2=Date.parse str2
+    userdata.update(:insg_start=> date1)
+    userdata.update(:insg_end => date2)
+    return 200
+  end
+
+
+  post '/updatetravelfreq' do
+    userdata = User.get(params["pk"])
+    userdata.update(:travelfreq => params['travelfreq'])
+    return 200
+  end
+
+  post '/updatespr' do
+    userdata = User.get(params["pk"])
+    userdata.update(:singaporepr => params['singaporepr'])
+    return 200
+  end
+
+  post '/updateactive' do
+    userdata = User.get(params["pk"])
+    userdata.update(:activeseeker => params['activeseeker'])
+    { :active => userdata.activeseeker, :insingaporenow => userdata.insingaporenow}.to_json
+  end
+
+  post '/updateinsgnow' do
+    userdata = User.get(params["pk"])
+    userdata.update(:insingaporenow => params['insingaporenow'])
+    { :insingaporenow => userdata.insingaporenow}.to_json
+  end
+
+  post '/updateparttime' do
+    userdata = User.get(params["pk"])
+    userdata.update(:parttime => params['parttime'])
+    {:status => 200, :parttime => userdata.parttime}.to_json
+  end
+
+  post '/updatefulltime' do
+    userdata = User.get(params["pk"])
+    userdata.update(:fulltime => params['fulltime'])
+    {:status => 200, :fulltime=> userdata.fulltime}.to_json
+  end
+
+  post '/updateshiftwork' do
+    userdata = User.get(params["pk"])
+    userdata.update(:shiftwork => params['shiftwork'])
+    {:status => 200, :shiftwork =>userdata.shiftwork}.to_json
+  end
+
+  post '/updateoutofhours' do
+    userdata = User.get(params["pk"])
+    userdata.update(:outofhours => params['outofhours'])
+    {:status => 200, :outofhours=>userdata.outofhours}.to_json
+  end
+ 
+
+
+  post '/jobsubmit' do
+    userprofile = env['warden'].user
     newjob = Job.create(
       :user_id => userprofile.id,
       :company => params['companyname'],
@@ -216,7 +452,7 @@ end
 
     )
      redirect to('/profile')
-  end   
+  end 
 
   post '/jobupdate' do
     jobdata = Job.get(params['id'])
@@ -235,19 +471,110 @@ end
     redirect to('/profile')
   end
 
-  get '/deleteskill' do
+
+
+  post '/deleteskill' do
     userprofile = env['warden'].user
-    myskill = userprofile.skill_summary.get(params["id"])
-    myskill.destroy
-    #redirect to('/settings')
-    redirect to ('/settings#skilltable')
+    myskill = userprofile.skill_summaries.get(params["pk"])
+    myskill.update(:status => 0)
+    return 200
   end
 
+  post '/del_language' do
+    userprofile = env['warden'].user
+    mylanguage = userprofile.languages.get(params["pk"])
+    mylanguage.update(:status => 0)
+    return 200
+  end
+
+  post '/updateskill' do
+    userprofile = env['warden'].user
+    myskill = userprofile.skill_summaries.get(params["pk"])
+    myskill.update(:skillid => params["value"])
+    myskill.update(:status =>1)
+    return 200
+  end
+
+  post '/newskill' do
+    userprofile = env['warden'].user
+    newskill = SkillSummary.first_or_create({:skillid => params["skillid"]}).update(:skillcatid => params["skillcatid"],  :skillrank => params["skillrank"], :user_id => userprofile.id, :status =>1)  #If similar skillID detected, just update it with new set of data.
+     #if newskill.save
+     #   {:responsemsg => "New skill added" }.to_json
+     #else
+     #   {:responsemsg => newskill.errors.on(:skillid) }.to_json
+     #end
+     return 200
+  end
+
+  post '/update_language' do
+    redirect '/auth/login' unless env['warden'].authenticated?
+    userprofile = env['warden'].user
+    mylanguage = userprofile.languages.get(params["pk"])
+    mylanguage.update(:languageid => params["value"])
+    mylanguage.update(:status =>1)
+    return 200
+  end
+
+  post '/updateskillcat' do
+    userprofile = env['warden'].user
+    myskill = userprofile.skill_summaries.get(params["pk"])
+    #myskill.update(eval(":#{params['name']}") => params["value"])
+    #myskill.reload.update(eval(":#{params['name']}") => params["value"])
+    myskill.update(:skillcatid => params["value"])
+    myskill.update(:status =>1)
+
+    return 200
+  end
+
+ post '/updateskillrank' do
+    userprofile = env['warden'].user  #This is the most important query of all. it will identify the user of this session.
+    myskill = userprofile.skill_summaries.get(params["pk"])
+    #myskill.update(eval(":#{params['name']}") => params["value"])
+    #myskill.reload.update(eval(":#{params['name']}") => params["value"])
+    myskill.update(:skillrank => params["value"])
+    myskill.update(:status =>1)
+
+    return 200
+  end
+
+
+  get '/showsysadmin' do
+    userprofile = env['warden'].user
+    sysadminchart= userprofile.sysadmindata.all
+  end
+
+
+    get '/updatelocpref'do
+    # If shaun cannot provide a string as data. Then what we will do is we will send back a new table to him with a string containing all the location ID
+    # And in /settings, we will have to build this new table.
+     userprofile = env['warden'].user
+     pc= userprofile.preferred_locations.get(params["pk"])
+     pc.update(eval(":#{params['name']}") => params["value"])
+  end
+
+    get '/updateindpref'do
+     userprofile = env['warden'].user
+     pind = userprofile.job_industries.get(params["pk"])
+     pind.update(eval(":#{params['name']}") => params["value"])
+  end
+
+
+ get '/table' do
+       @userprofile = env['warden'].user  #This is the most important query of all. it will identify the user of this session.
+       @allskills =   @userprofile.skill_summaries.all
+       @ssmaster = SkillSource  #master skill source for cross referencing
+       @scmaster = SkillCategory.all   #Skill Category Master     #Hardcode to HTML. Remove from Database. Push this to the /admin for churning json.
+       @sr = SkillRank.all  #Hardcode to HTML. Remove from Database.
+       erb :table, :layout => false
+
+    end
 end
+
+
 
 map SinatraWardenExample.assets_prefix do
   run SinatraWardenExample.sprockets
 end
-    
-    
+  
+
 run SinatraWardenExample

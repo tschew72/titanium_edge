@@ -12,16 +12,17 @@ class User
   include DataMapper::Resource
   include BCrypt
 
-  property :id, Serial, key: true
-  property :username, String, length: 50
-  property :firstname, String, length: 50
-  property :email, String, length:80
+  property :id, Serial, key: true, :index => true  
+  property :username, String, length: 50, :index => true  
+  property :firstname, String, length: 50, :index => true  
+  property :lastname, String, length:50
+  property :email, String, length:80, format: :email_address, :index => true  
   property :datejoined, Date
   property :age, Integer
   property :gender, String, length: 1
   property :dob, Date
   property :address, String
-  property :nationality, String, length: 80
+  property :nationality, Integer
   property :contactnumber, String, length: 20
   property :facebooklink, String, length: 120
   property :twitterlink, String, length: 120
@@ -32,18 +33,32 @@ class User
   property :singaporepr, Boolean, :default  => false   #next time get user to choose from a list of countries they have PR status
   property :aboutme, String, length: 255
   property :insingaporenow, Boolean, :default =>true  #if non Singaporean, set this to false
+  property :insg_start, Date  #Start date when Seeker is in Singapore (Only if he is non Singaporean/PR)
+  property :insg_end, Date    #End date when Seeker is in Singapore (Only if he is non Singaporean/PR)
   property :activeseeker, Boolean, :default =>true #Seeker to keep this updated.
+  property :travelfreq, Integer
+  property :currentsalary, Integer, :default => 0
+  property :expectedsalary, Integer, :default => 0
+  property :parttime, Boolean, :default=>false
+  property :fulltime, Boolean, :default=>false
+  property :shiftwork, Boolean, :default=>false
+  property :outofhours, Boolean, :default=>false
+
   property :pictureurl, String
   property :verifiedbadge, Boolean, :default=>false
   property :verifiedstartdate, Date
   property :verifiedenddate, Date
+  property :lastlogin, Date
   
   property :updated_at, DateTime
 
   has n, :matched_jobs
   has n, :jobs
   has 1, :career_score
-  has n, :skill_summary
+  has n, :skill_summaries
+  has n, :languages
+  has n, :job_industries
+  has n, :preferred_locations
   has n, :skills, :through => :skilltags   ###n-n###
   has n, :skilltags                        ###n-n###
   
@@ -80,14 +95,14 @@ end
 class MatchedJob
   include DataMapper::Resource
 
-  property :id, Serial, key: true
-  property :user_id, Integer
-  property :datematched, Date
-  property :matchscore, Integer
-  property :matchrank, Integer
-  property :jobfunction, String, length:80
-  property :joblevel, String, length:80
-  property :jobsalaryrange, String, length:100
+  property :id, Serial, key: true, :index => true  
+  property :user_id, Integer, :index => true  
+  property :datematched, Date, :index => true  
+  property :matchscore, Integer, :index => true  
+  property :matchrank, Integer, :index => true  
+  property :jobfunction, String, length:80, :index => true  
+  property :joblevel, String, length:80, :index => true  
+  property :jobsalaryrange, String, length:100, :index => true  
 
   belongs_to :user 
 end
@@ -98,6 +113,7 @@ class CareerScore
 
   property :id, Serial, key: true
   property :careerscore, Integer
+  property :last9careerscore, String
   property :user_id, Integer
 
   belongs_to :user
@@ -128,21 +144,110 @@ class Skilltag   ###n-n###
 end
   
 
-class SkillSummary    
+
+
+class Language   
   include DataMapper::Resource
 
-  property :id, Serial , key: true
-  property :user_id, Integer
-  property :skill, String, length:100
-  property :skillrank, Integer
-  property :skillcategory, Integer
-  property :updated_at, DateTime
+  property :id, Serial , key: true, :index => true
+  property :user_id, Integer, :index => true
+  property :languageid, Integer, :index => true
+  property :writtenrank, Integer, :index => true                  #1=Basic 2=Intermediate 3=Advance 4=Expert
+  property :spokenrank, Integer, :index => true                  #1=Basic 2=Intermediate 3=Advance 4=Expert
+  property :status, Integer, :default  => 2,:index => true     #0=delete, 1=edited, 2=active
+  property :updated_at, DateTime                #When was it last edited
 
   belongs_to :user 
 end
 
+class LanguageSource                           
+  include DataMapper::Resource                 
+
+  property :id, Serial , key: true, :index => true
+  property :languagename, String, length:100, :index => true        
+
+end
+
+########### START Generated from HSQL ##################
+class SkillSummary    
+  include DataMapper::Resource
+
+  property :id, Serial , key: true, :index => true
+  property :user_id, Integer, :index => true
+  property :skillid, Integer, :index => true
+  property :skillrank, Integer, :index => true                  #1=Basic 2=Intermediate 3=Advance 4=Expert
+  property :skillcatid, Integer, :index => true
+  property :status, Integer, :default  => 2,:index => true     #0=delete, 1=edited, 2=active
+  property :updated_at, DateTime                #When was it last edited
+
+  belongs_to :user 
+end
+
+class SkillSource                               #This is for Skill Management Table.
+  include DataMapper::Resource                  #Matching skills to category
+
+  property :id, Serial , key: true, :index => true
+  property :skill_name, String, length:100, :index => true      
+  property :skillcategory_id, Integer, :index => true
+  #property :skillcategory_name, String, length:100, :index => true  # to be removed. Category name in Class SkillCategory
+  
+
+end
+
+class SkillRank    
+  include DataMapper::Resource
+
+  property :id, Serial , key: true, :index => true
+  property :skillrankname, String, length:100, :index => true   
+
+end
 
 
+class SkillCategory    
+  include DataMapper::Resource
+
+  property :id, Serial , key: true, :index => true
+  property :categoryname, String, length:100, :index => true   
+
+end
+
+
+class JobIndustry     #Preferred Industry
+  include DataMapper::Resource
+
+  property :id, Serial , key: true, :index => true
+  property :user_id, Integer
+  property :industryid, Integer, :index => true   
+
+belongs_to :user
+end
+
+class IndustryMaster  
+  include DataMapper::Resource
+
+  property :id, Serial , key: true, :index => true
+  property :industryname, String, length:100, :index => true   
+
+end
+
+class CountryMaster  
+  include DataMapper::Resource
+
+  property :id, Serial , key: true, :index => true
+  property :countryname, String, length:150, :index => true   
+
+end
+
+class PreferredLocation      
+  include DataMapper::Resource
+
+  property :id, Serial , key: true, :index => true
+  property :user_id, Integer
+  property :countryid, Integer, :index => true   
+
+belongs_to :user
+end
+########### END Generated from HSQL ##################
 
 # Tell DataMapper the models are done being defined
 DataMapper.finalize
