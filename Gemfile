@@ -8,4 +8,7 @@ gem 'dm-postgres-adapter'
 gem 'data_mapper'
 gem 'newrelic_rpm'
 gem 'sinatra'
-gem 'thin'
+
+group :development do
+	gem 'thin'
+end
