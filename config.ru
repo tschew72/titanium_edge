@@ -73,8 +73,7 @@ helpers do
   def current_user
      !session[:uid].nil?
   end
-  def controller() nil end
-  def config() nil end 
+
 end
  
 
