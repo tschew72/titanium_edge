@@ -396,7 +396,7 @@ end
   post '/updateactive' do
     userdata = User.get(params["pk"])
     userdata.update(:activeseeker => params['activeseeker'])
-    { :active => userdata.activeseeker, :insingaporenow => userdata.insingaporenow}.to_json
+    { :active => userdata.activeseeker, :insingaporenow => userdata.insingaporenow, :singaporepr =>userdata.singaporepr}.to_json
   end
 
   post '/updateinsgnow' do
