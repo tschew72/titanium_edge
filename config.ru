@@ -532,17 +532,17 @@ end
   end
 
 
-    get '/updatelocpref'do
+    post '/updatelocpref'do
     # If shaun cannot provide a string as data. Then what we will do is we will send back a new table to him with a string containing all the location ID
     # And in /settings, we will have to build this new table.
-     userprofile = env['warden'].user
-     pc= userprofile.preferred_locations.get(params["pk"])
+     #userprofile = env['warden'].user
+     #pc= userprofile.preferred_locations.get(params["pk"])
      #pc.update(:countryid=> params["value"])
   end
 
-    get '/updateindpref'do
-     userprofile = env['warden'].user
-     pind = userprofile.job_industries.get(params["pk"])
+    post '/updateindpref'do
+     #userprofile = env['warden'].user
+     #pind = userprofile.job_industries.get(params["pk"])
      #pind.update(eval(":#{params['name']}") => params["value"])
   end
 
