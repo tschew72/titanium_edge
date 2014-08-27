@@ -230,7 +230,8 @@
                     <script> //TSCHEW1
                     $.ajax({
                         url: '/filer',
-                        type: 'GET',
+                        type: 'POST',
+
                         // data: {"activeseeker": this.checked, "pk" : <%=@userprofile.id %>},
                         success: function(response){  
                               $('#uploadinput').attr('data-form-data', response);
