@@ -557,7 +557,7 @@ end
 
     end
 
- post '/fileupload' do
+ post '/filer' do
       ts = Time.now.getutc.to_time.to_i.to_s
       secret="fbOQxgozjYG2acAMKi3FYL61LOI"
       altogether="callback=http://dashy3.herokuapp.com/vendor/cloudinary/cloudinary_cors.html&timestamp="+ts+secret
