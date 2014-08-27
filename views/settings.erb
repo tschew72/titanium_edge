@@ -446,7 +446,8 @@
 
 
       $('#skilltable').editable({
-        selector: 'a.skillrank'
+        selector: 'a.skillrank',
+        showbuttons: false
       });
 
       $('#skilltable').editable({
@@ -530,12 +531,11 @@
             success: function(response){
               var data = JSON.parse(response);
 
-              if (data.active && !data.singaporepr){
-                 document.getElementById( 'spr_block' ).style.visibility = 'visible';
-                 if (data.insingaporenow){
-                    document.getElementById( 'insg_block' ).style.visibility = 'visible';
-                 }
-                 //send from config.ru the status of InSingapore... Then over here, we check  and set visibility
+              if (data.active){
+                 if (!data.singaporepr)
+                  {document.getElementById( 'spr_block' ).style.visibility = 'visible';}
+                 if (!data.singaporepr && data.insingaporenow){
+                    document.getElementById( 'insg_block' ).style.visibility = 'visible';}
                $.gritter.add({
                       title: "Active Seeker",
                       text: 'We are glad you are actively looking for job. We will be matching you with jobs',
@@ -733,6 +733,8 @@
 
       $('#skillcat').editable({ 
         source: <%= @skillcat %> ,
+        onblur: 'submit',
+        showbuttons: false,
         success: function(response, newValue) {
            $('#skillname').editable('option', 'source', sources[newValue]);
            $('#skillname').editable('setValue', null);
@@ -743,6 +745,8 @@
 
       $('#skillname').editable({
         disabled: true,
+        onblur: 'submit',
+        showbuttons: false,
         success: function(response, newValue)
         {
           $('#skillrank').editable('option', 'disabled', false);
@@ -751,7 +755,9 @@
 
       $('#skillrank').editable(
         {
-        disabled: true})
+        disabled: true,
+        onblur: 'submit',
+        showbuttons: false})
 
       //init editables
       $('.newskill').editable('option', 'validate', function(v) {
