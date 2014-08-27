@@ -11,6 +11,10 @@ gem 'sinatra'
 gem 'carrierwave_direct'
 gem 'cloudinary'	
 
+group :production do 
+	gem 'newrelic_rpm'
+end
+
 group :development do
-gem 'thin'
+	gem 'thin'
 end

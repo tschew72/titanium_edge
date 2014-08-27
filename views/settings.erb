@@ -210,23 +210,26 @@
                <div class="row">
                 <div class="col-sm-6">
                  Upload new CV
-                          <script src='/vendor/cloudinary/jquery.ui.widget.js' type='text/javascript'></script>
-                          <script src='/vendor/cloudinary/jquery.iframe-transport.js' type='text/javascript'></script>
-                          <script src='/vendor/cloudinary/jquery.fileupload.js' type='text/javascript'></script>
-                          <script src='/vendor/cloudinary/jquery.cloudinary.js' type='text/javascript'></script>
-                     <script type="text/javascript">
-                       $.cloudinary.config({"api_key":"219441847515364","cloud_name":"dashy"});
+                    <script src='/vendor/cloudinary/jquery.ui.widget.js' type='text/javascript'></script>
+                    <script src='/vendor/cloudinary/jquery.iframe-transport.js' type='text/javascript'></script>
+                    <script src='/vendor/cloudinary/jquery.fileupload.js' type='text/javascript'></script>
+                    <script src='/vendor/cloudinary/jquery.cloudinary.js' type='text/javascript'></script>
+                    <script type="text/javascript">
+                       // $.cloudinary.config({"api_key":"219441847515364","cloud_name":"dashy"});
                     </script> 
-                    <input name="file" type="file" id="uploadinput"
-                           class="cloudinary-fileupload" data-cloudinary-field="image_upload" 
-                           data-form-data="" ></input>
-                    <script>
-                    var data = { "timestamp":  <%= Time.now.getutc.to_time.to_i %>, 
-                              "callback": "http://dashy3.herokuapp.com/vendor/cloudinary/cloudinary_cors.html",
-                              "signature": "c3470533147774275dd37996cc4d0e68fd03cd4f", 
-                              "api_key": "219441847515364" };    
-                    $('#uploadinput').attr('data-form-data', JSON.stringify(data));
-                    </script>    
+                    <input name="file" type="file" id="uploadinput" class="cloudinary-fileupload" data-cloudinary-field="image_upload" data-form-data="" ></input>
+                    <script> //TSCHEW
+                    $.cloudinary.config({"api_key":"219441847515364","cloud_name":"dashy"});
+                    $.ajax({
+                        url: '/fileupload',
+                        type: 'POST',
+                        // data: {"activeseeker": this.checked, "pk" : <%=@userprofile.id %>},
+                        success: function(response){  
+                              $('#uploadinput').attr('data-form-data', response);
+                              alert(response);
+                        }
+                      });
+                    </script>   
 
                 </div>
                </div>
