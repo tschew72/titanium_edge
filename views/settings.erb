@@ -1,4 +1,7 @@
 
+
+
+
 <div class="breadcrumbs" id="breadcrumbs">
   <script type="text/javascript">
     try{ace.settings.check('breadcrumbs' , 'fixed')}catch(e){}
@@ -207,6 +210,24 @@
                <div class="row">
                 <div class="col-sm-6">
                  Upload new CV
+                          <script src='/vendor/cloudinary/jquery.ui.widget.js' type='text/javascript'></script>
+                          <script src='/vendor/cloudinary/jquery.iframe-transport.js' type='text/javascript'></script>
+                          <script src='/vendor/cloudinary/jquery.fileupload.js' type='text/javascript'></script>
+                          <script src='/vendor/cloudinary/jquery.cloudinary.js' type='text/javascript'></script>
+                     <script type="text/javascript">
+                       $.cloudinary.config({"api_key":"219441847515364","cloud_name":"dashy"});
+                    </script> 
+                    <input name="file" type="file" id="uploadinput"
+                           class="cloudinary-fileupload" data-cloudinary-field="image_upload" 
+                           data-form-data="" ></input>
+                    <script>
+                    var data = { "timestamp":  <%= Time.now.getutc.to_time.to_i %>, 
+                              "callback": "http://dashy3.herokuapp.com/vendor/cloudinary/cloudinary_cors.html",
+                              "signature": "c3470533147774275dd37996cc4d0e68fd03cd4f", 
+                              "api_key": "219441847515364" };    
+                    $('#uploadinput').attr('data-form-data', JSON.stringify(data));
+                    </script>    
+
                 </div>
                </div>
       </div>       
@@ -222,7 +243,7 @@
         
           <div class="action-buttons">
 
-              <a class="red" href="#addskillmodal" data-toggle="modal"> <!-- Set a flag to say it is deleted.  -->
+              <a class="red" href="#addskillmodal" data-toggle="modal" data-keyboard="false" data-backdrop="static"> <!-- Set a flag to say it is deleted.  -->
                 <i class="icon-pencil bigger-130">Add a skill</i>
               </a>
           </div>        
@@ -236,40 +257,34 @@
                         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                         <h4 class="modal-title">Add new skill</h4>                                                             
                   </div> <!-- "modal-header" -->
-                      <div class="modal-body" style="padding-left:45px;">    
-
-                         <div style="width: 40%">
-                              <div id="msg" class="alert hide"></div>
+                      <div class="modal-body" style="padding-left:45px;padding-right:45px;">    
                               <table id="user" class="table table-bordered table-striped">
                                   <tbody>
                                       <tr>       
-                                          <td width="100%">Skill category</td> <!--TSCHEW-->
-                                          <td width="100%">
+                                          <td width="20%">Skill category</td> <!--TSCHEW-->
+                                          <td width="50%">
                                             <a href="#" class="newskill" data-emptytext="Select..." data-type="select" id="skillcat" data-name="skillcatid"  data-original-title="Select skill category"></a>
-
-                                          <!--   <a href="#" class="newskill" id="skillcat" data-type"select" data-emptytext="Select..." data-name="skillcatid" data-original-title="Select skill category"></a></td> -->
                                       </tr>
                                       <tr>       
-                                          <td width="100%">Skill name</td>
-                                          <td width="100%"><a href="#" class="newskill" id="skillname"  data-emptytext="Select..." data-type="select" data-name="skillid" data-original-title="Select skill"></a></td>
+                                          <td width="20%">Skill name</td>
+                                          <td width="50%"><a href="#" class="newskill" id="skillname"  data-emptytext="Select..." data-type="select" data-name="skillid" data-original-title="Select skill"></a></td>
                                       </tr>
                                       <tr>       
-                                          <td width="100%">Skill rank</td>
-                                          <td width="100%"><a href="#" class="newskill" id="skillrank" data-emptytext="Select..." data-type="select" data-name="skillrank" data-source="[{value: 1, text: 'Basic'}, {value: 2, text: 'Intermediate'}, {value: 3, text: 'Advance'}, {value: 4, text: 'Expert'}]" data-original-title="Select rank"></a></td>
+                                          <td width="20%">Skill rank</td>
+                                          <td width="50%"><a href="#" class="newskill" id="skillrank" data-emptytext="Select..." data-type="select" data-name="skillrank" data-source="[{value: 1, text: 'Basic'}, {value: 2, text: 'Intermediate'}, {value: 3, text: 'Advance'}, {value: 4, text: 'Expert'}]" data-original-title="Select rank"></a></td>
                                       </tr>   
                                   </tbody>
                               </table>
-
-                              <div>
-                              <button id="saveskill-btn" class="btn btn-primary">Save and add new</button>
-                              </div>
-                              Suggest new skill if yours is not listed here
-                          </div>                          
-
                       </div> <!-- "modal-body" -->
                       <div class="modal-footer">
-                           <!-- <input type="submit" name="save" formaction="/jobupdate" value="Submit" /> -->
-                           <button type="button" class="btn btn-default" id="closeskill-btn" data-dismiss="modal">Close</button>
+                      <div class="align-center">
+                         <span class="tooltip-success" data-rel="tooltip" data-placement="left" title="Save and Add new Skill"><button id="saveskill-btn" class="btn btn-primary"><i class="icon-save bigger-140 icon-only"></i></button></span>
+                        <span class="tooltip-success" data-rel="tooltip" data-placement="right" title="Report new skills not shown in the list above"><button class="btn btn-warning"><i class="icon-wrench bigger-140 icon-only"></i></button><span>
+
+                       </div>
+                        
+                            
+                           
                       </div> <!-- footer -->
                </div> <!-- modal-content -->
              </div><!-- modal-dialog -->

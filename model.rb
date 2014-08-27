@@ -191,7 +191,6 @@ class SkillSource                               #This is for Skill Management Ta
   property :skillcategory_id, Integer, :index => true
   #property :skillcategory_name, String, length:100, :index => true  # to be removed. Category name in Class SkillCategory
   
-
 end
 
 class SkillRank    
@@ -211,6 +210,15 @@ class SkillCategory
 
 end
 
+class NewSkillReport      #For users to report new skills that are now listed
+  include DataMapper::Resource
+
+  property :id, Serial , key: true, :index => true
+  property :skillname, String, length:100, :index => true 
+  property :references, String, length:5000, :index => true 
+  property :user_id, Integer, :index => true 
+
+  end
 
 class JobIndustry     #Preferred Industry
   include DataMapper::Resource

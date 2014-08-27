@@ -4,7 +4,7 @@ require 'warden'
 require './model'
 require 'json'
 require 'newrelic_rpm'
-
+require 'digest/sha1'
   
 class SinatraWardenExample < Sinatra::Application
 
@@ -556,6 +556,11 @@ end
        erb :table, :layout => false
 
     end
+
+ get '/fileupload' do
+      Digest::SHA1.hexdigest 'foo'
+ end
+ 
 end
 
   
