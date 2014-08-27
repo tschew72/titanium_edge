@@ -9,10 +9,8 @@ gem 'data_mapper'
 gem 'sinatra'
 gem 'carrierwave_direct'
 gem 'cloudinary'	
+gem 'newrelic_rpm'
 
-group :production do 
-	gem 'newrelic_rpm'
-end
 
 group :development do
 	gem 'thin'
