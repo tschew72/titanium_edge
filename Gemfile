@@ -7,7 +7,7 @@ gem 'warden'
 gem 'dm-postgres-adapter'
 gem 'data_mapper'
 gem 'sinatra'
-gem 'carrierwave_direct'
+#gem 'carrierwave_direct'
 gem 'cloudinary'	
 gem 'newrelic_rpm'
 

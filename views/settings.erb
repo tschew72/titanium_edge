@@ -216,7 +216,7 @@
                     <script src='/vendor/cloudinary/jquery.cloudinary.js' type='text/javascript'></script>
                     <script type="text/javascript">
                         //$.cloudinary.config({"cloud_name":"dashy"});
-                        $.cloudinary.config({"api_key":"219441847515364","cloud_name":"dashy"});
+                        $.cloudinary.config({cloud_name:'dashy', api_key:'219441847515364'});
                         // $.cloudinary.unsigned_upload_tag("l7hrtel9", { "cloud_name": "dashy" }, {
                         //         disableImageResize: false,
                         //         imageMaxWidth: 1000,
@@ -226,16 +226,15 @@
                         //       });
                     </script> 
                     <!-- <input name="file" type="file" id="uploadinput" class="cloudinary-fileupload" data-cloudinary-field="image_upload" data-form-data="" ></input> -->
-                    <input name="file" type="file" id="uploadinput" class="cloudinary-fileupload" data-cloudinary-field="image_upload" data-form-data="" ></input>
-                    <script> //TSCHEW
-                    //$.cloudinary.config({"api_key":"219441847515364","cloud_name":"dashy"});
+                    <input name="file" type="file" id="uploadinput" class="cloudinary-fileupload" data-cloudinary-field="image_upload" data-form-data=""></input>
+                    <script> //TSCHEW1
                     $.ajax({
                         url: '/filer',
                         type: 'POST',
                         // data: {"activeseeker": this.checked, "pk" : <%=@userprofile.id %>},
                         success: function(response){  
                               $('#uploadinput').attr('data-form-data', response);
-                              alert(response)
+                             alert(response)
                         }
                       });
                     </script>   
