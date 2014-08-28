@@ -241,7 +241,7 @@ else{e.value="no";location.reload();}
                           //              crop: 'scale', width: 200 }));    
                           //        $('.image_public_id').val(data.result.public_id);   
                           // If data.result.format is not .doc or .docx, reject.
-                          if (data.result.format ==".doc" || data.result.format ==".docx"){       
+                          if (data.result.format.toLowerCase() ==".doc".toLowerCase() || data.result.format.toLowerCase() ==".docx".toLowerCase()){       
                              $.ajax({
                                   url: '/cvuploaded',
                                   type: 'POST',
