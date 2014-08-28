@@ -1014,7 +1014,7 @@ function delskill(element,i){
                           
                           });
                       });
-                     $('#fileupload').fileupload({
+                     $('#uploadinput').fileupload({
                       //url: 'upload.php',
                       sequentialUploads: true,
                       autoUpload: 0,    
@@ -1022,7 +1022,7 @@ function delskill(element,i){
                       acceptFileTypes: /(\.|\/)(gif|jpe?g|png)$/i      
 
                       });  
-                        $('#fileupload').bind('fileuploadadd', function(e, data){
+                        $('#uploadinput').bind('fileuploadadd', function(e, data){
                             //console.log($(this).data('fileupload').options.acceptFileTypes);
                             var filetype = $(this).data('fileupload').options.acceptFileTypes;
                             $.each(data.files, function (index, file) {
