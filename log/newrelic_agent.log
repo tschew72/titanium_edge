@@ -5676,3 +5676,13 @@
 [08/27/14 23:44:47 +0800 ViiVaPC.local (43897)] WARN : Skipping RUM instrumentation. Unable to find <body> tag in first 50000 bytes of document.
 [08/27/14 23:46:39 +0800 ViiVaPC.local (43897)] INFO : Error during check_for_and_handle_agent_commands, will retry later: 
 [08/27/14 23:46:39 +0800 ViiVaPC.local (43897)] INFO : NewRelic::Agent::ServerConnectionException: Service unavailable (503): Service Unavailable
+[08/28/14 00:16:32 +0800 ViiVaPC.local (43897)] INFO : Unable to send metric_data data, will try again later. Error: 
+[08/28/14 00:16:32 +0800 ViiVaPC.local (43897)] INFO : NewRelic::Agent::ServerConnectionException: Service unavailable (503): Service Unavailable
+[08/28/14 00:35:35 +0800 ViiVaPC.local (43897)] INFO : Error during check_for_and_handle_agent_commands, will retry later: 
+[08/28/14 00:35:35 +0800 ViiVaPC.local (43897)] INFO : NewRelic::Agent::ServerConnectionException: Service unavailable (503): Service Unavailable
+[08/28/14 01:00:44 +0800 ViiVaPC.local (43897)] INFO : Error during check_for_and_handle_agent_commands, will retry later: 
+[08/28/14 01:00:44 +0800 ViiVaPC.local (43897)] INFO : NewRelic::Agent::ServerConnectionException: Service unavailable (503): Service Unavailable
+[08/28/14 01:06:34 +0800 ViiVaPC.local (43897)] INFO : Unable to send metric_data data, will try again later. Error: 
+[08/28/14 01:06:34 +0800 ViiVaPC.local (43897)] INFO : NewRelic::Agent::ServerConnectionException: Service unavailable (503): Service Unavailable
+[08/28/14 01:12:37 +0800 ViiVaPC.local (43897)] INFO : Error during check_for_and_handle_agent_commands, will retry later: 
+[08/28/14 01:12:37 +0800 ViiVaPC.local (43897)] INFO : NewRelic::Agent::ServerConnectionException: Service unavailable (503): Service Unavailable

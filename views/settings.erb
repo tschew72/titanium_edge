@@ -231,11 +231,9 @@
                     $.ajax({
                         url: '/filer',
                         type: 'POST',
-
-                        // data: {"activeseeker": this.checked, "pk" : <%=@userprofile.id %>},
                         success: function(response){  
                               $('#uploadinput').attr('data-form-data', response);
-                             alert(response)
+                             
                         }
                       });
                     </script>   
