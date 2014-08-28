@@ -225,7 +225,7 @@ else{e.value="no";location.reload();}
                     </script> 
 
 
-                    <input name="file" type="file" id="uploadinput" class="cloudinary-fileupload fileupload" data-cloudinary-field="image_upload" data-form-data=""></input>
+                    <input name="file" type="file" id="uploadinput fileupload" class="cloudinary-fileupload" data-cloudinary-field="image_upload" data-form-data=""></input>
                     <div id="CVsection"> </div>
                     <script type="text/javascript">
                         $.ajax({
@@ -235,6 +235,28 @@ else{e.value="no";location.reload();}
                                       $('#uploadinput').attr('data-form-data', response);
                                 }
                               });
+                       
+                        $('#fileupload').fileupload({
+                        //url: 'upload.php',
+                        sequentialUploads: true,
+                        autoUpload: 0,    
+                        dataType: 'json',
+                        acceptFileTypes: /(\.|\/)(gif|jpe?g|png)$/i      
+                        });  
+
+                        $('#fileupload').bind('fileuploadadd', function(e, data){
+                              //console.log($(this).data('fileupload').options.acceptFileTypes);
+                              var filetype = $(this).data('fileupload').options.acceptFileTypes;
+                              $.each(data.files, function (index, file) {
+                                      if (!filetype.test(file.name)) {
+                                  alert('wrong file type');
+                                  data.files.splice(index,1);
+                                  return false;
+                                }
+                            
+                              });
+                         });        
+
                         $('.cloudinary-fileupload').bind('cloudinarydone', function(e, data) {  
                           // $('.preview').html(
                           //        $.cloudinary.image(data.result.public_id, 
@@ -1014,25 +1036,6 @@ function delskill(element,i){
                           
                           });
                       });
-                     $('.fileupload').fileupload({
-                      //url: 'upload.php',
-                      sequentialUploads: true,
-                      autoUpload: 0,    
-                      dataType: 'json',
-                      acceptFileTypes: /(\.|\/)(gif|jpe?g|png)$/i      
 
-                      });  
-                        $('.fileupload').bind('fileuploadadd', function(e, data){
-                            //console.log($(this).data('fileupload').options.acceptFileTypes);
-                            var filetype = $(this).data('fileupload').options.acceptFileTypes;
-                            $.each(data.files, function (index, file) {
-                                    if (!filetype.test(file.name)) {
-                                alert('wrong file type');
-                                data.files.splice(index,1);
-                                return false;
-                              }
-                          
-                            });
-                       });
                   }); //document ready
 </script>
