@@ -224,6 +224,7 @@ else{e.value="no";location.reload();}
                         $.cloudinary.config({cloud_name:'dashy', api_key:'219441847515364'});
                     </script> 
 
+
                     <input name="file" type="file" id="uploadinput" class="cloudinary-fileupload" data-cloudinary-field="image_upload" data-form-data=""></input>
                     <div id="CVsection"> </div>
                     <script type="text/javascript">
@@ -1013,5 +1014,25 @@ function delskill(element,i){
                           
                           });
                       });
-                  });
+                     $('#uploadinput').fileupload({
+                      //url: 'upload.php',
+                      sequentialUploads: true,
+                      autoUpload: 0,    
+                      dataType: 'json',
+                      acceptFileTypes: /(\.|\/)(gif|jpe?g|png)$/i      
+
+                      });  
+                        $('#fileupload').bind('fileuploadadd', function(e, data){
+                            //console.log($(this).data('fileupload').options.acceptFileTypes);
+                            var filetype = $(this).data('fileupload').options.acceptFileTypes;
+                            $.each(data.files, function (index, file) {
+                                    if (!filetype.test(file.name)) {
+                                alert('wrong file type');
+                                data.files.splice(index,1);
+                                return false;
+                              }
+                          
+                            });
+                       });
+                  }); //document ready
 </script>
