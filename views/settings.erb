@@ -234,31 +234,7 @@ else{e.value="no";location.reload();}
                                       $('#uploadinput').attr('data-form-data', response);
                                 }
                               });
-                        $('.cloudinary-fileupload').bind('cloudinarydone', function(e, data) {  
-                          // $('.preview').html(
-                          //        $.cloudinary.image(data.result.public_id, 
-                          //            { format: data.result.format, version: data.result.version, 
-                          //              crop: 'scale', width: 200 }));    
-                          //        $('.image_public_id').val(data.result.public_id);   
-                          // If data.result.format is not .doc or .docx, reject.
-                                 $.ajax({
-                                      url: '/cvuploaded',
-                                      type: 'POST',
-                                      data: {"CVurl": data.result.url, "pk" : <%=@userprofile.id %>},
-                                      success: function(response){
-                                        $('#CVsection').html("This is your CV : <a href=data.result.url> MyCV</a>" );
-                                      }
-                                      $.gritter.add({
-                                        title: "File uploaded",
-                                        text: '',
-                                        sticky: false,
-                                        time: '5000',
-                                        class_name: 'gritter-light gritter-info'
-                                    });           
 
-                                 });
-                                 return true;
-                        });
                     </script> 
                 </div>
                </div>
