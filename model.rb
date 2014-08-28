@@ -45,7 +45,7 @@ class User
   property :outofhours, Boolean, :default=>false
 
   property :pictureurl, String
-  property :CVurl, String
+  property :cvurl, String
   property :verifiedbadge, Boolean, :default=>false
   property :verifiedstartdate, Date
   property :verifiedenddate, Date

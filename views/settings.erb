@@ -244,7 +244,7 @@ else{e.value="no";location.reload();}
                                  $.ajax({
                                       url: '/cvuploaded',
                                       type: 'POST',
-                                      data: {"CVurl": data.result.url, "pk" : <%=@userprofile.id %>},
+                                      data: {"cvurl": data.result.url, "pk" : <%=@userprofile.id %>},
                                       success: function(response){
                                         tt= "This is your CV : <a href=".concat(data.result.url,">MyCV</a>");
                                         $('#CVsection').html(tt);
@@ -260,7 +260,7 @@ else{e.value="no";location.reload();}
 
                                  }); //ajax
 
-                                 
+
                                  return true;
                         }); //cloudinary done
                     </script> 
