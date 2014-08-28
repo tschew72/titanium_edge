@@ -263,17 +263,3 @@ DataMapper.finalize
 
 # Update the database to match the properties of User.
 DataMapper.auto_upgrade!
-
-# Create a test User
-# if User.count == 0
-#   @user = User.create(username: "tschew")
-#   @user.password = "tschew"
-#   @user.firstname = "Vince"
-#   @user.email = "tschew@gmail.com"
-#   @user.save
-#   @user = User.create(username: "shaun")
-#   @user.password = "shaun"
-#   @user.firstname = "Shaun"
-#   @user.email = "sreemus@yahoo.com"
-#   @user.save
-# end
