@@ -236,26 +236,7 @@ else{e.value="no";location.reload();}
                                 }
                               });
                        
-                        $('#fileupload').fileupload({
-                        //url: 'upload.php',
-                        sequentialUploads: true,
-                        autoUpload: 0,    
-                        dataType: 'json',
-                        acceptFileTypes: /(\.|\/)(gif|jpe?g|png)$/i      
-                        });  
 
-                        $('#fileupload').bind('fileuploadadd', function(e, data){
-                              //console.log($(this).data('fileupload').options.acceptFileTypes);
-                              var filetype = $(this).data('fileupload').options.acceptFileTypes;
-                              $.each(data.files, function (index, file) {
-                                      if (!filetype.test(file.name)) {
-                                  alert('wrong file type');
-                                  data.files.splice(index,1);
-                                  return false;
-                                }
-                            
-                              });
-                         });        
 
                         $('.cloudinary-fileupload').bind('cloudinarydone', function(e, data) {  
                           // $('.preview').html(
