@@ -227,8 +227,22 @@
                     </script> 
                     <!-- <input name="file" type="file" id="uploadinput" class="cloudinary-fileupload" data-cloudinary-field="image_upload" data-form-data="" ></input> -->
                     <input name="file" type="file" id="uploadinput" class="cloudinary-fileupload" data-cloudinary-field="image_upload" data-form-data=""></input>
- 
-
+                <script type="text/javascript">
+                        $.ajax({
+                                url: '/filer',
+                                type: 'POST',
+                                success: function(response){  
+                                      $('#uploadinput').attr('data-form-data', response);
+                                      $.gritter.add({
+                                            title: "Responsive",
+                                            text: response,
+                                            sticky: false,
+                                            time: '5000',
+                                            class_name: 'gritter-light gritter-info'
+                                      });  
+                                }
+                              });
+                </script> 
                 </div>
                </div>
       </div>       
@@ -901,20 +915,7 @@ $(document).ready(function(){
                         elm.parent().parent().find('.circular-bar-content label').text(perc+'%');
                     });
 
-                $.ajax({
-                        url: '/filer',
-                        type: 'POST',
-                        success: function(response){  
-                              $('#uploadinput').attr('data-form-data', response);
-                              $.gritter.add({
-                                    title: "Responsive",
-                                    text: response,
-                                    sticky: false,
-                                    time: '5000',
-                                    class_name: 'gritter-light gritter-info'
-                              });  
-                        }
-                      });
+
            
           });
  
