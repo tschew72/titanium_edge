@@ -309,10 +309,7 @@ get '/settings' do
        end
 
        @sr = SkillRank.all  #Hardcode to HTML. Remove from Database.
-
-
        erb :settings
-       #TidyFFI::Tidy.new( erb :'settings' ).clean
 end
 
 
@@ -569,7 +566,7 @@ end
  post '/cvuploaded' do
       userdata = User.get(params["pk"])
       userdata.update(:CVurl => params['CVurl'])
-      
+
  end
 
 

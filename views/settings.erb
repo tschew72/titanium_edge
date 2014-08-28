@@ -7,6 +7,12 @@ if(e.value=="no")e.value="yes";
 else{e.value="no";location.reload();}
 }
 </script>
+<style>
+.bar {
+    height: 18px;
+    background: green;
+}
+</style>
 
 <div class="breadcrumbs" id="breadcrumbs">
   <script type="text/javascript">
@@ -225,22 +231,26 @@ else{e.value="no";location.reload();}
                     </script> 
 
                     <input name="file" type="file" id="uploadinput" class="cloudinary-fileupload" data-cloudinary-field="image_upload" data-form-data=""></input>
+                    <div id="progress">
+                        <div class="bar" style="width: 0%;"></div>
+                    </div>
                     <div id="CVsection"> </div>
+                      <!-- If data.result.format is not .doc or .docx, reject. -->
                     <script type="text/javascript">
                         $.ajax({
                                 url: '/filer',
                                 type: 'POST',
-                                success: function(response){ 
+                                success: function(response){  
                                       $('#uploadinput').attr('data-form-data', response);
                                 }
                               });
-                        $('.cloudinary-fileupload').bind('cloudinarydone', function(e, data) { 
+                        $('.cloudinary-fileupload').bind('cloudinarydone', function(e, data) {  
                           // $('.preview').html(
-                          //        $.cloudinary.image(data.result.public_id,
-                          //            { format: data.result.format, version: data.result.version,
-                          //              crop: 'scale', width: 200 }));   
-                          //        $('.image_public_id').val(data.result.public_id);  
-                          // If data.result.format is not .doc or .docx, reject.
+                          //        $.cloudinary.image(data.result.public_id, 
+                          //            { format: data.result.format, version: data.result.version, 
+                          //              crop: 'scale', width: 200 }));    
+                          //        $('.image_public_id').val(data.result.public_id);   
+                         
                                  $.ajax({
                                       url: '/cvuploaded',
                                       type: 'POST',
@@ -254,13 +264,26 @@ else{e.value="no";location.reload();}
                                           sticky: false,
                                           time: '5000',
                                           class_name: 'gritter-light gritter-info'
-                                        });   
+                                        });    
                                       }
-                                            
+                                             
 
-                                 });
+                                 }); //ajax
+
+
                                  return true;
-                        });
+                        }); //cloudinary done
+
+                          $('#uploadinput').fileupload({
+                              /* ... */
+                              progressall: function (e, data) {
+                                  var progress = parseInt(data.loaded / data.total * 100, 10);
+                                  $('#progress .bar').css(
+                                      'width',
+                                      progress + '%'
+                                  );
+                              }
+                          });
                     </script> 
                 </div>
                </div>
