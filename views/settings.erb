@@ -246,7 +246,8 @@ else{e.value="no";location.reload();}
                                       type: 'POST',
                                       data: {"CVurl": data.result.url, "pk" : <%=@userprofile.id %>},
                                       success: function(response){
-                                        $('#CVsection').html("This is your CV : <a href=data.result.url> MyCV</a>" )
+                                        tt= "This is your CV : <a href=".concat(data.result.url,">MyCV</a>");
+                                        $('#CVsection').html(tt);
                                         $.gritter.add({
                                           title: "File uploaded",
                                           text: '',
