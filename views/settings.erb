@@ -258,7 +258,16 @@ else{e.value="no";location.reload();}
                                     });    
                                   } //success
                              }); //ajax
-                          }   //if  
+                          } else {
+                              $.gritter.add({
+                                      title: "File rejected",
+                                      text: 'Please upload your CV in .doc or .docx format',
+                                      sticky: false,
+                                      time: '5000',
+                                      class_name: 'gritter-light gritter-info'
+                                    });    
+
+                          }  //if-else
 
                                  return true;
                         }); //cloudinary done
