@@ -44,8 +44,8 @@ class User
   property :shiftwork, Boolean, :default=>false
   property :outofhours, Boolean, :default=>false
 
-  property :pictureurl, String
-  property :cvurl, String
+  property :pictureurl, String, length: 400
+  property :cvurl, String, length: 400
   property :verifiedbadge, Boolean, :default=>false
   property :verifiedstartdate, Date
   property :verifiedenddate, Date
