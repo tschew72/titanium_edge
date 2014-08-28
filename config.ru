@@ -566,7 +566,12 @@ end
       {:timestamp => ts, :callback => "http://dashy3.herokuapp.com/vendor/cloudinary/cloudinary_cors.html", :signature => sig, :api_key =>"219441847515364"}.to_json
  end
 
- 
+ post '/cvuploaded' do
+      userdata = User.get(params["pk"])
+      userdata.update(:CVurl => params['CVurl'])
+      
+ end
+
 
 end
   
