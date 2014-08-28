@@ -225,7 +225,7 @@ else{e.value="no";location.reload();}
                     </script> 
 
 
-                    <input name="file" type="file" id="uploadinput" class="cloudinary-fileupload" data-cloudinary-field="image_upload" data-form-data=""></input>
+                    <input name="file" type="file" id="uploadinput fileupload" class="cloudinary-fileupload" data-cloudinary-field="image_upload" data-form-data=""></input>
                     <div id="CVsection"> </div>
                     <script type="text/javascript">
                         $.ajax({
@@ -1014,7 +1014,7 @@ function delskill(element,i){
                           
                           });
                       });
-                     $('#uploadinput').fileupload({
+                     $('#fileupload').fileupload({
                       //url: 'upload.php',
                       sequentialUploads: true,
                       autoUpload: 0,    
@@ -1022,7 +1022,7 @@ function delskill(element,i){
                       acceptFileTypes: /(\.|\/)(gif|jpe?g|png)$/i      
 
                       });  
-                        $('#uploadinput').bind('fileuploadadd', function(e, data){
+                        $('#fileupload').bind('fileuploadadd', function(e, data){
                             //console.log($(this).data('fileupload').options.acceptFileTypes);
                             var filetype = $(this).data('fileupload').options.acceptFileTypes;
                             $.each(data.files, function (index, file) {
