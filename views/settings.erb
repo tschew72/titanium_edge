@@ -242,6 +242,7 @@ else{e.value="no";location.reload();}
                           //        $('.image_public_id').val(data.result.public_id);   
                           // If data.result.format is not .doc or .docx, reject.
                               if (data.result.format ==".doc" || data.result.format ==".docx")
+                              {
                                  $.ajax({
                                       url: '/cvuploaded',
                                       type: 'POST',
@@ -257,6 +258,8 @@ else{e.value="no";location.reload();}
                                           class_name: 'gritter-light gritter-info'
                                         });    
                                       }
+                                return true;
+                                });
                               }
                               else {
                                       $.gritter.add({
@@ -264,14 +267,13 @@ else{e.value="no";location.reload();}
                                           text: 'Please upload your CV in .doc or .docx format only',
                                           sticky: false,
                                           time: '5000',
-                                          class_name: 'gritter-error'
+                                          class_name: 'gritter-error gritter-info'
                                         });    
 
                               }                 
 
-                                 });
-                                 return true;
-                        });
+                                 
+                                
                     </script> 
                 </div>
                </div>
