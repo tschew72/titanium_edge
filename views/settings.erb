@@ -1,19 +1,12 @@
 <!-- force reload of the page when someone return back to this page from another page -->
 <input type="hidden" id="refreshed" value="no">
 <script type="text/javascript">
-  onload=function(){
-  var e=document.getElementById("refreshed");
-  if(e.value=="no")e.value="yes";
-  else{e.value="no";location.reload();}
-  }
-</script>
-
-<style>
-.bar {
-    height: 18px;
-    background: green;
+onload=function(){
+var e=document.getElementById("refreshed");
+if(e.value=="no")e.value="yes";
+else{e.value="no";location.reload();}
 }
-</style>
+</script>
 
 <div class="breadcrumbs" id="breadcrumbs">
   <script type="text/javascript">
@@ -231,10 +224,8 @@
                         $.cloudinary.config({cloud_name:'dashy', api_key:'219441847515364'});
                     </script> 
 
-                    <input name="file" type="file" id="uploadinput uploadinput1" class="cloudinary-fileupload" data-cloudinary-field="image_upload" data-form-data=""></input>
-                    <!-- <div id="progress"><div class="bar" style="width: 0%;"></div></div> -->
+                    <input name="file" type="file" id="uploadinput" class="cloudinary-fileupload" data-cloudinary-field="image_upload" data-form-data=""></input>
                     <div id="CVsection"> </div>
-                      <!-- If data.result.format is not .doc or .docx, reject. -->
                     <script type="text/javascript">
                         $.ajax({
                                 url: '/filer',
@@ -249,7 +240,7 @@
                           //            { format: data.result.format, version: data.result.version, 
                           //              crop: 'scale', width: 200 }));    
                           //        $('.image_public_id').val(data.result.public_id);   
-                          //TSCHEW
+                          // If data.result.format is not .doc or .docx, reject.
                                  $.ajax({
                                       url: '/cvuploaded',
                                       type: 'POST',
@@ -269,11 +260,9 @@
 
                                  }); //ajax
 
-
+                                 
                                  return true;
                         }); //cloudinary done
-
-
                     </script> 
                 </div>
                </div>
@@ -1025,17 +1014,4 @@ function delskill(element,i){
                           });
                       });
                   });
-</script>
-
-<script type="text/javascript">
-                          // $('#uploadinput').fileupload({
-                          //     /* ... */
-                          //     progressall: function (e, data) {
-                          //         var progress = parseInt(data.loaded / data.total * 100, 10);
-                          //         $('#progress .bar').css(
-                          //             'width',
-                          //             progress + '%'
-                          //         );
-                          //     }
-                          // });
 </script>
