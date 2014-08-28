@@ -231,9 +231,7 @@ else{e.value="no";location.reload();}
                     </script> 
 
                     <input name="file" type="file" id="uploadinput" class="cloudinary-fileupload" data-cloudinary-field="image_upload" data-form-data=""></input>
-                    <div id="progress">
-                        <div class="bar" style="width: 0%;"></div>
-                    </div>
+                    <div id="progress"><div class="bar" style="width: 0%;"></div></div>
                     <div id="CVsection"> </div>
                       <!-- If data.result.format is not .doc or .docx, reject. -->
                     <script type="text/javascript">
@@ -250,7 +248,7 @@ else{e.value="no";location.reload();}
                           //            { format: data.result.format, version: data.result.version, 
                           //              crop: 'scale', width: 200 }));    
                           //        $('.image_public_id').val(data.result.public_id);   
-                         
+                          //TSCHEW
                                  $.ajax({
                                       url: '/cvuploaded',
                                       type: 'POST',
@@ -274,16 +272,7 @@ else{e.value="no";location.reload();}
                                  return true;
                         }); //cloudinary done
 
-                          $('#uploadinput').fileupload({
-                              /* ... */
-                              progressall: function (e, data) {
-                                  var progress = parseInt(data.loaded / data.total * 100, 10);
-                                  $('#progress .bar').css(
-                                      'width',
-                                      progress + '%'
-                                  );
-                              }
-                          });
+
                     </script> 
                 </div>
                </div>
@@ -1035,4 +1024,17 @@ function delskill(element,i){
                           });
                       });
                   });
+</script>
+
+<script type="text/javascript">
+                          // $('#uploadinput').fileupload({
+                          //     /* ... */
+                          //     progressall: function (e, data) {
+                          //         var progress = parseInt(data.loaded / data.total * 100, 10);
+                          //         $('#progress .bar').css(
+                          //             'width',
+                          //             progress + '%'
+                          //         );
+                          //     }
+                          // });
 </script>
