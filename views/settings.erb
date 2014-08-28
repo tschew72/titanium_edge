@@ -228,9 +228,8 @@
                     <!-- <input name="file" type="file" id="uploadinput" class="cloudinary-fileupload" data-cloudinary-field="image_upload" data-form-data="" ></input> -->
                     <input name="file" type="file" id="uploadinput" class="cloudinary-fileupload" data-cloudinary-field="image_upload" data-form-data=""></input>
                 <script type="text/javascript">
-                        setTimeout(function (){
-
-                                    $.ajax({
+                        $.cloudinary.config({cloud_name:'dashy', api_key:'219441847515364'});
+                        $.ajax({
                                 url: '/filer',
                                 type: 'POST',
                                 success: function(response){  
@@ -244,9 +243,6 @@
                                       });  
                                 }
                               });
-
-                          }, 5000); // how long do you want the delay to be? 
-
                 </script> 
                 </div>
                </div>
