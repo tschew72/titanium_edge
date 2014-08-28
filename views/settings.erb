@@ -227,22 +227,6 @@
                     </script> 
                     <!-- <input name="file" type="file" id="uploadinput" class="cloudinary-fileupload" data-cloudinary-field="image_upload" data-form-data="" ></input> -->
                     <input name="file" type="file" id="uploadinput" class="cloudinary-fileupload" data-cloudinary-field="image_upload" data-form-data=""></input>
-                    <script> //TSCHEW1
-                    $.ajax({
-                        url: '/filer',
-                        type: 'POST',
-                        success: function(response){  
-                              $('#uploadinput').attr('data-form-data', response);
-                              $.gritter.add({
-                                    title: "Responsive",
-                                    text: response,
-                                    sticky: false,
-                                    time: '5000',
-                                    class_name: 'gritter-light gritter-info'
-                              });  
-                        }
-                      });
-                    </script>   
 
                 </div>
                </div>
@@ -995,3 +979,23 @@ function delskill(element,i){
                       });
                   });
 </script>
+
+ <script> //TSCHEW1
+                    window.onload = function() {
+                      
+                        $.ajax({
+                            url: '/filer',
+                            type: 'POST',
+                            success: function(response){  
+                                  $('#uploadinput').attr('data-form-data', response);
+                                  $.gritter.add({
+                                        title: "Responsive",
+                                        text: response,
+                                        sticky: false,
+                                        time: '5000',
+                                        class_name: 'gritter-light gritter-info'
+                                  });  
+                            }
+                          });
+                    }
+                    </script>   
