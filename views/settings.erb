@@ -226,23 +226,8 @@
                         //       });
                     </script> 
                     <!-- <input name="file" type="file" id="uploadinput" class="cloudinary-fileupload" data-cloudinary-field="image_upload" data-form-data="" ></input> -->
-                    <input name="file" type="file" id="uploadinput" class="cloudinary-fileupload" data-cloudinary-field="image_upload" data-form-data=""></input>
-                <script type="text/javascript">
-                        $.ajax({
-                                url: '/filer',
-                                type: 'POST',
-                                success: function(response){  
-                                      $('#uploadinput').attr('data-form-data', response);
-                                      $.gritter.add({
-                                            title: "Responsive",
-                                            text: response,
-                                            sticky: false,
-                                            time: '5000',
-                                            class_name: 'gritter-light gritter-info'
-                                      });  
-                                }
-                              });
-                </script> 
+                    <input name="file" type="file" id="uploadinput" class="cloudinary-fileupload" data-cloudinary-field="image_upload" data-form-data="{"timestamp":1409196354,"callback":"http://dashy3.herokuapp.com/vendor/cloudinary/cloudinary_cors.html","signature":"0e98ac8b58df074aa675b4636080ae0e2a6f1016","api_key":"219441847515364"}"></input>
+
                 </div>
                </div>
       </div>       
