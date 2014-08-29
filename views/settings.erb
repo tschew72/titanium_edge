@@ -227,7 +227,7 @@ else{e.value="no";location.reload();}
                       <span class="btn btn-success fileinput-button">
                       <i class="glyphicon glyphicon-plus"></i>
                       <span>Select files...</span>
-                      <input name="file" type="file" id="uploadinput" class="cloudinary-fileupload" data-cloudinary-field="image_upload" data-form-data=""></input>
+                      <input name="file" type="file" id="fileupload" class="cloudinary-fileupload" data-cloudinary-field="image_upload" data-form-data=""></input>
                       </span
                     <div id="CVsection"> </div>
                     <script type="text/javascript">
@@ -235,7 +235,7 @@ else{e.value="no";location.reload();}
                                 url: '/filer',
                                 type: 'POST',
                                 success: function(response){  
-                                      $('#uploadinput').attr('data-form-data', response);
+                                      $('#fileupload').attr('data-form-data', response);
                                 }
                               });
                        
