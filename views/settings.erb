@@ -284,13 +284,6 @@ else{e.value="no";location.reload();}
                         var currentFile = data.files[data.index];
                         if (data.files.error && currentFile.error) {
                           // there was an error, do something about it
-                          $.gritter.add({
-                            title: "Invalid filetype",
-                            text: data.file.error,
-                            sticky: false,
-                            time: '2500',
-                            class_name: 'gritter-light gritter-info'
-                          });
                           console.log(currentFile.error);
                         }
                       });
