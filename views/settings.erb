@@ -185,22 +185,22 @@ else{e.value="no";location.reload();}
       <div id="t5" class="tab-pane">       
             <div class="row">
                 <div class="col-sm-5">
-                  <p class="header smaller lighter blue">Please key in your current and expected annual salary in Singapore Dollar </p>
+                  <p class="lighter blue">Please key in your current and expected annual salary in Singapore Dollar </p>
                 </div>
             </div>
             <div class="row">  <!-- 5th row in the Preference Management section -->
                
-              <div class="col-sm-2">
+            
                   <div class="form-group">
                       Current annual salary: S$ <a href="#" id="currentsalary" data-name="currentsalary" data-type="text" data-pk="<%=@userprofile.id %>" data-url="/updateprofile" data-title="Enter current salary"><%= @userprofile.currentsalary %></a>
                   </div>
-              </div>
-              <div class="col-sm-2">
+             
+              
                   <div class="form-group">
                       Expected annual salary: S$ <a href="#" id="expectedsalary" data-name="expectedsalary" data-type="text"  data-pk="<%=@userprofile.id %>" data-url="/updateprofile" data-title="Enter expected salary"><%= @userprofile.expectedsalary %></a>
                   </div>
-              </div>
-              <div class="col-sm-8"> </div>
+              
+             
             </div>
       </div>
       <div id="t6" class="tab-pane">
