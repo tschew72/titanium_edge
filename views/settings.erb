@@ -517,7 +517,13 @@ else{e.value="no";location.reload();}
       $('#currentsalary').editable();
 
 
+      $('#expectedsalary').editable('option', 'validate', function(v) {
+          if(!v) return 'This is a required field!';
+      });
 
+      $('#currentsalary').editable('option', 'validate', function(v) {
+          console.log(v);
+      });
 
       $('#industries').editable({
       
