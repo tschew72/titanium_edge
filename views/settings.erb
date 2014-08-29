@@ -1025,7 +1025,7 @@ function delskill(element,i){
                         // The maximum allowed file size in bytes:
                         maxFileSize: 10000000, // 10 MB
                         // The minimum allowed file size in bytes:
-                        minFileSize: undefined, // No minimal file size
+                        minFileSize: 1, // No minimal file size
                         // The limit of files to be uploaded:
                         maxNumberOfFiles: 10
                       }).on('fileuploadprocessalways', function (e, data) {
@@ -1034,7 +1034,7 @@ function delskill(element,i){
                           // there was an error, do something about it
                           $.gritter.add({
                             title: "Invalid filetype",
-                            text: 'Upload you CV in .doc or .docx format only',
+                            text: data.file.error,
                             sticky: false,
                             time: '2500',
                             class_name: 'gritter-light gritter-info'
