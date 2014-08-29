@@ -215,7 +215,7 @@ else{e.value="no";location.reload();}
       <div id="t7" class="tab-pane">
                <div class="row">
                 <div class="col-sm-6">
-                    Your current CV in our file: <div id="CVsection"> <a href=<%= @userprofile.cvurl %>>HERE</a></div>
+                    Your current CV in our file: <span id="CVsection"> <a href=<%= @userprofile.cvurl %>>HERE</a></span>
                     <script src='/vendor/jqueryfileupload/js/vendor/jquery.ui.widget.js' type='text/javascript'></script>
                     <script src='/vendor/jqueryfileupload/js/jquery.iframe-transport.js' type='text/javascript'></script>
                     <script src='/vendor/jqueryfileupload/js/jquery.fileupload.js' type='text/javascript'></script>
@@ -226,7 +226,7 @@ else{e.value="no";location.reload();}
 
                       <span class="btn btn-success fileinput-button">
                       <i class="glyphicon glyphicon-plus"></i>
-                          <span>Select files...</span>
+                          <span>Update CV</span>
                       <input name="file" type="file" id="fileupload" class="cloudinary-fileupload" data-cloudinary-field="image_upload" data-form-data="">
                       </span>
                     <div id="CVsection"> </div>
