@@ -527,6 +527,11 @@ else{e.value="no";location.reload();}
           }
       });
 
+      $('#expectedsalary').editable('option', 'validate', function(v) {
+          if (!isInt(v)){
+            return "Invalid entry. Please re-enter";              
+          }
+      });
 
 
       function isInt(value) {
