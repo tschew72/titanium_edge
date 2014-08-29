@@ -114,41 +114,41 @@ else{e.value="no";location.reload();}
                 </div>
 
                 <div class="row">
-                  <div class="col-sm-1">
+                  <div class="col-sm-6">
                       Full Time   
                   </div>
-                  <div class="col-sm-4">        
+                  <div class="col-sm-3">        
                       <label><input id="fulltimecheck" name="fulltime" class="ace ace-switch ace-switch-5 btn-rotate" type="checkbox" <%= @userprofile.fulltime.to_s == "true" ? "checked" : "unchecked" %> /><span class="lbl"></span></label><span class="tooltip-success" data-rel="tooltip" data-placement="right" title="Are you looking for full time job?"><i class="icon-info-sign"></i></span>
                   </div>
-                  <div class="col-sm-7"> </div>
+                  <div class="col-sm-3"> </div>
                 </div>
                 <div class="row">
-                  <div class="col-sm-1">
+                  <div class="col-sm-6">
                       Part Time   
                   </div>
-                  <div class="col-sm-4">
+                  <div class="col-sm-3">
                       <label><input id="parttimecheck" name="parttime" class="ace ace-switch ace-switch-5 btn-rotate" type="checkbox" <%= @userprofile.parttime.to_s == "true" ? "checked" : "unchecked" %> /><span class="lbl"></span></label><span class="tooltip-success" data-rel="tooltip" data-placement="right" title="Are you looking for part time jobs"><i class="icon-info-sign"></i></span>
                   </div>
-                  <div class="col-sm-7"> </div>
+                  <div class="col-sm-3"> </div>
                 </div>
                 <div class="row">
-                  <div class="col-sm-1">
+                  <div class="col-sm-6">
                       Shift Work
                   </div>
-                  <div class="col-sm-4">       
+                  <div class="col-sm-3">       
                       <label><input id="shiftworkcheck" name="shiftwork" class="ace ace-switch ace-switch-5 btn-rotate" type="checkbox" <%= @userprofile.shiftwork.to_s == "true" ? "checked" : "unchecked" %> /><span class="lbl"></span></label>  <span class="tooltip-success" data-rel="tooltip" data-placement="right" title="Can we match you to jobs that require you to work on shifts?"><i class="icon-info-sign"></i></span>
                   </div>
-                  <div class="col-sm-7"> </div>
+                  <div class="col-sm-3"> </div>
                 </div>
 
                 <div class="row">
-                  <div class="col-sm-1">
+                  <div class="col-sm-6">
                       Out-of-Hours 
                   </div>
-                  <div class="col-sm-4">
+                  <div class="col-sm-3">
                        <label><input id="outofhourscheck" name="outofhours" class="ace ace-switch ace-switch-5 btn-rotate" type="checkbox" <%= @userprofile.outofhours.to_s == "true" ? "checked" : "unchecked" %> /><span class="lbl"></span></label>  <span class="tooltip-success" data-rel="tooltip" data-placement="right" title="Some jobs require you to work outside of operating hours. Would you take up such jobs?"><i class="icon-info-sign"></i></span>
                   </div>
-                  <div class="col-sm-7"> </div>
+                  <div class="col-sm-3"> </div>
                 </div>
 
                 <br>
@@ -194,8 +194,6 @@ else{e.value="no";location.reload();}
                   <div class="form-group">
                       Current annual salary: S$ <a href="#" id="currentsalary" data-name="currentsalary" data-type="text" data-pk="<%=@userprofile.id %>" data-url="/updateprofile" data-title="Enter current salary"><%= @userprofile.currentsalary %></a>
                   </div>
-             
-              
                   <div class="form-group">
                       Expected annual salary: S$ <a href="#" id="expectedsalary" data-name="expectedsalary" data-type="text"  data-pk="<%=@userprofile.id %>" data-url="/updateprofile" data-title="Enter expected salary"><%= @userprofile.expectedsalary %></a>
                   </div>
