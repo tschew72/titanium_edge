@@ -114,41 +114,41 @@ else{e.value="no";location.reload();}
                 </div>
 
                 <div class="row">
-                  <div class="col-sm-6">
+                  <div class="col-sm-3">
                       Full Time   
                   </div>
                   <div class="col-sm-3">        
                       <label><input id="fulltimecheck" name="fulltime" class="ace ace-switch ace-switch-5 btn-rotate" type="checkbox" <%= @userprofile.fulltime.to_s == "true" ? "checked" : "unchecked" %> /><span class="lbl"></span></label><span class="tooltip-success" data-rel="tooltip" data-placement="right" title="Are you looking for full time job?"><i class="icon-info-sign"></i></span>
                   </div>
-                  <div class="col-sm-3"> </div>
+                  <div class="col-sm-6"> </div>
                 </div>
                 <div class="row">
-                  <div class="col-sm-6">
+                  <div class="col-sm-3">
                       Part Time   
                   </div>
                   <div class="col-sm-3">
                       <label><input id="parttimecheck" name="parttime" class="ace ace-switch ace-switch-5 btn-rotate" type="checkbox" <%= @userprofile.parttime.to_s == "true" ? "checked" : "unchecked" %> /><span class="lbl"></span></label><span class="tooltip-success" data-rel="tooltip" data-placement="right" title="Are you looking for part time jobs"><i class="icon-info-sign"></i></span>
                   </div>
-                  <div class="col-sm-3"> </div>
+                  <div class="col-sm-6"> </div>
                 </div>
                 <div class="row">
-                  <div class="col-sm-6">
+                  <div class="col-sm-3">
                       Shift Work
                   </div>
                   <div class="col-sm-3">       
                       <label><input id="shiftworkcheck" name="shiftwork" class="ace ace-switch ace-switch-5 btn-rotate" type="checkbox" <%= @userprofile.shiftwork.to_s == "true" ? "checked" : "unchecked" %> /><span class="lbl"></span></label>  <span class="tooltip-success" data-rel="tooltip" data-placement="right" title="Can we match you to jobs that require you to work on shifts?"><i class="icon-info-sign"></i></span>
                   </div>
-                  <div class="col-sm-3"> </div>
+                  <div class="col-sm-6"> </div>
                 </div>
 
                 <div class="row">
-                  <div class="col-sm-6">
+                  <div class="col-sm-3">
                       Out-of-Hours 
                   </div>
                   <div class="col-sm-3">
                        <label><input id="outofhourscheck" name="outofhours" class="ace ace-switch ace-switch-5 btn-rotate" type="checkbox" <%= @userprofile.outofhours.to_s == "true" ? "checked" : "unchecked" %> /><span class="lbl"></span></label>  <span class="tooltip-success" data-rel="tooltip" data-placement="right" title="Some jobs require you to work outside of operating hours. Would you take up such jobs?"><i class="icon-info-sign"></i></span>
                   </div>
-                  <div class="col-sm-3"> </div>
+                  <div class="col-sm-6"> </div>
                 </div>
 
                 <br>
