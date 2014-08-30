@@ -14357,3 +14357,8 @@ th[aria-selected=true] .ui-jqgrid-sortable {
   padding-top: 4px;
   margin-bottom: 4px;
 }
+
+.rdonly:hover  
+{
+   cursor: pointer;
+}
