@@ -895,7 +895,7 @@ else{e.value="no";location.reload();}
                      $.gritter.add({
                         title: "ERROR!",
                         text: msg,
-                        sticky: false,
+                        sticky: true,
                         time: '5000',
                         class_name: 'gritter-dark gritter-error'
                  });
@@ -1057,11 +1057,11 @@ function delskill(element,i){
                         if (data.files.error && currentFile.error) {
                           // there was an error, do something about it
                           $.gritter.add({
-                            title: "Invalid filetype",
+                            title: "Invalid file Upload",
                             text: currentFile.error,
-                            sticky: false,
+                            sticky: true,
                             time: '2500',
-                            class_name: 'gritter-light gritter-info'
+                            class_name: 'gritter-dark gritter-error'
                           });
                           // console.log(currentFile.error);
                         }
