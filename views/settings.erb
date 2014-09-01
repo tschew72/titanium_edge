@@ -27,7 +27,7 @@ else{e.value="no";location.reload();}
   <div class="col-xs-12">
      <!-- <div class="row"> -->
      <h3 class="header smaller lighter blue">My Preferences</h3>
-     <div id="alert_placeholder-tab"> </div>
+     <div class="alerts"><div id="alert_placeholder-mainwin"> </div></div> 
      <div class="tabbable">
                       <ul class="nav nav-tabs" id="myTab">
                         <li class="active">
@@ -71,11 +71,10 @@ else{e.value="no";location.reload();}
                       </ul>  
     
      <div class="tab-content">
+      <div class="alerts"><div id="alert_placeholder-tab"> </div></div> 
       <div id="t1" class="tab-pane in active">
               <div class="row">  
-                <div class="alerts">
-                    <div id="alert_placeholder-tab"> </div>
-                </div>
+
                 <div class="col-sm-12">
 
                     <div class="form-group">
@@ -98,10 +97,9 @@ else{e.value="no";location.reload();}
               </div>
       </div> <!-- tab -->
       <div id="t3" class="tab-pane">    
+                <div class="alerts"><div id="alert_placeholder-tab"> </div></div> 
                 <div class="row">  <!-- 5th row in the Preference Management section -->
-                <div class="alerts">
-                    <div id="alert_placeholder-tab"> </div>
-                </div>
+
                   <div class="col-sm-5">
                       <h4 class="header smaller lighter blue">Preferred Job Levels </h4>
                   </div>
@@ -162,10 +160,9 @@ else{e.value="no";location.reload();}
                 <br>
       </div>
       <div id="t4" class="tab-pane">  
+                <div class="alerts"><div id="alert_placeholder-tab"> </div></div> 
                 <div class="row">  
-                <div class="alerts">
-                    <div id="alert_placeholder-tab"> </div>
-                </div>
+
                   <div class="col-sm-10">
                       <p class="header smaller lighter blue">Please select your preferred industries </p>
                   </div>
@@ -180,8 +177,9 @@ else{e.value="no";location.reload();}
          
       </div>
       <div id="loc" class="tab-pane"> 
+                <div class="alerts"><div id="alert_placeholder-tab"> </div></div> 
                 <div class="row">
-                  <div id="alert_placeholder-tab"> </div>
+                  
                   <div class="col-sm-5">
                       <p class="header smaller lighter blue">Please select your preferred locations</p>
                   </div>
@@ -194,21 +192,22 @@ else{e.value="no";location.reload();}
                 
       </div>
 
-      <div id="t5" class="tab-pane">       
+      <div id="t5" class="tab-pane">  
+            <div class="alerts"><div id="alert_placeholder-tab"> </div></div>     
             <div class="row">
-                <div class="alerts">
-                    <div id="alert_placeholder-tab"> </div>
-                </div>
+                
+                    
+                
                 <div class="col-sm-12">
                   <p class="lighter blue">Please key in your current and expected annual salary in Singapore Dollar </p>
                 </div>
             </div>
             <div class="row">  <!-- 5th row in the Preference Management section -->
-               
+              
                <div class="col-sm-12">
-                <div class="alerts">
-                    <div id="alert_placeholder-tab"> </div>
-                </div>
+                
+                    
+                
                   <div class="form-group">
                       Current annual salary: S$ <a href="#" id="currentsalary" data-name="currentsalary" data-type="text" data-pk="<%=@userprofile.id %>" data-url="/updateprofile" data-title="Enter current salary"><%= @userprofile.currentsalary %></a>
                   </div>
