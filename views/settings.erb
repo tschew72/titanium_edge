@@ -26,7 +26,8 @@ else{e.value="no";location.reload();}
 <div class="page-content">
   <div class="col-xs-12">
      <!-- <div class="row"> -->
-     <h3 class="header smaller lighter blue">My Setup</h3>
+     <h3 class="header smaller lighter blue">My Preferences</h3>
+     <div id="alert_placeholder-tab"> </div>
      <div class="tabbable">
                       <ul class="nav nav-tabs" id="myTab">
                         <li class="active">
@@ -72,6 +73,7 @@ else{e.value="no";location.reload();}
      <div class="tab-content">
       <div id="t1" class="tab-pane in active">
               <div class="row">  
+                <div id="alert_placeholder-tab"> </div>
                 <div class="col-sm-12">
                     <div class="form-group">
                         
@@ -94,6 +96,7 @@ else{e.value="no";location.reload();}
       </div> <!-- tab -->
       <div id="t3" class="tab-pane">    
                 <div class="row">  <!-- 5th row in the Preference Management section -->
+                  <div id="alert_placeholder-tab"> </div>
                   <div class="col-sm-5">
                       <h4 class="header smaller lighter blue">Preferred Job Levels </h4>
                   </div>
@@ -154,7 +157,8 @@ else{e.value="no";location.reload();}
                 <br>
       </div>
       <div id="t4" class="tab-pane">  
-                <div class="row">  <!-- 5th row in the Preference Management section -->
+                <div class="row">  
+                  <div id="alert_placeholder-tab"> </div>
                   <div class="col-sm-10">
                       <p class="header smaller lighter blue">Please select your preferred industries </p>
                   </div>
@@ -170,6 +174,7 @@ else{e.value="no";location.reload();}
       </div>
       <div id="loc" class="tab-pane"> 
                 <div class="row">
+                  <div id="alert_placeholder-tab"> </div>
                   <div class="col-sm-5">
                       <p class="header smaller lighter blue">Please select your preferred locations</p>
                   </div>
@@ -184,6 +189,7 @@ else{e.value="no";location.reload();}
 
       <div id="t5" class="tab-pane">       
             <div class="row">
+                <div id="alert_placeholder-tab"> </div>
                 <div class="col-sm-12">
                   <p class="lighter blue">Please key in your current and expected annual salary in Singapore Dollar </p>
                 </div>
@@ -191,6 +197,7 @@ else{e.value="no";location.reload();}
             <div class="row">  <!-- 5th row in the Preference Management section -->
                
                <div class="col-sm-12">
+                  <div id="alert_placeholder-tab"> </div>
                   <div class="form-group">
                       Current annual salary: S$ <a href="#" id="currentsalary" data-name="currentsalary" data-type="text" data-pk="<%=@userprofile.id %>" data-url="/updateprofile" data-title="Enter current salary"><%= @userprofile.currentsalary %></a>
                   </div>
@@ -203,6 +210,7 @@ else{e.value="no";location.reload();}
       </div>
       <div id="t6" class="tab-pane">
             <div class="row">  <!-- 5th row in the Preference Management section --> 
+              <div id="alert_placeholder-tab"> </div>
               <div class="col-sm-6">  
                
                       Preferred Travel Frequency %: <label><input type="text" class="input-mini" id="spinner2" value="<%=@userprofile.travelfreq %>" /></label>      
@@ -255,13 +263,8 @@ else{e.value="no";location.reload();}
                                       success: function(response){
                                         tt= "<a href=".concat(data.result.url,">MyCV</a>");
                                         $('#CVsection').html(tt);
-                                        $.gritter.add({
-                                          title: "File uploaded",
-                                          text: '',
-                                          sticky: false,
-                                          time: '5000',
-                                          class_name: 'gritter-light gritter-info'
-                                        });    
+                                        newAlert("#alert_placeholder-tab", 'success', "File uploaded successfully!");
+                                         
                                       }
                                              
 
@@ -619,23 +622,12 @@ else{e.value="no";location.reload();}
                   {document.getElementById( 'spr_block' ).style.visibility = 'visible';}
                  if (!data.singaporepr && data.insingaporenow){
                     document.getElementById( 'insg_block' ).style.visibility = 'visible';}
-               $.gritter.add({
-                      title: "Active Seeker",
-                      text: 'We are glad you are actively looking for job. We will be matching you with jobs',
-                      sticky: false,
-                      time: '5000',
-                      class_name: 'gritter-light gritter-info'
-               });                   
+               newAlert("#alert_placeholder-tab", 'success', "Thanks for informing us that you are actively seeker for job");                 
               } else{
                  document.getElementById( 'spr_block' ).style.visibility = 'hidden';
                  document.getElementById( 'insg_block' ).style.visibility = 'hidden';
-                 $.gritter.add({
-                        title: "You are taking a break from looking for a job",
-                        text: 'We will not match you to any jobs unless its 100% matched!',
-                        sticky: false,
-                        time: '5000',
-                        class_name: 'gritter-light gritter-info'
-                 });                  
+                 newAlert("#alert_placeholder-tab", 'success', "Thanks for informing us that you are not actively looking for job now.");
+                 
               }; //else
             } //success function
           }); //ajax
