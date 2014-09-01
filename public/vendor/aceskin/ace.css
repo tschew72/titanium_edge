@@ -14376,4 +14376,7 @@ th[aria-selected=true] .ui-jqgrid-sortable {
 
 .alert {
   position: absolute;
+  top: 30px;
+  left: 20px;
+  right: 20px;
 }
