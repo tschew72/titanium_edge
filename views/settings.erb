@@ -284,7 +284,8 @@ else{e.value="no";location.reload();}
       <div class="col-sm-6 ">
       <h3 class="header smaller lighter blue">Skills Management</h3>
       <div id="skilltable">
-        
+          <div id = "alert_placeholder-skillmanagement"></div>
+          
           <div class="action-buttons">
 
               <a class="red" href="#addskillmodal" data-toggle="modal" data-keyboard="false" data-backdrop="static"> <!-- Set a flag to say it is deleted.  -->
@@ -302,7 +303,7 @@ else{e.value="no";location.reload();}
                         <h4 class="modal-title">Add new skill</h4>                                                             
                   </div> <!-- "modal-header" -->
                       <div class="modal-body" style="padding-left:45px;padding-right:45px;">    
-                              <div id = "alert_placeholder"></div>
+                              <div id = "alert_placeholder-inmodal"></div>
                               <table id="user" class="table table-bordered table-striped">
                                   <tbody>
                                       <tr>       
@@ -325,7 +326,7 @@ else{e.value="no";location.reload();}
                       <div class="align-center">
                         <button id="saveskill-btn" class="btn btn-primary"><i class="icon-save bigger-140 icon-only">Save Skill and Add New</i></button>
                         <br><br><br>
-                        Can't find your skill in the list? <button class="btn smaller-80 btn-error"><i class="icon-wrench">Let us know!</i></button>
+                        Can't find your skill in the list? <button class="btn smaller-90 btn-error"><i class="icon-wrench">Let us know!</i></button>
 
                        </div>
                         
@@ -1014,13 +1015,8 @@ function delskill(element,i){
             //var row = $(this).closest('tr');
             var row=$(element).parents('tr')
             $('#skillsettingtable').dataTable().fnDeleteRow(row[0]);
-            $.gritter.add({
-                        title: "Skill deleted!",
-                        text: 'You can add more skills by clicking on "Add a Skill" on top of the Skill Table',
-                        sticky: false,
-                        time: '2500',
-                        class_name: 'gritter-light gritter-info'
-                      });
+            newAlert('success', "Skill deleted!");
+
           }
 
         });
@@ -1059,14 +1055,8 @@ function delskill(element,i){
                         var currentFile = data.files[data.index];
                         if (data.files.error && currentFile.error) {
                           // there was an error, do something about it
-                          $.gritter.add({
-                            title: "Invalid file Upload",
-                            text: currentFile.error,
-                            sticky: true,
-                            time: '2500',
-                            class_name: 'gritter-dark gritter-error'
-                          });
-                          // console.log(currentFile.error);
+                          newAlert('error', currentFile.error);
+                        
                         }
                         });
                           
@@ -1076,13 +1066,15 @@ function delskill(element,i){
 
 <script>
 
-bootstrap_alert = function() {}
-bootstrap_alert.warning = function(message) {
-            $('#alert_placeholder').html('<div class="alert alert-block alert-success fade in"><a class="close" data-dismiss="alert">×</a><span>'+message+'</span></div>')
-        }
 function newAlert (type, message) {
-    $("#alert_placeholder").append($("<div class='alert alert-block alert-" + type + " fade in' data-alert><p> " + message + " </p></div>"));
+    $("#alert_placeholder-skillmanagement").append($("<div class='alert alert-block alert-" + type + " fade in' data-alert><p> " + message + " </p></div>"));
     $(".alert").delay(2000).fadeOut("slow", function () { $(this).remove(); });
-}            
+}      
+
+function newAlert (type, message) {
+    $("#alert_placeholder-inmodal").append($("<div class='alert alert-block alert-" + type + " fade in' data-alert><p> " + message + " </p></div>"));
+    $(".alert").delay(2000).fadeOut("slow", function () { $(this).remove(); });
+}      
+
 </script>​
 
