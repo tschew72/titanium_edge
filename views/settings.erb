@@ -1080,7 +1080,7 @@ bootstrap_alert.warning = function(message) {
             $('#alert_placeholder').html('<div class="alert alert-block alert-success fade in"><a class="close" data-dismiss="alert">×</a><span>'+message+'</span></div>')
         }
 function newAlert (type, message) {
-    $("#alert_placeholder").append($("<div class='alert-message " + type + " fade in' data-alert><p> " + message + " </p></div>"));
+    $("#alert_placeholder").append($("<div class='alert alert-block alert-" + type + " fade in' data-alert><p> " + message + " </p></div>"));
     $(".alert_placeholder").delay(2000).fadeOut("slow", function () { $(this).remove(); });
 }            
 </script>​
