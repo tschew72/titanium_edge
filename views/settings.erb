@@ -26,7 +26,7 @@ else{e.value="no";location.reload();}
 <div class="page-content">
   <div class="col-xs-12">
      <!-- <div class="row"> -->
-     <h3 class="header smaller lighter blue">My Preferences</h3>
+     <h3 class="header smaller lighter blue">User Preferences</h3>
      <div id="alert_placeholder-tab"> </div>
      <br>
      <br>
@@ -964,7 +964,10 @@ function delskill(element,i){
                             url: '/update_inSG_Date',
                             type: 'POST',
                             data: {"insg_start": from, "insg_end": end, "pk" : <%=@userprofile.id %>},
-                            success: function(){ newAlert("#alert_placeholder-tab", 'success', "Date recorded");}
+                            success: function(response){
+                                        newAlert("#alert_placeholder-tab", 'success', "Dates recorded");
+                                         
+                                      }
                           });
                       });
 
