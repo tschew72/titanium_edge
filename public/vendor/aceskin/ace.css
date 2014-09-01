@@ -14375,7 +14375,7 @@ th[aria-selected=true] .ui-jqgrid-sortable {
 }
 
 .alert {
-  position: relative;
+  position: absolute;
   z-index: 999999;
   width: 800px;
   left: 0;
@@ -14390,4 +14390,5 @@ th[aria-selected=true] .ui-jqgrid-sortable {
   -webkit-border-radius: 4px;
   -moz-border-radius: 4px;
   border-radius: 4px;
+  opacity: 0.4;
 }
