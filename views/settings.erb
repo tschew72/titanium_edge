@@ -963,8 +963,8 @@ function delskill(element,i){
                          $.ajax({
                             url: '/update_inSG_Date',
                             type: 'POST',
-                            data: {"insg_start": from, "insg_end": end, "pk" : <%=@userprofile.id %>}
-                          
+                            data: {"insg_start": from, "insg_end": end, "pk" : <%=@userprofile.id %>},
+                            success: function(){ newAlert("#alert_placeholder-tab", 'success', "Date recorded");}
                           });
                       });
 
