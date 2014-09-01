@@ -643,22 +643,12 @@ else{e.value="no";location.reload();}
 
               if (data.insingaporenow){
                  document.getElementById( 'insg_block' ).style.visibility = 'visible';
-               $.gritter.add({
-                      title: "Welcome to Singapore!",
-                      text: 'You will be given priority in job matches. Furthermore, you will also be informed of any latest IT events/seminars/courses during your stay in Singapore.',
-                      sticky: false,
-                      time: '5000',
-                      class_name: 'gritter-light gritter-info'
-               });                   
+                 newAlert("#alert_placeholder-tab", 'success', "Welcome to Singapore!");             
+                           
               } else{
                  document.getElementById( 'insg_block' ).style.visibility = 'hidden';
-                 $.gritter.add({
-                        title: "Look forward to see you in Singapore",
-                        text: 'As the job market is competitive, it is better for you to be in Singapore for the purpose of interviews.',
-                        sticky: false,
-                        time: '5000',
-                        class_name: 'gritter-light gritter-info'
-                 });                  
+                 newAlert("#alert_placeholder-tab", 'success', "Look forward to see you in Singapore soon!");
+                               
               }; //else
             } //success function
 
@@ -676,21 +666,9 @@ else{e.value="no";location.reload();}
             success: function(response){
               var data = JSON.parse(response);
               if (data.parttime){
-                    $.gritter.add({
-                          title: "Part Time Jobs",
-                          text: 'You are happy to take up part time jobs',
-                          sticky: false,
-                          time: '5000',
-                          class_name: 'gritter-light gritter-info'
-                   });         
+                    newAlert("#alert_placeholder-tab", 'success', "You will be matched to any part time jobs");      
               } else {
-                    $.gritter.add({
-                          title: "Part Time Jobs",
-                          text: 'You do not want to be matched to part time jobs',
-                          sticky: false,
-                          time: '5000',
-                          class_name: 'gritter-light gritter-info'
-                   });         
+                    newAlert("#alert_placeholder-tab", 'success', "You will not be matched to part time jobs");   
               }                         
 
             } //success function
@@ -707,22 +685,10 @@ else{e.value="no";location.reload();}
             success: function(response){
               var data = JSON.parse(response);
               if (data.fulltime){
-                   $.gritter.add({
-                          title: "Full Time Jobs",
-                          text: 'You are happy to take up full time jobs',
-                          sticky: false,
-                          time: '5000',
-                          class_name: 'gritter-light gritter-info'
-                   });  
+                   newAlert("#alert_placeholder-tab", 'success', "You will be matched to full time jobs");   
               } else {
 
-                    $.gritter.add({
-                          title: "Full Time Jobs",
-                          text: 'You are not interested in Full Time Jobs',
-                          sticky: false,
-                          time: '5000',
-                          class_name: 'gritter-light gritter-info'
-                   });   
+                    newAlert("#alert_placeholder-tab", 'success', "You will not be matched to full time jobs");     
               }                                
 
             } //success function
@@ -738,21 +704,9 @@ else{e.value="no";location.reload();}
             success: function(response){
               var data = JSON.parse(response);
               if (data.shiftwork){
-                   $.gritter.add({
-                          title: "Shift work",
-                          text: 'You are happy to take up jobs that requires shift work',
-                          sticky: false,
-                          time: '5000',
-                          class_name: 'gritter-light gritter-info'
-                   });                                   
+                   newAlert("#alert_placeholder-tab", 'success', "You will be matched to jobs requiring shift work");                                    
               } else {
-                    $.gritter.add({
-                          title: "Shift work",
-                          text: 'You do not want to do shift work',
-                          sticky: false,
-                          time: '5000',
-                          class_name: 'gritter-light gritter-info'
-                   });      
+                   newAlert("#alert_placeholder-tab", 'success', "You will not be matched to jobs requiring shift work");   
               }
             } //success function
           }); //ajax
@@ -767,21 +721,9 @@ else{e.value="no";location.reload();}
             success: function(response){
               var data = JSON.parse(response);
               if (data.outofhours){
-                   $.gritter.add({
-                          title: "Out-Of-Hours / Emergency Work",
-                          text: 'Sometimes, you are required to work outside of the normal operating hours.',
-                          sticky: false,
-                          time: '5000',
-                          class_name: 'gritter-light gritter-info'
-                   });   
+                   newAlert("#alert_placeholder-tab", 'success', "You will be matched to jobs requiring you to work outside office hour"); 
                } else {
-                    $.gritter.add({
-                            title: "Out-Of-Hours / Emergency Work",
-                            text: 'You do not want to work out of hours. Strictly office hours only',
-                            sticky: false,
-                            time: '5000',
-                            class_name: 'gritter-light gritter-info'
-                   });   
+                   newAlert("#alert_placeholder-tab", 'success', "You will not be matched to jobs requiring you to work outside office hour");   
                }                         
 
             } //success function
@@ -862,13 +804,6 @@ else{e.value="no";location.reload();}
 
                  }   else{
 
-                      // $.gritter.add({
-                      //   title: "New Skill added!",
-                      //   text: 'Go ahead to add more skill or close this window',
-                      //   sticky: false,
-                      //   time: '2500',
-                      //   class_name: 'gritter-light gritter-info'
-                      // });
                       newAlert("#alert_placeholder-inmodal",'success', 'New Skill added!');
 
                       $('.newskill').editable('setValue', null);  //clear values
@@ -889,13 +824,8 @@ else{e.value="no";location.reload();}
                       if (k=="skillrank") {k = "Skill rank"};       
                       msg += k+": "+v+"<br>";
                     });
-                     $.gritter.add({
-                        title: "ERROR!",
-                        text: msg,
-                        sticky: true,
-                        time: '5000',
-                        class_name: 'gritter-dark gritter-error'
-                 });
+                     newAlert("#alert_placeholder-inmodal",'danger', msg);
+                    
                  }
                 
              }
