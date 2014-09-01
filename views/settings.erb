@@ -27,7 +27,9 @@ else{e.value="no";location.reload();}
   <div class="col-xs-12">
      <!-- <div class="row"> -->
      <h3 class="header smaller lighter blue">My Preferences</h3>
-     <div class="alerts"><div id="alert_placeholder-mainwin"> </div></div> 
+     <div id="alert_placeholder-tab"> </div>
+     <br>
+     <br>
      <div class="tabbable">
                       <ul class="nav nav-tabs" id="myTab">
                         <li class="active">
@@ -71,7 +73,6 @@ else{e.value="no";location.reload();}
                       </ul>  
     
      <div class="tab-content">
-      <div class="alerts"><div id="alert_placeholder-tab"> </div></div> 
       <div id="t1" class="tab-pane in active">
               <div class="row">  
 
@@ -97,7 +98,6 @@ else{e.value="no";location.reload();}
               </div>
       </div> <!-- tab -->
       <div id="t3" class="tab-pane">    
-                <div class="alerts"><div id="alert_placeholder-tab"> </div></div> 
                 <div class="row">  <!-- 5th row in the Preference Management section -->
 
                   <div class="col-sm-5">
@@ -160,7 +160,6 @@ else{e.value="no";location.reload();}
                 <br>
       </div>
       <div id="t4" class="tab-pane">  
-                <div class="alerts"><div id="alert_placeholder-tab"> </div></div> 
                 <div class="row">  
 
                   <div class="col-sm-10">
@@ -177,7 +176,6 @@ else{e.value="no";location.reload();}
          
       </div>
       <div id="loc" class="tab-pane"> 
-                <div class="alerts"><div id="alert_placeholder-tab"> </div></div> 
                 <div class="row">
                   
                   <div class="col-sm-5">
@@ -192,8 +190,7 @@ else{e.value="no";location.reload();}
                 
       </div>
 
-      <div id="t5" class="tab-pane">  
-            <div class="alerts"><div id="alert_placeholder-tab"> </div></div>     
+      <div id="t5" class="tab-pane">   
             <div class="row">
                 
                     
@@ -219,7 +216,6 @@ else{e.value="no";location.reload();}
             </div>
       </div>
       <div id="t6" class="tab-pane">
-            <div class="alerts"><div id="alert_placeholder-tab"> </div> </div>
             <div class="row">  <!-- 5th row in the Preference Management section --> 
                 
                
@@ -233,7 +229,6 @@ else{e.value="no";location.reload();}
       <div id="t7" class="tab-pane">
                <div class="row">
                 <div class="col-sm-6">
-                    <div class="alerts"><div id="alert_placeholder-tab"> </div></div>
                     Your current CV in our file: <span id="CVsection"> <a href=<%= @userprofile.cvurl %>>HERE</a></span>
                     <br><br>
                     <script src='/vendor/jqueryfileupload/js/vendor/jquery.ui.widget.js' type='text/javascript'></script>
