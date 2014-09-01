@@ -213,6 +213,7 @@ else{e.value="no";location.reload();}
       <div id="t7" class="tab-pane">
                <div class="row">
                 <div class="col-sm-6">
+                    <div id="alert_placeholder-tab"> </div>
                     Your current CV in our file: <span id="CVsection"> <a href=<%= @userprofile.cvurl %>>HERE</a></span>
                     <br><br>
                     <script src='/vendor/jqueryfileupload/js/vendor/jquery.ui.widget.js' type='text/javascript'></script>
@@ -876,7 +877,7 @@ else{e.value="no";location.reload();}
                       //   time: '2500',
                       //   class_name: 'gritter-light gritter-info'
                       // });
-                      newAlert('success', 'New Skill added!');
+                      newAlert("#alert_placeholder-inmodal",'success', 'New Skill added!');
 
                       $('.newskill').editable('setValue', null);  //clear values
                       $('#skillname').editable('option', 'disabled', true);
@@ -1015,7 +1016,7 @@ function delskill(element,i){
             //var row = $(this).closest('tr');
             var row=$(element).parents('tr')
             $('#skillsettingtable').dataTable().fnDeleteRow(row[0]);
-            newAlert('success', "Skill deleted!");
+            newAlert("#alert_placeholder-skillmanagement", 'success', "Skill deleted!");
 
           }
 
@@ -1055,7 +1056,7 @@ function delskill(element,i){
                         var currentFile = data.files[data.index];
                         if (data.files.error && currentFile.error) {
                           // there was an error, do something about it
-                          newAlert('error', currentFile.error);
+                          newAlert("#alert_placeholder-tab",'error', currentFile.error);
                         
                         }
                         });
@@ -1066,15 +1067,11 @@ function delskill(element,i){
 
 <script>
 
-function newAlert (type, message) {
-    $("#alert_placeholder-skillmanagement").append($("<div class='alert alert-block alert-" + type + " fade in' data-alert><p> " + message + " </p></div>"));
+function newAlert (loc, type, message) {
+    $(loc).append($("<div class='alert alert-block alert-" + type + " fade in' data-alert><p> " + message + " </p></div>"));
     $(".alert").delay(2000).fadeOut("slow", function () { $(this).remove(); });
 }      
-
-function newAlert (type, message) {
-    $("#alert_placeholder-inmodal").append($("<div class='alert alert-block alert-" + type + " fade in' data-alert><p> " + message + " </p></div>"));
-    $(".alert").delay(2000).fadeOut("slow", function () { $(this).remove(); });
-}      
+ 
 
 </script>​
 
