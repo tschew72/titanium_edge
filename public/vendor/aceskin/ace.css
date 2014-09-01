@@ -14373,3 +14373,10 @@ th[aria-selected=true] .ui-jqgrid-sortable {
 .fade.in {
   opacity: 1;
 }
+
+.alerts {
+  position: absolute;
+  top: 30px;
+  left: 20px;
+  right: 20px;
+}
