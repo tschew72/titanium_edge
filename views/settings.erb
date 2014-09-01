@@ -1056,7 +1056,7 @@ function delskill(element,i){
                         var currentFile = data.files[data.index];
                         if (data.files.error && currentFile.error) {
                           // there was an error, do something about it
-                          newAlert("#alert_placeholder-tab",'error', currentFile.error);
+                          newAlert("#alert_placeholder-tab",'danger', currentFile.error);
                         
                         }
                         });
