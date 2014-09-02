@@ -64,7 +64,8 @@
   <body>
 
   <header>
-<div class="navbar navbar-default" id="navbar">
+    <div id="mainMenuBarAnchor"></div>
+<div class="navbar navbar-default" id="navbar mainMenuBar">
       <script type="text/javascript">
         try{ace.settings.check('navbar' , 'fixed')}catch(e){}
       </script>
@@ -274,4 +275,29 @@
 
 </body>
 </html>
+
+<script>
+$(document).ready(function() {
+    // Cache selectors for faster performance.
+    var $window = $(window),
+        $mainMenuBar = $('#mainMenuBar'),
+        $mainMenuBarAnchor = $('#mainMenuBarAnchor');
+
+    // Run this on scroll events.
+    $window.scroll(function() {
+        var window_top = $window.scrollTop();
+        var div_top = $mainMenuBarAnchor.offset().top;
+        if (window_top > div_top) {
+            // Make the div sticky.
+            $mainMenuBar.addClass('stick');
+            $mainMenuBarAnchor.height($mainMenuBar.height());
+        }
+        else {
+            // Unstick the div.
+            $mainMenuBar.removeClass('stick');
+            $mainMenuBarAnchor.height(0);
+        }
+    });
+});
+</script>
 

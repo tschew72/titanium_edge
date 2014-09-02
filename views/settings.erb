@@ -997,7 +997,7 @@ function delskill(element,i){
 <script>
 
 function newAlert (loc, type, message) {
-    $(loc).append($("<div id='alerts' class='alert alert-block alert-" + type + " fade in' data-alert><p> " + message + " </p></div>"));
+    $(loc).append($("<div class='alert alert-block alert-" + type + " fade in' data-alert><p> " + message + " </p></div>"));
     $(".alert").delay(2000).fadeOut("slow", function () { $(this).remove(); });
 }      
  
