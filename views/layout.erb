@@ -44,17 +44,13 @@
     <!-- ace settings handler -->
     <script src="/vendor/aceskin/ace-extra.min.js"></script>
     <script src="/vendor/aceskin/jquery.dataTables.min.js"></script>
-    <script src="/vendor/aceskin/jquery.dataTables.bootstrap.js"></script>
-    <script src="/vendor/jquery.sticky-kit.min.js"></script>  
+    <script src="/vendor/aceskin/jquery.dataTables.bootstrap.js"></script> 
 
     <!--[if lt IE 9]>
     <script src="/vendor/aceskin/html5shiv.js"></script>
     <script src="/vendor/aceskin/respond.min.js"></script>
     <![endif]-->
 
-    <script src="/vendor/aceskin/ace.min.js"></script>
-    <!-- //<script src="assets/js/ace-elements.min.js"></script>   in settings.erb-->
-    <script src="/vendor/aceskin/ace-elements.min.js"></script>
     
 
 <!-- <link href="/vendor/select2/select2-bootstrap.css" rel="stylesheet" type="text/css"></link>    -->
@@ -65,7 +61,7 @@
   <body>
 
   <header>
-<div id="stickzone">
+
 <div class="navbar navbar-default" id="navbar">
       <script type="text/javascript">
         try{ace.settings.check('navbar' , 'fixed')}catch(e){}
@@ -191,8 +187,7 @@
         </div><!-- /.navbar-header -->  
         </div>
       </div>
-    </div>
-    
+
 
       </header>
   
@@ -272,6 +267,8 @@
     <script src="/vendor/select2/select2.js"></script>
     <script src="http://cdnjs.cloudflare.com/ajax/libs/x-editable/1.5.0/bootstrap3-editable/js/bootstrap-editable.min.js"></script>
 
+    <script src="/vendor/aceskin/ace.min.js"></script>
+    <script src="/vendor/aceskin/ace-elements.min.js"></script>
     <!--[if IE]>
     <script type="text/javascript">
     window.jQuery || document.write("<script src='/vendor/aceskin/jquery1x.min.js'>"+"<"+"/script>");
@@ -282,9 +279,4 @@
 
 </body>
 </html>
-<script>
- $(document).ready(function() {
-  $("#stickzone").stick_in_parent();
-});
 
-</script>
