@@ -221,7 +221,6 @@ else{e.value="no";location.reload();}
             <div class="row">  
               <div class="col-sm-12 col-lg-12 ">
               <h3 class="header smaller lighter blue">Skills Management</h3>
-              <div id = "alert_placeholder-skillmanagement"></div>
               <div id="skilltable">
                   <div class="action-buttons"><a class="red" href="#addskillmodal" data-toggle="modal" data-keyboard="false" data-backdrop="static"> <i class="icon-pencil bigger-130">Add a skill</i></a></div> 
                 <div id="st">
@@ -369,7 +368,7 @@ else{e.value="no";location.reload();}
       </div>   <!-- t7 -->    
     </div> <!-- <div class="tab-content">-->
     </div> <!--<div class="tabbable"> -->        
-  </div> <!-- <div class="col-xs-6 col-md-10 col-lh-10">-->
+  </div> <!-- <div class="col-xs-6 col-md-10 col-lg10">-->
   <div class="col-md-2 col-lg-2"></div>
     
  </div> <!--"page-content" -->              
@@ -891,7 +890,7 @@ function delskill(element,i){
             //var row = $(this).closest('tr');
             var row=$(element).parents('tr')
             $('#skillsettingtable').dataTable().fnDeleteRow(row[0]);
-            newAlert("#alert_placeholder-skillmanagement", 'success', "Skill deleted!");
+            newAlert("#alert_placeholder-tab", 'success', "Skill deleted!");
 
           }
 
