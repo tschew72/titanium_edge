@@ -249,7 +249,83 @@
            
        </div>   <!-- row -->
 
-    
+       <div class="row">
+              <div class="col-sm-5">
+                <div class="widget-box transparent">
+                  <div class="widget-header widget-header-flat">
+                      <h4 class="widget-title lighter"><i class="icon-signal"></i>Top 5 IT Job Titles</h4>
+                      <div class="widget-toolbar"><a href="#" data-action="collapse"><i class="icon-chevron-up"></i></a></div>
+                  </div> <!-- "widget-header widget-header-flat" -->
+                  <div class="widget-body">
+                      <div class="widget-main padding-7">
+                        <div id="top5jobtitles" style="width:100%; height: 300px; margin: 0 auto"></div>
+                      </div><!-- /.widget-main -->
+                  </div><!-- /.widget-body -->
+                </div><!-- /.widget-box -->
+              </div>  <!-- "col-md-5 " -->
+       </div>
+       <div class="row"> <!-- Start of Row 2 -->
+
+          <div class="col-sm-6">
+            <div class="widget-box transparent">
+              <div class="widget-header widget-header-flat">
+                  <h4 class="widget-title lighter"><i class="icon-signal"></i>Top 5 Job Seeker's Nationalities</h4>
+                  <div class="widget-toolbar"><a href="#" data-action="collapse"><i class="icon-chevron-up"></i></a></div>
+              </div> <!-- "widget-header widget-header-flat" -->
+              <div class="widget-body">
+                  <div class="widget-main padding-4">
+                    <div id="topnationalities" style="width:100%; height: 300px; margin: 0 auto"></div>
+                  </div><!-- /.widget-main -->
+              </div><!-- /.widget-body -->
+            </div><!-- /.widget-box -->
+          </div>  <!-- "col-md-6 column" -->
+          <div class="col-sm-6">
+            <div class="widget-box transparent">
+              <div class="widget-header widget-header-flat">
+                  <h4 class="widget-title lighter"><i class="icon-signal"></i>Top 10 Skills in Demand</h4>
+                  <div class="widget-toolbar"><a href="#" data-action="collapse"><i class="icon-chevron-up"></i></a></div>
+              </div> <!-- "widget-header widget-header-flat" -->
+              <div class="widget-body">
+                  <div class="widget-main padding-4">
+                    <div id="topskills" style="width:100%; max-width: 800px; margin: 0 auto"></div>
+                  </div><!-- /.widget-main -->
+              </div><!-- /.widget-body -->
+            </div><!-- /.widget-box -->
+          </div>  <!-- "col-md-6 column" -->
+
+        </div> <!-- End of row 2 -->
+        <div class="hr hr32 hr-dotted"></div>   
+        <div class="row"> <!-- Start of Row 3 -->
+
+            <div class="col-sm-6">
+              <div class="widget-box transparent">
+                <div class="widget-header widget-header-flat">
+                    <h4 class="widget-title lighter"><i class="icon-signal"></i>Top 5 hiring Industries</h4>
+                    <div class="widget-toolbar"><a href="#" data-action="collapse"><i class="icon-chevron-up"></i></a></div>
+                </div> <!-- "widget-header widget-header-flat" -->
+                <div class="widget-body">
+                    <div class="widget-main padding-4">
+                      <div id="topindustries" style="width:100%; height: 300px; margin: 0 auto"></div>
+                    </div><!-- /.widget-main -->
+                </div><!-- /.widget-body -->
+              </div><!-- /.widget-box -->
+            </div>  <!-- "col-md-6 column" -->
+            <div class="col-sm-6">
+              <div class="widget-box transparent">
+                <div class="widget-header widget-header-flat">
+                    <h4 class="widget-title lighter"><i class="icon-signal"></i>Technology Trend to take note of</h4>
+                    <div class="widget-toolbar"><a href="#" data-action="collapse"><i class="icon-chevron-up"></i></a></div>
+                </div> <!-- "widget-header widget-header-flat" -->
+                <div class="widget-body">
+                    <div class="widget-main padding-4">
+                      ---
+                    </div><!-- /.widget-main -->
+                </div><!-- /.widget-body -->
+              </div><!-- /.widget-box -->
+            </div>  <!-- "col-md-6 column" -->
+
+        </div> <!-- End of row 3 -->
+
     </div> <!-- "page-content-area" -->
     Sources: IDA & Ministry of Manpower   
 </div>  <!-- "page-content" -->          
@@ -460,7 +536,7 @@ $(function () {
                 valueSuffix: ''
             },
             legend: {
-reversed: true
+                reversed: true
             },
             series: [{
                 name: 'Employment Pass',
@@ -473,6 +549,247 @@ reversed: true
  
     
 
+               $('#top5jobtitles').highcharts({
+            chart: {
+                type: 'bar'
+            },
+            title: {
+                text: ''
+            },
+            exporting: { enabled: false },
+            xAxis: {
+                 categories: ['IT Professionals']
+            },
+            yAxis: {
+                min: 0,
+                title: {
+                    text: ''
+                }
+            },
+            legend: {
+                reversed: true
+            },
+            plotOptions: {
+                series: {
+                    stacking: 'normal'
+                }
+            },
+            series: [{
+                name: 'Network Engineer',
+                data: [80]
+            }, {
+                name: 'System Administrator',
+                data: [200]
+            }, {
+                name: 'DBA',
+                data: [10]
+            }, {
+                name: 'IT Manager',
+                data: [100]
+            }, {
+                name: 'Developer',
+                data: [300]
+            }]
+        }); //End top 5 IT JObs
+
+        $('#topnationalities').highcharts({
+            chart: {
+                type: 'bar'
+            },
+            title: {
+                text: ''
+            },
+            legend: {
+            enabled: false
+            },
+            xAxis: {
+                categories: ['Singapore', 'Indonesia', 'Malaysia', 'Philippines', 'Japan'],
+                title: {
+                    text: null
+                }
+            },
+            yAxis: {
+                min: 0,
+                title: {
+                    text: 'Number of Job Seekers',
+                    align: 'high'
+                },
+                labels: {
+                    overflow: 'justify'
+                }
+            },
+            
+            exporting: { enabled: false },
+            tooltip: {
+                valueSuffix: ''
+            },
+            plotOptions: {
+                bar: {
+                    dataLabels: {
+                        enabled: true
+                    }
+                }
+            },
+            
+            credits: {
+                enabled: false
+            },
+            series: [{
+                name: 'Number of Job Seekers',
+                data: [107, 31, 635, 203, 50]
+            }]
+        });
+        
+        $('#topskills').highcharts({
+            chart: {
+                plotBackgroundColor: null,
+                plotBorderWidth: 0,//null,
+                plotShadow: false,
+                type: 'pie',
+                spacingBottom: 15,
+                spacingTop: 10,
+                spacingLeft: 10,
+                spacingRight: 10
+            },
+            title: {
+                text: ''
+            },
+            subtitle: {
+                text: '',
+                x: -20
+            },
+            tooltip: {
+                pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+            },
+            exporting: { enabled: false },
+            plotOptions: {
+                pie: {
+                    allowPointSelect: true,
+                    cursor: 'pointer',
+                    dataLabels: {
+                        enabled: true,
+                        format: '<b>{point.name}</b>: {point.percentage:.1f} %',
+                        style: {
+                            color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
+                        }
+                    }
+                }
+            },
+            series: [{
+                type: 'pie',
+                name: 'Hiring %',
+                data: [
+                    {
+                        name: 'Cloud Computing',
+                        y: 10,
+                    },
+                    {
+                        name: 'Windows 8',
+                        y: 20,
+                    },
+                    {
+                        name: 'Remote Computing',
+                        y: 8,
+                    },
+                    {
+                        name: 'Netapp',
+                        y: 2,
+                    },
+                    {
+                        name: 'Windows Server 2013',
+                        y: 15,
+                    },
+                    {
+                        name: 'Linux',
+                        y: 15,
+                    },
+                    {
+                        name: 'C++',
+                        y: 5,
+                    },
+                    {
+                        name: 'Java',
+                        y: 6,
+                    },
+                    {
+                        name: 'Ruby on Rails',
+                        y: 1,
+                    },
+                    {
+                        name: 'MSSQL',
+                        y: 4,
+                    },
+                    {
+                        name: 'HSQL',
+                        y: 6,
+                    },
+                    ]
+            }]
+        });  //Top SKills
+
+        $('#topindustries').highcharts({
+            chart: {
+                plotBackgroundColor: null,
+                plotBorderWidth: 0,//null,
+                plotShadow: false,
+                type: 'pie',
+                spacingBottom: 15,
+                spacingTop: 10,
+                spacingLeft: 10,
+                spacingRight: 10
+            },
+            title: {
+                text: ''
+            },
+            subtitle: {
+                text: '',
+                x: -20
+            },
+            tooltip: {
+                pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+            },
+            exporting: { enabled: false },
+            plotOptions: {
+                pie: {
+                    allowPointSelect: true,
+                    cursor: 'pointer',
+                    dataLabels: {
+                        enabled: true,
+                        format: '<b>{point.name}</b>: {point.percentage:.1f} %',
+                        style: {
+                            color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
+                        }
+                    }
+                }
+            },
+            series: [{
+                type: 'pie',
+                name: 'Hiring %',
+                data: [
+                    {
+                        name: 'Financial Services',
+                        y: 25.8,
+                    },
+                    {
+                        name: 'Manufacturing',
+                        y: 24.2,
+                    },
+                    {
+                        name: 'Infocomm',
+                        y: 20,
+                    },
+                    {
+                        name: 'Telecomm',
+                        y: 15,
+                    },
+                    {
+                        name: 'Biotech',
+                        y: 15,
+                    },
+
+                    ]
+            }]
+        });  //Top Industries    
 
  
     
