@@ -293,12 +293,8 @@ else{e.value="no";location.reload();}
       <h3 class="header smaller lighter blue">Skills Management</h3>
       <div id = "alert_placeholder-skillmanagement"></div>
       <div id="skilltable">
-          <div class="action-buttons">
+          <div class="action-buttons"><a class="red" href="#addskillmodal" data-toggle="modal" data-keyboard="false" data-backdrop="static"> <!-- Set a flag to say it is deleted.  --><i class="icon-pencil bigger-130">Add a skill</i></a></div>  
 
-              <a class="red" href="#addskillmodal" data-toggle="modal" data-keyboard="false" data-backdrop="static"> <!-- Set a flag to say it is deleted.  -->
-                <i class="icon-pencil bigger-130">Add a skill</i>
-              </a>
-          </div>        
                   <!--  Modal -->      
           <div class="modal fade" id="addskillmodal" >
              <div class="modal-dialog">
@@ -307,34 +303,34 @@ else{e.value="no";location.reload();}
                         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                         <h4 class="modal-title">Add new skill</h4>                                                             
                   </div> <!-- "modal-header" -->
-                      <div class="modal-body" style="padding-left:45px;padding-right:45px;">    
-                             <div id = "alert_placeholder-inmodal"></div>
-                              <br><br>
-                              <table id="user" class="table table-bordered table-striped">
-                                  <tbody>
-                                      <tr>       
-                                          <td width="20%">Skill category</td> <!--TSCHEW-->
-                                          <td width="50%">
-                                            <a href="#" class="newskill" data-emptytext="Select..." data-type="select" id="skillcat" data-name="skillcatid"  data-original-title="Select skill category"></a></td>
-                                      </tr>
-                                      <tr>       
-                                          <td width="20%">Skill name</td>
-                                          <td width="50%"><a href="#" class="newskill" id="skillname"  data-emptytext="Select..." data-type="select" data-name="skillid" data-original-title="Select skill"></a></td>
-                                      </tr>
-                                      <tr>       
-                                          <td width="20%">Skill rank</td>
-                                          <td width="50%"><a href="#" class="newskill" id="skillrank" data-emptytext="Select..." data-type="select" data-name="skillrank" data-source="[{value: 1, text: 'Basic'}, {value: 2, text: 'Intermediate'}, {value: 3, text: 'Advance'}, {value: 4, text: 'Expert'}]" data-original-title="Select rank"></a></td>
-                                      </tr>   
-                                  </tbody>
-                              </table>
-                      </div> <!-- "modal-body" -->
-                      <div class="modal-footer">
-                        <div class="align-center">
-                          <button id="saveskill-btn" class="btn btn-primary"><i class="icon-save bigger-140 icon-only">Save Skill and Add New</i></button>
-                          <br><br><br>
-                          Can't find your skill in the list? <button class="btn smaller-90 btn-error"><i class="icon-wrench">Let us know!</i></button>
-                         </div>   
-                      </div> <!-- footer -->
+                  <div class="modal-body" style="padding-left:45px;padding-right:45px;">    
+                         <div id = "alert_placeholder-inmodal"></div>
+                          <br><br>
+                          <table id="user" class="table table-bordered table-striped">
+                              <tbody>
+                                  <tr>       
+                                      <td width="20%">Skill category</td> <!--TSCHEW-->
+                                      <td width="50%">
+                                        <a href="#" class="newskill" data-emptytext="Select..." data-type="select" id="skillcat" data-name="skillcatid"  data-original-title="Select skill category"></a></td>
+                                  </tr>
+                                  <tr>       
+                                      <td width="20%">Skill name</td>
+                                      <td width="50%"><a href="#" class="newskill" id="skillname"  data-emptytext="Select..." data-type="select" data-name="skillid" data-original-title="Select skill"></a></td>
+                                  </tr>
+                                  <tr>       
+                                      <td width="20%">Skill rank</td>
+                                      <td width="50%"><a href="#" class="newskill" id="skillrank" data-emptytext="Select..." data-type="select" data-name="skillrank" data-source="[{value: 1, text: 'Basic'}, {value: 2, text: 'Intermediate'}, {value: 3, text: 'Advance'}, {value: 4, text: 'Expert'}]" data-original-title="Select rank"></a></td>
+                                  </tr>   
+                              </tbody>
+                          </table>
+                  </div> <!-- "modal-body" -->
+                  <div class="modal-footer">
+                    <div class="align-center">
+                      <button id="saveskill-btn" class="btn btn-primary"><i class="icon-save bigger-140 icon-only">Save Skill and Add New</i></button>
+                      <br><br><br>
+                      Can't find your skill in the list? <button class="btn smaller-90 btn-error"><i class="icon-wrench">Let us know!</i></button>
+                     </div>   
+                  </div> <!-- footer -->
                </div> <!-- modal-content -->
              </div><!-- modal-dialog -->
            </div><!-- modal  -->  
@@ -358,7 +354,7 @@ else{e.value="no";location.reload();}
                
                   <tr>
                      <td><%= @scmaster.get(i.skillcatid).categoryname %></td>
-                     <td><%= @ssmaster.get(i.skillid).skill_name %> </a></td>
+                     <td><%= @ssmaster.get(i.skillid).skill_name %> </td>
                      <td><a class="skillrank" href="javascript:void(0)" class="editable-click" data-name="skillrank" data-type="select" data-pk="<%= @allskills.get(i).id%>" data-url="/updateskillrank" data-source="[{value: 1, text: 'Basic'}, {value: 2, text: 'Intermediate'}, {value: 3, text: 'Advance'}, {value: 4, text: 'Expert'}]"   data-title="Enter skill rank">  <%= @sr.get(i.skillrank).skillrankname %>
                      </a></td>                   
                      <td>
