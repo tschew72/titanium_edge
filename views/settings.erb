@@ -299,10 +299,8 @@ else{e.value="no";location.reload();}
                 <i class="icon-pencil bigger-130">Add a skill</i>
               </a>
           </div>        
-
-                  <!--  Modal -->
-          
-<div class="modal fade" id="addskillmodal" >
+                  <!--  Modal -->      
+          <div class="modal fade" id="addskillmodal" >
              <div class="modal-dialog">
                <div class="modal-content">
                   <div class="modal-header">
@@ -331,15 +329,11 @@ else{e.value="no";location.reload();}
                               </table>
                       </div> <!-- "modal-body" -->
                       <div class="modal-footer">
-                      <div class="align-center">
-                        <button id="saveskill-btn" class="btn btn-primary"><i class="icon-save bigger-140 icon-only">Save Skill and Add New</i></button>
-                        <br><br><br>
-                        Can't find your skill in the list? <button class="btn smaller-90 btn-error"><i class="icon-wrench">Let us know!</i></button>
-
-                       </div>
-                        
-                            
-                           
+                        <div class="align-center">
+                          <button id="saveskill-btn" class="btn btn-primary"><i class="icon-save bigger-140 icon-only">Save Skill and Add New</i></button>
+                          <br><br><br>
+                          Can't find your skill in the list? <button class="btn smaller-90 btn-error"><i class="icon-wrench">Let us know!</i></button>
+                         </div>   
                       </div> <!-- footer -->
                </div> <!-- modal-content -->
              </div><!-- modal-dialog -->
@@ -363,37 +357,25 @@ else{e.value="no";location.reload();}
                   <% if @allskills.get(i).status != 0 %>
                
                   <tr>
-                      
                      <td><%= @scmaster.get(i.skillcatid).categoryname %></td>
                      <td><%= @ssmaster.get(i.skillid).skill_name %> </a></td>
                      <td><a class="skillrank" href="javascript:void(0)" class="editable-click" data-name="skillrank" data-type="select" data-pk="<%= @allskills.get(i).id%>" data-url="/updateskillrank" data-source="[{value: 1, text: 'Basic'}, {value: 2, text: 'Intermediate'}, {value: 3, text: 'Advance'}, {value: 4, text: 'Expert'}]"   data-title="Enter skill rank">  <%= @sr.get(i.skillrank).skillrankname %>
-                     </a></td>
-
-                   
+                     </a></td>                   
                      <td>
-
                       <div class="hidden-sm hidden-xs action-buttons">
-
-                          <!-- <a id="skilldel" class="red" href="/deleteskill?id=<%= @allskills.get(i).id %>"> -->
-                          <a onclick="delskill(this, <%=i.id%>)" class="red" href="javascript:void(0)">
-                            <i class="icon-trash bigger-130"></i>
-                           
-                          </a>
-
+                          <a onclick="delskill(this, <%=i.id%>)" class="red" href="javascript:void(0)"> <i class="icon-trash bigger-130"></i></a>               
                       </div>
                      </td>
                   </tr>
-
                  <% end %>
-                  <% end %>
+                 <% end %>
               </tbody>
             </table>
           </div> <!-- id="st"-->
         <br><br>
-
-
         </div> <!-- skilltable" -->
       </div> <!-- "col-sm-6 column" -->
+
       <div class="col-sm-6 column">
         <h3 class="header smaller lighter blue">Languages</h3>
         <div id="skilltable">
@@ -419,11 +401,6 @@ else{e.value="no";location.reload();}
                       <div class="modal-body" style="padding-left:45px;">    
 
                           <!--- TBA -->
-
-
-
-
-
 
                       </div> <!-- "modal-body" -->
                       <div class="modal-footer">
