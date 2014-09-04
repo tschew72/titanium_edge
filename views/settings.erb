@@ -20,91 +20,86 @@ else{e.value="no";location.reload();}
     </li>
     <li class="active">User Preferences</li>
   </ul><!-- /.breadcrumb -->
-
 </div>
 
 <div class="page-content">
-  <div class="col-xs-12">
+  <div class="col-xs-6 col-md-10 col-lg-10">
      <h3 class="header smaller lighter blue">User Preferences</h3>
      <div id="alert_placeholder-tab"> </div>
      <br>
      <br>
      <div class="tabbable">
-                      <ul class="nav nav-tabs" id="myTab">
-                        <li class="active">
-                          <a data-toggle="tab" href="#t1">
-                            <i class="green icon-home bigger-110"></i>
-                            Home
-                          </a>
-                        </li>
-                        <li>
-                          <a data-toggle="tab" href="#t3">
-                            Preferred Jobs
-                          </a>
-                        </li>
-                        <li>
-                          <a data-toggle="tab" href="#t4">
-                            Preferred Industries
-                          </a>
-                        </li>
-                        <li>
-                          <a data-toggle="tab" href="#loc">
-                            Preferred Locations
-                          </a>
-                        </li>                       
-                        <li>
-                          <a data-toggle="tab" href="#t5">
-                            Salary
-                          </a>
-                        </li>
-                        <li>
-                          <a data-toggle="tab" href="#t6">
-                            Preferred Travel Frequency
-                          </a>
-                        </li>
-                        <li>
-                          <a data-toggle="tab" href="#skilltab">
-                            Skills
-                          </a>
-                        </li>
-                        <li>
-                          <a data-toggle="tab" href="#languagetab">
-                            Languages
-                          </a>
-                        </li>
-                        <li>
-                          <a data-toggle="tab" href="#t7">
-                            Upload CV
-                          </a>
-                        </li>                        
-                      </ul>
+          <ul class="nav nav-tabs" id="myTab">
+            <li class="active">
+              <a data-toggle="tab" href="#t1">
+                <i class="green icon-home bigger-110"></i>
+                Home
+              </a>
+            </li>
+            <li>
+              <a data-toggle="tab" href="#t3">
+                Preferred Jobs
+              </a>
+            </li>
+            <li>
+              <a data-toggle="tab" href="#t4">
+                Preferred Industries
+              </a>
+            </li>
+            <li>
+              <a data-toggle="tab" href="#loc">
+                Preferred Locations
+              </a>
+            </li>                       
+            <li>
+              <a data-toggle="tab" href="#t5">
+                Salary
+              </a>
+            </li>
+            <li>
+              <a data-toggle="tab" href="#t6">
+                Preferred Travel Frequency
+              </a>
+            </li>
+            <li>
+              <a data-toggle="tab" href="#skilltab">
+                Skills
+              </a>
+            </li>
+            <li>
+              <a data-toggle="tab" href="#languagetab">
+                Languages
+              </a>
+            </li>
+            <li>
+              <a data-toggle="tab" href="#t7">
+                Upload CV
+              </a>
+            </li>                        
+          </ul>
 
     
      <div class="tab-content">
-      <div id="t1" class="tab-pane in active">
-              <div class="row">  
-
-                <div class="col-sm-12">
-
-                    <div class="form-group">
-                        
-                         I am active in looking for job <label><input id="activecheck" name="activeseeker" class="ace ace-switch ace-switch-5 btn-rotate" type="checkbox" <%= @userprofile.activeseeker.to_s == "true" ? "checked" : "unchecked" %> /><span class="lbl"></span></label>  
-                        
-                        <span class="tooltip-success" data-rel="tooltip" data-placement="right" title="If you do not wish to be matched for jobs during this period, please swtich it off"><i class="icon-info-sign"></i></span>
-                    </div>
+        <div id="t1" class="tab-pane in active">
+          <div class="row">  
+            <div class="col-sm-12">
+                <div class="form-group">
+                  I am active in looking for job <label><input id="activecheck" name="activeseeker" class="ace ace-switch ace-switch-5 btn-rotate" type="checkbox" <%= @userprofile.activeseeker.to_s == "true" ? "checked" : "unchecked" %> /><span class="lbl"></span></label>        
+                  <span class="tooltip-success" data-rel="tooltip" data-placement="right" title="If you do not wish to be matched for jobs during this period, please swtich it off"><i class="icon-info-sign"></i></span>
                 </div>
-              </div>
-              <div class="row" id="spr_block" style="visibility: hidden">  
-                <div class="col-sm-12">
-                  <div class="form-group">
-                        I am in Singapore <label><input id="insgcheck" name="insingaporenow" class="ace ace-switch ace-switch-5 btn-rotate" type="checkbox" <%= @userprofile.insingaporenow.to_s == "true" ? "checked" : "unchecked" %> /><span class="lbl"></span></label>
-                        <span id="insg_block" style="visibility: hidden">  
-                            on these dates <label><input readonly="true" type="text" style="width: 200px;" name="date-range-picker" id="id-date-range-picker-1"  class="form-control rdonly" value="<%=@userprofile.insg_start.strftime("%d/%m/%Y") %> - <%=@userprofile.insg_end.strftime("%d/%m/%Y") %> "  class="span4"></input></label> <span class="tooltip-success" data-rel="tooltip" data-placement="right" title="Higher priorty will be given to job seekers who are currently in Singapore. Employers prefer candidates to be available for interviews. However, for certain jobs, this may not impact your chances as phone interviews are also common place these days. You will also be informed by us if there are any suitable courses, seminars or special events that you should attend to increase your career score"><i class="icon-info-sign"></i></span>
-                        </span> 
-                  </div>    
-                </div>
-              </div>
-      </div> <!-- tab -->
+            </div>
+          </div>
+          <div class="row" id="spr_block" style="visibility: hidden">  
+            <div class="col-sm-12">
+              <div class="form-group">
+                    I am in Singapore <label><input id="insgcheck" name="insingaporenow" class="ace ace-switch ace-switch-5 btn-rotate" type="checkbox" <%= @userprofile.insingaporenow.to_s == "true" ? "checked" : "unchecked" %> /><span class="lbl"></span></label>
+                    <span id="insg_block" style="visibility: hidden">  
+                        on these dates <label><input readonly="true" type="text" style="width: 200px;" name="date-range-picker" id="id-date-range-picker-1"  class="form-control rdonly" value="<%=@userprofile.insg_start.strftime("%d/%m/%Y") %> - <%=@userprofile.insg_end.strftime("%d/%m/%Y") %> "  class="span4"></input></label> <span class="tooltip-success" data-rel="tooltip" data-placement="right" title="Higher priorty will be given to job seekers who are currently in Singapore. Employers prefer candidates to be available for interviews. However, for certain jobs, this may not impact your chances as phone interviews are also common place these days. You will also be informed by us if there are any suitable courses, seminars or special events that you should attend to increase your career score"><i class="icon-info-sign"></i></span>
+                    </span> 
+              </div>    
+            </div>
+          </div>
+        </div> <!-- tab -->
       <div id="t3" class="tab-pane">    
                 <div class="row">  <!-- 5th row in the Preference Management section -->
 
@@ -224,7 +219,7 @@ else{e.value="no";location.reload();}
       </div>
       <div id="skilltab" class="tab-pane">
             <div class="row">  
-              <div class="col-sm-12 ">
+              <div class="col-sm-12 col-lg-12 ">
               <h3 class="header smaller lighter blue">Skills Management</h3>
               <div id = "alert_placeholder-skillmanagement"></div>
               <div id="skilltable">
@@ -366,31 +361,16 @@ else{e.value="no";location.reload();}
                                              
 
                                  }); //ajax
-
-
                                  return true;
                         }); //cloudinary done
-                        
-
                     </script> 
                 </div>
                </div>
-      </div>       
-    </div> <!-- Tab -->
-    </div> <!-- col -->
-
-   
- 
-   <div class="row">
-      
-
-      
-   </div> <!-- row -->
- 
-<!-- 11: <%=@sst11%>, 12: <%=@sst12%>, 13: <%=@sst13%>, 14: <%=@sst14%>, 15: <%=@sst15%>, 16: <%=@sst16%>, 17: <%=@sst17%>, 18: <%=@sst18%>, 19: <%=@sst19%>, 20: <%=@sst20%> -->
-
-          
-  </div> <!-- <"col-xs-12"> -->
+      </div>   <!-- t7 -->    
+    </div> <!-- <div class="tab-content">-->
+    </div> <!--<div class="tabbable"> -->        
+  </div> <!-- <div class="col-xs-6 col-md-10 col-lh-10">-->
+  <div class="col-xs-6 col-md-12 col-lh-12"></div>
     
  </div> <!--"page-content" -->              
                   
