@@ -8141,8 +8141,8 @@ td .lbl:only-child {
   /*font-size: 22px;*/
   font-size: 13px;
   margin: 2px 0 4px;
-  position: relative;
-  text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.15);
+  position: absolute;
+  /*text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.15);*/
 }
 .infobox > .infobox-data > .infobox-text {
   display: block;
