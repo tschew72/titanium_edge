@@ -2712,8 +2712,7 @@ li [class*=" icon-"],
     top: 19px;
   }
 }
-/* not used yet */
-/**
+
 @media only screen and (max-width: 979px) {
  .sidebar.responsive-min {
    display:block;
@@ -2744,7 +2743,7 @@ li [class*=" icon-"],
 	display:none !important;
  }
 }
-*/
+
 /** buttons */
 .btn {
   display: inline-block;
