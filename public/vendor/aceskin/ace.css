@@ -8063,12 +8063,18 @@ td .lbl:only-child {
   text-align: center;
   font-size: 0;
 }
-.infobox {
+
+/*TSCHEW*/
+.infobox { 
   display: inline-block;
-  width: 210px;
-  height: 66px;
+/*  width: 210px;
+  height: 66px;*/
+  width: 150px;
+  height: 55px;
+  
   color: #555;
-  background-color: #FFF;
+  /*background-color: #FFF;*/
+  background-color: transparent;
   box-shadow: none;
   border-radius: 0;
   margin: -1px 0 0 -1px;
