@@ -8123,7 +8123,8 @@ td .lbl:only-child {
   font-weight: bold;
 }
 .infobox > .infobox-data {
-  display: inline-block;
+  /*display: inline-block;*/
+  display: inline;
   border: none;
   border-top-width: 0;
   font-size: 13px;
