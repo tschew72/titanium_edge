@@ -8135,7 +8135,8 @@ td .lbl:only-child {
   top: 0;
 }
 .infobox > .infobox-data > .infobox-data-number {
-  display: block;
+  /*display: block;*/
+  display: inline;
   /*font-size: 22px;*/
   font-size: 13px;
   margin: 2px 0 4px;
