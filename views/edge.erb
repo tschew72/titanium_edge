@@ -212,45 +212,31 @@
                                   <div class="widget-main">
                                       <div class="tab-content">
                                         <div id="t1">
-                                            <div class="row">   <!-- Tab content row -->
-                                              <div class="col-sm-7 ">  
-                                                  <div class="widget-box transparent">
-                                                    <div class="widget-header widget-header-flat">
-                                                      <h4 class="lighter"><i class="icon-signal"></i>Job Matching History</h4>                    
-                                                      <div class="widget-toolbar"><a href="#" data-action="collapse"><i class="icon-chevron-up"></i></a></div>
-                                                    </div> <!-- "widget-header widget-header-flat" -->
-                                                    <div class="widget-body">
-                                                      <div class="widget-main padding-4">   
-                                                          <table id="matchjobtable" class="table table-striped table-bordered table-hover">
-                                                              <thead>
-                                                                  <tr>
-                                                                     <th class="align-center">Match Date </th>
-                                                                     <th class="align-center">Match Score</th>
-                                                                     <th class="align-center">Match Rank  </th>
-                                                                     <th class="align-center">Job Function</th> 
-                                                                     <th class="align-center">Job Level</th>
-                                                                     <th class="align-center">Salary Range</th>    
-                                                                  </tr>
-                                                              </thead>
-                                                              <tbody >
-                                                                  <% @usermatchjoblist.each do |i| %>
-                                                                  <tr>
-                                                                     <td><%= @usermatchjoblist.get(i).datematched.strftime("%d/%m/%Y") %></td>
-                                                                     <td><%= @usermatchjoblist.get(i).matchscore %></td>
-                                                                     <td><%= @usermatchjoblist.get(i).matchrank %></td>
-                                                                     <td><%= @usermatchjoblist.get(i).jobfunction %></td>
-                                                                     <td><%= @usermatchjoblist.get(i).joblevel %></td>
-                                                                     <td><%= @usermatchjoblist.get(i).jobsalaryrange %></td>
-                                                                  </tr>
-                                                                  <% end %>
-                                                             </tbody>
-                                                          </table>
-                                                        </div> <!-- "widget-main padding-4" -->
-                                                    </div> <!-- "widget-body" -->
-                                                  </div> <!-- "widget-box transparent" -->
-                                              </div> <!-- "col-md-7 " --> 
+                                          <table id="leadership" class="table table-striped table-bordered table-hover">
+                                            <thead>
+                                                <tr> 
+                                                   <th class="align-center">Job Type </th> <!-- different job titles consolidated into a few high level type -->
+                                                   <th class="align-center">No. of Positions</th>
+                                                   <th class="align-center">No. of Job Seekers  </th>
+                                                   <th class="align-center">Your Score</th> 
+                                                   <th class="align-center">Your <br> Rank</th> 
+                                                </tr>
+                                                <tr>
+                                                    <td class="align-center">System Administrator</td>
+                                                    <td class="align-center">100</td>
+                                                    <td class="align-center">250</td>
+                                                    <td class="align-center">89</td>
+                                                    <td class="align-center">4</td>
+                                                </tr>
+                                            </thead>
+                                            <tbody >
+                                                <% @usermatchjoblist.each do |i| %>
+                                                <tr>
 
-                                            </div> <!-- row 1 -->
+                                                </tr>
+                                                <% end %>
+                                           </tbody>
+                                        </table>
                                        </div>
                                        <div id="t2" >
                                          This is Chart 2
@@ -261,7 +247,7 @@
                                        <div id="t4">
                                          This is Chart 4
                                        </div>
-                                     </div>
+                                     </div> <!--tab content->
                                       
                                   </div><!-- /.widget-main -->
                               </div><!-- /.widget-body -->
@@ -270,6 +256,7 @@
 
 
                   </div> <!-- row -->
+                  <div class="hr hr32 hr-dotted"></div>
 
 
           </div><!-- /.col -->
