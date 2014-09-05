@@ -8142,7 +8142,8 @@ td .lbl:only-child {
   font-size: 13px;
   /*margin: 2px 0 4px;*/
   position: relative;
-  margin-top: auto; /* TSCHEW New */
+  vertical-align: middle; /* TSCHEW New */
+  margin-top: auto;  /* TSCHEW New */
   margin-bottom: auto;  /* TSCHEW New */
   /*text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.15);*/
 }
