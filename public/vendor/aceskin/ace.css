@@ -8140,10 +8140,10 @@ td .lbl:only-child {
   display: inline;
   /*font-size: 22px;*/
   font-size: 13px;
-  margin: 2px 0 4px;
+  /*margin: 2px 0 4px;*/
   position: relative;
-  margin-top: auto;
-  margin-bottom: auto;
+  margin-top: auto; /* TSCHEW New */
+  margin-bottom: auto;  /* TSCHEW New */
   /*text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.15);*/
 }
 .infobox > .infobox-data > .infobox-text {
