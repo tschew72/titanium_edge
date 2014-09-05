@@ -176,28 +176,28 @@
 
                                           <ul class="dropdown-menu dropdown-menu-right dropdown-125 dropdown-lighter dropdown-close dropdown-caret">
                                               <li class="active">
-                                                  <a href="#t1" class="blue">
+                                                  <a data-toggle="tab" href="#t1" class="blue">
                                                       <i class="icon-caret-right bigger-110">&nbsp;</i>
                                                       System Administrator
                                                   </a>
                                               </li>
 
                                               <li>
-                                                  <a href="#t2">
+                                                  <a data-toggle="tab" href="#t2">
                                                       <i class="icon-caret-right bigger-110 invisible">&nbsp;</i>
                                                       Developer
                                                   </a>
                                               </li>
 
                                               <li>
-                                                  <a href="#t3">
+                                                  <a data-toggle="tab" href="#t3">
                                                       <i class="icon-caret-right bigger-110 invisible">&nbsp;</i>
                                                       IT Manager
                                                   </a>
                                               </li>
 
                                               <li>
-                                                  <a  href="#t4">
+                                                  <a  data-toggle="tab" href="#t4">
                                                       <i class="icon-caret-right bigger-110 invisible">&nbsp;</i>
                                                       Network Engineer
                                                   </a>
@@ -241,7 +241,30 @@
                                          This is Chart 2
                                        </div>
                                        <div id="t3" class="tab-pane" >
-                                         This is Chart 3
+                                         <table id="matchjobtable" class="table table-striped table-bordered table-hover">
+                                              <thead>
+                                                  <tr>
+                                                     <th class="align-center">Match Date </th>
+                                                     <th class="align-center">Match Score</th>
+                                                     <th class="align-center">Match Rank  </th>
+                                                     <th class="align-center">Job Function</th> 
+                                                     <th class="align-center">Job Level</th>
+                                                     <th class="align-center">Salary Range</th>    
+                                                  </tr>
+                                              </thead>
+                                              <tbody >
+                                                  <% @usermatchjoblist.each do |i| %>
+                                                  <tr>
+                                                     <td><%= @usermatchjoblist.get(i).datematched.strftime("%d/%m/%Y") %></td>
+                                                     <td><%= @usermatchjoblist.get(i).matchscore %></td>
+                                                     <td><%= @usermatchjoblist.get(i).matchrank %></td>
+                                                     <td><%= @usermatchjoblist.get(i).jobfunction %></td>
+                                                     <td><%= @usermatchjoblist.get(i).joblevel %></td>
+                                                     <td><%= @usermatchjoblist.get(i).jobsalaryrange %></td>
+                                                  </tr>
+                                                  <% end %>
+                                             </tbody>
+                                          </table>
                                        </div>
                                        <div id="t4" class="tab-pane">
                                          This is Chart 4
