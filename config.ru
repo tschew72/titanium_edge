@@ -324,7 +324,7 @@ end
     env['warden'].authenticate!
     if session[:return_to].nil?
 
-       redirect '/edge'
+       redirect '/'
        #erb :edge
     else
         #redirect session[:return_to]
