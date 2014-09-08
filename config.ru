@@ -79,8 +79,8 @@ end
  end
 
 get '/' do
-  "This is the main page with the Login button"
-   redirect to('/auth/login')
+   redirect '/main/index.html'
+   #redirect to('/auth/login')
 
 end
  
