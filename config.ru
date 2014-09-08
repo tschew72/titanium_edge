@@ -315,7 +315,7 @@ end
 
   get '/auth/login' do
 
-   erb :login, :layout => :'auth_layout'
+   erb :"main/login", :layout => :'main/layout1'
   end
 
 
@@ -323,9 +323,7 @@ end
 
     env['warden'].authenticate!
     if session[:return_to].nil?
-    
 
-       #@emailme = user1.email
        redirect '/edge'
        #erb :edge
     else
