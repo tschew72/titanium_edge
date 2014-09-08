@@ -81,7 +81,7 @@ end
 get '/' do
    #redirect '/main/index.html'
    #redirect to('/auth/login')
-   erb :"main/index", :layout => :'layout1.erb'
+   erb :"main/index", :layout => :'main/layout1'
 end
  
 get '/edge' do
