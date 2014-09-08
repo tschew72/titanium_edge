@@ -315,7 +315,7 @@ end
 
   get '/auth/login' do
 
-   erb :"main/login", :layout => :'main/layout1'
+   erb :"main/login/index", :layout => :'main/layout1'
   end
 
 
