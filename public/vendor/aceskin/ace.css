@@ -1174,7 +1174,7 @@ blockquote.pull-right {
   margin: 0 !important;
 }
 .ace-nav > li {
-  line-height: 45px;
+  line-height: 80px;
   height: 45px;
   border-left: 1px solid #DDD;
   padding: 0;
