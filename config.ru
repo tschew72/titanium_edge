@@ -91,8 +91,8 @@ get '/edge' do
        @userme = @userprofile.firstname
        @emailme = @userprofile.email
        @usermatchjoblist = @userprofile.matched_jobs
-       erb :edge
-       #erb :"dash/index", :layout => :'dash/layout1'
+       #erb :edge
+       erb :"dash/index", :layout => :'dash/layout1'
 end
 
  
