@@ -1,5 +1,5 @@
 bundle install
 git init
 git add --all .
-git commit -m "Add Skill functionality established."
+git commit -m "The new Dashboard and Frontpage"
 git push -f heroku master
