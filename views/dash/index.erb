@@ -187,7 +187,44 @@
               <div class="row"> 
                 <!--Row-->
                 <div class="col-md-6">
-                  asdasd
+                  <div class="table-responsive">
+                    <table class="table table-striped table-hover margin-0px airtable">
+                      <thead>
+                        <tr>
+                          <th colspan="2">Match Date </th>
+                          <th >Match Score</th>
+                          <th >Match Rank</th>
+                          <th >Job Function</th>
+                          <th >Job Level</th>
+                          <th >Salary Range</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <% @usermatchjoblist.each do |i| %>
+                        <tr>
+                          <td><span class="num">1</span></td>
+                          <td><h4><%= @usermatchjoblist.get(i).datematched.strftime("%d/%m/%Y") %></h5>
+                            </td>
+                          <td><h4 class="text-center"><span ><%= @usermatchjoblist.get(i).matchscore %></h4></td>
+                          <td><h4 class="text-center"><span ><%= @usermatchjoblist.get(i).matchrank %></h4></td>
+                          <td><h5 class="text-center"><span ><%= @usermatchjoblist.get(i).jobfunction %>/h4></td>
+                          <td><h5 class="text-center"><span ><%= @usermatchjoblist.get(i).joblevel %></h4></td>
+                          <td><h5 class="text-center"><span ><%= @usermatchjoblist.get(i).jobsalaryrange %></h4></td>
+                        </tr>
+                        <% end %>
+                      </tbody>
+                      <tfoot>
+                        <tr>
+                          <th colspan="2">Match Date </th>
+                          <th >Match Score</th>
+                          <th >Match Rank</th>
+                          <th >Job Function</th>
+                          <th >Job Level</th>
+                          <th >Salary Range</th>
+                        </tr>
+                      </tfoot>
+                    </table>
+                  </div>
                 </div>
                 <div class="col-md-6">
                   <div class="table-responsive">
@@ -212,7 +249,7 @@
                           <td><h4 class="text-center"><span >5</h4></td>
                         </tr>
                         <tr>
-                          <td><span class="num">1</span></td>
+                          <td><span class="num">2</span></td>
                           <td><h5>System Administrator</h5>
                             <small><i class="fa fa-clock-o"></i> Last Update</small> <span class="badge">12:20</span></td>
                           <td><h4 class="text-center"><span >10</h4></td>
@@ -221,7 +258,7 @@
                           <td><h4 class="text-center"><span >5</h4></td>
                         </tr>
                         <tr>
-                          <td><span class="num">1</span></td>
+                          <td><span class="num">3</span></td>
                           <td><h5>System Administrator</h5>
                             <small><i class="fa fa-clock-o"></i> Last Update</small> <span class="badge">12:20</span></td>
                           <td><h4 class="text-center"><span >10</h4></td>
@@ -230,7 +267,7 @@
                           <td><h4 class="text-center"><span >5</h4></td>
                         </tr>
                         <tr>
-                          <td><span class="num">1</span></td>
+                          <td><span class="num">4</span></td>
                           <td><h5>System Administrator</h5>
                             <small><i class="fa fa-clock-o"></i> Last Update</small> <span class="badge">12:20</span></td>
                           <td><h4 class="text-center"><span >10</h4></td>
@@ -239,7 +276,7 @@
                           <td><h4 class="text-center"><span >5</h4></td>
                         </tr>
                         <tr>
-                          <td><span class="num">1</span></td>
+                          <td><span class="num">5</span></td>
                           <td><h5>System Administrator</h5>
                             <small><i class="fa fa-clock-o"></i> Last Update</small> <span class="badge">12:20</span></td>
                           <td><h4 class="text-center"><span >10</h4></td>
@@ -248,7 +285,7 @@
                           <td><h4 class="text-center"><span >5</h4></td>
                         </tr>
                         <tr>
-                          <td><span class="num">1</span></td>
+                          <td><span class="num">6</span></td>
                           <td><h5>System Administrator</h5>
                             <small><i class="fa fa-clock-o"></i> Last Update</small> <span class="badge">12:20</span></td>
                           <td><h4 class="text-center"><span >10</h4></td>
