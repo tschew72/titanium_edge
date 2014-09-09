@@ -170,8 +170,8 @@
       <div class="tabs-offcanvas">
         <ul class="nav nav-tabs nav-justified">
           <li class="active"><a href="#userbar-one" data-toggle="tab">Main</a></li>
-          <li><a href="#userbar-two" data-toggle="tab">Users</a></li>
-          <li><a href="#userbar-three" data-toggle="tab">ToDo</a></li>
+<!--           <li><a href="#userbar-two" data-toggle="tab">Users</a></li>
+          <li><a href="#userbar-three" data-toggle="tab">ToDo</a></li> -->
         </ul>
         <div class="tab-content"> 
           
@@ -179,13 +179,14 @@
           <div class="tab-pane active" id="userbar-one">
             <div class="main-info">
               <div class="user-img"><img src="/dash/images/users/2-big.jpg" alt="User Picture" /></div>
-              <h1>Anton Durant <small>Administrator</small></h1>
+              <h1><%userme%> <small>Administrator</small></h1>
             </div>
-            <div class="list-group"> <a href="#" class="list-group-item"><i class="fa fa-user"></i>Profile</a> <a href="#" class="list-group-item"><i class="fa fa-cog"></i>Settings</a> <a href="#" class="list-group-item"><i class="fa fa-flask"></i>Projects<span class="badge">2</span></a>
+            <div class="list-group"> <a href="#" class="list-group-item"><i class="fa fa-user"></i>Profile</a> 
+              <a href="#" class="list-group-item"><i class="fa fa-cog"></i>Settings</a> 
+              <a href="#" class="list-group-item"><i class="fa fa-flask"></i>Account<span class="badge">2</span></a>
               <div class="empthy"></div>
-              <a href="#" class="list-group-item"><i class="fa fa-refresh"></i>Updates<span class="badge">5</span></a> <a href="#" class="list-group-item"><i class="fa fa-comment"></i>Messages<span class="badge">12</span></a> <a href="#" class="list-group-item"><i class="fa fa-comments"></i> Comments<span class="badge">45</span></a>
               <div class="empthy"></div>
-              <a href="#" data-toggle="modal" class="list-group-item lockme"><i class="fa fa-lock"></i> Lock</a> <a data-toggle="modal" href="#" class="list-group-item goaway"><i class="fa fa-power-off"></i> Sign Out</a> </div>
+              <a data-toggle="modal" href="#" class="list-group-item goaway"><i class="fa fa-power-off"></i> Sign Out</a> </div>
           </div>
           
           <!--User Chat Panel-->
