@@ -22,7 +22,7 @@
 <!--Smooth Scroll-->
 <div class="smooth-overflow"> 
   <!--Navigation-->
-  <nav class="main-header clearfix" role="navigation"> <a class="navbar-brand" href="index-2.html"><span class="text-blue">ORB</span></a> 
+  <nav class="main-header clearfix" role="navigation"> <a class="navbar-brand" href="index-2.html"><span class="text-blue">COTA</span></a> 
     
     <!--Search-->
     <!-- <div class="site-search">
@@ -39,7 +39,7 @@
       <!--Sidebar Toggler REMOVED--> 
       
       <!--Right Userbar Toggler--> 
-      <a href="#" class="btn btn-user right-toggler pull-right"><i class="entypo-vcard"></i> <span class="logged-as hidden-xs">Logged as</span><span class="logged-as-name hidden-xs"><% @userme %></span></a> 
+      <a href="#" class="btn btn-user right-toggler pull-right"><i class="entypo-vcard"></i> <span class="logged-as hidden-xs">Logged as</span><span class="logged-as-name hidden-xs"><%= @userme %></span></a> 
       <!--Fullscreen Trigger-->
       <button type="button" class="btn btn-default hidden-xs pull-right" id="toggle-fullscreen"> <i class=" entypo-popup"></i> </button>
       
@@ -181,11 +181,11 @@
               <div class="user-img"><img src="/dash/images/users/2-big.jpg" alt="User Picture" /></div>
               <h1><%= @userme %> <small>Administrator</small></h1>
             </div>
-            <div class="list-group"> <a href="#" class="list-group-item"><i class="fa fa-user"></i>Profile</a> <a href="#" class="list-group-item"><i class="fa fa-cog"></i>Settings</a> <a href="#" class="list-group-item"><i class="fa fa-flask"></i>Projects<span class="badge">2</span></a>
+            <div class="list-group"> 
+              <a href="#" class="list-group-item"><i class="fa fa-user"></i>Profile</a> 
+              <a href="#" class="list-group-item"><i class="fa fa-cog"></i>Settings</a> 
               <div class="empthy"></div>
-              <a href="#" class="list-group-item"><i class="fa fa-refresh"></i>Updates<span class="badge">5</span></a> <a href="#" class="list-group-item"><i class="fa fa-comment"></i>Messages<span class="badge">12</span></a> <a href="#" class="list-group-item"><i class="fa fa-comments"></i> Comments<span class="badge">45</span></a>
-              <div class="empthy"></div>
-              <a href="#" data-toggle="modal" class="list-group-item lockme"><i class="fa fa-lock"></i> Lock</a> <a data-toggle="modal" href="#" class="list-group-item goaway"><i class="fa fa-power-off"></i> Sign Out</a> </div>
+              <a data-toggle="modal" href="#" class="list-group-item goaway"><i class="fa fa-power-off"></i> Sign Out</a> </div>
           </div>
           
           <!--User Chat Panel-->
