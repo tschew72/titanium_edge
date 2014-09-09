@@ -91,8 +91,8 @@ get '/edge' do
        @userme = @userprofile.firstname
        @emailme = @userprofile.email
        @usermatchjoblist = @userprofile.matched_jobs
-       #erb :edge
-       erb :"dash/index", :layout => :'dash/layout1'
+       erb :edge
+       #erb :"dash/index", :layout => :'dash/layout1'
 end
 
  
@@ -327,7 +327,8 @@ end
     if session[:return_to].nil?
 
        #redirect '/'
-       erb :edge
+       redirect '/edge'
+       #erb :edge
     else
         #redirect session[:return_to]
     end
