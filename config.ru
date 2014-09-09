@@ -91,9 +91,11 @@ get '/edge' do
        @userme = @userprofile.firstname
        @emailme = @userprofile.email
        @usermatchjoblist = @userprofile.matched_jobs
-       erb :edge
+       #erb :edge
+       erb :"dash/index", :layout => :'dash/layout1'
 end
 
+ 
 
 get '/summary' do
    redirect '/auth/login' unless env['warden'].authenticated?
