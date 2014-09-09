@@ -203,7 +203,7 @@
                         <% @usermatchjoblist.each do |i| %>
                         <tr>
                           <td></td>
-                          <td><h4><%= @usermatchjoblist.get(i).datematched.strftime("%d/%m/%Y") %></h5></td>
+                          <td><h4><span ><%= @usermatchjoblist.get(i).datematched.strftime("%d/%m/%Y") %></h5></td>
                           <td><h4 class="text-center"><span ><%= @usermatchjoblist.get(i).matchscore %></h4></td>
                           <td><h4 class="text-center"><span class="num"><%= @usermatchjoblist.get(i).matchrank %></span></h4></td>
                           <td><h5 class="text-center"><span ><%= @usermatchjoblist.get(i).jobfunction %></h5></td>
