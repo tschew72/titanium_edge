@@ -73,11 +73,10 @@ else{e.value="no";location.reload();}
               <div class="col-sm-12">
                   <div class="form-group">
                     I am active in looking for job 
-                    <label class="toggle state-success"><input id="activecheck" name="activeseeker" type="checkbox" <%= @userprofile.activeseeker.to_s == "true" ? "checked" : "unchecked" %> /><i></i></label>
-                    <%= @userprofile.activeseeker.to_s == "true" ? "checked" : "unchecked" %>
+                    <label class="toggle"><input id="activecheck" name="checkbox-toggle" type="checkbox">asd</label>
 
-                    
-<section class="col col-5">
+
+                      <section class="col col-5">
                         <label class="label">Toggles based on checkboxes</label>
                         <label class="toggle">
                           <input type="checkbox" name="checkbox-toggle" checked>
