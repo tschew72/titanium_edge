@@ -230,10 +230,10 @@ else{e.value="no";location.reload();}
                   <table id="skillsettingtable" class="table table-striped table-bordered table-hover">
                       <thead>
                         <tr>
-                           <th class="align-center">Category</th>
-                           <th class="align-center">Skill Name</th>
-                           <th class="align-center">Skill Rank</th>
-                           <th class="align-center"></th>
+                           <th >Category</th>
+                           <th >Skill Name</th>
+                           <th colspan="2" >Skill Rank</th>
+                           <!-- <th class="align-center"></th> -->
                         </tr>
                       </thead>
                       <tbody id="aat" >
@@ -248,7 +248,7 @@ else{e.value="no";location.reload();}
                              </a></td>                   
                              <td>
                               <div class="hidden-sm hidden-xs action-buttons">
-                                  <a onclick="delskill(this, <%=i.id%>)" class="red" href="javascript:void(0)"> <i class="icon-trash bigger-130"></i></a>               
+                                  <a onclick="delskill(this, <%=i.id%>)" class="red" href="javascript:void(0)"> <i class="fa fa-trash"></i></a>               
                               </div>
                              </td>
                           </tr>
