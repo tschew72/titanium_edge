@@ -136,6 +136,32 @@
 
 <!-- scroll top -->
 <div class="scroll-top-wrapper hidden-xs"> <i class="fa fa-angle-up"></i> </div>
+<script>
+ $(document).ready(function(){
+
+    $('.smooth-overflow').on('scroll', function () {
+        if ($(this).scrollTop() > 100) {
+            $('.scroll-top-wrapper').addClass('show')
+        } else {
+            $('.scroll-top-wrapper').removeClass('show')
+        }
+    });
+    $('.scroll-top-wrapper').on('click', scrollToTop);
+
+});
+
+ 
+ function scrollToTop() {
+        var verticalOffset = typeof (verticalOffset) != 'undefined' ? verticalOffset : 0;
+        var element = $('body');
+        var offset = element.offset();
+        var offsetTop = offset.top;
+        $('.smooth-overflow').animate({
+            scrollTop: offsetTop
+        }, 400, 'linear')
+    }
+</script>
+
 
 <!-- /scroll top --> 
 
@@ -290,29 +316,7 @@
 
       icons.play();
 
- $(document).ready(function(){
 
-    $('.smooth-overflow').on('scroll', function () {
-        if ($(this).scrollTop() > 100) {
-            $('.scroll-top-wrapper').addClass('show')
-        } else {
-            $('.scroll-top-wrapper').removeClass('show')
-        }
-    });
-    $('.scroll-top-wrapper').on('click', scrollToTop);
-
-});
-
- 
- function scrollToTop() {
-        var verticalOffset = typeof (verticalOffset) != 'undefined' ? verticalOffset : 0;
-        var element = $('body');
-        var offset = element.offset();
-        var offsetTop = offset.top;
-        $('.smooth-overflow').animate({
-            scrollTop: offsetTop
-        }, 400, 'linear')
-    }
 </script> 
 
 
