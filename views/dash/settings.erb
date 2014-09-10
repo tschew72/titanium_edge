@@ -80,10 +80,10 @@ else{e.value="no";location.reload();}
             <div class="row" id="spr_block" style="visibility: hidden">  
               <div class="col-sm-12">
                 <div class="form-group">
-                      I am in Singapore <label class="toggle"><input id="insgcheck" name="insingaporenow" type="checkbox" name="checkbox-toggle" <%= @userprofile.insingaporenow.to_s == "true" ? "checked" : "unchecked" %>><i></i></label>
+                      I am in Singapore <label class="toggle state-success"><input id="insgcheck" name="insingaporenow" type="checkbox" name="checkbox-toggle" <%= @userprofile.insingaporenow.to_s == "true" ? "checked" : "unchecked" %>><i></i></label>
 
 
-                      <!-- <label><input id="insgcheck" name="insingaporenow" class="ace ace-switch ace-switch-5 btn-rotate" type="checkbox" <%= @userprofile.insingaporenow.to_s == "true" ? "checked" : "unchecked" %> /><span class="lbl"></span></label> -->
+           
                       <span id="insg_block" style="visibility: hidden">  
                           on these dates <label><input readonly="true" type="text" style="width: 200px;" name="date-range-picker" id="id-date-range-picker-1"  class="form-control rdonly" value="<%=@userprofile.insg_start.strftime("%d/%m/%Y") %> - <%=@userprofile.insg_end.strftime("%d/%m/%Y") %> "  class="span4"></input></label> <span class="tooltip-success" data-rel="tooltip" data-placement="right" title="Higher priorty will be given to job seekers who are currently in Singapore. Employers prefer candidates to be available for interviews. However, for certain jobs, this may not impact your chances as phone interviews are also common place these days. You will also be informed by us if there are any suitable courses, seminars or special events that you should attend to increase your career score"><i class="icon-info-sign"></i></span>
                       </span> 
