@@ -495,4 +495,89 @@ else{e.value="no";location.reload();}
       
       });
   });
+
+
+        $("#parttimecheck").on('change', function(){
+          $.ajax({
+            url: '/updateparttime',
+            type: 'POST',
+            data: {"parttime": this.checked, "pk" : <%=@userprofile.id %>},
+
+            success: function(response){
+              var data = JSON.parse(response);
+              if (data.parttime){
+                    newAlert("#alert_placeholder-tab", 'success', "You will be matched to any part time jobs");      
+              } else {
+                    newAlert("#alert_placeholder-tab", 'success', "You will not be matched to part time jobs");   
+              }                         
+
+            } //success function
+          }); //ajax
+      }); //parttime function
+
+
+      $("#fulltimecheck").on('change', function(){
+          $.ajax({
+            url: '/updatefulltime',
+            type: 'POST',
+            data: {"fulltime": this.checked, "pk" : <%=@userprofile.id %>},
+
+            success: function(response){
+              var data = JSON.parse(response);
+              if (data.fulltime){
+                   newAlert("#alert_placeholder-tab", 'success', "You will be matched to full time jobs");   
+              } else {
+
+                    newAlert("#alert_placeholder-tab", 'success', "You will not be matched to full time jobs");     
+              }                                
+
+            } //success function
+          }); //ajax
+      }); //fulltime function
+
+      $("#shiftworkcheck").on('change', function(){
+          $.ajax({
+            url: '/updateshiftwork',
+            type: 'POST',
+            data: {"shiftwork": this.checked, "pk" : <%=@userprofile.id %>},
+
+            success: function(response){
+              var data = JSON.parse(response);
+              if (data.shiftwork){
+                   newAlert("#alert_placeholder-tab", 'success', "You will be matched to jobs requiring shift work");                                    
+              } else {
+                   newAlert("#alert_placeholder-tab", 'success', "You will not be matched to jobs requiring shift work");   
+              }
+            } //success function
+          }); //ajax
+      }); //shiftwork function
+
+      $("#outofhourscheck").on('change', function(){
+          $.ajax({
+            url: '/updateoutofhours',
+            type: 'POST',
+            data: {"outofhours": this.checked, "pk" : <%=@userprofile.id %>},
+
+            success: function(response){
+              var data = JSON.parse(response);
+              if (data.outofhours){
+                   newAlert("#alert_placeholder-tab", 'success', "You will be matched to jobs requiring you to work outside office hour"); 
+               } else {
+                   newAlert("#alert_placeholder-tab", 'success', "You will not be matched to jobs requiring you to work outside office hour");   
+               }                         
+
+            } //success function
+          }); //ajax
+      }); //shiftwork function
+
+
+      $("#id-date-picker-1").on('change', function(){
+          $.ajax({
+            url: '/updatedob',
+            type: 'POST',
+            data: {"dob": this.value, "pk" : <%=@userprofile.id %>}
+          
+          });
+       
+      });   
 </script>
