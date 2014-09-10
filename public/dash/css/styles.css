@@ -98,8 +98,7 @@ body {
 	font-size: 13px;
 	font-weight: 400;
 	color: #555;
-	/*height: 100%;*/
-	height:auto;
+	height: 100%;
 	width: 100%!important;
 	background-color: #33383d;
 	margin: 0;
@@ -2173,7 +2172,8 @@ a.list-group-item-warning:focus {
 	margin: 0 10px 0 0;
 	margin-left: 200px;
 	height: auto !important;
-	min-height: 1100px;
+	/*min-height: 1100px;*/
+	min-height:100%;
 	right: 0px;
 	background: #f0f0ed;
 	border-top-left-radius: 3px;
@@ -2183,7 +2183,7 @@ a.list-group-item-warning:focus {
 /*Your copyright*/
 
 .content-wrapper:after {
-	content: "ORB by DazeinCreative \00a9  2014";
+	content: "JORB by Job Alliances \00a9  2014";
 	color: #858689;
 	font-size: 11px;
 	position: absolute;
