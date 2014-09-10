@@ -386,7 +386,7 @@ else{e.value="no";location.reload();}
               } ;
 
 
-              
+
       $('#skilltable').editable({
         selector: 'a.skillrank',
         showbuttons: false
@@ -395,6 +395,30 @@ else{e.value="no";location.reload();}
       $('#skilltable').editable({
         selector: 'a.skills'
       });
+
+
+      $('#expectedsalary').editable();
+      $('#currentsalary').editable();
+
+
+      $('#expectedsalary').editable('option', 'validate', function(v) {
+          if(!v) return 'This is a required field!';
+      });
+
+      $('#currentsalary').editable('option', 'validate', function(v) {
+          if (!isInt(v)){
+            return "Invalid entry. Please re-enter";              
+          }
+      });
+
+      $('#expectedsalary').editable('option', 'validate', function(v) {
+          if (!isInt(v)){
+            return "Invalid entry. Please re-enter";              
+          }
+      });
+
+
+      
   });
   </script>
 

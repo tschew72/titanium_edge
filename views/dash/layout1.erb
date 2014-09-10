@@ -385,50 +385,10 @@
       });
      
 
-         
-      $('#languagetable').editable({
-        selector: 'a.languagename'
-      });
 
-      $('#languagetable').editable({
-        selector: 'a.spokenrank'
-      });
-
-      $('#languagetable').editable({
-        selector: 'a.writtenrank'
-      });
-
-
-      $('#skilltable').editable({
-        selector: 'a.skillrank',
-        showbuttons: false
-      });
-
-      $('#skilltable').editable({
-        selector: 'a.skills'
-      });
  
 
 
-      $('#expectedsalary').editable();
-      $('#currentsalary').editable();
-
-
-      $('#expectedsalary').editable('option', 'validate', function(v) {
-          if(!v) return 'This is a required field!';
-      });
-
-      $('#currentsalary').editable('option', 'validate', function(v) {
-          if (!isInt(v)){
-            return "Invalid entry. Please re-enter";              
-          }
-      });
-
-      $('#expectedsalary').editable('option', 'validate', function(v) {
-          if (!isInt(v)){
-            return "Invalid entry. Please re-enter";              
-          }
-      });
 
 
       function isInt(value) {
