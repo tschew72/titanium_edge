@@ -697,6 +697,22 @@ else{e.value="no";location.reload();}
       
 
 
+
+
+
+
+   });
+
+
+  </script>
+
+
+
+
+
+<script>
+
+
       $('#saveskill-btn').click(function() {
          $('.newskill').editable('submit', {
              url: '/newskill',
@@ -745,24 +761,11 @@ else{e.value="no";location.reload();}
           $('.newskill').editable('setValue', null)  //clear values
               .editable('option', 'pk', null)          //clear pk
               .removeClass('editable-unsaved');        //remove bold css
-         
-            
+
       });
 
 
 
-
-
-   });
-
-
-  </script>
-
-
-
-
-
-<script>
     $("#activecheck").on('change', function(){
       $.ajax({
         url: '/updateactive',
