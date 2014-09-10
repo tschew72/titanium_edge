@@ -518,35 +518,7 @@ else{e.value="no";location.reload();}
           $(this).prev().focus();
       });
 
-      function isInt(value) {
-        return !isNaN(value) && 
-               parseInt(Number(value)) == value && 
-               !isNaN(parseInt(value, 10));
-      }
-      function delskill(element,i){
 
-        $.ajax({
-                url: '/deleteskill',
-                type: 'POST',
-                data: {"pk" : i},
-                success: function(response){
-                   //$(element).parents('tr').remove();
-                
-                  //var row = $(this).closest('tr');
-                  var row=$(element).parents('tr')
-                  $('#skillsettingtable').dataTable().fnDeleteRow(row[0]);
-                  newAlert("#alert_placeholder-tab", 'success', "Skill deleted!");
-
-                }
-
-              });
-      }//function
-
-      function newAlert (loc, type, message) {
-          $(loc).append($("<div class='alert alert-block alert-" + type + " fade in' data-alert><p> " + message + " </p></div>"));
-          $(".alert").delay(2000).fadeOut("slow", function () { $(this).remove(); });
-      }      
- 
 
       $('[data-rel=tooltip]').tooltip();
       $('[data-rel=popover]').popover({html:true});
@@ -786,4 +758,33 @@ else{e.value="no";location.reload();}
             
       });
 
+      function isInt(value) {
+        return !isNaN(value) && 
+               parseInt(Number(value)) == value && 
+               !isNaN(parseInt(value, 10));
+      }
+      function delskill(element,i){
+
+        $.ajax({
+                url: '/deleteskill',
+                type: 'POST',
+                data: {"pk" : i},
+                success: function(response){
+                   //$(element).parents('tr').remove();
+                
+                  //var row = $(this).closest('tr');
+                  var row=$(element).parents('tr')
+                  $('#skillsettingtable').dataTable().fnDeleteRow(row[0]);
+                  newAlert("#alert_placeholder-tab", 'success', "Skill deleted!");
+
+                }
+
+              });
+      }//function
+
+      function newAlert (loc, type, message) {
+          $(loc).append($("<div class='alert alert-block alert-" + type + " fade in' data-alert><p> " + message + " </p></div>"));
+          $(".alert").delay(2000).fadeOut("slow", function () { $(this).remove(); });
+      }      
+ 
 </script>
