@@ -80,7 +80,7 @@
 
 
 /* Vendors */
-@import url("vendors1/datatables/datables.css");
+@import url("vendors/datatables/datables.css");
 @import url("vendors/steps/jquery.steps.css");
 @import url("vendors/sumernote/summernote.css");
 @import url("vendors/animate/animate.css");
