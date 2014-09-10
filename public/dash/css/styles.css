@@ -74,19 +74,19 @@
 
 /* Fonts */
 @import url(http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800);
-@import url("font-awesome.css");
-@import url("entypo.css");
+@import url("dash/css/font-awesome.css");
+@import url("dash/css/entypo.css");
 
 
 
 /* Vendors */
-@import url("vendors/datatables/datables.css");
-@import url("vendors/steps/jquery.steps.css");
-@import url("vendors/sumernote/summernote.css");
-@import url("vendors/animate/animate.css");
-@import url("bootstrap.min.css");
-@import url("vendors/fullcalendar/fullcalendar.css");
-@import url("vendors/demo-switcher/switcher.core.min.css");
+@import url("dash/css/vendors/datatables/datables.css");
+@import url("dash/css/vendors/steps/jquery.steps.css");
+@import url("dash/css/vendors/sumernote/summernote.css");
+@import url("dash/css/vendors/animate/animate.css");
+@import url("dash/css/bootstrap.min.css");
+@import url("dash/css/vendors/fullcalendar/fullcalendar.css");
+@import url("dash/css/vendors/demo-switcher/switcher.core.min.css");
 
 
 
