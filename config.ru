@@ -311,7 +311,8 @@ get '/settings' do
        end
 
        @sr = SkillRank.all  #Hardcode to HTML. Remove from Database.
-       erb :settings
+       #erb :settings
+       erb :"main/login/settings", :layout => :'main/layout1'
 end
 
 
