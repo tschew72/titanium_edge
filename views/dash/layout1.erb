@@ -136,6 +136,7 @@
 
 <!-- scroll top -->
 <div class="scroll-top-wrapper hidden-xs"> <i class="fa fa-angle-up"></i> </div>
+
 <!-- /scroll top --> 
 
 <!--Modals--> 
@@ -288,7 +289,18 @@
         icons.set(list[i], list[i]);
 
       icons.play();
-    </script> 
+
+
+    $('.smooth-overflow').on('scroll', function () {
+        if ($(this).scrollTop() > 100) {
+            $('.scroll-top-wrapper').addClass('show')
+        } else {
+            $('.scroll-top-wrapper').removeClass('show')
+        }
+    });
+    $('.scroll-top-wrapper').on('click', scrollToTop);
+
+</script> 
 
 
 
@@ -297,8 +309,6 @@
 
 
 
-
-<!--/Scripts-->
 <!-- <script src="/vendor/custom.js"></script> -->
 </body>
 
