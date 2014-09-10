@@ -384,6 +384,17 @@ else{e.value="no";location.reload();}
                 document.getElementById( 'spr_block' ).style.visibility = 'hidden';
                 document.getElementById( 'insg_block' ).style.visibility = 'hidden';
               } ;
+
+
+              
+      $('#skilltable').editable({
+        selector: 'a.skillrank',
+        showbuttons: false
+      });
+
+      $('#skilltable').editable({
+        selector: 'a.skills'
+      });
   });
   </script>
 
