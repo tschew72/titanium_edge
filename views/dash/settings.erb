@@ -74,7 +74,32 @@ else{e.value="no";location.reload();}
                   <div class="orb-form">
                     <div class="col col-4">
                       <label class="toggle"><input id="activecheck" name="activeseeker" type="checkbox" <%= @userprofile.activeseeker.to_s == "true" ? "checked" : "unchecked" %> ><i></i>I am active in looking for job</label>
+                      <script>
+                              $("#activecheck").on('change', function(){
+                                $.ajax({
+                                  url: '/updateactive',
+                                  type: 'POST',
+                                  data: {"activeseeker": this.checked, "pk" : <%=@userprofile.id %>},
 
+                                  success: function(response){
+                                    var data = JSON.parse(response);
+
+                                    if (data.active){
+                                       if (!data.singaporepr)
+                                        {document.getElementById( 'spr_block' ).style.visibility = 'visible';}
+                                       if (!data.singaporepr && data.insingaporenow){
+                                          document.getElementById( 'insg_block' ).style.visibility = 'visible';}
+                                     newAlert("#alert_placeholder-tab", 'success', "Thanks for informing us that you are actively seeker for job");                 
+                                    } else{
+                                       document.getElementById( 'spr_block' ).style.visibility = 'hidden';
+                                       document.getElementById( 'insg_block' ).style.visibility = 'hidden';
+                                       newAlert("#alert_placeholder-tab", 'success', "Thanks for informing us that you are not actively looking for job now.");
+                                       
+                                    }; //else
+                                  } //success function
+                                }); //ajax
+                            }); //activecheck function
+                      </script>
                     </div>
                     <!-- <label><input id="activecheck" name="activeseeker" class="ace ace-switch ace-switch-5 btn-rotate" type="checkbox" <%= @userprofile.activeseeker.to_s == "true" ? "checked" : "unchecked" %> /><span class="lbl"></span></label>         -->
                     <span class="tooltip-success" data-rel="tooltip" data-placement="right" title="If you do not wish to be matched for jobs during this period, please swtich it off"><i class="icon-info-sign"></i></span>

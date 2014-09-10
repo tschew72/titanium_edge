@@ -498,30 +498,30 @@
 
 
 
-      $("#activecheck").on('change', function(){
-          $.ajax({
-            url: '/updateactive',
-            type: 'POST',
-            data: {"activeseeker": this.checked, "pk" : <%=@userprofile.id %>},
+      // $("#activecheck").on('change', function(){
+      //     $.ajax({
+      //       url: '/updateactive',
+      //       type: 'POST',
+      //       data: {"activeseeker": this.checked, "pk" : <%=@userprofile.id %>},
 
-            success: function(response){
-              var data = JSON.parse(response);
+      //       success: function(response){
+      //         var data = JSON.parse(response);
 
-              if (data.active){
-                 if (!data.singaporepr)
-                  {document.getElementById( 'spr_block' ).style.visibility = 'visible';}
-                 if (!data.singaporepr && data.insingaporenow){
-                    document.getElementById( 'insg_block' ).style.visibility = 'visible';}
-               newAlert("#alert_placeholder-tab", 'success', "Thanks for informing us that you are actively seeker for job");                 
-              } else{
-                 document.getElementById( 'spr_block' ).style.visibility = 'hidden';
-                 document.getElementById( 'insg_block' ).style.visibility = 'hidden';
-                 newAlert("#alert_placeholder-tab", 'success', "Thanks for informing us that you are not actively looking for job now.");
+      //         if (data.active){
+      //            if (!data.singaporepr)
+      //             {document.getElementById( 'spr_block' ).style.visibility = 'visible';}
+      //            if (!data.singaporepr && data.insingaporenow){
+      //               document.getElementById( 'insg_block' ).style.visibility = 'visible';}
+      //          newAlert("#alert_placeholder-tab", 'success', "Thanks for informing us that you are actively seeker for job");                 
+      //         } else{
+      //            document.getElementById( 'spr_block' ).style.visibility = 'hidden';
+      //            document.getElementById( 'insg_block' ).style.visibility = 'hidden';
+      //            newAlert("#alert_placeholder-tab", 'success', "Thanks for informing us that you are not actively looking for job now.");
                  
-              }; //else
-            } //success function
-          }); //ajax
-      }); //activecheck function
+      //         }; //else
+      //       } //success function
+      //     }); //ajax
+      // }); //activecheck function
 
       $("#insgcheck").on('change', function(){
           $.ajax({
