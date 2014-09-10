@@ -1,5 +1,12 @@
 <!-- force reload of the page when someone return back to this page from another page -->
-
+<input type="hidden" id="refreshed" value="no">
+<script type="text/javascript">
+onload=function(){
+var e=document.getElementById("refreshed");
+if(e.value=="no")e.value="yes";
+else{e.value="no";location.reload();}
+}
+</script>
 
 
 <!--Content Wrapper-->
@@ -59,8 +66,13 @@
         </ul>
       </div>
       <!--/Breadcrumb--> 
+    <div class="page-header">
+      <h1>Forms<small>Elements</small></h1>
+    </div>
 
-    <div class="col-xs-12 col-md-10 col-lg-10">
+  
+  
+    <div class="col-md-12 bootstrap-grid">
        <h3 class="header smaller lighter blue">User Preferences</h3>
        <div id="alert_placeholder-tab"> </div>
        <br>
