@@ -73,7 +73,7 @@ else{e.value="no";location.reload();}
               <div class="col-sm-12">
                   <div class="form-group">
                     I am active in looking for job 
-                    <label class="toggle state-success"><input id="activecheck" name="activeseeker" type="checkbox" name="checkbox-toggle" <%= @userprofile.activeseeker.to_s == "true" ? "checked" : "unchecked" %> ><i></i></label>
+                    <label class="toggle state-success"><input id="activecheck" name="activeseeker" type="checkbox" <%= @userprofile.activeseeker.to_s == "true" ? "checked" : "unchecked" %> ><i></i></label>
                     <%= @userprofile.activeseeker.to_s == "true" ? "checked" : "unchecked" %> >
                     <!-- <label><input id="activecheck" name="activeseeker" class="ace ace-switch ace-switch-5 btn-rotate" type="checkbox" <%= @userprofile.activeseeker.to_s == "true" ? "checked" : "unchecked" %> /><span class="lbl"></span></label>         -->
                     <span class="tooltip-success" data-rel="tooltip" data-placement="right" title="If you do not wish to be matched for jobs during this period, please swtich it off"><i class="icon-info-sign"></i></span>
@@ -83,7 +83,7 @@ else{e.value="no";location.reload();}
             <div class="row" id="spr_block" style="visibility: hidden">  
               <div class="col-sm-12">
                 <div class="form-group">
-                      I am in Singapore <label class="toggle state-success"><input id="insgcheck" name="insingaporenow" type="checkbox" name="checkbox-toggle" <%= @userprofile.insingaporenow.to_s == "true" ? "checked" : "unchecked" %>><i></i></label>
+                      I am in Singapore <label class="toggle state-success"><input id="insgcheck" name="insingaporenow" type="checkbox" <%= @userprofile.insingaporenow.to_s == "true" ? "checked" : "unchecked" %>><i></i></label>
 
 
                       <!-- <label><input id="insgcheck" name="insingaporenow" class="ace ace-switch ace-switch-5 btn-rotate" type="checkbox" <%= @userprofile.insingaporenow.to_s == "true" ? "checked" : "unchecked" %> /><span class="lbl"></span></label> -->
