@@ -563,6 +563,59 @@ else{e.value="no";location.reload();}
         });
 
   });
+
+
+      $('#saveskill-btn').click(function() {
+         $('.newskill').editable('submit', {
+             url: '/newskill',
+             ajaxOptions: {
+                 dataType: 'json' //assuming json response
+             },         
+             success: function(data, config) {
+               
+                  if(data && data.errors){
+                       //server-side validation error, response like {"errors": {"username": "username already exist"} }
+                       config.error.call(this, data.errors);
+
+                 }   else{
+
+                      newAlert("#alert_placeholder-inmodal",'success', 'New Skill added!');
+
+                      $('.newskill').editable('setValue', null);  //clear values
+                      $('#skillname').editable('option', 'disabled', true);
+                      $('#skillrank').editable('option', 'disabled', true);
+                      $("#st").load("/table");   
+                 }     
+             },
+             error: function(errors) {
+                 var msg = '';
+                 if(errors && errors.responseText) { //ajax error, errors = xhr object
+                     msg = errors.responseText;
+                     //We do not have any response text from backend at the moment
+                 } else { //validation error (client-side or server-side)
+                     $.each(errors, function(k, v) {
+                      if (k=="skillcatid") {k = "Skill Category"};
+                      if (k=="skillid") {k = "Skill name"};
+                      if (k=="skillrank") {k = "Skill rank"};       
+                      msg += k+": "+v+"<br>";
+                    });
+                     newAlert("#alert_placeholder-inmodal",'danger', msg);
+                    
+                 }
+                
+             }
+         });
+      });
+
+
+
+      $('#closeskill-btn').click(function() {
+          $('.newskill').editable('setValue', null)  //clear values
+              .editable('option', 'pk', null)          //clear pk
+              .removeClass('editable-unsaved');        //remove bold css
+         
+            
+      });
   </script>
 
 <script>
@@ -706,57 +759,7 @@ else{e.value="no";location.reload();}
           }, 200);
       });   
 
-      $('#saveskill-btn').click(function() {
-         $('.newskill').editable('submit', {
-             url: '/newskill',
-             ajaxOptions: {
-                 dataType: 'json' //assuming json response
-             },         
-             success: function(data, config) {
-               
-                  if(data && data.errors){
-                       //server-side validation error, response like {"errors": {"username": "username already exist"} }
-                       config.error.call(this, data.errors);
 
-                 }   else{
-
-                      newAlert("#alert_placeholder-inmodal",'success', 'New Skill added!');
-
-                      $('.newskill').editable('setValue', null);  //clear values
-                      $('#skillname').editable('option', 'disabled', true);
-                      $('#skillrank').editable('option', 'disabled', true);
-                      $("#st").load("/table");   
-                 }     
-             },
-             error: function(errors) {
-                 var msg = '';
-                 if(errors && errors.responseText) { //ajax error, errors = xhr object
-                     msg = errors.responseText;
-                     //We do not have any response text from backend at the moment
-                 } else { //validation error (client-side or server-side)
-                     $.each(errors, function(k, v) {
-                      if (k=="skillcatid") {k = "Skill Category"};
-                      if (k=="skillid") {k = "Skill name"};
-                      if (k=="skillrank") {k = "Skill rank"};       
-                      msg += k+": "+v+"<br>";
-                    });
-                     newAlert("#alert_placeholder-inmodal",'danger', msg);
-                    
-                 }
-                
-             }
-         });
-      });
-
-
-
-      $('#closeskill-btn').click(function() {
-          $('.newskill').editable('setValue', null)  //clear values
-              .editable('option', 'pk', null)          //clear pk
-              .removeClass('editable-unsaved');        //remove bold css
-         
-            
-      });
 
       function isInt(value) {
         return !isNaN(value) && 
