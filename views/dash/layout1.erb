@@ -3,9 +3,7 @@
 
 
 <head>
- <script>
-  window.onload = function() {setTimeout(function(){document.body.style.opacity="100";},500);};
- </script>
+
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
 <meta name="keywords" content="admin template, admin dashboard, inbox templte, calendar template, form validation">
 <meta name="author" content="DazeinCreative">
@@ -41,6 +39,7 @@ $(window).load(function(){
 
     $('#preloader').fadeOut(100, function() {
                $('body').css('overflow','auto');
+               document.body.style.opacity="100";
                $(this).remove();
     });
 });
