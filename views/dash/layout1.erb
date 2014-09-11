@@ -2,8 +2,10 @@
 
 
 
-<meta http-equiv="content-type" content="text/html;charset=utf-8" />
 <head>
+ <script>
+  window.onload = function() {setTimeout(function(){document.body.style.opacity="100";},500);};
+ </script>
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
 <meta name="keywords" content="admin template, admin dashboard, inbox templte, calendar template, form validation">
 <meta name="author" content="DazeinCreative">
@@ -35,7 +37,7 @@
 <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.0/jquery-ui.min.js"></script>
 <script>
-$(window).onload(function(){
+$(window).load(function(){
 
     $('#preloader').fadeOut(100, function() {
                $('body').css('overflow','auto');
@@ -48,6 +50,7 @@ $(window).onload(function(){
 </head>
 
 <body>
+<style> body  {opacity:0;}</style>
 <div id="preloader">
 <div id="spinner_container">
 <img id="spinner" src="http://www.coderanch.com/t/471666/a/632/busy.gif" alt="" />
