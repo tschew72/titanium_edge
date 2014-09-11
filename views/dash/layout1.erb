@@ -35,8 +35,8 @@
 <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.0/jquery-ui.min.js"></script>
 <script>
-$(window).load(function(){
 
+ $(document).ready(function(){
     $('#preloader').fadeOut(100, function() {
                $('body').css('overflow','auto');
                $(this).remove();
@@ -143,7 +143,7 @@ $(window).load(function(){
 
     <!--/MainMenu  TSCHEW-->
 
-    
+
     <!--Main App--> 
 <script type="text/javascript" src="/dash/js/scripts.js"></script>
           <%= yield %> 
