@@ -34,6 +34,16 @@
 <script type="text/javascript" src="/dash/js/vendors/jquery/jquery-ui.min.js"></script>  -->
 <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.0/jquery-ui.min.js"></script>
+<script>
+$(window).load(function(){
+
+    $('#preloader').fadeOut(100, function() {
+               $('body').css('overflow','auto');
+               $(this).remove();
+    });
+});
+</script>
+
 
 </head>
 
@@ -327,16 +337,6 @@
 
 
 </script> 
-<script>
-$(window).load(function(){
-
-    $('#preloader').fadeOut(100, function() {
-               $('body').css('overflow','auto');
-               $(this).remove();
-    });
-});
-</script>
-
 
 
 <!--Switcher-->
