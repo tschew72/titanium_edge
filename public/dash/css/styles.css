@@ -9223,7 +9223,7 @@ width:100%;
 height:100%;
 background:white;
 opacity:1;
-z-index:2;
+z-index:9999;
 }
 #spinner_container {
 position:absolute;
