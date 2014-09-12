@@ -9227,8 +9227,10 @@ z-index:2;
 }
 #spinner_container {
 position:absolute;
-width:100%;
-top: 50%;
+/*width:100%;
+top: 50%;*/
+top:0;
+left:0;
 left:0px;
 height:1px;
 overflow:visible;
