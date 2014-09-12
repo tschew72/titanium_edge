@@ -206,40 +206,53 @@
 
 $(document).ready(function(){
 
-    var nation=document.getElementById( 'nationality' ).textContent;
-              if (nation.indexOf("Singapore") > -1){
-                document.getElementById( 'spr_block' ).style.visibility = 'hidden'; 
-              
-              } else
-              {
-                document.getElementById( 'spr_block' ).style.visibility = 'visible'; 
-                
-              }; 
+  $.fn.editable.defaults.mode = 'popup';  
+  $('#firstname').editable();
+  $('#lastname').editable();
+  $('#age').editable();
+  $('#gender').editable({   
+    source: [
+      {value: "M", text: 'Male'},
+      {value: "F", text: 'Female'},
+    ]
+  });
+  $('#contactnumber').editable();
+  $('#address').editable();
+  $('#email').editable();
 
-       $('.date-picker').datepicker({autoclose:true}).next().on(ace.click_event, function(){
-          $(this).prev().focus();
-      });
-       
-      $('#nationality').editable({
-        
-           source: function() {
-                return (<%= @countries %>)
-              },
-           success: function(response, newValue) {
-              
-              if (newValue != 156){
-                 document.getElementById( 'spr_block' ).style.visibility = 'visible'; 
-              };
 
-              if (newValue == 156){
-                document.getElementById( 'spr_block' ).style.visibility = 'hidden'; 
-              } ;
-            } //success
 
-      });
+  var nation=document.getElementById( 'nationality' ).textContent;
+  if (nation.indexOf("Singapore") > -1){
+    document.getElementById( 'spr_block' ).style.visibility = 'hidden'; 
+  } else
+  {
+    document.getElementById( 'spr_block' ).style.visibility = 'visible'; 
+  }; 
+
+  $('.date-picker').datepicker({autoclose:true}).next().on(ace.click_event, function(){
+    $(this).prev().focus();
+  });
+         
+  $('#nationality').editable({
+       source: function() {
+            return (<%= @countries %>)
+          },
+       success: function(response, newValue) {
+          
+          if (newValue != 156){
+             document.getElementById( 'spr_block' ).style.visibility = 'visible'; 
+          };
+
+          if (newValue == 156){
+            document.getElementById( 'spr_block' ).style.visibility = 'hidden'; 
+          } ;
+        } //success
+
+  });
 
  
- });
+});
 
 </script>
 <script>
