@@ -28,7 +28,7 @@
 <!-- <link id="demo-styles" href='/dash/css/styles-defaults.css' rel="stylesheet" type="text/css"> -->
 <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
 <script type="text/javascript" src='/dash/js/vendors/modernizr/modernizr.custom.js'></script>
-
+<link rel="stylesheet" href="http://css-spinners.com/css/spinner/dots.css" type="text/css">
 <!--JQuery--> 
 <!-- <script type="text/javascript" src="/dash/js/vendors/jquery/jquery.min.js"></script> 
 <script type="text/javascript" src="/dash/js/vendors/jquery/jquery-ui.min.js"></script>  -->
@@ -39,7 +39,7 @@ $(window).load(function(){
 
     $('#preloader').fadeOut(100, function() {
                $('body').css('overflow','auto');
-               // document.body.style.opacity="100";
+
                $(this).remove();
     });
 });
@@ -49,10 +49,11 @@ $(window).load(function(){
 </head>
 
 <body>
-<!-- <style> body  {opacity:0;}</style> -->
 <div id="preloader">
 <div id="spinner_container">
-<img id="spinner" src="http://www.coderanch.com/t/471666/a/632/busy.gif" alt="" />
+<div class="dots">
+    Loading...
+</div>
 </div>
 </div>
 
