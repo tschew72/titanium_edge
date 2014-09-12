@@ -238,6 +238,11 @@ $(document).ready(function(){
 
       });
 
+ 
+ });
+
+</script>
+<script>
       $("#sprcheck").on('change', function(){
           $.ajax({
             url: '/updatespr',
@@ -253,9 +258,6 @@ $(document).ready(function(){
             data: {"dob": this.value, "pk" : <%=@userprofile.id %>}
             
           });
-      });    
- });
-
+      });   
 </script>
-
 
