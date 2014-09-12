@@ -96,27 +96,29 @@ else{e.value="no";location.reload();}
                   </div>
             </div>
             <div id="spr_block" style="visibility: hidden">  
-              <fieldset>
-                <div class="orb-form">
-                  <div class="row">  
-                    <div class="col col-3">
-                      <label class="toggle"><input id="insgcheck" name="insingaporenow" type="checkbox" <%= @userprofile.insingaporenow.to_s == "true" ? "checked" : "unchecked" %>><i></i>I am in Singapore</label>
+              <form class="form-horizontal">
+                <fieldset>
+                  <div class="orb-form">
+                    <div class="row">  
+                      <div class="col col-3">
+                        <label class="toggle"><input id="insgcheck" name="insingaporenow" type="checkbox" <%= @userprofile.insingaporenow.to_s == "true" ? "checked" : "unchecked" %>><i></i>I am in Singapore</label>
+                      </div>
                     </div>
-                  </div>
-                  <div class="row">  
-                    <div class="col col-3">
-                      <div id="insg_block" style="visibility: hidden">
-                        <div class="form-group">
-                          <label class="col-md-4 control-label">on these dates</label> 
-                          <div class="col-md-8"> 
-                            <input readonly="true" type="text" style="width: 200px;" name="date-range-picker" id="id-date-range-picker-1"  class="form-control rdonly input-md" value="<%=@userprofile.insg_start.strftime("%d/%m/%Y") %> - <%=@userprofile.insg_end.strftime("%d/%m/%Y") %> " >
+                    <div class="row">  
+                      <div class="col col-3">
+                        <div id="insg_block" style="visibility: hidden">
+                          <div class="form-group">
+                            <label class="col-md-4 control-label">on these dates</label> 
+                            <div class="col-md-8"> 
+                              <input readonly="true" type="text" style="width: 200px;" name="date-range-picker" id="id-date-range-picker-1"  class="form-control input-md" value="<%=@userprofile.insg_start.strftime("%d/%m/%Y") %> - <%=@userprofile.insg_end.strftime("%d/%m/%Y") %> " >
+                            </div>
                           </div>
-                        </div>
-                      </div> 
+                        </div> 
+                      </div>
                     </div>
-                  </div>
-                </div>   <!-- orb-form--> 
-              </fieldset>
+                  </div>   <!-- orb-form--> 
+                </fieldset>
+              </form>
             </div> <!-- <div id="spr_block" style="visibility: hidden">   -->
           </div> <!-- tab -->
         <div id="t3" class="tab-pane">    
