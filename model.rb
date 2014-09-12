@@ -256,6 +256,15 @@ class PreferredLocation
 
 belongs_to :user
 end
+
+class SkrscoreCerts
+  include DataMapper::Resource
+
+  property :id, Serial , key: true, :index => true
+  property :certcount, Integer
+
+end
+
 ########### END Generated from HSQL ##################
 
 # Tell DataMapper the models are done being defined
