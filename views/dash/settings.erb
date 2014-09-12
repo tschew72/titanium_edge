@@ -104,6 +104,7 @@ else{e.value="no";location.reload();}
                         <label class="toggle"><input id="insgcheck" name="insingaporenow" type="checkbox" <%= @userprofile.insingaporenow.to_s == "true" ? "checked" : "unchecked" %>><i></i>I am in Singapore</label>
                       </div>
                     </div>
+                </div>   <!-- orb-form--> 
                     <div class="row">  
                       <div class="col col-3">
                         <div id="insg_block" style="visibility: hidden">
@@ -111,13 +112,12 @@ else{e.value="no";location.reload();}
                             <label class="col-md-4 control-label">on these dates</label> 
                             <div class="col-md-8"> 
                               <input type="text" name="date-range-picker" id="id-date-range-picker-1"  class="form-control input-md" value="<%=@userprofile.insg_start.strftime("%d/%m/%Y") %> - <%=@userprofile.insg_end.strftime("%d/%m/%Y") %> " >
-                              <input id="textinput" name="textinput" placeholder="placeholder" class="form-control input-md" type="text">
                             </div>
                           </div>
                         </div> 
                       </div>
                     </div>
-                  </div>   <!-- orb-form--> 
+
                 </fieldset>
               </form>
             </div> <!-- <div id="spr_block" style="visibility: hidden">   -->
