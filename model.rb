@@ -257,13 +257,13 @@ class PreferredLocation
 belongs_to :user
 end
 
-class SkrscoreCerts
-  include DataMapper::Resource
+# class SkrscoreCerts
+#   include DataMapper::Resource
 
-  property :id, Integer , key: true, :index => true
-  property :certcount, Integer
+#   property :id, Integer , key: true, :index => true
+#   property :certcount, Integer
 
-end
+# end
 
 ########### END Generated from HSQL ##################
 
