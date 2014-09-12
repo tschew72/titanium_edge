@@ -88,28 +88,26 @@ else{e.value="no";location.reload();}
        <div class="tab-content">
           <div id="t1" class="tab-pane in active">
             <div class="row">  
-              <div class="col-sm-12">
                   <div class="orb-form">
                     <div class="col col-4">
                       <label class="toggle"><input id="activecheck" name="activeseeker" type="checkbox" <%= @userprofile.activeseeker.to_s == "true" ? "checked" : "unchecked" %> ><i></i>I am active in looking for job</label>
                     </div>
                     <span class="tooltip-success" data-rel="tooltip" data-placement="right" title="If you do not wish to be matched for jobs during this period, please swtich it off"><i class="icon-info-sign"></i></span>
                   </div>
-              </div>
             </div>
             <div class="row" id="spr_block" style="visibility: hidden">  
                 <div class="orb-form">
                   <div class="col col-4">
-                      <label class="toggle"><input id="insgcheck" name="insingaporenow" type="checkbox" <%= @userprofile.insingaporenow.to_s == "true" ? "checked" : "unchecked" %>><i></i>I am in Singapore</label>
+                      <label class="toggle"><input id="insgcheck" name="insingaporenow" type="checkbox" <%= @userprofile.insingaporenow.to_s == "true" ? "checked" : "unchecked" %>><i></i>I am in Singapore</label> on these dates
                   </div>
                   <div class="col col-8">
                       <span id="insg_block" style="visibility: hidden">  
-                          on these dates <label><input readonly="true" type="text" style="width: 200px;" name="date-range-picker" id="id-date-range-picker-1"  class="form-control rdonly" value="<%=@userprofile.insg_start.strftime("%d/%m/%Y") %> - <%=@userprofile.insg_end.strftime("%d/%m/%Y") %> "  class="span4"></input></label> <span class="tooltip-success" data-rel="tooltip" data-placement="right" title="Higher priorty will be given to job seekers who are currently in Singapore. Employers prefer candidates to be available for interviews. However, for certain jobs, this may not impact your chances as phone interviews are also common place these days. You will also be informed by us if there are any suitable courses, seminars or special events that you should attend to increase your career score"><i class="icon-info-sign"></i></span>
+                           <label><input readonly="true" type="text" style="width: 200px;" name="date-range-picker" id="id-date-range-picker-1"  class="form-control rdonly" value="<%=@userprofile.insg_start.strftime("%d/%m/%Y") %> - <%=@userprofile.insg_end.strftime("%d/%m/%Y") %> "  class="span4"></input></label>
                       </span> 
                   </div>
                 
                 </div>   <!-- orb-form--> 
-            </div>
+            </div> <!-- row -->
           </div> <!-- tab -->
         <div id="t3" class="tab-pane">    
           <div class="row"> 
