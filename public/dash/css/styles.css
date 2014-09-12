@@ -9236,8 +9236,8 @@ opacity: 1;
 background: transparent;
 }
 #spinner {
-width: 31px;
-height:31px;
+/*width: 31px;*/
+/*height:31px;*/
 margin-left:-15px;
 position:absolute;
 top:-15px;
