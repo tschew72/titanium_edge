@@ -88,14 +88,15 @@ else{e.value="no";location.reload();}
        <div class="tab-content">
           <div id="t1" class="tab-pane in active">
             <div class="row">  
-              <div class="orb-form">
-
+              
+                <div class="form-group">
                   <div class="col-md-2">I am active in looking for job </div>
                   <div class="col-md-2">
-                    <label class="toggle"><input id="activecheck" name="activeseeker" type="checkbox" <%= @userprofile.activeseeker.to_s == "true" ? "checked" : "unchecked" %> ><i></i></label>
+                    <div class="orb-form">
+                      <label class="toggle"><input id="activecheck" name="activeseeker" type="checkbox" <%= @userprofile.activeseeker.to_s == "true" ? "checked" : "unchecked" %> ><i></i></label>
+                    </div>
                   </div>
-
-              </div>
+                </div>
             </div>
             <div id="spr_block" style="visibility: hidden">  
                 <fieldset>
