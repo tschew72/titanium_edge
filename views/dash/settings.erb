@@ -97,15 +97,7 @@ else{e.value="no";location.reload();}
             </div>
             <div class="row" id="spr_block" style="visibility: hidden">  
                 <div class="orb-form">
-                  <div class="col col-4">
-                      <label class="toggle"><input id="insgcheck" name="insingaporenow" type="checkbox" <%= @userprofile.insingaporenow.to_s == "true" ? "checked" : "unchecked" %>><i></i>I am in Singapore</label> on these dates
-                  </div>
-                  <div class="col col-8">
-                      <span id="insg_block" style="visibility: hidden">  
-                           <label><input readonly="true" type="text" style="width: 200px;" name="date-range-picker" id="id-date-range-picker-1"  class="form-control rdonly" value="<%=@userprofile.insg_start.strftime("%d/%m/%Y") %> - <%=@userprofile.insg_end.strftime("%d/%m/%Y") %> "  class="span4"></input></label>
-                      </span> 
-                  </div>
-                
+                  <label class="toggle"><input id="insgcheck" name="insingaporenow" type="checkbox" <%= @userprofile.insingaporenow.to_s == "true" ? "checked" : "unchecked" %>><i></i>I am in Singapore</label> on these dates <span id="insg_block" style="visibility: hidden"> <label> <input readonly="true" type="text" style="width: 200px;" name="date-range-picker" id="id-date-range-picker-1"  class="form-control rdonly" value="<%=@userprofile.insg_start.strftime("%d/%m/%Y") %> - <%=@userprofile.insg_end.strftime("%d/%m/%Y") %> "  class="span4"></input></label></span> 
                 </div>   <!-- orb-form--> 
             </div> <!-- row -->
           </div> <!-- tab -->
