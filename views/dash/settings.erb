@@ -89,8 +89,8 @@ else{e.value="no";location.reload();}
           <div id="t1" class="tab-pane in active">
             <div class="row">  
                   <div class="orb-form">
-                    <div class="col col-3">
-                      <div class="form-group">
+                    <div class="form-group">
+                      <div class="col col-3">
                       <label class="toggle"><input id="activecheck" name="activeseeker" type="checkbox" <%= @userprofile.activeseeker.to_s == "true" ? "checked" : "unchecked" %> ><i></i>I am active in looking for job</label>
                       </div>
                     </div>
@@ -101,8 +101,10 @@ else{e.value="no";location.reload();}
                 <fieldset>
                   <div class="orb-form">
                     <div class="row">  
-                      <div class="col col-3">
-                        <label class="toggle"><input id="insgcheck" name="insingaporenow" type="checkbox" <%= @userprofile.insingaporenow.to_s == "true" ? "checked" : "unchecked" %>><i></i>I am in Singapore</label>
+                      <div class="form-group">
+                        <div class="col col-3">
+                          <label class="toggle"><input id="insgcheck" name="insingaporenow" type="checkbox" <%= @userprofile.insingaporenow.to_s == "true" ? "checked" : "unchecked" %>><i></i>I am in Singapore</label>
+                        </div>
                       </div>
                     </div>
                   </div>   <!-- orb-form--> 
