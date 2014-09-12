@@ -111,7 +111,10 @@ else{e.value="no";location.reload();}
                   <div id="insg_block" style="visibility: hidden">
                     <div class="form-group">
                       <div class="col col-2"> 
-                        <label> on these dates </label><input type="text" name="date-range-picker" id="id-date-range-picker-1"  class="form-control input-md" value="<%=@userprofile.insg_start.strftime("%d/%m/%Y") %> - <%=@userprofile.insg_end.strftime("%d/%m/%Y") %> "> 
+                        on these dates 
+                      </div>
+                      <div class="col col-4">
+                        <input type="text" name="date-range-picker" id="id-date-range-picker-1"  class="form-control input-md" value="<%=@userprofile.insg_start.strftime("%d/%m/%Y") %> - <%=@userprofile.insg_end.strftime("%d/%m/%Y") %> "> 
                       </div>
                     </div>
                   </div> 
