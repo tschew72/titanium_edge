@@ -73,7 +73,8 @@ else{e.value="no";location.reload();}
   
   
     <div class="col-md-12 bootstrap-grid">
-      <div id="alert_placeholder-tab"> </div>  <!-- for showing the alerts -->
+      <!-- <div id="alert_placeholder-tab"> </div> -->  <!-- for showing the alerts -->
+      <div id="saving"> </div>
       <ul class="nav nav-tabs">
         <li class="active"><a data-toggle="tab" href="#t1"><i class="green icon-home bigger-110"></i>Home</a></li>     
         <li><a data-toggle="tab" href="#t3">Preferred Jobs</a></li>
@@ -91,7 +92,7 @@ else{e.value="no";location.reload();}
               <div class="orb-form">
                 <div class="form-group">
                   <div class="col col-2">
-                      <label class="toggle" ><input id="activecheck" name="activeseeker" type="checkbox" <%= @userprofile.activeseeker.to_s == "true" ? "checked" : "unchecked" %> ><i></i>Activate Job Search</label> <div id="saving"> </div>
+                      <label class="toggle" ><input id="activecheck" name="activeseeker" type="checkbox" <%= @userprofile.activeseeker.to_s == "true" ? "checked" : "unchecked" %> ><i></i>Activate Job Search</label> 
                   </div>
                 </div>
               </div>
