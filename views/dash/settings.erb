@@ -91,7 +91,7 @@ else{e.value="no";location.reload();}
               <div class="orb-form">
                 <div class="form-group">
                   <div class="col col-2">
-                    <label class="toggle"><input id="activecheck" name="activeseeker" type="checkbox" <%= @userprofile.activeseeker.to_s == "true" ? "checked" : "unchecked" %> ><i></i>Activate Job Search</label>
+                    <label class="toggle" id="t01"><input id="activecheck" name="activeseeker" type="checkbox" <%= @userprofile.activeseeker.to_s == "true" ? "checked" : "unchecked" %> ><i></i>Activate Job Search</label>
                   </div>
                 </div>
               </div>
@@ -879,4 +879,15 @@ else{e.value="no";location.reload();}
           $(".alert").delay(2000).fadeOut("slow", function () { $(this).remove(); });
       }      
  
+</script>
+<script>
+$(document).ready(function(){
+  $("#t01").ajaxStart(function(){
+      $("body").append("<div id='preloader'><div id='spinner_container'><div id='spinner' class='dots'>Loading...</div></div></div>");
+  });
+  $("#t01").ajaxStop(function(){
+                $('body').css('overflow','auto');
+                 $(this).remove();
+  });
+});
 </script>
