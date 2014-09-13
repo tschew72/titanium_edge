@@ -374,15 +374,14 @@ $(window).load(function(){
 
 </script> 
 <script>
-$(document).ajaxSend(function(e, jqXHR){
+$(document).ajaxStart(function(e, jqXHR){
  
 
  $("body").append("<div id='preloader'><div id='spinner_container'><div id='spinner' class='dots'>Loading...</div></div></div>");
 
 });
-$(document).ajaxComplete(function(e, jqXHR){
-                 $('body').css('overflow','auto');
-
+$(document).ajaxStop(function(e, jqXHR){
+              $('body').css('overflow','auto');
                $(this).remove();
 });
 
