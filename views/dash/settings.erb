@@ -889,7 +889,11 @@ else{e.value="no";location.reload();}
       $("body").append("<div id='preloader'><div id='spinner_container'><div id='spinner' class='dots'>Loading...</div></div></div>");
   })
   .ajaxStop(function(){
-                $('body').css('overflow','auto');
-                 $(this).remove();
+                
+    $('#preloader').fadeOut(100, function() {
+               $('body').css('overflow','auto');
+
+               $(this).remove();
+    });
   });
 </script>
