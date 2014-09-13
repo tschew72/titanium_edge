@@ -881,7 +881,7 @@ else{e.value="no";location.reload();}
  
 </script>
 <script>
-$(document).ready(function(){
+
   $("#t01").ajaxStart(function(){
       $("body").append("<div id='preloader'><div id='spinner_container'><div id='spinner' class='dots'>Loading...</div></div></div>");
   });
@@ -889,5 +889,4 @@ $(document).ready(function(){
                 $('body').css('overflow','auto');
                  $(this).remove();
   });
-});
 </script>
