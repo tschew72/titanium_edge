@@ -91,9 +91,7 @@ else{e.value="no";location.reload();}
               <div class="orb-form">
                 <div class="form-group">
                   <div class="col col-2">
-                    <div id="t01">
-                      <label class="toggle" ><input id="activecheck" name="activeseeker" type="checkbox" <%= @userprofile.activeseeker.to_s == "true" ? "checked" : "unchecked" %> ><i></i>Activate Job Search</label>
-                    </div>
+                      <label class="toggle" ><input id="activecheck" name="activeseeker" type="checkbox" <%= @userprofile.activeseeker.to_s == "true" ? "checked" : "unchecked" %> ><i></i>Activate Job Search</label> <div id="saving"> </div>
                   </div>
                 </div>
               </div>
@@ -885,15 +883,26 @@ else{e.value="no";location.reload();}
 <script>
 
   $(document)
-  .ajaxStart(function(){
-      $("body").append("<div id='preloader'><div id='spinner_container'><div id='spinner' class='dots'>Loading...</div></div></div>");
+  .ajaxStart(function(){  
+  //setup a new preloader with transparent background. only the spinner shows up. Or we can have a separate div besides each button and hide and show the spinner.
+  //http://stackoverflow.com/questions/1191485/how-to-call-ajaxstart-on-specific-ajax-calls
+  //http://stackoverflow.com/questions/22348498/how-to-have-specific-events-fire-if-you-can-only-bind-ajaxstart-to-document?lq=1
+      //$("body").append("<div id='preloader'><div id='spinner_container'><div id='spinner' class='dots'>Loading...</div></div></div>");
+      //$("#contact_response").html("Sending...");  
+      $("#saving").html("Saving...");
   })
   .ajaxStop(function(){
                 
-    $('#preloader').fadeOut(100, function() {
-               $('body').css('overflow','auto');
+   // $('#preloader').fadeOut(100, function() {
+    //           $('body').css('overflow','auto');
 
-               $(this).remove();
+    //           $(this).remove();
+    //});
+    $("#saving").html("Saved...");
+    $('#saving').fadeOut(100, function() {
+      $(this).remove();
     });
+
+
   });
 </script>
