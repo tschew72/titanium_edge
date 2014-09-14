@@ -715,7 +715,9 @@ else{e.value="no";location.reload();}
         url: '/updateactive',
         type: 'POST',
         data: {"activeseeker": this.checked, "pk" : <%=@userprofile.id %>},
-
+        beforeSend : function(){
+          $("#saving").html("<div id='saver'>Saving...</div>");
+        },  
         success: function(response){
           var data = JSON.parse(response);
 
@@ -724,13 +726,17 @@ else{e.value="no";location.reload();}
               {document.getElementById( 'spr_block' ).style.visibility = 'visible';}
              if (!data.singaporepr && data.insingaporenow){
                 document.getElementById( 'insg_block' ).style.visibility = 'visible';}
-           newAlert("#alert_placeholder-tab", 'success', "Thanks for informing us that you are actively seeker for job");                 
+           // newAlert("#alert_placeholder-tab", 'success', "Thanks for informing us that you are actively seeker for job");                 
           } else{
              document.getElementById( 'spr_block' ).style.visibility = 'hidden';
              document.getElementById( 'insg_block' ).style.visibility = 'hidden';
-             newAlert("#alert_placeholder-tab", 'success', "Thanks for informing us that you are not actively looking for job now.");
+             // newAlert("#alert_placeholder-tab", 'success', "Thanks for informing us that you are not actively looking for job now.");
              
           }; //else
+          $("#saving").html("<div id='saver'>Saved...</div>");
+          $('#saver').fadeOut(100, function() {
+          $(this).remove();
+         });
         } //success function
       }); //ajax
   }); //activecheck function
@@ -755,6 +761,7 @@ else{e.value="no";location.reload();}
              newAlert("#alert_placeholder-tab", 'success', "Look forward to see you in Singapore soon!");
                            
           }; //else
+              $("#saving").html("<div id='saver'>Saved...</div>");
               $('#saver').fadeOut(100, function() {
                $(this).remove();
              });
