@@ -714,7 +714,7 @@ else{e.value="no";location.reload();}
         type: 'POST',
         data: {"activeseeker": this.checked, "pk" : <%=@userprofile.id %>},
         beforeSend : function(){
-          $("#saving").html("<div id='saver'><i class='fa-li fa fa-spinner fa-spin'></i></div>");
+          $("#saving").html("<div id='saver'><i class='fa fa-spinner fa-spin'></i></div>");
         },  
         success: function(response){
           var data = JSON.parse(response);
@@ -745,7 +745,7 @@ else{e.value="no";location.reload();}
         type: 'POST',
         data: {"insingaporenow": this.checked, "pk" : <%=@userprofile.id %>},
         beforeSend : function(){
-          $("#saving1").html("<div id='saver'><i class='fa-li fa fa-spinner fa-spin'></i></div>");
+          $("#saving1").html("<div id='saver'><i class='fa fa-spinner fa-spin'></i></div>");
         },
         success: function(response){
           var data = JSON.parse(response);
