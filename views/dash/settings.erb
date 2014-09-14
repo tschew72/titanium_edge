@@ -137,9 +137,6 @@ else{e.value="no";location.reload();}
             </div>
             <div class="col-sm-2"></div>
           </div>
-            <script>
-            $(document).unbind(".s1");
-            </script>
           <div class="row">
             <div class="col-sm-10">
                 <a href="#" id="joblevel" data-type="select2" data-value="<%= @pref_ind %>"  data-pk="<%=@userprofile.id %>" data-url="/updateindpref" data-title="Enter preferred job levels"></a>
@@ -743,6 +740,9 @@ else{e.value="no";location.reload();}
         url: '/updateinsgnow',
         type: 'POST',
         data: {"insingaporenow": this.checked, "pk" : <%=@userprofile.id %>},
+        beforeSend : function(){
+          $("#saving").html("<div id='saver'>Saving...</div>");
+        },
         success: function(response){
           var data = JSON.parse(response);
 
@@ -755,6 +755,9 @@ else{e.value="no";location.reload();}
              newAlert("#alert_placeholder-tab", 'success', "Look forward to see you in Singapore soon!");
                            
           }; //else
+              $('#saver').fadeOut(100, function() {
+               $(this).remove();
+             });
         } //success function
 
       
@@ -888,30 +891,30 @@ else{e.value="no";location.reload();}
 </script>
 <script>
 
-  $(document)
-  .bind("ajaxStart.s1",  function() {
-  //.ajaxStart(function(){  
-  //setup a new preloader with transparent background. only the spinner shows up. Or we can have a separate div besides each button and hide and show the spinner.
-  //http://stackoverflow.com/questions/1191485/how-to-call-ajaxstart-on-specific-ajax-calls
-  //http://stackoverflow.com/questions/22348498/how-to-have-specific-events-fire-if-you-can-only-bind-ajaxstart-to-document?lq=1
-      //$("body").append("<div id='preloader'><div id='spinner_container'><div id='spinner' class='dots'>Loading...</div></div></div>");
-      //$("#contact_response").html("Sending...");  
-      $("#saving").html("<div id='saver'>Saving...</div>");
-  })
+  // $(document)
+  // .bind("ajaxStart.s1",  function() {
+  // //.ajaxStart(function(){  
+  // //setup a new preloader with transparent background. only the spinner shows up. Or we can have a separate div besides each button and hide and show the spinner.
+  // //http://stackoverflow.com/questions/1191485/how-to-call-ajaxstart-on-specific-ajax-calls
+  // //http://stackoverflow.com/questions/22348498/how-to-have-specific-events-fire-if-you-can-only-bind-ajaxstart-to-document?lq=1
+  //     //$("body").append("<div id='preloader'><div id='spinner_container'><div id='spinner' class='dots'>Loading...</div></div></div>");
+  //     //$("#contact_response").html("Sending...");  
+  //     $("#saving").html("<div id='saver'>Saving...</div>");
+  // })
 
-  .bind("ajaxStop.s1", function() {
-  //.ajaxStop(function(){
+  // .bind("ajaxStop.s1", function() {
+  // //.ajaxStop(function(){
                 
-   // $('#preloader').fadeOut(100, function() {
-    //           $('body').css('overflow','auto');
+  //  // $('#preloader').fadeOut(100, function() {
+  //   //           $('body').css('overflow','auto');
 
-    //           $(this).remove();
-    //});
-    $("#saving").html("<div id='saver'>Saved...</div>");
-    $('#saver').fadeOut(100, function() {
-      $(this).remove();
-    });
+  //   //           $(this).remove();
+  //   //});
+  //   $("#saving").html("<div id='saver'>Saved...</div>");
+  //   $('#saver').fadeOut(100, function() {
+  //     $(this).remove();
+  //   });
 
 
-  });
+  // });
 </script>
