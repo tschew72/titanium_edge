@@ -549,7 +549,7 @@ end
 
 
  get '/table' do
-       @userprofile = env['warden'].user  #This is the most important query of all. it will identify the user of this session.
+       @userprofile = env['warden'].user  
        @allskills =   @userprofile.skill_summaries.all
        @ssmaster = SkillSource  #master skill source for cross referencing
        @scmaster = SkillCategory.all   #Skill Category Master     #Hardcode to HTML. Remove from Database. Push this to the /admin for churning json.
