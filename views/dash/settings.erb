@@ -92,12 +92,12 @@ else{e.value="no";location.reload();}
               <div class="orb-form">
                 <div class="form-group">
                   <div class="col col-2 ">
-                      <label class="toggle" ><input id="activecheck" name="activeseeker" type="checkbox" <%= @userprofile.activeseeker.to_s == "true" ? "checked" : "unchecked" %> ><i></i>Activate Job Search</label><div id="saving"> </div> 
+                      <label class="toggle" ><input id="activecheck" name="activeseeker" type="checkbox" <%= @userprofile.activeseeker.to_s == "true" ? "checked" : "unchecked" %> ><i></i>Activate Job Search</label>
                   </div>
                 </div>
               </div>
             </div>
-            
+            <div id="saving"> </div> 
             <div id="spr_block" style="visibility: hidden">  
               <fieldset>
                 <div class="orb-form">
