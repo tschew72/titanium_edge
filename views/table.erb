@@ -33,8 +33,9 @@ $.getScript("/vendor/tablescript.js");
                       <div class="hidden-sm hidden-xs action-buttons">
 
                           <!-- <a id="skilldel" class="red" href="/deleteskill?id=<%= @allskills.get(i).id %>"> -->
-                          <a onclick="delskill(this, <%=i.id%>)" class="red" href="javascript:void(0)">
-                            <i class="icon-trash bigger-130"></i>
+                         <!--  <a onclick="delskill(this, <%=i.id%>)" class="red" href="javascript:void(0)">
+                            <i class="icon-trash bigger-130"></i> -->
+                            <a onclick="delskill(this, <%=i.id%>)" class="red" href="javascript:void(0)"> <i class="fa fa-trash">DELETE</i></a>
                              
                           </a>
 
