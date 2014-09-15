@@ -158,7 +158,7 @@ else{e.value="no";location.reload();}
                     <div class="col-md-2">
                       <label  class="toggle"><input id="parttimecheck" name="parttime"  type="checkbox" <%= @userprofile.parttime.to_s == "true" ? "checked" : "unchecked" %> ><i></i>Part Time</label> <div id="saving_parttime"> </div>
                     </div>
-                    <div class="col-md-1"> <div id="saving_fulltime"></div></div>  
+                    <div class="col-md-1"> <div id="saving_parttime"></div></div>  
                   </div>       
                   <div class="col col-2">
                       <label class="toggle"><input id="shiftworkcheck" name="shiftwork" type="checkbox" <%= @userprofile.shiftwork.to_s == "true" ? "checked" : "unchecked" %> ><i></i>Shift Work</label><div id="saving_shift"> </div>
