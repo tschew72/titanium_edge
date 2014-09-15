@@ -798,7 +798,7 @@ else{e.value="no";location.reload();}
             type: 'POST',
             data: {"fulltime": this.checked, "pk" : <%=@userprofile.id %>},
             beforeSend : function(){
-              $("#saving_fulltime").html("<div id='saver_fulltime'><i class='fa fa-spinner fa-spin'></i></div>");
+              $("#saving_fulltime").append("<div id='saver_fulltime'><i class='fa fa-spinner fa-spin'></i></div>");
             }, 
             success: function(response){
               var data = JSON.parse(response);
