@@ -9215,7 +9215,7 @@ code {
 
 
 input[readonly], input[disabled="disabled"], input[readonly="readonly"] {
-    background-color: white;
+    background-color: #fff;
     cursor: pointer;
 }
 
