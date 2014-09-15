@@ -31,7 +31,7 @@
           <li>
             <a data-toggle="tab" href="#edit-password">
               <i class="blue icon-key bigger-125"></i>
-              Password
+              Edit User
             </a>
           </li>
         </ul>
@@ -39,103 +39,28 @@
         <div id="edit-basic" class="tab-pane in active">
           <h3 class="header smaller lighter blue">General</h3>
               <div  class=" row">
-                <div class="col-md-2 column">
-                  <span class="profile-picture">
-                    <img id="avatar" class="editable img-responsive" alt="Avatar" src="/vendor/avatar.jpg" />
-                  </span>
-                </div>
-                <div class="col-md-10 column">   
-                  <div class="row">
-                    <div class="col-md-2 column">First Name: </div>  
-                    <div class="col-md-2 column"> <a href="javascript:void(0)" id="firstname" data-type="text" data-pk="<%=@userprofile.id %>" data-url="/updateprofile" data-title="Enter first name"><%= @userprofile.firstname %></a></div>
-                    <div class="col-md-2 column"> Last Name:  </div>
-                    <div class="col-md-2 column"><a href="javascript:void(0)" id="lastname" data-type="text" data-pk="<%=@userprofile.id %>" data-url="/updateprofile" data-title="Enter last name"><%= @userprofile.lastname %></a></div>   
-                    <div class="col-md-4 column">  </div>        
-                  </div> <!-- row -->
-                  <div class="space-6"></div>
-                  <div class="row">
-                    <div class="col-md-2 column"> Age: </div>  
-                    <div class="col-md-2 column"><a href="javascript:void(0)"  id="age" data-type="text" data-pk="<%=@userprofile.id %>" data-url="/updateprofile" data-title="Enter age"><%= @userprofile.age %></a> </div> 
-                    <div class="col-md-2 column"> <label class="custo1 control-label no-padding-right" for="id-date-picker-1"> Date of Birth</label></div>
-                    <div class="col-md-3 column"> 
-                      <div class="input-group">
-                        <input readonly="true" style="width: 100px; height: 25px;" class="form-control date-picker rdonly" id="id-date-picker-1"  type="text" data-date-format="dd-mm-yyyy" value="<%= @userprofile.dob.strftime("%d/%m/%Y") %>"></input>
-                      </div>
-                    </div>
-                    <div class="col-md-1 column"> </div> 
-                  </div> <!-- row -->
-                  
-                  <div class="row">   
-                    <div class="col-md-2 column">Gender:</div>                 
-                    <div class="col-md-3 column"> <a href="javascript:void(0)"  id="gender" data-type="select" data-pk="<%=@userprofile.id %>" data-url="/updateprofile" data-title="Enter gender"><%= @userprofile.gender == "M" ? "Male" : "Female" %> </a> </div> 
-                  </div>
-                  <div class="space-6"></div>
-                  <div class="row">   
 
-                    <div class="col-md-2 column"> Nationality: </div>
-                    <div class="col-md-2 column"><a href="javascript:void(0)" id="nationality" data-type="select"  data-pk="<%=@userprofile.id %>" data-url="/updateprofile" data-title="Enter nationality"><%= @cmaster.get(@userprofile.nationality).countryname %> </a>  </div>
-                    <div class="col-md-2 column">   
-                        <div id="spr_block" style="visibility: hidden">                
-                              Singapore PR?
-                                <label>
-                                  <input id="sprcheck" name="singaporepr" type="checkbox" class="ace" <%= @userprofile.singaporepr.to_s == "true" ? "checked" : "unchecked" %> />
-                                  <span class="lbl"> </span>
-                                </label>
-                        </div>
-                    </div>
-                    <div class="col-md-4 column">  </div>
-                  </div>
-                  <div class="space-6"></div>
- 
-                </div> <!-- column -->
+                <table id="skilltab" class="table table-bordered table-striped">
+                  <tbody>
+                  <tr>       
+                  <td width="20%">Skill category</td> <!--TSCHEW-->
+                  <td width="50%">
+                  <a href="#" class="newuser" data-emptytext="Select..." data-type="select" id="skillcat" data-name="skillcatid"  data-original-title="Select skill category"></a></td>
+                  </tr>
+                  <tr>       
+                  <td width="20%">Skill name</td>
+                  <td width="50%"><a href="#" class="newuser" id="skillname"  data-emptytext="Select..." data-type="select" data-name="skillid" data-original-title="Select skill"></a></td>
+                  </tr>
+                  <tr>       
+                  <td width="20%">Skill rank</td>
+                  <td width="50%"><a href="#" class="newuser" id="skillrank" data-emptytext="Select..." data-type="select" data-name="skillrank" data-source="[{value: 1, text: 'Basic'}, {value: 2, text: 'Intermediate'}, {value: 3, text: 'Advance'}, {value: 4, text: 'Expert'}]" data-original-title="Select rank"></a></td>
+                  </tr>   
+                  </tbody>
+                </table>
             </div> <!-- <div id="user-profile-1" class="user-profile row"> -->
-            <div class="space"></div>
-            <h3 class="header smaller lighter blue">Contact</h3>
-            <div class="row">   
-                <div class="col-md-2 column">  
-                   Mobile #:
-                </div>
-                <div class="col-md-3 column">  
-                   <a href="javascript:void(0)"  id="contactnumber" data-type="text" data-pk="<%=@userprofile.id %>" data-url="/updateprofile" data-title="Enter mobile number"><%= @userprofile.contactnumber %> </a> 
-                </div>
-              </div>
-              <div class="space-6"></div>
-              <div class="row">  
-                <div class="col-md-2 column">     
-                   Address:
-                </div>
-                <div class="col-md-3 column">  
-                   <a href="javascript:void(0)"  id="address" data-type="text" data-pk="<%=@userprofile.id %>" data-url="/updateprofile" data-title="Enter address"><%= @userprofile.address %>   </a>
-                </div>
-              </div>
-              <div class="space-6"></div>
-              <div class="row">  
-                <div class="col-md-2 column">  
-                   Email:
-                </div>
-                <div class="col-md-3 column">  
-                   <a href="javascript:void(0)"  id="email" data-type="text" data-pk="<%=@userprofile.id %>" data-url="/updateprofile" data-title="Enter email address"><%= @userprofile.email %>   </a>
-                </div>
-              </div>
-            <div class="space"></div>
-            <h3 class="header smaller lighter blue">Social</h3>
-            <div class="form-group">
-                <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> LinkedIn </label>
-                <p> <input type="text" id="form-field-1"  /> </p>
-            </div>    
-            <div class="form-group">
-                <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Facebook</label>
-                <p> <input type="text" id="form-field-1"  /> </p>
-            </div>                  
-            <div class="form-group">
-                <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Twitter</label>
-                <p> <input type="text" id="form-field-1"  /> </p>
-            </div>            
-            <div class="form-group">
-                <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Github</label>
-                <p> <input type="text" id="form-field-1"  /> </p>
-            </div>       
+      
           </div> <!-- <div id="edit-basic" class="tab-pane in active"> -->
+
           <div id="edit-password" class="tab-pane">
               <div class="space-10"></div>
               <div class="form-group">
