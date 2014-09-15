@@ -263,7 +263,11 @@ get '/admin' do
            temp28 << {value: x.id, text: "#{x.skill_name}"}
            @sst28 = temp28.to_json
         end
+
+        erb :"dash/admin", :layout => :'dash/layout1'
+
 end
+
 
 get '/settings' do
 
