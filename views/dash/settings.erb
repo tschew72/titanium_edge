@@ -150,7 +150,7 @@ else{e.value="no";location.reload();}
                   <h4 style="margin-left: 15px;"class="header smaller lighter blue">Other Parameters <small>(Select all applicable)</small> </h4>
                   <div class="row">
                     <div class="col col-2">
-                        <label  class="toggle"><input id="fulltimecheck saving_fulltime" name="fulltime"  type="checkbox" <%= @userprofile.fulltime.to_s == "true" ? "checked" : "unchecked" %> ><i></i>Full Time</label> 
+                        <label class="toggle"><input id="fulltimecheck" name="fulltime"  type="checkbox" <%= @userprofile.fulltime.to_s == "true" ? "checked" : "unchecked" %> ><i></i>Full Time</label> <div id="saving_fulltime"></div>
                         <label  class="toggle"><input id="parttimecheck" name="parttime"  type="checkbox" <%= @userprofile.parttime.to_s == "true" ? "checked" : "unchecked" %> ><i></i>Part Time</label> <div id="saving_parttime"> </div>
                     </div>
                     
