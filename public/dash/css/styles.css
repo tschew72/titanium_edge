@@ -3438,7 +3438,7 @@ legend {
 	color: #969fa1;
 }
 .orb-form .label {
-	display: inline;
+	display: block;
 	margin-bottom: 6px;
 	line-height: 19px;
 	font-weight: 400;
