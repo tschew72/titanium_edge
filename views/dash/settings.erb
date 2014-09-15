@@ -160,7 +160,12 @@ else{e.value="no";location.reload();}
                         </div>
                       </div>
                       <div class="row">
-                        <div style="vertical-align:middle;"> Part Time </div> <label style="float:right; margin-left: 15px; margin-right: 10px;" class="toggle"><input id="parttimecheck" name="parttime"  type="checkbox" <%= @userprofile.parttime.to_s == "true" ? "checked" : "unchecked" %> ><i></i></label> <div id="saving_parttime"> </div>
+                        <div class="col-md-6">
+                          <div style="vertical-align:middle;"> Part Time </div> 
+                        </div>
+                        <div class="col-md-6">
+                          <label style="float:right; margin-left: 15px; margin-right: 10px;" class="toggle"><input id="parttimecheck" name="parttime"  type="checkbox" <%= @userprofile.parttime.to_s == "true" ? "checked" : "unchecked" %> ><i></i></label> <div id="saving_parttime"> </div>
+                        </div>
                       </div>
                     </div>
   
