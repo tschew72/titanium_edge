@@ -4412,7 +4412,7 @@ input:hover {
 	border-radius: 0;
 	font-size: 100%;
 	text-align: left;
-	white-space: normal;
+	white-space: nowrap;
 	color: inherit;
 }
 .orb-form .radio,
