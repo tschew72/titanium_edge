@@ -480,24 +480,7 @@ else{e.value="no";location.reload();}
               } ;
 
 
-       $('input[name="date-range-picker"]').daterangepicker({
-        timePicker: false,
-        showDropdowns: true,
-        format: 'DD/MM/YYYY'
-        }, function(start, end, label) {
-          console.log(moment(start.format('YYYY-MM-DDTHH:mm:ss') + 'Z').utc().toISOString());
-          from = moment(start.format('YYYY-MM-DDTHH:mm:ss') + 'Z').utc().toISOString();
-          end =moment(end.format('YYYY-MM-DDTHH:mm:ss') + 'Z').utc().toISOString();
-           $.ajax({
-              url: '/update_inSG_Date',
-              type: 'POST',
-              data: {"insg_start": from, "insg_end": end, "pk" : <%=@userprofile.id %>},
-              success: function(response){
-                          newAlert("#alert_placeholder-tab", 'success', "Dates recorded");
-                           
-                        }
-            });
-        });
+
 
 
       $('#skilltable').editable({
@@ -671,6 +654,24 @@ else{e.value="no";location.reload();}
 
 <script>
 
+       $('#id-date-range-picker-1').daterangepicker({
+        timePicker: false,
+        showDropdowns: true,
+        format: 'DD/MM/YYYY'
+        }, function(start, end, label) {
+          console.log(moment(start.format('YYYY-MM-DDTHH:mm:ss') + 'Z').utc().toISOString());
+          from = moment(start.format('YYYY-MM-DDTHH:mm:ss') + 'Z').utc().toISOString();
+          end =moment(end.format('YYYY-MM-DDTHH:mm:ss') + 'Z').utc().toISOString();
+           $.ajax({
+              url: '/update_inSG_Date',
+              type: 'POST',
+              data: {"insg_start": from, "insg_end": end, "pk" : <%=@userprofile.id %>},
+              success: function(response){
+                          newAlert("#alert_placeholder-tab", 'success', "Dates recorded");
+                           
+                        }
+            });
+        });
 
       $('#saveskill-btn').click(function() {
          $('.newskill').editable('submit', {
