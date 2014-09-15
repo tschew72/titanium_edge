@@ -152,10 +152,10 @@ else{e.value="no";location.reload();}
                   <div class="row">
                     <div class="col-md-4">
                       <div class="row">
-                        Full Time <label style="float:left; margin-left: 15px; margin-right: 15px;" class="toggle"><input id="fulltimecheck" name="fulltime"  type="checkbox" <%= @userprofile.fulltime.to_s == "true" ? "checked" : "unchecked" %> ><i></i></label> <div id="saving_fulltime"> </div>
+                        <div style="vertical-align:middle; margin-right:10px "> Full Time </div> <label style="float:right ; margin-left: 15px; margin-right: 15px;" class="toggle"><input id="fulltimecheck" name="fulltime"  type="checkbox" <%= @userprofile.fulltime.to_s == "true" ? "checked" : "unchecked" %> ><i></i></label> <div id="saving_fulltime"> </div>
                       </div>
                       <div class="row">
-                        Part Time<label style="float:left; margin-left: 15px; margin-right: 10px;" class="toggle"><input id="parttimecheck" name="parttime"  type="checkbox" <%= @userprofile.parttime.to_s == "true" ? "checked" : "unchecked" %> ><i></i></label> <div id="saving_parttime"> </div>
+                        <div style="vertical-align:middle;"> Part Time </div> <label style="float:right; margin-left: 15px; margin-right: 10px;" class="toggle"><input id="parttimecheck" name="parttime"  type="checkbox" <%= @userprofile.parttime.to_s == "true" ? "checked" : "unchecked" %> ><i></i></label> <div id="saving_parttime"> </div>
                       </div>
                     </div>
   
