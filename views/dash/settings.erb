@@ -152,15 +152,14 @@ else{e.value="no";location.reload();}
                 <h4 class="header smaller lighter blue">Other Parameters <small>(Select all applicable)</small> </h4>
                 <div class="row">
                   <div class="col col-2">
-                    <label class="toggle"><input id="fulltimecheck" name="fulltime"  type="checkbox" <%= @userprofile.fulltime.to_s == "true" ? "checked" : "unchecked" %> ><i></i>Full Time</label>  
-                    <label class="toggle"><input id="parttimecheck" name="parttime"  type="checkbox" <%= @userprofile.parttime.to_s == "true" ? "checked" : "unchecked" %> ><i></i>Part Time</label>
+                    <label class="toggle"><input id="fulltimecheck" name="fulltime"  type="checkbox" <%= @userprofile.fulltime.to_s == "true" ? "checked" : "unchecked" %> ><i></i>Full Time</label>  <span id="saving_fulltime"> </span>
+                    <label class="toggle"><input id="parttimecheck" name="parttime"  type="checkbox" <%= @userprofile.parttime.to_s == "true" ? "checked" : "unchecked" %> ><i></i>Part Time</label> <span id="saving_parttime"> </span>
                   </div>
-                  <span id="saving"> </span>
+                  
                   <div class="col col-2">
                     <label class="toggle"><input id="shiftworkcheck" name="shiftwork" type="checkbox" <%= @userprofile.shiftwork.to_s == "true" ? "checked" : "unchecked" %> ><i></i>Shift Work</label>
                     <label class="toggle"><input id="outofhourscheck" name="outofhours"  type="checkbox" <%= @userprofile.outofhours.to_s == "true" ? "checked" : "unchecked" %> ><i></i>Out-of-Hours </label>
                   </div>
-                  <span id="saving"> </span>
                 </div>
               </section>    
             </fieldset>
@@ -779,7 +778,7 @@ else{e.value="no";location.reload();}
             type: 'POST',
             data: {"parttime": this.checked, "pk" : <%=@userprofile.id %>},
             beforeSend : function(){
-              $("#saving").html("<div id='saver'><i class='fa fa-spinner fa-spin'></i></div>");
+              $("#saving_parttime").html("<div id='saver'><i class='fa fa-spinner fa-spin'></i></div>");
             }, 
             success: function(response){
               var data = JSON.parse(response);
@@ -802,7 +801,7 @@ else{e.value="no";location.reload();}
             type: 'POST',
             data: {"fulltime": this.checked, "pk" : <%=@userprofile.id %>},
             beforeSend : function(){
-              $("#saving").html("<div id='saver'><i class='fa fa-spinner fa-spin'></i></div>");
+              $("#saving_fulltime").html("<div id='saver'><i class='fa fa-spinner fa-spin'></i></div>");
             }, 
             success: function(response){
               var data = JSON.parse(response);
