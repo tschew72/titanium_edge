@@ -91,15 +91,14 @@
 
 <script>
 
-
-
+  $(document).ready(function(){
       $('#firstname').editable({ 
         onblur: 'submit',
         showbuttons: false,
         success: function(response, newValue) {
            
         }
-      });
+      )};
 
       $('#lastname').editable({
         onblur: 'submit',
@@ -148,6 +147,7 @@
           if(!v) return 'This is a required field!';
       });
 
+});
 
 $('#saveuser-btn').click(function() {
          $('.newuser').editable('submit', {
