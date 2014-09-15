@@ -118,10 +118,10 @@ else{e.value="no";location.reload();}
                         <div>on these dates </div>
                           <div class="row">
                             <section class="col col-6">
-                              <div id="inline-start"></div>
+                              <div id="inline-start" value="<%=@userprofile.insg_start.strftime("%d/%m/%Y") %>"></div>
                             </section>
                             <section class="col col-6">
-                              <div id="inline-finish"></div>
+                              <div id="inline-finish" value=" <%=@userprofile.insg_end.strftime("%d/%m/%Y") %> "></div>
                             </section>
                           </div>
                         <!-- <input type="text" name="date-range-picker" id="id-date-range-picker-1"  class="form-control input-md" value="<%=@userprofile.insg_start.strftime("%d/%m/%Y") %> - <%=@userprofile.insg_end.strftime("%d/%m/%Y") %> ">  -->
