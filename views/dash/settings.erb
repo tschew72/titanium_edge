@@ -776,7 +776,9 @@ else{e.value="no";location.reload();}
             url: '/updateparttime',
             type: 'POST',
             data: {"parttime": this.checked, "pk" : <%=@userprofile.id %>},
-
+            beforeSend : function(){
+              $("#saving").html("<div id='saver'><i class='fa fa-spinner fa-spin'></i></div>");
+            }, 
             success: function(response){
               var data = JSON.parse(response);
               if (data.parttime){
@@ -784,7 +786,9 @@ else{e.value="no";location.reload();}
               } else {
                     newAlert("#alert_placeholder-tab", 'success', "You will not be matched to part time jobs");   
               }                         
-
+               $('#saver').fadeOut(1000, function() {
+               $(this).remove();
+             });  
             } //success function
           }); //ajax
       }); //parttime function
@@ -795,7 +799,9 @@ else{e.value="no";location.reload();}
             url: '/updatefulltime',
             type: 'POST',
             data: {"fulltime": this.checked, "pk" : <%=@userprofile.id %>},
-
+            beforeSend : function(){
+              $("#saving").html("<div id='saver'><i class='fa fa-spinner fa-spin'></i></div>");
+            }, 
             success: function(response){
               var data = JSON.parse(response);
               if (data.fulltime){
@@ -804,7 +810,9 @@ else{e.value="no";location.reload();}
 
                     newAlert("#alert_placeholder-tab", 'success', "You will not be matched to full time jobs");     
               }                                
-
+               $('#saver').fadeOut(1000, function() {
+               $(this).remove();
+             });
             } //success function
           }); //ajax
       }); //fulltime function
@@ -814,7 +822,9 @@ else{e.value="no";location.reload();}
             url: '/updateshiftwork',
             type: 'POST',
             data: {"shiftwork": this.checked, "pk" : <%=@userprofile.id %>},
-
+            beforeSend : function(){
+              $("#saving").html("<div id='saver'><i class='fa fa-spinner fa-spin'></i></div>");
+            }, 
             success: function(response){
               var data = JSON.parse(response);
               if (data.shiftwork){
@@ -822,6 +832,9 @@ else{e.value="no";location.reload();}
               } else {
                    newAlert("#alert_placeholder-tab", 'success', "You will not be matched to jobs requiring shift work");   
               }
+               $('#saver').fadeOut(1000, function() {
+               $(this).remove();
+             });
             } //success function
           }); //ajax
       }); //shiftwork function
@@ -831,7 +844,9 @@ else{e.value="no";location.reload();}
             url: '/updateoutofhours',
             type: 'POST',
             data: {"outofhours": this.checked, "pk" : <%=@userprofile.id %>},
-
+            beforeSend : function(){
+              $("#saving").html("<div id='saver'><i class='fa fa-spinner fa-spin'></i></div>");
+            }, 
             success: function(response){
               var data = JSON.parse(response);
               if (data.outofhours){
@@ -839,7 +854,9 @@ else{e.value="no";location.reload();}
                } else {
                    newAlert("#alert_placeholder-tab", 'success', "You will not be matched to jobs requiring you to work outside office hour");   
                }                         
-
+                $('#saver').fadeOut(1000, function() {
+               $(this).remove();
+             });
             } //success function
           }); //ajax
       }); //shiftwork function
