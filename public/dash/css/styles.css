@@ -9212,3 +9212,8 @@ code {
 .css .nt+.nt {
 	color: #999
 }
+
+
+input[readonly], input[readonly="readonly"] {
+    background-color: white;
+}
