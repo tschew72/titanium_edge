@@ -140,6 +140,11 @@
 
 });
 
+</script>
+
+<script>
+
+
 $('#saveuser-btn').click(function() {
          $('.newuser').editable('submit', {
              url: '/newuser',
@@ -153,10 +158,7 @@ $('#saveuser-btn').click(function() {
                        config.error.call(this, data.errors);
 
                  }   else{
-
                       $('.newuser').editable('setValue', null);  //clear values
-                      // $('#skillname').editable('option', 'disabled', true);
-                      // $('#skillrank').editable('option', 'disabled', true);
                  }     
              },
              error: function(errors) {
@@ -176,5 +178,5 @@ $('#saveuser-btn').click(function() {
              }
          });
       });
-</script>
 
+</script>
