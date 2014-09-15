@@ -164,16 +164,16 @@ else{e.value="no";location.reload();}
                   </div> 
                   <div class="col"> 
                     <div class="row">
-                      <div class="col-md-3">
+                      <div class="col col-2">
                         <label class="toggle"><input id="shiftworkcheck" name="shiftwork" type="checkbox" <%= @userprofile.shiftwork.to_s == "true" ? "checked" : "unchecked" %> ><i></i>Shift Work</label>
                       </div>
-                      <div class="col-md-1"> <div id="saving_shift"></div></div>
+                      <div class="col col-1"> <div id="saving_shift"></div></div>
                     </div>
                     <div class="row">
-                      <div class="col-md-3">
+                      <div class="col col-2">
                           <label class="toggle"><input id="outofhourscheck" name="outofhours"  type="checkbox" <%= @userprofile.outofhours.to_s == "true" ? "checked" : "unchecked" %> ><i></i>Out-of-Hours </label><div id="saving_out"> </div>
                       </div>
-                      <div class="col-md-1"> <div id="saving_out"></div></div> 
+                      <div class="col col-1"> <div id="saving_out"></div></div> 
                     </div>
                   </div>
 
