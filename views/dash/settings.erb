@@ -149,7 +149,7 @@ else{e.value="no";location.reload();}
           <div class="row orb-form">
             <fieldset>
               <section>
-                <h4 class="header smaller lighter blue">Other Parameters <small>(Select all applicable)</small> </h4><span id="saving2"> </span>
+                <h4 class="header smaller lighter blue">Other Parameters <small>(Select all applicable)</small> </h4><div id="saving"> </div>
                 <div class="row">
                   <div class="col col-2">
                     <label class="toggle"><input id="fulltimecheck" name="fulltime"  type="checkbox" <%= @userprofile.fulltime.to_s == "true" ? "checked" : "unchecked" %> ><i></i>Full Time</label>  
@@ -777,7 +777,7 @@ else{e.value="no";location.reload();}
             type: 'POST',
             data: {"parttime": this.checked, "pk" : <%=@userprofile.id %>},
             beforeSend : function(){
-              $("#saving2").html("<div id='saver'><i class='fa fa-spinner fa-spin'></i></div>");
+              $("#saving").html("<div id='saver'><i class='fa fa-spinner fa-spin'></i></div>");
             }, 
             success: function(response){
               var data = JSON.parse(response);
@@ -800,7 +800,7 @@ else{e.value="no";location.reload();}
             type: 'POST',
             data: {"fulltime": this.checked, "pk" : <%=@userprofile.id %>},
             beforeSend : function(){
-              $("#saving1").html("<div id='saver'><i class='fa fa-spinner fa-spin'></i></div>");
+              $("#saving").html("<div id='saver'><i class='fa fa-spinner fa-spin'></i></div>");
             }, 
             success: function(response){
               var data = JSON.parse(response);
@@ -823,7 +823,7 @@ else{e.value="no";location.reload();}
             type: 'POST',
             data: {"shiftwork": this.checked, "pk" : <%=@userprofile.id %>},
             beforeSend : function(){
-              $("#saving3").html("<div id='saver'><i class='fa fa-spinner fa-spin'></i></div>");
+              $("#saving").html("<div id='saver'><i class='fa fa-spinner fa-spin'></i></div>");
             }, 
             success: function(response){
               var data = JSON.parse(response);
@@ -845,7 +845,7 @@ else{e.value="no";location.reload();}
             type: 'POST',
             data: {"outofhours": this.checked, "pk" : <%=@userprofile.id %>},
             beforeSend : function(){
-              $("#saving4").html("<div id='saver'><i class='fa fa-spinner fa-spin'></i></div>");
+              $("#saving").html("<div id='saver'><i class='fa fa-spinner fa-spin'></i></div>");
             }, 
             success: function(response){
               var data = JSON.parse(response);
