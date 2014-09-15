@@ -50,6 +50,7 @@ class User
   property :verifiedstartdate, Date
   property :verifiedenddate, Date
   property :lastlogin, Date
+  property :role, Integer, :default => 1
   
   property :updated_at, DateTime
 
