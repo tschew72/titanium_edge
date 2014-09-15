@@ -153,11 +153,12 @@ else{e.value="no";location.reload();}
                       <label class="toggle"><input id="fulltimecheck" name="fulltime"  type="checkbox" <%= @userprofile.fulltime.to_s == "true" ? "checked" : "unchecked" %> ><i></i>Full Time</label> 
                     </div>
                     <div class="col-md-1"> <div id="saving_fulltime"></div></div>
-                    
-       <!--                     
-                        <label  class="toggle"><input id="parttimecheck" name="parttime"  type="checkbox" <%= @userprofile.parttime.to_s == "true" ? "checked" : "unchecked" %> ><i></i>Part Time</label> <div id="saving_parttime"> </div>
+                    <div class="col-md-2">
+                      <label  class="toggle"><input id="parttimecheck" name="parttime"  type="checkbox" <%= @userprofile.parttime.to_s == "true" ? "checked" : "unchecked" %> ><i></i>Part Time</label> <div id="saving_parttime"> </div>
+                    </div>
+                    <div class="col-md-1"> <div id="saving_fulltime"></div></div>  
                   
-                    
+        <!--                
                     <div class="col col-2">
                       <label class="toggle"><input id="shiftworkcheck" name="shiftwork" type="checkbox" <%= @userprofile.shiftwork.to_s == "true" ? "checked" : "unchecked" %> ><i></i>Shift Work</label>
                       <label class="toggle"><input id="outofhourscheck" name="outofhours"  type="checkbox" <%= @userprofile.outofhours.to_s == "true" ? "checked" : "unchecked" %> ><i></i>Out-of-Hours </label>
