@@ -9219,8 +9219,8 @@ input[readonly], input[disabled="disabled"], input[readonly="readonly"] {
     cursor: pointer;
 }
 
-.rdonly:hover  
+/*.rdonly:hover  
 {
    
    cursor: pointer;
-}
+}*/
