@@ -9214,11 +9214,13 @@ code {
 }
 
 
-input[readonly], input[readonly="readonly"] {
+input[readonly], input[disabled="disabled"], input[readonly="readonly"] {
     background-color: white;
+    cursor: pointer;
 }
 
 .rdonly:hover  
 {
+   
    cursor: pointer;
 }
