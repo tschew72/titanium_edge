@@ -663,7 +663,15 @@ else{e.value="no";location.reload();}
         });
 
       
-
+        $('#spinner2').ace_spinner({value:0,min:0,max:100,step:25, touch_spinner: true, icon_up:'icon-caret-up', icon_down:'icon-caret-down'})
+        .on('change', function(){
+          $.ajax({
+            url: '/updatetravelfreq',
+            type: 'POST',
+            data: {"travelfreq": this.value, "pk" : <%=@userprofile.id %>}
+          
+          });
+        });
 
    }); //document ready
 
@@ -931,6 +939,7 @@ else{e.value="no";location.reload();}
           $(loc).append($("<div class='alert alert-block alert-" + type + " fade in' data-alert><p> " + message + " </p></div>"));
           $(".alert").delay(2000).fadeOut("slow", function () { $(this).remove(); });
       }      
+ 
  
 </script>
 <script>
