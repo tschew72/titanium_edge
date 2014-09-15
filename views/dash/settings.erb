@@ -152,8 +152,8 @@ else{e.value="no";location.reload();}
                 <h4 class="header smaller lighter blue">Other Parameters <small>(Select all applicable)</small> </h4>
                 <div class="row">
                   <div class="col col-2">
-                    <label class="toggle"><input id="fulltimecheck" name="fulltime"  type="checkbox" <%= @userprofile.fulltime.to_s == "true" ? "checked" : "unchecked" %> ><i></i>Full Time</label>  <span id="saving_fulltime"> </span>
-                    <label class="toggle"><input id="parttimecheck" name="parttime"  type="checkbox" <%= @userprofile.parttime.to_s == "true" ? "checked" : "unchecked" %> ><i></i>Part Time</label> <span id="saving_parttime"> </span>
+                    <label class="toggle"><input id="fulltimecheck" name="fulltime"  type="checkbox" <%= @userprofile.fulltime.to_s == "true" ? "checked" : "unchecked" %> ><i></i>Full Time</label>  <div id="saving_fulltime"> </div>
+                    <label class="toggle"><input id="parttimecheck" name="parttime"  type="checkbox" <%= @userprofile.parttime.to_s == "true" ? "checked" : "unchecked" %> ><i></i>Part Time</label> <div id="saving_parttime"> </div>
                   </div>
                   
                   <div class="col col-2">
@@ -778,7 +778,7 @@ else{e.value="no";location.reload();}
             type: 'POST',
             data: {"parttime": this.checked, "pk" : <%=@userprofile.id %>},
             beforeSend : function(){
-              $("#saving_parttime").html("<div id='saver'><i class='fa fa-spinner fa-spin'></i></div>");
+              $("#saving_parttime").html("<div id='saver_parttime'><i class='fa fa-spinner fa-spin'></i></div>");
             }, 
             success: function(response){
               var data = JSON.parse(response);
@@ -787,7 +787,7 @@ else{e.value="no";location.reload();}
               } else {
                     newAlert("#alert_placeholder-tab", 'success', "You will not be matched to part time jobs");   
               }                         
-               $('#saver').fadeOut(1000, function() {
+               $('#saver_parttime').fadeOut(1000, function() {
                $(this).remove();
              });  
             } //success function
@@ -801,7 +801,7 @@ else{e.value="no";location.reload();}
             type: 'POST',
             data: {"fulltime": this.checked, "pk" : <%=@userprofile.id %>},
             beforeSend : function(){
-              $("#saving_fulltime").html("<div id='saver'><i class='fa fa-spinner fa-spin'></i></div>");
+              $("#saving_fulltime").html("<div id='saver_fulltime'><i class='fa fa-spinner fa-spin'></i></div>");
             }, 
             success: function(response){
               var data = JSON.parse(response);
@@ -811,7 +811,7 @@ else{e.value="no";location.reload();}
 
                     newAlert("#alert_placeholder-tab", 'success', "You will not be matched to full time jobs");     
               }                                
-               $('#saver').fadeOut(1000, function() {
+               $('#saver_fulltime').fadeOut(1000, function() {
                $(this).remove();
              });
             } //success function
@@ -824,7 +824,7 @@ else{e.value="no";location.reload();}
             type: 'POST',
             data: {"shiftwork": this.checked, "pk" : <%=@userprofile.id %>},
             beforeSend : function(){
-              $("#saving").html("<div id='saver'><i class='fa fa-spinner fa-spin'></i></div>");
+              $("#saving_shift").html("<div id='saver_shift'><i class='fa fa-spinner fa-spin'></i></div>");
             }, 
             success: function(response){
               var data = JSON.parse(response);
@@ -833,7 +833,7 @@ else{e.value="no";location.reload();}
               } else {
                    newAlert("#alert_placeholder-tab", 'success', "You will not be matched to jobs requiring shift work");   
               }
-               $('#saver').fadeOut(1000, function() {
+               $('#saver_shift').fadeOut(1000, function() {
                $(this).remove();
              });
             } //success function
@@ -846,7 +846,7 @@ else{e.value="no";location.reload();}
             type: 'POST',
             data: {"outofhours": this.checked, "pk" : <%=@userprofile.id %>},
             beforeSend : function(){
-              $("#saving").html("<div id='saver'><i class='fa fa-spinner fa-spin'></i></div>");
+              $("#saving_out").html("<div id='saver_out'><i class='fa fa-spinner fa-spin'></i></div>");
             }, 
             success: function(response){
               var data = JSON.parse(response);
@@ -855,7 +855,7 @@ else{e.value="no";location.reload();}
                } else {
                    newAlert("#alert_placeholder-tab", 'success', "You will not be matched to jobs requiring you to work outside office hour");   
                }                         
-                $('#saver').fadeOut(1000, function() {
+                $('#saver_out').fadeOut(1000, function() {
                $(this).remove();
              });
             } //success function
