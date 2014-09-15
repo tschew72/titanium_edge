@@ -149,7 +149,7 @@ else{e.value="no";location.reload();}
           <div class="row orb-form">
             <fieldset>
               <section>
-                <h4 class="header smaller lighter blue">Other Parameters <small>(Select all applicable)</small><div id="saving"> </div> </h4>
+                <h4 class="header smaller lighter blue">Other Parameters <small>(Select all applicable)</small> </h4>
                 <div class="row">
                   <div class="col col-2">
                     <label class="toggle"><input id="fulltimecheck" name="fulltime"  type="checkbox" <%= @userprofile.fulltime.to_s == "true" ? "checked" : "unchecked" %> ><i></i>Full Time</label>  
@@ -159,6 +159,7 @@ else{e.value="no";location.reload();}
                     <label class="toggle"><input id="shiftworkcheck" name="shiftwork" type="checkbox" <%= @userprofile.shiftwork.to_s == "true" ? "checked" : "unchecked" %> ><i></i>Shift Work</label>
                     <label class="toggle"><input id="outofhourscheck" name="outofhours"  type="checkbox" <%= @userprofile.outofhours.to_s == "true" ? "checked" : "unchecked" %> ><i></i>Out-of-Hours </label>
                   </div>
+                  <div id="saving"> </div>
                 </div>
               </section>    
             </fieldset>
