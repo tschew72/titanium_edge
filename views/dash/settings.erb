@@ -156,12 +156,12 @@ else{e.value="no";location.reload();}
                   </div>
                   <div class="row">
                     <div class="col-md-2">
-                      <label  class="toggle"><input id="parttimecheck" name="parttime"  type="checkbox" <%= @userprofile.parttime.to_s == "true" ? "checked" : "unchecked" %> ><i></i>Part Time</label> <div id="saving_parttime"> </div>
+                      <label  class="toggle"><input id="parttimecheck" name="parttime"  type="checkbox" <%= @userprofile.parttime.to_s == "true" ? "checked" : "unchecked" %> ><i></i>Part Time</label> 
                     </div>
                     <div class="col-md-1"> <div id="saving_parttime"></div></div>  
                   </div>       
                   <div class="col col-2">
-                      <label class="toggle"><input id="shiftworkcheck" name="shiftwork" type="checkbox" <%= @userprofile.shiftwork.to_s == "true" ? "checked" : "unchecked" %> ><i></i>Shift Work</label><div id="saving_shift"> </div>
+                      <label class="toggle"><input id="shiftworkcheck" name="shiftwork" type="checkbox" <%= @userprofile.shiftwork.to_s == "true" ? "checked" : "unchecked" %> ><i></i>Shift Work</label>
                       <div class="row">
                         <label class="toggle"><input id="outofhourscheck" name="outofhours"  type="checkbox" <%= @userprofile.outofhours.to_s == "true" ? "checked" : "unchecked" %> ><i></i>Out-of-Hours </label><div id="saving_out"> </div>
                       </div>
@@ -753,11 +753,6 @@ else{e.value="no";location.reload();}
         beforeSend : function(){
           $("#saving1").html("<div id='saver'><i class='fa fa-spinner fa-spin'></i></div>");
         },
-        complete : function(){
-              $('#saver_parttime').fadeOut(1000, function() {
-              $(this).remove();
-              });  
-            }, 
         success: function(response){
           var data = JSON.parse(response);
 
@@ -771,6 +766,9 @@ else{e.value="no";location.reload();}
                            
           }; //else
               // $("#saving1").html("<div id='saver'>Saved...</div>");
+              $('#saver').fadeOut(1000, function() {
+               $(this).remove();
+             });
         } //success function
 
       
@@ -786,11 +784,6 @@ else{e.value="no";location.reload();}
             beforeSend : function(){
               $("#saving_parttime").append("<div id='saver_parttime'><i class='fa fa-spinner fa-spin'></i></div>");
             }, 
-            complete : function(){
-              $('#saver_parttime').fadeOut(1000, function() {
-              $(this).remove();
-              });  
-            }, 
             success: function(response){
               var data = JSON.parse(response);
               if (data.parttime){
@@ -800,7 +793,7 @@ else{e.value="no";location.reload();}
               }                         
                $('#saver_parttime').fadeOut(1000, function() {
                $(this).remove();
-                });  
+             });  
             } //success function
           }); //ajax
       }); //parttime function
@@ -814,11 +807,6 @@ else{e.value="no";location.reload();}
             beforeSend : function(){
               $("#saving_fulltime").append("<div id='saver_fulltime'><i class='fa fa-spinner fa-spin'></i></div>");
             }, 
-            complete : function(){
-              $('#saver_parttime').fadeOut(1000, function() {
-              $(this).remove();
-              });  
-            }, 
             success: function(response){
               var data = JSON.parse(response);
               if (data.fulltime){
@@ -827,7 +815,9 @@ else{e.value="no";location.reload();}
 
                     newAlert("#alert_placeholder-tab", 'success', "You will not be matched to full time jobs");     
               }                                
-
+               $('#saver_fulltime').fadeOut(1000, function() {
+               $(this).remove();
+             });
             } //success function
           }); //ajax
       }); //fulltime function
@@ -840,11 +830,6 @@ else{e.value="no";location.reload();}
             beforeSend : function(){
               $("#saving_shift").append("<div id='saver_shift'><i class='fa fa-spinner fa-spin'></i></div>");
             }, 
-            complete : function(){
-              $('#saver_parttime').fadeOut(1000, function() {
-              $(this).remove();
-              });  
-            }, 
             success: function(response){
               var data = JSON.parse(response);
               if (data.shiftwork){
@@ -852,7 +837,9 @@ else{e.value="no";location.reload();}
               } else {
                    newAlert("#alert_placeholder-tab", 'success', "You will not be matched to jobs requiring shift work");   
               }
-
+               $('#saver_shift').fadeOut(1000, function() {
+               $(this).remove();
+             });
             } //success function
           }); //ajax
       }); //shiftwork function
@@ -865,11 +852,6 @@ else{e.value="no";location.reload();}
             beforeSend : function(){
               $("#saving_out").append("<div id='saver_out'><i class='fa fa-spinner fa-spin'></i></div>");
             }, 
-            complete : function(){
-              $('#saver_parttime').fadeOut(1000, function() {
-              $(this).remove();
-              });  
-            }, 
             success: function(response){
               var data = JSON.parse(response);
               if (data.outofhours){
@@ -877,7 +859,9 @@ else{e.value="no";location.reload();}
                } else {
                    newAlert("#alert_placeholder-tab", 'success', "You will not be matched to jobs requiring you to work outside office hour");   
                }                         
-
+                $('#saver_out').fadeOut(1000, function() {
+               $(this).remove();
+             });
             } //success function
           }); //ajax
       }); //shiftwork function
