@@ -116,7 +116,7 @@ else{e.value="no";location.reload();}
                     <div class="form-group">
                       <div class="col-md-3 "> 
                         on these dates
-                        <input readonly type="text" style="width: 200px;" name="date-range-picker" id="id-date-range-picker-1"  class="form-control " value="<%=@userprofile.insg_start.strftime("%d/%m/%Y") %> - <%=@userprofile.insg_end.strftime("%d/%m/%Y") %> "  class="span4"></input> <div id="saving_date"></div>
+                        <input readonly="true" type="text" style="width: 200px;" name="date-range-picker" id="id-date-range-picker-1"  class="form-control rdonly" value="<%=@userprofile.insg_start.strftime("%d/%m/%Y") %> - <%=@userprofile.insg_end.strftime("%d/%m/%Y") %> "  class="span4"></input> <div id="saving_date"></div>
                       </div>
                       <div class="col-md-1"> </div>  
                     </div>
