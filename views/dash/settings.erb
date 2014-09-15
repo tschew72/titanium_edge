@@ -963,45 +963,4 @@ else{e.value="no";location.reload();}
   // });
 
 
-
-(function (a, b) {
-    a.fn.ace_spinner = function (c) {
-        this.each(function () {
-            var f = c.icon_up || "icon-chevron-up";
-            var j = c.icon_down || "icon-chevron-down";
-            var h = c.on_sides || false;
-            var e = c.btn_up_class || "";
-            var g = c.btn_down_class || "";
-            var d = c.max || 999;
-            d = ("" + d).length;
-            a(this).addClass("spinner-input form-control").wrap('<div class="ace-spinner">');
-            var k = a(this).closest(".ace-spinner").spinner(c).wrapInner("<div class='input-group'></div>");
-            if (h) {
-                a(this).before('<div class="spinner-buttons input-group-btn">                                   <button type="button" class="btn spinner-down btn-xs ' + g + '">                                        <i class="' + j + '"></i>                                   </button>                              </div>').after('<div class="spinner-buttons input-group-btn">                                   <button type="button" class="btn spinner-up btn-xs ' + e + '">                                        <i class="' + f + '"></i>                                   </button>                              </div>');
-                k.addClass("touch-spinner");
-                k.css("width", (d * 20 + 40) + "px")
-            } else {
-                a(this).after('<div class="spinner-buttons input-group-btn">                                   <button type="button" class="btn spinner-up btn-xs ' + e + '">                                        <i class="' + f + '"></i>                                   </button>                                   <button type="button" class="btn spinner-down btn-xs ' + g + '">                                        <i class="' + j + '"></i>                                   </button>                              </div>');
-                if ("ontouchend" in document || c.touch_spinner) {
-                    k.addClass("touch-spinner");
-                    k.css("width", (d * 20 + 40) + "px")
-                } else {
-                    a(this).next().addClass("btn-group-vertical");
-                    k.css("width", (d * 20 + 10) + "px")
-                }
-            }
-            a(this).on("mousewheel DOMMouseScroll", function (l) {
-                var m = l.originalEvent.detail < 0 || l.originalEvent.wheelDelta > 0 ? 1 : -1;
-                k.spinner("step", m > 0);
-                k.spinner("triggerChangedEvent");
-                return false
-            });
-            var i = a(this);
-            k.on("changed", function () {
-                i.trigger("change")
-            })
-        });
-        return this
-    }
-})(window.jQuery);
 </script>
