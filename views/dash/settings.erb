@@ -146,34 +146,30 @@ else{e.value="no";location.reload();}
           </div>
 
           <div class="row orb-form">
-
+            <fieldset>
+              <section>
+                <div class="col-md-5">
                   <h4 class="header smaller lighter blue">Other Parameters <small>(Select all applicable)</small> </h4>
-
+                </div>
+                <div class="col-md-7"></div>
                   <div class="row">
                     <div class="col-md-4">
                       <div class="row">
-                        <div class="col-md-6">
-                          <div> Full Time </div> 
-                        </div>
-                        <div class="col-md-6">
-                          <label style="float:right ; margin-left: 15px; margin-right: 15px;" class="toggle"><input id="fulltimecheck" name="fulltime"  type="checkbox" <%= @userprofile.fulltime.to_s == "true" ? "checked" : "unchecked" %> ><i></i></label> <div id="saving_fulltime"> </div>
-                        </div>
+                        <label style="float:left; margin-left: 15px; margin-right: 15px;" class="toggle"><input id="fulltimecheck" name="fulltime"  type="checkbox" <%= @userprofile.fulltime.to_s == "true" ? "checked" : "unchecked" %> ><i></i>Full Time</label> <div id="saving_fulltime"> </div>
                       </div>
                       <div class="row">
-                        <div class="col-md-6">
-                          <div style="vertical-align:middle;"> Part Time </div> 
-                        </div>
-                        <div class="col-md-6">
-                          <label style="float:right; margin-left: 15px; margin-right: 10px;" class="toggle"><input id="parttimecheck" name="parttime"  type="checkbox" <%= @userprofile.parttime.to_s == "true" ? "checked" : "unchecked" %> ><i></i></label> <div id="saving_parttime"> </div>
-                        </div>
+                        <label style="float:left; margin-left: 15px; margin-right: 10px;" class="toggle"><input id="parttimecheck" name="parttime"  type="checkbox" <%= @userprofile.parttime.to_s == "true" ? "checked" : "unchecked" %> ><i></i>Part Time</label> <div id="saving_parttime"> </div>
                       </div>
                     </div>
-  
+                    
                     <div class="col-md-4">
                       <label class="toggle"><input id="shiftworkcheck" name="shiftwork" type="checkbox" <%= @userprofile.shiftwork.to_s == "true" ? "checked" : "unchecked" %> ><i></i>Shift Work</label>
                       <label class="toggle"><input id="outofhourscheck" name="outofhours"  type="checkbox" <%= @userprofile.outofhours.to_s == "true" ? "checked" : "unchecked" %> ><i></i>Out-of-Hours </label>
                     </div>
                   </div>
+                
+              </section>    
+            </fieldset>
         </div>
       </div>
 
