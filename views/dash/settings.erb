@@ -782,7 +782,7 @@ else{e.value="no";location.reload();}
             type: 'POST',
             data: {"parttime": this.checked, "pk" : <%=@userprofile.id %>},
             beforeSend : function(){
-              $("#saving_parttime").html("<div id='saver_parttime'><i class='fa fa-spinner fa-spin'></i></div>");
+              $("#saving_parttime").append("<div id='saver_parttime'><i class='fa fa-spinner fa-spin'></i></div>");
             }, 
             success: function(response){
               var data = JSON.parse(response);
@@ -828,7 +828,7 @@ else{e.value="no";location.reload();}
             type: 'POST',
             data: {"shiftwork": this.checked, "pk" : <%=@userprofile.id %>},
             beforeSend : function(){
-              $("#saving_shift").html("<div id='saver_shift'><i class='fa fa-spinner fa-spin'></i></div>");
+              $("#saving_shift").append("<div id='saver_shift'><i class='fa fa-spinner fa-spin'></i></div>");
             }, 
             success: function(response){
               var data = JSON.parse(response);
@@ -850,7 +850,7 @@ else{e.value="no";location.reload();}
             type: 'POST',
             data: {"outofhours": this.checked, "pk" : <%=@userprofile.id %>},
             beforeSend : function(){
-              $("#saving_out").html("<div id='saver_out'><i class='fa fa-spinner fa-spin'></i></div>");
+              $("#saving_out").append("<div id='saver_out'><i class='fa fa-spinner fa-spin'></i></div>");
             }, 
             success: function(response){
               var data = JSON.parse(response);
