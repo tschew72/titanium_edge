@@ -499,6 +499,11 @@ end
         {:responsemsg => "New skill added!" }.to_json
   end
 
+  post '/newuser' do
+    newuser = User.first_or_create({:username => params["username"]}).update(:firstname => params["firstname"],  :lastname => params["lastname"], :email => params["email"], :role => params["role"], :password => params["password"] ) 
+        {:responsemsg => "New user added!" }.to_json
+  end
+
   post '/update_language' do
     redirect '/auth/login' unless env['warden'].authenticated?
     userprofile = env['warden'].user

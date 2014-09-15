@@ -16,55 +16,67 @@
       </div>
       <!--/Breadcrumb--> 
     <div class="page-header">
-      <h1>Administration</h1>
+      <h1>Administration <small>For Authorized Personnel only</h1>
     </div>
 
 
 <div class="tabbable">
         <ul class="nav nav-tabs padding-16">
           <li class="active">
-            <a data-toggle="tab" href="#edit-basic">
+            <a data-toggle="tab" href="#createuser">
               <i class="green icon-edit bigger-125"></i>
               Create User
             </a>
           </li>
           <li>
-            <a data-toggle="tab" href="#edit-password">
+            <a data-toggle="tab" href="#edituser">
               <i class="blue icon-key bigger-125"></i>
               Edit User
             </a>
           </li>
         </ul>
         <div class="tab-content">
-        <div id="edit-basic" class="tab-pane in active">
+        <div id="createuser" class="tab-pane in active">
           <h3 class="header smaller lighter blue">General</h3>
               <div  class=" row">
 
-                <table id="skilltab" class="table table-bordered table-striped">
+                <table id="newusertab" class="table table-bordered table-striped">
                   <tbody>
                   <tr>       
-                  <td width="20%">Skill category</td> <!--TSCHEW-->
+                  <td width="20%">Username</td> <!--TSCHEW-->
                   <td width="50%">
-                  <a href="#" class="newuser" data-emptytext="Select..." data-type="select" id="skillcat" data-name="skillcatid"  data-original-title="Select skill category"></a></td>
+                  <a href="#" class="newuser" data-emptytext="Enter Username" data-type="select" id="skillcat" data-name="username"  data-original-title="Username"></a></td>
                   </tr>
                   <tr>       
-                  <td width="20%">Skill name</td>
-                  <td width="50%"><a href="#" class="newuser" id="skillname"  data-emptytext="Select..." data-type="select" data-name="skillid" data-original-title="Select skill"></a></td>
+                  <td width="20%">First name</td>
+                  <td width="50%"><a href="#" class="newuser" id="firstname"  data-emptytext="Enter First Name" data-type="select" data-name="firstname" data-original-title="First Name"></a></td>
                   </tr>
                   <tr>       
-                  <td width="20%">Skill rank</td>
-                  <td width="50%"><a href="#" class="newuser" id="skillrank" data-emptytext="Select..." data-type="select" data-name="skillrank" data-source="[{value: 1, text: 'Basic'}, {value: 2, text: 'Intermediate'}, {value: 3, text: 'Advance'}, {value: 4, text: 'Expert'}]" data-original-title="Select rank"></a></td>
+                  <td width="20%">Last name</td>
+                  <td width="50%"><a href="#" class="newuser" id="lastname" data-emptytext="Enter Last Name" data-type="select" data-name="lastname" data-original-title="Last Name"></a></td>
                   </tr>   
+                  <tr>       
+                  <td width="20%">Email</td>
+                  <td width="50%"><a href="#" class="newuser" id="email" data-emptytext="Enter Email" data-type="select" data-name="email"  data-original-title="Email"></a></td>
+                  </tr>   
+                  <tr>       
+                  <td width="20%">Role</td>
+                  <td width="50%"><a href="#" class="newuser" id="email" data-emptytext="Select Role" data-type="select" data-name="role"  data-source="[{value: 1, text: 'Normal'}, {value: 2, text: 'Admin'}]" data-original-title="Role"></a></td>
+                  </tr>  
+                  <tr>       
+                  <td width="20%">Password</td>
+                  <td width="50%"><a href="#" class="newuser" id="password" data-emptytext="Enter Password" data-type="select" data-name="role" data-original-title="Password"></a></td>
+                  </tr>                       
                   </tbody>
                 </table>
             </div> <!-- <div id="user-profile-1" class="user-profile row"> -->
-      
+          <button id="saveuser-btn" class="btn btn-primary"><i class="icon-save bigger-140 icon-only">Save User and Add New</i></button>
           </div> <!-- <div id="edit-basic" class="tab-pane in active"> -->
 
-          <div id="edit-password" class="tab-pane">
+          <div id="edituser" class="tab-pane">
               <div class="space-10"></div>
               <div class="form-group">
-                  <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Change password </label>
+                  <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Edit User</label>
                   <p> <input type="text" id="form-field-1"  /> </p>
               </div> 
           </div> <!-- <div id="edit-password" class="tab-pane"> -->
@@ -74,69 +86,71 @@
          
   </div> <!-- <div class="tab-content profile-edit-tab-content"> -->
 </div> <!-- <div class="tabbable"> -->
-    <div class="row">
-              <p id="testing"> Generate CV in PDF format </p>
-    </div> 
-</div> <!-- page-content -->
 
         
 
-<script type="text/javascript">
-
-
-$(document).ready(function(){
-
-  $.fn.editable.defaults.mode = 'popup';  
-  $('#firstname').editable();
-  $('#lastname').editable();
-  $('#age').editable();
-  $('#gender').editable({   
-    source: [
-      {value: "M", text: 'Male'},
-      {value: "F", text: 'Female'},
-    ]
-  });
-  $('#contactnumber').editable();
-  $('#address').editable();
-  $('#email').editable();
-  $('#nationality').editable({
-       source: function() {
-            return (<%= @countries %>)
-          },
-       success: function(response, newValue) {
-          
-          if (newValue != 156){
-             document.getElementById( 'spr_block' ).style.visibility = 'visible'; 
-          };
-
-          if (newValue == 156){
-            document.getElementById( 'spr_block' ).style.visibility = 'hidden'; 
-          } ;
-        } //success
-  });
-
-
-  var nation=document.getElementById( 'nationality' ).textContent;
-  if (nation.indexOf("Singapore") > -1){
-    document.getElementById( 'spr_block' ).style.visibility = 'hidden'; 
-  } else
-  {
-    document.getElementById( 'spr_block' ).style.visibility = 'visible'; 
-  }; 
-
-  $('.date-picker').datepicker({autoclose:true}).next().on(ace.click_event, function(){
-    $(this).prev().focus();
-  });
-         
-
-
- 
-});
-
-</script>
 <script>
+
+
+
+      $('#firstname').editable({ 
+        onblur: 'submit',
+        showbuttons: false,
+        success: function(response, newValue) {
+           
+        }
+      });
+
+      $('#lastname').editable({
+        onblur: 'submit',
+        showbuttons: false,
+        success: function(response, newValue)
+        {
+
+        }
+        });
+
+      $('#username').editable(
+        {
+        onblur: 'submit',
+        showbuttons: false
+
+      });
+
+      $('#email').editable(
+        {
+        onblur: 'submit',
+        showbuttons: false
+
+      });
+
+      $('#role').editable(
+        {
+        onblur: 'submit',
+        showbuttons: false
+
+      });
+
+
+      $('#password').editable(
+        {
+        onblur: 'submit',
+        showbuttons: false
+
+      });
+
+           //init editables
+      $('#username').editable('option', 'validate', function(v) {
+          if(!v) return 'This is a required field!';
+      });
+
+      $('#password').editable('option', 'validate', function(v) {
+          if(!v) return 'This is a required field!';
+      });
+
+
 $('#saveuser-btn').click(function() {
-         $('.newskill').editable('submit', {
+         $('.newuser').editable('submit', {
              url: '/newuser',
              ajaxOptions: {
                  dataType: 'json' //assuming json response
@@ -150,8 +164,8 @@ $('#saveuser-btn').click(function() {
                  }   else{
 
                       $('.newuser').editable('setValue', null);  //clear values
-                      $('#skillname').editable('option', 'disabled', true);
-                      $('#skillrank').editable('option', 'disabled', true);
+                      // $('#skillname').editable('option', 'disabled', true);
+                      // $('#skillrank').editable('option', 'disabled', true);
                  }     
              },
              error: function(errors) {
@@ -161,12 +175,10 @@ $('#saveuser-btn').click(function() {
                      //We do not have any response text from backend at the moment
                  } else { //validation error (client-side or server-side)
                      $.each(errors, function(k, v) {
-                      if (k=="skillcatid") {k = "Skill Category"};
-                      if (k=="skillid") {k = "Skill name"};
-                      if (k=="skillrank") {k = "Skill rank"};       
+                      if (k=="username") {k = "UserName"};    
+                      if (k=="password") {k = "Password"};   
                       msg += k+": "+v+"<br>";
                     });
-                     newAlert("#alert_placeholder-inmodal",'danger', msg);
                     
                  }
                 
