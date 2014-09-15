@@ -9213,14 +9213,14 @@ code {
 	color: #999
 }
 
-
+/*
 input[readonly] {
     background-color: #fff;
     cursor: pointer;
 }
-
-/*.rdonly:hover  
+*/
+.rdonly:hover  
 {
    
    cursor: pointer;
-}*/
+}
