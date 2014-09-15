@@ -9217,3 +9217,8 @@ code {
 input[readonly], input[readonly="readonly"] {
     background-color: white;
 }
+
+.rdonly:hover  
+{
+   cursor: pointer;
+}
