@@ -3438,7 +3438,7 @@ legend {
 	color: #969fa1;
 }
 .orb-form .label {
-	display: block;
+	display: inline;
 	margin-bottom: 6px;
 	line-height: 19px;
 	font-weight: 400;
@@ -4412,7 +4412,7 @@ input:hover {
 	border-radius: 0;
 	font-size: 100%;
 	text-align: left;
-	white-space: nowrap;
+	white-space: normal;
 	color: inherit;
 }
 .orb-form .radio,
