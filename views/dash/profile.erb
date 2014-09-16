@@ -41,7 +41,7 @@
 
               <div  class=" row"> 
                 <div class="col-md-2 column">
-                  <span class="profile-picture" id="pic1">
+                  <span class="profile-picture" id="pic">
                     <img id="avatar" class="editable img-responsive" alt="Avatar" src=<%= @userprofile.pictureurl %> />
 
                   </span>
@@ -86,9 +86,8 @@
                                           success: function(response){
                                             
                                             tt = "<img id='avatar' class='img-responsive' src=".concat(data.result.url," />");
-                                            $('#pic1').html(tt); 
-                                            // $('#pic2').html(tt); 
-
+                                            $('#pic').html(tt); 
+                            
                                             // newAlert("#alert_placeholder-tab", 'success', "File uploaded successfully!");
                                              
                                           }
