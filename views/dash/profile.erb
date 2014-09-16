@@ -71,7 +71,7 @@ else{e.value="no";location.reload();}
                               <span>Upload Picture</span>
                           <input name="file" type="file" id="fileupload" class="cloudinary-fileupload" data-cloudinary-field="image_upload" data-form-data="">
                           </span>
-                        <div id="CVsection"> </div>
+                        
                         <script type="text/javascript">
                             $.ajax({
                                     url: '/filer',
@@ -93,8 +93,8 @@ else{e.value="no";location.reload();}
                                           type: 'POST',
                                           data: {"picurl": data.result.url, "pk" : <%=@userprofile.id %>},
                                           success: function(response){
-                                            tt= "<a href=".concat(data.result.url,">MyCV</a>"); //change to image location
-                                            $('#CVsection').html(tt);//change to image location
+                                            tt= "<img id="avatar" class="editable img-responsive" alt="Avatar" src=<%= @userprofile.pictureurl %> />"); //change to image location
+                                            $('.profile-picture').html(tt);//change to image location
                                             // newAlert("#alert_placeholder-tab", 'success', "File uploaded successfully!");
                                              
                                           }
