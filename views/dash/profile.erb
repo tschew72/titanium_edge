@@ -267,6 +267,24 @@ $(document).ready(function(){
     $(this).prev().focus();
   });
          
+        $('#fileupload').fileupload({
+        // The regular expression for allowed file types, matches
+        // against either file type or file name:
+        acceptFileTypes: /(\.|\/)(gif|jpe?g|png)$/i,
+        // The maximum allowed file size in bytes:
+        maxFileSize: 10000000, // 10 MB
+        // The minimum allowed file size in bytes:
+        minFileSize: 1, // No minimal file size
+        // The limit of files to be uploaded:
+        maxNumberOfFiles: 10
+      }).on('fileuploadprocessalways', function (e, data) {
+        var currentFile = data.files[data.index];
+        if (data.files.error && currentFile.error) {
+          // there was an error, do something about it
+          // newAlert("#alert_placeholder-tab",'danger', currentFile.error);
+        
+        }
+        });
 
  
 });
@@ -288,26 +306,6 @@ $(document).ready(function(){
             data: {"dob": this.value, "pk" : <%=@userprofile.id %>}
             
           });
-      }); 
-
-              $('#fileupload').fileupload({
-        // The regular expression for allowed file types, matches
-        // against either file type or file name:
-        acceptFileTypes: /(\.|\/)(gif|jpe?g|png)$/i,
-        // The maximum allowed file size in bytes:
-        maxFileSize: 10000000, // 10 MB
-        // The minimum allowed file size in bytes:
-        minFileSize: 1, // No minimal file size
-        // The limit of files to be uploaded:
-        maxNumberOfFiles: 10
-      }).on('fileuploadprocessalways', function (e, data) {
-        var currentFile = data.files[data.index];
-        if (data.files.error && currentFile.error) {
-          // there was an error, do something about it
-          // newAlert("#alert_placeholder-tab",'danger', currentFile.error);
-        
-        }
-        });
-  
+      });   
 </script>
 
