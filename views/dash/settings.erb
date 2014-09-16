@@ -350,6 +350,7 @@ else{e.value="no";location.reload();}
                         <input name="file" type="file" id="fileupload" class="cloudinary-fileupload" data-cloudinary-field="image_upload" data-form-data="">
                         </span>
                       <div id="CVsection"> </div>
+                      <span style="visibility:hidden" class="progress"> Uploading in progress</span>
                       <script type="text/javascript">
                           $.ajax({
                                   url: '/filer',
@@ -381,6 +382,20 @@ else{e.value="no";location.reload();}
                                    }); //ajax
                                    return true;
                           }); //cloudinary done
+
+
+                          $('.cloudinary-fileupload').bind('fileuploadprogress', function(e, data) {
+                                $('.progress').attr({
+                                    style : "visibility:show",
+                                });
+                                // $('.status_value').text('Uploading...');
+                            });
+                             $('.cloudinary-fileupload').bind('fileuploadstop', function(e, data) {
+                                $('.progress').attr({
+                                    style : "visibility:hidden",
+                                });
+                                
+                            });
                       </script> 
                   </div>
                  </div>
