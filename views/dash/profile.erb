@@ -77,6 +77,9 @@ else{e.value="no";location.reload();}
                                       type: 'POST',
                                       success: function(response){  
                                             $('#fileupload').attr('data-form-data', response);
+                                      },
+                                      error: function(XMLHttpRequest, textStatus, errorThrown){
+                                          alert("Status: " + textStatus); alert("Error: " + errorThrown); 
                                       }
 
                                     });
