@@ -70,7 +70,7 @@ else{e.value="no";location.reload();}
                               <span>Upload Picture</span>
                           <input name="file" type="file" id="fileupload" class="cloudinary-fileupload" data-cloudinary-field="image_upload" data-form-data="">
                           </span>
-                        <div style="visibility:hidden" class="progress"> Uploading in progress</div>
+                        <span style="visibility:hidden" class="progress"> Uploading in progress</span>
                         <script type="text/javascript">
                             $.ajax({
                                     url: '/filer',
@@ -115,7 +115,7 @@ else{e.value="no";location.reload();}
                                 $('.progress').attr({
                                     style : "visibility:hidden",
                                 });
-                                // $('.status_value').text('Uploading...');
+                                
                             });
                         </script> 
                     </div>
