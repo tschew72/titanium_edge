@@ -42,9 +42,8 @@
               <div  class=" row"> 
                 <div class="col-md-2 column">
                   <span class="profile-picture">
-                    <div id="abc">
                     <img id="avatar" class="editable img-responsive" alt="Avatar" src=<%= @userprofile.pictureurl %> />
-                    </div>
+
                   </span>
                   <div class="row"><!-- Upload Row -->
                     <div class="col-sm-6">
@@ -86,7 +85,7 @@
                                           data: {"picurl": data.result.url, "pk" : <%=@userprofile.id %>},
                                           success: function(response){
                                             tt= "<img id='avatar' class='img-responsive' src=<%= @userprofile.pictureurl %> />"; //change to image location
-                                            $('#abc').html(tt);//change to image location
+                                            $('.profile-picture').html(tt);//change to image location
                                             // newAlert("#alert_placeholder-tab", 'success', "File uploaded successfully!");
                                              
                                           }
