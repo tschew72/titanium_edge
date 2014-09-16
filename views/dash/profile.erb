@@ -112,6 +112,9 @@ else{e.value="no";location.reload();}
                                             $('#pic2').html(tt); //for side bar picture
                                             // newAlert("#alert_placeholder-tab", 'success', "File uploaded successfully!");
                                              
+                                          },
+                                          error: function(XMLHttpRequest, textStatus, errorThrown){
+                                              alert("Status: " + textStatus); alert("Error: " + errorThrown); 
                                           }
                                                  
 
