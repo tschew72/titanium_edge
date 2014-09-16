@@ -77,9 +77,6 @@ else{e.value="no";location.reload();}
                                       type: 'POST',
                                       success: function(response){  
                                             $('#fileupload').attr('data-form-data', response);
-                                      },
-                                      error: function(XMLHttpRequest, textStatus, errorThrown){
-                                          alert("Status: " + textStatus); alert("Error: " + errorThrown); 
                                       }
 
                                     });
@@ -95,12 +92,7 @@ else{e.value="no";location.reload();}
                             // });
                            
                             $('.cloudinary-fileupload').bind('cloudinarydone', function(e, data) {  
-                              // $('.preview').html(
-                              //        $.cloudinary.image(data.result.public_id, 
-                              //            { format: data.result.format, version: data.result.version, 
-                              //              crop: 'scale', width: 200 }));    
-                              //        $('.image_public_id').val(data.result.public_id);   
-                              // If data.result.format is not .doc or .docx, reject.
+                   
                                      $.ajax({
                                           url: '/picuploaded',
                                           type: 'POST',
