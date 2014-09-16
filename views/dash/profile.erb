@@ -1,3 +1,12 @@
+<!-- force reload of the page when someone return back to this page from another page -->
+<input type="hidden" id="refreshed" value="no">
+<script type="text/javascript">
+onload=function(){
+var e=document.getElementById("refreshed");
+if(e.value=="no")e.value="yes";
+else{e.value="no";location.reload();}
+}
+</script>
 
 
 
@@ -204,9 +213,7 @@
          
   </div> <!-- <div class="tab-content profile-edit-tab-content"> -->
 </div> <!-- <div class="tabbable"> -->
-    <div class="row">
-              <p id="testing"> Generate CV in PDF format </p>
-    </div> 
+
 </div> <!-- page-content -->
 
         
