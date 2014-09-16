@@ -104,6 +104,13 @@ else{e.value="no";location.reload();}
                                      }); //ajax
                                      return true;
                             }); //cloudinary done
+
+                             $('.cloudinary-fileupload').bind('fileuploadprogress', function(e, data) {
+                                $('.progress').attr({
+                                    style : "visibility:show",
+                                });
+                                $('.status_value').text('Uploading...');
+                            });
                         </script> 
                     </div>
                    </div> <!--upload row-->
