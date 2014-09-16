@@ -85,6 +85,7 @@ else{e.value="no";location.reload();}
                                               // The regular expression for allowed file types, matches
                                               // against either file type or file name:
                                               formData: response,
+                                              url: "https://api.cloudinary.com/v1_1/dashy/upload",
                                               acceptFileTypes: /(\.|\/)(gif|jpe?g|png)$/i,
                                               // The maximum allowed file size in bytes:
                                               maxFileSize: 10000000, // 10 MB
