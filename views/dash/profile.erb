@@ -84,7 +84,7 @@
                                           type: 'POST',
                                           data: {"picurl": data.result.url, "pk" : <%=@userprofile.id %>},
                                           success: function(response){
-                                            tt= "<img id='avatar' class='img-responsive' src=<%= @userprofile.pictureurl %> />"; //change to image location
+                                            tt= "<img id='avatar' class='img-responsive' src=data.result.url />"; //change to image location
                                             $('#pic').html(tt);//change to image location
                                             // newAlert("#alert_placeholder-tab", 'success', "File uploaded successfully!");
                                              
