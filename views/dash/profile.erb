@@ -72,8 +72,6 @@ else{e.value="no";location.reload();}
                           </span>
                         <span style="visibility:hidden" class="progress"> Uploading in progress</span>
                         <script type="text/javascript">
-                            $("#fileupload").click(function() {
-                              alert("hello");
                               $.ajax({
                                       url: '/filer',
                                       type: 'POST',
@@ -81,7 +79,16 @@ else{e.value="no";location.reload();}
                                             $('#fileupload').attr('data-form-data', response);
                                       }
                                     });
-                            });
+                            // $("#fileupload").click(function() {
+                            //   alert("hello");
+                            //   $.ajax({
+                            //           url: '/filer',
+                            //           type: 'POST',
+                            //           success: function(response){  
+                            //                 $('#fileupload').attr('data-form-data', response);
+                            //           }
+                            //         });
+                            // });
                            
                             $('.cloudinary-fileupload').bind('cloudinarydone', function(e, data) {  
                               // $('.preview').html(
