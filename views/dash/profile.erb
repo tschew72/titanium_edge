@@ -80,16 +80,7 @@ else{e.value="no";location.reload();}
                                       }
 
                                     });
-                            // $("#fileupload").click(function() {
-                            //   alert("hello");
-                            //   $.ajax({
-                            //           url: '/filer',
-                            //           type: 'POST',
-                            //           success: function(response){  
-                            //                 $('#fileupload').attr('data-form-data', response);
-                            //           }
-                            //         });
-                            // });
+                           
                            
                             $('.cloudinary-fileupload').bind('cloudinarydone', function(e, data) {  
                    
@@ -324,5 +315,16 @@ $(document).ready(function(){
             
           });
       });   
+
+       $("#fileupload").click(function() {
+                              alert("hello");
+                              $.ajax({
+                                      url: '/filer',
+                                      type: 'POST',
+                                      success: function(response){  
+                                            $('#fileupload').attr('data-form-data', response);
+                                      }
+                                    });
+                            });
 </script>
 
