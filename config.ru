@@ -582,6 +582,12 @@ end
       return 200
  end
 
+ post '/picuploaded' do
+      userdata = User.get(params["pk"])
+      userdata.update(:pictureurl => params['picurl'])
+      return 200
+ end
+
 
 end
   
