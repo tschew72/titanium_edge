@@ -74,7 +74,7 @@ else{e.value="no";location.reload();}
                         
                         <script type="text/javascript">
                             $.ajax({
-                                    url: '/filer',
+                                    url: '/filer1',
                                     type: 'POST',
                                     success: function(response){  
                                           $('#fileupload').attr('data-form-data', response);
@@ -280,7 +280,7 @@ $(document).ready(function(){
         var currentFile = data.files[data.index];
         if (data.files.error && currentFile.error) {
           // there was an error, do something about it
-          newAlert("#alert_placeholder-tab",'danger', currentFile.error);
+          // newAlert("#alert_placeholder-tab",'danger', currentFile.error);
         
         }
         });
