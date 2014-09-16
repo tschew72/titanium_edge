@@ -72,13 +72,7 @@ else{e.value="no";location.reload();}
                           </span>
                         
                         <script type="text/javascript">
-                            $.ajax({
-                                    url: '/filer',
-                                    type: 'POST',
-                                    success: function(response){  
-                                          $('#fileupload').attr('data-form-data', response);
-                                    }
-                                  });
+
                            
                             $('.cloudinary-fileupload').bind('cloudinarydone', function(e, data) {  
                               // $('.preview').html(
@@ -266,6 +260,14 @@ $(document).ready(function(){
   $('.date-picker').datepicker({autoclose:true}).next().on(ace.click_event, function(){
     $(this).prev().focus();
   });
+
+                              $.ajax({
+                                    url: '/filer',
+                                    type: 'POST',
+                                    success: function(response){  
+                                          $('#fileupload').attr('data-form-data', response);
+                                    }
+                                  });
          
         $('#fileupload').fileupload({
         // The regular expression for allowed file types, matches
