@@ -1,13 +1,3 @@
-<!-- force reload of the page when someone return back to this page from another page -->
-<input type="hidden" id="refreshed" value="no">
-<script type="text/javascript">
-onload=function(){
-var e=document.getElementById("refreshed");
-if(e.value=="no")e.value="yes";
-else{e.value="no";location.reload();}
-}
-</script>
-
 
 
 <!--Content Wrapper-->
@@ -51,8 +41,8 @@ else{e.value="no";location.reload();}
               <div  class=" row"> 
                 <div class="col-md-2 column">
                   <span class="profile-picture">
-                    <img id="avatar" class="editable img-responsive" alt="Avatar" src="" />
-                    <!-- <%= @userprofile.picurl %> -->
+                    <img id="avatar" class="editable img-responsive" alt="Avatar" src=<%= @userprofile.pictureurl %> />
+                    <!-- <%= @userprofile.pictureurl %> -->
                   </span>
                   <div class="row"><!-- Upload Row -->
                     <div class="col-sm-6">
