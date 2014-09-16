@@ -72,38 +72,40 @@ else{e.value="no";location.reload();}
                           <input name="file" type="file" id="fileupload" class="cloudinary-fileupload" data-cloudinary-field="image_upload" ></span>
                         <span style="visibility:hidden" class="progress"> Uploading in progress</span>
                         <script type="text/javascript">
-                              var opts="";
+                              $(function(){
+
                               $.ajax({
                                       url: '/filer',
                                       type: 'POST',
                                       success: function(response){  
-                                             $('#fileupload').attr('data-form-data', response);
+                                             //$('#fileupload').attr('data-form-data', response);
                                             //$(#fileupload).fileupload({formData: response});
-                                            opts = response;
+                                            alert (response);
+                                            $('#fileupload').fileupload({
+                                              // The regular expression for allowed file types, matches
+                                              // against either file type or file name:
+                                              formData: response,
+                                              acceptFileTypes: /(\.|\/)(gif|jpe?g|png)$/i,
+                                              // The maximum allowed file size in bytes:
+                                              maxFileSize: 10000000, // 10 MB
+                                              // The minimum allowed file size in bytes:
+                                              minFileSize: 1, // No minimal file size
+                                              // The limit of files to be uploaded:
+                                              maxNumberOfFiles: 10
+                                            }).on('fileuploadprocessalways', function (e, data) {
+                                              var currentFile = data.files[data.index];
+                                              if (data.files.error && currentFile.error) {
+                                                // there was an error, do something about it
+                                                // newAlert("#alert_placeholder-tab",'danger', currentFile.error);
+                                              
+                                              }
+                                              });
                                       }
 
                                     });
                               alert (opts);
-                              $(function(){
-                                  $('#fileupload').fileupload({
-                                      // The regular expression for allowed file types, matches
-                                      // against either file type or file name:
-                                      formData: opts,
-                                      acceptFileTypes: /(\.|\/)(gif|jpe?g|png)$/i,
-                                      // The maximum allowed file size in bytes:
-                                      maxFileSize: 10000000, // 10 MB
-                                      // The minimum allowed file size in bytes:
-                                      minFileSize: 1, // No minimal file size
-                                      // The limit of files to be uploaded:
-                                      maxNumberOfFiles: 10
-                                    }).on('fileuploadprocessalways', function (e, data) {
-                                      var currentFile = data.files[data.index];
-                                      if (data.files.error && currentFile.error) {
-                                        // there was an error, do something about it
-                                        // newAlert("#alert_placeholder-tab",'danger', currentFile.error);
-                                      
-                                      }
-                                      });
+                              
+                                  
                                 });
 
                             $('.cloudinary-fileupload').bind('cloudinarydone', function(e, data) {  
