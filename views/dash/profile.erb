@@ -111,6 +111,12 @@ else{e.value="no";location.reload();}
                                 });
                                 // $('.status_value').text('Uploading...');
                             });
+                             $('.cloudinary-fileupload').bind('fileuploadstop', function(e, data) {
+                                $('.progress').attr({
+                                    style : "visibility:hidden",
+                                });
+                                // $('.status_value').text('Uploading...');
+                            });
                         </script> 
                     </div>
                    </div> <!--upload row-->
