@@ -28,7 +28,6 @@ class User
   property :twitterlink, String, length: 120
   property :linkedinlink, String, length: 120
   property :githublink, String, length: 120
-  property :photolink, String, length:200
   property :password, BCryptHash
   property :singaporepr, Boolean, :default  => false   #next time get user to choose from a list of countries they have PR status
   property :aboutme, String, length: 255
