@@ -568,14 +568,14 @@ end
     end
 
  post '/filer' do
-      userdata = User.get(params["pk"])
+      userdata = User.get(params["pk"])  #test
       ts = Time.now.getutc.to_time.to_i.to_s
       secret="fbOQxgozjYG2acAMKi3FYL61LOI"
       altogether="callback=http://dashy3.herokuapp.com/vendor/cloudinary/cloudinary_cors.html&timestamp="+ts+secret
       sig=Digest::SHA1.hexdigest altogether
       ts = Time.now.getutc.to_time.to_i
-      userdata.update=(:cloudinaryjson => {:timestamp => ts, :callback => "http://dashy3.herokuapp.com/vendor/cloudinary/cloudinary_cors.html", :signature => sig, :api_key =>"219441847515364"}.to_json)
-      #{:timestamp => ts, :callback => "http://dashy3.herokuapp.com/vendor/cloudinary/cloudinary_cors.html", :signature => sig, :api_key =>"219441847515364"}.to_json
+      userdata.update(:cloudinaryjson => {:timestamp => ts, :callback => "http://dashy3.herokuapp.com/vendor/cloudinary/cloudinary_cors.html", :signature => sig, :api_key =>"219441847515364"}.to_json) # test
+      #{:timestamp => ts, :callback => "http://dashy3.herokuapp.com/vendor/cloudinary/cloudinary_cors.html", :signature => sig, :api_key =>"219441847515364"}.to_json  #original
  end
  
  post '/cvuploaded' do
