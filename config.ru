@@ -169,7 +169,7 @@ get '/profile' do
         ts = Time.now.getutc.to_time.to_i
         atemp = "{:timestamp => ts, :callback => "http://dashy3.herokuapp.com/vendor/cloudinary/cloudinary_cors.html", :signature => sig, :api_key =>"219441847515364"}"
         @cloudinaryjson=atemp.to_json
-        @userprofile.update(:cloudinaryjson => @cloudinaryjson) # test
+        #@userprofile.update(:cloudinaryjson => @cloudinaryjson) # test
 
 
        erb :"dash/profile", :layout => :'dash/layout1'
