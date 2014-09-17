@@ -87,6 +87,7 @@ class trashcan
     property :id, Serial, key:true
     property :type, Integer
     property :descriptor, String, length:500
+    property :user_id, Integer
     belongs_to :user 
 end
 
