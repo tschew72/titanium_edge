@@ -58,6 +58,7 @@ class User
   has n, :skills, :through => :skilltags   ###n-n###
   has n, :skilltags                        ###n-n###
   has n, :tme_skr_socialmedia, :model => 'TmeSkrSocialmedia'
+  has n, :thrashcan
 
   def authenticate(attempted_password)
     if self.password == attempted_password
@@ -77,6 +78,15 @@ class TmeSkrSocialmedia
     property :skr_socialmediacat, Integer
     property :skr_socialmediaurl, String
 
+    belongs_to :user 
+end
+
+
+class trashcan
+    include DataMapper::Resource
+    property :id, Serial, key:true
+    property :type, Integer
+    property :descriptor, String, length:500
     belongs_to :user 
 end
 
