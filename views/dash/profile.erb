@@ -78,8 +78,6 @@ else{e.value="no";location.reload();}
                                   url: '/filer',
                                   type: 'POST',
                                   success: function(response){ 
-                                        alert(response);
-                                        $(function(){
                                         $('#fileupload').fileupload({
                                               // The regular expression for allowed file types, matches
                                               // against either file type or file name:
@@ -99,8 +97,7 @@ else{e.value="no";location.reload();}
                                                 // newAlert("#alert_placeholder-tab",'danger', currentFile.error);
                                              
                                               }
-                                          });
-                                            });
+                                              });
                                   }
                                 });
                                  
@@ -108,7 +105,7 @@ else{e.value="no";location.reload();}
                              
                              
                                  
-                                
+                               
 
                             $('.cloudinary-fileupload').bind('cloudinarydone', function(e, data) {  
                    
