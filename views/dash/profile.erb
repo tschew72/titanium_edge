@@ -73,8 +73,8 @@ else{e.value="no";location.reload();}
                         <span style="visibility:hidden" class="progress"> Uploading in progress</span>
                         <script type="text/javascript">
                               $(function(){
-                                  var opts={"timestamp":1410928657,"callback":"http://dashy3.herokuapp.com/vendor/cloudinary/cloudinary_cors.html","signature":"c00826a094c21da8e81f06169fed49e28de10de3","api_key":"219441847515364"};
-                                  var temp= <%= @cloudinaryjson %>;
+                                  var opts=<%= @cloudinaryjson %>;
+                                  
                               $('#fileupload').fileupload({
                                               // The regular expression for allowed file types, matches
                                               // against either file type or file name:
