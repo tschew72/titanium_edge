@@ -57,7 +57,7 @@ class User
   has n, :preferred_locations
   has n, :skills, :through => :skilltags   ###n-n###
   has n, :skilltags                        ###n-n###
-  has n, :tme_skr_socialmedia
+  has n, :tme_skr_socialmedia, :class_name => 'TmeSkrSocialmedia'
 
   def authenticate(attempted_password)
     if self.password == attempted_password
@@ -71,7 +71,7 @@ end
 
 class TmeSkrSocialmedia
     include DataMapper::Resource
-    storage_names[:default] = 'tme_skr_socialmedia'
+    table_name “tme_skr_socialmedia”
     property :skr_socialmedia_id, Integer, key: true  #1 Facebook 2 LinkedIn 3 Twitter 4 Github
     property :user_id, Integer
     property :skr_socialmediacat, Integer
