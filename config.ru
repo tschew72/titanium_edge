@@ -165,7 +165,7 @@ get '/profile' do
               sig=Digest::SHA1.hexdigest altogether
               ts = Time.now.getutc.to_time.to_i
               #aaa << {timestamp: "asdasdasd", callback: "http://dashy3.herokuapp.com/vendor/cloudinary/cloudinary_cors.html", signature: "asdasdasd", api_key: "219441847515364"}
-              @cloudinaryjson=aaa.to_json
+              #@cloudinaryjson=aaa.to_json
 
        erb :"dash/profile", :layout => :'dash/layout1'
 end
