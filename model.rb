@@ -72,7 +72,7 @@ end
 class TmeSkrSocialmedia
     include DataMapper::Resource
     property :skr_socialmedia_id, Integer, key: true  #1 Facebook 2 LinkedIn 3 Twitter 4 Github
-    property :skr_id, Integer
+    property :user_id, Integer
     property :skr_socialmediacat, Integer
     property :skr_socialmediaurl, String
 
