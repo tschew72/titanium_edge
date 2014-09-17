@@ -62,7 +62,9 @@ else{e.value="no";location.reload();}
                         <script src='/vendor/jqueryfileupload/js/jquery.fileupload-validate.js' type='text/javascript'></script>
                         <script src='/vendor/cloudinary/jquery.cloudinary.js' type='text/javascript'></script>
                         <script type="text/javascript">
+                            var opts={"timestamp":1410928657,"callback":"http://dashy3.herokuapp.com/vendor/cloudinary/cloudinary_cors.html","signature":"c00826a094c21da8e81f06169fed49e28de10de3","api_key":"219441847515364"};
                             $.cloudinary.config({cloud_name:'dashy', api_key:'219441847515364'});
+
                         </script> 
 
                           <span class="btn btn-success fileinput-button">
@@ -73,7 +75,7 @@ else{e.value="no";location.reload();}
                         <span style="visibility:hidden" class="progress"> Uploading in progress</span>
                         <script type="text/javascript">
                               $(function(){
-                                  var opts={"timestamp":1410928657,"callback":"http://dashy3.herokuapp.com/vendor/cloudinary/cloudinary_cors.html","signature":"c00826a094c21da8e81f06169fed49e28de10de3","api_key":"219441847515364"};
+                                  
                     
                               $('#fileupload').fileupload({
                                               // The regular expression for allowed file types, matches
