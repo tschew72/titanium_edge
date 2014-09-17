@@ -158,13 +158,13 @@ get '/profile' do
            ctemp << {value: x.id, text: "#{x.countryname}"}
            @countries = ctemp.to_json
         end
-
+              aaa =[]
               ts = Time.now.getutc.to_time.to_i.to_s
               secret="fbOQxgozjYG2acAMKi3FYL61LOI"
               altogether="callback=http://dashy3.herokuapp.com/vendor/cloudinary/cloudinary_cors.html&timestamp="+ts+secret
               sig=Digest::SHA1.hexdigest altogether
               ts = Time.now.getutc.to_time.to_i
-              aaa << {timestamp: "#{ts}", callback: "http://dashy3.herokuapp.com/vendor/cloudinary/cloudinary_cors.html", signature: "#{sig}", api_key: "219441847515364"}
+              aaa << {timestamp: "asdasdasd", callback: "http://dashy3.herokuapp.com/vendor/cloudinary/cloudinary_cors.html", signature: "asdasdasd", api_key: "219441847515364"}
               @cloudinaryjson=aaa.to_json
 
        erb :"dash/profile", :layout => :'dash/layout1'
