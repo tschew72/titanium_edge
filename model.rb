@@ -70,10 +70,13 @@ class User
 end
 
 class TmeSkrScocialmedia
-    property :skr_socialmedia_id, Integer  #1 Facebook 2 LinkedIn 3 Twitter 4 Github
+    include DataMapper::Resource
+    property :skr_socialmedia_id, Integer, Key: true  #1 Facebook 2 LinkedIn 3 Twitter 4 Github
     property :skr_id, Integer
     property :skr_socialmediacat, Integer
     property :skr_socialmediaurl, String
+
+    belongs_to :user 
 end
 
 class Job
