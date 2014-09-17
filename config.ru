@@ -593,9 +593,8 @@ end
 
  post '/picuploaded' do
       userdata = User.get(params["pk"])
-      userdata.thrashcan.create((:type => 1, :descriptor => userdata.pictureurl)
+      #userdata.thrashcan.create((:type => 1, :descriptor => userdata.pictureurl, :user_id =>userdata.id)
       userdata.update(:pictureurl => params['picurl'])
-
       return 200
  end
 
