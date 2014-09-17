@@ -57,7 +57,7 @@ class User
   has n, :preferred_locations
   has n, :skills, :through => :skilltags   ###n-n###
   has n, :skilltags                        ###n-n###
-  has n, :tme_skr_socialmedia, :class_name => 'TmeSkrSocialmedia'
+  has n, :tme_skr_socialmedia, :model => 'TmeSkrSocialmedia'
 
   def authenticate(attempted_password)
     if self.password == attempted_password
