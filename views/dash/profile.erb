@@ -73,11 +73,16 @@ else{e.value="no";location.reload();}
                         <span style="visibility:hidden" class="progress"> Uploading in progress</span>
                         <script type="text/javascript">
                               $(function(){
-                                  var opts={"timestamp":1410882782,"callback":"http://dashy3.herokuapp.com/vendor/cloudinary/cloudinary_cors.html","signature":"31356adc57524ff7033f7637798bdb0879de4a83","api_key":"219441847515364"};
-                              $('#fileupload').fileupload({
+
+                                  $.ajax({
+                                  url: '/filer',
+                                  type: 'POST',
+                                  success: function(response){ 
+                                        alert("response");
+                                        $('#fileupload').fileupload({
                                               // The regular expression for allowed file types, matches
                                               // against either file type or file name:
-                                              formData: opts,
+                                              formData: response,
                                               url: "https://api.cloudinary.com/v1_1/dashy/upload",
                                               acceptFileTypes: /(\.|\/)(gif|jpe?g|png)$/i,
                                               // The maximum allowed file size in bytes:
@@ -91,12 +96,16 @@ else{e.value="no";location.reload();}
                                               if (data.files.error && currentFile.error) {
                                                 // there was an error, do something about it
                                                 // newAlert("#alert_placeholder-tab",'danger', currentFile.error);
-                                              
+                                             
                                               }
-                                              });
-                              
-                              
-                                  
+                                          });
+                                  }
+                                });
+                                 
+                             
+                             
+                             
+                                 
                                 });
 
                             $('.cloudinary-fileupload').bind('cloudinarydone', function(e, data) {  

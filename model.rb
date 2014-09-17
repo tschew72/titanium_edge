@@ -72,7 +72,7 @@ end
 class TmeSkrSocialmedia
     include DataMapper::Resource
     storage_names[:repo] = 'tme_skr_socialmedia'
-    property :skr_socialmedia_id, Integer, key: true  #1 Facebook 2 LinkedIn 3 Twitter 4 Github
+    property :skr_socialmedia_id, Integer, key: true  #1 Facebook 2 Github 3 LinkedIn 4 Twitter 
     property :user_id, Integer
     property :skr_socialmediacat, Integer
     property :skr_socialmediaurl, String
