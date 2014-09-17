@@ -162,6 +162,14 @@ get '/profile' do
            @countries = ctemp.to_json
         end
   
+        ts = Time.now.getutc.to_time.to_i.to_s
+        secret="fbOQxgozjYG2acAMKi3FYL61LOI"
+        altogether="callback=http://dashy3.herokuapp.com/vendor/cloudinary/cloudinary_cors.html&timestamp="+ts+secret
+        sig=Digest::SHA1.hexdigest altogether
+        ts = Time.now.getutc.to_time.to_i
+        #atemp = "{:timestamp => ts, :callback => "http://dashy3.herokuapp.com/vendor/cloudinary/cloudinary_cors.html", :signature => sig, :api_key =>"219441847515364"}"
+        #@cloudinaryjson=atemp.to_json
+        #@userprofile.update(:cloudinaryjson => @cloudinaryjson) # test
 
 
        erb :"dash/profile", :layout => :'dash/layout1'
