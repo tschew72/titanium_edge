@@ -41,7 +41,6 @@ class User
 
   property :pictureurl, String, length: 400
   property :cvurl, String, length: 400
-  property :cloudinaryjson, String, length: 1000
   property :verifiedbadge, Boolean, :default=>false
   property :verifiedstartdate, Date
   property :verifiedenddate, Date
