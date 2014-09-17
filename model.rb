@@ -24,10 +24,6 @@ class User
   property :address, String
   property :nationality, Integer
   property :contactnumber, String, length: 20
-  property :facebooklink, String, length: 120
-  property :twitterlink, String, length: 120
-  property :linkedinlink, String, length: 120
-  property :githublink, String, length: 120
   property :password, BCryptHash
   property :singaporepr, Boolean, :default  => false   #next time get user to choose from a list of countries they have PR status
   property :aboutme, String, length: 255
@@ -61,7 +57,8 @@ class User
   has n, :preferred_locations
   has n, :skills, :through => :skilltags   ###n-n###
   has n, :skilltags                        ###n-n###
-  
+  has n, :tme_skr_socialmedia
+
   def authenticate(attempted_password)
     if self.password == attempted_password
       true
@@ -72,6 +69,12 @@ class User
 
 end
 
+class TmeSkrScocialmedia
+    property :skr_socialmedia_id, Integer  #1 Facebook 2 LinkedIn 3 Twitter 4 Github
+    property :skr_id, Integer
+    property :skr_socialmediacat, Integer
+    property :skr_socialmediaurl, String
+end
 
 class Job
   include DataMapper::Resource
