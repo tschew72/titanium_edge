@@ -159,7 +159,8 @@ get '/profile' do
         sig=Digest::SHA1.hexdigest altogether
         ts = Time.now.getutc.to_time.to_i
         aa={:timestamp => ts, :callback => "http://dashy3.herokuapp.com/vendor/cloudinary/cloudinary_cors.html", :signature => sig, :api_key =>"219441847515364"}.to_json
-        userdata.update(:cloudinaryjson => aa) # test
+        userprofile.update(:cloudinaryjson => aa) # test
+
        @cmaster = CountryMaster.all
        ctemp = []
            @cmaster.each do |x|
