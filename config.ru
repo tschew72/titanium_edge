@@ -153,13 +153,7 @@ get '/profile' do
        redirect '/auth/login' unless env['warden'].authenticated?
        @userprofile = env['warden'].user  #This is the most important query of all. it will identify the user of this session.
        @userme = @userprofile.firstname
-        ts = Time.now.getutc.to_time.to_i.to_s
-        secret="fbOQxgozjYG2acAMKi3FYL61LOI"
-        altogether="callback=http://dashy3.herokuapp.com/vendor/cloudinary/cloudinary_cors.html&timestamp="+ts+secret
-        sig=Digest::SHA1.hexdigest altogether
-        ts = Time.now.getutc.to_time.to_i
-        aa={:timestamp => ts, :callback => "http://dashy3.herokuapp.com/vendor/cloudinary/cloudinary_cors.html", :signature => sig, :api_key =>"219441847515364"}.to_json
-        userprofile.update(:cloudinaryjson => aa) # test
+        
 
        @cmaster = CountryMaster.all
        ctemp = []
@@ -168,7 +162,16 @@ get '/profile' do
            @countries = ctemp.to_json
         end
   
-       #erb :account
+        ts = Time.now.getutc.to_time.to_i.to_s
+        secret="fbOQxgozjYG2acAMKi3FYL61LOI"
+        altogether="callback=http://dashy3.herokuapp.com/vendor/cloudinary/cloudinary_cors.html&timestamp="+ts+secret
+        sig=Digest::SHA1.hexdigest altogether
+        ts = Time.now.getutc.to_time.to_i
+        atemp = "{:timestamp => ts, :callback => "http://dashy3.herokuapp.com/vendor/cloudinary/cloudinary_cors.html", :signature => sig, :api_key =>"219441847515364"}"
+        @cloudinaryjson=atemp.to_json
+        userprofile.update(:cloudinaryjson => @cloudinaryjson) # test
+
+
        erb :"dash/profile", :layout => :'dash/layout1'
 end
 
