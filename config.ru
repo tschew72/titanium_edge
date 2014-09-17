@@ -148,7 +148,6 @@ get '/mycv' do
        erb :mycv
 end
 
-# get '/account' do
 get '/profile' do
        redirect '/auth/login' unless env['warden'].authenticated?
        @userprofile = env['warden'].user  #This is the most important query of all. it will identify the user of this session.
@@ -159,8 +158,15 @@ get '/profile' do
            ctemp << {value: x.id, text: "#{x.countryname}"}
            @countries = ctemp.to_json
         end
-  
-       #erb :account
+        
+
+              ts = Time.now.getutc.to_time.to_i.to_s
+              secret="fbOQxgozjYG2acAMKi3FYL61LOI"
+              altogether="callback=http://dashy3.herokuapp.com/vendor/cloudinary/cloudinary_cors.html&timestamp="+ts+secret
+              sig=Digest::SHA1.hexdigest altogether
+              ts = Time.now.getutc.to_time.to_i
+              @cloudinaryjson={:timestamp => ts, :callback => "http://dashy3.herokuapp.com/vendor/cloudinary/cloudinary_cors.html", :signature => sig, :api_key =>"219441847515364"}.to_json
+
        erb :"dash/profile", :layout => :'dash/layout1'
 end
 
