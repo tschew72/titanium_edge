@@ -73,11 +73,11 @@ else{e.value="no";location.reload();}
                         <span style="visibility:hidden" class="progress"> Uploading in progress</span>
                         <script type="text/javascript">
                               $(function(){
-                                  var opts=<%= @userprofile.cloudinaryjson %>;
+                                  var opts= aaa;
                                    $('#fileupload').fileupload({
                                               // The regular expression for allowed file types, matches
                                               // against either file type or file name:
-                                              formData: opts,
+                                              formData: <%= @userprofile.cloudinaryjson %>,
                                               url: "https://api.cloudinary.com/v1_1/dashy/upload",
                                               acceptFileTypes: /(\.|\/)(gif|jpe?g|png)$/i,
                                               // The maximum allowed file size in bytes:
