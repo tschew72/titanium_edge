@@ -57,7 +57,7 @@ class User
   has n, :preferred_locations
   has n, :skills, :through => :skilltags   ###n-n###
   has n, :skilltags                        ###n-n###
-  has n, :tme_skr_socialmedia
+  # has n, :tme_skr_socialmedia
 
   def authenticate(attempted_password)
     if self.password == attempted_password
@@ -69,12 +69,12 @@ class User
 
 end
 
-class TmeSkrScocialmedia
-    property :skr_socialmedia_id, Integer  #1 Facebook 2 LinkedIn 3 Twitter 4 Github
-    property :skr_id, Integer
-    property :skr_socialmediacat, Integer
-    property :skr_socialmediaurl, String
-end
+# class TmeSkrScocialmedia
+#     property :skr_socialmedia_id, Integer  #1 Facebook 2 LinkedIn 3 Twitter 4 Github
+#     property :skr_id, Integer
+#     property :skr_socialmediacat, Integer
+#     property :skr_socialmediaurl, String
+# end
 
 class Job
   include DataMapper::Resource
