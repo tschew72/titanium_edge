@@ -72,13 +72,14 @@ else{e.value="no";location.reload();}
                           <input name="file" type="file" id="fileupload" class="cloudinary-fileupload" data-cloudinary-field="image_upload" ></span>
                         <span style="visibility:hidden" class="progress"> Uploading in progress</span>
                         <script type="text/javascript">
-                              $(function(){
+                              
 
                                   $.ajax({
                                   url: '/filer',
                                   type: 'POST',
                                   success: function(response){ 
                                         alert(response);
+                                        $(function(){
                                         $('#fileupload').fileupload({
                                               // The regular expression for allowed file types, matches
                                               // against either file type or file name:
@@ -99,6 +100,7 @@ else{e.value="no";location.reload();}
                                              
                                               }
                                           });
+                                            });
                                   }
                                 });
                                  
@@ -106,7 +108,7 @@ else{e.value="no";location.reload();}
                              
                              
                                  
-                                });
+                                
 
                             $('.cloudinary-fileupload').bind('cloudinarydone', function(e, data) {  
                    
