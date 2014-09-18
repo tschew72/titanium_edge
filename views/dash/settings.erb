@@ -628,7 +628,7 @@ else{e.value="no";location.reload();}
       $('#joblevel').editable({
       
            source: function() {
-                return (<%= @llist%>)
+                return (<%= @locations%>)
               },
         select2: {
            multiple: true,
