@@ -582,13 +582,10 @@ end
  
 
  get '/filer' do
-     
-
-
+      userprofile = User.get(params["pk"])
       ts = Time.now.getutc.to_time.to_i.to_s
       secret="fbOQxgozjYG2acAMKi3FYL61LOI"
       altogether="callback=http://dashy3.herokuapp.com/vendor/cloudinary/cloudinary_cors.html&public_id=#{@userprofile.username}&timestamp="+ts+secret
-       #altogether="callback=http://dashy3.herokuapp.com/vendor/cloudinary/cloudinary_cors.html&timestamp="+ts+secret
       sig=Digest::SHA1.hexdigest altogether
       ts = Time.now.getutc.to_time.to_i
       {:timestamp => ts, :public_id => "#{@userprofile.username}", :callback => "http://dashy3.herokuapp.com/vendor/cloudinary/cloudinary_cors.html", :signature => sig, :api_key =>"219441847515364"}.to_json
