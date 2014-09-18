@@ -611,7 +611,7 @@ else{e.value="no";location.reload();}
       $('#locations').editable({
       
            source: function() {
-                return (<%= @countries %>)
+                return (<%= @locations %>)
               },
         select2: {
            multiple: true,
