@@ -58,6 +58,7 @@ class User
   has n, :skilltags                        ###n-n###
   has n, :tme_skr_socialmedia, :model => 'TmeSkrSocialmedia'
   has n, :tme_skr_prefloc, :model => 'TmeSkrPrefloc'
+  has n, :tme_skr_preftitle, :model => 'TmeSkrPreftitle'
 
   def authenticate(attempted_password)
     if self.password == attempted_password
@@ -90,6 +91,16 @@ class TmeSkrPrefloc
     belongs_to :user 
 end
 
+class TmeSkrPreftitle #job level
+    include DataMapper::Resource
+    storage_names[repository = :default] = 'tme_skr_preftitle'
+    property :skr_preftitle_id, Serial, key: true   
+    property :user_id, Integer, :field => 'skr_id'
+    property :skr_preftitle, Integer
+
+    belongs_to :user 
+end
+
 class TmeListCountry
     include DataMapper::Resource
     storage_names[repository = :default] = 'tme_list_country'
@@ -97,6 +108,12 @@ class TmeListCountry
     property :country, String
 end
 
+class TmeListTitle  # Job Level
+    include DataMapper::Resource
+    storage_names[repository = :default] = 'tme_list_title'
+    property :title_id, Serial, key: true   
+    property :title, String
+end
 
 class Job
   include DataMapper::Resource

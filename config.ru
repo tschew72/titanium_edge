@@ -307,10 +307,10 @@ get '/settings' do
     
 
        #Preferred Level
-       plevel = @userprofile.tme_skr_prefloc.all
+       plevel = @userprofile.tme_skr_preftitle.all
        @pref_level=""
        plevel.each do |i|
-        @pref_level = @pref_level + plevel.get(i).skr_prefloc_id.to_s + ","
+        @pref_level = @pref_level + plevel.get(i).skr_preftitle_id.to_s + ","
       end
 
        #Preferred Industries
