@@ -74,6 +74,8 @@
                                                   $.getJSON('/filer', function (result) {
                                                       data.formData = result; // e.g. {id: 123}
                                                       data.submit();
+                                                  })fail( function(d, textStatus, error) {
+                                                      console.error("Upload failed, Please refresh this page and try again. Status: " + textStatus + ", error: "+error)
                                                   });
                                               },
                                               url: "https://api.cloudinary.com/v1_1/dashy/upload",
