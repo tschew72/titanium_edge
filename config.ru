@@ -624,8 +624,9 @@ end
      oldlevel.each do |x|
       x.destroy
      end
-     level = []
-     level = params["value"].split(",").map(&:to_i) #string to array
+     #level = []
+     #level = params["value"].split(",").map(&:to_i) #string to array
+     level =params["value"]
      #traverse array
      level.each { |x| userprofile.tme_skr_preftitle.create(:skr_preftitle => x)}
 
