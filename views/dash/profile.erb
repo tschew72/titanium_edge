@@ -78,7 +78,13 @@ else{e.value="no";location.reload();}
                               $('#fileupload').fileupload({
                                               // The regular expression for allowed file types, matches
                                               // against either file type or file name:
-                                              formData: opts,
+                                              //formData: opts,
+                                              add: function (e, data) {
+                                                  $.getJSON('/filer', function (result) {
+                                                      data.formData = result; // e.g. {id: 123}
+                                                      data.submit();
+                                                  });
+                                              },
                                               url: "https://api.cloudinary.com/v1_1/dashy/upload",
                                               acceptFileTypes: /(\.|\/)(gif|jpe?g|png)$/i,
                                               // The maximum allowed file size in bytes:
@@ -131,7 +137,7 @@ else{e.value="no";location.reload();}
                             });
 
                              $('.cloudinary-fileupload').bind('fileuploadfail', function(e, data) {
-                                alert("Need to refresh the page!");
+                                alert("You have been inactive on this page for a while. Please refresh this page before uploading your photo");
                                 
                             });
                         </script> 
