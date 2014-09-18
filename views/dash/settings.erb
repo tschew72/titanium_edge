@@ -130,6 +130,12 @@ else{e.value="no";location.reload();}
             <div class="col-sm-5">
                 <h4 class="header smaller lighter blue">Preferred Job Levels </h4>
             </div>
+              <div class="row ">
+                <div class="col-sm-10">
+                    
+                </div>
+              </div>
+
             <div class="col-sm-5">
                 <h4 class="header smaller lighter blue">Preferred Job Functions </h4>
             </div>
@@ -137,7 +143,7 @@ else{e.value="no";location.reload();}
           </div>
           <div class="row">
             <div class="col-sm-10">
-                <a href="#" id="joblevel" data-type="select2" data-value="<%= @pref_ind %>"  data-pk="<%=@userprofile.id %>" data-url="/updateindpref" data-title="Enter preferred job levels"></a>
+                <a href="#" id="joblevel" data-type="select2" data-value="<%= @pref_level%>"  data-pk="<%=@userprofile.id %>" data-url="/updatelevelpref" data-title="Enter preferred level"></a>
             </div>
             <div class="col-sm-10"> 
                  <a href="#" id="jobfunction" data-type="select2" data-value="<%= @pref_loc %>"  data-pk="<%=@userprofile.id %>" data-url="/updatelocpref" data-title="Enter preferred job functions"></a>

@@ -57,6 +57,7 @@ class User
   has n, :skills, :through => :skilltags   ###n-n###
   has n, :skilltags                        ###n-n###
   has n, :tme_skr_socialmedia, :model => 'TmeSkrSocialmedia'
+  has n, :tme_skr_prefloc, :model => 'TmeSkrPrefloc'
 
   def authenticate(attempted_password)
     if self.password == attempted_password
@@ -75,6 +76,16 @@ class TmeSkrSocialmedia
     property :user_id, Integer, :field => 'skr_id'
     property :skr_socialmediacat, Integer
     property :skr_socialmediaurl, String
+
+    belongs_to :user 
+end
+
+class TmeSkrPrefloc
+    include DataMapper::Resource
+    storage_names[:repo] = 'tme_skr_prefloc'
+    property :skr_prefloc_id, Serial, key: true   
+    property :user_id, Integer, :field => 'skr_id'
+    property :skr_prefloc, Integer
 
     belongs_to :user 
 end
