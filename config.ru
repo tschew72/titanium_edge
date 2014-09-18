@@ -153,11 +153,11 @@ get '/profile' do
        redirect '/auth/login' unless env['warden'].authenticated?
        @userprofile = env['warden'].user   
        
-       @facebook = @userprofile.tme_skr_socialmedia.all(:skr_socialmediacat => 1)
-       @github = @userprofile.tme_skr_socialmedia.all(:skr_socialmediacat => 2)
-       @linkedin = @userprofile.tme_skr_socialmedia.all(:skr_socialmediacat => 3)
-       @twitter = @userprofile.tme_skr_socialmedia.all(:skr_socialmediacat => 4)
-       @google = @userprofile.tme_skr_socialmedia.all(:skr_socialmediacat => 5)
+       @facebook = @userprofile.tme_skr_socialmedia.all(:skr_socialmediacat => 1).at(1).skr_socialmediaurl
+       @github = @userprofile.tme_skr_socialmedia.all(:skr_socialmediacat => 2).at(1).skr_socialmediaurl
+       @linkedin = @userprofile.tme_skr_socialmedia.all(:skr_socialmediacat => 3).at(1).skr_socialmediaurl
+       @twitter = @userprofile.tme_skr_socialmedia.all(:skr_socialmediacat => 4).at(1).skr_socialmediaurl
+       @google = @userprofile.tme_skr_socialmedia.all(:skr_socialmediacat => 5).at(1).skr_socialmediaurl
        
        
        @userme = @userprofile.firstname
