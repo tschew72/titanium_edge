@@ -153,11 +153,23 @@ get '/profile' do
        redirect '/auth/login' unless env['warden'].authenticated?
        @userprofile = env['warden'].user   
        
-       @facebook = @userprofile.tme_skr_socialmedia.all(:skr_socialmediacat => 1).at(0).skr_socialmediaurl
-       @github = @userprofile.tme_skr_socialmedia.all(:skr_socialmediacat => 2).at(0).skr_socialmediaurl
-       @linkedin = @userprofile.tme_skr_socialmedia.all(:skr_socialmediacat => 3).at(0).skr_socialmediaurl
-       @twitter = @userprofile.tme_skr_socialmedia.all(:skr_socialmediacat => 4).at(0).skr_socialmediaurl
-       @google = @userprofile.tme_skr_socialmedia.all(:skr_socialmediacat => 5).at(0).skr_socialmediaurl
+       sc = @userprofile.tme_skr_socialmedia.all
+       sc.each do |x|
+          if x.skr_socialmediacat == 1
+            @facebook = x.skr_socialmediaurl
+          if x.skr_socialmediacat == 2
+            @github = x.skr_socialmediaurl
+          if x.skr_socialmediacat == 3
+            @linkedin = x.skr_socialmediaurl
+          if x.skr_socialmediacat == 4
+            @twitter = x.skr_socialmediaurl
+          if x.skr_socialmediacat == 5
+            @google = x.skr_socialmediaurl
+       end
+       #@github = @userprofile.tme_skr_socialmedia.all(:skr_socialmediacat => 2).at(0).skr_socialmediaurl
+       #@linkedin = @userprofile.tme_skr_socialmedia.all(:skr_socialmediacat => 3).at(0).skr_socialmediaurl
+       #@twitter = @userprofile.tme_skr_socialmedia.all(:skr_socialmediacat => 4).at(0).skr_socialmediaurl
+       #@google = @userprofile.tme_skr_socialmedia.all(:skr_socialmediacat => 5).at(0).skr_socialmediaurl
        
        
        @userme = @userprofile.firstname
