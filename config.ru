@@ -627,32 +627,32 @@ end
 
   post '/updatefacebook' do
     userprofile = env['warden'].user
-    TmeSkrSocialmedia.first_or_create({:skr_socialmediacat=>1, :user_id=> params["pk"]}).update(:skr_socialmediaurl=> params["facebook"]) 
+    TmeSkrSocialmedia.first_or_create({:skr_socialmediacat=>1, :user_id=> params["pk"]}, :skr_socialmediaurl=> params["facebook"]).update(:skr_socialmediaurl=> params["facebook"]) 
         {:responsemsg => "Facebook URL updated" }.to_json
   end
 
   post '/updategithub' do
     userprofile = env['warden'].user
     TmeSkrSocialmedia.first_or_create({:skr_socialmediacat=>2, :user_id=> params["pk"]}).update(:skr_socialmediaurl=> params["github"]) 
-        {:responsemsg => "Facebook URL updated" }.to_json
+        {:responsemsg => "Github URL updated" }.to_json
   end
  
    post '/updatelinkedin' do
     userprofile = env['warden'].user
     TmeSkrSocialmedia.first_or_create({:skr_socialmediacat=>3, :user_id=> params["pk"]}).update(:skr_socialmediaurl=> params["linkedin"]) 
-        {:responsemsg => "Facebook URL updated" }.to_json
+        {:responsemsg => "LinkedIn URL updated" }.to_json
   end
 
   post '/updatetwitter' do
     userprofile = env['warden'].user
     TmeSkrSocialmedia.first_or_create({:skr_socialmediacat=>4, :user_id=> params["pk"]}).update(:skr_socialmediaurl=> params["twitter"]) 
-        {:responsemsg => "Facebook URL updated" }.to_json
+        {:responsemsg => "Twitter URL updated" }.to_json
   end
 
   post '/updategoogle' do
     userprofile = env['warden'].user
     TmeSkrSocialmedia.first_or_create({:skr_socialmediacat=>5, :user_id=> params["pk"]}).update(:skr_socialmediaurl=> params["google"]) 
-        {:responsemsg => "Facebook URL updated" }.to_json
+        {:responsemsg => "Google+ URL updated" }.to_json
   end
 
 
