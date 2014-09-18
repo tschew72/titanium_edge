@@ -158,14 +158,18 @@ get '/profile' do
           if x.skr_socialmediacat == 1
             @facebook = x.skr_socialmediaurl
           end
-          #if x.skr_socialmediacat == 2
-          #  @github = x.skr_socialmediaurl
-          #if x.skr_socialmediacat == 3
-          #  @linkedin = x.skr_socialmediaurl
-          #if x.skr_socialmediacat == 4
-          #  @twitter = x.skr_socialmediaurl
-          #if x.skr_socialmediacat == 5
-          #  @google = x.skr_socialmediaurl
+          if x.skr_socialmediacat == 2
+            @github = x.skr_socialmediaurl
+          end
+          if x.skr_socialmediacat == 3
+            @linkedin = x.skr_socialmediaurl
+          end
+          if x.skr_socialmediacat == 4
+            @twitter = x.skr_socialmediaurl
+          end
+          if x.skr_socialmediacat == 5
+            @google = x.skr_socialmediaurl
+          end
        end
        #@github = @userprofile.tme_skr_socialmedia.all(:skr_socialmediacat => 2).at(0).skr_socialmediaurl
        #@linkedin = @userprofile.tme_skr_socialmedia.all(:skr_socialmediacat => 3).at(0).skr_socialmediaurl
