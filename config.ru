@@ -151,7 +151,15 @@ end
 # get '/account' do
 get '/profile' do
        redirect '/auth/login' unless env['warden'].authenticated?
-       @userprofile = env['warden'].user  #This is the most important query of all. it will identify the user of this session.
+       @userprofile = env['warden'].user   
+       
+       @facebook = @userprofile.tme_skr_socialmedia.all(:skr_socialmediacat => 1)
+       @github = @userprofile.tme_skr_socialmedia.all(:skr_socialmediacat => 2)
+       @linkedin = @userprofile.tme_skr_socialmedia.all(:skr_socialmediacat => 3)
+       @twitter = @userprofile.tme_skr_socialmedia.all(:skr_socialmediacat => 4)
+       @google = @userprofile.tme_skr_socialmedia.all(:skr_socialmediacat => 5)
+       
+       
        @userme = @userprofile.firstname
        @cmaster = CountryMaster.all
        ctemp = []
@@ -160,10 +168,6 @@ get '/profile' do
            @countries = ctemp.to_json
         end
         
-
-
-
-
        #erb :account
        erb :"dash/profile", :layout => :'dash/layout1'
 end
@@ -589,7 +593,6 @@ end
       sig=Digest::SHA1.hexdigest altogether
       ts = Time.now.getutc.to_time.to_i
       {:timestamp => ts, :public_id => "#{userprofile.username}", :callback => "http://dashy3.herokuapp.com/vendor/cloudinary/cloudinary_cors.html", :signature => sig, :api_key =>"219441847515364"}.to_json
-
  end
 
  post '/cvuploaded' do
@@ -603,6 +606,39 @@ end
       userdata.update(:pictureurl => params['picurl'])
       return 200
  end
+
+
+  post '/updatefacebook' do
+    userprofile = env['warden'].user
+    TmeSkrSocialmedia.first_or_create({:skr_socialmediacat=>1, :user_id=> params["pk"]}).update(:skr_socialmediaurl=> params["facebook"]) 
+        {:responsemsg => "Facebook URL updated" }.to_json
+  end
+
+  post '/updategithub' do
+    userprofile = env['warden'].user
+    TmeSkrSocialmedia.first_or_create({:skr_socialmediacat=>2, :user_id=> params["pk"]}).update(:skr_socialmediaurl=> params["github"]) 
+        {:responsemsg => "Facebook URL updated" }.to_json
+  end
+ 
+   post '/updatelinkedin' do
+    userprofile = env['warden'].user
+    TmeSkrSocialmedia.first_or_create({:skr_socialmediacat=>3, :user_id=> params["pk"]}).update(:skr_socialmediaurl=> params["linkedin"]) 
+        {:responsemsg => "Facebook URL updated" }.to_json
+  end
+
+  post '/updatetwitter' do
+    userprofile = env['warden'].user
+    TmeSkrSocialmedia.first_or_create({:skr_socialmediacat=>4, :user_id=> params["pk"]}).update(:skr_socialmediaurl=> params["twitter"]) 
+        {:responsemsg => "Facebook URL updated" }.to_json
+  end
+
+  post '/updategoogle' do
+    userprofile = env['warden'].user
+    TmeSkrSocialmedia.first_or_create({:skr_socialmediacat=>5, :user_id=> params["pk"]}).update(:skr_socialmediaurl=> params["google"]) 
+        {:responsemsg => "Facebook URL updated" }.to_json
+  end
+
+
 
 
 end
