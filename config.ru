@@ -310,14 +310,14 @@ get '/settings' do
        plevel = @userprofile.tme_skr_preftitle.all
        @pref_level=""
        plevel.each do |i|
-        @pref_level = @pref_level + plevel.get(i).skr_preftitle_id.to_s + ","
+        @pref_level = @pref_level + plevel.get(i).skr_preftitle.to_s + ","
       end
 
       #Preferred Job Functions
        pfunc = @userprofile.tme_skr_preffunc.all
        @pref_func=""
        pfunc.each do |i|
-        @pref_func = @pref_func + pfunc.get(i).skr_preffunc_id.to_s + ","
+        @pref_func = @pref_func + pfunc.get(i).skr_preffunc.to_s + ","
       end
 
 
