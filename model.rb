@@ -59,6 +59,7 @@ class User
   has n, :tme_skr_socialmedia, :model => 'TmeSkrSocialmedia'
   has n, :tme_skr_prefloc, :model => 'TmeSkrPrefloc'
   has n, :tme_skr_preftitle, :model => 'TmeSkrPreftitle'
+  has n, :tme_skr_preffunc, :model => 'TmeSkrPreffunc'
 
   def authenticate(attempted_password)
     if self.password == attempted_password
@@ -97,6 +98,16 @@ class TmeSkrPreftitle #job level
     property :skr_preftitle_id, Serial, key: true   
     property :user_id, Integer, :field => 'skr_id'
     property :skr_preftitle, Integer
+
+    belongs_to :user 
+end
+
+class TmeSkrPreffunc #job Function
+    include DataMapper::Resource
+    storage_names[repository = :default] = 'tme_skr_preffunc'
+    property :skr_preffunc_id, Serial, key: true   
+    property :user_id, Integer, :field => 'skr_id'
+    property :skr_preffunc, Integer
 
     belongs_to :user 
 end

@@ -313,6 +313,14 @@ get '/settings' do
         @pref_level = @pref_level + plevel.get(i).skr_preftitle_id.to_s + ","
       end
 
+      #Preferred Job Functions
+       pfunc = @userprofile.tme_skr_preffunc.all
+       @pref_func=""
+       pfunc.each do |i|
+        @pref_func = @pref_func + pfunc.get(i).skr_preffunc_id.to_s + ","
+      end
+
+
        #Preferred Industries
        pind = @userprofile.job_industries.all
        @pref_ind=""
@@ -341,7 +349,6 @@ get '/settings' do
            loctemp << {id: x.country_id, text: "#{x.country}"}
            @locations = loctemp.to_json
         end
-
 
        @levelmaster = TmeListTitle.all
        leveltemp = []
