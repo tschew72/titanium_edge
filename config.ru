@@ -344,7 +344,7 @@ get '/settings' do
 
 
        @levelmaster = TmeListTitle.all
-       #leveltemp = []
+       leveltemp = []
        #@levelmaster.each do |x|
        #    leveltemp << {id: x.country_id, text: "#{x.country}"}
        #    @levels = leveltemp.to_json
