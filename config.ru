@@ -640,8 +640,9 @@ end
       x.destroy
      end
      func =params["value"]
-     #traverse array
-     func.each { |x| userprofile.tme_skr_preffunc.create(:skr_preffunc => x)}
+     if func != nill#traverse array
+        func.each { |x| userprofile.tme_skr_preffunc.create(:skr_preffunc => x)}
+      end
   end
 
  get '/table' do
