@@ -306,6 +306,12 @@ get '/settings' do
        @ssmaster = SkillSource  #master skill source for cross referencing
     
 
+       #Preferred Level
+       plevel = @userprofile.tme_skr_preftitle.all
+       @pref_level=""
+       plevel.each do |i|
+        @pref_level = @pref_level + plevel.get(i).skr_preftitle_id.to_s + ","
+      end
 
        #Preferred Industries
        pind = @userprofile.job_industries.all
@@ -334,6 +340,13 @@ get '/settings' do
        @locmaster.each do |x|
            loctemp << {id: x.country_id, text: "#{x.country}"}
            @locations = loctemp.to_json
+        end
+
+       @levelmaster = TmeListTitle.all
+       leveltemp = []
+       @levelmaster.each do |x|
+           leveltemp << {id: x.country_id, text: "#{x.country}"}
+           @levels = leveltemp.to_json
         end
 
 
