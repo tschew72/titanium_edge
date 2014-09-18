@@ -82,7 +82,7 @@ end
 
 class TmeSkrPrefloc
     include DataMapper::Resource
-    storage_names[:repo] = 'tme_skr_prefloc'
+    storage_names[repository = :default] = 'tme_skr_prefloc'
     property :skr_prefloc_id, Serial, key: true   
     property :user_id, Integer, :field => 'skr_id'
     property :skr_prefloc, Integer
