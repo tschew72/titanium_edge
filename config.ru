@@ -627,8 +627,10 @@ end
      #level = []
      #level = params["value"].split(",").map(&:to_i) #string to array
      level =params["value"]
-     #traverse array
-     level.each { |x| userprofile.tme_skr_preftitle.create(:skr_preftitle => x)}
+     if level != nil  #If user does nto enter any value, then just return back
+       #traverse array
+       level.each { |x| userprofile.tme_skr_preftitle.create(:skr_preftitle => x)}
+     end
 
   end
 
