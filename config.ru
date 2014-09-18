@@ -634,10 +634,14 @@ end
 
     post '/updatefuncpref' do
      userprofile = env['warden'].user
-     loc= userprofile.tme_skr_prefloc.get(params["pk"])
-     #string to array
-
-     #loc.update(:countryid=> params["value"])
+     #First delete all preferred levels in table.
+     oldfunc = userprofile.tme_skr_preffunc.all
+     oldfunc.each do |x|
+      x.destroy
+     end
+     func =params["value"]
+     #traverse array
+     func.each { |x| userprofile.tme_skr_preffunc.create(:skr_preffunc => x)}
   end
 
  get '/table' do
