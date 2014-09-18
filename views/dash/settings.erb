@@ -625,22 +625,7 @@ else{e.value="no";location.reload();}
         placement: 'bottom'
       });
 
-      $('#joblevel').editable({
-      
-           source: function() {
-                return (<%= @levels%>)
-              },
-        select2: {
-           multiple: true,
-           dropdownAutoWidth : true,
-           placeholder: 'Select Industries', width: '192px'
-        },
-        allowClear: true,
-        minimumInputLength: 3,
-        mode: 'popup',
-        showbuttons: 'bottom',
-        placement: 'bottom'
-      });
+
 
 
         $('#skillsettingtable').dataTable( {   
