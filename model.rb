@@ -126,6 +126,14 @@ class TmeListTitle  # Job Level
     property :title, String
 end
 
+class TmeListFunction  # Job Function
+    include DataMapper::Resource
+    storage_names[repository = :default] = 'tme_list_function'
+    property :function_id, Serial, key: true   
+    property :function, String
+end
+
+
 class Job
   include DataMapper::Resource
 

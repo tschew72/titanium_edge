@@ -357,6 +357,14 @@ get '/settings' do
            @levels = leveltemp.to_json
         end
 
+       @functionmaster = TmeListFunction.all
+       functemp = []
+       @functionmaster.each do |x|
+           functemp << {id: x.function_id, text: "#{x.function}"}
+           @functions = functemp.to_json
+        end
+
+
        #@cmaster = CountryMaster.all   #Country Master  #Hardcode to HTML. Remove from Database.
        #ctemp = []
        #    @cmaster.each do |x|
