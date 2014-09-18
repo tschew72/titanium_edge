@@ -95,7 +95,7 @@ else{e.value="no";location.reload();}
                                               maxNumberOfFiles: 10
                                             }).on('fileuploadfail', function (e, data) {
                                               var currentFile = data.files[data.index];
-                                              alert("FAILFAIL!")
+                                              alert("Refresh page and try uploading again!")
                                               if (data.files.error && currentFile.error) {
                                                 // there was an error, do something about it
                                                 // newAlert("#alert_placeholder-tab",'danger', currentFile.error);
