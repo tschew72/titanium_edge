@@ -342,6 +342,14 @@ get '/settings' do
            @locations = loctemp.to_json
         end
 
+       @levelmaster = TmeListTitle.all
+       leveltemp = []
+       @levelmaster.each do |x|
+           leveltemp << {id: x.country_id, text: "#{x.country}"}
+           @levels = leveltemp.to_json
+        end
+
+
        #@cmaster = CountryMaster.all   #Country Master  #Hardcode to HTML. Remove from Database.
        #ctemp = []
        #    @cmaster.each do |x|
