@@ -619,12 +619,25 @@ end
 
     post '/updatelevelpref' do
      userprofile = env['warden'].user
+     #First delete all preferred levels in table.
+     oldlevel = userprofile.tme_skr_preftitle.all
+     oldlevel.each do |x|
+      x.destroy
+     end
+     level = []
+     level = params["value"].split(",").map(&:to_i) #string to array
+     #traverse array
+     level.each { |x| userprofile.tme_skr_preftitle.create(:skr_preftitle => x)}
+
+  end
+
+    post '/updatefuncpref' do
+     userprofile = env['warden'].user
      loc= userprofile.tme_skr_prefloc.get(params["pk"])
      #string to array
 
      #loc.update(:countryid=> params["value"])
   end
-
 
  get '/table' do
        @userprofile = env['warden'].user  
