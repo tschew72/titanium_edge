@@ -305,6 +305,14 @@ get '/settings' do
        @lmaster = LanguageSource.all
        @ssmaster = SkillSource  #master skill source for cross referencing
     
+
+       #Preferred Level
+       plevel = @userprofile.tme_skr_prefloc.all
+       @pref_level=""
+       plevel.each do |i|
+        @pref_level = @pref_level + plevel.get(i).skr_prefloc_id.to_s + ","
+       end
+
        #Preferred Industries
        pind = @userprofile.job_industries.all
        @pref_ind=""
@@ -567,18 +575,24 @@ end
   end
 
 
-    post '/updatelocpref'do
-    # If shaun cannot provide a string as data. Then what we will do is we will send back a new table to him with a string containing all the location ID
-    # And in /settings, we will have to build this new table.
+    post '/updatelocpref' do
      #userprofile = env['warden'].user
      #pc= userprofile.preferred_locations.get(params["pk"])
      #pc.update(:countryid=> params["value"])
   end
 
-    post '/updateindpref'do
+    post '/updateindpref' do
      #userprofile = env['warden'].user
      #pind = userprofile.job_industries.get(params["pk"])
      #pind.update(eval(":#{params['name']}") => params["value"])
+  end
+
+    post '/updatelevelpref' do
+     userprofile = env['warden'].user
+     loc= userprofile.tme_skr_prefloc.get(params["pk"])
+     #string to array
+
+     #loc.update(:countryid=> params["value"])
   end
 
 
