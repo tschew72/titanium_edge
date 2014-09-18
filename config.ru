@@ -9,7 +9,8 @@ require 'digest/sha1'
 class SinatraWardenExample < Sinatra::Application
 
 #use Rack::Session::Pool, :expire_after => 2592000
- use Rack::Session::Cookie, :expire_after => 14400
+ #use Rack::Session::Cookie, :expire_after => 14400
+ use Rack::Session::Cookie
  
 use Warden::Manager do |config|
 
