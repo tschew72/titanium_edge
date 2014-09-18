@@ -627,7 +627,7 @@ end
 
   post '/updatefacebook' do
     userprofile = env['warden'].user
-    TmeSkrSocialmedia.first_or_create({:skr_socialmediacat=>1, :user_id=> params["pk"]}, {:skr_socialmediaurl=> params['facebook']}).update(:skr_socialmediaurl=> "Mess!") 
+    TmeSkrSocialmedia.first_or_create({:skr_socialmediacat=>1, :user_id=> params["pk"]}).update(:skr_socialmediaurl=> "Mess!") 
         {:responsemsg => "Facebook URL updated" }.to_json
   end
 
