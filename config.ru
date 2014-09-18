@@ -582,7 +582,7 @@ end
  
 
  get '/filer' do
-      userprofile = User.get(params["pk"])
+      userprofile = env['warden'].user
       ts = Time.now.getutc.to_time.to_i.to_s
       secret="fbOQxgozjYG2acAMKi3FYL61LOI"
       altogether="callback=http://dashy3.herokuapp.com/vendor/cloudinary/cloudinary_cors.html&public_id=#{userprofile.username}&timestamp="+ts+secret
