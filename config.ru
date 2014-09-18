@@ -346,8 +346,8 @@ get '/settings' do
        @levelmaster = TmeListTitle.all
        leveltemp = []
        @levelmaster.each do |x|
-           leveltemp << {id: x.country_id, text: "#{x.country}"}
-           @llist = leveltemp.to_json
+           leveltemp << {id: x.title_id, text: "#{x.title}"}
+           @levels = leveltemp.to_json
         end
 
        #@cmaster = CountryMaster.all   #Country Master  #Hardcode to HTML. Remove from Database.
