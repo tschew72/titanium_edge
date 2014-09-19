@@ -41,9 +41,6 @@ class User
 
   property :pictureurl, String, length: 400
   property :cvurl, String, length: 400
-  property :verifiedbadge, Boolean, :default=>false
-  property :verifiedstartdate, Date
-  property :verifiedenddate, Date
   property :lastlogin, Date
   property :updated_at, DateTime
 
