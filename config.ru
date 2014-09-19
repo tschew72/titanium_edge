@@ -323,12 +323,18 @@ get '/settings' do
 
 
        #Preferred Industries
-       pind = @userprofile.job_industries.all
+       #pind = @userprofile.job_industries.all
+       #@pref_ind=""
+       #pind.each do |i|
+       #   @pref_ind  = @pref_ind + pind.get(i).industryid.to_s + ","
+       #end
+
+       #Preferred Industries
+       pind = @userprofile.tme_skr_prefind.all
        @pref_ind=""
        pind.each do |i|
-          @pref_ind  = @pref_ind + pind.get(i).industryid.to_s + ","
+          @pref_ind  = @pref_ind + pind.get(i).skr_prefind.to_s + ","
        end
-
 
        #Preferred Locations
        pc= @userprofile.preferred_locations.all
@@ -337,10 +343,17 @@ get '/settings' do
           @pref_loc = @pref_loc + pc.get(i).countryid.to_s + ","
        end
 
-       @indmaster = IndustryMaster.all   #Industry Master       #Hardcode to HTML. Remove from Database.
+       #@indmaster = IndustryMaster.all   #Industry Master       #Hardcode to HTML. Remove from Database.
+       #indtemp = []
+       #    @indmaster.each do |x|
+       #    indtemp << {id: x.id, text: "#{x.industryname}"}
+       #    @industries = indtemp.to_json
+       # end
+
+       @indmaster = TmeListIndustry .all   #Industry Master       #Hardcode to HTML. Remove from Database.
        indtemp = []
            @indmaster.each do |x|
-           indtemp << {id: x.id, text: "#{x.industryname}"}
+           indtemp << {id: x.id, text: "#{x.industry}"}
            @industries = indtemp.to_json
         end
 
