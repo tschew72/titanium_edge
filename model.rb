@@ -153,6 +153,7 @@ class TmeListIndustry  # Job Function
     property :industry, String
 end
 
+
 class Job
   include DataMapper::Resource
 

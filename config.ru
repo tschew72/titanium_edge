@@ -329,12 +329,19 @@ get '/settings' do
        end
 
        #Preferred Locations
-       pc= @userprofile.preferred_locations.all
+       #pc= @userprofile.preferred_locations.all
+       #@pref_loc=""
+       #pc.each do |i|
+       #   @pref_loc = @pref_loc + pc.get(i).countryid.to_s + ","
+       #end
+
+
+       #Preferred Locations
+       pc= @userprofile.tme_skr_prefloc.all
        @pref_loc=""
        pc.each do |i|
-          @pref_loc = @pref_loc + pc.get(i).countryid.to_s + ","
+          @pref_loc = @pref_loc + pc.get(i).skr_prefloc.to_s + ","
        end
-
 
        @indmaster = TmeListIndustry.all   #Industry Master       #Hardcode to HTML. Remove from Database.
        indtemp = []
@@ -606,10 +613,18 @@ end
 
 
     post '/updatelocpref' do
-     #userprofile = env['warden'].user
-     #pc= userprofile.preferred_locations.get(params["pk"])
-     #pc.update(:countryid=> params["value"])
-  end
+     userprofile = env['warden'].user
+     #First delete all preferred locations in table.
+     oldloc = userprofile.tme_skr_prefloc.all
+     oldloc.each do |x|
+      x.destroy
+     end
+     loc =params["value"]
+     if loc != nil  #If user does nto enter any value, then just return back
+       #traverse array
+       loc.each { |x| userprofile.tme_skr_prefloc.create(:skr_prefloc => x)}
+     end
+    end
 
     post '/updateindpref' do
      userprofile = env['warden'].user
