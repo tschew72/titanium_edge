@@ -149,10 +149,11 @@ get '/mycv' do
        erb :mycv
 end
 
-# get '/account' do
+
 get '/profile' do
        redirect '/auth/login' unless env['warden'].authenticated?
        @userprofile = env['warden'].user   
+       @userme = @userprofile.firstname 
        
        sc = @userprofile.tme_skr_socialmedia.all
        sc.each do |x|
@@ -178,7 +179,7 @@ get '/profile' do
        #@google = @userprofile.tme_skr_socialmedia.all(:skr_socialmediacat => 5).at(0).skr_socialmediaurl
        
        
-       @userme = @userprofile.firstname
+       
        @cmaster = TmeListCountry.all
        ctemp = []
            @cmaster.each do |x|
@@ -186,7 +187,6 @@ get '/profile' do
            @countries = ctemp.to_json
         end
 
-       #erb :account
        erb :"dash/profile", :layout => :'dash/layout1'
 end
 
