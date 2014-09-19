@@ -11,7 +11,7 @@ DataMapper.setup(:default, "postgres://pmfpekijznvzjw:Hq_zObLrI-YKpLoHpKKy0QLgsH
 class User
   include DataMapper::Resource
   include BCrypt
-  storage_names[:repo] = 'tme_skr_socialmedia'
+  storage_names[:repo] = 'tme_skr_main'
   property :id, Serial, key: true, :index => true, :field => 'skr_id'
   
   property :lastname, String, length:50, :field => 'skr_surname'
