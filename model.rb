@@ -53,8 +53,8 @@ class User
   property :nationality, Integer, :field => 'skr_nationality'
   property :singaporepr, Boolean, :default  => false, :field => 'skr_singaporepr'
   property :address, String, :field => 'skr_address'
-  property :activeseeker, Boolean, :default =>true, :field => 'skr_activeseeker' 
-  property :contactnumber, String, length: 20, :field => 'skr_contactnumber' 
+  property :activeseeker, Boolean, :default =>true, :field => 'skr_activeseeker' #created a new column in table
+  property :contactnumber, String, length: 20, :field => 'skr_contactnumber' #created a new column in table
 
   has n, :matched_jobs
   has n, :jobs
