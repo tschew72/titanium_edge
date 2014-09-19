@@ -11,38 +11,50 @@ DataMapper.setup(:default, "postgres://pmfpekijznvzjw:Hq_zObLrI-YKpLoHpKKy0QLgsH
 class User
   include DataMapper::Resource
   include BCrypt
+  storage_names[:repo] = 'tme_skr_socialmedia'
+  property :id, Serial, key: true, :index => true, :field => 'skr_id'
+  
+  property :lastname, String, length:50, :field => 'skr_surname'
+  property :firstname, String, length: 50, :index => true, :field => 'skr_firstname'
+  property :middlename, String, length: 50, :index => true, :field => 'skr_middlename'
+  property :reveal, Boolean, :field => 'skr_reveal'
+  property :email, String, length:80, format: :email_address, :index => true, :field => 'skr_email' 
+  property :dob, Date, :field => 'skr_birthdate' 
+  property :gender, String, length: 1, :field => 'skr_gender'
+  property :married, Boolean, :field => 'skr_married'  
+  property :datejoined, Date, :field => 'skr_datejoined'
+  property :availability, Integer, :field => 'skr_availability' #??
+  property :updated_at, DateTime, :field => 'skr_updated'
+  property :action, Integer, :field => 'skr_action' #??
 
-  property :id, Serial, key: true, :index => true  
-  property :username, String, length: 50, :index => true  
-  property :firstname, String, length: 50, :index => true  
-  property :lastname, String, length:50
-  property :email, String, length:80, format: :email_address, :index => true  
-  property :datejoined, Date
-  property :age, Integer
-  property :gender, String, length: 1
-  property :dob, Date
-  property :address, String
-  property :nationality, Integer
-  property :contactnumber, String, length: 20
-  property :password, BCryptHash
-  property :singaporepr, Boolean, :default  => false   #next time get user to choose from a list of countries they have PR status
-  property :aboutme, String, length: 255
-  property :insingaporenow, Boolean, :default =>true  #if non Singaporean, set this to false
-  property :insg_start, Date  #Start date when Seeker is in Singapore (Only if he is non Singaporean/PR)
-  property :insg_end, Date    #End date when Seeker is in Singapore (Only if he is non Singaporean/PR)
-  property :activeseeker, Boolean, :default =>true #Seeker to keep this updated.
-  property :travelfreq, Integer
-  property :currentsalary, Integer, :default => 0
-  property :expectedsalary, Integer, :default => 0
-  property :parttime, Boolean, :default=>false
-  property :fulltime, Boolean, :default=>false
-  property :shiftwork, Boolean, :default=>false
-  property :outofhours, Boolean, :default=>false
-
-  property :pictureurl, String, length: 400
-  property :cvurl, String, length: 400
-  property :lastlogin, Date
-  property :updated_at, DateTime
+  property :pictureurl, String, length: 400, :field => 'skr_photo'  
+  property :cvurl, String, length: 400, :field => 'skr_cv' 
+  property :videourl, String, length: 400, :field => 'skr_video'   
+  property :username, String, length: 50, :index => true, :field => 'skr_username'  
+  property :prefind_all, Boolean, :default =>true,:field => 'skr_prefind_all' #??
+  property :prefjobfunc_all, Boolean, :default =>true,:field => 'skr_prefjobfunc_all' #??
+  property :prefjobtitle_all, Boolean, :default =>true,:field => 'skr_prefjobtitle_all' #??
+  property :prefloc_all, Boolean, :default =>true,:field => 'skr_prefloc_all' #??
+  property :currentsalary, Integer, :default => 0, :field => 'skr_currsalary'
+  property :expectedsalary, Integer, :default => 0, :field => 'skr_prefsalary'
+  property :salarycurrency, Integer, :default => 0, :field => 'skr_salarycurrency'
+  property :parttime, Boolean, :default=>false, :field => 'skr_parttime'
+  property :fulltime, Boolean, :default=>false, :field => 'skr_fulltime'
+  property :shiftwork, Boolean, :default=>false, :field => 'skr_shiftwork'
+  property :outofhours, Boolean, :default=>false, :field => 'skr_emergency'
+  property :travelfreq, Integer, :field => 'skr_preftravel'
+  property :password, BCryptHash, :field => 'skr_password'
+  property :age, Integer, :field => 'skr_age'
+  property :aboutme, String, length: 255, :field => 'skr_aboutme'     #not used 
+  property :insingaporenow, Boolean, :default =>true, :field => 'skr_insingaporenow'    
+  property :insg_start, Date, :field => 'skr_insgstart' 
+  property :insg_end, Date, :field => 'skr_insgend'   
+  property :lastlogin, Date, :field => 'skr_lastlogin'
+  property :nationality, Integer, :field => 'skr_nationality'
+  property :singaporepr, Boolean, :default  => false, :field => 'skr_singaporepr'
+  property :address, String, :field => 'skr_address'
+  property :activeseeker, Boolean, :default =>true, :field => 'skr_activeseeker' 
+  property :contactnumber, String, length: 20, :field => 'skr_contactnumber' 
 
   has n, :matched_jobs
   has n, :jobs
