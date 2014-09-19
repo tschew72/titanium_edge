@@ -329,12 +329,6 @@ get '/settings' do
        #   @pref_ind  = @pref_ind + pind.get(i).industryid.to_s + ","
        #end
 
-       #Preferred Industries
-       pind = @userprofile.tme_skr_prefind.all
-       @pref_ind=""
-       pind.each do |i|
-          @pref_ind  = @pref_ind + pind.get(i).skr_prefind.to_s + ","
-       end
 
        #Preferred Locations
        pc= @userprofile.preferred_locations.all
