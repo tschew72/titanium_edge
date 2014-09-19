@@ -83,7 +83,7 @@ end
 
 class TmeSkrSocialmedia
     include DataMapper::Resource
-    storage_names[:repo] = 'tme_skr_socialmedia'
+    storage_names[repository = :default] ='tme_skr_socialmedia'
     property :skr_socialmedia_id, Serial, key: true   
     property :user_id, Integer, :field => 'skr_id'
     property :skr_socialmediacat, Integer
