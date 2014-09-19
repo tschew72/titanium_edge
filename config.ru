@@ -371,13 +371,6 @@ get '/settings' do
            @functions = functemp.to_json
         end
 
-
-       #@cmaster = CountryMaster.all   #Country Master  #Hardcode to HTML. Remove from Database.
-       #ctemp = []
-       #    @cmaster.each do |x|
-       #    ctemp << {value: x.id, text: "#{x.countryname}"}
-       #    @countries = ctemp.to_json
-       # end
   
        @scmaster = SkillCategory.all   #Skill Category Master     #Hardcode to HTML. Remove from Database. Push this to the /admin for churning json.
        cattemp = []
