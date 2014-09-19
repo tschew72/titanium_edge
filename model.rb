@@ -46,8 +46,8 @@ class User
   property :age, Integer, :field => 'skr_age'
   property :aboutme, String, length: 255, :field => 'skr_aboutme'     #not used 
   property :insingaporenow, Boolean, :default =>true, :field => 'skr_insingaporenow'    
-  property :insg_start, Date, :field => 'skr_insgstart', :default=> Date.today     #TOBEDONE: Default to today's date/ If not code will fail.
-  property :insg_end, Date, :field => 'skr_insgend', :default=> Date.today +5.days          #TOBEDONE: Default to today's date + 1 week
+  property :insg_start, Date, :field => 'skr_insgstart'     #TOBEDONE: Default to today's date/ If not code will fail.
+  property :insg_end, Date, :field => 'skr_insgend'         #TOBEDONE: Default to today's date + 1 week
   property :lastlogin, Date, :field => 'skr_lastlogin'
   property :nationality, Integer, :field => 'skr_nationality'
   property :singaporepr, Boolean, :default  => false, :field => 'skr_singaporepr'
