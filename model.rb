@@ -20,7 +20,7 @@ class User
   property :reveal, Boolean, :field => 'skr_reveal'
   property :email, String, length:80, format: :email_address, :index => true, :field => 'skr_email' 
   property :dob, Date, :field => 'skr_birthdate' 
-  property :gender, Integer, :default => 1, length: 1, :field => 'skr_gender'
+  property :gender, Integer, :default => 1, :field => 'skr_gender'
   property :married, Boolean, :field => 'skr_married'  
   property :datejoined, Date, :field => 'skr_datejoined'
   property :availability, Integer, :field => 'skr_availability' # notice period
