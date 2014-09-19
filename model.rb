@@ -153,7 +153,6 @@ class TmeListIndustry  # Job Function
     property :industry, String
 end
 
-
 class Job
   include DataMapper::Resource
 
@@ -301,7 +300,41 @@ class NewSkillReport      #For users to report new skills that are now listed
 
   end
 
+class JobIndustry     #Preferred Industry
+  include DataMapper::Resource
 
+  property :id, Serial , key: true, :index => true
+  property :user_id, Integer
+  property :industryid, Integer, :index => true   
+
+belongs_to :user
+end
+
+class IndustryMaster  
+  include DataMapper::Resource
+
+  property :id, Serial , key: true, :index => true
+  property :industryname, String, length:100, :index => true   
+
+end
+
+class CountryMaster  
+  include DataMapper::Resource
+
+  property :id, Serial , key: true, :index => true
+  property :countryname, String, length:150, :index => true   
+
+end
+
+class PreferredLocation      
+  include DataMapper::Resource
+
+  property :id, Serial , key: true, :index => true
+  property :user_id, Integer
+  property :countryid, Integer, :index => true   
+
+belongs_to :user
+end
 
 class SkrscoreCerts
   include DataMapper::Resource
