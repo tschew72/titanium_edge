@@ -10,7 +10,7 @@ class SinatraWardenExample < Sinatra::Application
 
 #use Rack::Session::Pool, :expire_after => 2592000
  #use Rack::Session::Cookie, :expire_after => 14400
- use Rack::Session::Cookie, :expire_after => 2592000
+ use Rack::Session::Cookie, :key => 'rack.session', :expire_after => 7*24*60*60
  
 use Warden::Manager do |config|
 
@@ -19,7 +19,7 @@ use Warden::Manager do |config|
     # the User's `id`
     config.serialize_into_session{|user| user.id }
     # Now tell Warden how to take what we've stored in the session
-    # and get a User from that information.
+    # and get a User from that information..
     config.serialize_from_session{|id| User.get(id) }
 
     config.scope_defaults :default,
