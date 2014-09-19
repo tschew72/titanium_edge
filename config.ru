@@ -154,7 +154,7 @@ get '/profile' do
        redirect '/auth/login' unless env['warden'].authenticated?
        @userprofile = env['warden'].user   
        @userme = @userprofile.firstname 
-       
+
        sc = @userprofile.tme_skr_socialmedia.all
        sc.each do |x|
           if x.skr_socialmediacat == 1
@@ -192,7 +192,6 @@ end
 
 
 get '/admin' do
-
 #make sure only admin can access
 #Create a section where we can dump the json of categories and skills.
 #To create new users
@@ -215,26 +214,7 @@ get '/admin' do
 
 #all the following should just be JSON. Don't need to pick up from database!!!
 
-       #Preferred Locations
-       pc= @userprofile.preferred_locations.all
-       @pref_loc=""
-       pc.each do |i|
-          @pref_loc = @pref_loc + pc.get(i).countryid.to_s + ","
-       end
 
-       @indmaster = IndustryMaster.all   #Industry Master
-       indtemp = []
-           @indmaster.each do |x|
-           indtemp << {id: x.id, text: "#{x.industryname}"}
-           @industries = indtemp.to_json
-        end
-
-       @cmaster = CountryMaster.all   #Country Master
-       ctemp = []
-           @cmaster.each do |x|
-           ctemp << {value: x.id, text: "#{x.countryname}"}
-           @countries = ctemp.to_json
-        end
   
        @scmaster = SkillCategory.all   #Skill Category Master
        cattemp = []
