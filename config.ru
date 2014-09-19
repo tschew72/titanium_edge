@@ -612,10 +612,18 @@ end
   end
 
     post '/updateindpref' do
-     #userprofile = env['warden'].user
-     #pind = userprofile.job_industries.get(params["pk"])
-     #pind.update(eval(":#{params['name']}") => params["value"])
-  end
+     userprofile = env['warden'].user
+     #First delete all preferred industries in table.
+     oldind = userprofile.tme_skr_prefind.all
+     oldind.each do |x|
+      x.destroy
+     end
+     ind =params["value"]
+     if ind != nil  #If user does nto enter any value, then just return back
+       #traverse array
+       ind.each { |x| userprofile.tme_skr_prefind.create(:skr_prefind => x)}
+     end
+    end
 
     post '/updatelevelpref' do
      userprofile = env['warden'].user
