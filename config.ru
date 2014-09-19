@@ -457,7 +457,7 @@ end
 
   post '/newuser' do
     newuser = User.first_or_create({:username => params["username"]}).update(:firstname => params["firstname"],  :lastname => params["lastname"], :email => params["email"], :password => params["password"] ) 
-        {:responsemsg => "New user added!" }.to_json
+    {:responsemsg => "New user added!" }.to_json
   end
 
   post '/update_language' do
