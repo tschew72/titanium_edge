@@ -11,9 +11,9 @@ DataMapper.setup(:default, "postgres://pmfpekijznvzjw:Hq_zObLrI-YKpLoHpKKy0QLgsH
 class User
   include DataMapper::Resource
   include BCrypt
-  storage_names[:repo] = 'tme_skr_main'
+  storage_names[repository = :default] = 'tme_skr_main'
   property :id, Serial, key: true, :index => true, :field => 'skr_id'
-  
+  property :activeseeker, Boolean, :default =>true, :field => 'skr_active'
   property :lastname, String, length:50, :field => 'skr_surname'
   property :firstname, String, length: 50, :index => true, :field => 'skr_firstname'
   property :middlename, String, length: 50, :index => true, :field => 'skr_middlename'
@@ -42,7 +42,7 @@ class User
   property :fulltime, Boolean, :default=>false, :field => 'skr_fulltime'
   property :shiftwork, Boolean, :default=>false, :field => 'skr_shiftwork'
   property :outofhours, Boolean, :default=>false, :field => 'skr_emergency'
-  property :travelfreq, Integer, :field => 'skr_preftravel'
+  property :travelfreq, Integer, :field => 'skr_preftravel'  #Shaun: do not reference to another table Just fix it.
   property :password, BCryptHash, :field => 'skr_password'
   property :age, Integer, :field => 'skr_age'
   property :aboutme, String, length: 255, :field => 'skr_aboutme'     #not used 
@@ -53,7 +53,7 @@ class User
   property :nationality, Integer, :field => 'skr_nationality'
   property :singaporepr, Boolean, :default  => false, :field => 'skr_singaporepr'
   property :address, String, :field => 'skr_address'
-  property :activeseeker, Boolean, :default =>true, :field => 'skr_activeseeker' #created a new column in table
+  
   property :contactnumber, String, length: 20, :field => 'skr_contactnumber' #created a new column in table
 
   has n, :matched_jobs
