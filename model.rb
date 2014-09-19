@@ -60,6 +60,7 @@ class User
   has n, :tme_skr_prefloc, :model => 'TmeSkrPrefloc'
   has n, :tme_skr_preftitle, :model => 'TmeSkrPreftitle'
   has n, :tme_skr_preffunc, :model => 'TmeSkrPreffunc'
+  has n, :tme_skr_prefind, :model => 'TmeSkrPrefind'
 
   def authenticate(attempted_password)
     if self.password == attempted_password
@@ -102,6 +103,7 @@ class TmeSkrPreftitle #job level
     belongs_to :user 
 end
 
+
 class TmeSkrPreffunc #job Function
     include DataMapper::Resource
     storage_names[repository = :default] = 'tme_skr_preffunc'
@@ -111,6 +113,17 @@ class TmeSkrPreffunc #job Function
 
     belongs_to :user 
 end
+
+class TmeSkrPrefind #Preferred industry
+    include DataMapper::Resource
+    storage_names[repository = :default] = 'tme_skr_prefind'
+    property :skr_prefind_id, Serial, key: true   
+    property :user_id, Integer, :field => 'skr_id'
+    property :skr_prefind, Integer
+
+    belongs_to :user 
+end
+
 
 class TmeListCountry
     include DataMapper::Resource
@@ -133,6 +146,12 @@ class TmeListFunction  # Job Function
     property :function, String
 end
 
+class TmeListIndustry  # Job Function
+    include DataMapper::Resource
+    storage_names[repository = :default] = 'tme_list_industry'
+    property :industry_id, Serial, key: true   
+    property :industry, String
+end
 
 class Job
   include DataMapper::Resource
