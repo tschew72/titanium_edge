@@ -36,18 +36,18 @@ class User
   property :prefloc_all, Boolean, :default =>true,:field => 'skr_prefloc_all' # no preference
   property :currentsalary, Integer, :default => 0, :field => 'skr_currsalary'
   property :expectedsalary, Integer, :default => 0, :field => 'skr_prefsalary'
-  property :salarycurrency, Integer, :default => 0, :field => 'skr_salarycurrency'
+  property :salarycurrency, Integer, :default => 1, :field => 'skr_salarycurrency'
   property :parttime, Boolean, :default=>false, :field => 'skr_parttime'
   property :fulltime, Boolean, :default=>false, :field => 'skr_fulltime'
   property :shiftwork, Boolean, :default=>false, :field => 'skr_shiftwork'
   property :outofhours, Boolean, :default=>false, :field => 'skr_emergency'
-  property :travelfreq, Integer, :field => 'skr_preftravel'  #Shaun: do not reference to another table Just fix it.
+  property :travelfreq, Integer, :default=>0, :field => 'skr_preftravel'  #Shaun: do not reference to another table Just fix it.
   property :password, BCryptHash, :field => 'skr_password'
   property :age, Integer, :field => 'skr_age'
   property :aboutme, String, length: 255, :field => 'skr_aboutme'     #not used 
   property :insingaporenow, Boolean, :default =>true, :field => 'skr_insingaporenow'    
-  property :insg_start, Date, :field => 'skr_insgstart', :default => lambda{ |p,s| Date.now}  #TOBEDONE: Default to today's date/ If not code will fail.
-  property :insg_end, Date, :field => 'skr_insgend'         #TOBEDONE: Default to today's date + 1 week
+  property :insg_start, Date, :field => 'skr_insgstart', :default => lambda{ |p,s| Date.today}  
+  property :insg_end, Date, :field => 'skr_insgend', :default => lambda{ |a,b| Date.today>>1} 
   property :lastlogin, Date, :field => 'skr_lastlogin'
   property :nationality, Integer, :field => 'skr_nationality'
   property :singaporepr, Boolean, :default  => false, :field => 'skr_singaporepr'
