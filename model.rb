@@ -23,18 +23,17 @@ class User
   property :gender, String, length: 1, :field => 'skr_gender'
   property :married, Boolean, :field => 'skr_married'  
   property :datejoined, Date, :field => 'skr_datejoined'
-  property :availability, Integer, :field => 'skr_availability' #??
+  property :availability, Integer, :field => 'skr_availability' # notice period
   property :updated_at, DateTime, :field => 'skr_updated'
-  property :action, Integer, :field => 'skr_action' #??
 
   property :pictureurl, String, length: 400, :field => 'skr_photo'  
   property :cvurl, String, length: 400, :field => 'skr_cv' 
   property :videourl, String, length: 400, :field => 'skr_video'   
   property :username, String, length: 50, :index => true, :field => 'skr_username'  
-  property :prefind_all, Boolean, :default =>true,:field => 'skr_prefind_all' #??
-  property :prefjobfunc_all, Boolean, :default =>true,:field => 'skr_prefjobfunc_all' #??
-  property :prefjobtitle_all, Boolean, :default =>true,:field => 'skr_prefjobtitle_all' #??
-  property :prefloc_all, Boolean, :default =>true,:field => 'skr_prefloc_all' #??
+  property :prefind_all, Boolean, :default =>true,:field => 'skr_prefind_all' # no preference. If field is NIL, set this to true.
+  property :prefjobfunc_all, Boolean, :default =>true,:field => 'skr_prefjobfunc_all' # no preference
+  property :prefjobtitle_all, Boolean, :default =>true,:field => 'skr_prefjobtitle_all' # no preference
+  property :prefloc_all, Boolean, :default =>true,:field => 'skr_prefloc_all' # no preference
   property :currentsalary, Integer, :default => 0, :field => 'skr_currsalary'
   property :expectedsalary, Integer, :default => 0, :field => 'skr_prefsalary'
   property :salarycurrency, Integer, :default => 0, :field => 'skr_salarycurrency'
@@ -53,7 +52,6 @@ class User
   property :nationality, Integer, :field => 'skr_nationality'
   property :singaporepr, Boolean, :default  => false, :field => 'skr_singaporepr'
   property :address, String, :field => 'skr_address'
-  
   property :contactnumber, String, length: 20, :field => 'skr_contactnumber' #created a new column in table
 
   has n, :matched_jobs
