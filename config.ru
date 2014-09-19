@@ -116,23 +116,6 @@ get '/industrystatistics' do
 end
 
 
-# get '/profile' do
-#       redirect '/auth/login' unless env['warden'].authenticated?
-#       @userprofile = env['warden'].user  #This is the most important query of all. it will identify the user of this session.
-#       @userme = @userprofile.firstname
-#       #@emailme = @userprofile.email
-#       #@userskills= @userprofile.skilltags.all(:order => [:skillscore.desc])
-#       #@skillname = Skill.all
-#       @userskills1 = @userprofile.skill_summaries.all(:skillcategory => 1)
-#       @userskills2 = @userprofile.skill_summaries.all(:skillcategory => 2)
-#       @userskills3 = @userprofile.skill_summaries.all(:skillcategory => 3)
-#       @userskills4 = @userprofile.skill_summaries.all(:skillcategory => 4)
-#       @userskills5 = @userprofile.skill_summaries.all(:skillcategory => 5)
-#     
-#       @jobhistory = @userprofile.jobs.all(:order => [:startdate.desc])
-#       erb :profile
-# end
-
 get '/mycv' do
        redirect '/auth/login' unless env['warden'].authenticated?
        @userprofile = env['warden'].user  #This is the most important query of all. it will identify the user of this session.
@@ -192,83 +175,13 @@ end
 
 
 get '/admin' do
-#make sure only admin can access
-#Create a section where we can dump the json of categories and skills.
-#To create new users
- redirect '/auth/login' unless env['warden'].authenticated?
-       @userprofile = env['warden'].user  #This is the most important query of all. it will identify the user of this session.
+        #make sure only admin can access
+        #Create a section where we can dump the json of categories and skills.
+        #To create new users
+       redirect '/auth/login' unless env['warden'].authenticated?
+       @userprofile = env['warden'].user   
        @userme = @userprofile.firstname
-       @allskills =   @userprofile.skill_summaries.all
-     
-       @languages = @userprofile.languages.all
-       @lmaster = LanguageSource.all
-       @ssmaster = SkillSource  #master skill source for cross referencing
-    
-       #Preferred Industries
-       pind = @userprofile.job_industries.all
-       @pref_ind=""
-       pind.each do |i|
-          @pref_ind  = @pref_ind + pind.get(i).industryid.to_s + ","
-       end
 
-
-#all the following should just be JSON. Don't need to pick up from database!!!
-
-
-  
-       @scmaster = SkillCategory.all   #Skill Category Master
-       cattemp = []
-           @scmaster.each do |x|
-           cattemp << {value: x.id, text: "#{x.categoryname}"}
-           @skillcat= cattemp.to_json
-       end
-
-       @ss21 = @ssmaster.all(:skillcategory_id =>21)
-       @ss22 = @ssmaster.all(:skillcategory_id =>22)
-       @ss23 = @ssmaster.all(:skillcategory_id =>23)
-       @ss24 = @ssmaster.all(:skillcategory_id =>24)
-       @ss25 = @ssmaster.all(:skillcategory_id =>25)
-       @ss26 = @ssmaster.all(:skillcategory_id =>26)
-       @ss27 = @ssmaster.all(:skillcategory_id =>27)
-       @ss28 = @ssmaster.all(:skillcategory_id =>28)
-       @ss29 = @ssmaster.all(:skillcategory_id =>29)
-       @ss30 = @ssmaster.all(:skillcategory_id =>30)
-       @ss31 = @ssmaster.all(:skillcategory_id =>31)
-       @ss32 = @ssmaster.all(:skillcategory_id =>32)
-       @ss33 = @ssmaster.all(:skillcategory_id =>33)
-       @ss34 = @ssmaster.all(:skillcategory_id =>34)
-       @ss35 = @ssmaster.all(:skillcategory_id =>35)
-       @ss36 = @ssmaster.all(:skillcategory_id =>36)
-       @ss37 = @ssmaster.all(:skillcategory_id =>37)
-       @ss38 = @ssmaster.all(:skillcategory_id =>38)
-       @ss39 = @ssmaster.all(:skillcategory_id =>39)
-       @ss40 = @ssmaster.all(:skillcategory_id =>40)
-       @ss41 = @ssmaster.all(:skillcategory_id =>41)
-       @ss42 = @ssmaster.all(:skillcategory_id =>42)
-       @ss43 = @ssmaster.all(:skillcategory_id =>43)
-       @ss44 = @ssmaster.all(:skillcategory_id =>44)
-       @ss45 = @ssmaster.all(:skillcategory_id =>45)
-
-       temp21 = []  #Skillsource translated sst
-           @ss21.each do |x|
-           temp21 << {value: x.id, text: "#{x.skill_name}"}
-           @sst21 = temp21.to_json
-        end
-        temp22 = []  #Skillsource translated sst
-           @ss22.each do |x|
-           temp22 << {value: x.id, text: "#{x.skill_name}"}
-           @sst22 = temp22.to_json
-        end
-        temp23 = []  #Skillsource translated sst
-           @ss23.each do |x|
-           temp23 << {value: x.id, text: "#{x.skill_name}"}
-           @sst23 = temp23.to_json
-        end
-        temp28 = []  #Skillsource translated sst
-           @ss28.each do |x|
-           temp28 << {value: x.id, text: "#{x.skill_name}"}
-           @sst28 = temp28.to_json
-        end
 
         erb :"dash/admin", :layout => :'dash/layout1'
 
