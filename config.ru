@@ -179,13 +179,13 @@ get '/profile' do
        
        
        @userme = @userprofile.firstname
-       @cmaster = CountryMaster.all
+       @cmaster = TmeListCountry.all
        ctemp = []
            @cmaster.each do |x|
-           ctemp << {value: x.id, text: "#{x.countryname}"}
+           ctemp << {value: x.country_id, text: "#{x.country}"}
            @countries = ctemp.to_json
         end
-        
+
        #erb :account
        erb :"dash/profile", :layout => :'dash/layout1'
 end
