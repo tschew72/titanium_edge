@@ -141,8 +141,8 @@
                 </div>
                 <div class="col-md-10 column">   
                   <div class="row">
-                    <div class="inputtext col-md-2 column">First Name: </div>  
-                    <div class="col-md-2 column"> <a href="javascript:void(0)" id="firstname" data-type="text" data-pk="<%=@userprofile.id %>" data-url="/updateprofile" data-title="Enter first name"><%= @userprofile.firstname %></a></div>
+                    <div class=" col-md-2 column">First Name: </div>  
+                    <div class="inputtext col-md-2 column"> <a href="javascript:void(0)" id="firstname" data-type="text" data-pk="<%=@userprofile.id %>" data-url="/updateprofile" data-title="Enter first name"><%= @userprofile.firstname %></a></div>
                     <div class="col-md-2 column"> Last Name:  </div>
                     <div class="col-md-2 column"><a href="javascript:void(0)" id="lastname" data-type="text" data-pk="<%=@userprofile.id %>" data-url="/updateprofile" data-title="Enter last name"><%= @userprofile.lastname %></a></div>   
                     <div class="col-md-4 column">  </div>        
@@ -260,7 +260,7 @@
 
 $(document).ready(function(){
 
-  $.fn.editable.defaults.mode = 'popup';  
+  $.fn.editable.defaults.mode = 'inline';  
   $('#firstname').editable();
   $('#lastname').editable();
   $('#age').editable();
