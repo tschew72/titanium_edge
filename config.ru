@@ -188,7 +188,7 @@ get '/admin' do
 end
 
 
-get '/settings' do
+get '/preferences' do
 
        redirect '/auth/login' unless env['warden'].authenticated?
        @userprofile = env['warden'].user  #This is the most important query of all. it will identify the user of this session.

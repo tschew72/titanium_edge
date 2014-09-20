@@ -41,7 +41,7 @@ class User
   property :fulltime, Boolean, :default=>false, :field => 'skr_fulltime'
   property :shiftwork, Boolean, :default=>false, :field => 'skr_shiftwork'
   property :outofhours, Boolean, :default=>false, :field => 'skr_emergency'
-  property :travelfreq, Integer, :default=>0, :field => 'skr_preftravel'  #Shaun: do not reference to another table Just fix it.
+  property :travelfreq, Integer, :default=>0, :field => 'skr_preftravel'
   property :password, BCryptHash, :field => 'skr_password'
   property :age, Integer, :field => 'skr_age'
   property :aboutme, String, length: 255, :field => 'skr_aboutme'     #not used 
