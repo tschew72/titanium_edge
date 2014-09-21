@@ -274,7 +274,7 @@ get '/preferences' do
 
        @sr = SkillRank.all  #Hardcode to HTML. Remove from Database.
        #erb :settings
-       erb :"dash/settings", :layout => :'dash/layout1'
+       erb :"dash/preferences", :layout => :'dash/layout1'
 end
 
 
