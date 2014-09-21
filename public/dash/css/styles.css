@@ -9248,3 +9248,97 @@ input[readonly] {
     -moz-transform: scale(1.05);
     transform: scale(1.05);
 }
+
+
+
+/*  Tabs
+------------------------*/
+.tabs{
+  width:100%;
+  display:block;
+}
+.tabs .tab{
+  display:none;
+  height:auto;
+}
+.tabs .tab-active{
+  display:inline-block;
+}
+.tabs .tab-open{
+  display:block;
+  padding:10px;
+}
+.tabs ul{
+  list-style-type:none;
+  margin:0;
+  padding:0;
+}
+.tabs ul li{
+  display:inline-block;
+  margin:0;
+  padding:0;
+}
+.tabs ul li a{
+  text-decoration:none;
+  padding:9px;
+  display:block;
+  border-radius: 4px 4px 0 0;
+}
+.tabs ul li.tab-active a{
+  filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#00000000', endColorstr='#1a000000', GradientType=0);
+  background-image:-webkit-gradient(linear,0 0,0 100%,from(transparent),color-stop(40%,rgba(0,0,0,.05)),to(rgba(0,0,0,.1)));
+  background-image:-webkit-linear-gradient(transparent,rgba(0,0,0,.05) 40%,rgba(0,0,0,.1));
+  background-image:-moz-linear-gradient(top,rgba(0,0,0,.05) 0,rgba(0,0,0,.1));
+  background-image:-ms-linear-gradient(transparent,rgba(0,0,0,.05) 40%,rgba(0,0,0,.1));
+  background-image:-o-linear-gradient(transparent,rgba(0,0,0,.05) 40%,rgba(0,0,0,.1));
+  background-image: linear-gradient(rgba(250, 250, 250, 0.21),rgba(211, 211, 211, 0.27) 40%,rgba(241, 241, 241, 0.28));
+} 
+
+
+/* = Backgrounds  Inspired by  http://flatuicolors.com/
+-------------------------------------------*/
+.b-turquoise{background:#1ABC9C;}
+.b-green-sea{background:#16A085;}
+.b-emerland{background:#2ECC71;}
+.b-nephritis{background:#27AE60;}
+.b-peter-river{background: #3498DB;}
+.b-belize-hole{background:#2980B9;}
+.b-amethyst{background:#9B59B6;}
+.b-wisteria{background:#8E44AD;}
+.b-wet-asphalt{background:#34495E;}
+.b-midnight-blue{background:#2C3E50;}
+.b-sun-flower{background:#F1C40F;}
+.b-orange{background:#F39C12;}
+.b-carrot{background:#E67E22;}
+.b-pumpkin{background:#D35400;}
+.b-alizarin{background:#E74C3C;}
+.b-pomegranate{background:#C0392B;}
+.b-clouds{background:#ECF0F1;}
+.b-silver{background:#BDC3C7;}
+.b-concrete{background:#95A5A6;}
+.b-asbestos{background:#7F8C8D;}
+
+/* = Colors Inspired by  http://flatuicolors.com/
+-------------------------------------------*/
+.c-turquoise{color:#1ABC9C;}
+.c-green-sea{color:#16A085;}
+.c-emerland{color:#2ECC71;}
+.c-nephritis{color:#27AE60;}
+.c-peter-river{color:#3498DB;}
+.c-belize-hole{color:#2980B9;}
+.c-amethyst{color:#9B59B6;}
+.c-wisteria{color:#8E44AD;}
+.c-wet-asphalt{color:#34495E;}
+.c-midnight-blue{color:#2C3E50;}
+.c-sun-flower{color:#F1C40F;}
+.c-orange{color:#F39C12;}
+.c-carrot{color:#E67E22;}
+.c-pumpkin{color:#D35400;}
+.c-alizarin{color:#E74C3C;}
+.c-pomegranate{color:#C0392B;}
+.c-clouds{color:#ECF0F1;}
+.c-silver{color:#BDC3C7;}
+.c-concrete{color:#95A5A6;}
+.c-asbestos{color:#7F8C8D;}
+
+
