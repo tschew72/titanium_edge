@@ -95,7 +95,8 @@
 html,
 body {
 	font-family: 'Open Sans', sans-serif;
-	font-size: 13px;
+	/*font-size: 13px;*/
+	font-size: 1.4em;
 	font-weight: 400;
 	color: #555;
 	height: 100%;
