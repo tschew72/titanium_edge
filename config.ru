@@ -188,7 +188,7 @@ get '/admin' do
 end
 
 
-get '/preferences' do
+get '/settings' do
 
        redirect '/auth/login' unless env['warden'].authenticated?
        @userprofile = env['warden'].user  #This is the most important query of all. it will identify the user of this session.
@@ -274,7 +274,7 @@ get '/preferences' do
 
        @sr = SkillRank.all  #Hardcode to HTML. Remove from Database.
        #erb :settings
-       erb :"dash/preferences", :layout => :'dash/layout1'
+       erb :"dash/settings", :layout => :'dash/layout1'
 end
 
 
