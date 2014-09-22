@@ -272,7 +272,7 @@ get '/settings' do
            @skillcat= cattemp.to_json
        end
 
-       @sr = SkillRank.all  #Hardcode to HTML. Remove from Database.
+        @sr = SkillRank.all  #Hardcode to HTML. Remove from Database.
        #erb :settings
        erb :"dash/settings", :layout => :'dash/layout1'
 end
@@ -455,6 +455,7 @@ end
         {:responsemsg => "New skill added!" }.to_json
   end
 
+
   post '/newuser' do
     newuser = User.first_or_create({:username => params["username"]}).update(:firstname => params["firstname"],  :lastname => params["lastname"], :email => params["email"], :password => params["password"] ) 
     {:responsemsg => "New user added!" }.to_json
@@ -558,6 +559,16 @@ end
   end
 
  get '/table' do
+       @userprofile = env['warden'].user  
+       @allskills =   @userprofile.skill_summaries.all
+       @ssmaster = SkillSource  #master skill source for cross referencing
+       @scmaster = SkillCategory.all   #Skill Category Master     #Hardcode to HTML. Remove from Database. Push this to the /admin for churning json.
+       @sr = SkillRank.all  #Hardcode to HTML. Remove from Database.
+       erb :table, :layout => false
+
+    end
+
+ get '/langtable' do
        @userprofile = env['warden'].user  
        @allskills =   @userprofile.skill_summaries.all
        @ssmaster = SkillSource  #master skill source for cross referencing
