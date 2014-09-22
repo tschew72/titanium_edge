@@ -567,6 +567,16 @@ end
 
     end
 
+ get '/langtable' do
+       @userprofile = env['warden'].user  
+       @allskills =   @userprofile.skill_summaries.all
+       @ssmaster = SkillSource  #master skill source for cross referencing
+       @scmaster = SkillCategory.all   #Skill Category Master     #Hardcode to HTML. Remove from Database. Push this to the /admin for churning json.
+       @sr = SkillRank.all  #Hardcode to HTML. Remove from Database.
+       erb :table, :layout => false
+
+    end
+
  post '/filer' do
       ts = Time.now.getutc.to_time.to_i.to_s
       secret="fbOQxgozjYG2acAMKi3FYL61LOI"
