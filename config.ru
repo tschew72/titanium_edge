@@ -194,9 +194,9 @@ get '/settings' do
        @userprofile = env['warden'].user  #This is the most important query of all. it will identify the user of this session.
        @userme = @userprofile.firstname
        @allskills =   @userprofile.skill_summaries.all
-     
-       @languages = @userprofile.languages.all
-       @lmaster = LanguageSource.all
+       @alllanguages = @userprofile.tme_skr_language.all
+
+       @lmaster = TmeSkrLanguage
        @ssmaster = SkillSource  #master skill source for cross referencing
     
 
@@ -262,7 +262,6 @@ get '/settings' do
            cattemp << {value: x.id, text: "#{x.categoryname}"}
            @skillcat= cattemp.to_json
        end
-
 
        @sr = SkillRank.all  #Hardcode to HTML. Remove from Database.
        erb :"dash/settings", :layout => :'dash/layout1'
@@ -566,10 +565,8 @@ end
 
  get '/langtable' do
        @userprofile = env['warden'].user  
-       @allskills =   @userprofile.skill_summaries.all
-       @ssmaster = SkillSource  #master skill source for cross referencing
-       @scmaster = SkillCategory.all   #Skill Category Master     #Hardcode to HTML. Remove from Database. Push this to the /admin for churning json.
-       @sr = SkillRank.all  #Hardcode to HTML. Remove from Database.
+       @alllanguages =   @userprofile.tme_skr_language.all
+       @lmaster = TmeListLanguage  #master skill source for cross referencing
        erb :langtable, :layout => false
 
     end
