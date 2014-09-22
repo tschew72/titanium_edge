@@ -276,7 +276,7 @@ class SkillSource                               #This is for Skill Management Ta
   storage_names[repository = :default] = 'tme_list_skill'
   property :id, Serial , key: true, :index => true, :field => 'skill_id'
   property :skill_name, String, length:100, :index => true, :field => 'skill'      
-  property :skillcategory_id, Integer, :index => true, :field => 'skill_cat'
+  property :skillcategory_id, Integer, :index => true, :field => 'skillcat'
   
 end
 
