@@ -20,10 +20,10 @@ $.getScript("/vendor/langtablescript.js");
                   <tr>
                      <td><%= @lmaster.get(i.skr_lang_id).language%> </a> </td>
                      
-                     <td><a class="languageskill" href="javascript:void(0)" class="editable-click" data-name="skr_lang_speakskill" data-type="select" data-pk="<%= @alllanguages.get(i).skr_lang_id%>" data-url="/updatelanguageskill" data-source="[{value: 1, text: 'Basic'}, {value: 2, text: 'Intermediate'}, {value: 3, text: 'Advance'}, {value: 4, text: 'Expert'}]"   data-title="Enter spoken skill level">  <%= @sr.get(i.skr_lang_speakskill).skr_lang_speakskill %>
+                     <td><a class="languageskill" href="javascript:void(0)" class="editable-click" data-name="skr_lang_speakskill" data-type="select" data-pk="<%= @alllanguages.get(i).skr_lang_id%>" data-url="/updatelanguageskill" data-source="[{value: 1, text: 'Basic'}, {value: 2, text: 'Intermediate'}, {value: 3, text: 'Advance'}, {value: 4, text: 'Expert'}]"   data-title="Enter spoken skill level">  <%= @sr.get(i.skr_lang_speakskill).skillrankname %>
                      </a></td> 
 
-                     <td><a class="languageskill" href="javascript:void(0)" class="editable-click" data-name="skr_lang_writeskill" data-type="select" data-pk="<%= @alllanguages.get(i).skr_lang_id%>" data-url="/updatelanguageskill" data-source="[{value: 1, text: 'Basic'}, {value: 2, text: 'Intermediate'}, {value: 3, text: 'Advance'}, {value: 4, text: 'Expert'}]"   data-title="Enter written skill level">  <%= @sr.get(i.skr_lang_speakskill).skr_lang_writeskill %>
+                     <td><a class="languageskill" href="javascript:void(0)" class="editable-click" data-name="skr_lang_writeskill" data-type="select" data-pk="<%= @alllanguages.get(i).skr_lang_id%>" data-url="/updatelanguageskill" data-source="[{value: 1, text: 'Basic'}, {value: 2, text: 'Intermediate'}, {value: 3, text: 'Advance'}, {value: 4, text: 'Expert'}]"   data-title="Enter written skill level">  <%= @sr.get(i.skr_lang_writeskill).skillrankname %>
                      </a></td> 
                      
                      <td>
