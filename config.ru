@@ -568,7 +568,7 @@ end
  get '/langtable' do
        @userprofile = env['warden'].user  
        @alllanguages =   @userprofile.tme_skr_language.all
-       @lmaster = TmeListLanguage.all  #master skill source for cross referencing
+       @lmaster = TmeListLanguage.all 
        @sr = SkillRank.all  #Hardcode to HTML. Remove from Database.
        erb :langtable, :layout => false
 
