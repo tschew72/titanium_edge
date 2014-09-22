@@ -293,7 +293,8 @@ class TmeSkrLanguage
   property :skr_lang, Integer, :index => true 
   property :skr_lang_speakskill, Integer
   property :skr_lang_writeskill, Integer
-
+  property :skr_status, Integer
+  
   belongs_to :user 
 end
 
