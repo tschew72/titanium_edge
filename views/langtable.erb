@@ -18,7 +18,7 @@ $.getScript("/vendor/langtablescript.js");
                   <% if @alllanguages.get(i).skr_status != 0 %>
                  
                   <tr>
-                     <td><%= @alllanguages.get(i).skr_status %> </a> </td>
+                     <td></td>
                      
                      <!-- <td><a class="languageskill" href="javascript:void(0)" class="editable-click" data-name="skr_lang_speakskill" data-type="select" data-pk="<%= i.skr_lang_id%>" data-url="/updatelanguageskill" data-source="[{value: 2, text: 'Basic'}, {value: 3, text: 'Intermediate'}, {value: 4, text: 'Advance'}, {value: 5, text: 'Expert'}]"   data-title="Enter spoken skill level">  <%= @sr.get(i.skr_lang_speakskill).skillrankname %>
                      </a></td> 
