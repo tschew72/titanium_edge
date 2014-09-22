@@ -443,7 +443,7 @@ end
     userprofile = env['warden'].user
     mylanguage = userprofile.tme_skr_language.get(params["pk"])
     mylanguage.update(":#{params['name']}") => params["value"])
-    mylanguage.update(:sk_status =>1)
+    mylanguage.update(:skr_status =>1)
     return 200
   end
 
