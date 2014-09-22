@@ -995,6 +995,22 @@ else{e.value="no";location.reload();}
               });
       }//function
 
+
+      function dellanguage(element,i){
+        $.ajax({
+                url: '/deletelanguage',
+                type: 'POST',
+                data: {"pk" : i},
+                success: function(response){
+                  var row=$(element).parents('tr')
+                  $('#languagesettingtable').dataTable().fnDeleteRow(row[0]);
+                  newAlert("#alert_placeholder-tab", 'success', "Language deleted!");
+
+                }
+
+              });
+      }//function
+
       function newAlert (loc, type, message) {
           $(loc).append($("<div class='alert alert-block alert-" + type + " fade in' data-alert><p> " + message + " </p></div>"));
           $(".alert").delay(2000).fadeOut("slow", function () { $(this).remove(); });

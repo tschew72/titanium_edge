@@ -439,6 +439,14 @@ end
     return 200
   end
 
+  post '/updatelanguageskill' do
+    userprofile = env['warden'].user
+    mylanguage = userprofile.tme_skr_language.get(params["pk"])
+    mylanguage.update(":#{params['name']}") => params["value"])
+    mylanguage.update(:status =>1)
+    return 200
+  end
+
   post '/newskill' do
     userprofile = env['warden'].user
     newskill = SkillSummary.first_or_create({:skillid => params["skillid"]}).update(:skillrank => params["skillrank"], :user_id => userprofile.id, :status =>1)  #If similar skillID detected, just update it with new set of data.
@@ -558,15 +566,16 @@ end
        @allskills =   @userprofile.skill_summaries.all
        @ssmaster = SkillSource  #master skill source for cross referencing
        @scmaster = SkillCategory.all   #Skill Category Master     #Hardcode to HTML. Remove from Database. Push this to the /admin for churning json.
-       @sr = SkillRank.all  #Hardcode to HTML. Remove from Database.
+       @sr = SkillRank.all  
        erb :table, :layout => false
 
     end
 
  get '/langtable' do
        @userprofile = env['warden'].user  
-       @allskills =   @userprofile.skill_summaries.all
-       @lmaster = TmeSkrLanguage  #master skill source for cross referencing
+       @alllanguages =   @userprofile.tme_skr_language.all
+       @lmaster = TmeListLanguage  #master skill source for cross referencing
+       @sr = SkillRank.all  #Hardcode to HTML. Remove from Database.
        erb :langtable, :layout => false
 
     end
