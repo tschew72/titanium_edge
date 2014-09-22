@@ -58,8 +58,11 @@ class User
   has n, :jobs
   has 1, :career_score
   has n, :skill_summaries
+  has n, :languages
   has n, :job_industries
   has n, :preferred_locations
+  has n, :skills, :through => :skilltags   ###n-n###
+  has n, :skilltags                        ###n-n###
   has n, :tme_skr_socialmedia, :model => 'TmeSkrSocialmedia'
   has n, :tme_skr_prefloc, :model => 'TmeSkrPrefloc'
   has n, :tme_skr_preftitle, :model => 'TmeSkrPreftitle'
@@ -207,30 +210,55 @@ class CareerScore
 end
 
 
-# class Skill    ###n-n###
-#   include DataMapper::Resource
+class Skill    ###n-n###
+  include DataMapper::Resource
 
-#   property :id, Serial , key: true
-#   property :skill, String, length:100
-#   property :category, String, length:100
+  property :id, Serial , key: true
+  property :skill, String, length:100
+  property :category, String, length:100
   
-#   has n, :skilltags
-#   has n, :users, :through => :skilltags
-# end
+  has n, :skilltags
+  has n, :users, :through => :skilltags
+end
 
-# class Skilltag   ###n-n###
-#   include DataMapper::Resource
+class Skilltag   ###n-n###
+  include DataMapper::Resource
 
-#   property :id, Serial , key: true
-#   property :skill_id, Integer
-#   property :user_id, Integer
-#   property :skillscore, Integer
+  property :id, Serial , key: true
+  property :skill_id, Integer
+  property :user_id, Integer
+  property :skillscore, Integer
 
-#   belongs_to :skill, :key => true
-#   belongs_to :user, :key => true
-# end
+  belongs_to :skill, :key => true
+  belongs_to :user, :key => true
+end
   
 
+
+
+class Language   
+  include DataMapper::Resource
+
+  property :id, Serial , key: true, :index => true
+  property :user_id, Integer, :index => true
+  property :languageid, Integer, :index => true
+  property :writtenrank, Integer, :index => true                  #1=Basic 2=Intermediate 3=Advance 4=Expert
+  property :spokenrank, Integer, :index => true                  #1=Basic 2=Intermediate 3=Advance 4=Expert
+  property :status, Integer, :default  => 2,:index => true     #0=delete, 1=edited, 2=active
+  property :updated_at, DateTime                #When was it last edited
+
+  belongs_to :user 
+end
+
+class LanguageSource                           
+  include DataMapper::Resource                 
+
+  property :id, Serial , key: true, :index => true
+  property :languagename, String, length:100, :index => true        
+
+end
+
+########### START Generated from HSQL ##################
 class SkillSummary    
   include DataMapper::Resource
   storage_names[repository = :default] = 'tme_skr_skill'
@@ -347,6 +375,8 @@ class SkrscoreCerts
   property :certcount, Integer
 
 end
+
+########### END Generated from HSQL ##################
 
 # Tell DataMapper the models are done being defined
 DataMapper.finalize
