@@ -18,18 +18,25 @@ $.getScript("/vendor/langtablescript.js");
                   <% if @alllanguages.get(i).skr_status != 0 %>
                  
                   <tr>
-                     <td> <%= @alllanguages.get(1).skr_lang %> </td>
+                     <td><%= @alllanguages.get(i).skr_status %> </a> </td>
                      
+                     <!-- <td><a class="languageskill" href="javascript:void(0)" class="editable-click" data-name="skr_lang_speakskill" data-type="select" data-pk="<%= i.skr_lang_id%>" data-url="/updatelanguageskill" data-source="[{value: 2, text: 'Basic'}, {value: 3, text: 'Intermediate'}, {value: 4, text: 'Advance'}, {value: 5, text: 'Expert'}]"   data-title="Enter spoken skill level">  <%= @sr.get(i.skr_lang_speakskill).skillrankname %>
+                     </a></td> 
+
+                     <td><a class="languageskill" href="javascript:void(0)" class="editable-click" data-name="skr_lang_writeskill" data-type="select" data-pk="<%= i.skr_lang_id%>" data-url="/updatelanguageskill" data-source="[{value: 2, text: 'Basic'}, {value: 3, text: 'Intermediate'}, {value: 4, text: 'Advance'}, {value: 5, text: 'Expert'}]"   data-title="Enter written skill level">  <%= @sr.get(i.skr_lang_writeskill).skillrankname %>
+                     </a></td> 
+                     
+                     <td>
 
                       <div class="hidden-sm hidden-xs action-buttons">
 
-                          <!-- <a id="skilldel" class="red" href="/deleteskill?id=<%= @allskills.get(i).id %>"> -->
+                
                           <a onclick="dellanguage(this, <%=i.id%>)" class="red" href="javascript:void(0)"> <i class="fa fa-trash">DELETE</i></a>
                              
                           </a>
 
                       </div>
-                     </td>
+                     </td> -->
                   </tr>
 
                  <% end %>
