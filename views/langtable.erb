@@ -15,7 +15,11 @@ $.getScript("/vendor/langtablescript.js");
               <tbody >
                   <% @alllanguages.each do |i| %>  <!--From Skill Summary Class -->
                   <!-- If flag is set to delete, break. and find next record -->
+                  <% if @alllanguages.get(i).skr_status != 0 %>
+                 
 
+
+                 <% end %>
                   <% end %>
               </tbody>
             </table>
