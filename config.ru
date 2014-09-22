@@ -196,7 +196,7 @@ get '/settings' do
        @allskills =   @userprofile.skill_summaries.all
        @alllanguages = @userprofile.tme_skr_language.all
 
-       @lmaster = TmeSkrLanguage
+       @lmaster = TmeListLanguage
        @ssmaster = SkillSource  #master skill source for cross referencing
     
 
