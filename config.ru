@@ -439,13 +439,6 @@ end
     return 200
   end
 
-  post '/updatelanguageskill' do
-    userprofile = env['warden'].user
-    mylanguage = userprofile.tme_skr_language.get(params["pk"])
-    mylanguage.update(":#{params['name']}") => params["value"])
-    mylanguage.update(:skr_status =>1)
-    return 200
-  end
 
   post '/newskill' do
     userprofile = env['warden'].user
