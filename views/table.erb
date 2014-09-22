@@ -24,7 +24,7 @@ $.getScript("/vendor/tablescript.js");
                       
                      <td><%= @ssmaster.get(i.skillid).skill_name %> </a></td>
                      
-                     <td><a class="skillrank" href="javascript:void(0)" class="editable-click" data-name="skillrank" data-type="select" data-pk="<%= @allskills.get(i).id%>" data-url="/updateskillrank" data-source="[{value: 1, text: 'Basic'}, {value: 2, text: 'Intermediate'}, {value: 3, text: 'Advance'}, {value: 4, text: 'Expert'}]"   data-title="Enter skill rank">  <%= @sr.get(i.skillrank).skillrankname %>
+                     <td><a class="skillrank" href="javascript:void(0)" class="editable-click" data-name="skillrank" data-type="select" data-pk="<%= @allskills.get(i).id%>" data-url="/updateskillrank" data-source="[{value: 2, text: 'Basic'}, {value: 3, text: 'Intermediate'}, {value: 4, text: 'Advance'}, {value: 5, text: 'Expert'}]"   data-title="Enter skill rank">  <%= @sr.get(i.skillrank).skillrankname %>
                      </a></td> 
 
                      
