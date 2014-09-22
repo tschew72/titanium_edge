@@ -17,7 +17,20 @@ $.getScript("/vendor/langtablescript.js");
                   <!-- If flag is set to delete, break. and find next record -->
                   <% if @alllanguages.get(i).skr_status != 0 %>
                  
+                  <tr>
+                     <td><%= @lmaster.get(i.skr_lang_id).language%> </a> </td>
+                     
 
+                      <div class="hidden-sm hidden-xs action-buttons">
+
+                          <!-- <a id="skilldel" class="red" href="/deleteskill?id=<%= @allskills.get(i).id %>"> -->
+                          <a onclick="dellanguage(this, <%=i.id%>)" class="red" href="javascript:void(0)"> <i class="fa fa-trash">DELETE</i></a>
+                             
+                          </a>
+
+                      </div>
+                     </td>
+                  </tr>
 
                  <% end %>
                   <% end %>
