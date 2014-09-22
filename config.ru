@@ -263,7 +263,7 @@ get '/settings' do
            @skillcat= cattemp.to_json
        end
 
-       #@sr = SkillRank.all 
+       @sr = SkillRank.all  #Hardcode to HTML. Remove from Database.
        erb :"dash/settings", :layout => :'dash/layout1'
 end
 
