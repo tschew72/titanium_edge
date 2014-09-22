@@ -405,11 +405,11 @@ else{e.value="no";location.reload();}
   </tr>
   <tr>       
   <td width="20%">Spoken skill level</td>
-  <td width="50%"><a href="#" class="newskill" id="skillrank" data-emptytext="Select..." data-type="select" data-name="skr_lang_speakskill" data-source="[{value: 1, text: 'Basic'}, {value: 2, text: 'Intermediate'}, {value: 3, text: 'Advance'}, {value: 4, text: 'Expert'}]" data-original-title="Select rank"></a></td>
+  <td width="50%"><a href="#" class="newlanguage" id="skillrank" data-emptytext="Select..." data-type="select" data-name="skr_lang_speakskill" data-source="[{value: 1, text: 'Basic'}, {value: 2, text: 'Intermediate'}, {value: 3, text: 'Advance'}, {value: 4, text: 'Expert'}]" data-original-title="Select rank"></a></td>
   </tr>   
   <tr>       
   <td width="20%">Written skill level</td>
-  <td width="50%"><a href="#" class="newskill" id="skillrank" data-emptytext="Select..." data-type="select" data-name="skr_lang_writeskill" data-source="[{value: 1, text: 'Basic'}, {value: 2, text: 'Intermediate'}, {value: 3, text: 'Advance'}, {value: 4, text: 'Expert'}]" data-original-title="Select rank"></a></td>
+  <td width="50%"><a href="#" class="newlanguage" id="skillrank" data-emptytext="Select..." data-type="select" data-name="skr_lang_writeskill" data-source="[{value: 1, text: 'Basic'}, {value: 2, text: 'Intermediate'}, {value: 3, text: 'Advance'}, {value: 4, text: 'Expert'}]" data-original-title="Select rank"></a></td>
   </tr>   
   </tbody>
   </table>
@@ -541,9 +541,9 @@ else{e.value="no";location.reload();}
           if(!v) return 'This is a required field!';
       });
 
-      // $('.newlanguage').editable('option', 'validate', function(v) {
-      //     if(!v) return 'This is a required field!';
-      // });
+      $('.newlanguage').editable('option', 'validate', function(v) {
+          if(!v) return 'This is a required field!';
+      });
 
       $('#industries').editable({
       
