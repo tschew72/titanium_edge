@@ -486,6 +486,15 @@ else{e.value="no";location.reload();}
         selector: 'a.skills'
       });
 
+      $('#languagetable').editable({
+        selector: 'a.skr_lang_speakskill',
+        showbuttons: false
+      });
+
+      $('#languagetable').editable({
+        selector: 'a.skr_lang_writeskill'
+      });
+
 
       $('#expectedsalary').editable();
       $('#currentsalary').editable();
