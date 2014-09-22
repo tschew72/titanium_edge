@@ -68,6 +68,7 @@ class User
   has n, :tme_skr_preftitle, :model => 'TmeSkrPreftitle'
   has n, :tme_skr_preffunc, :model => 'TmeSkrPreffunc'
   has n, :tme_skr_prefind, :model => 'TmeSkrPrefind'
+  has n, :tme_skr_skill, :model => 'SkillSummary'
 
   def authenticate(attempted_password)
     if self.password == attempted_password
@@ -258,42 +259,42 @@ end
 ########### START Generated from HSQL ##################
 class SkillSummary    
   include DataMapper::Resource
-
-  property :id, Serial , key: true, :index => true
-  property :user_id, Integer, :index => true
-  property :skillid, Integer, :index => true
-  property :skillrank, Integer, :index => true                  #1=Basic 2=Intermediate 3=Advance 4=Expert
-  property :skillcatid, Integer, :index => true
-  property :status, Integer, :default  => 2,:index => true     #0=delete, 1=edited, 2=active
-  property :updated_at, DateTime                #When was it last edited
+  storage_names[repository = :default] = 'tme_skr_skill'
+  property :id, Serial , key: true, :index => true, :field => 'skr_skill_id'
+  property :user_id, Integer, :index => true, :field => 'skr_id'
+  property :skillid, Integer, :index => true, :field => 'skr_skill'
+  property :skillrank, Integer, :index => true, :field => 'skr_skill_rank'
+  property :skillcatid, Integer, :index => true #to be removed
+  property :status, Integer, :default  => 2,:index => true, :field => 'skr_skillstatus'     #0=delete, 1=edited, 2=active
+  property :updated_at, DateTime, :field => 'skr_skillmod'               #When was it last edited
 
   belongs_to :user 
 end
 
 class SkillSource                               #This is for Skill Management Table.
   include DataMapper::Resource                  #Matching skills to category
-
-  property :id, Serial , key: true, :index => true
-  property :skill_name, String, length:100, :index => true      
-  property :skillcategory_id, Integer, :index => true
-  #property :skillcategory_name, String, length:100, :index => true  # to be removed. Category name in Class SkillCategory
+  storage_names[repository = :default] = 'tme_list_skill'
+  property :id, Serial , key: true, :index => true, :field => 'skill_id'
+  property :skill_name, String, length:100, :index => true, :field => 'skill'      
+  property :skillcategory_id, Integer, :index => true, :field => 'skill_cat'
   
 end
 
 class SkillRank    
   include DataMapper::Resource
+  storage_names[repository = :default] = 'tme_list_skillrank'
 
-  property :id, Serial , key: true, :index => true
-  property :skillrankname, String, length:100, :index => true   
+  property :id, Serial , key: true, :index => true, :field => 'skillrank_id'
+  property :skillrankname, String, length:100, :index => true, :field => 'skillrank'   
 
 end
 
 
 class SkillCategory    
   include DataMapper::Resource
-
-  property :id, Serial , key: true, :index => true
-  property :categoryname, String, length:100, :index => true   
+  storage_names[repository = :default] = 'tme_list_skillcat'
+  property :id, Serial , key: true, :index => true, :field => 'skillcat_id'
+  property :categoryname, String, length:100, :index => true, :field => 'skillcat'   
 
 end
 
