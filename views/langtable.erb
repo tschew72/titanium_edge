@@ -13,14 +13,14 @@ $.getScript("/vendor/langtablescript.js");
                 </tr>
               </thead>
               <tbody >
-                  <% @alllanguages.each do |i| %>  <!--From Skill Summary Class -->
+                  <% @alllanguages.each do |i| %>  
                   <!-- If flag is set to delete, break. and find next record -->
-                  
+                  <% if @alllanguages.get(i).skr_status != 0 %>
                  
                   <tr>
                      <td><%= @lmaster.get(i.skr_lang_id).language%></td>
                      
-                     <td>u</td> 
+                     <td><%= i.user_id %></td> 
 
                      <td>j</td> 
                      
@@ -30,7 +30,7 @@ k
                      </td>
                   </tr>
 
-                
+                 <% end %>
                   <% end %>
               </tbody>
             </table>
