@@ -15,7 +15,7 @@ $.getScript("/vendor/langtablescript.js");
               <tbody id="aat" >
                   <% @alllanguages.each do |i| %>  <!--From Skill Summary Class -->
                   <!-- If flag is set to delete, break. and find next record -->
-                  <% if @alllanguages.get(i).skr_status != 0 ||  @alllanguages.get(i).skr_status != nil%>
+                  <% if @alllanguages.get(i).skr_status != 0 %>
                  
                   <tr>
                      <td><%= @lmaster.get(i.skr_lang_id).language%> </a> </td>
