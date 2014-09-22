@@ -254,53 +254,18 @@ else{e.value="no";location.reload();}
 
         <div id="languagetab" class="tab-pane">
               <div class="row">  
-                  <div class="col-sm-12">
-                    <h3 class="header smaller lighter blue">Languages</h3>
-                    <div id="skilltable">
-                      <div class="action-buttons">
-                          <a class="red" href="#addlanguagemodal" data-toggle="modal"> <!-- Set a flag to say it is deleted.  -->
-                            <i class="icon-pencil bigger-130">Add a language</i>
-                          </a>
-                          <a class="red" href="#addlanguagemodal" data-toggle="modal"> <!-- Set a flag to say it is deleted.  -->
-                            <i class="icon-pencil bigger-130">Report new language</i>
-                          </a>
-                      </div>        
-                      <table id="languagesettingtable" class="table table-striped table-bordered table-hover">
-                          <thead>
-                            <tr>
-                               <th class="align-center">Language</th>
-                               <th class="align-center">Written Proficiency</th>
-                               <th class="align-center">Spoken Proficiency</th>
-                               <th class="align-center"></th>
-                            </tr>
-                          </thead>
-                          <tbody>
-                              <% @languages.each do |i| %>
-                              <% if @languages.get(i).status != 0 %>
-                              <tr>
-                                 <td><a class="languagename" href="javascript:void(0)" class="editable-click" data-name="languageid" data-type="text" data-pk="<%= @languages.get(i).id%>" data-url="/update_language"  data-title="Enter skill category "><%= @lmaster.get(languageid).languagename %></a></td>
-                                
-                                <td><a class="writtenrank" href="javascript:void(0)" class="editable-click" data-name="writtenrank" data-type="select" data-pk="<%= @languages.get(i).id%>" data-url="/update_language" data-source="[{value: 1, text: 'Basic'}, {value: 2, text: 'Intermediate'}, {value: 3, text: 'Advance'}, {value: 4, text: 'Expert'}]"   data-title="Enter skill rank">  <%= @sr.get(i.writtenrank).skillrankname %>
-                                 </a></td>
-                               
-                                 <td><a class="spokenrank" href="javascript:void(0)" class="editable-click" data-name="spokenrank" data-type="select" data-pk="<%= @languages.get(i).id%>" data-url="/update_language" data-source="[{value: 1, text: 'Basic'}, {value: 2, text: 'Intermediate'}, {value: 3, text: 'Advance'}, {value: 4, text: 'Expert'}]"   data-title="Enter skill rank">  <%= @sr.get(i.spokenrank).skillrankname %>
-                                 </a></td>
-                                 <td>
-                                <div class="hidden-sm hidden-xs action-buttons">
-                                      <a onclick="del_language(this, <%=i.id%>)" class="red" href="javascript:void(0)">
-                                        <i class="icon-trash bigger-130"></i>                                     
-                                      </a>
-                                  </div>
-                                 </td>
-                              </tr>
-                             <% end %>
-                              <% end %>
-                          </tbody>
-                        </table>
-                  </div> <!-- skill table -->
-                </div> <!-- "col-sm-6 column" -->
+                <div class="col-sm-12 col-lg-12 ">
+                <div id="languagetable">
+                    <!-- <div class="action-buttons"><a class="red" href="#addskillmodal" data-toggle="modal" data-keyboard="false" data-backdrop="static"> <i class="icon-pencil bigger-130">Add a skill</i></a></div>  -->
+                    <a href="#addlanguagemodal" data-toggle="modal" data-keyboard="false" data-backdrop="static" class="btn btn-primary btn-lg active" role="button">Add Language</a>
+                  <div id="lt">
+                      <!-- Skill management table will be loaded in this div -->
+                  </div> <!-- id="lt"-->
+                  <br><br>
+                </div> <!-- languagetable" -->
+                </div> <!-- <div class="col-sm-12 col-lg-12 "> -->                
               </div>    <!-- row -->  
-        </div>     <!-- language tab -->
+        </div> <!-- languagetab -->
 
         <div id="t7" class="tab-pane">
                  <div class="row">
@@ -429,15 +394,32 @@ else{e.value="no";location.reload();}
   <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
   <h4 class="modal-title">Add new language</h4>                                                             
   </div> <!-- "modal-header" -->
-  <div class="modal-body" style="padding-left:45px;">    
-
-  <!--- TBA -->
-
+  <div class="modal-body" style="padding-left:45px;padding-right:45px;">    
+  <div id = "alert_placeholder-inmodal"></div>
+  <br><br>
+  <table id="languagetab" class="table table-bordered table-striped">
+  <tbody>
+  <tr>       
+  <td width="20%">Language</td>
+  <td width="50%"><a href="#" class="newlanguage" id="languagename"  data-emptytext="Select..." data-type="select" data-name="skr_lang" data-original-title="Select language"></a></td>
+  </tr>
+  <tr>       
+  <td width="20%">Spoken skill level</td>
+  <td width="50%"><a href="#" class="newskill" id="skillrank" data-emptytext="Select..." data-type="select" data-name="skr_lang_speakskill" data-source="[{value: 1, text: 'Basic'}, {value: 2, text: 'Intermediate'}, {value: 3, text: 'Advance'}, {value: 4, text: 'Expert'}]" data-original-title="Select rank"></a></td>
+  </tr>   
+  <tr>       
+  <td width="20%">Written skill level</td>
+  <td width="50%"><a href="#" class="newskill" id="skillrank" data-emptytext="Select..." data-type="select" data-name="skr_lang_writeskill" data-source="[{value: 1, text: 'Basic'}, {value: 2, text: 'Intermediate'}, {value: 3, text: 'Advance'}, {value: 4, text: 'Expert'}]" data-original-title="Select rank"></a></td>
+  </tr>   
+  </tbody>
+  </table>
   </div> <!-- "modal-body" -->
   <div class="modal-footer">
-  <!-- <input type="submit" name="save" formaction="/jobupdate" value="Submit" /> -->
-  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-  <button type="button" class="btn btn-default">Add</button>
+  <div class="align-center">
+  <button id="saveslanguage-btn" class="btn btn-primary"><i class="icon-save bigger-140 icon-only">Save Language and Add New</i></button>
+  <br><br><br>
+  Can't find your language in the list? <button class="btn smaller-90 btn-error"><i class="icon-wrench">Let us know!</i></button>
+  </div>   
   </div> <!-- footer -->
   </div> <!-- modal-content -->
   </div><!-- modal-dialog -->
@@ -556,6 +538,10 @@ else{e.value="no";location.reload();}
 
       //init editables
       $('.newskill').editable('option', 'validate', function(v) {
+          if(!v) return 'This is a required field!';
+      });
+
+      $('.newlanguage').editable('option', 'validate', function(v) {
           if(!v) return 'This is a required field!';
       });
 
@@ -755,6 +741,56 @@ else{e.value="no";location.reload();}
       });
 
 
+      $('#savelanguage-btn').click(function() {
+         $('.newlanguage').editable('submit', {
+             url: '/newlanguage',
+             ajaxOptions: {
+                 dataType: 'json' //assuming json response
+             },         
+             success: function(data, config) {
+               
+                  if(data && data.errors){
+                       //server-side validation error, response like {"errors": {"username": "username already exist"} }
+                       config.error.call(this, data.errors);
+
+                 }   else{
+
+                      newAlert("#alert_placeholder-inmodal",'success', 'New Language added!');
+
+                      $('.newlanguage').editable('setValue', null);  //clear values
+                      $('#language').editable('option', 'disabled', true);
+                      $('#languagespeak').editable('option', 'disabled', true);
+                      $('#languagewrite').editable('option', 'disabled', true);
+                      $("#lt").load("/langtable");   
+                 }     
+             },
+             error: function(errors) {
+                 var msg = '';
+                 if(errors && errors.responseText) { //ajax error, errors = xhr object
+                     msg = errors.responseText;
+                     //We do not have any response text from backend at the moment
+                 } else { //validation error (client-side or server-side)
+                     $.each(errors, function(k, v) {
+                      if (k=="skr_lang") {k = "Language"};
+                      if (k=="skr_lang_speakskill") {k = "Spoken skill level"};
+                      if (k=="skr_lang_writeskill") {k = "Written skill level"};       
+                      msg += k+": "+v+"<br>";
+                    });
+                     newAlert("#alert_placeholder-inmodal",'danger', msg);
+                    
+                 }
+                
+             }
+         });
+      });
+
+      $('#closelanguage-btn').click(function() {
+          $('.newlanguage').editable('setValue', null)  //clear values
+              .editable('option', 'pk', null)          //clear pk
+              .removeClass('editable-unsaved');        //remove bold css
+
+      });
+
 
     $("#activecheck").on('change', function(){
       $.ajax({
@@ -927,6 +963,12 @@ else{e.value="no";location.reload();}
           }, 200);
       });   
 
+      $('.newlangugage').on('save.newlanguage', function(){
+          var that = this;
+          setTimeout(function() {
+              $(that).closest('tr').next().find('.newlanguage').editable('show');
+          }, 200);
+      });   
 
 
       function isInt(value) {
