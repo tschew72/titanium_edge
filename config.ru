@@ -424,14 +424,6 @@ end
     return 200
   end
 
-  post '/updateskill' do
-    userprofile = env['warden'].user
-    myskill = userprofile.skill_summaries.get(params["pk"])
-    myskill.update(:skillid => params["value"])
-    myskill.update(:status =>1)
-    return 200
-  end
-
   post '/del_language' do
     userprofile = env['warden'].user
     mylanguage = userprofile.languages.get(params["pk"])
@@ -439,11 +431,12 @@ end
     return 200
   end
 
-  post '/updatelanguageskill' do
+
+  post '/updateskill' do
     userprofile = env['warden'].user
-    mylanguage = userprofile.tme_skr_language.get(params["pk"])
-    mylanguage.update(":#{params['name']}") => params["value"])
-    mylanguage.update(:skr_status =>1)
+    myskill = userprofile.skill_summaries.get(params["pk"])
+    myskill.update(:skillid => params["value"])
+    myskill.update(:status =>1)
     return 200
   end
 
