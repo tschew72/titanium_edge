@@ -20,7 +20,7 @@ $.getScript("/vendor/tablescript.js");
                  
                   <tr>
                    
-                     <td><%= @scmaster.get(i.skillcatid).categoryname %></td> 
+                     <td><%= @scmaster.get(@ssmaster.get(i.skillid).skillcategory_id).categoryname%></td>
                       
                      <td><%= @ssmaster.get(i.skillid).skill_name %> </a></td>
                      
