@@ -58,6 +58,7 @@ class User
   has n, :jobs
   has 1, :career_score
   has n, :skill_summaries
+  has n, :languages
   has n, :job_industries
   has n, :preferred_locations
 

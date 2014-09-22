@@ -265,14 +265,14 @@ get '/settings' do
         end
 
   
-       @scmaster = SkillCategory.all   #Skill Category Master     #Hardcode to HTML. Remove from Database. Push this to the /admin for churning json.
-       cattemp = []
-           @scmaster.each do |x|
-           cattemp << {value: x.id, text: "#{x.categoryname}"}
-           @skillcat= cattemp.to_json
-       end
+      # @scmaster = SkillCategory.all   #Skill Category Master     #Hardcode to HTML. Remove from Database. Push this to the /admin for churning json.
+      # cattemp = []
+      #     @scmaster.each do |x|
+      #     cattemp << {value: x.id, text: "#{x.categoryname}"}
+      #     @skillcat= cattemp.to_json
+      #  end
 
-       @sr = SkillRank.all  #Hardcode to HTML. Remove from Database.
+       # @sr = SkillRank.all  #Hardcode to HTML. Remove from Database.
        #erb :settings
        erb :"dash/settings", :layout => :'dash/layout1'
 end
