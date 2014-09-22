@@ -222,14 +222,6 @@ get '/settings' do
        end
 
        #Preferred Locations
-       #pc= @userprofile.preferred_locations.all
-       #@pref_loc=""
-       #pc.each do |i|
-       #   @pref_loc = @pref_loc + pc.get(i).countryid.to_s + ","
-       #end
-
-
-       #Preferred Locations
        pc= @userprofile.tme_skr_prefloc.all
        @pref_loc=""
        pc.each do |i|
