@@ -61,8 +61,7 @@ class User
   has n, :languages
   has n, :job_industries
   has n, :preferred_locations
-  has n, :skills, :through => :skilltags   ###n-n###
-  has n, :skilltags                        ###n-n###
+
   has n, :tme_skr_socialmedia, :model => 'TmeSkrSocialmedia'
   has n, :tme_skr_prefloc, :model => 'TmeSkrPrefloc'
   has n, :tme_skr_preftitle, :model => 'TmeSkrPreftitle'
@@ -210,29 +209,6 @@ class CareerScore
 end
 
 
-class Skill    ###n-n###
-  include DataMapper::Resource
-
-  property :id, Serial , key: true
-  property :skill, String, length:100
-  property :category, String, length:100
-  
-  has n, :skilltags
-  has n, :users, :through => :skilltags
-end
-
-class Skilltag   ###n-n###
-  include DataMapper::Resource
-
-  property :id, Serial , key: true
-  property :skill_id, Integer
-  property :user_id, Integer
-  property :skillscore, Integer
-
-  belongs_to :skill, :key => true
-  belongs_to :user, :key => true
-end
-  
 
 
 
