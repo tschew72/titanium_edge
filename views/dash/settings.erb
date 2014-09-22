@@ -541,9 +541,9 @@ else{e.value="no";location.reload();}
           if(!v) return 'This is a required field!';
       });
 
-      $('.newlanguage').editable('option', 'validate', function(v) {
-          if(!v) return 'This is a required field!';
-      });
+      // $('.newlanguage').editable('option', 'validate', function(v) {
+      //     if(!v) return 'This is a required field!';
+      // });
 
       $('#industries').editable({
       
@@ -740,6 +740,56 @@ else{e.value="no";location.reload();}
 
       });
 
+
+      $('#savelanguage-btn').click(function() {
+         $('.newlanguage').editable('submit', {
+             url: '/newlanguage',
+             ajaxOptions: {
+                 dataType: 'json' //assuming json response
+             },         
+             success: function(data, config) {
+               
+                  if(data && data.errors){
+                       //server-side validation error, response like {"errors": {"username": "username already exist"} }
+                       config.error.call(this, data.errors);
+
+                 }   else{
+
+                      newAlert("#alert_placeholder-inmodal",'success', 'New Language added!');
+
+                      $('.newlanguage').editable('setValue', null);  //clear values
+                      $('#language').editable('option', 'disabled', true);
+                      $('#languagespeak').editable('option', 'disabled', true);
+                      $('#languagewrite').editable('option', 'disabled', true);
+                      $("#lt").load("/langtable");   
+                 }     
+             },
+             error: function(errors) {
+                 var msg = '';
+                 if(errors && errors.responseText) { //ajax error, errors = xhr object
+                     msg = errors.responseText;
+                     //We do not have any response text from backend at the moment
+                 } else { //validation error (client-side or server-side)
+                     $.each(errors, function(k, v) {
+                      if (k=="skr_lang") {k = "Language"};
+                      if (k=="skr_lang_speakskill") {k = "Spoken skill level"};
+                      if (k=="skr_lang_writeskill") {k = "Written skill level"};       
+                      msg += k+": "+v+"<br>";
+                    });
+                     newAlert("#alert_placeholder-inmodal",'danger', msg);
+                    
+                 }
+                
+             }
+         });
+      });
+
+      $('#closelanguage-btn').click(function() {
+          $('.newlanguage').editable('setValue', null)  //clear values
+              .editable('option', 'pk', null)          //clear pk
+              .removeClass('editable-unsaved');        //remove bold css
+
+      });
 
 
     $("#activecheck").on('change', function(){
