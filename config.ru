@@ -256,7 +256,6 @@ get '/settings' do
            @functions = functemp.to_json
         end
 
-  
        @scmaster = SkillCategory.all   #Skill Category Master     #Hardcode to HTML. Remove from Database. Push this to the /admin for churning json.
        cattemp = []
            @scmaster.each do |x|
@@ -264,8 +263,7 @@ get '/settings' do
            @skillcat= cattemp.to_json
        end
 
-        @sr = SkillRank.all  #Hardcode to HTML. Remove from Database.
-       #erb :settings
+       #@sr = SkillRank.all 
        erb :"dash/settings", :layout => :'dash/layout1'
 end
 
