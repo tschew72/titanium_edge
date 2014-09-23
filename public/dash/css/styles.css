@@ -9249,7 +9249,12 @@ input[readonly] {
     transform: scale(1.05);
 }
 
-
+ .inputlabel {
+    font-size: 1.4em;
+    margin: 0 0 25px;
+    padding: 5px 9px;
+    /*width: 260px;*/
+}
 
 /*  Tabs
 ------------------------*/
