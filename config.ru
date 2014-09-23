@@ -194,6 +194,7 @@ get '/settings' do
        redirect '/auth/login' unless env['warden'].authenticated?
        @userprofile = env['warden'].user  #This is the most important query of all. it will identify the user of this session.
        @userme = @userprofile.firstname
+       @careerscore = @userprofile.skrscore.skrscore_total
        @allskills =   @userprofile.skill_summaries.all
        @alllanguages = @userprofile.tme_skr_language.all
 
