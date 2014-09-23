@@ -9350,5 +9350,5 @@ input[readonly] {
   width: 100%;
 }
 
-a.editable-click {  border-bottom: black; display: block;}
+a.editable-click {  border-bottom: none; border-bottom-style:none; display: block;}
 
