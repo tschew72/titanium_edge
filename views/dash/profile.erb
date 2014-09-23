@@ -261,7 +261,9 @@
 $(document).ready(function(){
 
   $.fn.editable.defaults.mode = 'popup';  
-  $('#firstname').editable();
+  $('#firstname').editable({
+    inputclass: 'mytextarea'
+    });
   $('#lastname').editable();
   $('#age').editable();
   $('#gender').editable({   

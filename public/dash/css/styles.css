@@ -9341,4 +9341,6 @@ input[readonly] {
 .c-concrete{color:#95A5A6;}
 .c-asbestos{color:#7F8C8D;}
 
-
+.mytextarea {
+  width: 200px;
+}
