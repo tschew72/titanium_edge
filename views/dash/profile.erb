@@ -147,7 +147,7 @@
                     <div class="inputtext col-md-2 column"><a class="editable-click" href="javascript:void(0)" id="lastname" data-type="text" data-pk="<%=@userprofile.id %>" data-url="/updateprofile" data-title="Enter last name"><%= @userprofile.lastname %></a></div>   
                     <div class="col-md-6 column">  </div>        
                   </div> <!-- row -->
-                  <div class="space-6"></div>
+
                   <div class="row">
                     <div class="inputlabel col-md-1 column"> Age: </div>  
                     <div class="inputtext col-md-2 column"><a class="editable-click" href="javascript:void(0)"  id="age" data-type="text" data-pk="<%=@userprofile.id %>" data-url="/updateprofile" data-title="Enter age"><%= @userprofile.age %></a> </div> 
@@ -162,7 +162,7 @@
                     <div class="inputlabel col-md-1 column">Gender:</div>                 
                     <div class="inputtext col-md-2 column"> <a class="editable-click" href="javascript:void(0)"  id="gender" data-type="select" data-pk="<%=@userprofile.id %>" data-url="/updateprofile" data-title="Enter gender"><%= @userprofile.gender == 1 ? "Male" : "Female" %> </a> </div> 
                   </div>
-                  <div class="space-6"></div>
+
                   <div class="row">   
                     <div class="inputlabel col-md-1 column"> Nationality: </div>
                     <div class="inputtext col-md-2 column"><a class="editable-click" href="javascript:void(0)" id="nationality" data-type="select"  data-pk="<%=@userprofile.id %>" data-url="/updateprofile" data-title="Enter nationality"><%= @cmaster.get(@userprofile.nationality).country %> </a>  </div>
@@ -176,7 +176,7 @@
                     </div>
                     <div class="col-md-7 column">  </div>
                   </div>
-                  <div class="space-6"></div>
+
  
            
             </div> <!-- <div id="user-profile-1" class="user-profile row"> -->
