@@ -9344,3 +9344,6 @@ input[readonly] {
 .mytextarea {
   width: 100%;
 }
+
+a.editable-click { border-bottom: none; }
+
