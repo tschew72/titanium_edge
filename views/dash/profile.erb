@@ -165,17 +165,15 @@
                   </div>
                   <div class="space-6"></div>
                   <div class="row">   
-
                     <div class="inputlabel col-md-2 column"> Nationality: </div>
                     <div class="inputtext col-md-2 column"><a class="editable-click" href="javascript:void(0)" id="nationality" data-type="select"  data-pk="<%=@userprofile.id %>" data-url="/updateprofile" data-title="Enter nationality"><%= @cmaster.get(@userprofile.nationality).country %> </a>  </div>
-                    <div class="col-md-2 column">   
-                        <div class="inputlabel" id="spr_block" style="visibility: hidden">                
-                              Singapore PR?
-                                <label>
-                                  <input id="sprcheck" name="singaporepr" type="checkbox" class="inputtext ace" <%= @userprofile.singaporepr.to_s == "true" ? "checked" : "unchecked" %> />
-                                  <span class="lbl"> </span>
-                                </label>
-                        </div>
+                    <div  id="spr_block" style="visibility: hidden">  
+                      <div class="col-md-2 column inputlabel">Singapore PR? </div>  
+                      <label>
+                        <input id="sprcheck" name="singaporepr" type="checkbox" class="inputtext ace" <%= @userprofile.singaporepr.to_s == "true" ? "checked" : "unchecked" %> />
+                        <span class="lbl"> </span>
+                      </label>
+                    </div>
                     </div>
                     <div class="col-md-4 column">  </div>
                   </div>
