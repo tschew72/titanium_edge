@@ -68,7 +68,7 @@ class User
   has n, :tme_skr_prefind, :model => 'TmeSkrPrefind'
   has n, :tme_skr_skill, :model => 'SkillSummary'
   has n, :tme_skr_language, :model =>'TmeSkrLanguage'
-  
+  has 1, :skrscore, :model =>'Skrscore'
 
   def authenticate(attempted_password)
     if self.password == attempted_password
@@ -180,6 +180,16 @@ class Job
 end
 
 
+
+class Skrscore
+  include DataMapper::Resource
+  storage_names[repository = :default] = 'skrscore'
+  property :user_id, Serial, key: true, :index=>true, :field => 'skr_id'
+  property :skrscore_total, Integer, :index => true  
+
+  belongs_to :user 
+end
+
 class MatchedJob
   include DataMapper::Resource
 
@@ -194,6 +204,7 @@ class MatchedJob
 
   belongs_to :user 
 end
+
 
 
 class CareerScore
@@ -294,7 +305,7 @@ class TmeSkrLanguage
   property :skr_lang_speakskill, Integer
   property :skr_lang_writeskill, Integer
   property :skr_status, Integer
-  
+
   belongs_to :user 
 end
 

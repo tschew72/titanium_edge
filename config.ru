@@ -92,7 +92,8 @@ get '/edge' do
        @userme = @userprofile.firstname
        @emailme = @userprofile.email
        @usermatchjoblist = @userprofile.matched_jobs
-       #erb :edge
+
+       @careerscore = @userprofile.skrscore.skrscore_total
        erb :"dash/index", :layout => :'dash/layout1'
 end
 
