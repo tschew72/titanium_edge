@@ -201,27 +201,34 @@
               </div>
               <div class="space-6"></div>
               <div class="row">  
-                <div class="col-md-1 column"> Email: </div>
-                   
-                
+                <div class="col-md-1 column"> Email: </div> 
                 <div class="inputtext col-md-2 column">  
                    <a class="editable-click" href="javascript:void(0)"  id="email" data-type="text" data-pk="<%=@userprofile.id %>" data-url="/updateprofile" data-title="Enter email address"><%= @userprofile.email %>   </a>
                 </div>
               </div>
-            <div class="space"></div>
+
             <h3 class="header smaller lighter blue">Social</h3>
-            <div class="form-group">
-                <div class="col-md-1 column"> LinkedIn: </div>
-                <div class="inputtext col-md-2 column">   <a class="editable-click" href="javascript:void(0)"  id="linkedin" data-type="text" data-pk="<%=@userprofile.id %>" data-url="/updatelinkedin" data-title="Enter LinkedIn address"><%= @linkedin%>   </a></div>
-            </div>    
-            <div class="form-group">
-                <div class="col-md-1 column"> Facebook: </div>
-                <div class="inputtext col-md-2 column">  <a class="editable-click" href="javascript:void(0)"  id="facebook" data-type="text" data-pk="<%=@userprofile.id %>" data-url="/updatefacebook" data-title="Enter Facebook address"><%= @facebook%>   </a></div>
-            </div>                  
-            <div class="form-group">
-                <div class="col-md-1 column"> Twitter: </div>
-                <div class="inputtext col-md-2 column"> <a class="editable-click" href="javascript:void(0)"  id="twitter" data-type="text" data-pk="<%=@userprofile.id %>" data-url="/updatetwitter" data-title="Enter Twitter address"><%= @twitter%>   </a></div>
-            </div>            
+            <div class="row">  
+              <div class="col-md-1 column"> LinkedIn: </div>
+              <div class="form-group"> 
+                  <div class="inputtext col-md-2 column">   <a class="editable-click" href="javascript:void(0)"  id="linkedin" data-type="text" data-pk="<%=@userprofile.id %>" data-url="/updatelinkedin" data-title="Enter LinkedIn address"><%= @linkedin%>   </a></div>
+              </div>    
+            </div>
+            <div class="row">  
+              <div class="col-md-1 column"> Facebook: </div>
+              <div class="form-group">
+                  
+                  <div class="inputtext col-md-2 column">  <a class="editable-click" href="javascript:void(0)"  id="facebook" data-type="text" data-pk="<%=@userprofile.id %>" data-url="/updatefacebook" data-title="Enter Facebook address"><%= @facebook%>   </a></div>
+              </div>      
+            </div>
+            <div class="row">    
+              <div class="col-md-1 column"> Twitter: </div>          
+              <div class="form-group">
+                  
+                  <div class="inputtext col-md-2 column"> <a class="editable-click" href="javascript:void(0)"  id="twitter" data-type="text" data-pk="<%=@userprofile.id %>" data-url="/updatetwitter" data-title="Enter Twitter address"><%= @twitter%>   </a></div>
+              </div>   
+            </div>
+
           </div> <!-- <div id="edit-basic" class="tab-pane in active"> -->
           <div id="edit-password" class="tab-pane">
               <div class="space-10"></div>
