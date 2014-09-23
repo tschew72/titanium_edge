@@ -159,22 +159,22 @@
                   </div> <!-- row -->
                   
                   <div class="row">   
-                    <div class="inputlabel col-md-2 column">Gender:</div>                 
-                    <div class="inputtext col-md-3 column"> <a class="editable-click" href="javascript:void(0)"  id="gender" data-type="select" data-pk="<%=@userprofile.id %>" data-url="/updateprofile" data-title="Enter gender"><%= @userprofile.gender == 1 ? "Male" : "Female" %> </a> </div> 
+                    <div class="inputlabel col-md-1 column">Gender:</div>                 
+                    <div class="inputtext col-md-2 column"> <a class="editable-click" href="javascript:void(0)"  id="gender" data-type="select" data-pk="<%=@userprofile.id %>" data-url="/updateprofile" data-title="Enter gender"><%= @userprofile.gender == 1 ? "Male" : "Female" %> </a> </div> 
                   </div>
                   <div class="space-6"></div>
                   <div class="row">   
-                    <div class="inputlabel col-md-2 column"> Nationality: </div>
+                    <div class="inputlabel col-md-1 column"> Nationality: </div>
                     <div class="inputtext col-md-2 column"><a class="editable-click" href="javascript:void(0)" id="nationality" data-type="select"  data-pk="<%=@userprofile.id %>" data-url="/updateprofile" data-title="Enter nationality"><%= @cmaster.get(@userprofile.nationality).country %> </a>  </div>
                     <div  id="spr_block" style="visibility: hidden">  
-                      <div class="col-md-2 column inputlabel">Singapore PR? </div>  
+                      <div class="col-md-1 column inputlabel">Singapore PR? </div>  
                       <label>
                         <input id="sprcheck" name="singaporepr" type="checkbox" class="inputtext ace" <%= @userprofile.singaporepr.to_s == "true" ? "checked" : "unchecked" %> />
                         <span class="lbl"> </span>
                       </label>
                     </div>
                     </div>
-                    <div class="col-md-4 column">  </div>
+                    <div class="col-md-6 column">  </div>
                   </div>
                   <div class="space-6"></div>
  
@@ -183,28 +183,28 @@
             <div class="space"></div>
             <h3 class="header smaller lighter blue">Contact</h3>
             <div class="row">   
-                <div class="col-md-2 column">  
+                <div class="col-md-1 column">  
                    Mobile #:
                 </div>
-                <div class="inputtext col-md-3 column">  
+                <div class="inputtext col-md-2 column">  
                    <a class="editable-click" href="javascript:void(0)"  id="contactnumber" data-type="text" data-pk="<%=@userprofile.id %>" data-url="/updateprofile" data-title="Enter mobile number"><%= @userprofile.contactnumber %> </a> 
                 </div>
               </div>
               <div class="space-6"></div>
               <div class="row">  
-                <div class="col-md-2 column">     
+                <div class="col-md-1 column">     
                    Address:
                 </div>
-                <div class="inputtext col-md-3 column">  
+                <div class="inputtext col-md-2 column">  
                    <a class="editable-click" href="javascript:void(0)"  id="address" data-type="text" data-pk="<%=@userprofile.id %>" data-url="/updateprofile" data-title="Enter address"><%= @userprofile.address %>   </a>
                 </div>
               </div>
               <div class="space-6"></div>
               <div class="row">  
-                <div class="col-md-2 column">  
+                <div class="col-md-1 column">  
                    Email:
                 </div>
-                <div class="inputtext col-md-3 column">  
+                <div class="inputtext col-md-2 column">  
                    <a class="editable-click" href="javascript:void(0)"  id="email" data-type="text" data-pk="<%=@userprofile.id %>" data-url="/updateprofile" data-title="Enter email address"><%= @userprofile.email %>   </a>
                 </div>
               </div>
