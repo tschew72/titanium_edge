@@ -155,7 +155,7 @@
                     <div class="col-md-3 column"> 
                       <div class="input-group">
                         <!-- <input readonly="true" style="width: 100px"  class="form-control date-picker rdonly" id="id-date-picker-1"  type="text" data-date-format="dd-mm-yyyy" value="<%= @userprofile.dob.strftime("%d/%m/%Y") %>"></input> -->
-                        <input readonly="true" type="text" style="width: 200px;" name="date-range-picker" id="id-date-range-picker-1"  class="form-control rdonly" value="<%=@userprofile.dob.strftime("%d/%m/%Y") %> "  class="span4"></input> <div id="saving_date"></div>
+                        <input readonly="true" type="text" style="width: 200px;" name="date-range-picker" id="id-date-range-picker-1"  class="inputtext form-control rdonly" value="<%=@userprofile.dob.strftime("%d/%m/%Y") %> "  class="span4"></input> <div id="saving_date"></div>
 
                       </div>
                     </div>
@@ -164,18 +164,18 @@
                   
                   <div class="row">   
                     <div class="col-md-2 column">Gender:</div>                 
-                    <div class="col-md-3 column"> <a href="javascript:void(0)"  id="gender" data-type="select" data-pk="<%=@userprofile.id %>" data-url="/updateprofile" data-title="Enter gender"><%= @userprofile.gender == 1 ? "Male" : "Female" %> </a> </div> 
+                    <div class="inputtext col-md-3 column"> <a href="javascript:void(0)"  id="gender" data-type="select" data-pk="<%=@userprofile.id %>" data-url="/updateprofile" data-title="Enter gender"><%= @userprofile.gender == 1 ? "Male" : "Female" %> </a> </div> 
                   </div>
                   <div class="space-6"></div>
                   <div class="row">   
 
                     <div class="col-md-2 column"> Nationality: </div>
-                    <div class="col-md-2 column"><a href="javascript:void(0)" id="nationality" data-type="select"  data-pk="<%=@userprofile.id %>" data-url="/updateprofile" data-title="Enter nationality"><%= @cmaster.get(@userprofile.nationality).country %> </a>  </div>
+                    <div class="inputtext col-md-2 column"><a href="javascript:void(0)" id="nationality" data-type="select"  data-pk="<%=@userprofile.id %>" data-url="/updateprofile" data-title="Enter nationality"><%= @cmaster.get(@userprofile.nationality).country %> </a>  </div>
                     <div class="col-md-2 column">   
                         <div id="spr_block" style="visibility: hidden">                
                               Singapore PR?
                                 <label>
-                                  <input id="sprcheck" name="singaporepr" type="checkbox" class="ace" <%= @userprofile.singaporepr.to_s == "true" ? "checked" : "unchecked" %> />
+                                  <input id="sprcheck" name="singaporepr" type="checkbox" class="inputtext ace" <%= @userprofile.singaporepr.to_s == "true" ? "checked" : "unchecked" %> />
                                   <span class="lbl"> </span>
                                 </label>
                         </div>
