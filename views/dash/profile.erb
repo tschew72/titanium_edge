@@ -151,7 +151,7 @@
                   <div class="row">
                     <div class="inputlabel col-md-2 column"> Age: </div>  
                     <div class="inputtext col-md-2 column"><a class="editable-click" href="javascript:void(0)"  id="age" data-type="text" data-pk="<%=@userprofile.id %>" data-url="/updateprofile" data-title="Enter age"><%= @userprofile.age %></a> </div> 
-                    <div class="col-md-2 column"> <label class="control-label no-padding-right" for="id-date-picker-1"> Date of Birth</label></div>
+                    <div class="col-md-2 column"> <label class="inputlabel control-label no-padding-right" for="id-date-picker-1"> Date of Birth</label></div>
                     <div class="col-md-3 column"> 
                       <div class="input-group">
                         <!-- <input readonly="true" style="width: 100px"  class="form-control date-picker rdonly" id="id-date-picker-1"  type="text" data-date-format="dd-mm-yyyy" value="<%= @userprofile.dob.strftime("%d/%m/%Y") %>"></input> -->
@@ -172,7 +172,7 @@
                     <div class="inputlabel col-md-2 column"> Nationality: </div>
                     <div class="inputtext col-md-2 column"><a class="editable-click" href="javascript:void(0)" id="nationality" data-type="select"  data-pk="<%=@userprofile.id %>" data-url="/updateprofile" data-title="Enter nationality"><%= @cmaster.get(@userprofile.nationality).country %> </a>  </div>
                     <div class="col-md-2 column">   
-                        <div id="spr_block" style="visibility: hidden">                
+                        <div class="inputlabel" id="spr_block" style="visibility: hidden">                
                               Singapore PR?
                                 <label>
                                   <input id="sprcheck" name="singaporepr" type="checkbox" class="inputtext ace" <%= @userprofile.singaporepr.to_s == "true" ? "checked" : "unchecked" %> />
