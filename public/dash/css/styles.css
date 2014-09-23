@@ -9355,8 +9355,8 @@ input[readonly] {
 
 a.editable-click {  
 	border-bottom: none !important; 
-	border-bottom-style:none !important;
-	text-decoration: none !important;
+/*	border-bottom-style:none !important;
+	text-decoration: none !important;*/
 	display: block;
 }
 
