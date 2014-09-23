@@ -260,8 +260,10 @@
 
 $(document).ready(function(){
 
-  $.fn.editable.defaults.mode = 'popup';  
-  $('#firstname').editable();
+  $.fn.editable.defaults.mode = 'inline';  
+  $('#firstname').editable({
+    inputclass : mytextarea;
+  });
   $('#lastname').editable();
   $('#age').editable();
   $('#gender').editable({   

@@ -9340,3 +9340,7 @@ input[readonly] {
 .c-silver{color:#BDC3C7;}
 .c-concrete{color:#95A5A6;}
 .c-asbestos{color:#7F8C8D;}
+
+.mytextarea {
+  width: 100%;
+}
