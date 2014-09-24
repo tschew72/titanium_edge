@@ -401,15 +401,15 @@ else{e.value="no";location.reload();}
   <tbody>
   <tr>       
   <td>Language</td>
-  <td width="60%"><a href="#" class="newlang" id="lang"  data-emptytext="Select..." data-type="select" data-name="skr_lang" data-original-title="Select language"></a></td>
+  <td width="60%"><a href="#" class="newlang1" id="lang"  data-emptytext="Select..." data-type="select" data-name="skr_lang" data-original-title="Select language"></a></td>
   </tr>
   <tr>       
   <td>Spoken skill level</td>
-  <td width="20%"><a href="#" class="newlang" id="speakskill" data-emptytext="Select..." data-type="select" data-name="skr_lang_speakskill" data-source="[{value: 1, text: 'Basic'}, {value: 2, text: 'Intermediate'}, {value: 3, text: 'Advance'}, {value: 4, text: 'Expert'}]" data-original-title="Select rank"></a></td>
+  <td width="20%"><a href="#" class="newlang1" id="speakskill" data-emptytext="Select..." data-type="select" data-name="skr_lang_speakskill" data-source="[{value: 1, text: 'Basic'}, {value: 2, text: 'Intermediate'}, {value: 3, text: 'Advance'}, {value: 4, text: 'Expert'}]" data-original-title="Select rank"></a></td>
   </tr>   
   <tr>       
   <td>Written skill level</td>
-  <td width="20%"><a href="#" class="newlang" id="writeskill" data-emptytext="Select..." data-type="select" data-name="skr_lang_writeskill" data-source="[{value: 1, text: 'Basic'}, {value: 2, text: 'Intermediate'}, {value: 3, text: 'Advance'}, {value: 4, text: 'Expert'}]" data-original-title="Select rank"></a></td>
+  <td width="20%"><a href="#" class="newlang1" id="writeskill" data-emptytext="Select..." data-type="select" data-name="skr_lang_writeskill" data-source="[{value: 1, text: 'Basic'}, {value: 2, text: 'Intermediate'}, {value: 3, text: 'Advance'}, {value: 4, text: 'Expert'}]" data-original-title="Select rank"></a></td>
   </tr>   
   </tbody>
   </table>
@@ -798,6 +798,55 @@ else{e.value="no";location.reload();}
       });
 
 
+      $('#savelanguage-btn').click(function() {
+         $('.newlang').editable('submit', {
+             url: '/newlanguage',
+             ajaxOptions: {
+                 dataType: 'json' //assuming json response
+             },         
+             success: function(data, config) {
+               
+                  if(data && data.errors){
+                       //server-side validation error, response like {"errors": {"username": "username already exist"} }
+                       config.error.call(this, data.errors);
+
+                 }   else{
+
+                      newAlert("#alert_placeholder-inmodal",'success', 'New Language added!');
+
+                      $('.newlang').editable('setValue', null);  //clear values
+                      $('#lang').editable('option', 'disabled', true);
+                      $('#speakskill').editable('option', 'disabled', true);
+                      $('#writeskill').editable('option', 'disabled', true);
+                      $("#lt").load("/langtable");   
+                 }     
+             },
+             error: function(errors) {
+                 var msg = '';
+                 if(errors && errors.responseText) { //ajax error, errors = xhr object
+                     msg = errors.responseText;
+                     //We do not have any response text from backend at the moment
+                 } else { //validation error (client-side or server-side)
+                     $.each(errors, function(k, v) {
+                      if (k=="skr_lang") {k = "Language"};
+                      if (k=="skr_lang_speakskill") {k = "Spoken skill level"};
+                      if (k=="skr_lang_writeskill") {k = "Written skill level"};       
+                      msg += k+": "+v+"<br>";
+                    });
+                     newAlert("#alert_placeholder-inmodal",'danger', msg);
+                    
+                 }
+                
+             }
+         });
+      });
+
+      $('#closelanguage-btn').click(function() {
+          $('.newlang').editable('setValue', null)  //clear values
+              .editable('option', 'pk', null)          //clear pk
+              .removeClass('editable-unsaved');        //remove bold css
+
+      });
 
 
     $("#activecheck").on('change', function(){
