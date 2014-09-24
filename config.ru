@@ -430,7 +430,7 @@ end
 
   post '/deletelanguage' do
     userprofile = env['warden'].user
-    mylanguage = userprofile.languages.get(params["pk"])
+    mylanguage = userprofile.tme_skr_language.get(params["pk"])
     mylanguage.update(:skr_status => 0)
     return 200
   end

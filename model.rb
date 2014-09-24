@@ -304,7 +304,7 @@ class TmeSkrLanguage
   property :skr_lang, Integer, :index => true 
   property :skr_lang_speakskill, Integer
   property :skr_lang_writeskill, Integer
-  property :skr_status, Integer
+  property :skr_status, Integer, :default  => 2,:index => true #0=delete, 1=edited, 2=active
 
   belongs_to :user 
 end
