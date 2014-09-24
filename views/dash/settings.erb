@@ -525,9 +525,19 @@ else{e.value="no";location.reload();}
         showbuttons: false,
         success: function(response, newValue) {
            //$('#skillname').editable('option', 'source', sources[newValue]); //setup the source for skillname editable
-           $('#skillname').editable('option', 'source', function() {return sources[newValue]}); 
-           $('#skillname').editable('setValue', null);
-           $('#skillname').editable('option', 'disabled', false);
+           // $('#skillname').editable('option', 'source', function() {return sources[newValue]}); 
+           $('#skillname').editable('option', 'source', function() {
+
+                 $.getJSON('/getskill1', function (result) {
+                      data.formData = result; // e.g. {id: 123}
+                      data.submit();
+                  }).fail( function(d, textStatus, error) {
+                      console.error("Upload failed, Please refresh this page and try again. Status: " + textStatus + ", error: "+error)
+                  });
+
+            }); 
+                 $('#skillname').editable('setValue', null);
+                 $('#skillname').editable('option', 'disabled', false);
            
         }
       });
