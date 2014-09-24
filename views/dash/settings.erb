@@ -562,7 +562,11 @@ else{e.value="no";location.reload();}
 
     /* This is in the Add Language Modal  START*/
       $('#skr_lang').editable({ 
-        source: 'sources[1]',
+        source: [
+              {value: 1, text: 'Active'},
+              {value: 2, text: 'Blocked'},
+              {value: 3, text: 'Deleted'}
+           ],
         onblur: 'submit',
         showbuttons: false,
         success: function(response, newValue) {
