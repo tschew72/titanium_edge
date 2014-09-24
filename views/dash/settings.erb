@@ -527,16 +527,16 @@ else{e.value="no";location.reload();}
         onblur: 'submit',
         showbuttons: false,
         success: function(response, newValue) {
-           $('#skillname').editable('option', 'source', sources1); //setup the source for skillname editable
+           //$('#skillname').editable('option', 'source', sources1); //setup the source for skillname editable
             //$('#skillname').editable('option', 'source', function() {return sources[newValue]}); 
-                 // $.getJSON('/getskill1', function (result) {
-                 //      var sources1 = [{value: 0, text: 'Guest'},{value: 1, text: 'adpis'}];
-                 //      $('#skillname').editable('option', 'source', sources1);
-                 //      //console.error("Status: " + result)
-                 //  }).fail( function(d, textStatus, error) {
-                 //      console.error("Upload failed, Please refresh this page and try again. Status: " + textStatus + ", error: "+error)
+                 $.getJSON('/getskill1', function (result) {
+                      var sources1 = [{value: 0, text: 'Guest'},{value: 1, text: 'adpis'}];
+                      $('#skillname').editable('option', 'source', sources1);
+                      //console.error("Status: " + result)
+                  }).fail( function(d, textStatus, error) {
+                      console.error("Upload failed, Please refresh this page and try again. Status: " + textStatus + ", error: "+error)
 
-                 //  });
+                  });
                   $('#skillname').editable('setValue', null);
                   $('#skillname').editable('option', 'disabled', false);
            
