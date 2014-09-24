@@ -525,8 +525,8 @@ else{e.value="no";location.reload();}
         onblur: 'submit',
         showbuttons: false,
         success: function(response, newValue) {
-           //$('#skillname').editable('option', 'source', sources[newValue]); //setup the source for skillname editable
-            $('#skillname').editable('option', 'source', function() {return sources[newValue]}); 
+           $('#skillname').editable('option', 'source', sources[newValue]); //setup the source for skillname editable
+            //$('#skillname').editable('option', 'source', function() {return sources[newValue]}); 
                  // $.getJSON('/getskill1', function (result) {
                  //      $('#skillname').editable('option', 'source', result);
                  //      console.error("Status: " + result)
