@@ -341,7 +341,7 @@ else{e.value="no";location.reload();}
       </div> <!-- <div class="tab-content">-->    
     </div> <!-- <div class="col-md-12 bootstrap-grid"> -->
     <div class="col-md-2 col-lg-2"></div>
-     
+      
    </div> <!--Content Wrapper-->           
 
 
@@ -381,7 +381,6 @@ else{e.value="no";location.reload();}
   <br><br><br>
   Can't find your skill in the list? <button class="btn smaller-90 btn-error"><i class="icon-wrench">Let us know!</i></button>
   </div>   
-  <%= @tta %> 
   </div> <!-- footer -->
   </div> <!-- modal-content -->
   </div><!-- modal-dialog -->
@@ -525,17 +524,10 @@ else{e.value="no";location.reload();}
         onblur: 'submit',
         showbuttons: false,
         success: function(response, newValue) {
-           $('#skillname').editable('option', 'source', sources[newValue]); //setup the source for skillname editable
-            //$('#skillname').editable('option', 'source', function() {return sources[newValue]}); 
-                 // $.getJSON('/getskill1', function (result) {
-                 //      $('#skillname').editable('option', 'source', result);
-                 //      console.error("Status: " + result)
-                 //  }).fail( function(d, textStatus, error) {
-                 //      console.error("Upload failed, Please refresh this page and try again. Status: " + textStatus + ", error: "+error)
-
-                 //  });
-                 // $('#skillname').editable('setValue', null);
-                 // $('#skillname').editable('option', 'disabled', false);
+           //$('#skillname').editable('option', 'source', sources[newValue]); //setup the source for skillname editable
+           $('#skillname').editable('option', 'source', sources[newValue]); 
+           $('#skillname').editable('setValue', null);
+           $('#skillname').editable('option', 'disabled', false);
            
         }
       });
