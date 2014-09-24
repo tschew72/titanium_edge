@@ -518,7 +518,7 @@ else{e.value="no";location.reload();}
       });
 
 
-
+    /* This is in the Add Skill Modal  START*/
       $('#skillcat').editable({ 
         source: <%= @skillcat %> ,
         onblur: 'submit',
@@ -555,6 +555,10 @@ else{e.value="no";location.reload();}
       $('.newlanguage').editable('option', 'validate', function(v) {
           if(!v) return 'This is a required field!';
       });
+
+
+    /* This is in the Add Skill Modal  END */
+
 
       $('#industries').editable({
       
