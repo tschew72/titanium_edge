@@ -12,6 +12,15 @@ class SinatraWardenExample < Sinatra::Application
  #use Rack::Session::Cookie, :expire_after => 14400
  use Rack::Session::Cookie, :key => 'rack.session', :expire_after => 7*24*60*60
  
+
+assets = Sprockets::Environment.new do |env|
+  # Your assets settings
+end
+
+require "autoprefixer-rails"
+AutoprefixerRails.install(assets)
+
+
 use Warden::Manager do |config|
 
     # Tell Warden how to save our User info into a session.
@@ -426,7 +435,7 @@ end
     return 200
   end
 
-  post '/del_language' do
+  post '/deletelanguage' do
     userprofile = env['warden'].user
     mylanguage = userprofile.languages.get(params["pk"])
     mylanguage.update(:skr_status => 0)
