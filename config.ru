@@ -464,7 +464,7 @@ end
 
   post '/newlanguage' do
     userprofile = env['warden'].user
-    newlanguage = TmeSkrLanguage.first_or_create({:skr_lang => params["skr_lang"]})
+    newlanguage = TmeSkrLanguage.first_or_create({:skr_lang => params["skr_lang"]}).update(:skr_lang_speakskill => params["skr_lang_speakskill"], :skr_lang_writeskill => params["skr_lang_writeskill"], :user_id => userprofile.id, :skr_status =>2)  
         {:responsemsg => "New language added!" }.to_json
   end
 
