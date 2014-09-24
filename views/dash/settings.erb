@@ -553,7 +553,13 @@ else{e.value="no";location.reload();}
           if(!v) return 'This is a required field!';
       });
 
-      $('.newlanguage').editable('option', 'validate', function(v) {
+      $('#lang').editable('option', 'validate', function(v) {
+          if(!v) return 'This is a required field!';
+      });
+      $('#speakskill').editable('option', 'validate', function(v) {
+          if(!v) return 'This is a required field!';
+      });
+      $('#writeskill').editable('option', 'validate', function(v) {
           if(!v) return 'This is a required field!';
       });
 
