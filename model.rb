@@ -302,8 +302,8 @@ class TmeSkrLanguage
   property :skr_lang_id, Serial , key: true, :index => true 
   property :user_id, Integer, :index => true, :field => 'skr_id'
   property :skr_lang, Integer, :index => true 
-  property :skr_lang_speakskill, Integer
-  property :skr_lang_writeskill, Integer
+  property :skr_lang_speakskill, Integer, :index => true 
+  property :skr_lang_writeskill, Integer, :index => true 
   property :skr_status, Integer, :default  => 2,:index => true #0=delete, 1=edited, 2=active
 
   belongs_to :user 
