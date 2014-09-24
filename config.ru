@@ -170,9 +170,8 @@ get '/profile' do
        ctemp = []
            @cmaster.each do |x|
            ctemp << {value: x.country_id, text: "#{x.country}"}
-           @countries = ctemp.to_json
         end
-
+        @countries = ctemp.to_json
        erb :"dash/profile", :layout => :'dash/layout1'
 end
 
@@ -202,11 +201,13 @@ get '/settings' do
 
        
        @ssmaster = SkillSource  #master skill source for cross referencing
-       stemp = []
-           @ssmaster.each do |x|
-           stemp << {value: x.id, text: "#{x.skill_name}"}
-           @skill_list= stemp.to_json
-       end
+       #stemp = []
+       #    @ssmaster.each do |x|
+       #    stemp << {value: x.id, text: "#{x.skill_name}"}
+       #    
+       #end
+       # @skill_list= stemp.to_json
+
 
        #Preferred Level
        plevel = @userprofile.tme_skr_preftitle.all
@@ -240,15 +241,13 @@ get '/settings' do
        indtemp = []
            @indmaster.each do |x|
            indtemp << {id: x.industry_id, text: "#{x.industry}"}
-           
         end
         @industries = indtemp.to_json
 
        @locmaster = TmeListCountry.all
        loctemp = []
        @locmaster.each do |x|
-           loctemp << {id: x.country_id, text: "#{x.country}"}
-           
+           loctemp << {id: x.country_id, text: "#{x.country}"} 
         end
         @locations = loctemp.to_json
 
@@ -256,7 +255,6 @@ get '/settings' do
        leveltemp = []
        @levelmaster.each do |x|
            leveltemp << {id: x.title_id, text: "#{x.title}"}
-           
         end
         @levels = leveltemp.to_json
 
@@ -264,29 +262,24 @@ get '/settings' do
        functemp = []
        @functionmaster.each do |x|
            functemp << {id: x.function_id, text: "#{x.function}"}
-           
         end
         @functions = functemp.to_json
-        
+
        @scmaster = SkillCategory.all   #Skill Category Master     #Hardcode to HTML. Remove from Database. Push this to the /admin for churning json.
        cattemp = []
            @scmaster.each do |x|
            cattemp << {value: x.id, text: "#{x.categoryname}"}
-           @skillcat= cattemp.to_json
        end
+       @skillcat= cattemp.to_json
 
        @lmaster = TmeListLanguage.all
        ltemp = []
            @lmaster.each do |x|
            ltemp << {value: x.language_id, text: "#{x.language}"}
-           @langlist= ltemp.to_json
        end
+      @langlist= ltemp.to_json
 
        @sr = SkillRank.all  #Hardcode to HTML. Remove from Database.
-
-
-
-
 
        erb :"dash/settings", :layout => :'dash/layout1'
 end
@@ -297,7 +290,7 @@ get '/getskill1' do
       smaster.each do |x|
         sltemp << {value: x.id, text: "#{x.skill_name}"}       
       end
-       sltemp.to_json
+       @tta = sltemp.to_json
 end
 
 
