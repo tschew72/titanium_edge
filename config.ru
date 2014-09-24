@@ -497,7 +497,7 @@ end
     userprofile = env['warden'].user
     mylang = userprofile.tme_skr_language.get(params["pk"])
     mylang.update(:skr_lang_speakskill => params["value"])
-    mylang.update(:status =>1)
+    mylang.update(:skr_status =>1)
 
     return 200
   end
@@ -507,7 +507,7 @@ end
     userprofile = env['warden'].user
     mylang = userprofile.tme_skr_language.get(params["pk"])
     mylang.update(:skr_lang_writeskill => params["value"])
-    mylang.update(:status =>1)
+    mylang.update(:skr_status =>1)
 
     return 200
   end
