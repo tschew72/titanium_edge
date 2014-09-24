@@ -288,9 +288,7 @@ get '/settings' do
 end
 
 get '/getskill1' do
-      userprofile = env['warden'].user 
-      allskills =   userprofile.skill_summaries.all
-      smaster = @allskills(:skillcategory_id => 1)
+      smaster = SkillSource.all(:skillcategory_id => 1)
       sltemp=[]
       smaster.each do |x|
         sltemp << {value: x.id, text: "#{x.skill_name}"}
