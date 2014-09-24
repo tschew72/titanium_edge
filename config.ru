@@ -200,7 +200,7 @@ get '/settings' do
        @allskills =   @userprofile.skill_summaries.all
        @alllanguages = @userprofile.tme_skr_language.all
 
-       @lmaster = TmeListLanguage.all
+       
        @ssmaster = SkillSource  #master skill source for cross referencing
     
 
@@ -265,6 +265,13 @@ get '/settings' do
            @scmaster.each do |x|
            cattemp << {value: x.id, text: "#{x.categoryname}"}
            @skillcat= cattemp.to_json
+       end
+
+       @lmaster = TmeListLanguage.all
+       ltemp = []
+           @lmaster.each do |x|
+           ltemp << {value: x.id, text: "#{x.language}"}
+           @langlist= ltemp.to_json
        end
 
        @sr = SkillRank.all  #Hardcode to HTML. Remove from Database.

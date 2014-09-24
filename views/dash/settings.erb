@@ -524,7 +524,7 @@ else{e.value="no";location.reload();}
         onblur: 'submit',
         showbuttons: false,
         success: function(response, newValue) {
-           $('#skillname').editable('option', 'source', sources[newValue]);
+           $('#skillname').editable('option', 'source', sources[newValue]); //setup the source for skillname editable
            $('#skillname').editable('setValue', null);
            $('#skillname').editable('option', 'disabled', false);
            
@@ -559,6 +559,44 @@ else{e.value="no";location.reload();}
 
     /* This is in the Add Skill Modal  END */
 
+    /* This is in the Add Language Modal  START*/
+      $('#skr_lang').editable({ 
+        source: <%= @langlist %> ,
+        onblur: 'submit',
+        showbuttons: false,
+        success: function(response, newValue) {
+           $('#skr_lang_speakskill').editable('option', 'disabled', false);
+           
+        }
+      });
+
+      $('#skr_lang_speakskill').editable({
+        disabled: true,
+        onblur: 'submit',
+        showbuttons: false,
+        success: function(response, newValue)
+        {
+          $('#skr_lang_writeskill').editable('option', 'disabled', false);
+        }
+        });
+
+      $('#skr_lang_writeskill').editable(
+        {
+        disabled: true,
+        onblur: 'submit',
+        showbuttons: false})
+
+      //init editables
+      $('.newskill').editable('option', 'validate', function(v) {
+          if(!v) return 'This is a required field!';
+      });
+
+      $('.newlanguage').editable('option', 'validate', function(v) {
+          if(!v) return 'This is a required field!';
+      });
+
+
+    /* This is in the Add Language Modal  END */
 
       $('#industries').editable({
       
@@ -773,7 +811,7 @@ else{e.value="no";location.reload();}
                       newAlert("#alert_placeholder-inmodal",'success', 'New Language added!');
 
                       $('.newlanguage').editable('setValue', null);  //clear values
-                      $('#language').editable('option', 'disabled', true);
+                      $('#skr_lang').editable('option', 'disabled', true);
                       $('#skr_lang_speakskill').editable('option', 'disabled', true);
                       $('#skr_lang_writeskill').editable('option', 'disabled', true);
                       $("#lt").load("/langtable");   
