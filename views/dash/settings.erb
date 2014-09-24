@@ -526,10 +526,10 @@ else{e.value="no";location.reload();}
         showbuttons: false,
         success: function(response, newValue) {
            //$('#skillname').editable('option', 'source', sources[newValue]); //setup the source for skillname editable
-           // $('#skillname').editable('option', 'source', function() {return sources[newValue]}); 
+            //$('#skillname').editable('option', 'source', function() {return sources[newValue]}); 
                  $.getJSON('/getskill1', function (result) {
-                      $('#skillname').editable('option', 'source', function() {return sources[newValue]});
-                      console.error("Status: " + result)
+                      $('#skillname').editable('option', 'source', function(result) {return result});
+                      //console.error("Status: " + result)
                   }).fail( function(d, textStatus, error) {
                       console.error("Upload failed, Please refresh this page and try again. Status: " + textStatus + ", error: "+error)
 
