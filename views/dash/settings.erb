@@ -524,7 +524,8 @@ else{e.value="no";location.reload();}
         onblur: 'submit',
         showbuttons: false,
         success: function(response, newValue) {
-           $('#skillname').editable('option', 'source', sources[newValue]); //setup the source for skillname editable
+           //$('#skillname').editable('option', 'source', sources[newValue]); //setup the source for skillname editable
+           $('#skillname').editable('option', 'source', <%=skill_list%>); 
            $('#skillname').editable('setValue', null);
            $('#skillname').editable('option', 'disabled', false);
            
