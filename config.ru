@@ -13,13 +13,6 @@ class SinatraWardenExample < Sinatra::Application
  use Rack::Session::Cookie, :key => 'rack.session', :expire_after => 7*24*60*60
  
 
-assets = Sprockets::Environment.new do |env|
-  # Your assets settings
-end
-
-require "autoprefixer-rails"
-AutoprefixerRails.install(assets)
-
 
 use Warden::Manager do |config|
 
