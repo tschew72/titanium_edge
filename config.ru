@@ -270,7 +270,7 @@ get '/settings' do
        @lmaster = TmeListLanguage.all
        ltemp = []
            @lmaster.each do |x|
-           ltemp << {value: x.id, text: "#{x.language}"}
+           ltemp << {value: x.language_id, text: "#{x.language}"}
            @langlist= ltemp.to_json
        end
 

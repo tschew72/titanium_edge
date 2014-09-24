@@ -561,7 +561,7 @@ else{e.value="no";location.reload();}
 
     /* This is in the Add Language Modal  START*/
       $('#skr_lang').editable({ 
-        source: <%= @skillcat%> ,
+        source: <%= @langlist %> ,
         onblur: 'submit',
         showbuttons: false,
         success: function(response, newValue) {
