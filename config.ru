@@ -298,7 +298,7 @@ get '/getskill1' do
       smaster.each do |x|
         sltemp << {value: x.id, text: "#{x.skill_name}"}       
       end
-       @tta = sltemp.to_json
+       @skill1 = sltemp.to_json
 end
 
 
