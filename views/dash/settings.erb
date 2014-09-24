@@ -562,7 +562,7 @@ else{e.value="no";location.reload();}
 
     /* This is in the Add Language Modal  START*/
       $('#lang').editable({ 
-        source: <%=langlist%>,
+        source: '<%=langlist%>',
         onblur: 'submit',
         showbuttons: false,
         success: function(response, newValue) {
