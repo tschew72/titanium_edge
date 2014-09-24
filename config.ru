@@ -295,6 +295,15 @@ get '/getskill' do
      sltemp.to_json
 end
 
+get '/getind' do
+       @indmaster = TmeListIndustry.all   #Industry Master       #Hardcode to HTML. Remove from Database.
+       indtemp = []
+           @indmaster.each do |x|
+           indtemp << {id: x.industry_id, text: "#{x.industry}"}
+        end
+        indtemp.to_json
+end
+
   get '/auth/login' do
 
    erb :"main/login/index", :layout => :'main/layout1'

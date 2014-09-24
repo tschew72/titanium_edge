@@ -599,7 +599,13 @@ else{e.value="no";location.reload();}
       $('#industries').editable({
       
            source: function() {
-                return (<%= @industries%>)
+                //return (<%= @industries%>)
+                $.getJSON("/getind", function (result) {
+
+                  }).fail( function(d, textStatus, error) {
+                      console.error("Status: " + textStatus + ", error: "+error)
+
+                  });
               },
         select2: {
            multiple: true,
