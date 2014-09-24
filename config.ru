@@ -287,7 +287,7 @@ get '/settings' do
        erb :"dash/settings", :layout => :'dash/layout1'
 end
 
-get 'getskill1' do
+get '/getskill1' do
       @allskills =   @userprofile.skill_summaries.all
       @smaster = @allskills(:skillcategory_id => 1)
       sltemp=[]
