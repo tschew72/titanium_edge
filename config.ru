@@ -202,11 +202,11 @@ get '/settings' do
 
        
        @ssmaster = SkillSource  #master skill source for cross referencing
-       #stemp = []
-       #    @ssmaster.each do |x|
-       #    stemp << {value: x.id, text: "#{x.skill_name}"}
-       #    @skill_list= stemp.to_json
-       #end
+       stemp = []
+           @ssmaster.each do |x|
+           stemp << {value: x.id, text: "#{x.skill_name}"}
+           @skill_list= stemp.to_json
+       end
 
        #Preferred Level
        plevel = @userprofile.tme_skr_preftitle.all
