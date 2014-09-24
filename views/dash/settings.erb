@@ -529,10 +529,12 @@ else{e.value="no";location.reload();}
         success: function(response, newValue) {
            //$('#skillname').editable('option', 'source', sources1); //setup the source for skillname editable
             //$('#skillname').editable('option', 'source', function() {return sources[newValue]}); 
-                 $.getJSON('/getskill1', function (result) {
-                  $('#skillname').editable('option', 'source', result);
-                  $('#skillname').editable('setValue', null);
-                  $('#skillname').editable('option', 'disabled', false);                    
+                 tb= "/getskill".concat(newValue.toString())
+                 console.error(tb)
+                 $.getJSON(tb, function (result) {
+                  $('#skillname').editable('option', 'source', result);   //somehow, all these 3 sentences must be in here.
+                  $('#skillname').editable('setValue', null);             //else it will fail.
+                  $('#skillname').editable('option', 'disabled', false);  //                
                       //console.error("Status: " + result)
                   }).fail( function(d, textStatus, error) {
                       console.error("Upload failed, Please refresh this page and try again. Status: " + textStatus + ", error: "+error)
