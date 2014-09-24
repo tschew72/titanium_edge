@@ -530,7 +530,7 @@ else{e.value="no";location.reload();}
            //$('#skillname').editable('option', 'source', sources1); //setup the source for skillname editable
             //$('#skillname').editable('option', 'source', function() {return sources[newValue]}); 
                  $.getJSON('/getskill1', function (result) {
-                      tt= <%=skill1%>
+                      tt= <%=@skill1%>
                       //console.error("Status: " + result)
                   }).fail( function(d, textStatus, error) {
                       console.error("Upload failed, Please refresh this page and try again. Status: " + textStatus + ", error: "+error)
