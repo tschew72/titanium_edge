@@ -72,7 +72,6 @@
                                               //formData: opts,
                                               add: function (e, data) {
                                                   $.getJSON('/filer', function (result) {
-                                                      console.error("U Status: " + result)
                                                       data.formData = result; // e.g. {id: 123}
                                                       data.submit();
                                                   }).fail( function(d, textStatus, error) {
