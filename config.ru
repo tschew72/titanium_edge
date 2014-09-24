@@ -279,7 +279,22 @@ get '/settings' do
        end
 
        @sr = SkillRank.all  #Hardcode to HTML. Remove from Database.
+
+
+
+
+
        erb :"dash/settings", :layout => :'dash/layout1'
+end
+
+get 'getskill1' do
+      @allskills =   @userprofile.skill_summaries.all
+      @smaster = @allskills(:skillcategory_id => 1)
+      sltemp=[]
+      @smaster.each do |x|
+        sltemp << {value: x.id, text: "#{x.skill_name}"}
+        @skill_list= ltemp.to_json
+      end
 end
 
 
