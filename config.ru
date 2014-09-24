@@ -202,7 +202,7 @@ get '/settings' do
 
        
        @ssmaster = SkillSource  #master skill source for cross referencing
-    
+      
 
        #Preferred Level
        plevel = @userprofile.tme_skr_preftitle.all
