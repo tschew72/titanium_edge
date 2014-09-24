@@ -240,30 +240,34 @@ get '/settings' do
        indtemp = []
            @indmaster.each do |x|
            indtemp << {id: x.industry_id, text: "#{x.industry}"}
-           @industries = indtemp.to_json
+           
         end
+        @industries = indtemp.to_json
 
        @locmaster = TmeListCountry.all
        loctemp = []
        @locmaster.each do |x|
            loctemp << {id: x.country_id, text: "#{x.country}"}
-           @locations = loctemp.to_json
+           
         end
+        @locations = loctemp.to_json
 
        @levelmaster = TmeListTitle.all
        leveltemp = []
        @levelmaster.each do |x|
            leveltemp << {id: x.title_id, text: "#{x.title}"}
-           @levels = leveltemp.to_json
+           
         end
+        @levels = leveltemp.to_json
 
        @functionmaster = TmeListFunction.all
        functemp = []
        @functionmaster.each do |x|
            functemp << {id: x.function_id, text: "#{x.function}"}
-           @functions = functemp.to_json
+           
         end
-
+        @functions = functemp.to_json
+        
        @scmaster = SkillCategory.all   #Skill Category Master     #Hardcode to HTML. Remove from Database. Push this to the /admin for churning json.
        cattemp = []
            @scmaster.each do |x|
