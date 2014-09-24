@@ -522,10 +522,7 @@ else{e.value="no";location.reload();}
         onblur: 'submit',
         showbuttons: false,
         success: function(response, newValue) {
-           //$('#skillname').editable('option', 'source', sources1); //setup the source for skillname editable
-            //$('#skillname').editable('option', 'source', function() {return sources[newValue]}); 
-                 //tb= "/getskill".concat(newValue.toString())
-                 //console.error(tb)
+
                  $.getJSON("/getskill", {"value": newValue}, function (result) {
                   $('#skillname').editable('option', 'source', result);   //somehow, all these 3 sentences must be in here.
                   $('#skillname').editable('setValue', null);             //else it will fail.

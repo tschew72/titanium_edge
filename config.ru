@@ -286,24 +286,14 @@ get '/settings' do
        erb :"dash/settings", :layout => :'dash/layout1'
 end
 
-get '/getskill1' do
-      smaster = SkillSource.all(:skillcategory_id => 1)
+get '/getskill' do
+      smaster = SkillSource.all(:skillcategory_id => params["value"])
       sltemp=[]
       smaster.each do |x|
         sltemp << {value: x.id, text: "#{x.skill_name}"}       
       end
      sltemp.to_json
 end
-
-get '/getskill2' do
-      smaster = SkillSource.all(:skillcategory_id => 2)
-      sltemp=[]
-      smaster.each do |x|
-        sltemp << {value: x.id, text: "#{x.skill_name}"}       
-      end
-     sltemp.to_json
-end
-
 
   get '/auth/login' do
 
@@ -695,149 +685,8 @@ end
   end
 
 
-get '/getskill' do
-      smaster = SkillSource.all(:skillcategory_id => params["value"])
-      sltemp=[]
-      smaster.each do |x|
-        sltemp << {value: x.id, text: "#{x.skill_name}"}       
-      end
-     sltemp.to_json
-end
 
-get '/getskill2' do
-      smaster = SkillSource.all(:skillcategory_id => 2)
-      sltemp=[]
-      smaster.each do |x|
-        sltemp << {value: x.id, text: "#{x.skill_name}"}       
-      end
-     sltemp.to_json
-end
 
-get '/getskill3' do
-      smaster = SkillSource.all(:skillcategory_id => 3)
-      sltemp=[]
-      smaster.each do |x|
-        sltemp << {value: x.id, text: "#{x.skill_name}"}       
-      end
-     sltemp.to_json
-end
-
-get '/getskill4' do
-      smaster = SkillSource.all(:skillcategory_id => 4)
-      sltemp=[]
-      smaster.each do |x|
-        sltemp << {value: x.id, text: "#{x.skill_name}"}       
-      end
-     sltemp.to_json
-end
-
-get '/getskill5' do
-      smaster = SkillSource.all(:skillcategory_id => 5)
-      sltemp=[]
-      smaster.each do |x|
-        sltemp << {value: x.id, text: "#{x.skill_name}"}       
-      end
-     sltemp.to_json
-end
-
-get '/getskill6' do
-      smaster = SkillSource.all(:skillcategory_id => 6)
-      sltemp=[]
-      smaster.each do |x|
-        sltemp << {value: x.id, text: "#{x.skill_name}"}       
-      end
-     sltemp.to_json
-end
-
-get '/getskill7' do
-      smaster = SkillSource.all(:skillcategory_id => 7)
-      sltemp=[]
-      smaster.each do |x|
-        sltemp << {value: x.id, text: "#{x.skill_name}"}       
-      end
-     sltemp.to_json
-end
-
-get '/getskill8' do
-      smaster = SkillSource.all(:skillcategory_id => 8)
-      sltemp=[]
-      smaster.each do |x|
-        sltemp << {value: x.id, text: "#{x.skill_name}"}       
-      end
-     sltemp.to_json
-end
-
-get '/getskill9' do
-      smaster = SkillSource.all(:skillcategory_id => 9)
-      sltemp=[]
-      smaster.each do |x|
-        sltemp << {value: x.id, text: "#{x.skill_name}"}       
-      end
-     sltemp.to_json
-end
-
-get '/getskill10' do
-      smaster = SkillSource.all(:skillcategory_id => 10)
-      sltemp=[]
-      smaster.each do |x|
-        sltemp << {value: x.id, text: "#{x.skill_name}"}       
-      end
-     sltemp.to_json
-end
-
-get '/getskill11' do
-      smaster = SkillSource.all(:skillcategory_id => 11)
-      sltemp=[]
-      smaster.each do |x|
-        sltemp << {value: x.id, text: "#{x.skill_name}"}       
-      end
-     sltemp.to_json
-end
-
-get '/getskill12' do
-      smaster = SkillSource.all(:skillcategory_id => 12)
-      sltemp=[]
-      smaster.each do |x|
-        sltemp << {value: x.id, text: "#{x.skill_name}"}       
-      end
-     sltemp.to_json
-end
-
-get '/getskill13' do
-      smaster = SkillSource.all(:skillcategory_id => 13)
-      sltemp=[]
-      smaster.each do |x|
-        sltemp << {value: x.id, text: "#{x.skill_name}"}       
-      end
-     sltemp.to_json
-end
-
-get '/getskill14' do
-      smaster = SkillSource.all(:skillcategory_id => 14)
-      sltemp=[]
-      smaster.each do |x|
-        sltemp << {value: x.id, text: "#{x.skill_name}"}       
-      end
-     sltemp.to_json
-end
-
-get '/getskill15' do
-      smaster = SkillSource.all(:skillcategory_id => 15)
-      sltemp=[]
-      smaster.each do |x|
-        sltemp << {value: x.id, text: "#{x.skill_name}"}       
-      end
-     sltemp.to_json
-end
-
-get '/getskill16' do
-      smaster = SkillSource.all(:skillcategory_id => 16)
-      sltemp=[]
-      smaster.each do |x|
-        sltemp << {value: x.id, text: "#{x.skill_name}"}       
-      end
-     sltemp.to_json
-end
 end
   
 
