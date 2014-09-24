@@ -453,8 +453,8 @@ end
 
   post '/newlanguage' do
     userprofile = env['warden'].user
-    newskill = SkillSummary.first_or_create({:skillid => params["skillid"]}).update(:skillcatid => params["skillcatid"],  :skillrank => params["skillrank"], :user_id => userprofile.id, :status =>1)  #If similar skillID detected, just update it with new set of data.
-        {:responsemsg => "New skill added!" }.to_json
+    newskill = tme_skr_language.first_or_create({:skr_lang => params["skr_lang"]}).update(:skr_lang_speakskill => params["skr_lang_speakskill"], :skr_lang_writeskill => params["skr_lang_writeskill"], :user_id => userprofile.id, :status =>1)  
+        {:responsemsg => "New language added!" }.to_json
   end
 
   post '/newuser' do
