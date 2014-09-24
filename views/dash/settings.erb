@@ -575,21 +575,21 @@ else{e.value="no";location.reload();}
         }
       });
 
-      $('#skr_lang_speakskill').editable({
-        disabled: true,
-        onblur: 'submit',
-        showbuttons: false,
-        success: function(response, newValue)
-        {
-          $('#skr_lang_writeskill').editable('option', 'disabled', false);
-        }
-        });
+      // $('#skr_lang_speakskill').editable({
+      //   disabled: true,
+      //   onblur: 'submit',
+      //   showbuttons: false,
+      //   success: function(response, newValue)
+      //   {
+      //     $('#skr_lang_writeskill').editable('option', 'disabled', false);
+      //   }
+      //   });
 
-      $('#skr_lang_writeskill').editable(
-        {
-        disabled: true,
-        onblur: 'submit',
-        showbuttons: false})
+      // $('#skr_lang_writeskill').editable(
+      //   {
+      //   disabled: true,
+      //   onblur: 'submit',
+      //   showbuttons: false})
 
       //init editables
       $('.newskill').editable('option', 'validate', function(v) {
