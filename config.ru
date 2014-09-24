@@ -292,9 +292,8 @@ get '/getskill1' do
       sltemp=[]
       smaster.each do |x|
         sltemp << {value: x.id, text: "#{x.skill_name}"}
-        #sltemp.to_json
+        sltemp.to_json
       end
-      return sltemp
 end
 
 
