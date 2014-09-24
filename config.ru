@@ -483,12 +483,31 @@ end
   end
 
  post '/updateskillrank' do
-    userprofile = env['warden'].user  #This is the most important query of all. it will identify the user of this session.
+    userprofile = env['warden'].user
     myskill = userprofile.skill_summaries.get(params["pk"])
     #myskill.update(eval(":#{params['name']}") => params["value"])
     #myskill.reload.update(eval(":#{params['name']}") => params["value"])
     myskill.update(:skillrank => params["value"])
     myskill.update(:status =>1)
+
+    return 200
+  end
+
+ post '/updatelang_speakskill' do
+    userprofile = env['warden'].user
+    mylang = userprofile.tme_skr_language.get(params["pk"])
+    mylang.update(:skr_lang_speakskill => params["value"])
+    mylang.update(:status =>1)
+
+    return 200
+  end
+
+
+ post '/updatelang_writeskill' do
+    userprofile = env['warden'].user
+    mylang = userprofile.tme_skr_language.get(params["pk"])
+    mylang.update(:skr_lang_writeskill => params["value"])
+    mylang.update(:status =>1)
 
     return 200
   end
