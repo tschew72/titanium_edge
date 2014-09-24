@@ -288,10 +288,11 @@ get '/settings' do
 end
 
 get '/getskill1' do
-      @allskills =   @userprofile.skill_summaries.all
-      @smaster = @allskills(:skillcategory_id => 1)
+      userprofile = env['warden'].user 
+      allskills =   userprofile.skill_summaries.all
+      smaster = @allskills(:skillcategory_id => 1)
       sltemp=[]
-      @smaster.each do |x|
+      smaster.each do |x|
         sltemp << {value: x.id, text: "#{x.skill_name}"}
         @skill_list= sltemp.to_json
       end
