@@ -695,8 +695,8 @@ end
   end
 
 
-get '/getskill1' do
-      smaster = SkillSource.all(:skillcategory_id => 1)
+get '/getskill' do
+      smaster = SkillSource.all(:skillcategory_id => params["value"])
       sltemp=[]
       smaster.each do |x|
         sltemp << {value: x.id, text: "#{x.skill_name}"}       

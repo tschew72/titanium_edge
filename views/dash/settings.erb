@@ -524,9 +524,9 @@ else{e.value="no";location.reload();}
         success: function(response, newValue) {
            //$('#skillname').editable('option', 'source', sources1); //setup the source for skillname editable
             //$('#skillname').editable('option', 'source', function() {return sources[newValue]}); 
-                 tb= "/getskill".concat(newValue.toString())
-                 console.error(tb)
-                 $.getJSON(tb, function (result) {
+                 //tb= "/getskill".concat(newValue.toString())
+                 //console.error(tb)
+                 $.getJSON(/getskill, newValue, function (result) {
                   $('#skillname').editable('option', 'source', result);   //somehow, all these 3 sentences must be in here.
                   $('#skillname').editable('setValue', null);             //else it will fail.
                   $('#skillname').editable('option', 'disabled', false);  //                
