@@ -568,7 +568,11 @@ else{e.value="no";location.reload();}
 
     /* This is in the Add Language Modal  START*/
       $('#lang').editable({ 
-        source: '<%=langlist%>',
+        source: [
+              {value: 1, text: 'Active'},
+              {value: 2, text: 'Blocked'},
+              {value: 3, text: 'Deleted'}
+           ],
         onblur: 'submit',
         showbuttons: false,
         success: function(response, newValue) {
@@ -1016,10 +1020,10 @@ else{e.value="no";location.reload();}
           }, 200);
       });   
 
-      $('.newlangugage').on('save.newlanguage', function(){
+      $('.newlang').on('save.newlang', function(){
           var that = this;
           setTimeout(function() {
-              $(that).closest('tr').next().find('.newlanguage').editable('show');
+              $(that).closest('tr').next().find('.newlang').editable('show');
           }, 200);
       });   
 
