@@ -289,11 +289,11 @@ end
 
 get '/getskill1' do
       smaster = SkillSource.all(:skillcategory_id => 1)
-      sltemp=[]
-      smaster.each do |x|
-        sltemp << {value: x.id, text: "#{x.skill_name}"}
-        @skill_list= sltemp.to_json
-      end
+      #sltemp=[]
+      #smaster.each do |x|
+      #  sltemp << {value: x.id, text: "#{x.skill_name}"}
+      #  @skill_list= sltemp.to_json
+      #end
 end
 
 
