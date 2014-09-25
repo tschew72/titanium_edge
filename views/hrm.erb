@@ -69,64 +69,12 @@
       <!--/Jumbotron--> 
 
       <!-- Widget Row Start grid -->
-      <div class="row" id="powerwidgets">
-        <div class="col-md-12 bootstrap-grid">       
-                    <!-- New widget -->
-          <div class="powerwidget blue" data-widget-editbutton="false">
-            <header>
-              <h2>Job Listing<small>Select job to view matching results</small></h2>
-            </header>
-            <div class="inner-spacer">
-              <div class="row"> 
-                <!--Row-->
-                <div class="col-md-6">
-                  <div class="table-responsive">
-                    <table class="table table-striped table-hover margin-0px airtable">
-                      <thead>
-                        <tr>
-                          <th class="text-center" >Job ID</th>
-                          <th class="text-center">Job Function </th>
-                          <th class="text-center">Date Posted</th>
-                          <th></th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <% @joblist.each do |i| %>
-                        <tr>
-                          <td><h4 class="text-center"><%= i.id %></h4></td> 
-                          <td><h4 class="text-center"> <%= i.job_function %></h4></td> 
-                          <td><h4 class="text-center"> <%= i.job_posted.strftime("%d/%m/%Y") %></h4></td>
-                          <td><h4 class="text-center"> <a onclick="viewmatches(<%=i.id%>)" class="red" href="javascript:void(0)"> <i class="fa fa-puzzle-piece"></i>View Matches</a> </h4></td>
-                        </tr>
-                        <% end %>
-                      </tbody>
-                      <tfoot>
-                        <tr>
-                          <th class="text-center">Job ID</th>
-                          <th class="text-center">Job Function </th>
-                          <th class="text-center">Date Posted</th>
-                          <th></th>
-                        </tr>
-                      </tfoot>
-                    </table>
-                  </div>
-                </div>
-              <!--/Row--> 
-              </div>
-            <!-- /Inner-space -->  
-            </div>
-          <!-- End Widget -->   
-          </div>
-          
-        <!-- /col-md-12 bootstrap-grid End --> 
-        </div>
-        <!-- /Widgets Row End Grid--> 
-      </div>
+
 
       <!-- Widget Row Start grid -->
       <div class="row" id="powerwidgets">
         <div class="col-md-12 bootstrap-grid"> 
-          <div class="powerwidget blue" >
+          <div class="powerwidget blue" data-widget-editbutton="false">
             <header>
               <h2>Insights<small>Automated job matching in progress</small></h2>
             </header>
