@@ -58,19 +58,7 @@
 						<h3>Endorsement</h3>
 					</div>
 					<div class="resume-info col-md-12 col-sm-8 col-xs-12">
-						<h2 class="job-overview-title">Education</h2>
-						
-						<dl class="resume-manager-education">
-							<% @alledu.each do |i| %>
-							<dt>
-								<h3><%= @uni.get(@alledu.get(i).skr_university).university %></h3>
-							</dt>
-							<dd>
-								<small class="date"> <%= @alledu.get(i).skr_unistart %> -  <%= @alledu.get(i).skr_uniend %></small>
-								<strong class="qualification"><%= @degree.get(@alledu.get(i).skr_unititle).degree %></strong>
-							</dd>
-						</dl>
-						<% end %>
+
 						<h2 class="job-overview-title">Experience</h2>
 						<dl class="resume-manager-experience">
 							<% @alljobs.each do |i| %>
@@ -85,6 +73,18 @@
 									applied mathematical processes and methods to optimize CDO weights</p>
 								</dd>
 							<% end %>
+						</dl>
+						<h2 class="job-overview-title">Education</h2>
+						<dl class="resume-manager-education">
+							<% @alledu.each do |i| %>
+							<dt>
+								<h3><%= @uni.get(@alledu.get(i).skr_university).university %></h3>
+							</dt>
+							<dd>
+								<small class="date"> <%= @alledu.get(i).skr_unistart %> -  <%= @alledu.get(i).skr_uniend %></small>
+								<strong class="qualification"><%= @degree.get(@alledu.get(i).skr_unititle).degree %></strong>
+							</dd>
+						<% end %>
 						</dl>
 					</div>
 
