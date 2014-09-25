@@ -134,6 +134,7 @@ get '/mycv' do
        redirect '/auth/login' unless env['warden'].authenticated?
        @userprofile = env['warden'].user  #This is the most important query of all. it will identify the user of this session.
        @userme = @userprofile.firstname
+       @country = TmeListCountry
 
        erb :mycv, :layout => :'main/layout2'
 end
