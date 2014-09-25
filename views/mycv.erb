@@ -32,6 +32,9 @@
 								<% @allskills.each do |i| %>
 									<!-- If rank = 1, job-tag = job-tag1  TO BE DONE! also check for top 20 skills. list the expert first followed by others-->
 									
+									<%if ++a > 10 then%>
+								   		<%break%>
+								    <%end%>
 									<div class="job-tag"><%= @ssmaster.get(i.skillid).skill_name %></div>
 								<% end %>
 								See more...
