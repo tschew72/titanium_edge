@@ -94,7 +94,7 @@
                         <% @joblist.each do |i| %>
                         <tr>
                           <td><h4 class="text-center"><span class="num"><%= i.id %></span></h4></td> 
-                          <td><h4 class="text-center"> <%= i.function %></h4></td> 
+                          <td><h4 class="text-center"> <%= i.job_function %></h4></td> 
                           <td><h4 class="text-center"> <%= i.job_posted%></h4></td>
                           <td><h4 class="text-center"> <a onclick="viewmatches(<%=i.id%>)" class="red" href="javascript:void(0)"> <i class="fa fa-puzzle-piece"></i>View Matches</a> </h4></td>
                         </tr>
