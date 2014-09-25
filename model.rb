@@ -69,7 +69,9 @@ class User
   has n, :tme_skr_skill, :model => 'SkillSummary'
   has n, :tme_skr_language, :model =>'TmeSkrLanguage'
   has n, :tme_skr_edu, :model => 'TmeSkrEdu'
+  has n, :tme_skr_emp, :model => 'TmeSkrEmp'
   has 1, :skrscore, :model =>'Skrscore'
+
 
   def authenticate(attempted_password)
     if self.password == attempted_password
@@ -441,6 +443,24 @@ class TmeSkrEdu
   belongs_to :user 
 end
 
+class TmeSkrEmp
+  include DataMapper::Resource
+  storage_names[repository = :default] = 'tme_skr_emp'
+  property :skr_emp_id, Serial , key: true, :index => true 
+  property :user_id, Integer, :index => true, :field => 'skr_id'
+  property :skr_emp_company, String, :index => true  
+  property :skr_emp_industry, Integer, :index => true 
+  property :skr_emp_start, Date, :index => true 
+  property :skr_emp_end, Date, :index => true   
+  property :skr_emp_location, Integer, :index => true 
+  property :skr_emp_function, Integer, :index => true 
+  property :skr_emp_title, Integer, :index => true 
+  property :skr_emp_actualtitle, String, :index => true 
+  property :skr_emp_years, Integer, :index => true 
+  
+  belongs_to :user 
+end
+
 
 class TmeListUniversity  
   include DataMapper::Resource
@@ -448,8 +468,22 @@ class TmeListUniversity
   property :university_id, Serial , key: true, :index => true 
   property :university, String, :index => true 
   property :univ_country, Integer, :index => true 
+end
 
 
+class TmeListTitle
+  include DataMapper::Resource
+  storage_names[repository = :default] = 'tme_list_title'
+  property :title_id, Serial , key: true, :index => true 
+  property :title, String, :index => true 
+end
+
+
+class TmeListFunction
+  include DataMapper::Resource
+  storage_names[repository = :default] = 'tme_list_function'
+  property :function_id, Serial , key: true, :index => true 
+  property :function, String, :index => true 
 end
 
 class TmeListDegree

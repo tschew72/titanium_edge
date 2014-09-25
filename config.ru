@@ -139,6 +139,7 @@ get '/mycv' do
        @degree = TmeListDegree
        @allskills =   @userprofile.skill_summaries.all
        @alledu =   @userprofile.tme_skr_edu.all
+       @alljobs = @userprofile.tme_skr_emp.all
        @ssmaster = SkillSource  #master skill source for cross referencing
 
        erb :mycv, :layout => :'main/layout2'
