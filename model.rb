@@ -13,46 +13,48 @@ class User
   include BCrypt
   storage_names[repository = :default] = 'tme_skr_main'
   property :id, Serial, key: true, :index => true, :field => 'skr_id'
-  property :activeseeker, Boolean, :default =>true, :field => 'skr_active'
-  property :lastname, String,  :default=>"", length:50, :field => 'skr_surname'
+  property :activeseeker, Boolean, :index => true, :default =>true, :field => 'skr_active'
+  property :lastname, String, :index => true,  :default=>"", length:50, :field => 'skr_surname'
   property :firstname, String, :default=>"", length: 50, :index => true, :field => 'skr_firstname'
   property :middlename, String, :default=>"", length: 50, :index => true, :field => 'skr_middlename'
-  property :reveal, Boolean, :field => 'skr_reveal'
+  property :reveal, Boolean, :index => true, :field => 'skr_reveal'
   property :email, String, :default=>"your@email.com", length:80, format: :email_address, :index => true, :field => 'skr_email' 
-  property :dob, Date, :field => 'skr_birthdate' 
-  property :gender, Integer, :default => 1, :field => 'skr_gender'
-  property :married, Boolean, :default=>false,  :field => 'skr_married'  
-  property :datejoined, Date, :field => 'skr_datejoined'
-  property :availability, Integer, :field => 'skr_availability' # notice period
-  property :updated_at, DateTime, :field => 'skr_updated'
+  property :dob, Date, :index => true, :field => 'skr_birthdate' 
+  property :gender, Integer, :index => true, :default => 1, :field => 'skr_gender'
+  property :married, Boolean, :index => true, :default=>false,  :field => 'skr_married'  
+  property :datejoined, Date, :index => true, :field => 'skr_datejoined'
+  property :availability, Integer, :index => true, :field => 'skr_availability' # notice period
+  property :updated_at, DateTime, :index => true, :field => 'skr_updated'
 
-  property :pictureurl, String, length: 400, :field => 'skr_photo'  #setup a default picture if not picture is found
-  property :cvurl, String, length: 400, :field => 'skr_cv' 
-  property :videourl, String, length: 400, :field => 'skr_video'   
-  property :username, String, length: 50, :index => true, :field => 'skr_username'  
-  property :prefind_all, Boolean, :default =>true,:field => 'skr_prefind_all' # no preference. If field is NIL, set this to true.
-  property :prefjobfunc_all, Boolean, :default =>true,:field => 'skr_prefjobfunc_all' # no preference
-  property :prefjobtitle_all, Boolean, :default =>true,:field => 'skr_prefjobtitle_all' # no preference
-  property :prefloc_all, Boolean, :default =>true,:field => 'skr_prefloc_all' # no preference
-  property :currentsalary, Integer, :default => 0, :field => 'skr_currsalary'
-  property :expectedsalary, Integer, :default => 0, :field => 'skr_prefsalary'
-  property :salarycurrency, Integer, :default => 1, :field => 'skr_salarycurrency'
-  property :parttime, Boolean, :default=>false, :field => 'skr_parttime'
-  property :fulltime, Boolean, :default=>false, :field => 'skr_fulltime'
-  property :shiftwork, Boolean, :default=>false, :field => 'skr_shiftwork'
-  property :outofhours, Boolean, :default=>false, :field => 'skr_emergency'
-  property :travelfreq, Integer, :default=>0, :field => 'skr_preftravel'
-  property :password, BCryptHash, :field => 'skr_password'
-  property :age, Integer, :field => 'skr_age'
-  property :aboutme, String, length: 255, :field => 'skr_aboutme'     #not used 
-  property :insingaporenow, Boolean, :default =>true, :field => 'skr_insingaporenow'    
-  property :insg_start, Date, :field => 'skr_insgstart', :default => lambda{ |p,s| Date.today}  
-  property :insg_end, Date, :field => 'skr_insgend', :default => lambda{ |a,b| Date.today>>1} 
-  property :lastlogin, Date, :field => 'skr_lastlogin'
-  property :nationality, Integer, :field => 'skr_nationality'
-  property :singaporepr, Boolean, :default  => false, :field => 'skr_singaporepr'
-  property :address, String, :field => 'skr_address'
-  property :contactnumber, String, length: 20, :field => 'skr_contactnumber' #created a new column in table
+  property :pictureurl, String, :index => true, length: 400, :field => 'skr_photo'  #setup a default picture if not picture is found
+  property :cvurl, String, :index => true, length: 400, :field => 'skr_cv' 
+  property :videourl, String, :index => true, length: 400, :field => 'skr_video'   
+  property :username, String, :index => true, length: 50, :index => true, :field => 'skr_username'  
+  property :prefind_all, Boolean, :index => true, :default =>true,:field => 'skr_prefind_all' # no preference. If field is NIL, set this to true.
+  property :prefjobfunc_all, Boolean, :index => true, :default =>true,:field => 'skr_prefjobfunc_all' # no preference
+  property :prefjobtitle_all, Boolean, :index => true, :default =>true,:field => 'skr_prefjobtitle_all' # no preference
+  property :prefloc_all, Boolean, :index => true, :default =>true,:field => 'skr_prefloc_all' # no preference
+  property :currentsalary, Integer, :default => 0, :index => true, :field => 'skr_currsalary'
+  property :expectedsalary,  Integer, :default => 0, :index => true, :field => 'skr_prefsalary'
+  property :salarycurrency,  Integer, :default => 1, :index => true, :field => 'skr_salarycurrency'
+  property :parttime,  Boolean, :default=>false, :index => true, :field => 'skr_parttime'
+  property :fulltime,  Boolean, :default=>false, :index => true, :field => 'skr_fulltime'
+  property :shiftwork,  Boolean, :default=>false, :index => true, :field => 'skr_shiftwork'
+  property :outofhours,  Boolean, :default=>false, :index => true, :field => 'skr_emergency'
+  property :travelfreq,  Integer, :default=>0, :index => true, :field => 'skr_preftravel'
+  property :password,  BCryptHash, :index => true,:field => 'skr_password'
+  property :age,  Integer, :index => true, :field => 'skr_age'
+  property :aboutme,  String, length: 255, :index => true, :field => 'skr_aboutme'     #not used 
+  property :insingaporenow, Boolean, :index => true, :default =>true, :field => 'skr_insingaporenow'    
+  property :insg_start, Date, :index => true, :field => 'skr_insgstart', :default => lambda{ |p,s| Date.today}  
+  property :insg_end, Date, :index => true, :field => 'skr_insgend', :default => lambda{ |a,b| Date.today>>1} 
+  property :lastlogin, Date, :index => true, :field => 'skr_lastlogin'
+  property :nationality, Integer, :index => true, :field => 'skr_nationality'
+  property :singaporepr, Boolean, :index => true, :default  => false, :field => 'skr_singaporepr'
+  property :address, String, :index => true, :field => 'skr_address'
+  property :contactnumber, String, length: 20, :index => true, :field => 'skr_contactnumber' #created a new column in table
+  property :skr_careergoal, String,length: 1000, :default=>"", :index => true
+  property :skr_achievements, String,length: 100000, :default=>"", :index => true
 
   has n, :matched_jobs
   has n, :jobs
