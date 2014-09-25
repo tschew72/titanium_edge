@@ -125,6 +125,7 @@ post '/viewmatches' do
 end
 
 get '/top5matchestable' do
+   @user = User
    jobid = params["pk"]
    cmd = "SELECT * FROM jobmatch("+ jobid+")"
    @top5matches=repository(:default).adapter.select(cmd)
