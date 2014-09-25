@@ -103,9 +103,9 @@ get '/hrm' do
    redirect '/auth/login' unless env['warden'].authenticated?
    @userprofile = env['warden'].user 
    @userme = @userprofile.firstname
-   @emailme = @userprofile.email
-   @usermatchjoblist = @userprofile.matched_jobs
-   @careerscore = @userprofile.skrscore.skrscore_total
+   #@emailme = @userprofile.email
+   #@usermatchjoblist = @userprofile.matched_jobs
+   #@careerscore = @userprofile.skrscore.skrscore_total
    userid = @userprofile.id.to_s
    cmd = "SELECT * FROM jobmatch("+ userid+")"
    @top5matches=repository(:default).adapter.select(cmd)
@@ -118,10 +118,9 @@ end
 
 
 get '/viewmatches' do
-   @userprofile = env['warden'].user 
    jobid = params["pk"].to_s
-   cmd = "SELECT * FROM jobmatch("+ jobid+")"
-   @top5matches=repository(:default).adapter.select(cmd)
+   #cmd = "SELECT * FROM jobmatch("+ jobid+")"
+   #@top5matches=repository(:default).adapter.select(cmd)
 end
 
 get '/top5matchestable' do
