@@ -107,8 +107,8 @@ get '/hrm' do
    #@usermatchjoblist = @userprofile.matched_jobs
    #@careerscore = @userprofile.skrscore.skrscore_total
    userid = @userprofile.id.to_s
-   cmd = "SELECT * FROM jobmatch("+ userid+")"
-   @top5matches=repository(:default).adapter.select(cmd)
+   #cmd = "SELECT * FROM jobmatch("+ userid+")"
+   #@top5matches=repository(:default).adapter.select(cmd)
    mycoy = TmeCompanyMain.get(1)  #replace this with the CompanyID
    @joblist = mycoy.tme_job_main
 
@@ -120,7 +120,7 @@ end
 get '/viewmatches' do
    jobid = params["pk"].to_s
    cmd = "SELECT * FROM jobmatch("+ jobid+")"
-   @top5matches=repository(:default).adapter.select(cmd)
+   #@top5matches=repository(:default).adapter.select(cmd)
 end
 
 get '/top5matchestable' do
