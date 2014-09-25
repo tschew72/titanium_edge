@@ -75,7 +75,7 @@
 						<dl class="resume-manager-experience">
 							<% @alljobs.each do |i| %>
 								<dt>
-									<h3><%= @alljobs.get(i).skr_emp_location %></h3>
+									<h3><%= @country.get(@alljobs.get(i).skr_emp_location).country %></h3>
 								</dt>
 								<dd>
 									<small class="date"><%= @alljobs.get(i).skr_emp_start %> to <%= @alljobs.get(i).skr_emp_end %></small>
