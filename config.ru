@@ -622,7 +622,7 @@ end
 
     end
 
- get '/langtable' do
+ post '/langtable' do
        @userprofile = env['warden'].user  
        @alllanguages =   @userprofile.tme_skr_language.all
        @lmaster = TmeListLanguage.all 
