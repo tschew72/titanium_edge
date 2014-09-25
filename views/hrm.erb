@@ -73,104 +73,7 @@
         <div class="col-md-12 bootstrap-grid"> 
           
           <!-- New widget -->
-          
-          <div class="powerwidget powerwidget-as-portlet-white" id="serverstatuz-indexpage2">
-            <header>
-              <h2>Source Geo<small>Money!</small></h2>
-            </header>
-            <div>
-              <div class="powerwidget-editbox">
-                <div>
-                  <label>Title:</label>
-                  <input class="form-control" type="text" />
-                </div>
-                <div>
-                  <label>Styles:</label>
-                  <span data-widget-setstyle="pink" class="pink-btn"></span> <span data-widget-setstyle="blue" class="blue-btn"></span> <span data-widget-setstyle="dark-blue" class="dark-blue-btn"></span> <span data-widget-setstyle="green" class="green-btn"></span> <span data-widget-setstyle="green-alt" class="green-alt-btn"></span> <span data-widget-setstyle="green-acid" class="green-acid-btn"></span> <span data-widget-setstyle="yellow" class="yellow-btn"></span> <span data-widget-setstyle="purple" class="purple-btn"></span> <span data-widget-setstyle="cold-grey" class="cold-grey-btn"></span> <span data-widget-setstyle="dark-cold-grey" class="dark-cold-grey-btn"></span> <span data-widget-setstyle="orange" class="orange-btn"></span> <span data-widget-setstyle="red" class="red-btn"></span> <span data-widget-setstyle="dark-red" class="dark-red-btn"></span> <span data-widget-setstyle="black" class="black-btn"></span> </div>
-              </div>
-              <div class="inner-spacer">
-                <div class="row"> 
-                  <!--Row-->
-                  
-                  <div class="col-md-12">
-                    <div class="flotchart-container  margin-negative-top-10px">
-                      <div id="placeholder9" class="flotchart-placeholder"></div>
-                    </div>
-                    <div class="row margin-bottom-10px">
-                      <ul class="countries-demo" id="choices">
-                        <li class="col-md-2 col-sm-4">
-                          <h3>UK <span class="label bg-marine"><i class="fa fa-caret-up"></i> 22%</span></h3>
-                          <div class="orb-form">
-                            <label class="toggle" for="iduk">
-                              <input name="uk" checked id="iduk" type="checkbox">
-                              Uncheck to hide
-                              
-                              <i></i></label>
-                          </div>
-                        </li>
-                        <li class="col-md-2 col-sm-4">
-                          <h3>Japan <span class="label bg-red"><i class="fa fa-caret-down"></i> 5%</span></h3>
-                          <div class="orb-form">
-                            <label class="toggle" for="idjapan">
-                              <input name="japan" checked id="idjapan" type="checkbox">
-                              Uncheck to hide
-                              
-                              <i></i></label>
-                          </div>
-                        </li>
-                        <li class="col-md-2 col-sm-4">
-                          <h3>USA <span class="label bg-marine"><i class="fa fa-caret-up"></i> 16%</span></h3>
-                          <div class="orb-form">
-                            <label class="toggle" for="idusa">
-                              <input name="usa" checked id="idusa" type="checkbox">
-                              Uncheck to hide
-                              
-                              <i></i></label>
-                          </div>
-                        </li>
-                        <li class="col-md-2 col-sm-4">
-                          <h3>Russia <span class="label bg-marine"><i class="fa fa-caret-up"></i> 7%</span></h3>
-                          <div class="orb-form">
-                            <label class="toggle" for="idrussia">
-                              <input name="russia" checked id="idrussia" type="checkbox">
-                              Uncheck to hide
-                              
-                              <i></i></label>
-                          </div>
-                        </li>
-                        <li class="col-md-2 col-sm-4">
-                          <h3>China <span class="label bg-marine"><i class="fa fa-caret-up"></i> 1%</span></h3>
-                          <div class="orb-form">
-                            <label class="toggle" for="idchina">
-                              <input name="china" checked id="idchina" type="checkbox">
-                              Uncheck to hide
-                              
-                              <i></i></label>
-                          </div>
-                        </li>
-                        <li class="col-md-2 col-sm-4">
-                          <h3>Others <span class="label bg-red"><i class="fa fa-caret-down"></i> 13%</span></h3>
-                          <div class="orb-form">
-                            <label class="toggle" for="idothers">
-                              <input name="others" checked id="idothers" type="checkbox">
-                              Uncheck to hide
-                              
-                              <i></i></label>
-                          </div>
-                        </li>
-                      </ul>
-                    </div>
-                    <!--/Row--> 
-                    
-                  </div>
-                  <!--/Col-md-12--> 
-                </div>
-                <!--/Row--> 
-                
-              </div>
-            </div>
-          </div>
-          
+          <!-- Placeholder -->
           <!-- End .powerwidget --> 
           
           <!-- New widget-->
@@ -190,118 +93,31 @@
                     <table class="table table-striped table-hover margin-0px airtable">
                       <thead>
                         <tr>
-                          <th >Match Date </th>
-                          <th >Match Score</th>
                           <th >Match Rank</th>
-                          <th >Job Function</th>
-                          <th >Job Level</th>
-                          <th >Salary Range</th>
+                          <th >Job Seeker </th>
+                          <th >Match Score</th>
                         </tr>
                       </thead>
                       <tbody>
-                        <% @usermatchjoblist.each do |i| %>
+                        <% @top5matches.each do |i| %>
                         <tr>
-                          <td><h5><span ><%= @usermatchjoblist.get(i).datematched.strftime("%d/%m/%Y") %></h5></td>
-                          <td><h4 class="text-center"><span ><%= @usermatchjoblist.get(i).matchscore %></h4></td>
-                          <td><h4 class="text-center"><span class="num"><%= @usermatchjoblist.get(i).matchrank %></span></h4></td>
-                          <td><h5 class="text-center"><span ><%= @usermatchjoblist.get(i).jobfunction %></h5></td>
-                          <td><h5 class="text-center"><span ><%= @usermatchjoblist.get(i).joblevel %></h5></td>
-                          <td><h5 class="text-center"><span ><%= @usermatchjoblist.get(i).jobsalaryrange %></h5></td>
+                          <td><h4 class="text-center"><span class="num"><%= @top5matches.at(i).skrrank %></span></h4></td>
+                          <td><h4 class="text-center"> <%= @top5matches.at(i).skrid %></h4></td>
+                          <td><h4 class="text-center"> <%= @top5matches.at(i).score %></h4></td>
                         </tr>
                         <% end %>
                       </tbody>
                       <tfoot>
                         <tr>
-                          <th >Match Date </th>
-                          <th >Match Score</th>
                           <th >Match Rank</th>
-                          <th >Job Function</th>
-                          <th >Job Level</th>
-                          <th >Salary Range</th>
+                          <th >Job Seeker </th>
+                          <th >Match Score</th>
                         </tr>
                       </tfoot>
                     </table>
                   </div>
                 </div>
-                <div class="col-md-6">
-                  <div class="table-responsive">
-                    <table class="table table-striped table-hover margin-0px airtable">
-                      <thead>
-                        <tr>
-                          <th >Job Type </th>
-                          <th >No. of Positions</th>
-                          <th >No. of Job Seekers</th>
-                          <th >Your Score</th>
-                          <th >Your Rank</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <tr>
 
-                          <td><h5>System Administrator</h5>
-                            <small><i class="fa fa-clock-o"></i> Last Update</small> <span class="badge">12:20</span></td>
-                          <td><h4 class="text-center"><span >10</h4></td>
-                          <td><h4 class="text-center"><span >50</h4></td>
-                          <td><h4 class="text-center"><span >250</h4></td>
-                          <td><h4 class="text-center"><span >5</h4></td>
-                        </tr>
-                        <tr>
-
-                          <td><h5>System Administrator</h5>
-                            <small><i class="fa fa-clock-o"></i> Last Update</small> <span class="badge">12:20</span></td>
-                          <td><h4 class="text-center"><span >10</h4></td>
-                          <td><h4 class="text-center"><span >50</h4></td>
-                          <td><h4 class="text-center"><span >250</h4></td>
-                          <td><h4 class="text-center"><span >5</h4></td>
-                        </tr>
-                        <tr>
-
-                          <td><h5>System Administrator</h5>
-                            <small><i class="fa fa-clock-o"></i> Last Update</small> <span class="badge">12:20</span></td>
-                          <td><h4 class="text-center"><span >10</h4></td>
-                          <td><h4 class="text-center"><span >50</h4></td>
-                          <td><h4 class="text-center"><span >250</h4></td>
-                          <td><h4 class="text-center"><span >5</h4></td>
-                        </tr>
-                        <tr>
-
-                          <td><h5>System Administrator</h5>
-                            <small><i class="fa fa-clock-o"></i> Last Update</small> <span class="badge">12:20</span></td>
-                          <td><h4 class="text-center"><span >10</h4></td>
-                          <td><h4 class="text-center"><span >50</h4></td>
-                          <td><h4 class="text-center"><span >250</h4></td>
-                          <td><h4 class="text-center"><span >5</h4></td>
-                        </tr>
-
-                          <td><h5>System Administrator</h5>
-                            <small><i class="fa fa-clock-o"></i> Last Update</small> <span class="badge">12:20</span></td>
-                          <td><h4 class="text-center"><span >10</h4></td>
-                          <td><h4 class="text-center"><span >50</h4></td>
-                          <td><h4 class="text-center"><span >250</h4></td>
-                          <td><h4 class="text-center"><span >5</h4></td>
-                        </tr>
-                        <tr>
-
-                          <td><h5>System Administrator</h5>
-                            <small><i class="fa fa-clock-o"></i> Last Update</small> <span class="badge">12:20</span></td>
-                          <td><h4 class="text-center"><span >10</h4></td>
-                          <td><h4 class="text-center"><span >50</h4></td>
-                          <td><h4 class="text-center"><span >250</h4></td>
-                          <td><h4 class="text-center"><span >5</h4></td>
-                        </tr>
-                      </tbody>
-                      <tfoot>
-                        <tr>
-                          <th >Job Type </th>
-                          <th >No. of Positions</th>
-                          <th >No. of Job Seekers</th>
-                          <th >Your Score</th>
-                          <th >Your Rank</th>
-                        </tr>
-                      </tfoot>
-                    </table>
-                  </div>
-                </div>
               </div>
               <!--/Row--> 
             </div>
