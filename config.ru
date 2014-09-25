@@ -103,7 +103,7 @@ get '/hrm' do
    redirect '/auth/login' unless env['warden'].authenticated?
    @userprofile = env['warden'].user  
    @top5matches=repository(:default).adapter.select('SELECT * FROM jobmatch(@userprofile.id)')
-   erb :"/hrm", :layout => :'dash/layout1'
+   erb :hrm, :layout => :'dash/layout1'  #change the layout.
 end
 
 
