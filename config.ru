@@ -109,24 +109,26 @@ get '/hrm' do
    userid = @userprofile.id.to_s
    cmd = "SELECT * FROM jobmatch("+ userid+")"
    @top5matches=repository(:default).adapter.select(cmd)
+   mycoy = TmeCompanyMain.get(1)  #replace this with the CompanyID
+   @joblist = mycoy.tme_job_main
 
 
    erb :hrm, :layout => :'dash/layout1'  #change the layout for Recruiters
 end
 
 
-get '/viewmatches' do
-   @userprofile = env['warden'].user 
-   @userme = @userprofile.firstname
-   @emailme = @userprofile.email
-   @usermatchjoblist = @userprofile.matched_jobs #to be removed
-   @careerscore = @userprofile.skrscore.skrscore_total #to be removed
-   jobid = params["pk"].to_s
-   cmd = "SELECT * FROM jobmatch("+ jobid+")"
-   @top5matches=repository(:default).adapter.select(cmd)
-end
+#get '/viewmatches' do
+#   @userprofile = env['warden'].user 
+#   @userme = @userprofile.firstname
+#   @emailme = @userprofile.email
+#   @usermatchjoblist = @userprofile.matched_jobs #to be removed
+#   @careerscore = @userprofile.skrscore.skrscore_total #to be removed
+#   jobid = params["pk"].to_s
+#   cmd = "SELECT * FROM jobmatch("+ jobid+")"
+#   @top5matches=repository(:default).adapter.select(cmd)
+#end
 
- get '/top5matchestable' do
+get '/top5matchestable' do
 
    erb :top5matchestable, :layout => false
 
