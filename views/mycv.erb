@@ -1,0 +1,64 @@
+
+<div id="main" class="site-main">
+	<div id="primary" class="content-area">
+		<div class="page-header">
+			<h1 class="page-title"><%=@userprofile.firstname %> <%=@userprofile.lastname %></h1>
+			<h2 class="page-subtitle">
+				<ul>
+					<li class="job-title">TagLine---</li>
+					<li class="location"><i class="icon-location"></i> <span class="candidate-location"><%= @country.get(@userprofile.nationality).country %></span></li>
+					<li class="date-posted" itemprop="datePosted"><i class="icon-calendar"></i> <date>Updated XXX month ago</date></li>
+				</ul>
+			</h2>
+		</div>
+		<div id="content" class="container" role="main">
+			<article id="post-2111" class="post-2111 resume type-resume status-publish hentry">
+			<div class="entry-content">
+				<div class="single-resume-content row">
+					<div class="job-meta-top row">
+						<div class="col-md-3 col-sm-6 col-xs-12">
+							<aside class="job_listing-widget-top default-widget">
+								<img class="candidate_photo" src= <%= @userprofile.pictureurl %> alt="Photo" />
+							</aside>
+				
+						</div>
+
+						<div class="col-md-4 col-sm-6 col-xs-12">
+							<aside class="job_listing-widget-top default-widget">
+								<h3 class="job_listing-widget-title-top">Candidate Details</h3>
+								<ul class="resume-links">
+									<li class="resume-link resume-link-twitter"><a rel="nofollow" href="http://twitter.com/">Twitter</a></li>
+									<li class="resume-link resume-link-website"><a rel="nofollow" href="http://website.com/">Website</a></li>
+								</ul>
+							</aside>
+						</div>
+					</div>
+					<div class="resume_description col-md-12 col-sm-12">
+						<h2 class="job-overview-title">Description</h2>
+						<p>?? A stimulating position in systems design that will utilize my advanced optimization background</p>
+						<h3>Summary Of Skills</h3>
+						<ul>
+							<li>Thorough mathematical record and ability to apply statistical methods to non-robust Markovitz sets</li>
+							<li>Used Visual Studio on unix systems to construct robust open source sites</li>
+							<li>Strong problem solving and leadership traits gained through Chief Project Analyst position at <i>World Rest</i> and work experience</li>
+							<li>Experience using Notepad with C++ to obscure financial real world products</li>
+						</ul>
+						<h3>Endorsement</h3>
+					</div>
+
+		
+		
+		
+	
+</div>		</div>
+	</article><!-- #post -->
+</div>			
+		
+			<div class="paginate-links container">
+			</div>
+	</div><!-- #primary -->
+
+	
+
+		</div><!-- #main -->
+
