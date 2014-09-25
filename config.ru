@@ -127,14 +127,7 @@ get '/viewmatches' do
 end
 
  get '/top5matchestable' do
-   @userprofile = env['warden'].user 
-   @userme = @userprofile.firstname
-   @emailme = @userprofile.email
-   @usermatchjoblist = @userprofile.matched_jobs
-   @careerscore = @userprofile.skrscore.skrscore_total
-   jobid = params["pk"].to_s
-   cmd = "SELECT * FROM jobmatch("+ jobid+")"
-   @top5matches=repository(:default).adapter.select(cmd)
+
    erb :top5matchestable, :layout => false
 
 end
