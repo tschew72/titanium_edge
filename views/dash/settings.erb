@@ -758,8 +758,7 @@ else{e.value="no";location.reload();}
                       $('.newskill').editable('setValue', null);  //clear values
                       $('#skillname').editable('option', 'disabled', true);
                       $('#skillrank').editable('option', 'disabled', true);
-                       $("#st").load("/table");   
-                      //$("#st").load("/table",{i: new Date().getTime()});  
+                      $("#st").load("/table",{i: new Date().getTime()});  
                  }     
              },
              error: function(errors) {
