@@ -137,7 +137,7 @@ get '/mycv' do
        @country = TmeListCountry
        @uni = TmeListUniversity
        @degree = TmeListDegree
-       @allskills =   @userprofile.skill_summaries.all(:order => [ :skillrank.desc ])
+       @allskills =   @userprofile.skill_summaries.all(:order => [ :skillrank.desc ], :limit => 10)
        @alledu =   @userprofile.tme_skr_edu.all
        @alljobs = @userprofile.tme_skr_emp.all
        @ssmaster = SkillSource  #master skill source for cross referencing
