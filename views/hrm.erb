@@ -1,0 +1,154 @@
+
+    
+    <div class="content-wrapper main-content-toggle-left"> 
+      <!--Content Wrapper--><!--Horisontal Dropdown-->
+      <nav class="cbp-hsmenu-wrapper" id="cbp-hsmenu-wrapper">
+        <div class="cbp-hsinner">
+          <ul class="cbp-hsmenu">
+            <li> <a href="#"><span class="icon-bar"></span></a>
+              <ul class="cbp-hssubmenu">
+                <li><a href="#">
+                  <div class="sparkle-dropdown"><span class="inlinebar">10,8,8,7,8,9,7,8,10,9,7,5</span>
+                    <p class="sparkle-name">Metrics 1</p>
+                    <p class="sparkle-amount"><%= @careerscore %><i class="fa fa-chevron-circle-up"></i></p>
+                  </div>
+                  </a></li>
+                <li><a href="#">
+                  <div class="sparkle-dropdown"><span class="linechart">5,6,7,9,9,5,3,2,9,4,6,7</span>
+                    <p class="sparkle-name"># of Matches</p>
+                    <p class="sparkle-amount">122541 <i class="fa fa-chevron-circle-down"></i></p>
+                  </div>
+                  </a></li>
+                <li><a href="#">
+                  <div class="sparkle-dropdown"><span class="simpleline">9,6,7,9,3,5,7,2,1,8,6,7</span>
+                    <p class="sparkle-name">Metrics 2</p>
+                    <p class="sparkle-amount">890 <i class="fa fa-plus-circle"></i></p>
+                  </div>
+                  </a></li>
+                <li><a href="#">
+                  <div class="sparkle-dropdown"><span class="inlinebar">10,8,8,7,8,9,7,8,10,9,7,5</span>
+                    <p class="sparkle-name"># of Seekers</p>
+                    <p class="sparkle-amount">$23989 <i class="fa fa-chevron-circle-up"></i></p>
+                  </div>
+                  </a></li>
+                <li><a href="#">
+                  <div class="sparkle-dropdown"><span class="piechart">1,2,3</span>
+                    <p class="sparkle-name">active/passive job seekers</p>
+                    <p class="sparkle-amount">500/200 <i class="fa fa-chevron-circle-up"></i></p>
+                  </div>
+                  </a></li>
+                <li><a href="#">
+                  <div class="sparkle-dropdown"><span class="stackedbar">3:6,2:8,8:4,5:8,3:6,9:4,8:1,5:7,4:8,9:5,3:5</span>
+                    <p class="sparkle-name">Match fails/successes</p>
+                    <p class="sparkle-amount">$23989 <i class="fa fa-chevron-circle-up"></i></p>
+                  </div>
+                  </a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </nav>
+      
+      <!--Breadcrumb-->
+      <div class="breadcrumb clearfix">
+        <ul>
+          <li><a href="/"><i class="fa fa-home"></i></a></li>
+          <li class="active">Dashboard</li>
+        </ul>
+      </div>
+      <!--/Breadcrumb--> 
+      
+      <!--Jumbotron-->
+      <div class="jumbotron jumbotron6">
+        <h1>Welcome to <strong>JORBB</strong></h1>
+        <p class="lead">JORB &#8212; the future of job search</p>
+          <p>JORB is a cloud based recruitment tool that helps Recruiters reduce cost and increase the accuracy of hiring process by performing analytics on unstructured data of resumes and job descriptions</p>
+        <small>JORB uses sophisticated data analytics to match the talents to career opportunities</small>
+        <p><a href="#" class="btn margin-top btn-danger"><i class="fa fa-shopping-cart"></i> Start Tour</a></p>
+      </div>
+      <!--/Jumbotron--> 
+      
+      <!-- Widget Row Start grid -->
+      <div class="row" id="powerwidgets">
+        <div class="col-md-12 bootstrap-grid"> 
+          
+          <!-- New widget -->
+          <!-- Placeholder -->
+          <!-- End .powerwidget --> 
+          
+          <!-- New widget-->
+          <!-- Placeholder -->
+          <!--End Widget --> 
+          
+          <!-- New widget -->
+          <div class="powerwidget blue" data-widget-editbutton="false">
+            <header>
+              <h2>Insights<small>Automated job search in progress</small></h2>
+            </header>
+            <div class="inner-spacer">
+              <div class="row"> 
+                <!--Row-->
+                <div class="col-md-6">
+                  <div class="table-responsive">
+                    <table class="table table-striped table-hover margin-0px airtable">
+                      <thead>
+                        <tr>
+                          <th >Match Rank</th>
+                          <th >Job Seeker </th>
+                          <th >Match Score</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <% @top5matches.each %>
+                        <tr>
+                          <td><h4 class="text-center"><span class="num"><%= @top5matches.at(i).skrrank %></span></h4></td>
+                          <td><h4 class="text-center"> <%= @userprofile.get(@top5matches.at(i).skrid).firstname %></h4></td>
+                          <td><h4 class="text-center"> <%= @top5matches.at(i).score %></h4></td>
+                        </tr>
+                        <% end %>
+                      </tbody>
+                      <tfoot>
+                        <tr>
+                          <th >Match Rank</th>
+                          <th >Job Seeker </th>
+                          <th >Match Score</th>
+                        </tr>
+                      </tfoot>
+                    </table>
+                  </div>
+                </div>
+
+              </div>
+              <!--/Row--> 
+            </div>
+          </div>
+          <!-- End Widget --> 
+          
+        </div>
+        <div class="col-md-6 bootstrap-grid"> 
+          
+          <!-- New widget -->
+
+          <!-- End Widget --> 
+          
+        </div>
+        <!-- /Inner Row Col-md-6 -->
+        
+        <div class="col-md-6 bootstrap-grid"> 
+          
+          <!-- New widget -->
+
+          <!-- /New widget --> 
+          
+          <!-- New widget -->
+
+          <!-- End Widget --> 
+          
+        </div>
+        <!-- /Inner Row Col-md-6 --> 
+        
+      </div>
+      <!-- /Widgets Row End Grid--> 
+    </div>
+    <!-- / Content Wrapper --> 
+
