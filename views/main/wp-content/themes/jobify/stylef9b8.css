@@ -6141,16 +6141,16 @@ input.button-medium,
   border-radius: 20px;
   display: inline-block; }
 
-.job-tag.r1{
+.job-tag .r1{
 	background-color: #FFFFFF;
 }
-.job-tag.r2{
+.job-tag .r2{
 	background-color: #1ABC9C;
 }
-.job-tag.r3{
+.job-tag .r3{
 	background-color: #ECF0F1;
 }
-.job-tag.r4{
+.job-tag .r4{
 	background-color: #F39C12;
 }
 
