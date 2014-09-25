@@ -102,13 +102,14 @@ end
 get '/hrm' do
    redirect '/auth/login' unless env['warden'].authenticated?
    @userprofile = env['warden'].user  
-          @userme = @userprofile.firstname
-       @emailme = @userprofile.email
-       @usermatchjoblist = @userprofile.matched_jobs
-       @careerscore = @userprofile.skrscore.skrscore_total
-       userid = @userprofile.id
-      @top5matches=repository(:default).adapter.select('SELECT * FROM jobmatch(userid)')
-   erb :hrm, :layout => :'dash/layout1'  #change the layout.
+   @userme = @userprofile.firstname
+   @emailme = @userprofile.email
+   @usermatchjoblist = @userprofile.matched_jobs
+   @careerscore = @userprofile.skrscore.skrscore_total
+   userid = @userprofile.id.to_s
+   cmd = "SELECT * FROM jobmatch("+ userid+")"
+   @top5matches=repository(:default).adapter.select(cmd)
+   erb :hrm, :layout => :'dash/layout1'  #change the layout for Recruiters
 end
 
 
