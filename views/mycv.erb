@@ -38,22 +38,33 @@
 								<% @allskills.each do |i| %>
 									<!-- If rank = 1, job-tag = job-tag1  TO BE DONE! also check for top 20 skills. list the expert first followed by others-->
 									<% if @allskills.get(i).status != 0 %>
-										<div class="job-tag"><%= @ssmaster.get(i.skillid).skill_name %></div>
-										<% if i.skillrank ==1 %>
-											<script>$(".job-tag").css("background-color","yellow");</script>
-										<% end %>
-										<% if i.skillrank ==2 %>
-											<script>$(".job-tag").css("background-color","#16A085");</script>
-										<% end %>
-										<% if i.skillrank ==3 %>
-											<script>$(".job-tag").css("background-color","#2ECC71");</script>
-										<% end %>
-										<% if i.skillrank ==4 %>
-											<script>$(".job-tag").css("background-color","#9B59B6");</script>
-										<% end %>
-										<% if i.skillrank ==5 %>
-											<script>$(".job-tag").css("background-color","#E67E22");</script>
-										<% end %>
+										<div class="job-tag">
+											<% if @allskills.get(i).skillrank == 5 %>
+												<div class="b-carrot">	
+													<%= @ssmaster.get(i.skillid).skill_name %>
+												</div>
+											<% end %>
+											<% if @allskills.get(i).skillrank == 4 %>
+												<div class="b-belize-hole">	
+													<%= @ssmaster.get(i.skillid).skill_name %>
+												</div>
+											<% end %>
+											<% if @allskills.get(i).skillrank == 3 %>
+												<div class="b-amethyst">	
+													<%= @ssmaster.get(i.skillid).skill_name %>
+												</div>
+											<% end %>
+											<% if @allskills.get(i).skillrank == 2 %>
+												<div class="b-orange">	
+													<%= @ssmaster.get(i.skillid).skill_name %>
+												</div>
+											<% end %>
+											<% if @allskills.get(i).skillrank == 1 %>
+												<div class="b-sun-flower">	
+													<%= @ssmaster.get(i.skillid).skill_name %>
+												</div>
+											<% end %>
+										</div>
 									<%end%>
 								<% end %>
 								See more...
