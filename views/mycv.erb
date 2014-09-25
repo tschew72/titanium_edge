@@ -57,6 +57,58 @@
 						</ul>
 						<h3>Endorsement</h3>
 					</div>
+					<div class="resume-info col-md-12 col-sm-8 col-xs-12">
+						<h2 class="job-overview-title">Education</h2>
+						<% @alledu.each do |i| %>
+						<dl class="resume-manager-education">
+							<dt>
+								<h3><%= @alledu.get(i).skr_university %></h3>
+							</dt>
+							<dd>
+								<small class="date"> <%= @alledu.get(i).skr_unistart %> -  <%= @alledu.skr_uniend %></small>
+								<strong class="qualification"><%= @alledu.get(i).skr_unititle %></strong>
+							</dd>
+						</dl>
+						<% end %>
+						<h2 class="job-overview-title">Experience</h2>
+						<dl class="resume-manager-experience">
+						<dt>
+							<h3>Arabia Insurance, Azeroth, WOW</h3>
+						</dt>
+						<dd>
+							<small class="date">Jul 2013 - Sep 2014</small>
+							<strong class="job_title">Cyber Systems Developer</strong>
+							<p>created a robust yield maximizing Excel model<br />
+improved retention on assets benchmarks by 570%<br />
+applied mathematical processes and methods to optimize CDO weights</p>
+						</dd>
+
+					
+						<dt>
+							<h3>Hu, Seattle, WA</h3>
+						</dt>
+						<dd>
+							<small class="date">Jul 2013 - Sep 2014</small>
+							<strong class="job_title">Chief Software Analyst</strong>
+							<p>programmed a VBA-based stock price randomizing R application<br />
+programmed a robust return analyzing Access application<br />
+prepared report on using delinquency rates as predictors of default yields</p>
+						</dd>
+
+					
+						<dt>
+							<h3>Energy-verse, Markham, ON</h3>
+						</dt>
+						<dd>
+							<small class="date">Jul 2013 - Sep 2014</small>
+							<strong class="job_title">Technical Analyst</strong>
+							<p>created a robust cost randomizing Matlab application<br />
+in charge of tracking trade fluctuation changes with other institutions for standard compliance<br />
+created a robust cost randomizing SAS application</p>
+						</dd>
+
+									</dl>
+					</div>
 
 		
 		
