@@ -99,11 +99,11 @@
                         </tr>
                       </thead>
                       <tbody>
-                        <% @top5matches.each %>
+                        <% @top5matches.each |i| %>
                         <tr>
-                          <td><h4 class="text-center"><span class="num"><%= @top5matches.at(i).skrrank %></span></h4></td>
-                          <td><h4 class="text-center"> <%= @userprofile.get(@top5matches.at(i).skrid).firstname %></h4></td>
-                          <td><h4 class="text-center"> <%= @top5matches.at(i).score %></h4></td>
+                          <td><h4 class="text-center"><span class="num"><%= i.skrrank %></span></h4></td>
+                          <td><h4 class="text-center"> <%= @userprofile.get(i.skrid).firstname %></h4></td>
+                          <td><h4 class="text-center"> <%= @top5matches.i.score %></h4></td>
                         </tr>
                         <% end %>
                       </tbody>
