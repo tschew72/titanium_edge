@@ -118,7 +118,7 @@ get '/hrm' do
 end
 
 
-get '/top5matchestable' do
+post '/top5matchestable' do
    @user = User
    jobid = params["pk"]
    #jobid = "1"
