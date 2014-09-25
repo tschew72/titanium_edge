@@ -62,11 +62,11 @@
 						<% @alledu.each do |i| %>
 						<dl class="resume-manager-education">
 							<dt>
-								<h3><%= @alledu.get(i).skr_university %></h3>
+								<h3><%= @uni.get(@alledu.get(i).skr_university).university %></h3>
 							</dt>
 							<dd>
 								<small class="date"> <%= @alledu.get(i).skr_unistart %> -  <%= @alledu.get(i).skr_uniend %></small>
-								<strong class="qualification"><%= @alledu.get(i).skr_unititle %></strong>
+								<strong class="qualification"><%= @degree.get(@alledu.get(i).skr_unititle).degree %></strong>
 							</dd>
 						</dl>
 						<% end %>

@@ -442,6 +442,26 @@ class TmeSkrEdu
 end
 
 
+class TmeListUniversity  
+  include DataMapper::Resource
+  storage_names[repository = :default] = 'tme_list_university'
+  property :university_id, Serial , key: true, :index => true 
+  property :university, String, :index => true 
+  property :univ_country, Integer, :index => true 
+
+
+end
+
+class TmeListDegree
+  include DataMapper::Resource
+  storage_names[repository = :default] = 'tme_list_degree'
+  property :degree_id, Serial , key: true, :index => true 
+  property :degree, String, :index => true 
+  property :degreescore, Integer, :index => true 
+
+end
+
+
 class NewSkillReport      #For users to report new skills that are now listed
   include DataMapper::Resource
 
