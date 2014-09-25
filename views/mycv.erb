@@ -5,9 +5,9 @@
 			<h1 class="page-title"><%=@userprofile.firstname %> <%=@userprofile.lastname %></h1>
 			<h2 class="page-subtitle">
 				<ul>
-					<li class="job-title">TagLine---</li>
+					<!-- <li class="job-title">TagLine-</li> -->
 					<li class="location"><i class="icon-location"></i> <span class="candidate-location"><%= @country.get(@userprofile.nationality).country %></span></li>
-					<li class="date-posted" itemprop="datePosted"><i class="icon-calendar"></i> <date>Updated XXX month ago</date></li>
+					<!-- <li class="date-posted" itemprop="datePosted"><i class="icon-calendar"></i> <date>Updated XXX month ago</date></li> -->
 				</ul>
 			</h2>
 		</div>
@@ -48,7 +48,7 @@
 					<div class="resume_description col-md-12 col-sm-12">
 						<h2 class="job-overview-title">Description</h2>
 						<p>?? A stimulating position in systems design that will utilize my advanced optimization background</p>
-						<h3>Summary Of Skills</h3>
+						<h3>Achievements</h3>
 						<ul>
 							<li>Thorough mathematical record and ability to apply statistical methods to non-robust Markovitz sets</li>
 							<li>Used Visual Studio on unix systems to construct robust open source sites</li>
@@ -68,9 +68,7 @@
 								<dd>
 									<small class="date"><%= @alljobs.get(i).skr_emp_start %> to <%= @alljobs.get(i).skr_emp_end %></small>
 									<strong class="job_title"><%= @alljobs.get(i).skr_emp_actualtitle %></strong>
-									<p>--Should we have this job detail ----created a robust yield maximizing Excel model<br />
-									improved retention on assets benchmarks by 570%<br />
-									applied mathematical processes and methods to optimize CDO weights</p>
+									<%= @alljobs.get(i).skr_emp_desc %>
 								</dd>
 							<% end %>
 						</dl>

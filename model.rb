@@ -457,7 +457,7 @@ class TmeSkrEmp
   property :skr_emp_title, Integer, :index => true 
   property :skr_emp_actualtitle, String, :index => true 
   property :skr_emp_years, Integer, :index => true 
-  
+  property :skr_emp_desc, String, :index => true 
   belongs_to :user 
 end
 
