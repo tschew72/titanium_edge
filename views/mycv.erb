@@ -30,6 +30,7 @@
 							<aside class="job_listing-widget-top default-widget">
 								<h3 class="job_listing-widget-title-top">Candidate Skills</h3>
 								<% @allskills.each do |i| %>
+									<!-- If rank = 1, job-tag = job-tag1  TO BE DONE! -->
 									<div class="job-tag"><%= @ssmaster.get(i.skillid).skill_name %></div>
 								<% end %>
 							</aside>	
@@ -41,82 +42,34 @@
 									<li class="resume-link resume-link-twitter"><a rel="nofollow" href="http://twitter.com/">Twitter</a></li>
 									<li class="resume-link resume-link-website"><a rel="nofollow" href="http://website.com/">Website</a></li>
 								</ul>
-
-		</aside>
-					<aside class="job_listing-widget-top default-widget">
-		
-		
-				<div class="resume_contact">
-		<input class="resume_contact_button" type="button" value="Contact" />
-
-		<div class="resume_contact_details">
-			<div class="resume_contact_details_inner">
-                <div class='gf_browser_unknown gform_wrapper' id='gform_wrapper_2' ><a id='gf_2' name='gf_2' class='gform_anchor' ></a><form method='post' enctype='multipart/form-data' target='gform_ajax_frame_2' id='gform_2'  action='http://demo.astoundify.com/jobify-darker/resume/aynne-valencia/#gf_2'>
-                        <div class='gform_heading'>
-                            <h3 class='gform_title'>Contact Candidate</h3>
-                        </div>
-                        <div class='gform_body'>
-                            <ul id='gform_fields_2' class='gform_fields top_label description_below'><li id='field_2_1' class='gfield               gfield_contains_required' ><label class='gfield_label' for='input_2_1'>Your Name<span class='gfield_required'>*</span></label><div class='ginput_container'><input name='input_1' id='input_2_1' type='text' value='' class='small' tabindex='1' /></div></li><li id='field_2_2' class='gfield               gfield_contains_required' ><label class='gfield_label' for='input_2_2'>Your Email<span class='gfield_required'>*</span></label><div class='ginput_container'><input name='input_2' id='input_2_2' type='email' value='' class='medium'  tabindex='2'   /></div></li><li id='field_2_4' class='gfield               gfield_contains_required' ><label class='gfield_label' for='input_2_4'>Your Message<span class='gfield_required'>*</span></label><div class='ginput_container'><textarea name='input_4' id='input_2_4' class='textarea medium' tabindex='3'   rows='10' cols='50'></textarea></div></li>
-                            </ul></div>
-        <div class='gform_footer top_label'> <input type='submit' id='gform_submit_button_2' class='button gform_button' value='Submit' tabindex='4' onclick='if(window["gf_submitting_2"]){return false;}  if( !jQuery("#gform_2")[0].checkValidity || jQuery("#gform_2")[0].checkValidity()){window["gf_submitting_2"]=true;} '/><input type='hidden' name='gform_ajax' value='form_id=2&amp;title=1&amp;description=&amp;tabindex=1' />
-            <input type='hidden' class='gform_hidden' name='is_submit_2' value='1' />
-            <input type='hidden' class='gform_hidden' name='gform_submit' value='2' />
-            <input type='hidden' class='gform_hidden' name='gform_unique_id' value='' />
-            <input type='hidden' class='gform_hidden' name='state_2' value='WyJhOjA6e30iLCJlNGI1NWZkNTQ2YmM2YTgzMzhhMTY5MTExMWNhMmIyMCJd' />
-            <input type='hidden' class='gform_hidden' name='gform_target_page_number_2' id='gform_target_page_number_2' value='0' />
-            <input type='hidden' class='gform_hidden' name='gform_source_page_number_2' id='gform_source_page_number_2' value='1' />
-            <input type='hidden' name='gform_field_values' value='' />
-            
-        </div>
-                        </form>
-                        </div>
-                <iframe style='display:none;width:0px;height:0px;' src='about:blank' name='gform_ajax_frame_2' id='gform_ajax_frame_2'></iframe>
-                <script type='text/javascript'>jQuery(document).ready(function($){gformInitSpinner( 2, '../../wp-content/plugins/gravityforms/images/spinner.gif' );jQuery('#gform_ajax_frame_2').load( function(){var contents = jQuery(this).contents().find('*').html();var is_postback = contents.indexOf('GF_AJAX_POSTBACK') >= 0;if(!is_postback){return;}var form_content = jQuery(this).contents().find('#gform_wrapper_2');var is_redirect = contents.indexOf('gformRedirect(){') >= 0;var is_form = !(form_content.length <= 0 || is_redirect);if(is_form){jQuery('#gform_wrapper_2').html(form_content.html());jQuery(document).scrollTop(jQuery('#gform_wrapper_2').offset().top);if(window['gformInitDatepicker']) {gformInitDatepicker();}if(window['gformInitPriceFields']) {gformInitPriceFields();}var current_page = jQuery('#gform_source_page_number_2').val();gformInitSpinner( 2, '../../wp-content/plugins/gravityforms/images/spinner.gif' );jQuery(document).trigger('gform_page_loaded', [2, current_page]);window['gf_submitting_2'] = false;}else if(!is_redirect){var confirmation_content = jQuery(this).contents().find('#gforms_confirmation_message').html();if(!confirmation_content){confirmation_content = contents;}setTimeout(function(){jQuery('#gform_wrapper_2').replaceWith('<' + 'div id=\'gforms_confirmation_message\' class=\'gform_confirmation_message_2\'' + '>' + confirmation_content + '<' + '/div' + '>');jQuery(document).scrollTop(jQuery('#gforms_confirmation_message').offset().top);jQuery(document).trigger('gform_confirmation_loaded', [2]);window['gf_submitting_2'] = false;}, 50);}else{jQuery('#gform_2').append(contents);if(window['gformRedirect']) {gformRedirect();}}jQuery(document).trigger('gform_post_render', [2, current_page]);} );} );</script><script type='text/javascript'> jQuery(document).ready(function(){jQuery(document).trigger('gform_post_render', [2, 1]) } ); </script></div>		</div>
-	</div>
-
-			
-		
-		<div class="job-manager-form wp-job-manager-bookmarks-form">
-	<div><a class="bookmark-notice" href="../../login/index.html?redirect_to=http%3A%2F%2Fdemo.astoundify.com%2Fjobify-darker%2Fresume%2Faynne-valencia%2F">Login to bookmark this Resume</a></div>
-</div>
-		</aside>
-				
+							</aside>
+						</div>
 					</div>
-	
-	
-</div>
-		<div class="resume_description col-md-12 col-sm-12">
-			<h2 class="job-overview-title">Description</h2>
+					<div class="resume_description col-md-12 col-sm-12">
+						<h2 class="job-overview-title">Description</h2>
+						<p>?? A stimulating position in systems design that will utilize my advanced optimization background</p>
+						<h3>Summary Of Skills</h3>
+						<ul>
+							<li>Thorough mathematical record and ability to apply statistical methods to non-robust Markovitz sets</li>
+							<li>Used Visual Studio on unix systems to construct robust open source sites</li>
+							<li>Strong problem solving and leadership traits gained through Chief Project Analyst position at <i>World Rest</i> and work experience</li>
+							<li>Experience using Notepad with C++ to obscure financial real world products</li>
+						</ul>
+						<h3>Endorsement</h3>
+					</div>
+					<div class="resume-info col-md-12 col-sm-8 col-xs-12">
+						<h2 class="job-overview-title">Education</h2>
+						<dl class="resume-manager-education">
+							<dt>
+								<h3><%= @alledu.skr_university %></h3>
+							</dt>
+							<dd>
+								<small class="date"><%= @alledu.skr_unistart%> -  <%= @alledu.skr_uniend%></small>
+								<strong class="qualification"><%= @alledu.skr_unititle %></strong>
+							</dd>
 
-			<p>A stimulating position in systems design that will utilize my advanced optimization background</p>
-<h3>Summary Of Skills</h3>
-<ul>
-<li>Thorough mathematical record and ability to apply statistical methods to non-robust Markovitz sets</li>
-<li>Used Visual Studio on unix systems to construct robust open source sites</li>
-<li>Strong problem solving and leadership traits gained through Chief Project Analyst position at <i>World Rest</i> and work experience</li>
-<li>Experience using Notepad with C++ to obscure financial real world products</li>
-</ul>
-		</div>
-
-		
-		<div class="resume-info col-md-12 col-sm-8 col-xs-12">
-
-			
-							<h2 class="job-overview-title">Education</h2>
-
-				<dl class="resume-manager-education">
-				
-						<dt>
-							<h3>University of Waterland Waterland, ON</h3>
-						</dt>
-						<dd>
-							<small class="date">Dec 2012 - Sep 2013</small>
-							<strong class="qualification">Honours Co-op BMATH</strong>
-													</dd>
-
-									</dl>
-			
-							<h2 class="job-overview-title">Experience</h2>
+						</dl>
+						<h2 class="job-overview-title">Experience</h2>
 
 				<dl class="resume-manager-experience">
 				

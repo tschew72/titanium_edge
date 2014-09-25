@@ -68,6 +68,7 @@ class User
   has n, :tme_skr_prefind, :model => 'TmeSkrPrefind'
   has n, :tme_skr_skill, :model => 'SkillSummary'
   has n, :tme_skr_language, :model =>'TmeSkrLanguage'
+  has n, :tme_skr_edu, :model => 'TmeSkrEdu'
   has 1, :skrscore, :model =>'Skrscore'
 
   def authenticate(attempted_password)
@@ -423,6 +424,23 @@ class TmeSkrLanguage
 
   belongs_to :user 
 end
+
+class TmeSkrEdu  
+  include DataMapper::Resource
+  storage_names[repository = :default] = 'tme_skr_edu'
+  property :skr_edu_id, Serial , key: true, :index => true 
+  property :user_id, Integer, :index => true, :field => 'skr_id'
+  property :skr_unititle, Integer, :index => true  #degree
+  property :skr_specialty, Integer, :index => true 
+  property :skr_university, Integer, :index => true 
+  property :skr_honours, Integer, :index => true 
+  property :skr_gpa, Integer, :index => true 
+  property :skr_unistart, Date, :index => true 
+  property :skr_uniend, Date, :index => true 
+
+  belongs_to :user 
+end
+
 
 class NewSkillReport      #For users to report new skills that are now listed
   include DataMapper::Resource
