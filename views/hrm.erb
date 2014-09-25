@@ -189,16 +189,10 @@
 <script>
 
       function viewmatches(i){
-        $.ajax({
-                url: '/viewmatches',
-                type: 'POST',
-                data: {"pk" : i},
-                success: function(response){
-                  $("#top5matches").load("/top5matchestable"); 
 
-                }
+       $("#top5matches").load("/top5matchestable&pk=i"); 
 
-              });
+
       }//function
 
 </script>

@@ -121,11 +121,13 @@ post '/viewmatches' do
    #jobid = params["pk"]
    #jobid = "1"
    #cmd = "SELECT * FROM jobmatch("+ jobid+")"
-   @top5matches=repository(:default).adapter.select('SELECT * FROM jobmatch(1)')
+   #@top5matches=repository(:default).adapter.select(cmd)
 end
 
 get '/top5matchestable' do
-
+   jobid = params["pk"]
+   cmd = "SELECT * FROM jobmatch("+ jobid+")"
+   @top5matches=repository(:default).adapter.select(cmd)
    erb :top5matchestable, :layout => false
 
 end
