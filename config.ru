@@ -90,32 +90,20 @@ end
 get '/edge' do
    # If user comes in directly here, if not authenticated, throw them to /auth/login
    redirect '/auth/login' unless env['warden'].authenticated?
-       @userprofile = env['warden'].user  #This is the most important query of all. it will identify the user of this session.    
+       @userprofile = env['warden'].user    
        @userme = @userprofile.firstname
        @emailme = @userprofile.email
        @usermatchjoblist = @userprofile.matched_jobs
-
        @careerscore = @userprofile.skrscore.skrscore_total
        erb :"dash/index", :layout => :'dash/layout1'
 end
 
  
-
-get '/summary' do
+get '/hrm' do
    redirect '/auth/login' unless env['warden'].authenticated?
-       user1 = env['warden'].user  #This is the most important query of all. it will identify the user of this session.
-       @userme = user1.firstname
-       erb :summary
-end
-
-get '/industrystatistics' do
-       redirect '/auth/login' unless env['warden'].authenticated?
-       user1 = env['warden'].user  #This is the most important query of all. it will identify the user of this session.
-       @userme = user1.firstname
-       @chart1_name="IT Professionals hired"
-       @chart1_source="IDA"
-       @chart1_data = [140.8, 141.3, 142.9, 144.3, 146.7]
-       erb :industrystatistics
+   @userprofile = env['warden'].user  
+   @top5matches==repository(:default).adapter.select('SELECT * FROM jobmatch(@userprofile.id)')
+   erb :"/hrm", :layout => :'dash/layout1'
 end
 
 
@@ -265,7 +253,7 @@ get '/settings' do
         end
         @functions = functemp.to_json
 
-       @scmaster = SkillCategory.all   #Skill Category Master     #Hardcode to HTML. Remove from Database. Push this to the /admin for churning json.
+       @scmaster = SkillCategory.all   #Skill Category Master   
        cattemp = []
            @scmaster.each do |x|
            cattemp << {value: x.id, text: "#{x.categoryname}"}
@@ -287,7 +275,7 @@ get '/settings' do
 end
 
 get '/getskill' do
-      smaster = SkillSource.all(:skillcategory_id => params["value"])
+      smaster = SkillSource.all(:skillcategory_id => params["value"]) 
       sltemp=[]
       smaster.each do |x|
         sltemp << {value: x.id, text: "#{x.skill_name}"}       
@@ -660,12 +648,6 @@ end
 
   end
 
-  post '/updategithub' do
-    userprofile = env['warden'].user
-    TmeSkrSocialmedia.first_or_create({:skr_socialmediacat=>2, :user_id=> params["pk"]}).update(:skr_socialmediaurl=> params["value"]) 
-        {:responsemsg => "Github URL updated" }.to_json
-  end
- 
    post '/updatelinkedin' do
     userprofile = env['warden'].user
     TmeSkrSocialmedia.first_or_create({:skr_socialmediacat=>3, :user_id=> params["pk"]}).update(:skr_socialmediaurl=> params["value"]) 
@@ -678,12 +660,16 @@ end
         {:responsemsg => "Twitter URL updated" }.to_json
   end
 
-  post '/updategoogle' do
-    userprofile = env['warden'].user
-    TmeSkrSocialmedia.first_or_create({:skr_socialmediacat=>5, :user_id=> params["pk"]}).update(:skr_socialmediaurl=> params["value"]) 
-        {:responsemsg => "Google+ URL updated" }.to_json
-  end
 
+#get '/industrystatistics' do
+#       redirect '/auth/login' unless env['warden'].authenticated?
+#       user1 = env['warden'].user   
+#       @userme = user1.firstname
+#       @chart1_name="IT Professionals hired"
+#       @chart1_source="IDA"
+#       @chart1_data = [140.8, 141.3, 142.9, 144.3, 146.7]
+#       erb :industrystatistics
+#end
 
 
 

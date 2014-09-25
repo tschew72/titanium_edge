@@ -67,9 +67,6 @@
                                   // var opts=<%= @cloudinaryjson %>;
                                   
                               $('#fileupload').fileupload({
-                                              // The regular expression for allowed file types, matches
-                                              // against either file type or file name:
-                                              //formData: opts,
                                               add: function (e, data) {
                                                   $.getJSON('/filer', function (result) {
                                                       data.formData = result; // e.g. {id: 123}
