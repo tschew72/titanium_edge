@@ -612,7 +612,7 @@ end
       end
   end
 
- get '/table' do
+ post '/table' do
        @userprofile = env['warden'].user  
        @allskills =   @userprofile.skill_summaries.all
        @ssmaster = SkillSource  #master skill source for cross referencing
