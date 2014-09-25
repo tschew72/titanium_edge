@@ -135,7 +135,8 @@ get '/mycv' do
        @userprofile = env['warden'].user  #This is the most important query of all. it will identify the user of this session.
        @userme = @userprofile.firstname
        @country = TmeListCountry
-
+       @allskills =   @userprofile.skill_summaries.all
+       @ssmaster = SkillSource  #master skill source for cross referencing
        erb :mycv, :layout => :'main/layout2'
 end
 
