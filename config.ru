@@ -106,7 +106,7 @@ get '/hrm' do
        @emailme = @userprofile.email
        @usermatchjoblist = @userprofile.matched_jobs
        @careerscore = @userprofile.skrscore.skrscore_total
-   #@top5matches=repository(:default).adapter.select('SELECT * FROM jobmatch(@userprofile.id)')
+   @top5matches=repository(:default).adapter.select('SELECT * FROM jobmatch(@userprofile.id)')
    erb :hrm, :layout => :'dash/layout1'  #change the layout.
 end
 
