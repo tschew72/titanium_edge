@@ -67,23 +67,14 @@
         <p><a href="#" class="btn margin-top btn-danger"><i class="fa fa-shopping-cart"></i> Start Tour</a></p>
       </div>
       <!--/Jumbotron--> 
-      
+
       <!-- Widget Row Start grid -->
       <div class="row" id="powerwidgets">
-        <div class="col-md-12 bootstrap-grid"> 
-          
-          <!-- New widget -->
-          <!-- Placeholder -->
-          <!-- End .powerwidget --> 
-          
-          <!-- New widget-->
-          <!-- Placeholder -->
-          <!--End Widget --> 
-          
-          <!-- New widget -->
+        <div class="col-md-12 bootstrap-grid">       
+                    <!-- New widget -->
           <div class="powerwidget blue" data-widget-editbutton="false">
             <header>
-              <h2>Insights<small>Automated job search in progress</small></h2>
+              <h2>Job Listing<small>Select job to view matching results</small></h2>
             </header>
             <div class="inner-spacer">
               <div class="row"> 
@@ -93,28 +84,70 @@
                     <table class="table table-striped table-hover margin-0px airtable">
                       <thead>
                         <tr>
-                          <th >Match Rank</th>
-                          <th >Job Seeker </th>
-                          <th >Match Score</th>
+                          <th >Job ID</th>
+                          <th >Job Function </th>
+                          <th >Date Posted</th>
+                          <th></th>
                         </tr>
                       </thead>
                       <tbody>
-                        <% @top5matches.each do |i| %>
+                        <% @joblist.each do |i| %>
                         <tr>
-                          <td><h4 class="text-center"><span class="num"><%= i.skrrank %></span></h4></td> 
-                          <td><h4 class="text-center"> <%= @user.get(i.skrid).firstname %></h4></td> 
-                          <td><h4 class="text-center"> <%= i.score %></h4></td>
+                          <td><h4 class="text-center"><span class="num"><%= i.id %></span></h4></td> 
+                          <td><h4 class="text-center"> <%= i.function %></h4></td> 
+                          <td><h4 class="text-center"> <%= i.job_posted%></h4></td>
+                          <td><h4 class="text-center"> <a onclick="viewmatches(<%=i.id%>)" class="red" href="javascript:void(0)"> <i class="fa fa-puzzle-piece"></i>View Matches</a> </h4></td>
                         </tr>
                         <% end %>
                       </tbody>
                       <tfoot>
                         <tr>
-                          <th >Match Rank</th>
-                          <th >Job Seeker </th>
-                          <th >Match Score</th>
+                          <th >Job ID</th>
+                          <th >Job Function </th>
+                          <th >Date Posted</th>
+                          <th></th>
                         </tr>
                       </tfoot>
                     </table>
+                  </div>
+                </div>
+              <!--/Row--> 
+              </div>
+            <!-- /Inner-space -->  
+            </div>
+          <!-- End Widget -->   
+          </div>
+          
+        <!-- /col-md-12 bootstrap-grid End --> 
+        </div>
+        <!-- /Widgets Row End Grid--> 
+      </div>
+
+      <!-- Widget Row Start grid -->
+      <div class="row" id="powerwidgets">
+        <div class="col-md-12 bootstrap-grid"> 
+          
+          <!-- New widget -->
+          <!-- Placeholder -->
+          <!-- End .powerwidget --> 
+          
+          <!-- New widget-->
+          
+
+
+          <!--End Widget --> 
+          
+          <!-- New widget -->
+          <div class="powerwidget blue" data-widget-editbutton="false">
+            <header>
+              <h2>Insights<small>Automated job matching in progress</small></h2>
+            </header>
+            <div class="inner-spacer">
+              <div class="row"> 
+                <!--Row-->
+                <div class="col-md-6">
+                  <div class="table-responsive">
+                  <div id="top5matches"></div>
                   </div>
                 </div>
 
@@ -152,3 +185,20 @@
     </div>
     <!-- / Content Wrapper --> 
 
+
+<script>
+
+      function viewmatches(i){
+        $.ajax({
+                url: '/viewmatches',
+                type: 'GET',
+                data: {"pk" : i},
+                success: function(response){
+                  $("#top5matches").load("/top5matchestable"); 
+
+                }
+
+              });
+      }//function
+
+</script>

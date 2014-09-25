@@ -180,6 +180,119 @@ class Job
 end
 
 
+class TmeCompanyMain
+  include DataMapper::Resource
+  storage_names[repository = :default] = 'tme_company_main'
+  property :id, Serial, key: true, :index=>true, :field => 'company_id'
+  property :company_name, String, length: 300, :index=>true
+  property :company_isagent, Boolean, :index=>true
+  property :company_industry, Integer, :index=>true
+  property :company_contactname, String, :index=>true
+  property :company_email, String, length: 200, :index=>true
+  property :company_phone, String, :index=>true
+  property :company_url, String, length: 500, :index=>true
+  property :company_size, Integer, :index=>true
+  property :company_hq, String, :index=>true
+  property :company_linkedin, String, length: 500, :index=>true
+  property :company_facebook, String, length: 500,  :index=>true
+  property :company_logo, String, length: 500,  :index=>true #URL
+  property :company_workinghours, String,  :index=>true
+  property :company_dresscode, String, length: 500,  :index=>true
+  property :company_preflang, String, :index=>true
+  property :company_promo, String, length: 10000,  :index=>true
+  property :company_intro, String, length: 10000,  :index=>true
+  property :company_dateadded, Date
+  property :company_addrstreet1, String, length: 2000,  :index=>true
+  property :company_addrstreet2, String, length: 2000,  :index=>true
+  property :company_addrcity, String, :index=>true
+  property :company_addrcountry, Integer, :index=>true
+  property :company_addrpostcode, String, :index=>true
+
+  
+end
+
+
+class TmeJobMain
+  include DataMapper::Resource
+  storage_names[repository = :default] = 'tme_job_main'
+  property :id, Serial, key: true, :index=>true, :field => 'job_id'
+  property :job_companyreveal, Boolean,:default=>false
+  property :job_agencyreveal, Boolean,:default=>false
+  property :job_contactname, String, length: 120, :index=>true
+  property :job_contactemail, String, length: 200, :index=>true
+  property :job_contactphone, String, :index=>true
+  property :job_posted, DateTime,:default => lambda{ |p,s| Date.today}, :index => true    
+  property :job_closed, DateTime, :index => true  
+  property :job_title, Integer, :index => true  
+  property :job_location, Integer, :index => true  
+  property :job_industry, Integer, :index => true  
+  property :job_currency, Integer, :index => true  
+  property :job_travel, Integer, :index => true  
+  property :job_nationality, Integer, :index => true  
+  property :job_salarymin, Integer, :index => true  
+  property :job_salarymax, Integer, :index => true  
+  property :job_experience, Integer, :index => true  
+  property :job_time, Integer, :index => true  
+  property :job_function, Integer, :index => true  
+  property :job_companyname, Integer, :index => true  
+  property :job_agencyname, Integer, :index => true  
+  property :job_workemergency, Integer, :index => true  
+
+  has n, :tme_job_skill, :model =>'TmeJobSkill'
+  has n, :tme_job_lang, :model =>'TmeJobLang'
+  has n, :tme_job_edu, :model =>'TmeJobEdu'
+  has n, :tme_job_cert, :model =>'TmeJobCert'
+end
+
+class TmeJobSkill
+  include DataMapper::Resource
+  storage_names[repository = :default] = 'tme_job_skill'
+  property :job_skill_id, Serial, key: true, :index=>true
+  property :tme_job_main_id, Integer, :index=>true, :field => 'job_id' 
+  property :job_skill, Integer, :index => true  
+  property :job_skillrating, Integer, :index => true  
+  property :job_skillcat, Integer, :index => true  
+
+  belongs_to :tme_job_main 
+end
+
+class TmeJobLang
+  include DataMapper::Resource
+  storage_names[repository = :default] = 'tme_job_lang'
+  property :job_lang_id, Serial, key: true, :index=>true
+  property :tme_job_main_id, Integer, :index=>true, :field => 'job_id' 
+  property :job_lang, Integer, :index => true  
+  property :job_lang_speakskill, Integer, :index => true  
+  property :job_lang_writeskill, Integer, :index => true  
+
+  belongs_to :tme_job_main 
+end
+
+class TmeJobEdu
+  include DataMapper::Resource
+  storage_names[repository = :default] = 'tme_job_edu'
+  property :job_edu_id, Serial, key: true, :index=>true
+  property :tme_job_main_id, Integer, :index=>true, :field => 'job_id' 
+  property :job_edu_title, Integer, :index => true  
+  property :job_edu_specialty, Integer, :index => true  
+  property :job_edu_honors, Integer, :index => true  
+  property :job_edu_gpa, Integer, :index => true  
+  property :job_edu_pref, Integer, :index => true  
+
+  belongs_to :tme_job_main 
+end
+
+class TmeJobCert
+  include DataMapper::Resource
+  storage_names[repository = :default] = 'tme_job_cert'
+  property :job_cert_id, Serial, key: true, :index=>true
+  property :tme_job_main_id, Integer, :index=>true, :field => 'job_id' 
+  property :job_cert_title, Integer, :index => true  
+  property :job_cert_inst, Integer, :index => true  
+  property :job_cert_pref, Integer, :index => true  
+
+  belongs_to :tme_job_main 
+end
 
 class Skrscore
   include DataMapper::Resource
