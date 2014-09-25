@@ -38,29 +38,29 @@
 								<% @allskills.each do |i| %>
 									<!-- If rank = 1, job-tag = job-tag1  TO BE DONE! also check for top 20 skills. list the expert first followed by others-->
 									<% if @allskills.get(i).status != 0 %>
-										<div class="job-tag b-carrot">
+										<div class="job-tag">
 											<% if @allskills.get(i).skillrank == 5 %>
-												<div class="b-carrot">	
+												<div style="background:#1ABC9C;">	
 													<%= @ssmaster.get(i.skillid).skill_name %>
 												</div>
 											<% end %>
 											<% if @allskills.get(i).skillrank == 4 %>
-												<div class="b-belize-hole">	
+												<div style="background:#16A085;">	
 													<%= @ssmaster.get(i.skillid).skill_name %>
 												</div>
 											<% end %>
 											<% if @allskills.get(i).skillrank == 3 %>
-												<div class="b-amethyst">	
+												<div style="background:#2ECC71;">	
 													<%= @ssmaster.get(i.skillid).skill_name %>
 												</div>
 											<% end %>
 											<% if @allskills.get(i).skillrank == 2 %>
-												<div class="b-orange">	
+												<div style="background:#27AE60;">	
 													<%= @ssmaster.get(i.skillid).skill_name %>
 												</div>
 											<% end %>
 											<% if @allskills.get(i).skillrank == 1 %>
-												<div class="b-sun-flower">	
+												<div style="background:#3498DB;">	
 													<%= @ssmaster.get(i.skillid).skill_name %>
 												</div>
 											<% end %>
