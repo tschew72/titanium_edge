@@ -118,7 +118,8 @@ end
 
 
 get '/viewmatches' do
-   jobid = params["pk"]
+   #jobid = params["pk"]
+   jobid = "1"
    cmd = "SELECT * FROM jobmatch("+ jobid+")"
    @top5matches=repository(:default).adapter.select(cmd)
 end
