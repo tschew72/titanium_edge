@@ -208,7 +208,7 @@ class TmeCompanyMain
   property :company_addrcountry, Integer, :index=>true
   property :company_addrpostcode, String, :index=>true
 
-  
+  has n, :tme_job_main, :model =>'TmeJobMain'
 end
 
 
@@ -234,9 +234,11 @@ class TmeJobMain
   property :job_experience, Integer, :index => true  
   property :job_time, Integer, :index => true  
   property :job_function, Integer, :index => true  
-  property :job_companyname, Integer, :index => true  
+  property :tme_company_main_id, Integer, :index => true, :field => 'job_companyname'   
   property :job_agencyname, Integer, :index => true  
   property :job_workemergency, Integer, :index => true  
+
+  belongs_to :tme_company_main
 
   has n, :tme_job_skill, :model =>'TmeJobSkill'
   has n, :tme_job_lang, :model =>'TmeJobLang'
