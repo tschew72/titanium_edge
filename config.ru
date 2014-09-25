@@ -135,7 +135,7 @@ get '/mycv' do
        @userprofile = env['warden'].user  #This is the most important query of all. it will identify the user of this session.
        @userme = @userprofile.firstname
 
-       erb :mycv, :layout => :'dash/layout1' 
+       erb :mycv, :layout => :'main/layout1'
 end
 
 
