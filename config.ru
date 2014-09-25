@@ -118,9 +118,9 @@ end
 
 
 get '/viewmatches' do
-   jobid = params["pk"].to_s
+   jobid = params["pk"]
    cmd = "SELECT * FROM jobmatch("+ jobid+")"
-   #@top5matches=repository(:default).adapter.select(cmd)
+   @top5matches=repository(:default).adapter.select(cmd)
 end
 
 get '/top5matchestable' do
