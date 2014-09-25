@@ -125,9 +125,9 @@ post '/viewmatches' do
 end
 
 get '/top5matchestable' do
-   jobid = params["pk"]
-   cmd = "SELECT * FROM jobmatch("+ jobid+")"
-   @top5matches=repository(:default).adapter.select(cmd)
+   #jobid = params["pk"]
+   #cmd = "SELECT * FROM jobmatch("+ jobid+")"
+   #@top5matches=repository(:default).adapter.select(cmd)
    erb :top5matchestable, :layout => false
 
 end
