@@ -447,8 +447,8 @@ else{e.value="no";location.reload();}
                 document.getElementById( 'insg_block' ).style.visibility = 'hidden';
               } ;
 
-              $("#st").load("/table",{i: new Date().getTime()});  
-              $("#lt").load("/langtable");  
+              $("#st").load("/table",{i: new Date().getTime()});   //putting the current time as a parameter to overcome IE issue
+              $("#lt").load("/langtable",{i: new Date().getTime()});  
 
        $('input[name="date-range-picker"]').daterangepicker({
         timePicker: false,
@@ -526,8 +526,7 @@ else{e.value="no";location.reload();}
                  $.getJSON("/getskill", {"value": newValue}, function (result) {
                   $('#skillname').editable('option', 'source', result);   //somehow, all these 3 sentences must be in here.
                   $('#skillname').editable('setValue', null);             //else it will fail.
-                  $('#skillname').editable('option', 'disabled', false);  //                
-                      //console.error("Status: " + result)
+                  $('#skillname').editable('option', 'disabled', false);  //              
                   }).fail( function(d, textStatus, error) {
                       console.error("Upload failed, Please refresh this page and try again. Status: " + textStatus + ", error: "+error)
 
@@ -812,7 +811,8 @@ else{e.value="no";location.reload();}
                       $('.newlang').editable('setValue', null);  //clear values
                       $('#speakskill').editable('option', 'disabled', true);
                       $('#writeskill').editable('option', 'disabled', true);
-                      $("#lt").load("/langtable");   
+                      // $("#lt").load("/langtable");  
+                      $("#lt").load("/langtable",{i: new Date().getTime()});   
                  }     
              },
              error: function(errors) {
