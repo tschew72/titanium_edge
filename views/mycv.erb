@@ -31,8 +31,8 @@
 								<h3 class="job_listing-widget-title-top">My Top 20 skills</h3>
 								<% @allskills.each do |i| %>
 									<!-- If rank = 1, job-tag = job-tag1  TO BE DONE! also check for top 20 skills. list the expert first followed by others-->
-									<%a=a++%>
-									<%if a > 10 then%>
+									
+									<%if ++a > 10 then%>
 								   		<%break%>
 								    <%end%>
 									<div class="job-tag"><%= @ssmaster.get(i.skillid).skill_name %></div>
