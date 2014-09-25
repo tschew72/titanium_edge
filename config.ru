@@ -117,7 +117,7 @@ get '/hrm' do
 end
 
 
-get '/viewmatches' do
+post '/viewmatches' do
    #jobid = params["pk"]
    jobid = "1"
    cmd = "SELECT * FROM jobmatch("+ jobid+")"

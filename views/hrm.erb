@@ -191,7 +191,7 @@
       function viewmatches(i){
         $.ajax({
                 url: '/viewmatches',
-                type: 'GET',
+                type: 'POST',
                 data: {"pk" : i},
                 success: function(response){
                   $("#top5matches").load("/top5matchestable"); 
