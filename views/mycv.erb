@@ -24,14 +24,13 @@
 						</div>
 						<div class="col-md-5 col-sm-6 col-xs-12">		
 							<aside class="job_listing-widget-top default-widget">
-								<h3 class="job_listing-widget-title-top">Candidate Resume</h3>		
+								<h3 class="job_listing-widget-title-top">My Resume</h3>		
 								<a rel="nofollow" href=<%= @userprofile.cvurl %> class="resume-file resume-file-pdf">Download CV</a>
 							</aside>
 							<aside class="job_listing-widget-top default-widget">
-								<h3 class="job_listing-widget-title-top">My Top 20 skills</h3>
+								<h3 class="job_listing-widget-title-top">My skills</h3>
 								<% @allskills.each do |i| %>
 									<!-- If rank = 1, job-tag = job-tag1  TO BE DONE! also check for top 20 skills. list the expert first followed by others-->
-
 									<div class="job-tag"><%= @ssmaster.get(i.skillid).skill_name %></div>
 								<% end %>
 								See more...
@@ -39,7 +38,7 @@
 						</div>
 						<div class="col-md-4 col-sm-6 col-xs-12">
 							<aside class="job_listing-widget-top default-widget">
-								<h3 class="job_listing-widget-title-top">Candidate Details</h3>
+								<h3 class="job_listing-widget-title-top">My Details</h3>
 								<ul class="resume-links">
 									<li class="resume-link resume-link-twitter"><a rel="nofollow" href="http://twitter.com/">Twitter</a></li>
 									<li class="resume-link resume-link-website"><a rel="nofollow" href="http://website.com/">Website</a></li>
