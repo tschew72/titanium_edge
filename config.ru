@@ -102,6 +102,7 @@ end
 get '/hrm' do
    redirect '/auth/login' unless env['warden'].authenticated?
    @userprofile = env['warden'].user  
+   @user = User
    @userme = @userprofile.firstname
    @emailme = @userprofile.email
    @usermatchjoblist = @userprofile.matched_jobs
