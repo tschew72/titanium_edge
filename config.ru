@@ -117,16 +117,12 @@ get '/hrm' do
 end
 
 
-#get '/viewmatches' do
-#   @userprofile = env['warden'].user 
-#   @userme = @userprofile.firstname
-#   @emailme = @userprofile.email
-#   @usermatchjoblist = @userprofile.matched_jobs #to be removed
-#   @careerscore = @userprofile.skrscore.skrscore_total #to be removed
-#   jobid = params["pk"].to_s
-#   cmd = "SELECT * FROM jobmatch("+ jobid+")"
-#   @top5matches=repository(:default).adapter.select(cmd)
-#end
+get '/viewmatches' do
+   @userprofile = env['warden'].user 
+   jobid = params["pk"].to_s
+   cmd = "SELECT * FROM jobmatch("+ jobid+")"
+   @top5matches=repository(:default).adapter.select(cmd)
+end
 
 get '/top5matchestable' do
 
