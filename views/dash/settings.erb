@@ -114,19 +114,19 @@ else{e.value="no";location.reload();}
 
                 <div class="orb-form">
                   <div class="row">  
-                    <div class="form-group">
+                 
                       <div class="col col-2">
                         <label class="toggle"><input id="insgcheck" name="insingaporenow" type="checkbox" <%= @userprofile.insingaporenow.to_s == "true" ? "checked" : "unchecked" %>><i></i>I am in Singapore</label> 
-                      </div>
+
                       <span id="saving1"> </span>
                     </div> <!--form-group-->
                   
                   <div id="insg_block" style="visibility: hidden">
-                    <div class="form-group">
+
                         <div class="inputlabel col-md-2 column">on these dates </div> 
-                        <input readonly="true" type="text" style="position: relative; left: -68px; width: 200px; height:30px" name="date-range-picker" id="id-date-range-picker-1"  class="form-control rdonly" value="<%=@userprofile.insg_start.strftime("%d/%m/%Y") %> - <%=@userprofile.insg_end.strftime("%d/%m/%Y") %> "  class="span4"></input> <div id="saving_date"></div>
+                        <input readonly="true" type="text"style="position: relative; left: -120px; width: 150px; height:10px" name="date-range-picker" id="id-date-range-picker-1"  class="form-control rdonly" value="<%=@userprofile.insg_start.strftime("%d/%m/%Y") %> - <%=@userprofile.insg_end.strftime("%d/%m/%Y") %> "  class="span4"></input> <div id="saving_date"></div>
                       <div class="col-md-1"> </div>  
-                    </div>
+
                   </div> 
                 </div>   <!-- row -->
                 </div>   <!-- orb-form--> 
