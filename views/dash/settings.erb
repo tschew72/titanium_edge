@@ -1027,7 +1027,7 @@ else{e.value="no";location.reload();}
 
       function freqcheck(myRadio) {
           $.ajax({
-            url: '//updatetravelfreq',
+            url: '/updatetravelfreq',
             type: 'POST',
             data: {"travelfreq": this.value, "pk" : <%=@userprofile.id %>},
             beforeSend : function(){
