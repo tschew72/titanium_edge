@@ -378,7 +378,7 @@ end
       ntype=2
     else ntype=1  #temporary put as 1. No significance at this stage
     end
-    type=userdata.tme_skr_nation.get(1) # Temporary set to get(1). Only focus on SPR for first version
+    type=userdata.tme_skr_nation.first(:user_id=>userdata.id) # MVP only has 1 nationality
     type.update(:skr_nation_type => ntype)
     return 200
   end
