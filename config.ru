@@ -287,7 +287,8 @@ get '/settings' do
 
        @sr = SkillRank.all  #Hardcode to HTML. Remove from Database.
 
-
+       @mynations=@userprofile.tme_skr_nation.first(:user_id=>@userprofile.id).skr_nation
+       @mynationtypes=@userprofile.tme_skr_nation.first(:user_id=>@userprofile.id).skr_nation_type
 
        erb :"dash/settings", :layout => :'dash/layout1'
 end
