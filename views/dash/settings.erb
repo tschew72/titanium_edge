@@ -90,14 +90,10 @@ else{e.value="no";location.reload();}
           <div id="t1" class="tab-pane in active">
 
             <div class="row">
-
-                <div class="col-md-3 column">  
-                   My Career Goal:
-                </div>
-                <div class="inputtext col-md-3 column">  
+                <div class="inputlabel col-md-2 column">Career Goal: </div>  
+                <div class="inputtext col-md-3 column" style="width: 600px;">  
                    <a class="editable-click" href="javascript:void(0)"  id="skr_careergoal" data-type="text" data-pk="<%=@userprofile.id %>" data-url="/updateprofile" data-title="Enter mobile number"><%= @userprofile.skr_careergoal %> </a> 
                 </div>
-                
             </div>
 
             <div class="row">  
