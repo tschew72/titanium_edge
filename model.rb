@@ -41,6 +41,8 @@ class User
   property :fulltime,  Boolean, :default=>false, :index => true, :field => 'skr_fulltime'
   property :shiftwork,  Boolean, :default=>false, :index => true, :field => 'skr_shiftwork'
   property :outofhours,  Boolean, :default=>false, :index => true, :field => 'skr_emergency'
+  property :skr_intern, Boolean, :default=>false, :index => true
+  property :skr_contractor, Boolean, :default=>false, :index => true
   property :travelfreq,  Integer, :default=>0, :index => true, :field => 'skr_preftravel'
   property :password,  BCryptHash, :index => true,:field => 'skr_password'
   property :age,  Integer, :index => true, :field => 'skr_age'

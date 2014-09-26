@@ -417,6 +417,17 @@ end
     {:status => 200, :outofhours=>userdata.outofhours}.to_json
   end
  
+  post '/updateintern' do
+    userdata = User.get(params["pk"])
+    userdata.update(:skr_intern => params['skr_intern'])
+    {:status => 200, :skr_intern=>userdata.skr_intern}.to_json
+  end
+
+  post '/updatecontractor' do
+    userdata = User.get(params["pk"])
+    userdata.update(:skr_intern => params['skr_intern'])
+    {:status => 200, :skr_contractor=>userdata.skr_contractor}.to_json
+  end
 
 
   post '/jobsubmit' do

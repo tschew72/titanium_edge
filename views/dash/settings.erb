@@ -177,7 +177,21 @@ else{e.value="no";location.reload();}
                       <div class="col col-1"> <div id="saving_out"></div></div> 
                     </div>
                   </div>
-                  <div class="col col-6"> </div>
+                  <div class="col col-3">
+                    <div class="row">
+                        <div class="col col-6">
+                          <label class="toggle"><input id="interncheck" name="skr_intern"  type="checkbox" <%= @userprofile.intern.to_s == "true" ? "checked" : "unchecked" %> ><i></i>Internship</label> 
+                        </div>
+                        <div style="float:left;" id="saving_intern" class="col col-1"></div>
+                    </div>
+                    <div class="row">
+                      <div class="col col-6">
+                        <label  class="toggle"><input id="contractorcheck" name="skr_contractor"  type="checkbox" <%= @userprofile.contractor.to_s == "true" ? "checked" : "unchecked" %> ><i></i>Freelance/Contract</label> 
+                      </div>
+                      <div class="col col-1"> <div id="saving_contractor"></div></div>  
+                    </div> 
+                  </div> 
+                  <div class="col col-3"> </div>
 
         </div>
       </div>
@@ -992,8 +1006,42 @@ else{e.value="no";location.reload();}
              });
             } //success function
           }); //ajax
-      }); //shiftwork function
+      }); // function
 
+
+      $("#interncheck").on('change', function(){
+          $.ajax({
+            url: '/updateintern',
+            type: 'POST',
+            data: {"skr_intern": this.checked, "pk" : <%=@userprofile.id %>},
+            beforeSend : function(){
+              $("#saving_intern").html("<div id='saver_fulltime'><i class='fa fa-spinner fa-spin'></i></div>");
+            }, 
+            success: function(response){
+              var data = JSON.parse(response);                            
+               $('#saver_intern').fadeOut(1000, function() {
+               $(this).remove();
+             });
+            } //success function
+          }); //ajax
+      }); // function
+
+      $("#contractorcheck").on('change', function(){
+          $.ajax({
+            url: '/updatecontractor',
+            type: 'POST',
+            data: {"skr_contractor": this.checked, "pk" : <%=@userprofile.id %>},
+            beforeSend : function(){
+              $("#saving_contractor").html("<div id='saver_fulltime'><i class='fa fa-spinner fa-spin'></i></div>");
+            }, 
+            success: function(response){
+              var data = JSON.parse(response);                            
+               $('#saver_contractor').fadeOut(1000, function() {
+               $(this).remove();
+             });
+            } //success function
+          }); //ajax
+      }); // function
 
       $("#id-date-picker-1").on('change', function(){
           $.ajax({
