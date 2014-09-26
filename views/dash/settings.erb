@@ -95,13 +95,9 @@ else{e.value="no";location.reload();}
 
             <div class="row">  
               <div class="orb-form">
-                <div class="form-group">
-
                   <div class="inputlabel col-md-2 col-lg-1 col-xs-9 column">Activate Job Search</div> 
                       <label style="position: relative; left: -120px;" class="toggle col-md-1 col-lg-1 col-xs-1 column" ><input id="activecheck" name="activeseeker" type="checkbox" <%= @userprofile.activeseeker.to_s == "true" ? "checked" : "unchecked" %> ><i></i></label>
-
                   <div id="saving"> </div> 
-                </div>
               </div>
             </div>
 
