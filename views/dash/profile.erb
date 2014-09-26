@@ -166,7 +166,7 @@
                     <div  id="spr_block" style="visibility: hidden">  
                       <div class="col-md-2 column inputlabel">Singapore PR? </div>  
                       <label>
-                        <input id="sprcheck" name="singaporepr" type="checkbox"  <%= @userprofile.singaporepr.to_s == "true" ? "checked" : "unchecked" %> />
+                        <input id="sprcheck" name="skr_nation_type" type="checkbox"  <%= @userprofile.tme_skr_nation.get(1).skr_nation_type.to_s == "true" ? "checked" : "unchecked" %> />  <!-- Temporary set to get(1). In the future, we expand it to allow multi nation edit-->
                         <span class="lbl"> </span>
                       </label>
                     </div>

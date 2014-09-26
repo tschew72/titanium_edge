@@ -75,7 +75,7 @@ class User
   has n, :tme_skr_edu, :model => 'TmeSkrEdu'
   has n, :tme_skr_emp, :model => 'TmeSkrEmp'
   has 1, :skrscore, :model =>'Skrscore'
-
+  has n, :tme_skr_nation, :model =>'TmeSkrNation'
 
   def authenticate(attempted_password)
     if self.password == attempted_password
@@ -499,6 +499,17 @@ class TmeListDegree
 
 end
 
+class TmeSkrNation   
+  include DataMapper::Resource
+  storage_names[repository = :default] = 'tme_skr_nation'
+  property :skr_nation_id, Serial , key: true, :index => true 
+  property :user_id, Integer, :index => true, :field => 'skr_id'
+  property :skr_nation, Integer, :index => true 
+  property :skr_nation_type, Integer, :index => true #1 Citizen, 2 PR 3 PEP 4 SPASS 5 WP
+
+
+  belongs_to :user 
+end
 
 class NewSkillReport      #For users to report new skills that are now listed
   include DataMapper::Resource
