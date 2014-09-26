@@ -98,14 +98,8 @@ else{e.value="no";location.reload();}
 
             <div class="row">  
               <div class="orb-form">
-                <div class="form-group">
-
-
                   <div class="inputlabel col-xs-6 col-md-3 col-lg-2 column">Activate Job Search: </div>  
-                      <label class="toggle" ><input id="activecheck" name="activeseeker" type="checkbox" <%= @userprofile.activeseeker.to_s == "true" ? "checked" : "unchecked" %> ><i></i></label>
-                  </div>
-                  <div id="saving"> </div> 
-                </div>
+                      <label class="toggle" ><input id="activecheck" name="activeseeker" type="checkbox" <%= @userprofile.activeseeker.to_s == "true" ? "checked" : "unchecked" %> ><i></i></label><div id="saving"> </div> 
               </div>
             </div>
 
@@ -119,7 +113,6 @@ else{e.value="no";location.reload();}
                         <label class="toggle"><input id="insgcheck" name="insingaporenow" type="checkbox" <%= @userprofile.insingaporenow.to_s == "true" ? "checked" : "unchecked" %>><i></i></label> 
 
                       <span id="saving1"> </span>
-                    </div> <!--form-group-->
                   
                   <div id="insg_block" style="visibility: hidden">
 
