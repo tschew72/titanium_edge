@@ -177,12 +177,12 @@ else{e.value="no";location.reload();}
                     </div>                      
                   </div>
                   <div class="col-md-4 col-lg-4 col-xs-12 column orb-form"> 
-                    <div class="row ">
+                    <div class="row orb-form">
                       <div class="inputlabel col-md-3 col-lg-6 col-xs-11 column">Out-of-Hours/Emergency</div> 
                           <label style="position: relative; left: -60px;" class="toggle col-md-1 col-lg-1 col-xs-1 column"><input id="outofhourscheck" name="outofhours"  type="checkbox" <%= @userprofile.outofhours.to_s == "true" ? "checked" : "unchecked" %> ><i></i></label>
                       </div>
                       <div class="col-md-1 col-lg-1 col-xs-1 column"> <div id="saving_out"></div></div> 
-                    <div class="row">
+                    <div class="row orb-form">
                       <div class="inputlabel col-md-3 col-lg-6 col-xs-11 column">Freelance/Contract</div> 
                         <label style="position: relative; left: -60px;" class="toggle col-md-1 col-lg-1 col-xs-1 column"><input id="contractorcheck" name="skr_contractor"  type="checkbox" <%= @userprofile.skr_contractor.to_s == "true" ? "checked" : "unchecked" %> ><i></i></label> 
                         <div class="col-md-1 col-lg-1 col-xs-1 column"> <div id="saving_contractor"></div></div>  
