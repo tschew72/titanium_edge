@@ -169,21 +169,21 @@ else{e.value="no";location.reload();}
                         <label style="position: relative; left: -60px;" class="toggle col-md-1 col-lg-1 col-xs-1 column"><input id="shiftworkcheck" name="shiftwork" type="checkbox" <%= @userprofile.shiftwork.to_s == "true" ? "checked" : "unchecked" %> ><i></i></label>
                         <div class="col col-1"> <div id="saving_shift"></div></div>
                     </div>
+
                     <div class="row orb-form ">
                         <div class="inputlabel col-md-3 col-lg-2 col-xs-11 column">Internship</div> 
                           <label style="position: relative; left: -60px;" class="toggle col-md-1 col-lg-1 col-xs-1 column"><input id="interncheck" name="skr_intern"  type="checkbox" <%= @userprofile.skr_intern.to_s == "true" ? "checked" : "unchecked" %> ><i></i></label> 
                             <div style="float:left;" id="saving_intern" class="col col-1"></div>
-                    </div>
+                    </div>                      
+                  </div>
                   <div class="col-md-12 col-lg-4 col-xs-12 column"> 
-
                     <div class="row orb-form">
-                      <div class="inputlabel col-md-3 col-lg-2 col-xs-11 column">Out-of-Hours/Emergency</div> 
+                      <div class="inputlabel col-md-3 col-lg-3 col-xs-11 column">Out-of-Hours/Emergency</div> 
                           <label style="position: relative; left: -60px;" class="toggle col-md-1 col-lg-1 col-xs-1 column"><input id="outofhourscheck" name="outofhours"  type="checkbox" <%= @userprofile.outofhours.to_s == "true" ? "checked" : "unchecked" %> ><i></i></label>
                       </div>
                       <div class="col col-1"> <div id="saving_out"></div></div> 
-                  </div>                    
                     <div class="row orb-form">
-                      <div class="inputlabel col-md-3 col-lg-2 col-xs-11 column">Freelance/Contract</div> 
+                      <div class="inputlabel col-md-3 col-lg-3 col-xs-11 column">Freelance/Contract</div> 
                         <label style="position: relative; left: -60px;" class="toggle col-md-1 col-lg-1 col-xs-1 column"><input id="contractorcheck" name="skr_contractor"  type="checkbox" <%= @userprofile.skr_contractor.to_s == "true" ? "checked" : "unchecked" %> ><i></i></label> 
                         <div class="col col-1"> <div id="saving_contractor"></div></div>  
                     </div> 
