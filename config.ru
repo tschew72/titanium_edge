@@ -169,12 +169,7 @@ get '/profile' do
             @google = x.skr_socialmediaurl
           end
        end
-       #@github = @userprofile.tme_skr_socialmedia.all(:skr_socialmediacat => 2).at(0).skr_socialmediaurl
-       #@linkedin = @userprofile.tme_skr_socialmedia.all(:skr_socialmediacat => 3).at(0).skr_socialmediaurl
-       #@twitter = @userprofile.tme_skr_socialmedia.all(:skr_socialmediacat => 4).at(0).skr_socialmediaurl
-       #@google = @userprofile.tme_skr_socialmedia.all(:skr_socialmediacat => 5).at(0).skr_socialmediaurl
-       
-       
+       @mynations=@userprofile.tme_skr_nation.first(:user_id=>@userprofile.id).skr_nation
        
        @cmaster = TmeListCountry.all
        ctemp = []
