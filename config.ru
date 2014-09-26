@@ -170,6 +170,7 @@ get '/profile' do
           end
        end
        @mynations=@userprofile.tme_skr_nation.first(:user_id=>@userprofile.id).skr_nation
+       @mynationtypes=@userprofile.tme_skr_nation.first(:user_id=>@userprofile.id).skr_nation_type
        
        @cmaster = TmeListCountry.all
        ctemp = []
