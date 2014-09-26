@@ -160,7 +160,14 @@
                     <div class="inputtext col-md-2 column"> <a class="editable-click" href="javascript:void(0)"  id="gender" data-type="select" data-pk="<%=@userprofile.id %>" data-url="/updateprofile" data-title="Enter gender"><%= @userprofile.gender == 1 ? "Male" : "Female" %> </a> </div> 
                   </div>
 
+                  <div class="row">   
+                    <div class="inputlabel col-md-1 column"> Nationality: </div>
+                    <div class="inputtext col-md-2 column"><a class="editable-click" href="javascript:void(0)" id="nationality" data-type="select"  data-pk="<%=@userprofile.id %>" data-url="/updatenationality" data-title="Enter nationality"><%=@mynation %> </a>  </div>
+                    <div  id="spr_block" style="visibility: hidden">  
+                      <div class="col-md-2 column inputlabel">Singapore PR? </div>  
 
+                    </div>
+                    </div>
                     <div class="col-md-7 column">  </div>
                   </div>
 
