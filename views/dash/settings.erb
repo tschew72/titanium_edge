@@ -77,8 +77,7 @@ else{e.value="no";location.reload();}
       
       <ul class="nav nav-tabs">
         <li class="active"><a data-toggle="tab" href="#t1"><i class="green icon-home bigger-110"></i>Home</a></li>     
-        <li><a data-toggle="tab" href="#t3">Preferred Jobs</a></li> 
-        <li><a data-toggle="tab" href="#t5">Salary</a></li>
+        <li><a data-toggle="tab" href="#t3">Job Preferences</a></li> 
         <li><a data-toggle="tab" href="#t6">Preferred Travel Frequency</a></li>  
         <li><a data-toggle="tab" href="#skilltab">Skills</a></li>    
         <li><a data-toggle="tab" href="#languagetab">Languages</a></li>  
@@ -201,25 +200,18 @@ else{e.value="no";location.reload();}
                   <div class="col col-3"> </div>
 
         </div>
-      </div>
-
-        <div id="t5" class="tab-pane">   
-              <div class="row">
-                  <div class="col-sm-12">
-                    <p class="lighter blue">Please key in your current and expected annual salary in Singapore Dollar </p>
-                  </div>
-              </div>
-              <div class="row">  <!-- 5th row in the Preference Management section --> 
-                 <div class="col-sm-12">  
-                    <div class="form-group">
-                        Current annual salary: S$ <a href="#" id="currentsalary" data-name="currentsalary" data-type="text" data-pk="<%=@userprofile.id %>" data-url="/updateprofile" data-title="Enter current salary"><%= @userprofile.currentsalary %></a>
-                    </div>
-                    <div class="form-group">
-                        Expected annual salary: S$ <a href="#" id="expectedsalary" data-name="expectedsalary" data-type="text"  data-pk="<%=@userprofile.id %>" data-url="/updateprofile" data-title="Enter expected salary"><%= @userprofile.expectedsalary %></a>
-                    </div>
-                </div>
-              </div>
+        <h4 style="margin-left: 15px;"class="header smaller lighter blue">Salary <small>Please key in your current and expected annual salary in Singapore Dollar</small> </h4>
+        <div class="inputlabel col-md-3 col-lg-2 col-xs-9 column">Current annual salary: S$</div>  
+        <div class="inputtext col-md-9 col-lg-10 col-xs-12 column" style="width: 600px; max-width:90%; position: relative;left: -67px;">  
+          <a href="#" id="currentsalary" data-name="currentsalary" data-type="text" data-pk="<%=@userprofile.id %>" data-url="/updateprofile" data-title="Enter current salary"><%= @userprofile.currentsalary %></a>
         </div>
+        <div class="inputlabel col-md-3 col-lg-2 col-xs-9 column">Current annual salary: S$</div>  
+        <div class="inputtext col-md-9 col-lg-10 col-xs-12 column" style="width: 600px; max-width:90%; position: relative;left: -67px;">  
+          Expected annual salary: S$ <a href="#" id="expectedsalary" data-name="expectedsalary" data-type="text"  data-pk="<%=@userprofile.id %>" data-url="/updateprofile" data-title="Enter expected salary"><%= @userprofile.expectedsalary %></a>
+        </div>
+
+      </div> <!-- END Tab-pane -->
+
         <div id="t6" class="tab-pane">
               <div class="row">  <!-- 5th row in the Preference Management section --> 
                   
