@@ -160,7 +160,17 @@
                     <div class="inputtext col-md-2 column"> <a class="editable-click" href="javascript:void(0)"  id="gender" data-type="select" data-pk="<%=@userprofile.id %>" data-url="/updateprofile" data-title="Enter gender"><%= @userprofile.gender == 1 ? "Male" : "Female" %> </a> </div> 
                   </div>
 
-
+                  <div class="row">   
+                    <div class="inputlabel col-md-1 column"> Nationality: </div>
+                    <div class="inputtext col-md-2 column"><a class="editable-click" href="javascript:void(0)" id="nationality" data-type="select"  data-pk="<%=@userprofile.id %>" data-url="/updatenationality" data-title="Enter nationality"><%= @cmaster.get(@userprofile.tme_skr_nation.get(1).skr_nation).country %> </a>  </div>
+                    <div  id="spr_block" style="visibility: hidden">  
+                      <div class="col-md-2 column inputlabel">Singapore PR? </div>  
+                      <label>
+                        <input id="sprcheck" name="skr_nation_type" type="checkbox"  <%= @userprofile.tme_skr_nation.get(1).skr_nation_type == 2 ? "checked" : "unchecked" %> />  <!-- Temporary set to get(1). In the future, we expand it to allow multi nation edit-->
+                        <span class="lbl"> </span>
+                      </label>
+                    </div>
+                    </div>
                     <div class="col-md-7 column">  </div>
                   </div>
 
