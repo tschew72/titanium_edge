@@ -1025,7 +1025,7 @@ else{e.value="no";location.reload();}
       }); // function
 
 
-      $("#freqcheck").on('change', function(){
+      function frequcheck(myRadio) {
           $.ajax({
             url: '//updatetravelfreq',
             type: 'POST',
@@ -1040,7 +1040,7 @@ else{e.value="no";location.reload();}
              });
             } //success function
           }); //ajax
-      }); // function
+      }; // function
 
 
 
