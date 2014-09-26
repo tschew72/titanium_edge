@@ -205,21 +205,18 @@ else{e.value="no";location.reload();}
           </div>
         </div>
         <div class="row">
-         <label class="label">Preferred Travel Frequency</label>
-          <div class="inline-group">
-            <label class="radio">
-              <input type="radio" name="radio-inline" checked>
-              <i></i>25%</label>
-            <label class="radio">
-              <input type="radio" name="radio-inline">
-              <i></i>50%</label>
-            <label class="radio">
-              <input type="radio" name="radio-inline">
-              <i></i>75%</label>
-            <label class="radio">
-              <input type="radio" name="radio-inline">
-              <i></i>100%</label>
+         <div class="inputlabel col-md-3 col-lg-3 col-xs-9 column">Preferred Travel Frequency</div>  
+          <div id="preffreq">
+
+            <input type="radio" onclick="freqcheck(this)" name="freqcheck" value="25"> 25%
+            <input type="radio" onclick="freqcheck(this)" name="freqcheck" value="50"> 50%
+            <input type="radio" onclick="freqcheck(this)" name="freqcheck" value="75"> 75%
+            <input type="radio" onclick="freqcheck(this)" name="freqcheck" value="100"> 100%
           </div>
+<script>
+document.querySelector('input[name="frequcheck"]:checked').value;
+</script>
+
         </div>
       </div> <!-- END Row -->
       </div> <!-- END Tab-pane -->
