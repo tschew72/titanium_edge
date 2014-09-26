@@ -90,7 +90,7 @@ else{e.value="no";location.reload();}
           <div id="t1" class="tab-pane in active">
 
             <div class="row">
-                <div class="inputlabel col-md-2 column">Career Goal: </div>  
+                <div class="inputlabel col-xs-6 col-md-3 col-lg-2 column">Career Goal: </div>  
                 <div class="inputtext col-md-3 column" style="width: 600px;position: relative;left: -68px;">  
                    <a class="editable-click" href="javascript:void(0)"  id="skr_careergoal" data-type="text" data-pk="<%=@userprofile.id %>" data-url="/updateprofile" data-title="Enter mobile number"><%= @userprofile.skr_careergoal %> </a> 
                 </div>
@@ -101,8 +101,8 @@ else{e.value="no";location.reload();}
                 <div class="form-group">
 
 
-                  <div class="col col-2 ">
-                      <label class="toggle" ><input id="activecheck" name="activeseeker" type="checkbox" <%= @userprofile.activeseeker.to_s == "true" ? "checked" : "unchecked" %> ><i></i>Activate Job Search</label>
+                  <div class="inputlabel col-xs-6 col-md-3 col-lg-2 column">Activate Job Search: </div>  
+                      <label class="toggle" ><input id="activecheck" name="activeseeker" type="checkbox" <%= @userprofile.activeseeker.to_s == "true" ? "checked" : "unchecked" %> ><i></i></label>
                   </div>
                   <div id="saving"> </div> 
                 </div>
@@ -115,8 +115,8 @@ else{e.value="no";location.reload();}
                 <div class="orb-form">
                   <div class="row">  
                  
-                      <div class="col col-2">
-                        <label class="toggle"><input id="insgcheck" name="insingaporenow" type="checkbox" <%= @userprofile.insingaporenow.to_s == "true" ? "checked" : "unchecked" %>><i></i>I am in Singapore</label> 
+                      <div class="inputlabel col-xs-6 col-md-3 col-lg-2 column">I am in Singapore: </div>  
+                        <label class="toggle"><input id="insgcheck" name="insingaporenow" type="checkbox" <%= @userprofile.insingaporenow.to_s == "true" ? "checked" : "unchecked" %>><i></i></label> 
 
                       <span id="saving1"> </span>
                     </div> <!--form-group-->
