@@ -439,6 +439,8 @@ else{e.value="no";location.reload();}
                 document.getElementById( 'insg_block' ).style.visibility = 'hidden';
               } ;
 
+              //$('#freqcheck').attr('check', "checked");
+
               $("#st").load("/table",{i: new Date().getTime()});   //putting the current time as a parameter to overcome IE issue
               $("#lt").load("/langtable",{i: new Date().getTime()});  
 
