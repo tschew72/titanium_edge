@@ -204,7 +204,23 @@ else{e.value="no";location.reload();}
             <a href="#" id="expectedsalary" data-name="expectedsalary" data-type="text"  data-pk="<%=@userprofile.id %>" data-url="/updateprofile" data-title="Enter expected salary"><%= @userprofile.expectedsalary %></a>
           </div>
         </div>
-
+        <div class="row">
+         <label class="label">Preferred Travel Frequency</label>
+          <div class="inline-group">
+            <label class="radio">
+              <input type="radio" name="radio-inline" checked>
+              <i></i>25%</label>
+            <label class="radio">
+              <input type="radio" name="radio-inline">
+              <i></i>50%</label>
+            <label class="radio">
+              <input type="radio" name="radio-inline">
+              <i></i>75%</label>
+            <label class="radio">
+              <input type="radio" name="radio-inline">
+              <i></i>100%</label>
+          </div>
+        </div>
       </div> <!-- END Row -->
       </div> <!-- END Tab-pane -->
 

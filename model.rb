@@ -51,7 +51,6 @@ class User
   property :insg_start, Date, :index => true, :field => 'skr_insgstart', :default => lambda{ |p,s| Date.today}  
   property :insg_end, Date, :index => true, :field => 'skr_insgend', :default => lambda{ |a,b| Date.today>>1} 
   property :lastlogin, Date, :index => true, :field => 'skr_lastlogin'
-  #property :nationality, Integer, :index => true, :field => 'skr_nationality'
   property :singaporepr, Boolean, :index => true, :default  => false, :field => 'skr_singaporepr'
   property :address, String, :index => true, :field => 'skr_address'
   property :contactnumber, String, length: 20, :index => true, :field => 'skr_contactnumber' #created a new column in table
