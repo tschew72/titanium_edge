@@ -378,7 +378,7 @@ end
   post '/updatespr' do
     userdata = User.get(params["pk"])
     
-    if params["singaporepr"]
+    if params["singaporepr"] =="true"
       ntype=2
     else ntype=1  #temporary put as 1. No significance at this stage
     end
