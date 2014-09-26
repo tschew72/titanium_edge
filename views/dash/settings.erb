@@ -77,8 +77,7 @@ else{e.value="no";location.reload();}
       
       <ul class="nav nav-tabs">
         <li class="active"><a data-toggle="tab" href="#t1"><i class="green icon-home bigger-110"></i>Home</a></li>     
-        <li><a data-toggle="tab" href="#t3">Job Preferences</a></li> 
-        <li><a data-toggle="tab" href="#t6">Preferred Travel Frequency</a></li>  
+        <li><a data-toggle="tab" href="#t3">Job Preferences</a></li>  
         <li><a data-toggle="tab" href="#skilltab">My Skills</a></li>    
         <li><a data-toggle="tab" href="#languagetab">My Languages</a></li>  
         <li><a data-toggle="tab" href="#t7">Upload CV</a> </li>                   
@@ -149,10 +148,10 @@ else{e.value="no";location.reload();}
 
           <div class="row">  
             <div class="inputlabel col-md-3 col-lg-3 col-xs-9 column">Preferred Travel Frequency</div>  
-            <input class="col-md-1 col-lg-1 col-xs-1 column" id="f1" type="radio" onclick="freqcheck(this)"  value="25"> 25%
-            <input class="col-md-1 col-lg-1 col-xs-1 column" id="f2" type="radio" onclick="freqcheck(this)"  value="50"> 50%
-            <input class="col-md-1 col-lg-1 col-xs-1 column" id="f3" type="radio" onclick="freqcheck(this)"  value="75"> 75%
-            <input class="col-md-1 col-lg-1 col-xs-1 column" id="f4" type="radio" onclick="freqcheck(this)"  value="100"> 100%
+            <input  id="f1" type="radio" onclick="freqcheck(this)"  value="25"> 25%
+            <input  id="f2" type="radio" onclick="freqcheck(this)"  value="50"> 50%
+            <input  id="f3" type="radio" onclick="freqcheck(this)"  value="75"> 75%
+            <input  id="f4" type="radio" onclick="freqcheck(this)"  value="100"> 100%
           </div>
 
           <div class="row">
@@ -218,17 +217,6 @@ else{e.value="no";location.reload();}
       </div> <!-- END Row -->
       </div> <!-- END Tab-pane -->
 
-        <div id="t6" class="tab-pane">
-              <div class="row">  <!-- 5th row in the Preference Management section --> 
-                  
-                 
-                <div class="col-sm-6">  
-                 
-                        Preferred Travel Frequency %: <label><input type="text" class="input-mini" id="spinner2" value="<%=@userprofile.travelfreq %>" /></label>      
-                 
-                </div>
-              </div>      
-        </div>
         <div id="skilltab" class="tab-pane">
               <div class="row">  
                 <div class="col-sm-12 col-lg-12 ">
