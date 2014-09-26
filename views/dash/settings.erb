@@ -213,9 +213,6 @@ else{e.value="no";location.reload();}
             <input type="radio" onclick="freqcheck(this)" name="freqcheck" value="75"> 75%
             <input type="radio" onclick="freqcheck(this)" name="freqcheck" value="100"> 100%
           </div>
-<script>
-document.querySelector('input[name="frequcheck"]:checked').value;
-</script>
 
         </div>
       </div> <!-- END Row -->
@@ -1024,6 +1021,26 @@ document.querySelector('input[name="frequcheck"]:checked').value;
             } //success function
           }); //ajax
       }); // function
+
+
+      $("#freqcheck").on('change', function(){
+          $.ajax({
+            url: '//updatetravelfreq',
+            type: 'POST',
+            data: {"travelfreq": this.value, "pk" : <%=@userprofile.id %>},
+            beforeSend : function(){
+              $("#saving_freq").html("<div id='saver_fulltime'><i class='fa fa-spinner fa-spin'></i></div>");
+            }, 
+            success: function(response){
+              var data = JSON.parse(response);                            
+               $('#saving_freq').fadeOut(1000, function() {
+               $(this).remove();
+             });
+            } //success function
+          }); //ajax
+      }); // function
+
+
 
       $("#id-date-picker-1").on('change', function(){
           $.ajax({
