@@ -180,13 +180,13 @@ else{e.value="no";location.reload();}
                   <div class="col col-3">
                     <div class="row">
                         <div class="col col-6">
-                          <label class="toggle"><input id="interncheck" name="skr_intern"  type="checkbox" <%= @userprofile.intern.to_s == "true" ? "checked" : "unchecked" %> ><i></i>Internship</label> 
+                          <label class="toggle"><input id="interncheck" name="skr_intern"  type="checkbox" <%= @userprofile.skr_intern.to_s == "true" ? "checked" : "unchecked" %> ><i></i>Internship</label> 
                         </div>
                         <div style="float:left;" id="saving_intern" class="col col-1"></div>
                     </div>
                     <div class="row">
                       <div class="col col-6">
-                        <label  class="toggle"><input id="contractorcheck" name="skr_contractor"  type="checkbox" <%= @userprofile.contractor.to_s == "true" ? "checked" : "unchecked" %> ><i></i>Freelance/Contract</label> 
+                        <label  class="toggle"><input id="contractorcheck" name="skr_contractor"  type="checkbox" <%= @userprofile.skr_contractor.to_s == "true" ? "checked" : "unchecked" %> ><i></i>Freelance/Contract</label> 
                       </div>
                       <div class="col col-1"> <div id="saving_contractor"></div></div>  
                     </div> 
