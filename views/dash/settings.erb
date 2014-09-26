@@ -91,7 +91,7 @@ else{e.value="no";location.reload();}
 
             <div class="row">
                 <div class="inputlabel col-md-2 column">My Career Goal: </div>  
-                <div class="inputtext col-md-10 column" style="width: 600px; max-width:90%; position: relative;left: -68px;">  
+                <div class="inputtext col-md-3 column" style="width: 600px; max-width:90%; position: relative;left: -68px;">  
                    <a class="editable-click" href="javascript:void(0)"  id="skr_careergoal" data-type="text" data-pk="<%=@userprofile.id %>" data-url="/updateprofile" data-title="Enter mobile number"><%= @userprofile.skr_careergoal %> </a> 
                 </div>
             </div>
@@ -101,7 +101,7 @@ else{e.value="no";location.reload();}
                 <div class="form-group">
 
                   <div class="inputlabel col-md-2 col-lg-1 col-xs-9 column">Activate Job Search</div> 
-                      <label style="position: relative; left: -120px;" class="toggle col-md-10 col-lg-11 col-xs-3 column" ><input id="activecheck" name="activeseeker" type="checkbox" <%= @userprofile.activeseeker.to_s == "true" ? "checked" : "unchecked" %> ><i></i></label>
+                      <label style="position: relative; left: -120px;" class="toggle col-md-1 col-lg-1 col-xs-1 column" ><input id="activecheck" name="activeseeker" type="checkbox" <%= @userprofile.activeseeker.to_s == "true" ? "checked" : "unchecked" %> ><i></i></label>
 
                   <div id="saving"> </div> 
                 </div>
