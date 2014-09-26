@@ -377,8 +377,13 @@ end
 
   post '/updatespr' do
     userdata = User.get(params["pk"])
+    
+    if params["singaporepr"]
+      ntype=2
+    else ntype=1  #temporary put as 1. No significance at this stage
+    end
     type=userdata.tme_skr_nation.get(1) # Temporary set to get(1). Only focus on SPR for first version
-    type.update(:skr_nation_type => params['skr_nation_type'])
+    type.update(:skr_nation_type => ntype)
     return 200
   end
 
