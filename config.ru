@@ -387,6 +387,15 @@ end
     return 200
   end
 
+  post '/updatenationality' do
+    userdata = User.get(params["pk"])
+
+    nation=userdata.tme_skr_nation.get(1) # Temporary set to get(1). Only focus on SPR for first version
+    nation.update(:skr_nation => params["nationality"])
+    return 200
+  end
+
+
   post '/updateactive' do
     userdata = User.get(params["pk"])
     userdata.update(:activeseeker => params['activeseeker'])
