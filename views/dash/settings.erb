@@ -79,8 +79,8 @@ else{e.value="no";location.reload();}
         <li class="active"><a data-toggle="tab" href="#t1"><i class="green icon-home bigger-110"></i>Home</a></li>     
         <li><a data-toggle="tab" href="#t3">Job Preferences</a></li> 
         <li><a data-toggle="tab" href="#t6">Preferred Travel Frequency</a></li>  
-        <li><a data-toggle="tab" href="#skilltab">Skills</a></li>    
-        <li><a data-toggle="tab" href="#languagetab">Languages</a></li>  
+        <li><a data-toggle="tab" href="#skilltab">My Skills</a></li>    
+        <li><a data-toggle="tab" href="#languagetab">My Languages</a></li>  
         <li><a data-toggle="tab" href="#t7">Upload CV</a> </li>                   
       </ul>
        <div class="tab-content">
@@ -151,7 +151,7 @@ else{e.value="no";location.reload();}
           <div class="row">
                   <h4 style="margin-left: 15px;" class="header smaller lighter blue">Other Parameters <small>(Select all applicable)</small> </h4>
               <div>
-                <div class="col-md-12 col-lg-12 col-xs-12 column"> 
+                <div class="col-md-12 col-lg-4 col-xs-12 column"> 
                   <div class="row orb-form">
                         <div class="inputlabel col-md-3 col-lg-2 col-xs-11 column">Full Time</div> 
                         <label style="position: relative; left: -60px;" class="toggle col-md-1 col-lg-1 col-xs-1 column"><input id="fulltimecheck" name="fulltime"  type="checkbox" <%= @userprofile.fulltime.to_s == "true" ? "checked" : "unchecked" %> ><i></i></label> 
@@ -163,7 +163,7 @@ else{e.value="no";location.reload();}
                     <div class="col col-1"> <div id="saving_parttime"></div></div>  
                   </div> 
                 </div>
-                  <div class="col-md-12 col-lg-12 col-xs-12 column"> 
+                  <div class="col-md-12 col-lg-4 col-xs-12 column"> 
                     <div class="row orb-form">
                       <div class="inputlabel col-md-3 col-lg-2 col-xs-11 column">Shift Work</div> 
                         <label style="position: relative; left: -60px;" class="toggle col-md-1 col-lg-1 col-xs-1 column"><input id="shiftworkcheck" name="shiftwork" type="checkbox" <%= @userprofile.shiftwork.to_s == "true" ? "checked" : "unchecked" %> ><i></i></label>
@@ -175,7 +175,7 @@ else{e.value="no";location.reload();}
                       </div>
                       <div class="col col-1"> <div id="saving_out"></div></div> 
                   </div>
-                  <div class="col-md-4 col-lg-1 col-xs-11 column column"> 
+                  <div class="col-md-12 col-lg-4 col-xs-12 column"> 
                     <div class="row orb-form ">
                         <div class="inputlabel col-md-3 col-lg-2 col-xs-11 column">Internship</div> 
                           <label style="position: relative; left: -60px;" class="toggle col-md-1 col-lg-1 col-xs-1 column"><input id="interncheck" name="skr_intern"  type="checkbox" <%= @userprofile.skr_intern.to_s == "true" ? "checked" : "unchecked" %> ><i></i></label> 
