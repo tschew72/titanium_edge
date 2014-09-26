@@ -208,10 +208,10 @@ else{e.value="no";location.reload();}
          <div class="inputlabel col-md-3 col-lg-3 col-xs-9 column">Preferred Travel Frequency</div>  
           <div id="preffreq">
 
-            <input type="radio" onclick="freqcheck(this)" name="freqcheck" value="25"> 25%
-            <input type="radio" onclick="freqcheck(this)" name="freqcheck" value="50"> 50%
-            <input type="radio" onclick="freqcheck(this)" name="freqcheck" value="75"> 75%
-            <input type="radio" onclick="freqcheck(this)" name="freqcheck" value="100"> 100%
+            <input id="f1" type="radio" onclick="freqcheck(this)"value="25"> 25%
+            <input id="f2" type="radio" onclick="freqcheck(this)"  value="50"> 50%
+            <input id="f3" type="radio" onclick="freqcheck(this)"  value="75"> 75%
+            <input id="f4" type="radio" onclick="freqcheck(this)"  value="100"> 100%
           </div>
 
         </div>
@@ -439,7 +439,18 @@ else{e.value="no";location.reload();}
                 document.getElementById( 'insg_block' ).style.visibility = 'hidden';
               } ;
 
-              //$('#freqcheck').attr('check', "checked");
+              if (<%= @userprofile.travelfreq %> ==25){
+                $('#f1').attr('check', "checked");
+               }
+              if (<%= @userprofile.travelfreq %> ==50){
+                $('#f1').attr('check', "checked");
+               }
+              if (<%= @userprofile.travelfreq %> ==75){
+                $('#f1').attr('check', "checked");
+               }
+              if (<%= @userprofile.travelfreq %> ==100){
+                $('#f1').attr('check', "checked");
+               }
 
               $("#st").load("/table",{i: new Date().getTime()});   //putting the current time as a parameter to overcome IE issue
               $("#lt").load("/langtable",{i: new Date().getTime()});  
