@@ -152,14 +152,10 @@ else{e.value="no";location.reload();}
                   <h4 style="margin-left: 15px;" class="header smaller lighter blue">Other Parameters <small>(Select all applicable)</small> </h4>
               <div>
                 <div class="col-md-12 col-lg-12 col-xs-12 column"> 
-                  <div class="orb-form">
-                    <div class="row">
+                  <div class="row orb-form">
                         <div class="inputlabel col-md-3 col-lg-2 col-xs-11 column">Full Time</div> 
-                    </div>
-                    <div class="row">
                         <label style="position: relative; left: -60px;" class="toggle col-md-1 col-lg-1 col-xs-1 column"><input id="fulltimecheck" name="fulltime"  type="checkbox" <%= @userprofile.fulltime.to_s == "true" ? "checked" : "unchecked" %> ><i></i></label> 
                       <div style="float:left;" id="saving_fulltime" class="col col-1"></div>
-                    </div>
                   </div>
                   <div class="row orb-form">
                     <div class="inputlabel col-md-3 col-lg-2 col-xs-11 column">Part Time</div> 
