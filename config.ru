@@ -392,7 +392,7 @@ end
 
     nation=userdata.tme_skr_nation.get(1)
     answer = params["nationality"]
-    nation.update(:skr_nation => answer.to_i)
+    nation.update(:skr_nation => answer)
     return 200
   end
 
