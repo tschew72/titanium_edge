@@ -385,9 +385,9 @@ end
 
   post '/updatenationality' do
     userdata = User.get(params["pk"])
+    mynations=@userprofile.tme_skr_nation.first(:user_id=>@userprofile.id)
 
-    nation=userdata.tme_skr_nation.get(1)
-    nation.update(:skr_nation => params["value"])
+    mynations.update(:skr_nation => params["value"])
     return 200
   end
 
