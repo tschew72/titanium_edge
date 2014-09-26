@@ -395,8 +395,11 @@ end
 
   post '/updateactive' do
     userdata = User.get(params["pk"])
+   mynations=userdata.tme_skr_nation.first(:user_id=>@userprofile.id).skr_nation
+   mynationtypes=userdata.tme_skr_nation.first(:user_id=>@userprofile.id).skr_nation_type
+
     userdata.update(:activeseeker => params['activeseeker'])
-    { :active => userdata.activeseeker, :insingaporenow => userdata.insingaporenow, :singaporepr =>userdata.tme_skr_nation.get(1).skr_nation_type}.to_json
+    { :active => userdata.activeseeker, :insingaporenow => userdata.insingaporenow, :singaporepr => mynationtypes}.to_json
   end
 
   post '/updateinsgnow' do
