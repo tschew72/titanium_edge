@@ -390,7 +390,7 @@ end
   post '/updatenationality' do
     userdata = User.get(params["pk"])
 
-    nation=userdata.tme_skr_nation.get(1) # Temporary set to get(1). Only focus on SPR for first version
+    nation=userdata.tme_skr_nation.get(1)
     answer = params["nationality"]
     nation.update(:skr_nation => answer)
     return 200
