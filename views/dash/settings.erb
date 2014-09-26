@@ -1029,7 +1029,7 @@ else{e.value="no";location.reload();}
           $.ajax({
             url: '/updatetravelfreq',
             type: 'POST',
-            data: {"travelfreq": this.value, "pk" : <%=@userprofile.id %>},
+            data: {"travelfreq": myRadio.value, "pk" : <%=@userprofile.id %>},
             beforeSend : function(){
               $("#saving_freq").html("<div id='saver_fulltime'><i class='fa fa-spinner fa-spin'></i></div>");
             }, 
