@@ -88,9 +88,23 @@ else{e.value="no";location.reload();}
       </ul>
        <div class="tab-content">
           <div id="t1" class="tab-pane in active">
+
+            <div class="row">
+
+                <div class="col-md-1 column">  
+                   My Career Goal:
+                </div>
+                <div class="inputtext col-md-2 column">  
+                   <a class="editable-click" href="javascript:void(0)"  id="skr_careergoal" data-type="text" data-pk="<%=@userprofile.id %>" data-url="/updateprofile" data-title="Enter mobile number"><%= @userprofile.skr_careergoal %> </a> 
+                </div>
+                
+            </div>
+
             <div class="row">  
               <div class="orb-form">
                 <div class="form-group">
+
+
                   <div class="col col-2 ">
                       <label class="toggle" ><input id="activecheck" name="activeseeker" type="checkbox" <%= @userprofile.activeseeker.to_s == "true" ? "checked" : "unchecked" %> ><i></i>Activate Job Search</label>
                   </div>
@@ -98,6 +112,7 @@ else{e.value="no";location.reload();}
                 </div>
               </div>
             </div>
+
             
             <div id="spr_block" style="visibility: hidden">  
 
@@ -488,6 +503,7 @@ else{e.value="no";location.reload();}
             });
         });
 
+      $('#skr_careergoal').editable();
 
       $('#skilltable').editable({
         selector: 'a.skillrank',
