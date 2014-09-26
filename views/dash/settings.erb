@@ -100,8 +100,8 @@ else{e.value="no";location.reload();}
               <div class="orb-form">
                 <div class="form-group">
 
-                  <div class="inputlabel col-md-3 col-lg-2 col-xs-5 column">Activate Job Search</div> 
-                      <label class="toggle col-md-1 col-lg-1 col-xs-1 column" ><input id="activecheck" name="activeseeker" type="checkbox" <%= @userprofile.activeseeker.to_s == "true" ? "checked" : "unchecked" %> ><i></i></label>
+                  <div class="inputlabel col-md-2 col-lg-1 col-xs-5 column">Activate Job Search</div> 
+                      <label style="position: relative; left: -120px;" class="toggle col-md-1 col-lg-1 col-xs-1 column" ><input id="activecheck" name="activeseeker" type="checkbox" <%= @userprofile.activeseeker.to_s == "true" ? "checked" : "unchecked" %> ><i></i></label>
 
                   <div id="saving"> </div> 
                 </div>
@@ -113,8 +113,8 @@ else{e.value="no";location.reload();}
 
                 <div class="orb-form">
                   <div class="row">  
-                      <div class="inputlabel col-md-3 col-lg-2 col-xs-5 column">on these dates </div> 
-                        <label class="toggle"><input id="insgcheck" name="insingaporenow" type="checkbox" <%= @userprofile.insingaporenow.to_s == "true" ? "checked" : "unchecked" %>><i></i>I am in Singapore</label> <span id="saving1"> </span>
+                      <div class="inputlabel col-md-3 col-lg-1 col-xs-5 column">I am in Singapore</div> 
+                        <label style="position: relative; left: -120px;" class="toggle col-md-1 col-lg-1 col-xs-1 column"><input id="insgcheck" name="insingaporenow" type="checkbox" <%= @userprofile.insingaporenow.to_s == "true" ? "checked" : "unchecked" %>><i></i></label> <span id="saving1"> </span>
 
                   
                   <div id="insg_block" style="visibility: hidden">
