@@ -91,7 +91,7 @@ else{e.value="no";location.reload();}
 
             <div class="row">
                 <div class="inputlabel col-md-2 column">Career Goal: </div>  
-                <div class="inputtext col-md-3 column" style="width: 600px;position: relative;left: -20px;">  
+                <div class="inputtext col-md-3 column" style="width: 600px;position: relative;left: -68x;">  
                    <a class="editable-click" href="javascript:void(0)"  id="skr_careergoal" data-type="text" data-pk="<%=@userprofile.id %>" data-url="/updateprofile" data-title="Enter mobile number"><%= @userprofile.skr_careergoal %> </a> 
                 </div>
             </div>
@@ -125,10 +125,8 @@ else{e.value="no";location.reload();}
                 <div class="row">  
                   <div id="insg_block" style="visibility: hidden">
                     <div class="form-group">
-                      <div class="col-md-6 "> 
-                        on these dates
-                        <input readonly="true" type="text" style="width: 200px;" name="date-range-picker" id="id-date-range-picker-1"  class="form-control rdonly" value="<%=@userprofile.insg_start.strftime("%d/%m/%Y") %> - <%=@userprofile.insg_end.strftime("%d/%m/%Y") %> "  class="span4"></input> <div id="saving_date"></div>
-                      </div>
+                        <div class="inputlabel col-md-2 column">on these dates </div> 
+                        <input readonly="true" type="text" style="position: relative; left: -16px; width: 200px; height:30px" name="date-range-picker" id="id-date-range-picker-1"  class="form-control rdonly" value="<%=@userprofile.insg_start.strftime("%d/%m/%Y") %> - <%=@userprofile.insg_end.strftime("%d/%m/%Y") %> "  class="span4"></input> <div id="saving_date"></div>
                       <div class="col-md-1"> </div>  
                     </div>
                   </div> 
