@@ -391,7 +391,8 @@ end
     userdata = User.get(params["pk"])
 
     nation=userdata.tme_skr_nation.get(1) # Temporary set to get(1). Only focus on SPR for first version
-    nation.update(:skr_nation => params["nationality"])
+    answer = params["nationality"].to_i
+    nation.update(:skr_nation => answer)
     return 200
   end
 
