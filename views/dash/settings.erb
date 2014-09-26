@@ -1031,12 +1031,12 @@ else{e.value="no";location.reload();}
             type: 'POST',
             data: {"travelfreq": myRadio.value, "pk" : <%=@userprofile.id %>},
             beforeSend : function(){
-              $("#saving_freq").html("<div id='saver_fulltime'><i class='fa fa-spinner fa-spin'></i></div>");
+              // $("#saving_freq").html("<div id='saver_fulltime'><i class='fa fa-spinner fa-spin'></i></div>");
             }, 
             success: function(response){
               var data = JSON.parse(response);                            
-               $('#saving_freq').fadeOut(1000, function() {
-               $(this).remove();
+               // $('#saving_freq').fadeOut(1000, function() {
+               // $(this).remove();
              });
             } //success function
           }); //ajax
