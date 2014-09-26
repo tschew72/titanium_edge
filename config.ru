@@ -391,8 +391,7 @@ end
     userdata = User.get(params["pk"])
 
     nation=userdata.tme_skr_nation.get(1)
-    answer = params["nationality"]
-    nation.update(:skr_nation => answer)
+    nation.update(:skr_nation => params["value"])
     return 200
   end
 
