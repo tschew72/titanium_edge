@@ -425,7 +425,7 @@ end
 
   post '/updatecontractor' do
     userdata = User.get(params["pk"])
-    userdata.update(:contractor => params['skr_contractor'])
+    userdata.update(:skr_contractor => params['skr_contractor'])
     {:status => 200, :skr_contractor=>userdata.skr_contractor}.to_json
   end
 
