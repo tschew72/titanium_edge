@@ -90,8 +90,8 @@ else{e.value="no";location.reload();}
           <div id="t1" class="tab-pane in active">
 
             <div class="row">
-                <div class="inputlabel col-md-2 column">Career Goal: </div>  
-                <div class="inputtext col-md-3 column" style="width: 600px; max-width:50%; position: relative;left: -68px;">  
+                <div class="inputlabel col-md-2 column">My Career Goal: </div>  
+                <div class="inputtext col-md-3 column" style="width: 600px; max-width:90%; position: relative;left: -68px;">  
                    <a class="editable-click" href="javascript:void(0)"  id="skr_careergoal" data-type="text" data-pk="<%=@userprofile.id %>" data-url="/updateprofile" data-title="Enter mobile number"><%= @userprofile.skr_careergoal %> </a> 
                 </div>
             </div>
@@ -100,7 +100,7 @@ else{e.value="no";location.reload();}
               <div class="orb-form">
                 <div class="form-group">
 
-                  <div class="inputlabel col-md-2 col-lg-1 col-xs-5 column">Activate Job Search</div> 
+                  <div class="inputlabel col-md-2 col-lg-1 col-xs-9 column">Activate Job Search</div> 
                       <label style="position: relative; left: -120px;" class="toggle col-md-1 col-lg-1 col-xs-1 column" ><input id="activecheck" name="activeseeker" type="checkbox" <%= @userprofile.activeseeker.to_s == "true" ? "checked" : "unchecked" %> ><i></i></label>
 
                   <div id="saving"> </div> 
@@ -113,12 +113,12 @@ else{e.value="no";location.reload();}
 
                 <div class="orb-form">
                   <div class="row">  
-                      <div class="inputlabel col-md-2 col-lg-1 col-xs-5 column">I am in Singapore</div> 
+                      <div class="inputlabel col-md-2 col-lg-1 col-xs-11 column">I am in Singapore</div> 
                         <label style="position: relative; left: -120px;" class="toggle col-md-1 col-lg-1 col-xs-1 column"><input id="insgcheck" name="insingaporenow" type="checkbox" <%= @userprofile.insingaporenow.to_s == "true" ? "checked" : "unchecked" %>><i></i></label> <span id="saving1"> </span>
 
                   
                   <div id="insg_block" style="visibility: hidden">
-                        <div class="inputlabel col-md-3 col-lg-2 col-xs-5 column" style="position: relative; left: -70px;">on these dates </div> 
+                        <div class="inputlabel col-md-3 col-lg-2 col-xs-10 column" style="position: relative; left: -70px;">on these dates </div> 
                         <input readonly="true" type="text" style="position: relative; left: -200px; width: 150px; height:10px" name="date-range-picker" id="id-date-range-picker-1"  class="form-control rdonly" value="<%=@userprofile.insg_start.strftime("%d/%m/%Y") %> - <%=@userprofile.insg_end.strftime("%d/%m/%Y") %> "  class="span4"></input> <div id="saving_date"></div>
                   </div> 
                 </div>   <!-- row -->
