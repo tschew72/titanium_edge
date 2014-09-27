@@ -514,7 +514,9 @@ end
       #{:responsemsg => "New skill added!" }.to_json
       if params["skillid"] == 0
         {:errors => "All fields required!!" }.to_json
-        end
+      else
+        newskill = SkillSummary.first_or_create({:skillid => params["skillid"],:user_id => userprofile.id}).update(:skillrank => params["skillrank"], :user_id => userprofile.id, :status =>2)  #If similar skillID detected, just update it with new set of data.
+      end
   end
 
   post '/newlanguage' do
