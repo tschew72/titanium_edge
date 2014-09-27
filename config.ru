@@ -10,7 +10,7 @@ class SinatraWardenExample < Sinatra::Application
 
 #use Rack::Session::Pool, :expire_after => 2592000
  #use Rack::Session::Cookie, :expire_after => 14400
- use Rack::Session::Cookie, :key => 'rack.session', :expire_after => 7*24*60*60
+ use Rack::Session::Cookie, :key => 'rack.session', :expire_after => 365*24*60*60
  
 
 
