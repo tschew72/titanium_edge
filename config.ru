@@ -508,7 +508,7 @@ end
 
   post '/newskill' do
     userprofile = env['warden'].user
-    params["skillid"]
+    params["skillid"].present?
     #if params["skillid"] == nil
       #{"errors": {"Skill ID": "This is a required field"} .to_json
     #else
