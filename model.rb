@@ -378,6 +378,9 @@ class SkillSummary
   property :status, Integer, :default  => 2,:index => true, :field => 'skr_skillstatus'     #0=delete, 1=edited, 2=active
   property :updated_at, DateTime, :field => 'skr_skillmod'               #When was it last edited
 
+  validates_presence_of :skillid
+  validates_presence_of :skillrank
+
 
   belongs_to :user 
 end
