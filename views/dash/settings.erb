@@ -746,7 +746,7 @@ else{e.value="no";location.reload();}
                   if(data && data.errors){
                        //server-side validation error, response like {"errors": {"username": "username already exist"} }
                        //config.error.call(this, data.errors);
-                       newAlert("#alert_placeholder-inmodal",'danger', "All fields needed here");
+                       newAlert("#alert_placeholder-inmodal",'danger', data.errors);
                  }   else{
 
                       newAlert("#alert_placeholder-inmodal",'success', data.responsemsg);
