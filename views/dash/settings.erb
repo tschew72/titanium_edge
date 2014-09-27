@@ -116,6 +116,95 @@ else{e.value="no";location.reload();}
                 </div>   <!-- row -->
                 </div>   <!-- orb-form--> 
             </div> <!-- <div id="spr_block" style="visibility: hidden">    -->
+            <div class="row">
+                  <div class="col-sm-6">
+                      Your current CV in our file: <span id="CVsection"> <a href=<%= @userprofile.cvurl %> >HERE</a></span>
+                      <br><br>
+                      <script src='/vendor/jqueryfileupload/js/vendor/jquery.ui.widget.js' type='text/javascript'></script>
+                        <script src='/vendor/jqueryfileupload/js/jquery.iframe-transport.js' type='text/javascript'></script>
+                        <script src='/vendor/jqueryfileupload/js/jquery.fileupload.js' type='text/javascript'></script>
+                        <script src='/vendor/jqueryfileupload/js/jquery.fileupload-process.js' type='text/javascript'></script>
+                        <script src='/vendor/jqueryfileupload/js/jquery.fileupload-validate.js' type='text/javascript'></script>
+                        <script src='/vendor/cloudinary/jquery.cloudinary.js' type='text/javascript'></script>
+                        <script type="text/javascript">
+                            $.cloudinary.config({cloud_name:'dashy', api_key:'219441847515364'});
+                        </script> 
+
+                          <span class="btn btn-success fileinput-button">
+                          <i class="glyphicon glyphicon-plus"></i>
+                              <span>Upload CV</span>
+                          <!-- <input name="file" type="file" id="fileupload" class="cloudinary-fileupload" data-cloudinary-field="image_upload" data-form-data=""> -->
+                          <input name="file" type="file" id="fileupload" class="cloudinary-fileupload" data-cloudinary-field="image_upload" ></span>
+                        <span style="visibility:hidden" class="progress"> Uploading in progress</span>
+                        <script type="text/javascript">
+                              $(function(){
+                                  // var opts=<%= @cloudinaryjson %>;
+                                  
+                              $('#fileupload').fileupload({
+                                              add: function (e, data) {
+                                                  $.getJSON('/filer_cv', function (result) {
+                                                      data.formData = result; // e.g. {id: 123}
+                                                      data.submit();
+                                                  }).fail( function(d, textStatus, error) {
+                                                      console.error("Error! Please contact helpdesk. Status: " + textStatus + ", error: "+error)
+                                                  });
+                                              },
+                                              url: "https://api.cloudinary.com/v1_1/dashy/upload",
+                                              acceptFileTypes: /(\.|\/)(doc|docx|pdf|txt)$/i,
+                                              // The maximum allowed file size in bytes:
+                                              maxFileSize: 10000000, // 10 MB
+                                              // The minimum allowed file size in bytes:
+                                              minFileSize: 1, // No minimal file size
+                                              // The limit of files to be uploaded:
+                                              maxNumberOfFiles: 10
+                                            }).on('fileuploadfail', function (e, data) {
+                                              var currentFile = data.files[data.index];
+                                              alert("Error! Please contact helpdesk")
+                                              if (data.files.error && currentFile.error) {
+                                                // there was an error, do something about it
+                                                // newAlert("#alert_placeholder-tab",'danger', currentFile.error);
+                                              
+                                              }
+                                              });
+
+                                });
+
+                            $('.cloudinary-fileupload').bind('cloudinarydone', function(e, data) {  
+                   
+                                     $.ajax({
+                                          url: '/cvuploaded',
+                                          type: 'POST',
+                                          data: {"cvurl": data.result.url, "pk" : <%=@userprofile.id %>},
+                                          success: function(response){
+                                            tt = "<a href=".concat(data.result.url,">>HERE</a>");
+                                            $('#CVsection').html(tt); 
+                                           // newAlert("#alert_placeholder-tab", 'success', "File uploaded successfully!");
+                                             
+                                          }
+                                     }); //ajax
+                                     return true;
+                            }); //cloudinary done
+
+                             $('.cloudinary-fileupload').bind('fileuploadprogress', function(e, data) {
+                                $('.progress').attr({
+                                    style : "visibility:show",
+                                });
+                                // $('.status_value').text('Uploading...');
+                            });
+                             $('.cloudinary-fileupload').bind('fileuploadstop', function(e, data) {
+                                $('.progress').attr({
+                                    style : "visibility:hidden",
+                                });
+                                
+                            });
+
+                             $('.cloudinary-fileupload').bind('fileuploadfail', function(e, data) {
+                                alert("You have been inactive on this page for a while. Please refresh this page before uploading your photo");
+                                
+                            });
+                        </script> 
+                    </div>
+                   </div> <!--upload row-->
           </div> <!-- tab -->
         <div id="t3" class="tab-pane">    
           <div class="row"> 
@@ -248,95 +337,7 @@ else{e.value="no";location.reload();}
         </div> <!-- languagetab -->
 
         <div id="t7" class="tab-pane">
-                 <div class="row">
-                  <div class="col-sm-6">
-                      Your current CV in our file: <span id="CVsection"> <a href=<%= @userprofile.cvurl %> >HERE</a></span>
-                      <br><br>
-                      <script src='/vendor/jqueryfileupload/js/vendor/jquery.ui.widget.js' type='text/javascript'></script>
-                        <script src='/vendor/jqueryfileupload/js/jquery.iframe-transport.js' type='text/javascript'></script>
-                        <script src='/vendor/jqueryfileupload/js/jquery.fileupload.js' type='text/javascript'></script>
-                        <script src='/vendor/jqueryfileupload/js/jquery.fileupload-process.js' type='text/javascript'></script>
-                        <script src='/vendor/jqueryfileupload/js/jquery.fileupload-validate.js' type='text/javascript'></script>
-                        <script src='/vendor/cloudinary/jquery.cloudinary.js' type='text/javascript'></script>
-                        <script type="text/javascript">
-                            $.cloudinary.config({cloud_name:'dashy', api_key:'219441847515364'});
-                        </script> 
-
-                          <span class="btn btn-success fileinput-button">
-                          <i class="glyphicon glyphicon-plus"></i>
-                              <span>Upload CV</span>
-                          <!-- <input name="file" type="file" id="fileupload" class="cloudinary-fileupload" data-cloudinary-field="image_upload" data-form-data=""> -->
-                          <input name="file" type="file" id="fileupload" class="cloudinary-fileupload" data-cloudinary-field="image_upload" ></span>
-                        <span style="visibility:hidden" class="progress"> Uploading in progress</span>
-                        <script type="text/javascript">
-                              $(function(){
-                                  // var opts=<%= @cloudinaryjson %>;
-                                  
-                              $('#fileupload').fileupload({
-                                              add: function (e, data) {
-                                                  $.getJSON('/filer_cv', function (result) {
-                                                      data.formData = result; // e.g. {id: 123}
-                                                      data.submit();
-                                                  }).fail( function(d, textStatus, error) {
-                                                      console.error("Error! Please contact helpdesk. Status: " + textStatus + ", error: "+error)
-                                                  });
-                                              },
-                                              url: "https://api.cloudinary.com/v1_1/dashy/upload",
-                                              acceptFileTypes: /(\.|\/)(doc|docx|pdf|txt)$/i,
-                                              // The maximum allowed file size in bytes:
-                                              maxFileSize: 10000000, // 10 MB
-                                              // The minimum allowed file size in bytes:
-                                              minFileSize: 1, // No minimal file size
-                                              // The limit of files to be uploaded:
-                                              maxNumberOfFiles: 10
-                                            }).on('fileuploadfail', function (e, data) {
-                                              var currentFile = data.files[data.index];
-                                              alert("Error! Please contact helpdesk")
-                                              if (data.files.error && currentFile.error) {
-                                                // there was an error, do something about it
-                                                // newAlert("#alert_placeholder-tab",'danger', currentFile.error);
-                                              
-                                              }
-                                              });
-
-                                });
-
-                            $('.cloudinary-fileupload').bind('cloudinarydone', function(e, data) {  
-                   
-                                     $.ajax({
-                                          url: '/cvuploaded',
-                                          type: 'POST',
-                                          data: {"cvurl": data.result.url, "pk" : <%=@userprofile.id %>},
-                                          success: function(response){
-                                            tt = "<a href=".concat(data.result.url,">>HERE</a>");
-                                            $('#CVsection').html(tt); 
-                                           // newAlert("#alert_placeholder-tab", 'success', "File uploaded successfully!");
-                                             
-                                          }
-                                     }); //ajax
-                                     return true;
-                            }); //cloudinary done
-
-                             $('.cloudinary-fileupload').bind('fileuploadprogress', function(e, data) {
-                                $('.progress').attr({
-                                    style : "visibility:show",
-                                });
-                                // $('.status_value').text('Uploading...');
-                            });
-                             $('.cloudinary-fileupload').bind('fileuploadstop', function(e, data) {
-                                $('.progress').attr({
-                                    style : "visibility:hidden",
-                                });
-                                
-                            });
-
-                             $('.cloudinary-fileupload').bind('fileuploadfail', function(e, data) {
-                                alert("You have been inactive on this page for a while. Please refresh this page before uploading your photo");
-                                
-                            });
-                        </script> 
-                    </div>
-                   </div> <!--upload row-->
+                 
         </div>   <!-- t7 -->    
       </div> <!-- <div class="tab-content">-->    
     </div> <!-- <div class="col-md-12 bootstrap-grid"> -->
