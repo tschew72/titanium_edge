@@ -787,7 +787,7 @@ ul.days li span {
 .modal {
 	overflow: hidden;
 	overflow-y: hidden;
-	z-index: 9999;
+	z-index: 999999;
 }
 .modal-content {
 	position: relative;
