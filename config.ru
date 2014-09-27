@@ -141,7 +141,7 @@ get '/mycv' do
        @alledu =   @userprofile.tme_skr_edu.all
        @alljobs = @userprofile.tme_skr_emp.all
        @ssmaster = SkillSource  #master skill source for cross referencing
-
+       @mynations=@userprofile.tme_skr_nation.first(:user_id=>@userprofile.id).skr_nation
        erb :mycv, :layout => :'main/layout2'
 end
 
