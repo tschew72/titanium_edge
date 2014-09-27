@@ -508,7 +508,7 @@ end
 
   post '/newskill' do
     userprofile = env['warden'].user
-    if params["skillid"].empty?
+    if params[:skillid].empty?
       {"errors": {"Skill ID": "This is a required field"} .to_json
     else
       newskill = SkillSummary.first_or_create({:skillid => params["skillid"],:user_id => userprofile.id}).update(:skillrank => params["skillrank"], :user_id => userprofile.id, :status =>2)  #If similar skillID detected, just update it with new set of data.
