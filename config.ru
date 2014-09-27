@@ -708,11 +708,6 @@ end
       return 200
  end
 
- post '/cvuploaded' do
-      userdata = User.get(params["pk"])
-      userdata.update(:cvurl => params['cvurl'])
-      return 200
- end
 
   post '/updatefacebook' do
     userprofile = env['warden'].user
