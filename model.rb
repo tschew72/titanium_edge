@@ -371,11 +371,14 @@ class SkillSummary
   storage_names[repository = :default] = 'tme_skr_skill'
   property :id, Serial , key: true, :index => true, :field => 'skr_skill_id'
   property :user_id, Integer, :index => true, :field => 'skr_id'
-  property :skillid, Integer, :index => true, :field => 'skr_skill',:required => true  
-  property :skillrank, Integer, :index => true, :field => 'skr_skillrank',:required => true  
+  property :skillid, Integer, :index => true, :field => 'skr_skill'
+  property :skillrank, Integer, :index => true, :field => 'skr_skillrank'
   # property :skillcatid, Integer, :index => true #to be removed
   property :status, Integer, :default  => 2,:index => true, :field => 'skr_skillstatus'     #0=delete, 1=edited, 2=active
   property :updated_at, DateTime, :field => 'skr_skillmod'               #When was it last edited
+
+  validates_presence_of :skillid
+  validates_presence_of :skillrank
 
   belongs_to :user 
 end
