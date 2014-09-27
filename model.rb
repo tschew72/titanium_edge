@@ -506,7 +506,6 @@ class TmeSkrNation
   property :skr_nation, Integer, :index => true 
   property :skr_nation_type, Integer, :index => true #1 Citizen, 2 PR 3 PEP 4 SPASS 5 WP
 
-
   belongs_to :user 
 end
 
