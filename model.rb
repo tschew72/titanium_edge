@@ -3,6 +3,7 @@ require 'data_mapper'
 #require 'dm-mysql-adapter'
 require 'dm-postgres-adapter'
 require 'bcrypt'
+require 'dm-validations'
 
 # DataMapper.setup(:default, "sqlite://#{Dir.pwd}/db.sqlite")
 #DataMapper.setup(:default, "mysql://root:itjobstreet@localhost/seekerdashdb")
@@ -371,8 +372,8 @@ class SkillSummary
   storage_names[repository = :default] = 'tme_skr_skill'
   property :id, Serial , key: true, :index => true, :field => 'skr_skill_id'
   property :user_id, Integer, :index => true, :field => 'skr_id'
-  property :skillid, Integer, :index => true, :field => 'skr_skill'
-  property :skillrank, Integer, :index => true, :field => 'skr_skillrank'
+  property :skillid, Integer, :required => true, :index => true, :field => 'skr_skill'
+  property :skillrank, Integer, :required => true,  :index => true, :field => 'skr_skillrank'
   # property :skillcatid, Integer, :index => true #to be removed
   property :status, Integer, :default  => 2,:index => true, :field => 'skr_skillstatus'     #0=delete, 1=edited, 2=active
   property :updated_at, DateTime, :field => 'skr_skillmod'               #When was it last edited
