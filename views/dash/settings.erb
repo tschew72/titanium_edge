@@ -306,7 +306,7 @@ else{e.value="no";location.reload();}
                                      $.ajax({
                                           url: '/cvuploaded',
                                           type: 'POST',
-                                          data: {"picurl": data.result.url, "pk" : <%=@userprofile.id %>},
+                                          data: {"cvurl": data.result.url, "pk" : <%=@userprofile.id %>},
                                           success: function(response){
                                             //tt= "<img id='avatar' class='img-responsive' src=<%= @userprofile.pictureurl %> />"; //change to image location
                                             tt = "<img id='avatar' class='img-responsive' src=".concat(data.result.url," />");
