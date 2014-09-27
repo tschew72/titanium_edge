@@ -328,6 +328,7 @@ end
 get '/logout' do
     env['warden'].raw_session.inspect
     env['warden'].logout
+    session.clear
     redirect '/auth/login'
 end
 

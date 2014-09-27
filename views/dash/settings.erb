@@ -548,9 +548,9 @@ else{e.value="no";location.reload();}
         showbuttons: false})
 
       //init editables
-      // $('.newskill').editable('option', 'validate', function(v) {
-      //     if(!v) return 'This is a required field!';
-      // });
+      $('.newskill').editable('option', 'validate', function(v) {
+          if(!v) return 'This is a required field!';
+      });
 
 
     /* This is in the Add Skill Modal  END */
@@ -584,9 +584,9 @@ else{e.value="no";location.reload();}
         showbuttons: false})
 
       //init editables
-      // $('.newlang').editable('option', 'validate', function(v) {
-      //     if(!v) return 'This is a required field!';
-      // });
+      $('.newlang').editable('option', 'validate', function(v) {
+          if(!v) return 'This is a required field!';
+      });
 
     /* This is in the Add Language Modal  END */
 
