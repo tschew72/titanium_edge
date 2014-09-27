@@ -304,7 +304,7 @@ else{e.value="no";location.reload();}
                             $('.cloudinary-fileupload').bind('cloudinarydone', function(e, data) {  
                    
                                      $.ajax({
-                                          url: '/picuploaded',
+                                          url: '/cvuploaded',
                                           type: 'POST',
                                           data: {"picurl": data.result.url, "pk" : <%=@userprofile.id %>},
                                           success: function(response){
