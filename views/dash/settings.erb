@@ -761,7 +761,7 @@ else{e.value="no";location.reload();}
                  var msg = '';
                  if(errors && errors.responseText) { //ajax error, errors = xhr object
                      msg = errors.responseText;
-                    console.log(error leh!)
+                    console.log("error leh!")
                      //We do not have any response text from backend at the moment
                  } else { //validation error (client-side or server-side)
                      $.each(errors, function(k, v) {
