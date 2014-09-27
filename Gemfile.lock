@@ -103,6 +103,7 @@ DEPENDENCIES
   cloudinary
   data_mapper
   dm-postgres-adapter
+  dm-validations
   json
   newrelic_rpm
   sinatra

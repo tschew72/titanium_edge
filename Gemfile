@@ -10,7 +10,7 @@ gem 'sinatra'
 gem "autoprefixer-rails"
 gem 'cloudinary'	
 gem 'newrelic_rpm'
-
+gem 'dm-validations'
 
 group :development do
 	gem 'thin'
