@@ -710,7 +710,7 @@ end
 
  post '/cvuploaded' do
       userdata = User.get(params["pk"])
-      userdata.update(:cvurl => params['picurl'])
+      userdata.update(:cvurl => params['cvurl'])
       return 200
  end
 
