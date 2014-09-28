@@ -134,7 +134,7 @@ get '/mycv' do
        redirect '/auth/login' unless env['warden'].authenticated?
        @userprofile = env['warden'].user  #This is the most important query of all. it will identify the user of this session.
        @userme = @userprofile.firstname
-       @country = TmeListCountry.all
+       @cmaster = TmeListCountry.all
        @uni = TmeListUniversity
        @degree = TmeListDegree
        @allskills =   @userprofile.skill_summaries.all(:order => [ :skillrank.desc ], :limit => 10, :status.gt =>0)
