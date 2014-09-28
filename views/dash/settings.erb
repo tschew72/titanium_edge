@@ -112,7 +112,15 @@ else{e.value="no";location.reload();}
               <div class="inputtext col-md-9 col-lg-10 col-xs-12 column" style="width: 600px; max-width:90%; position: relative;left: -77px;">  
                  <a class="editable-click" href="javascript:void(0)"  id="skr_careergoal" data-type="text" data-pk="<%=@userprofile.id %>" data-url="/updateprofile" data-title="Enter mobile number"><%= @userprofile.skr_careergoal %> </a> 
               </div>
+            </div> <!-- END Row -->
+            <div class="row">
+              <div class="inputlabel col-md-3 col-lg-2 col-xs-9 column">My Achievement #1: </div>  
+              <div class="inputlabel col-md-3 col-lg-2 col-xs-9 column">My Achievement #2: </div> 
+              <div class="inputlabel col-md-3 col-lg-2 col-xs-9 column">My Achievement #3: </div> 
+              <div class="inputlabel col-md-3 col-lg-2 col-xs-9 column">My Achievement #4: </div> 
+              <div class="inputlabel col-md-3 col-lg-2 col-xs-9 column">My Achievement #5: </div> 
             </div>
+
             <div class="row">
               <div class="col-sm-6">
                   Your current CV in our file: <span id="CVsection"> <a href=<%= @userprofile.cvurl %> >HERE</a></span>
