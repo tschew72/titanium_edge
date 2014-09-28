@@ -14,7 +14,7 @@ $.getScript("/vendor/tablescript.js");
                 </tr>
               </thead>
               <tbody id="aat" >
-                  <% @allskills.find_each do |i| %>  <!--From Skill Summary Class -->
+                  <% @allskills.each do |i| %>  <!--From Skill Summary Class -->
                   <!-- If flag is set to delete, break. and find next record -->
                   <% if @allskills.get(i).status != 0 %>
                  
