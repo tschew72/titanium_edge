@@ -66,11 +66,13 @@ else{e.value="no";location.reload();}
         </ul>
       </div>
       <!--/Breadcrumb--> 
-    <div class="page-header">
-      <h1>Preferences</h1>
-    </div>
+
+    <div class="page-header"><h1>Preferences</h1></div>
+      
+    
+    <div class="row" id="powerwidgets">
       <div class="col-md-12  bootstrap-grid">
-        <div class="powerwidget blue" id="most-form-elements" data-widget-editbutton="false">
+        <div class="powerwidget blue" data-widget-editbutton="false">
           <header>
             <h2>Basic<small>State you intention</small></h2>
           </header>
@@ -85,275 +87,257 @@ else{e.value="no";location.reload();}
             <div id="spr_block" style="visibility: hidden">  
                 <div class="orb-form">
                   <div class="row">  
-                      <div class="inputlabel col-md-2 col-lg-1 col-xs-11 column">I am in Singapore</div> 
-                        <label style="position: relative; left: -120px;" class="toggle col-md-1 col-lg-1 col-xs-1 column"><input id="insgcheck" name="insingaporenow" type="checkbox" <%= @userprofile.insingaporenow.to_s == "true" ? "checked" : "unchecked" %>><i></i></label> <span id="saving1"> </span>
-                      <div id="insg_block" style="visibility: hidden">
-                        <div class="inputlabel col-md-3 col-lg-2 col-xs-10 column" style="position: relative; left: -70px;">on these dates </div> 
-                        <input readonly="true" type="text" style="position: relative; left: -200px; width: 150px; height:10px" name="date-range-picker" id="id-date-range-picker-1"  class="form-control rdonly" value="<%=@userprofile.insg_start.strftime("%d/%m/%Y") %> - <%=@userprofile.insg_end.strftime("%d/%m/%Y") %> "  class="span4"></input> <div id="saving_date"></div>
-                      </div> 
+                    <div class="inputlabel col-md-2 col-lg-1 col-xs-11 column">I am in Singapore</div> 
+                      <label style="position: relative; left: -120px;" class="toggle col-md-1 col-lg-1 col-xs-1 column"><input id="insgcheck" name="insingaporenow" type="checkbox" <%= @userprofile.insingaporenow.to_s == "true" ? "checked" : "unchecked" %>><i></i></label> <span id="saving1"> </span>
+                    <div id="insg_block" style="visibility: hidden">
+                      <div class="inputlabel col-md-3 col-lg-2 col-xs-10 column" style="position: relative; left: -70px;">on these dates </div> 
+                      <input readonly="true" type="text" style="position: relative; left: -200px; width: 150px; height:10px" name="date-range-picker" id="id-date-range-picker-1"  class="form-control rdonly" value="<%=@userprofile.insg_start.strftime("%d/%m/%Y") %> - <%=@userprofile.insg_end.strftime("%d/%m/%Y") %> "  class="span4"></input> <div id="saving_date"></div>
+                    </div> 
                   </div>   <!-- row -->
                 </div>   <!-- orb-form--> 
             </div> <!-- <div id="spr_block" style="visibility: hidden">    -->
           </div> <!-- innerspace -->
         </div> <!-- Powerwidget -->
       </div>  <!-- col-md-12  bootstrap-grid -->
-  
-    <div class="col-md-12  bootstrap-grid">
-      <div class="powerwidget green" id="most-form-elements" data-widget-editbutton="false">
-        <header>
-          <h2>Career Detail<small></small></h2>
-        </header>
-        <div class="inner-spacer">
-          <div class="row">
-            <div class="inputlabel col-md-3 col-lg-2 col-xs-9 column">My Career Goal: </div>  
-            <div class="inputtext col-md-9 col-lg-10 col-xs-12 column" style="width: 600px; max-width:90%; position: relative;left: -77px;">  
-               <a class="editable-click" href="javascript:void(0)"  id="skr_careergoal" data-type="text" data-pk="<%=@userprofile.id %>" data-url="/updateprofile" data-title="Enter mobile number"><%= @userprofile.skr_careergoal %> </a> 
+    </div> <!-- END powerwidgets row -->
+    <div class="row" id="powerwidgets">
+      <div class="col-md-12  bootstrap-grid">
+        <div class="powerwidget blue" data-widget-editbutton="false">
+          <header>
+            <h2>Career Detail<small></small></h2>
+          </header>
+          <div class="inner-spacer">
+            <div class="row">
+              <div class="inputlabel col-md-3 col-lg-2 col-xs-9 column">My Career Goal: </div>  
+              <div class="inputtext col-md-9 col-lg-10 col-xs-12 column" style="width: 600px; max-width:90%; position: relative;left: -77px;">  
+                 <a class="editable-click" href="javascript:void(0)"  id="skr_careergoal" data-type="text" data-pk="<%=@userprofile.id %>" data-url="/updateprofile" data-title="Enter mobile number"><%= @userprofile.skr_careergoal %> </a> 
+              </div>
             </div>
-          </div>
-          <div class="row">
-            <div class="col-sm-6">
-                Your current CV in our file: <span id="CVsection"> <a href=<%= @userprofile.cvurl %> >HERE</a></span>
-                <br><br>
-                <script src='/vendor/jqueryfileupload/js/vendor/jquery.ui.widget.js' type='text/javascript'></script>
-                <script src='/vendor/jqueryfileupload/js/jquery.iframe-transport.js' type='text/javascript'></script>
-                <script src='/vendor/jqueryfileupload/js/jquery.fileupload.js' type='text/javascript'></script>
-                <script src='/vendor/jqueryfileupload/js/jquery.fileupload-process.js' type='text/javascript'></script>
-                <script src='/vendor/jqueryfileupload/js/jquery.fileupload-validate.js' type='text/javascript'></script>
-                <script src='/vendor/cloudinary/jquery.cloudinary.js' type='text/javascript'></script>
-                <script type="text/javascript">
-                    $.cloudinary.config({cloud_name:'dashy', api_key:'219441847515364'});
+            <div class="row">
+              <div class="col-sm-6">
+                  Your current CV in our file: <span id="CVsection"> <a href=<%= @userprofile.cvurl %> >HERE</a></span>
+                  <br><br>
+                  <script src='/vendor/jqueryfileupload/js/vendor/jquery.ui.widget.js' type='text/javascript'></script>
+                  <script src='/vendor/jqueryfileupload/js/jquery.iframe-transport.js' type='text/javascript'></script>
+                  <script src='/vendor/jqueryfileupload/js/jquery.fileupload.js' type='text/javascript'></script>
+                  <script src='/vendor/jqueryfileupload/js/jquery.fileupload-process.js' type='text/javascript'></script>
+                  <script src='/vendor/jqueryfileupload/js/jquery.fileupload-validate.js' type='text/javascript'></script>
+                  <script src='/vendor/cloudinary/jquery.cloudinary.js' type='text/javascript'></script>
+                  <script type="text/javascript">
+                      $.cloudinary.config({cloud_name:'dashy', api_key:'219441847515364'});
+                  </script> 
+
+                  <span class="btn btn-success fileinput-button">
+                  <i class="glyphicon glyphicon-plus"></i>
+                      <span>Upload CV</span>
+                  <!-- <input name="file" type="file" id="fileupload" class="cloudinary-fileupload" data-cloudinary-field="image_upload" data-form-data=""> -->
+                  <input name="file" type="file" id="fileupload" class="cloudinary-fileupload" data-cloudinary-field="image_upload" ></span>
+                  <span style="visibility:hidden" class="progress"> Uploading in progress</span>
+                  <script type="text/javascript">
+                  $(function(){
+                    $('#fileupload').fileupload({
+                        add: function (e, data) {
+                            $.getJSON('/filer_cv', function (result) {
+                                data.formData = result; // e.g. {id: 123}
+                                data.submit();
+                            }).fail( function(d, textStatus, error) {
+                                console.error("Error! Please contact helpdesk. Status: " + textStatus + ", error: "+error)
+                            });
+                        },
+                        url: "https://api.cloudinary.com/v1_1/dashy/upload",
+                        acceptFileTypes: /(\.|\/)(doc|docx|pdf|txt)$/i,
+                        // The maximum allowed file size in bytes:
+                        maxFileSize: 10000000, // 10 MB
+                        // The minimum allowed file size in bytes:
+                        minFileSize: 1, // No minimal file size
+                        // The limit of files to be uploaded:
+                        maxNumberOfFiles: 10
+                      }).on('fileuploadfail', function (e, data) {
+                        var currentFile = data.files[data.index];
+                        alert("Error! Please contact helpdesk")
+                        if (data.files.error && currentFile.error) {
+                          // there was an error, do something about it
+                          // newAlert("#alert_placeholder-tab",'danger', currentFile.error);
+                        
+                        }
+                      });
+                    });
+
+                    $('.cloudinary-fileupload').bind('cloudinarydone', function(e, data) {  
+                       $.ajax({
+                            url: '/cvuploaded',
+                            type: 'POST',
+                            data: {"cvurl": data.result.url, "pk" : <%=@userprofile.id %>},
+                            success: function(response){
+                              tt = "<a href=".concat(data.result.url,">>HERE</a>");
+                              $('#CVsection').html(tt); 
+                             // newAlert("#alert_placeholder-tab", 'success', "File uploaded successfully!");
+                            }
+                       }); //ajax
+                       return true;
+                    }); //cloudinary done
+
+                    $('.cloudinary-fileupload').bind('fileuploadprogress', function(e, data) {
+                      $('.progress').attr({
+                          style : "visibility:show",
+                      });
+                      // $('.status_value').text('Uploading...');
+                    });
+                    $('.cloudinary-fileupload').bind('fileuploadstop', function(e, data) {
+                      $('.progress').attr({
+                          style : "visibility:hidden",
+                      });
+                        
+                    });
+
+                     $('.cloudinary-fileupload').bind('fileuploadfail', function(e, data) {
+                        alert("You have been inactive on this page for a while. Please refresh this page before uploading your photo");
+                        
+                    });
                 </script> 
-
-                <span class="btn btn-success fileinput-button">
-                <i class="glyphicon glyphicon-plus"></i>
-                    <span>Upload CV</span>
-                <!-- <input name="file" type="file" id="fileupload" class="cloudinary-fileupload" data-cloudinary-field="image_upload" data-form-data=""> -->
-                <input name="file" type="file" id="fileupload" class="cloudinary-fileupload" data-cloudinary-field="image_upload" ></span>
-                <span style="visibility:hidden" class="progress"> Uploading in progress</span>
-                <script type="text/javascript">
-                $(function(){
-                  $('#fileupload').fileupload({
-                      add: function (e, data) {
-                          $.getJSON('/filer_cv', function (result) {
-                              data.formData = result; // e.g. {id: 123}
-                              data.submit();
-                          }).fail( function(d, textStatus, error) {
-                              console.error("Error! Please contact helpdesk. Status: " + textStatus + ", error: "+error)
-                          });
-                      },
-                      url: "https://api.cloudinary.com/v1_1/dashy/upload",
-                      acceptFileTypes: /(\.|\/)(doc|docx|pdf|txt)$/i,
-                      // The maximum allowed file size in bytes:
-                      maxFileSize: 10000000, // 10 MB
-                      // The minimum allowed file size in bytes:
-                      minFileSize: 1, // No minimal file size
-                      // The limit of files to be uploaded:
-                      maxNumberOfFiles: 10
-                    }).on('fileuploadfail', function (e, data) {
-                      var currentFile = data.files[data.index];
-                      alert("Error! Please contact helpdesk")
-                      if (data.files.error && currentFile.error) {
-                        // there was an error, do something about it
-                        // newAlert("#alert_placeholder-tab",'danger', currentFile.error);
-                      
-                      }
-                    });
-                  });
-
-                  $('.cloudinary-fileupload').bind('cloudinarydone', function(e, data) {  
-                     $.ajax({
-                          url: '/cvuploaded',
-                          type: 'POST',
-                          data: {"cvurl": data.result.url, "pk" : <%=@userprofile.id %>},
-                          success: function(response){
-                            tt = "<a href=".concat(data.result.url,">>HERE</a>");
-                            $('#CVsection').html(tt); 
-                           // newAlert("#alert_placeholder-tab", 'success', "File uploaded successfully!");
-                             
-                          }
-                     }); //ajax
-                     return true;
-                  }); //cloudinary done
-
-                  $('.cloudinary-fileupload').bind('fileuploadprogress', function(e, data) {
-                    $('.progress').attr({
-                        style : "visibility:show",
-                    });
-                    // $('.status_value').text('Uploading...');
-                  });
-                  $('.cloudinary-fileupload').bind('fileuploadstop', function(e, data) {
-                    $('.progress').attr({
-                        style : "visibility:hidden",
-                    });
-                      
-                  });
-
-                   $('.cloudinary-fileupload').bind('fileuploadfail', function(e, data) {
-                      alert("You have been inactive on this page for a while. Please refresh this page before uploading your photo");
-                      
-                  });
-              </script> 
-            </div>
-          </div> <!--upload row-->
+              </div>
+            </div> <!--upload row-->
+          </div>
         </div>
       </div>
-    </div>
-
-    <div class="col-md-12 bootstrap-grid">
-      <!-- <div id="alert_placeholder-tab"> </div> -->  <!-- for showing the alerts -->
-            <div class="powerwidget green" id="most-form-elements" data-widget-editbutton="false">
-              <header>
-                <h2>Preference Settings<small>Be as accurate as you can to ensure excellent matches</small></h2>
-              </header>
-              <div class="inner-spacer">  
-
-      <ul class="nav nav-tabs">  
-        <li class="active"><a data-toggle="tab" href="#t3">Job Preferences</a></li>  
-        <li><a data-toggle="tab" href="#skilltab">My Skills</a></li>    
-        <li><a data-toggle="tab" href="#languagetab">My Languages</a></li>  
-        <li><a data-toggle="tab" href="#achievementtab">My Achievements</a></li>                    
-      </ul>
-
-
-       <div class="tab-content">
-
-        <div id="t3" class="tab-pane active">    
-          <div class="row"> 
-            <div class="inputlabel col-md-3 col-lg-2 col-xs-9 column">Preferred Job Levels</div> 
-            <div class="inputtext col-md-9 col-lg-10 col-xs-12 column" style="width: 600px; max-width:90%; position: relative;left: -30px;">  
-              <a href="#" id="joblevel" data-type="select2" data-value="<%= @pref_level%>"  data-pk="<%=@userprofile.id %>" data-url="/updatelevelpref" data-title="Enter preferred job level"></a>
-            </div>
-          </div>
-          <div class="row">       
-            <div class="inputlabel col-md-3 col-lg-2 col-xs-9 column">Preferred Job Functions</div> 
-            <div class="inputtext col-md-9 col-lg-10 col-xs-12 column" style="width: 600px; max-width:90%; position: relative;left: -30px;">
-              <a href="#" id="jobfunction" data-type="select2" data-value="<%= @pref_func %>"  data-pk="<%=@userprofile.id %>" data-url="/updatefuncpref" data-title="Enter preferred job functions"></a>
-            </div>
-          </div>
-
-          <div class="row">  
-            <div class="inputlabel col-md-3 col-lg-2 col-xs-9 column">Preferred Industries</div> 
-            <div class="inputtext col-md-9 col-lg-10 col-xs-12 column" style="width: 600px; max-width:90%; position: relative;left: -30px;">          
-              <a href="#" id="industries" data-type="select2" data-value="<%= @pref_ind %>"  data-pk="<%=@userprofile.id %>" data-url="/updateindpref" data-title="Enter preferred industries"></a>
-            </div>
-          </div>
-
-
-          <div class="row">
-            <div class="inputlabel col-md-3 col-lg-2 col-xs-9 column">Preferred Locations</div>        
-            <div class="inputtext col-md-9 col-lg-10 col-xs-12 column" style="width: 600px; max-width:90%; position: relative;left: -30px;">     
-              <a href="#" id="locations" data-type="select2" data-value="<%= @pref_loc %>"  data-pk="<%=@userprofile.id %>" data-url="/updatelocpref" data-title="Enter preferred locations"></a>
-            </div>
-          </div>
-
-          <div class="row">  
-            <div class="inputlabel col-md-3 col-lg-3 col-xs-9 column">Preferred Travel Frequency</div>  
-            <input  id="f1" type="radio" onclick="freqcheck(this)"  value="25"> 25%
-            <input  id="f2" type="radio" onclick="freqcheck(this)"  value="50"> 50%
-            <input  id="f3" type="radio" onclick="freqcheck(this)"  value="75"> 75%
-            <input  id="f4" type="radio" onclick="freqcheck(this)"  value="100"> 100%
-          </div>
-
-          <div class="row">
-                  <h4 style="margin-left: 15px;" class="header smaller lighter blue">Other Parameters <small>(Select all applicable)</small> </h4>
-              <div>
-                <div class="col-md-4 col-lg-4 col-xs-12 column"> 
-                  <div class="row orb-form">
-                        <div class="inputlabel col-md-3 col-lg-2 col-xs-11 column">Full Time</div> 
-                        <label style="position: relative; left: -60px;" class="toggle col-md-1 col-lg-1 col-xs-1 column"><input id="fulltimecheck" name="fulltime"  type="checkbox" <%= @userprofile.fulltime.to_s == "true" ? "checked" : "unchecked" %> ><i></i></label> 
-                      <div style="float:left;" id="saving_fulltime" class="col-md-1 col-lg-1 col-xs-1 column"></div>
+    </div> <!-- END powerwidgets row -->
+    <div class="row" id="powerwidgets">
+      <div class="col-md-12 bootstrap-grid">
+        <div class="powerwidget blue" id="most-form-elements" data-widget-editbutton="false">
+          <header>
+            <h2>Preference Settings<small>Be as accurate as you can to ensure excellent matches</small></h2>
+          </header>
+          <div class="inner-spacer">  
+            <ul class="nav nav-tabs">  
+              <li class="active"><a data-toggle="tab" href="#t3">Job Preferences</a></li>  
+              <li><a data-toggle="tab" href="#skilltab">My Skills</a></li>    
+              <li><a data-toggle="tab" href="#languagetab">My Languages</a></li>  
+              <li><a data-toggle="tab" href="#achievementtab">My Achievements</a></li>                    
+            </ul>
+            <div class="tab-content">
+              <div id="t3" class="tab-pane active">    
+                <div class="row"> 
+                  <div class="inputlabel col-md-3 col-lg-2 col-xs-9 column">Preferred Job Levels</div> 
+                  <div class="inputtext col-md-9 col-lg-10 col-xs-12 column" style="width: 600px; max-width:90%; position: relative;left: -30px;">  
+                    <a href="#" id="joblevel" data-type="select2" data-value="<%= @pref_level%>"  data-pk="<%=@userprofile.id %>" data-url="/updatelevelpref" data-title="Enter preferred job level"></a>
                   </div>
-                  <div class="row orb-form">
-                    <div class="inputlabel col-md-3 col-lg-2 col-xs-11 column">Part Time</div> 
-                      <label style="position: relative; left: -60px;" class="toggle col-md-1 col-lg-1 col-xs-1 column"><input id="parttimecheck" name="parttime"  type="checkbox" <%= @userprofile.parttime.to_s == "true" ? "checked" : "unchecked" %> ><i></i></label> 
-                    <div class="col-md-1 col-lg-1 col-xs-1 column"> <div id="saving_parttime"></div></div>  
-                  </div> 
                 </div>
+                <div class="row">       
+                  <div class="inputlabel col-md-3 col-lg-2 col-xs-9 column">Preferred Job Functions</div> 
+                  <div class="inputtext col-md-9 col-lg-10 col-xs-12 column" style="width: 600px; max-width:90%; position: relative;left: -30px;">
+                    <a href="#" id="jobfunction" data-type="select2" data-value="<%= @pref_func %>"  data-pk="<%=@userprofile.id %>" data-url="/updatefuncpref" data-title="Enter preferred job functions"></a>
+                  </div>
+                </div>
+                <div class="row">  
+                  <div class="inputlabel col-md-3 col-lg-2 col-xs-9 column">Preferred Industries</div> 
+                  <div class="inputtext col-md-9 col-lg-10 col-xs-12 column" style="width: 600px; max-width:90%; position: relative;left: -30px;">          
+                    <a href="#" id="industries" data-type="select2" data-value="<%= @pref_ind %>"  data-pk="<%=@userprofile.id %>" data-url="/updateindpref" data-title="Enter preferred industries"></a>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="inputlabel col-md-3 col-lg-2 col-xs-9 column">Preferred Locations</div>        
+                  <div class="inputtext col-md-9 col-lg-10 col-xs-12 column" style="width: 600px; max-width:90%; position: relative;left: -30px;">     
+                    <a href="#" id="locations" data-type="select2" data-value="<%= @pref_loc %>"  data-pk="<%=@userprofile.id %>" data-url="/updatelocpref" data-title="Enter preferred locations"></a>
+                  </div>
+                </div>
+                <div class="row">  
+                  <div class="inputlabel col-md-3 col-lg-3 col-xs-9 column">Preferred Travel Frequency</div>  
+                  <input  id="f1" type="radio" onclick="freqcheck(this)"  value="25"> 25%
+                  <input  id="f2" type="radio" onclick="freqcheck(this)"  value="50"> 50%
+                  <input  id="f3" type="radio" onclick="freqcheck(this)"  value="75"> 75%
+                  <input  id="f4" type="radio" onclick="freqcheck(this)"  value="100"> 100%
+                </div>
+
+            <div class="row">
+                    <h4 style="margin-left: 15px;" class="header smaller lighter blue">Other Parameters <small>(Select all applicable)</small> </h4>
+                <div>
                   <div class="col-md-4 col-lg-4 col-xs-12 column"> 
                     <div class="row orb-form">
-                      <div class="inputlabel col-md-3 col-lg-2 col-xs-11 column">Shift Work</div> 
-                        <label style="position: relative; left: -60px;" class="toggle col-md-1 col-lg-1 col-xs-1 column"><input id="shiftworkcheck" name="shiftwork" type="checkbox" <%= @userprofile.shiftwork.to_s == "true" ? "checked" : "unchecked" %> ><i></i></label>
-                        <div class="col-md-1 col-lg-1 col-xs-1 column"> <div id="saving_shift"></div></div>
+                          <div class="inputlabel col-md-3 col-lg-2 col-xs-11 column">Full Time</div> 
+                          <label style="position: relative; left: -60px;" class="toggle col-md-1 col-lg-1 col-xs-1 column"><input id="fulltimecheck" name="fulltime"  type="checkbox" <%= @userprofile.fulltime.to_s == "true" ? "checked" : "unchecked" %> ><i></i></label> 
+                        <div style="float:left;" id="saving_fulltime" class="col-md-1 col-lg-1 col-xs-1 column"></div>
                     </div>
-
-                    <div class="row orb-form ">
-                        <div class="inputlabel col-md-3 col-lg-2 col-xs-11 column">Internship</div> 
-                          <label style="position: relative; left: -60px;" class="toggle col-md-1 col-lg-1 col-xs-1 column"><input id="interncheck" name="skr_intern"  type="checkbox" <%= @userprofile.skr_intern.to_s == "true" ? "checked" : "unchecked" %> ><i></i></label> 
-                            <div style="float:left;" id="saving_intern" class="col-md-1 col-lg-1 col-xs-1 column"></div>
-                    </div>                      
-                  </div>
-                  <div class="col-md-4 col-lg-4 col-xs-12 column orb-form"> 
                     <div class="row orb-form">
-                      <div style="position: relative; left: -10px;" class="inputlabel col-md-6 col-lg-5 col-xs-11 column">Out-of-Hours/Emergency</div> 
-                          <label style="position: relative; left: -80px;" class="toggle col-md-2 col-lg-1 col-xs-1 column"><input id="outofhourscheck" name="outofhours" unchecked="" type="checkbox"><i></i></label>
-                      </div>
-                      <div class="col-md-1 col-lg-1 col-xs-1 column"> <div id="saving_out"></div></div> 
-                    <div class="row orb-form">
-                      <div class="inputlabel col-md-3 col-lg-2 col-xs-11 column" style="position: relative; left: -80px;">Freelance/Contract</div> 
-                        <label style="position: relative; left: -45px;" class="toggle col-md-1 col-lg-1 col-xs-1 column"><input id="contractorcheck" name="skr_contractor" unchecked="" type="checkbox"><i></i></label>  
-                        <div class="col-md-1 col-lg-1 col-xs-1 column"> <div id="saving_contractor"></div></div>  
+                      <div class="inputlabel col-md-3 col-lg-2 col-xs-11 column">Part Time</div> 
+                        <label style="position: relative; left: -60px;" class="toggle col-md-1 col-lg-1 col-xs-1 column"><input id="parttimecheck" name="parttime"  type="checkbox" <%= @userprofile.parttime.to_s == "true" ? "checked" : "unchecked" %> ><i></i></label> 
+                      <div class="col-md-1 col-lg-1 col-xs-1 column"> <div id="saving_parttime"></div></div>  
                     </div> 
-                  </div> 
-              </div> <!-- END Orb Form -->
-        </div> <!-- END row -->
-        <div class="row">
-          <h4 style="margin-left: 15px;" class="header smaller lighter blue">Salary <small>Please key in your current and expected annual salary in Singapore Dollar</small> </h4>
-        <div class="row">
-          <div class="inputlabel col-md-3 col-lg-3 col-xs-9 column">Current annual salary: S$</div>  
-          <div class="inputtext col-md-9 col-lg-9 col-xs-12 column" style="width: 100px; max-width:90%; position: relative;left: -67px;">  
-            <a href="#" id="currentsalary" data-name="currentsalary" data-type="text" data-pk="<%=@userprofile.id %>" data-url="/updateprofile" data-title="Enter current salary"><%= @userprofile.currentsalary %></a>
+                  </div>
+                    <div class="col-md-4 col-lg-4 col-xs-12 column"> 
+                      <div class="row orb-form">
+                        <div class="inputlabel col-md-3 col-lg-2 col-xs-11 column">Shift Work</div> 
+                          <label style="position: relative; left: -60px;" class="toggle col-md-1 col-lg-1 col-xs-1 column"><input id="shiftworkcheck" name="shiftwork" type="checkbox" <%= @userprofile.shiftwork.to_s == "true" ? "checked" : "unchecked" %> ><i></i></label>
+                          <div class="col-md-1 col-lg-1 col-xs-1 column"> <div id="saving_shift"></div></div>
+                      </div>
+
+                      <div class="row orb-form ">
+                          <div class="inputlabel col-md-3 col-lg-2 col-xs-11 column">Internship</div> 
+                            <label style="position: relative; left: -60px;" class="toggle col-md-1 col-lg-1 col-xs-1 column"><input id="interncheck" name="skr_intern"  type="checkbox" <%= @userprofile.skr_intern.to_s == "true" ? "checked" : "unchecked" %> ><i></i></label> 
+                              <div style="float:left;" id="saving_intern" class="col-md-1 col-lg-1 col-xs-1 column"></div>
+                      </div>                      
+                    </div>
+                    <div class="col-md-4 col-lg-4 col-xs-12 column orb-form"> 
+                      <div class="row orb-form">
+                        <div style="position: relative; left: -10px;" class="inputlabel col-md-6 col-lg-5 col-xs-11 column">Out-of-Hours/Emergency</div> 
+                            <label style="position: relative; left: -80px;" class="toggle col-md-2 col-lg-1 col-xs-1 column"><input id="outofhourscheck" name="outofhours" unchecked="" type="checkbox"><i></i></label>
+                        </div>
+                        <div class="col-md-1 col-lg-1 col-xs-1 column"> <div id="saving_out"></div></div> 
+                      <div class="row orb-form">
+                        <div class="inputlabel col-md-3 col-lg-2 col-xs-11 column" style="position: relative; left: -80px;">Freelance/Contract</div> 
+                          <label style="position: relative; left: -45px;" class="toggle col-md-1 col-lg-1 col-xs-1 column"><input id="contractorcheck" name="skr_contractor" unchecked="" type="checkbox"><i></i></label>  
+                          <div class="col-md-1 col-lg-1 col-xs-1 column"> <div id="saving_contractor"></div></div>  
+                      </div> 
+                    </div> 
+                </div> <!-- END Orb Form -->
+          </div> <!-- END row -->
+          <div class="row">
+            <h4 style="margin-left: 15px;" class="header smaller lighter blue">Salary <small>Please key in your current and expected annual salary in Singapore Dollar</small> </h4>
+          <div class="row">
+            <div class="inputlabel col-md-3 col-lg-3 col-xs-9 column">Current annual salary: S$</div>  
+            <div class="inputtext col-md-9 col-lg-9 col-xs-12 column" style="width: 100px; max-width:90%; position: relative;left: -67px;">  
+              <a href="#" id="currentsalary" data-name="currentsalary" data-type="text" data-pk="<%=@userprofile.id %>" data-url="/updateprofile" data-title="Enter current salary"><%= @userprofile.currentsalary %></a>
+            </div>
           </div>
-        </div>
-        <div class="row">
-          <div class="inputlabel col-md-3 col-lg-3 col-xs-9 column">Expected annual salary: S$</div>  
-          <div class="inputtext col-md-9 col-lg-9 col-xs-12 column" style="width: 100px; max-width:90%; position: relative;left: -67px;">  
-            <a href="#" id="expectedsalary" data-name="expectedsalary" data-type="text"  data-pk="<%=@userprofile.id %>" data-url="/updateprofile" data-title="Enter expected salary"><%= @userprofile.expectedsalary %></a>
+          <div class="row">
+            <div class="inputlabel col-md-3 col-lg-3 col-xs-9 column">Expected annual salary: S$</div>  
+            <div class="inputtext col-md-9 col-lg-9 col-xs-12 column" style="width: 100px; max-width:90%; position: relative;left: -67px;">  
+              <a href="#" id="expectedsalary" data-name="expectedsalary" data-type="text"  data-pk="<%=@userprofile.id %>" data-url="/updateprofile" data-title="Enter expected salary"><%= @userprofile.expectedsalary %></a>
+            </div>
           </div>
-        </div>
-        <div class="row">
+          <div class="row"></div>
 
 
-        </div>
-      </div> <!-- END Row -->
-      </div> <!-- END Tab-pane -->
+          
+        </div> <!-- END Row -->
+        </div> <!-- END Tab-pane -->
 
-        <div id="skilltab" class="tab-pane">
-              <div class="row">  
-                <div class="col-sm-12 col-lg-12 ">
+          <div id="skilltab" class="tab-pane">
+            <div class="row">  
+              <div class="col-sm-12 col-lg-12 ">
                 <div id="skilltable">
-                    <!-- <div class="action-buttons"><a class="red" href="#addskillmodal" data-toggle="modal" data-keyboard="false" data-backdrop="static"> <i class="icon-pencil bigger-130">Add a skill</i></a></div>  -->
-                    <a href="#addskillmodal" data-toggle="modal" data-keyboard="false" data-backdrop="static" class="btn btn-primary btn-lg active" role="button">Add Skill</a>
-                  <div id="st">
-                      <!-- Skill management table will be loaded in this div -->
-                  </div> <!-- id="st"-->
+                  <a href="#addskillmodal" data-toggle="modal" data-keyboard="false" data-backdrop="static" class="btn btn-primary btn-lg active" role="button">Add Skill</a>
+                  <div id="st"> <!-- Skill management table will be loaded in this div --></div> 
                   <br><br>
                 </div> <!-- skilltable" -->
-                </div> <!-- <div class="col-sm-12 col-lg-12 "> -->                
-              </div>    <!-- row -->  
-        </div> <!-- skilltab -->
-
-        <div id="languagetab" class="tab-pane">
-              <div class="row">  
-                <div class="col-sm-12 col-lg-12 ">
+              </div> <!-- <div class="col-sm-12 col-lg-12 "> -->                
+            </div>    <!-- row -->  
+          </div> <!-- skilltab -->
+          <div id="languagetab" class="tab-pane">
+            <div class="row">  
+              <div class="col-sm-12 col-lg-12 ">
                 <div id="languagetable">
-                    <!-- <div class="action-buttons"><a class="red" href="#addskillmodal" data-toggle="modal" data-keyboard="false" data-backdrop="static"> <i class="icon-pencil bigger-130">Add a skill</i></a></div>  -->
-                    <a href="#addlanguagemodal" data-toggle="modal" data-keyboard="false" data-backdrop="static" class="btn btn-primary btn-lg active" role="button">Add Language</a>
-                  <div id="lt">
-                      <!-- Skill management table will be loaded in this div -->
-                  </div> <!-- id="lt"-->
+                  <a href="#addlanguagemodal" data-toggle="modal" data-keyboard="false" data-backdrop="static" class="btn btn-primary btn-lg active" role="button">Add Language</a>
+                  <div id="lt"><!-- Skill management table will be loaded in this div --></div> 
                   <br><br>
                 </div> <!-- languagetable" -->
-                </div> <!-- <div class="col-sm-12 col-lg-12 "> -->                
-              </div>    <!-- row -->  
-        </div> <!-- languagetab -->
-
-        <div id="achievementtab" class="tab-pane">
-                 Top 5 Achievements in 140 characters each.
-        </div>   <!-- achievementtab -->    
-      </div> <!-- <div class="tab-content">-->    
+              </div> <!-- <div class="col-sm-12 col-lg-12 "> -->                
+            </div>    <!-- row -->  
+          </div> <!-- languagetab -->
+        </div> <!-- <div class="tab-content">-->    
+      </div>
     </div>
-  </div>
-    </div> <!-- <div class="col-md-12 bootstrap-grid"> -->
+      </div> <!-- <div class="col-md-12 bootstrap-grid"> -->
+    </div> <!-- END powerwidgets row -->
     <div class="col-md-2 col-lg-2"></div>
 
    </div> <!--Content Wrapper-->           
