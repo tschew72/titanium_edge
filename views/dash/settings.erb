@@ -458,27 +458,15 @@ else{e.value="no";location.reload();}
 
               if (<%= @userprofile.travelfreq %> ==25){
                 document.getElementById("f1").checked = true;
-                document.getElementById("f2").checked = false;
-                document.getElementById("f3").checked = false;
-                document.getElementById("f4").checked = false;
                }
               if (<%= @userprofile.travelfreq %> ==50){
                 document.getElementById("f2").checked = true;
-                document.getElementById("f1").checked = false;
-                document.getElementById("f3").checked = false;
-                document.getElementById("f4").checked = false;
                }
               if (<%= @userprofile.travelfreq %> ==75){
                 document.getElementById("f3").checked = true;
-                document.getElementById("f4").checked = false;
-                document.getElementById("f1").checked = false;
-                document.getElementById("f2").checked = false;
                }
               if (<%= @userprofile.travelfreq %> ==100){
                 document.getElementById("f4").checked = true;
-                document.getElementById("f3").checked = false;
-                document.getElementById("f2").checked = false;
-                document.getElementById("f1").checked = false;
                }
 
               $("#st").load("/table",{i: new Date().getTime()});   //putting the current time as a parameter to overcome IE issue
