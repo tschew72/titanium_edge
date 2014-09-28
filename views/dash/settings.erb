@@ -69,144 +69,150 @@ else{e.value="no";location.reload();}
     <div class="page-header">
       <h1>Preferences</h1>
     </div>
+      <div class="col-md-12  bootstrap-grid">
+      <div class="powerwidget green" id="most-form-elements" data-widget-editbutton="false">
+        <header>
+          <h2>Basic<small>State you intention</small></h2>
+        </header>
+        <div class="inner-spacer">
 
-  
-             <div class="col-md-12  bootstrap-grid">
-            <div class="powerwidget green" id="most-form-elements" data-widget-editbutton="false">
-              <header>
-                <h2><small>Normal State</small></h2>
-              </header>
-              <div class="inner-spacer">
 
-            <div class="row">
-                <div class="inputlabel col-md-3 col-lg-2 col-xs-9 column">My Career Goal: </div>  
-                <div class="inputtext col-md-9 col-lg-10 col-xs-12 column" style="width: 600px; max-width:90%; position: relative;left: -77px;">  
-                   <a class="editable-click" href="javascript:void(0)"  id="skr_careergoal" data-type="text" data-pk="<%=@userprofile.id %>" data-url="/updateprofile" data-title="Enter mobile number"><%= @userprofile.skr_careergoal %> </a> 
-                </div>
-            </div>
 
+      <div class="row">  
+        <div class="orb-form">
+            <div class="inputlabel col-md-2 col-lg-1 col-xs-9 column">Activate Job Search</div> 
+                <label style="position: relative; left: -120px;" class="toggle col-md-1 col-lg-1 col-xs-1 column" ><input id="activecheck" name="activeseeker" type="checkbox" <%= @userprofile.activeseeker.to_s == "true" ? "checked" : "unchecked" %> ><i></i></label>
+            <div id="saving"> </div> 
+        </div>
+      </div>
+
+      
+      <div id="spr_block" style="visibility: hidden">  
+
+          <div class="orb-form">
             <div class="row">  
-              <div class="orb-form">
-                  <div class="inputlabel col-md-2 col-lg-1 col-xs-9 column">Activate Job Search</div> 
-                      <label style="position: relative; left: -120px;" class="toggle col-md-1 col-lg-1 col-xs-1 column" ><input id="activecheck" name="activeseeker" type="checkbox" <%= @userprofile.activeseeker.to_s == "true" ? "checked" : "unchecked" %> ><i></i></label>
-                  <div id="saving"> </div> 
-              </div>
-            </div>
+                <div class="inputlabel col-md-2 col-lg-1 col-xs-11 column">I am in Singapore</div> 
+                  <label style="position: relative; left: -120px;" class="toggle col-md-1 col-lg-1 col-xs-1 column"><input id="insgcheck" name="insingaporenow" type="checkbox" <%= @userprofile.insingaporenow.to_s == "true" ? "checked" : "unchecked" %>><i></i></label> <span id="saving1"> </span>
 
             
-            <div id="spr_block" style="visibility: hidden">  
+            <div id="insg_block" style="visibility: hidden">
+                  <div class="inputlabel col-md-3 col-lg-2 col-xs-10 column" style="position: relative; left: -70px;">on these dates </div> 
+                  <input readonly="true" type="text" style="position: relative; left: -200px; width: 150px; height:10px" name="date-range-picker" id="id-date-range-picker-1"  class="form-control rdonly" value="<%=@userprofile.insg_start.strftime("%d/%m/%Y") %> - <%=@userprofile.insg_end.strftime("%d/%m/%Y") %> "  class="span4"></input> <div id="saving_date"></div>
+            </div> 
+          </div>   <!-- row -->
+          </div>   <!-- orb-form--> 
+      </div> <!-- <div id="spr_block" style="visibility: hidden">    -->
 
-                <div class="orb-form">
-                  <div class="row">  
-                      <div class="inputlabel col-md-2 col-lg-1 col-xs-11 column">I am in Singapore</div> 
-                        <label style="position: relative; left: -120px;" class="toggle col-md-1 col-lg-1 col-xs-1 column"><input id="insgcheck" name="insingaporenow" type="checkbox" <%= @userprofile.insingaporenow.to_s == "true" ? "checked" : "unchecked" %>><i></i></label> <span id="saving1"> </span>
-
-                  
-                  <div id="insg_block" style="visibility: hidden">
-                        <div class="inputlabel col-md-3 col-lg-2 col-xs-10 column" style="position: relative; left: -70px;">on these dates </div> 
-                        <input readonly="true" type="text" style="position: relative; left: -200px; width: 150px; height:10px" name="date-range-picker" id="id-date-range-picker-1"  class="form-control rdonly" value="<%=@userprofile.insg_start.strftime("%d/%m/%Y") %> - <%=@userprofile.insg_end.strftime("%d/%m/%Y") %> "  class="span4"></input> <div id="saving_date"></div>
-                  </div> 
-                </div>   <!-- row -->
-                </div>   <!-- orb-form--> 
-            </div> <!-- <div id="spr_block" style="visibility: hidden">    -->
-            <div class="row">
-                  <div class="col-sm-6">
-                      Your current CV in our file: <span id="CVsection"> <a href=<%= @userprofile.cvurl %> >HERE</a></span>
-                      <br><br>
-                      <script src='/vendor/jqueryfileupload/js/vendor/jquery.ui.widget.js' type='text/javascript'></script>
-                        <script src='/vendor/jqueryfileupload/js/jquery.iframe-transport.js' type='text/javascript'></script>
-                        <script src='/vendor/jqueryfileupload/js/jquery.fileupload.js' type='text/javascript'></script>
-                        <script src='/vendor/jqueryfileupload/js/jquery.fileupload-process.js' type='text/javascript'></script>
-                        <script src='/vendor/jqueryfileupload/js/jquery.fileupload-validate.js' type='text/javascript'></script>
-                        <script src='/vendor/cloudinary/jquery.cloudinary.js' type='text/javascript'></script>
-                        <script type="text/javascript">
-                            $.cloudinary.config({cloud_name:'dashy', api_key:'219441847515364'});
-                        </script> 
-
-                          <span class="btn btn-success fileinput-button">
-                          <i class="glyphicon glyphicon-plus"></i>
-                              <span>Upload CV</span>
-                          <!-- <input name="file" type="file" id="fileupload" class="cloudinary-fileupload" data-cloudinary-field="image_upload" data-form-data=""> -->
-                          <input name="file" type="file" id="fileupload" class="cloudinary-fileupload" data-cloudinary-field="image_upload" ></span>
-                        <span style="visibility:hidden" class="progress"> Uploading in progress</span>
-                        <script type="text/javascript">
-                              $(function(){
-                                  // var opts=<%= @cloudinaryjson %>;
-                                  
-                              $('#fileupload').fileupload({
-                                              add: function (e, data) {
-                                                  $.getJSON('/filer_cv', function (result) {
-                                                      data.formData = result; // e.g. {id: 123}
-                                                      data.submit();
-                                                  }).fail( function(d, textStatus, error) {
-                                                      console.error("Error! Please contact helpdesk. Status: " + textStatus + ", error: "+error)
-                                                  });
-                                              },
-                                              url: "https://api.cloudinary.com/v1_1/dashy/upload",
-                                              acceptFileTypes: /(\.|\/)(doc|docx|pdf|txt)$/i,
-                                              // The maximum allowed file size in bytes:
-                                              maxFileSize: 10000000, // 10 MB
-                                              // The minimum allowed file size in bytes:
-                                              minFileSize: 1, // No minimal file size
-                                              // The limit of files to be uploaded:
-                                              maxNumberOfFiles: 10
-                                            }).on('fileuploadfail', function (e, data) {
-                                              var currentFile = data.files[data.index];
-                                              alert("Error! Please contact helpdesk")
-                                              if (data.files.error && currentFile.error) {
-                                                // there was an error, do something about it
-                                                // newAlert("#alert_placeholder-tab",'danger', currentFile.error);
-                                              
-                                              }
-                                              });
-
-                                });
-
-                            $('.cloudinary-fileupload').bind('cloudinarydone', function(e, data) {  
-                   
-                                     $.ajax({
-                                          url: '/cvuploaded',
-                                          type: 'POST',
-                                          data: {"cvurl": data.result.url, "pk" : <%=@userprofile.id %>},
-                                          success: function(response){
-                                            tt = "<a href=".concat(data.result.url,">>HERE</a>");
-                                            $('#CVsection').html(tt); 
-                                           // newAlert("#alert_placeholder-tab", 'success', "File uploaded successfully!");
-                                             
-                                          }
-                                     }); //ajax
-                                     return true;
-                            }); //cloudinary done
-
-                             $('.cloudinary-fileupload').bind('fileuploadprogress', function(e, data) {
-                                $('.progress').attr({
-                                    style : "visibility:show",
-                                });
-                                // $('.status_value').text('Uploading...');
-                            });
-                             $('.cloudinary-fileupload').bind('fileuploadstop', function(e, data) {
-                                $('.progress').attr({
-                                    style : "visibility:hidden",
-                                });
-                                
-                            });
-
-                             $('.cloudinary-fileupload').bind('fileuploadfail', function(e, data) {
-                                alert("You have been inactive on this page for a while. Please refresh this page before uploading your photo");
-                                
-                            });
-                        </script> 
-                    </div>
-                   </div> <!--upload row-->
-                 </div>
-               </div>
-             </div> 
+           </div> <!-- innerspace -->
+         </div> <!-- Powerwidget -->
+       </div>  <!-- col-md-12  bootstrap-grid -->
   
+    <div class="col-md-12  bootstrap-grid">
+      <div class="powerwidget green" id="most-form-elements" data-widget-editbutton="false">
+        <header>
+          <h2>Career Detail<small></small></h2>
+        </header>
+        <div class="inner-spacer">
+          <div class="row">
+            <div class="inputlabel col-md-3 col-lg-2 col-xs-9 column">My Career Goal: </div>  
+            <div class="inputtext col-md-9 col-lg-10 col-xs-12 column" style="width: 600px; max-width:90%; position: relative;left: -77px;">  
+               <a class="editable-click" href="javascript:void(0)"  id="skr_careergoal" data-type="text" data-pk="<%=@userprofile.id %>" data-url="/updateprofile" data-title="Enter mobile number"><%= @userprofile.skr_careergoal %> </a> 
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-6">
+                Your current CV in our file: <span id="CVsection"> <a href=<%= @userprofile.cvurl %> >HERE</a></span>
+                <br><br>
+                <script src='/vendor/jqueryfileupload/js/vendor/jquery.ui.widget.js' type='text/javascript'></script>
+                <script src='/vendor/jqueryfileupload/js/jquery.iframe-transport.js' type='text/javascript'></script>
+                <script src='/vendor/jqueryfileupload/js/jquery.fileupload.js' type='text/javascript'></script>
+                <script src='/vendor/jqueryfileupload/js/jquery.fileupload-process.js' type='text/javascript'></script>
+                <script src='/vendor/jqueryfileupload/js/jquery.fileupload-validate.js' type='text/javascript'></script>
+                <script src='/vendor/cloudinary/jquery.cloudinary.js' type='text/javascript'></script>
+                <script type="text/javascript">
+                    $.cloudinary.config({cloud_name:'dashy', api_key:'219441847515364'});
+                </script> 
+
+                <span class="btn btn-success fileinput-button">
+                <i class="glyphicon glyphicon-plus"></i>
+                    <span>Upload CV</span>
+                <!-- <input name="file" type="file" id="fileupload" class="cloudinary-fileupload" data-cloudinary-field="image_upload" data-form-data=""> -->
+                <input name="file" type="file" id="fileupload" class="cloudinary-fileupload" data-cloudinary-field="image_upload" ></span>
+                <span style="visibility:hidden" class="progress"> Uploading in progress</span>
+                <script type="text/javascript">
+                $(function(){
+                  $('#fileupload').fileupload({
+                      add: function (e, data) {
+                          $.getJSON('/filer_cv', function (result) {
+                              data.formData = result; // e.g. {id: 123}
+                              data.submit();
+                          }).fail( function(d, textStatus, error) {
+                              console.error("Error! Please contact helpdesk. Status: " + textStatus + ", error: "+error)
+                          });
+                      },
+                      url: "https://api.cloudinary.com/v1_1/dashy/upload",
+                      acceptFileTypes: /(\.|\/)(doc|docx|pdf|txt)$/i,
+                      // The maximum allowed file size in bytes:
+                      maxFileSize: 10000000, // 10 MB
+                      // The minimum allowed file size in bytes:
+                      minFileSize: 1, // No minimal file size
+                      // The limit of files to be uploaded:
+                      maxNumberOfFiles: 10
+                    }).on('fileuploadfail', function (e, data) {
+                      var currentFile = data.files[data.index];
+                      alert("Error! Please contact helpdesk")
+                      if (data.files.error && currentFile.error) {
+                        // there was an error, do something about it
+                        // newAlert("#alert_placeholder-tab",'danger', currentFile.error);
+                      
+                      }
+                    });
+                  });
+
+                  $('.cloudinary-fileupload').bind('cloudinarydone', function(e, data) {  
+                     $.ajax({
+                          url: '/cvuploaded',
+                          type: 'POST',
+                          data: {"cvurl": data.result.url, "pk" : <%=@userprofile.id %>},
+                          success: function(response){
+                            tt = "<a href=".concat(data.result.url,">>HERE</a>");
+                            $('#CVsection').html(tt); 
+                           // newAlert("#alert_placeholder-tab", 'success', "File uploaded successfully!");
+                             
+                          }
+                     }); //ajax
+                     return true;
+                  }); //cloudinary done
+
+                  $('.cloudinary-fileupload').bind('fileuploadprogress', function(e, data) {
+                    $('.progress').attr({
+                        style : "visibility:show",
+                    });
+                    // $('.status_value').text('Uploading...');
+                  });
+                  $('.cloudinary-fileupload').bind('fileuploadstop', function(e, data) {
+                    $('.progress').attr({
+                        style : "visibility:hidden",
+                    });
+                      
+                  });
+
+                   $('.cloudinary-fileupload').bind('fileuploadfail', function(e, data) {
+                      alert("You have been inactive on this page for a while. Please refresh this page before uploading your photo");
+                      
+                  });
+              </script> 
+            </div>
+          </div> <!--upload row-->
+        </div>
+      </div>
+    </div>
+
     <div class="col-md-12 bootstrap-grid">
       <!-- <div id="alert_placeholder-tab"> </div> -->  <!-- for showing the alerts -->
             <div class="powerwidget green" id="most-form-elements" data-widget-editbutton="false">
               <header>
-                <h2><small>Normal State</small></h2>
+                <h2>Preference Settings<small>Be as accurate as you can to ensure excellent matches</small></h2>
               </header>
               <div class="inner-spacer">  
 
