@@ -70,39 +70,33 @@ else{e.value="no";location.reload();}
       <h1>Preferences</h1>
     </div>
       <div class="col-md-12  bootstrap-grid">
-      <div class="powerwidget blue" id="most-form-elements" data-widget-editbutton="false">
-        <header>
-          <h2>Basic<small>State you intention</small></h2>
-        </header>
-        <div class="inner-spacer">
-          <div class="row">  
-            <div class="orb-form">
-                <div class="inputlabel col-md-2 col-lg-1 col-xs-9 column">Activate Job Search</div> 
-                    <label style="position: relative; left: -120px;" class="toggle col-md-1 col-lg-1 col-xs-1 column" ><input id="activecheck" name="activeseeker" type="checkbox" <%= @userprofile.activeseeker.to_s == "true" ? "checked" : "unchecked" %> ><i></i></label>
-                <div id="saving"> </div> 
-            </div>
-          </div>
-
-          
-          <div id="spr_block" style="visibility: hidden">  
-
+        <div class="powerwidget blue" id="most-form-elements" data-widget-editbutton="false">
+          <header>
+            <h2>Basic<small>State you intention</small></h2>
+          </header>
+          <div class="inner-spacer">
+            <div class="row">  
               <div class="orb-form">
-                <div class="row">  
-                    <div class="inputlabel col-md-2 col-lg-1 col-xs-11 column">I am in Singapore</div> 
-                      <label style="position: relative; left: -120px;" class="toggle col-md-1 col-lg-1 col-xs-1 column"><input id="insgcheck" name="insingaporenow" type="checkbox" <%= @userprofile.insingaporenow.to_s == "true" ? "checked" : "unchecked" %>><i></i></label> <span id="saving1"> </span>
-
-                
-                    <div id="insg_block" style="visibility: hidden">
-                      <div class="inputlabel col-md-3 col-lg-2 col-xs-10 column" style="position: relative; left: -70px;">on these dates </div> 
-                      <input readonly="true" type="text" style="position: relative; left: -200px; width: 150px; height:10px" name="date-range-picker" id="id-date-range-picker-1"  class="form-control rdonly" value="<%=@userprofile.insg_start.strftime("%d/%m/%Y") %> - <%=@userprofile.insg_end.strftime("%d/%m/%Y") %> "  class="span4"></input> <div id="saving_date"></div>
-                    </div> 
-                </div>   <!-- row -->
-              </div>   <!-- orb-form--> 
-          </div> <!-- <div id="spr_block" style="visibility: hidden">    -->
-
-    </div> <!-- innerspace -->
-  </div> <!-- Powerwidget -->
- </div>  <!-- col-md-12  bootstrap-grid -->
+                  <div class="inputlabel col-md-2 col-lg-1 col-xs-9 column">Activate Job Search</div> 
+                      <label style="position: relative; left: -120px;" class="toggle col-md-1 col-lg-1 col-xs-1 column" ><input id="activecheck" name="activeseeker" type="checkbox" <%= @userprofile.activeseeker.to_s == "true" ? "checked" : "unchecked" %> ><i></i></label>
+                  <div id="saving"> </div> 
+              </div>
+            </div>
+            <div id="spr_block" style="visibility: hidden">  
+                <div class="orb-form">
+                  <div class="row">  
+                      <div class="inputlabel col-md-2 col-lg-1 col-xs-11 column">I am in Singapore</div> 
+                        <label style="position: relative; left: -120px;" class="toggle col-md-1 col-lg-1 col-xs-1 column"><input id="insgcheck" name="insingaporenow" type="checkbox" <%= @userprofile.insingaporenow.to_s == "true" ? "checked" : "unchecked" %>><i></i></label> <span id="saving1"> </span>
+                      <div id="insg_block" style="visibility: hidden">
+                        <div class="inputlabel col-md-3 col-lg-2 col-xs-10 column" style="position: relative; left: -70px;">on these dates </div> 
+                        <input readonly="true" type="text" style="position: relative; left: -200px; width: 150px; height:10px" name="date-range-picker" id="id-date-range-picker-1"  class="form-control rdonly" value="<%=@userprofile.insg_start.strftime("%d/%m/%Y") %> - <%=@userprofile.insg_end.strftime("%d/%m/%Y") %> "  class="span4"></input> <div id="saving_date"></div>
+                      </div> 
+                  </div>   <!-- row -->
+                </div>   <!-- orb-form--> 
+            </div> <!-- <div id="spr_block" style="visibility: hidden">    -->
+          </div> <!-- innerspace -->
+        </div> <!-- Powerwidget -->
+      </div>  <!-- col-md-12  bootstrap-grid -->
   
     <div class="col-md-12  bootstrap-grid">
       <div class="powerwidget green" id="most-form-elements" data-widget-editbutton="false">
