@@ -13,7 +13,7 @@ $.getScript("/vendor/langtablescript.js");
                 </tr>
               </thead>
               <tbody >
-                  <% @alllanguages.each do |i| %>  
+                  <% @alllanguages.find_each do |i| %>  
                   <!-- If flag is set to delete, break. and find next record -->
                   <% if @alllanguages.get(i).skr_status != 0 %>
                  
