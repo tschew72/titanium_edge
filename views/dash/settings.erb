@@ -120,7 +120,7 @@ else{e.value="no";location.reload();}
               <script type="text/javascript">$.cloudinary.config({cloud_name:'dashy', api_key:'219441847515364'}); </script>
               <span style="position:relative; left:-220px; top:0px" class="btn dark-blue-btn btn-primary fileinput-button">
                 <i class="glyphicon glyphicon-plus"></i> <span>Upload new CV</span> <input name="file" type="file" id="fileupload" class="cloudinary-fileupload" data-cloudinary-field="image_upload" ></span>
-              <div  id="uploadprogress">  </div>
+              <div  id="uploadprogress" style="position:relative; top:-15px">  </div>
             </div> <!--upload row-->
             <br><br> 
                 <script type="text/javascript">
@@ -158,9 +158,6 @@ else{e.value="no";location.reload();}
                           url: '/cvuploaded',
                           type: 'POST',
                           data: {"cvurl": data.result.url, "pk" : <%=@userprofile.id %>},
-                          beforeSend : function(){
-                            $("#uploadprogress").html("<i class='fa fa-spinner fa-spin'></i>Uploading in progress</div>");
-                          }, 
                           success: function(response){
                             tt = "<a href=".concat(data.result.url,"><i style='font-size: 25px;' class='fa fa-file-text-o'></i></a>");
                             $('#CVsection').html(tt);
@@ -176,7 +173,6 @@ else{e.value="no";location.reload();}
 
                   $('.cloudinary-fileupload').bind('fileuploadprogress', function(e, data) {
                     $("#uploadprogress").html("<i class='fa fa-spinner fa-spin'></i>Uploading in progress</div>");
-                    // $('.status_value').text('Uploading...');
                   });
                   $('.cloudinary-fileupload').bind('fileuploadstop', function(e, data) {
                     $('.progress').attr({
