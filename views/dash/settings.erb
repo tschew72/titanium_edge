@@ -159,13 +159,13 @@ else{e.value="no";location.reload();}
                           type: 'POST',
                           data: {"cvurl": data.result.url, "pk" : <%=@userprofile.id %>},
                           beforeSend : function(){
-                            $("#uploadprogress").html("<div id='saver'><i class='fa fa-spinner fa-spin'></i>Uploading in progress</div>");
+                            $("#uploadprogress").html("<i class='fa fa-spinner fa-spin'></i>Uploading in progress</div>");
                           }, 
                           success: function(response){
                             tt = "<a href=".concat(data.result.url,"><i style='font-size: 25px;' class='fa fa-file-text-o'></i></a>");
                             $('#CVsection').html(tt);
-                                      $("#saver").html("Uploading is complete!");
-                                      $('#saver').fadeOut(1000, function() {
+                                      $("#uploadprogress").html("Uploading is complete!");
+                                      $('#uploadprogress').fadeOut(1000, function() {
                                         $(this).remove();
                                        });
                             //newAlert("#alert_placeholder-tab", 'success', "File uploaded successfully!");
