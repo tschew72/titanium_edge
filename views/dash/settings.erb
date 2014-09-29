@@ -193,7 +193,6 @@ else{e.value="no";location.reload();}
             </div> <!-- END Row -->
            <div class=" col-md-6 col-lg-6 col-xs-9 column">
             <div class="row">
-              
               <div class="inputlabel col-md-3 col-lg-3 col-xs-9 column">My Achievements: </div> 
             </div>
             <div id="achievementsection">
@@ -202,8 +201,8 @@ else{e.value="no";location.reload();}
                 <div class="row">
                    <%a=a+1%>
                    <div style="position:relative; right:-50px" class="inputlabel col-md-1 col-lg-2 col-xs-9 column"># <%= a %> </div>
-                   <div class="inputtext col-md-9 col-lg-10 col-xs-12 column" style="width: 400px; height:auto; max-width:90%; position: relative;left: -0px;"> 
-                    <a class="editable-click" href="javascript:void(0)" data-type="text" data-pk="<%=i.achieve_id %>" data-url="/updateachievement" data-title="Enter achievement"><%= i.achievement != '' ? i.achievement : "[Optional] Enter your achievement here"%> </a>
+                   <div class="inputtext col-md-9 col-lg-10 col-xs-12 column" style="width: 400px; height:auto; max-width:90%; position: relative;left: -0px;">
+                    <a class="editable-click ec" href="javascript:void(0)" data-type="text" data-pk="<%=i.achieve_id %>" data-url="/updateachievement" data-title="Enter achievement"><%= i.achievement != '' ? i.achievement : "[Optional] Enter your achievement here"%> </a>
                     <br>
                  </div>
                 </div>
@@ -523,7 +522,7 @@ else{e.value="no";location.reload();}
       });
 
       $('#achievementsection').editable({
-        selector: 'a.editable-click',
+        selector: 'a.ec',
         emptytext: '[Optional] Enter your achievement here',
         placeholder: '[Optional] Enter your achievement here'
       });
