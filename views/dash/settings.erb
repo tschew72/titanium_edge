@@ -164,8 +164,8 @@ else{e.value="no";location.reload();}
                           success: function(response){
                             tt = "<a href=".concat(data.result.url,"><i style='font-size: 25px;' class='fa fa-file-text-o'></i></a>");
                             $('#CVsection').html(tt);
-                                      $("#uploadprogress").html("Uploading is complete!");
-                                      $('#uploadprogress').fadeOut(1000, function() {
+                                      $("#saver").html("Uploading is complete!");
+                                      $('#saver').fadeOut(1000, function() {
                                         $(this).remove();
                                        });
                             //newAlert("#alert_placeholder-tab", 'success', "File uploaded successfully!");
