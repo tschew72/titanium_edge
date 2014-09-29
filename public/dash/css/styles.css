@@ -9316,4 +9316,9 @@ a.editable-click {
 	display: block;
 }
 
-
+.infobox{
+border-radius: 10px; 
+-moz-border-radius: 10px; 
+-webkit-border-radius: 10px; 
+border: 1px outset #000000;
+}

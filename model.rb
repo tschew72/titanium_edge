@@ -56,7 +56,7 @@ class User
   property :address, String, :index => true, :field => 'skr_address'
   property :contactnumber, String, length: 20, :index => true, :field => 'skr_contactnumber' #created a new column in table
   property :skr_careergoal, String,length: 1000, :default=>"", :index => true
-  # property :skr_achievements, String,length: 100000, :default=>"", :index => true
+
 
   has n, :matched_jobs
   has n, :jobs
