@@ -347,7 +347,13 @@ end
     userdata.update(eval(":#{params['name']}") => params["value"])
     return 200
   end
- 
+
+  post '/updateachievement' do
+    achievement = TmeSkrAchieve.get(params["pk"])
+    achievement.update(:achievement => params["value"])
+    return 200
+  end
+
   post '/updatedob' do
     userdata = User.get(params["pk"])
     str=params["dob"]
