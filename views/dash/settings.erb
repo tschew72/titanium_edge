@@ -318,6 +318,15 @@ else{e.value="no";location.reload();}
               <a href="#" id="currentsalary" data-name="currentsalary" data-type="text" data-pk="<%=@userprofile.id %>" data-url="/updateprofile" data-title="Enter current salary"><%= @userprofile.currentsalary %></a>
             </div>
           </div>
+
+                      <div class="row">
+              <div class="inputlabel col-md-3 col-lg-2 col-xs-9 column">My Career Goal: </div>  
+              <div class="inputtext col-md-9 col-lg-10 col-xs-12 column" style="width: 600px; max-width:90%; position: relative;left: -77px;">  
+                 <a class="editable-click" href="javascript:void(0)"  id="skr_careergoal" data-type="text" data-pk="<%=@userprofile.id %>" data-url="/updateprofile" data-title="Enter mobile number"><%= @userprofile.skr_careergoal %> </a> 
+              </div>
+            </div> <!-- END Row -->
+
+            
           <div class="row">
             <div class="inputlabel col-md-3 col-lg-3 col-xs-9 column">Expected annual salary: S$</div>  
             <div class="inputtext col-md-9 col-lg-9 col-xs-12 column" style="width: 100px; max-width:90%; position: relative;left: -67px;">  
