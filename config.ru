@@ -350,7 +350,11 @@ end
 
   post '/updateachievement' do
     achievement = TmeSkrAchieve.get(params["pk"])
-    achievement.update(:achievement => params["value"])
+    result = params["value"]
+    if result == '' 
+      result == '[Optional] Enter your achievement here'
+    end
+    achievement.update(:achievement => result)
     return 200
   end
 
