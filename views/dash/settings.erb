@@ -159,12 +159,12 @@ else{e.value="no";location.reload();}
                           type: 'POST',
                           data: {"cvurl": data.result.url, "pk" : <%=@userprofile.id %>},
                           beforeSend : function(){
-                            $("#uploadprogress").html("<div id='saver'><i class='fa fa-spinner fa-spin'>Uploading in progress</i></div>");
+                            $("#uploadprogress").html("<div id='saver'><i class='fa fa-spinner fa-spin'></i>Uploading in progress</div>");
                           }, 
                           success: function(response){
                             tt = "<a href=".concat(data.result.url,"><i style='font-size: 25px;' class='fa fa-file-text-o'></i></a>");
                             $('#CVsection').html(tt);
-                                      $("#uploadprogress").html("Uploading in complete!");
+                                      $("#uploadprogress").html("Uploading is complete!");
                                       $('#uploadprogress').fadeOut(1000, function() {
                                         $(this).remove();
                                        });
