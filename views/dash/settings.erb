@@ -201,15 +201,15 @@ else{e.value="no";location.reload();}
               <% @userprofile.tme_skr_achieve.all.each do |i| %>
                 <div class="row">
                    <%a=a+1%>
-                   <div style="float:right;" class="inputlabel col-md-3 col-lg-2 col-xs-9 column"># <%= a %> </div>
-                   <div class="inputtext col-md-9 col-lg-10 col-xs-12 column" style="width: 600px; max-width:90%; position: relative;left: -77px;"> 
+                   <div style="" class="inputlabel col-md-3 col-lg-2 col-xs-9 column"># <%= a %> </div>
+                   <div class="inputtext col-md-9 col-lg-10 col-xs-12 column" style="width: 600px; max-width:90%; position: relative;left: -0px;"> 
                     <a class="editable-click" href="javascript:void(0)" data-type="text" data-pk="<%=i.achieve_id %>" data-url="/updateachievement" data-title="Enter achievement"><%= i.achievement != '' ? i.achievement : "[Optional] Enter your achievement here"%> </a>
                     <br>
                  </div>
                 </div>
               <% end %>
-            </div>
-           </div>
+            </div> <!-- END Achievementsection -->
+           </div> <!--col -->
           </div>
         </div>
       </div>
