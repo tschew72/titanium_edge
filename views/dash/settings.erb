@@ -125,6 +125,98 @@ else{e.value="no";location.reload();}
                     <i class="glyphicon glyphicon-plus"></i> <span>Upload new CV</span> <input name="file" type="file" id="fileupload" class="cloudinary-fileupload" data-cloudinary-field="image_upload" ></span>
                   <span style="visibility:hidden" class="progress"> Uploading in progress</span>
                 </div> <!--upload row-->
+
+                <br><br> 
+                <script type="text/javascript">
+                $(function(){
+                  $('#fileupload').fileupload({
+                      add: function (e, data) {
+                          $.getJSON('/filer_cv', function (result) {
+                              data.formData = result; // e.g. {id: 123}
+                              data.submit();
+                          }).fail( function(d, textStatus, error) {
+                              console.error("Error! Please contact helpdesk. Status: " + textStatus + ", error: "+error)
+                          });
+                      },
+                      url: "https://api.cloudinary.com/v1_1/dashy/upload",
+                      acceptFileTypes: /(\.|\/)(doc|docx|pdf|txt)$/i,
+                      // The maximum allowed file size in bytes:
+                      maxFileSize: 10000000, // 10 MB
+                      // The minimum allowed file size in bytes:
+                      minFileSize: 1, // No minimal file size
+                      // The limit of files to be uploaded:
+                      maxNumberOfFiles: 10
+                    }).on('fileuploadfail', function (e, data) {
+                      var currentFile = data.files[data.index];
+                      alert("Error! Please contact helpdesk")
+                      if (data.files.error && currentFile.error) {
+                        // there was an error, do something about it
+                        // newAlert("#alert_placeholder-tab",'danger', currentFile.error);
+                     
+                      }
+                    });
+                  });
+
+                  $('.cloudinary-fileupload').bind('cloudinarydone', function(e, data) { 
+                     $.ajax({
+                          url: '/cvuploaded',
+                          type: 'POST',
+                          data: {"cvurl": data.result.url, "pk" : <%=@userprofile.id %>},
+                          success: function(response){
+                            tt = "<a href=".concat(data.result.url,"><i style='font-size: 25px;' class='fa fa-file-text-o'></i></a>");
+                            $('#CVsection').html(tt);
+                           // newAlert("#alert_placeholder-tab", 'success', "File uploaded successfully!");
+                          }
+                     }); //ajax
+                     return true;
+                  }); //cloudinary done
+
+                  $('.cloudinary-fileupload').bind('fileuploadprogress', function(e, data) {
+                    $('.progress').attr({
+                        style : "visibility:show",
+                    });
+                    // $('.status_value').text('Uploading...');
+                  });
+                  $('.cloudinary-fileupload').bind('fileuploadstop', function(e, data) {
+                    $('.progress').attr({
+                        style : "visibility:hidden",
+                    });
+                     
+                  });
+
+                   $('.cloudinary-fileupload').bind('fileuploadfail', function(e, data) {
+                      alert("You have been inactive on this page for a while. Please refresh this page before uploading your photo");
+                     
+                  });
+              </script>
+
+              <div class="row">
+                  <div class="inputlabel col-md-3 col-lg-2 col-xs-9 column">My Career Goal: </div> 
+                  <div class="inputtext col-md-9 col-lg-10 col-xs-12 column" style="width: 600px; max-width:90%; position: relative;left: -0px;"> 
+                     <a class="editable-click" href="javascript:void(0)"  id="skr_careergoal" data-type="text" data-pk="<%=@userprofile.id %>" data-url="/updateprofile" data-title="Enter mobile number"><%= @userprofile.skr_careergoal %> </a>
+                  </div>
+                </div> <!-- END Row -->
+                <div class="row">
+                  <div class="inputlabel col-md-3 col-lg-2 col-xs-9 column">My Achievements: </div> 
+                </div>
+                <div id="achievementsection">
+                  <% a=0 %>
+                  <% @userprofile.tme_skr_achieve.all.each do |i| %>
+                    <div class="row">
+                       <%a=a+1%>
+                       <div class="inputlabel col-md-3 col-lg-2 col-xs-9 column"># <%= a %> </div>
+                       <div class="inputtext col-md-9 col-lg-10 col-xs-12 column" style="width: 600px; max-width:90%; position: relative;left: -0px;"> 
+                        <a class="editable-click" href="javascript:void(0)" data-type="text" data-pk="<%=i.achieve_id %>" data-url="/updateachievement" data-title="Enter achievement"><%= i.achievement != '' ? i.achievement : "[Optional] Enter your achievement here"%> </a>
+                        <br>
+                     </div>
+                    </div>
+                  <% end %>
+                </div>
+               
+              </div>
+            </div>
+          </div>
+        </div> <!-- END  row -->
               </div> <!--col -->
               <div class="col-md-6 col-lg-6 col-xs-12 column"> 
                 <div class="row">
