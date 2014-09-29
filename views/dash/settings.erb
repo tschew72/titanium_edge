@@ -91,9 +91,8 @@ else{e.value="no";location.reload();}
                       <label style="position: relative; left: -215px;" class="toggle col-md-1 col-lg-1 col-xs-1 column"><input id="insgcheck" name="insingaporenow" type="checkbox" <%= @userprofile.insingaporenow.to_s == "true" ? "checked" : "unchecked" %>><i></i></label> <span id="saving1"> </span>
                     <div id="insg_block" style="visibility: hidden">
                       <div class="inputlabel col-md-3 col-lg-2 col-xs-10 column" style="position: relative; left: -190px;">on these dates </div>
-                      <input readonly="true" type="text" style="position: relative; left: -3100px; width: 150px; height:10px" name="date-range-picker" id="id-date-range-picker-1"  class="form-control rdonly" value="<%=@userprofile.insg_start.strftime("%d/%m/%Y") %> - <%=@userprofile.insg_end.strftime("%d/%m/%Y") %> "  class="span4"></input> <div id="saving_date"></div>
+                      <input readonly="true" type="text" style="position: relative; left: -310px; width: 150px; height:10px" name="date-range-picker" id="id-date-range-picker-1"  class="form-control rdonly" value="<%=@userprofile.insg_start.strftime("%d/%m/%Y") %> - <%=@userprofile.insg_end.strftime("%d/%m/%Y") %> "  class="span4"></input> <div id="saving_date"></div>
                     </div>
-                    <input readonly="true" type="text" style="position: relative; left: -3100px; width: 150px; height:10px" name="date-range-picker" id="id-date-range-picker-1"  class="form-control rdonly" value="<%=@userprofile.insg_start.strftime("%d/%m/%Y") %> - <%=@userprofile.insg_end.strftime("%d/%m/%Y") %> "  class="span4"></input> 
                   </div>   <!-- row -->
                 </div>   <!-- orb-form-->
             </div> <!-- <div id="spr_block" style="visibility: hidden">    -->
