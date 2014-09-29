@@ -315,16 +315,16 @@ else{e.value="no";location.reload();}
             <h4 style="margin-left: 0px;" class="header smaller lighter blue">Salary <small>Please key in your current and expected annual salary in Singapore Dollar</small> </h4>
           </div> <!-- END Row -->
           <div class="row">
-            <div class="inputlabel col-md-3 col-lg-2 col-xs-9 column">Current annual salary: S$</div>  
+            <div class="inputlabel col-md-3 col-lg-2 col-xs-9 column">Current annual salary: </div>  
             <div class="inputtext col-md-4 col-lg-2 col-xs-12 column" style="width: 100px; max-width:90%; position: relative;left: -60px;">  
-              <a href="#" id="currentsalary" data-name="currentsalary" data-type="text" data-pk="<%=@userprofile.id %>" data-url="/updateprofile" data-title="Enter current salary"><%= @userprofile.currentsalary %></a>
+              <a href="#" id="currentsalary" data-name="currentsalary" data-type="text" data-pk="<%=@userprofile.id %>" data-url="/updateprofile" data-title="Enter current salary">S$<%= @userprofile.currentsalary %></a>
             </div>
           </div>
 
           <div class="row">
             <div class="inputlabel col-md-3 col-lg-2 col-xs-9 column">Expected annual salary: S$</div>  
             <div class="inputtext col-md-4 col-lg-2 col-xs-12 column" style="width: 100px; max-width:90%; position: relative;left: -60px;">  
-              <a href="#" id="expectedsalary" data-name="expectedsalary" data-type="text"  data-pk="<%=@userprofile.id %>" data-url="/updateprofile" data-title="Enter expected salary"><%= @userprofile.expectedsalary %></a>
+              <a href="#" id="expectedsalary" data-name="expectedsalary" data-type="text"  data-pk="<%=@userprofile.id %>" data-url="/updateprofile" data-title="Enter expected salary">S$<%= @userprofile.expectedsalary %></a>
             </div>
           </div>
           <div class="row"></div>
