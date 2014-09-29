@@ -352,7 +352,7 @@ end
     achievement = TmeSkrAchieve.get(params["pk"])
     result = params["value"]
     if result == '' 
-      result == '[Optional] Enter your achievement here'
+      result ='[Optional] Enter your achievement here'
     end
     achievement.update(:achievement => result)
     return 200
