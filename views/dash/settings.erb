@@ -115,10 +115,10 @@ else{e.value="no";location.reload();}
             </div> <!-- END Row -->
             <div class="row">
               <div class="inputlabel col-md-3 col-lg-2 col-xs-9 column">My Achievements: </div>  
-              <% @userprofile.tme_skr_achieve.each do |i| %>
+              <% @userprofile.tme_skr_achieve.all.each do |i| %>
                 <% if defined?@userprofile.tme_skr_achieve.get(i).achievement != nil %>
                    <div class="inputtext col-md-9 col-lg-10 col-xs-12 column" style="width: 600px; max-width:90%; position: relative;left: -77px;">  
-                    <a class="editable-click" href="javascript:void(0)"  id="achievement" data-type="text" data-pk="<%=@userprofile.id %>" data-url="/updateprofile" data-title="Enter mobile number"><%= @userprofile.tme_skr_achieve.get(i).achievement %> </a> 
+                    <a class="editable-click" href="javascript:void(0)"  id="achievement" data-type="text" data-pk="<%=@userprofile.id %>" data-url="/updateprofile" data-title="Enter achievement"><%= @userprofile.tme_skr_achieve.get(i).achievement %> </a> 
                  </div>
                 <% end %>
               <% end %>
