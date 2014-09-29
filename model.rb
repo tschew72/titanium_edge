@@ -438,7 +438,7 @@ class TmeSkrAchieve
   storage_names[repository = :default] = 'tme_skr_achieve'
   property :achieve_id, Serial , key: true, :index => true 
   property :user_id, Integer, :index => true, :field => 'skr_id'
-  property :achievement, String, :default=>"", :index => true 
+  property :achievement, String, :default=>"10000", :index => true 
   property :status, Integer, :default  => 2,:index => true #0=delete, 1=edited, 2=active
   property :updated, DateTime
 
