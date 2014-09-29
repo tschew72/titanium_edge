@@ -27,9 +27,9 @@ class User
   property :availability, Integer, :index => true, :field => 'skr_availability' # notice period
   property :updated_at, DateTime, :index => true, :field => 'skr_updated'
 
-  property :pictureurl, String, :index => true, length: 400, :field => 'skr_photo'  #setup a default picture if not picture is found
-  property :cvurl, String, :index => true, length: 400, :field => 'skr_cv' 
-  property :videourl, String, :index => true, length: 400, :field => 'skr_video'   
+  property :pictureurl, String, :index => true, length: 400, :default=>"", :field => 'skr_photo'  #setup a default picture if not picture is found
+  property :cvurl, String, :index => true, length: 400, :default=>"", :field => 'skr_cv' 
+  property :videourl, String, :index => true, length: 400, :default=>"", :field => 'skr_video'   
   property :username, String, :index => true, length: 50, :index => true, :field => 'skr_username'  
   property :prefind_all, Boolean, :index => true, :default =>true,:field => 'skr_prefind_all' # no preference. If field is NIL, set this to true.
   property :prefjobfunc_all, Boolean, :index => true, :default =>true,:field => 'skr_prefjobfunc_all' # no preference
