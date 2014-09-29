@@ -205,8 +205,9 @@ get '/settings' do
        @careerscore = @userprofile.skrscore.skrscore_total
        @allskills =   @userprofile.skill_summaries.all
        @alllanguages = @userprofile.tme_skr_language.all
+       @userprofile.tme_skr_achieve.each do |i|
 
-       
+
        @ssmaster = SkillSource  #master skill source for cross referencing
        #stemp = []
        #    @ssmaster.each do |x|

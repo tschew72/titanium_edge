@@ -114,11 +114,12 @@ else{e.value="no";location.reload();}
               </div>
             </div> <!-- END Row -->
             <div class="row">
-              <div class="inputlabel col-md-3 col-lg-2 col-xs-9 column">My Achievement #1: </div>  
-              <div class="inputlabel col-md-3 col-lg-2 col-xs-9 column">My Achievement #2: </div> 
-              <div class="inputlabel col-md-3 col-lg-2 col-xs-9 column">My Achievement #3: </div> 
-              <div class="inputlabel col-md-3 col-lg-2 col-xs-9 column">My Achievement #4: </div> 
-              <div class="inputlabel col-md-3 col-lg-2 col-xs-9 column">My Achievement #5: </div> 
+              <div class="inputlabel col-md-3 col-lg-2 col-xs-9 column">My Achievements: </div>  
+              <% if !@userprofile.tme_skr_achieve.get(i).empty? %>
+                 <div class="inputtext col-md-9 col-lg-10 col-xs-12 column" style="width: 600px; max-width:90%; position: relative;left: -77px;">  
+                  <a class="editable-click" href="javascript:void(0)"  id="achievement" data-type="text" data-pk="<%=@userprofile.id %>" data-url="/updateprofile" data-title="Enter mobile number"><%= @userprofile.tme_skr_achieve.get(i).achievement %> </a> 
+               </div>
+              <% end %>
             </div>
 
             <div class="row">
@@ -508,6 +509,7 @@ else{e.value="no";location.reload();}
         });
 
       $('#skr_careergoal').editable();
+      $('#achievement').editable();
 
       $('#skilltable').editable({
         selector: 'a.skillrank',

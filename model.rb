@@ -76,6 +76,7 @@ class User
   has n, :tme_skr_emp, :model => 'TmeSkrEmp'
   has 1, :skrscore, :model =>'Skrscore'
   has n, :tme_skr_nation, :model =>'TmeSkrNation'
+  has n, :tme_skr_achieve, :model =>'TmeSkrAchieve'
 
   def authenticate(attempted_password)
     if self.password == attempted_password
@@ -428,6 +429,18 @@ class TmeSkrLanguage
   property :skr_lang_speakskill, Integer, :index => true 
   property :skr_lang_writeskill, Integer, :index => true 
   property :skr_status, Integer, :default  => 2,:index => true #0=delete, 1=edited, 2=active
+
+  belongs_to :user 
+end
+
+class TmeSkrAchieve  
+  include DataMapper::Resource
+  storage_names[repository = :default] = 'tme_skr_achieve'
+  property :achieve_id, Serial , key: true, :index => true 
+  property :user_id, Integer, :index => true, :field => 'skr_id'
+  property :achievement, String, :index => true 
+  property :status, Integer, :default  => 2,:index => true #0=delete, 1=edited, 2=active
+  property :updated, DateTime
 
   belongs_to :user 
 end
