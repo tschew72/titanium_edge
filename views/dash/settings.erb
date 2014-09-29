@@ -187,7 +187,7 @@ else{e.value="no";location.reload();}
                           type: 'POST',
                           data: {"cvurl": data.result.url, "pk" : <%=@userprofile.id %>},
                           success: function(response){
-                            tt = "<a href=".concat(data.result.url,"><i class="fa fa-file-text-o"></i></a>");
+                            tt = <a href=".concat(data.result.url,"><i class="fa fa-file-text-o"></i></a>");
                             $('#CVsection').html(tt); 
                            // newAlert("#alert_placeholder-tab", 'success', "File uploaded successfully!");
                           }
