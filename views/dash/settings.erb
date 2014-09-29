@@ -172,7 +172,7 @@ else{e.value="no";location.reload();}
                   }); //cloudinary done
 
                   $('.cloudinary-fileupload').bind('fileuploadprogress', function(e, data) {
-                    $("#uploadprogress").html("<div id='uploadprog' style="position:relative; top:-0px left: -5px;"> <i class='fa fa-spinner fa-spin'></i>Uploading in progress</div> </div>");
+                    $("#uploadprogress").html("<div id='uploadprog' style='position:relative; top:-0px left: -5px;'> <i class='fa fa-spinner fa-spin'></i>Uploading in progress</div> </div>");
                   });
                   $('.cloudinary-fileupload').bind('fileuploadstop', function(e, data) {
                     $('.progress').attr({
