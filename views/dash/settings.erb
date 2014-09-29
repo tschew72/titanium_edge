@@ -326,7 +326,12 @@ else{e.value="no";location.reload();}
             <div class="row">  
               <div class="col-sm-12 col-lg-12 ">
                 <div id="skilltable">
-                  <a href="#addskillmodal" data-toggle="modal" data-keyboard="false" data-backdrop="static" class="btn btn-primary btn-lg active" role="button">Add Skill</a>
+                  <a href="#addskillmodal" data-toggle="modal" data-keyboard="false" data-backdrop="static" role="button">
+                    <span style="position:relative; left:10px; top:-20px" class="btn btn-success fileinput-button">
+                      <i class="glyphicon glyphicon-plus"></i><span>Add Skill</span>
+                      <input name="file" type="file" id="fileupload" class="cloudinary-fileupload" data-cloudinary-field="image_upload" >
+                    </span>
+                  </a> 
                   <div id="st"> <!-- Skill management table will be loaded in this div --></div> 
                   <br><br>
                 </div> <!-- skilltable" -->
