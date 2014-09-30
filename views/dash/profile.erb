@@ -152,33 +152,33 @@
                           </div> <!-- row -->
                           <div class="row">
                             <div class="inputlabel col-md-2 col-lg-2  column"> Last Name:  </div>
-                            <div class="inputtext col-md-2 col-lg-2 ccolumn"><a class="editable-click" href="javascript:void(0)" id="lastname" data-type="text" data-pk="<%=@userprofile.id %>" data-url="/updateprofile" data-title="Enter last name"><%= @userprofile.lastname %></a></div>    
+                            <div class="inputtext col-md-2 col-lg-2 column"><a class="editable-click" href="javascript:void(0)" id="lastname" data-type="text" data-pk="<%=@userprofile.id %>" data-url="/updateprofile" data-title="Enter last name"><%= @userprofile.lastname %></a></div>    
                           </div>
 
                           <div class="row">
                             <div class="inputlabel col-md-2 col-lg-2 column"> Date of Birth</label></div>
-                            <div class="col-md-2 column"> 
+                            <div class="col-md-2 col-lg-2 column"> 
                                 <input readonly="true" type="text" style="position: relative; width: 200px;height: 35px; left: -16px;" name="date-range-picker" id="id-date-range-picker-1"  class="inputtext form-control rdonly" value="<%=@userprofile.dob.strftime("%d/%m/%Y") %> "  class="span4"></input> <div id="saving_date"></div>
                             </div>
-                            <div class="col-md-2 col-lg-2  column inputlabel">I am Married </div>  
+                            <div class="col-md-2 col-lg-2  column inputlabel" style="position:relative;left:120px">I am Married </div>  
                               <label>
-                                <input style= "position: relative;left: -47px;top:5px" id="marriedcheck" name="married" type="checkbox"  <%= @userprofile.married == true ? "checked" : "unchecked" %> />  
+                                <input style= "position: relative;left: 70px;top:5px" id="marriedcheck" name="married" type="checkbox"  <%= @userprofile.married == true ? "checked" : "unchecked" %> />  
                                 <span class="lbl"> </span>
                               </label>
                             </div> <!-- row -->
                           
                           <div class="row">   
-                            <div class="inputlabel col-md-1 column">Gender:</div>                 
-                            <div class="inputtext col-md-2 column"> <a class="editable-click" href="javascript:void(0)"  id="gender" data-type="select" data-pk="<%=@userprofile.id %>" data-url="/updateprofile" data-title="Enter gender"><%= @userprofile.gender == 1 ? "Male" : "Female" %> </a> </div> 
+                            <div class="inputlabel col-md-2 col-lg-2 column">Gender:</div>                 
+                            <div class="inputtext col-md-2 col-lg-2  column"  style="position: relative; width: 200px;height: 35px; left: -16px;"> <a class="editable-click" href="javascript:void(0)"  id="gender" data-type="select" data-pk="<%=@userprofile.id %>" data-url="/updateprofile" data-title="Enter gender"><%= @userprofile.gender == 1 ? "Male" : "Female" %> </a> </div> 
                           </div>
 
                           <div class="row">   
-                            <div class="inputlabel col-md-1 column"> Nationality: </div>
-                            <div class="inputtext col-md-2 column"><a class="editable-click" href="javascript:void(0)" id="nationality" data-type="select"  data-pk="<%=@userprofile.id %>" data-url="/updatenationality" data-title="Enter nationality"><%=@cmaster.get(@mynations).country %> </a>  </div>
+                            <div class="inputlabel col-md-2 col-lg-2  column"> Nationality: </div>
+                            <div class="inputtext col-md-2 col-lg-2  column"  style="position: relative; width: 200px;height: 35px; left: -16px;" ><a class="editable-click" href="javascript:void(0)" id="nationality" data-type="select"  data-pk="<%=@userprofile.id %>" data-url="/updatenationality" data-title="Enter nationality"><%=@cmaster.get(@mynations).country %> </a>  </div>
                             <div  id="spr_block" style="visibility: hidden">  
                               <div class="col-md-2 column inputlabel">Singapore PR? </div>  
                               <label>
-                                <input style= "position: relative;left: -77px;top:5px"id="sprcheck" name="skr_nation_type" type="checkbox"  <%= @mynationtypes == 2 ? "checked" : "unchecked" %> />  <!-- Temporary set to get(1). In the future, we expand it to allow multi nation edit-->
+                                <input style= "position: relative;left: -40px;top:5px"id="sprcheck" name="skr_nation_type" type="checkbox"  <%= @mynationtypes == 2 ? "checked" : "unchecked" %> />  <!-- Temporary set to get(1). In the future, we expand it to allow multi nation edit-->
                                 <span class="lbl"> </span>
                               </label>
                             </div>
