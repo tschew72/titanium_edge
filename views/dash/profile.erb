@@ -274,21 +274,37 @@ $(document).ready(function(){
   $('#firstname').editable({
     inputclass : 'mytextarea'
   });
-  $('#lastname').editable();
+  $('#lastname').editable({
+    emptytext: '--',
+    // placeholder: '[Optional] Enter your achievement here'
+  });
   $('#middlename').editable({
     emptytext: '--',
     // placeholder: '[Optional] Enter your achievement here'
   });
-  $('#age').editable();
   $('#gender').editable({   
     source: [
       {value: "1", text: 'Male'},
       {value: "2", text: 'Female'},
     ]
   });
-  $('#contactnumber').editable();
-  $('#address').editable();
-  $('#email').editable();
+  $('#contactnumber').editable({
+
+    emptytext: '--',
+    // placeholder: '[Optional] Enter your achievement here'
+
+  });
+  $('#address').editable({
+
+    emptytext: '--',
+    // placeholder: '[Optional] Enter your achievement here'
+
+  });
+  $('#email').editable({
+    emptytext: '--',
+    // placeholder: '[Optional] Enter your achievement here'
+
+  });
   $('#nationality').editable({
        source: function() {
             return (<%= @countries %>)
@@ -304,9 +320,19 @@ $(document).ready(function(){
           } ;
         } //success
   });
-  $('#linkedin').editable();
-  $('#facebook').editable();
-  $('#twitter').editable();
+  $('#linkedin').editable({
+
+    emptytext: '--',
+    // placeholder: '[Optional] Enter your achievement here'
+  });
+  $('#facebook').editable({
+    emptytext: '--',
+    // placeholder: '[Optional] Enter your achievement here'
+  });
+  $('#twitter').editable({emptytext: '--',
+    // placeholder: '[Optional] Enter your achievement here'
+
+  });
 
   var nation=document.getElementById( 'nationality' ).textContent;
   if (nation.indexOf("Singapore") > -1){
