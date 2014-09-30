@@ -193,8 +193,8 @@ else{e.value="no";location.reload();}
               <!-- First half of the My Career Goal Section -->
               <div class=" col-md-10 col-lg-8 col-xs-12 column"> 
                 <div class="row">
-                  <div class="inputlabel col-md-3 col-lg-2 col-xs-9 column">My Career Goal: </div> 
-                  <div class="inputtext col-md-9 col-lg-10 col-xs-12 column" style="width: 600px; max-width:90%; position: relative;left: -77px;"> 
+                  <div class="inputlabel col-md-3 col-lg-3 col-xs-9 column">My Career Goal: </div> 
+                  <div class="inputtext col-md-9 col-lg-10 col-xs-12 column" style="width: 600px; max-width:90%; position: relative;left: -71px;"> 
                      <a class="editable-click" href="javascript:void(0)"  id="skr_careergoal" data-type="text" data-pk="<%=@userprofile.id %>" data-url="/updateprofile" data-title="Enter mobile number"><%= @userprofile.skr_careergoal %> </a>
                      <div id="saving_careergoal" class="col-md-1 col-lg-1 col-xs-1 column" style="position:relative; left:-220px; top:4px;"></div>
                   </div>
@@ -216,7 +216,7 @@ else{e.value="no";location.reload();}
                   <% @userprofile.tme_skr_achieve.all.each do |i| %>
                     <div class="row">
                        <%a=a+1%>
-                       <div style="position:relative; right:-50px" class="inputlabel col-md-1 col-lg-2 col-xs-9 column"># <%= a %> </div>
+                       <div style="position:relative; right:-50px" class="inputlabel col-md-2 col-lg-2 col-xs-9 column"># <%= a %> </div>
                        <div class="inputtext col-md-9 col-lg-10 col-xs-12 column" style="width: 400px; height:auto; max-width:90%; position: relative;left: -0px;">
                         <a class="editable-click ec" href="javascript:void(0)" data-type="text" data-pk="<%=i.achieve_id %>" data-url="/updateachievement" data-title="Enter achievement"><%= i.achievement != '' ? i.achievement : "[Optional] Enter your achievement here"%> </a>
                         <br>
