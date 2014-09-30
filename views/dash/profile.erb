@@ -272,7 +272,11 @@ $(document).ready(function(){
     inputclass : 'mytextarea'
   });
   $('#lastname').editable();
-  $('#middlename').editable();
+  $('#middlename').editable({
+    emptytext: '',
+    //placeholder: '[Optional] Enter your achievement here'
+
+  });
   $('#age').editable();
   $('#gender').editable({   
     source: [
