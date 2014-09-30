@@ -318,12 +318,12 @@ else{e.value="no";location.reload();}
                       <div class="row orb-form">
                         <div style="position: relative; left: -10px;" class="inputlabel col-md-6 col-lg-5 col-xs-11 column">Out-of-Hours/Emergency</div>
                             <label style="position: relative; left: -80px;" class="toggle col-md-2 col-lg-1 col-xs-1 column"><input id="outofhourscheck" name="outofhours" unchecked="" type="checkbox"><i></i></label>
+                            <div  class="col-md-1 col-lg-1 col-xs-1 column" style="relative:postion; left: -60px; top: 3px" id="saving_out"></div>
                         </div>
-                        <div  class="col-md-1 col-lg-1 col-xs-1 column" style="relative:postion; left: -60px; top: 3px" id="saving_out"></div>
                       <div class="row orb-form">
                         <div class="inputlabel col-md-3 col-lg-2 col-xs-11 column" style="position: relative; left: -80px;">Freelance/Contract</div>
                           <label style="position: relative; left: -45px;" class="toggle col-md-1 col-lg-1 col-xs-1 column"><input id="contractorcheck" name="skr_contractor" unchecked="" type="checkbox"><i></i></label> 
-                          <div  class="col-md-1 col-lg-1 col-xs-1 column" style="relative:postion; left: -60px; top: 3px" id="saving_contractor"></div>
+                          <div  class="col-md-1 col-lg-1 col-xs-1 column" style="relative:postion; left: -45px; top: 3px" id="saving_contractor"></div>
                       </div>
                     </div>
                 </div> <!-- END Orb Form -->
@@ -1071,11 +1071,11 @@ else{e.value="no";location.reload();}
             type: 'POST',
             data: {"skr_intern": this.checked, "pk" : <%=@userprofile.id %>},
             beforeSend : function(){
-              $("#saving_intern").html("<div id='saver_fulltime'><i class='fa fa-spinner fa-spin'></i></div>");
+              $("#saving_intern").html("<div id='saver_i'><div id='saver_fulltime'><i class='fa fa-spinner fa-spin'></i></div>");
             },
             success: function(response){
               var data = JSON.parse(response);                           
-               $('#saving_intern').fadeOut(1000, function() {
+               $('#saving_i').fadeOut(1000, function() {
                $(this).remove();
              });
             } //success function
