@@ -179,9 +179,12 @@
                     </div> <!-- row -->
                   </div> <!-- inner- space -->
                 </div> <!-- power widget -->
-              
-                  <h3 class="header smaller lighter blue">Contact</h3>
-                  <div class="row">   
+                <div class="powerwidget blue" data-widget-editbutton="false" data-widget-deletebutton="false">
+                  <header>
+                    <h2>Contact Information</h2>
+                  </header>
+                  <div class="inner-spacer">
+                    <div class="row">   
                       <div class="col-md-1 column">  
                          Mobile #:
                       </div>
@@ -189,7 +192,6 @@
                          <a class="editable-click" href="javascript:void(0)"  id="contactnumber" data-type="text" data-pk="<%=@userprofile.id %>" data-url="/updateprofile" data-title="Enter mobile number"><%= @userprofile.contactnumber %> </a> 
                       </div>
                     </div>
-                    <div class="space-6"></div>
                     <div class="row">  
                       <div class="col-md-1 column">     
                          Address:
@@ -198,14 +200,15 @@
                          <a class="editable-click" href="javascript:void(0)"  id="address" data-type="text" data-pk="<%=@userprofile.id %>" data-url="/updateprofile" data-title="Enter address"><%= @userprofile.address %>   </a>
                       </div>
                     </div>
-                    <div class="space-6"></div>
                     <div class="row">  
                       <div class="col-md-1 column"> Email: </div> 
                       <div class="inputtext col-md-2 column">  
                          <a class="editable-click" href="javascript:void(0)"  id="email" data-type="text" data-pk="<%=@userprofile.id %>" data-url="/updateprofile" data-title="Enter email address"><%= @userprofile.email %>   </a>
                       </div>
                     </div>
-
+                  </div>
+                </div> <!-- powerwidget-->
+                
                   <h3 class="header smaller lighter blue">Social</h3>
                   <div class="row">  
                     <div class="col-md-1 column"> LinkedIn: </div>
