@@ -205,7 +205,7 @@ get '/settings' do
        @careerscore = @userprofile.skrscore.skrscore_total
        @allskills =   @userprofile.skill_summaries.all
        @alllanguages = @userprofile.tme_skr_language.all
-
+       @allachievements = @userprofile.tme_skr_achieve.all
 
        @ssmaster = SkillSource  #master skill source for cross referencing
        #stemp = []
@@ -291,7 +291,7 @@ get '/settings' do
        @mynations=@userprofile.tme_skr_nation.first(:user_id=>@userprofile.id).skr_nation
        @mynationtypes=@userprofile.tme_skr_nation.first(:user_id=>@userprofile.id).skr_nation_type
 
-       
+
        erb :"dash/settings", :layout => :'dash/layout1'
 end
 

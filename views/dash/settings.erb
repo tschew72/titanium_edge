@@ -215,7 +215,7 @@ else{e.value="no";location.reload();}
                 </div>
                 <div id="achievementsection">
                   <% a=0 %>
-                  <% @userprofile.tme_skr_achieve.all.each do |i| %>
+                  <% @allachievements.each do |i| %>
                     <div class="row">
                        <%a=a+1%>
                        <div style="position:relative; right:-50px" class="inputlabel col-md-2 col-lg-2 col-xs-9 column"># <%= a %> </div>
