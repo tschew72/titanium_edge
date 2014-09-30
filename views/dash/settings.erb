@@ -193,8 +193,8 @@ else{e.value="no";location.reload();}
               <!-- First half of the My Career Goal Section -->
               <div class=" col-md-10 col-lg-8 col-xs-12 column"> 
                 <div class="row">
-                  <div class="inputlabel col-md-3 col-lg-3 col-xs-9 column">My Career Goal: </div> 
-                  <div class="inputtext col-md-9 col-lg-10 col-xs-12 column" style="width: 600px; max-width:90%; position: relative;left: -71px;"> 
+                  <div class="inputlabel col-md-3 col-lg-3 col-xs-8 column">My Career Goal: </div> 
+                  <div class="inputtext col-md-9 col-lg-9 col-xs-4 column" style="width: 600px; max-width:80%; position: relative;left: -71px;"> 
                      <a class="editable-click" href="javascript:void(0)"  id="skr_careergoal" data-type="text" data-pk="<%=@userprofile.id %>" data-url="/updateprofile" data-title="Enter mobile number"><%= @userprofile.skr_careergoal %> </a>
                      <div id="saving_careergoal" class="col-md-1 col-lg-1 col-xs-1 column" style="position:relative; left:-220px; top:4px;"></div>
                   </div>
@@ -274,10 +274,11 @@ else{e.value="no";location.reload();}
                 <div class="row"> 
                   <div class="inputlabel col-md-3 col-lg-2 col-xs-9 column">Preferred Travel Frequency</div>
                   <div class="inputlabel col-md-3 col-lg-3 col-xs-3 column" style=" position: relative;left: -10px;">  
-                    <div  style="float: left;position: relative;left: -30px;"> <input  name= "freq" id="f1" type="radio" onclick="freqcheck(this)"  value="25"> 25%</div>
-                    <div  style="float: left;position: relative;left: -15px;"><input name= "freq" id="f2" type="radio" onclick="freqcheck(this)"  value="50"> 50%</div>
-                    <div  style="float: left;position: relative;left: -0px;"><input name= "freq" id="f3" type="radio" onclick="freqcheck(this)"  value="75"> 75%</div>
-                    <div  style="float: left;position: relative;left: 15px;"><input name= "freq" id="f4" type="radio" onclick="freqcheck(this)"  value="100"> 100%</div>
+                    <div  style=" position: relative;left: -30px;"> <input  name= "freq" id="f1" type="radio" onclick="freqcheck(this)"  value="25"> 25%</div>
+                    <div  style=" position: relative;left: -15px;"><input name= "freq" id="f2" type="radio" onclick="freqcheck(this)"  value="50"> 50%</div>
+                    <div  style=" position: relative;left: -0px;"><input name= "freq" id="f3" type="radio" onclick="freqcheck(this)"  value="75"> 75%</div>
+                    <div  style=" position: relative;left: 15px;"><input name= "freq" id="f4" type="radio" onclick="freqcheck(this)"  value="100"> 100%</div>
+                    <div id="saving_radio" class="col-md-1 col-lg-1 col-xs-1 column"></div>
                   </div>
                 </div>
 
@@ -1102,13 +1103,13 @@ else{e.value="no";location.reload();}
             type: 'POST',
             data: {"travelfreq": myRadio.value, "pk" : <%=@userprofile.id %>},
             beforeSend : function(){
-              // $("#saving_freq").html("<div id='saver_fulltime'><i class='fa fa-spinner fa-spin'></i></div>");
+              $("#saving_radio").html("<div id='saver_r'><i class='fa fa-spinner fa-spin'></i></div>");
             },
             success: function(response){
               // var data = JSON.parse(response);                           
-               // $('#saving_freq').fadeOut(1000, function() {
-               // $(this).remove();
-             // });
+               $('#saving_radio').fadeOut(1000, function() {
+                  $(this).remove();
+               });
             } //success function
           }); //ajax
       }; // function
