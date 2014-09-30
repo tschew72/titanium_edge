@@ -142,27 +142,27 @@
                         </div>
                         <div class="col-md-10 column">   
                           <div class="row">
-                            <div class="inputlabel col-md-1 column">First Name: </div>  
-                            <div class="inputtext col-md-2 column"> <a class="editable-click"  href="javascript:void(0)" id="firstname" data-type="text" data-pk="<%=@userprofile.id %>" data-url="/updateprofile" data-title="Enter first name"><%= @userprofile.firstname %></a></div>
+                            <div class="inputlabel col-md-2 col-lg-2 column">First Name: </div>  
+                            <div class="inputtext col-md-2 col-lg-2 column"> <a class="editable-click"  href="javascript:void(0)" id="firstname" data-type="text" data-pk="<%=@userprofile.id %>" data-url="/updateprofile" data-title="Enter first name"><%= @userprofile.firstname %></a></div>
 
-                            <div class="inputlabel col-md-2 column"> Middle Name:  </div>
-                            <div style="position:relative;left:-20px;" class="inputtext col-md-2 column"><a class="editable-click" href="javascript:void(0)" id="middlename" data-type="text" data-pk="<%=@userprofile.id %>" data-url="/updateprofile" data-title="Enter middle name"><%= @userprofile.middlename %></a></div>   
+                            <div class="inputlabel col-md-2 col-lg-2  column"> Middle Name:  </div>
+                            <div style="position:relative;left:-20px;" class="inputtext col-md-2 col-lg-2  column"><a class="editable-click" href="javascript:void(0)" id="middlename" data-type="text" data-pk="<%=@userprofile.id %>" data-url="/updateprofile" data-title="Enter middle name"><%= @userprofile.middlename %></a></div>   
 
                                 
                           </div> <!-- row -->
                           <div class="row">
-                            <div class="inputlabel col-md-1 column"> Last Name:  </div>
-                            <div class="inputtext col-md-2 column"><a class="editable-click" href="javascript:void(0)" id="lastname" data-type="text" data-pk="<%=@userprofile.id %>" data-url="/updateprofile" data-title="Enter last name"><%= @userprofile.lastname %></a></div>    
+                            <div class="inputlabel col-md-2 col-lg-2  column"> Last Name:  </div>
+                            <div class="inputtext col-md-2 col-lg-2 ccolumn"><a class="editable-click" href="javascript:void(0)" id="lastname" data-type="text" data-pk="<%=@userprofile.id %>" data-url="/updateprofile" data-title="Enter last name"><%= @userprofile.lastname %></a></div>    
                           </div>
-                          
+
                           <div class="row">
-                            <div class="inputlabel col-md-2 column"> Date of Birth</label></div>
+                            <div class="inputlabel col-md-2 col-lg-2 column"> Date of Birth</label></div>
                             <div class="col-md-2 column"> 
                                 <input readonly="true" type="text" style="position: relative; width: 200px;height: 35px; left: -16px;" name="date-range-picker" id="id-date-range-picker-1"  class="inputtext form-control rdonly" value="<%=@userprofile.dob.strftime("%d/%m/%Y") %> "  class="span4"></input> <div id="saving_date"></div>
                             </div>
-                            <div class="col-md-2 column inputlabel">I am Married </div>  
+                            <div class="col-md-2 col-lg-2  column inputlabel">I am Married </div>  
                               <label>
-                                <input style= "position: relative;left: -77px;top:5px" id="marriedcheck" name="married" type="checkbox"  <%= @userprofile.married == true ? "checked" : "unchecked" %> />  
+                                <input style= "position: relative;left: -47px;top:5px" id="marriedcheck" name="married" type="checkbox"  <%= @userprofile.married == true ? "checked" : "unchecked" %> />  
                                 <span class="lbl"> </span>
                               </label>
                             </div> <!-- row -->
