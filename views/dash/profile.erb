@@ -144,7 +144,7 @@
                           <div class="row">
                             <div class="inputlabel col-md-1 column">First Name: </div>  
                             <div class="inputtext col-md-2 column"> <a class="editable-click"  href="javascript:void(0)" id="firstname" data-type="text" data-pk="<%=@userprofile.id %>" data-url="/updateprofile" data-title="Enter first name"><%= @userprofile.firstname %></a></div>
-                            <div class="inputlabel col-md-1 column"> Middle Name:  </div>
+                            <div class="inputlabel col-md-2 column"> Middle Name:  </div>
                             <div class="inputtext col-md-2 column"><a class="editable-click" href="javascript:void(0)" id="middlename" data-type="text" data-pk="<%=@userprofile.id %>" data-url="/updateprofile" data-title="Enter middle name"><%= @userprofile.middlename %></a></div>   
                             <div class="inputlabel col-md-1 column"> Last Name:  </div>
                             <div class="inputtext col-md-2 column"><a class="editable-click" href="javascript:void(0)" id="lastname" data-type="text" data-pk="<%=@userprofile.id %>" data-url="/updateprofile" data-title="Enter last name"><%= @userprofile.lastname %></a></div>        
@@ -157,7 +157,7 @@
                             </div>
                             <div class="col-md-2 column inputlabel">I am Married </div>  
                               <label>
-                                <input style= "position: relative;left: -77px;top:5px"id="marriedcheck" name="married" type="checkbox"  <%= @userprofile == true ? "checked" : "unchecked" %> />  
+                                <input style= "position: relative;left: -77px;top:5px" id="marriedcheck" name="married" type="checkbox"  <%= @userprofile == true ? "checked" : "unchecked" %> />  
                                 <span class="lbl"> </span>
                               </label>
                             </div> <!-- row -->
@@ -348,7 +348,7 @@ $(document).ready(function(){
       
       $("#marriedcheck").on('change', function(){
           $.ajax({
-            url: '/updateprofile',
+            url: '/updatemarried',
             type: 'POST',
             data: {"married": this.checked, "pk" : <%=@userprofile.id %>}
           });

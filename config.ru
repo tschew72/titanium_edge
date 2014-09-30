@@ -393,6 +393,12 @@ end
     return 200
   end
 
+  post '/updatemarried' do
+    userdata = User.get(params["pk"])
+    userdata.update(:married => params["married"])
+    return 200
+  end
+
   post '/updatenationality' do
     userdata = User.get(params["pk"])
     mynations=userdata.tme_skr_nation.first(:user_id=>userdata.id)
