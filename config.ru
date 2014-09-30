@@ -291,11 +291,7 @@ get '/settings' do
        @mynations=@userprofile.tme_skr_nation.first(:user_id=>@userprofile.id).skr_nation
        @mynationtypes=@userprofile.tme_skr_nation.first(:user_id=>@userprofile.id).skr_nation_type
 
-       achievements = TmeSkrAchieve.all
-       @achieve = Array.new
-       achievements.each do |i|
-         @achieve<<i.achievement
-       end 
+       
        erb :"dash/settings", :layout => :'dash/layout1'
 end
 
