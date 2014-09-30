@@ -119,8 +119,8 @@ else{e.value="no";location.reload();}
               <script src='/vendor/cloudinary/jquery.cloudinary.js' type='text/javascript'></script>
               <script type="text/javascript">$.cloudinary.config({cloud_name:'dashy', api_key:'219441847515364'}); </script>
               <span style="position:relative; left:-220px; top:0px" class="btn dark-blue-btn btn-primary fileinput-button">
-                <i class="glyphicon glyphicon-plus"></i> <span>Upload new CV</span> <input name="file" type="file" id="fileupload" class="cloudinary-fileupload" data-cloudinary-field="image_upload" ></span>
-              <div  id="uploadprogress" style="position:relative; top:-0px left: -5px;">AA </div>
+                <i class="glyphicon glyphicon-plus"></i> <span id="uploadprogress">Upload new CV</span> <input name="file" type="file" id="fileupload" class="cloudinary-fileupload" data-cloudinary-field="image_upload" ></span>
+              <!-- <div  id="uploadprogress" style="position:relative; top:-25px; left: -25px;">AA </div> -->
             </div> <!--upload row-->
             <br><br> 
                 <script type="text/javascript">
@@ -164,6 +164,7 @@ else{e.value="no";location.reload();}
                                       $("#uploadprog").html("Uploading is complete!");
                                       $('#uploadprog').fadeOut(3000, function() {
                                         $(this).remove();
+                                        $("#uploadprog").html("Upload new CV");
                                        });
                             //newAlert("#alert_placeholder-tab", 'success', "File uploaded successfully!");
                           }
@@ -194,7 +195,7 @@ else{e.value="no";location.reload();}
             </div> <!-- END Row -->
            <div class=" col-md-6 col-lg-6 col-xs-9 column">
             <div class="row">
-              <div class="inputlabel col-md-3 col-lg-3 col-xs-9 column">My Achievements: </div> 
+              <div class="inputlabel col-md-4 col-lg-3 col-xs-9 column">My Achievements: </div> 
             </div>
             <div id="achievementsection">
               <% a=0 %>
