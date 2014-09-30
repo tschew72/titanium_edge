@@ -194,6 +194,8 @@ else{e.value="no";location.reload();}
               <div class=" col-md-10 col-lg-8 col-xs-12 column"> 
                 <div class="row">
                   <div class="inputlabel col-md-3 col-lg-3 col-xs-8 column">My Career Goal: </div> 
+                </div>
+                <div class="row">
                   <div class="inputtext col-md-9 col-lg-9 col-xs-4 column" style="width: 600px; max-width:80%; position: relative;left: -71px;"> 
                      <a class="editable-click" href="javascript:void(0)"  id="skr_careergoal" data-type="text" data-pk="<%=@userprofile.id %>" data-url="/updateprofile" data-title="Enter mobile number"><%= @userprofile.skr_careergoal %> </a>
                      <div id="saving_careergoal" class="col-md-1 col-lg-1 col-xs-1 column" style="position:relative; left:-220px; top:4px;"></div>
@@ -1075,7 +1077,7 @@ else{e.value="no";location.reload();}
             },
             success: function(response){
               var data = JSON.parse(response);                           
-               $('#saving_i').fadeOut(1000, function() {
+               $('#saver_i').fadeOut(1000, function() {
                $(this).remove();
              });
             } //success function
