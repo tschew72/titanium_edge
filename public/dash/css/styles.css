@@ -81,12 +81,12 @@
 
 /* Vendors */
 @import url("vendors/datatables/datables.css");
-@import url("vendors/steps/jquery.steps.css");
-@import url("vendors/sumernote/summernote.css");
-@import url("vendors/animate/animate.css");
+/*@import url("vendors/steps/jquery.steps.css");*/
+/*@import url("vendors/sumernote/summernote.css");*/
+/*@import url("vendors/animate/animate.css");*/
 @import url("bootstrap.min.css");
-@import url("vendors/fullcalendar/fullcalendar.css");
-@import url("vendors/demo-switcher/switcher.core.min.css");
+/*@import url("vendors/fullcalendar/fullcalendar.css");*/
+/*@import url("vendors/demo-switcher/switcher.core.min.css");*/
 
 
 
