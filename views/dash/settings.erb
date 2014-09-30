@@ -1103,13 +1103,13 @@ else{e.value="no";location.reload();}
             type: 'POST',
             data: {"travelfreq": myRadio.value, "pk" : <%=@userprofile.id %>},
             beforeSend : function(){
-            //   $("#saving_radio").html("<div id='saver_r'><i class='fa fa-spinner fa-spin'></i></div>");
-            // },
+              $("#saving_radio").html("<div id='saver_r'><i class='fa fa-spinner fa-spin'></i></div>");
+            },
             success: function(response){
               // var data = JSON.parse(response);                           
-               // $('#saver_r').fadeOut(1000, function() {
-               //    $(this).remove();
-               // });
+               $('#saver_r').fadeOut(1000, function() {
+                  $(this).remove();
+               });
             } //success function
           }); //ajax
       }; // function
