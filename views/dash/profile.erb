@@ -62,10 +62,8 @@
                                     $.cloudinary.config({cloud_name:'dashy', api_key:'219441847515364'});
                                 </script> 
 
-                                  <span class="btn btn-success fileinput-button">
-                                  <i class="glyphicon glyphicon-plus"></i>
-                                      <span>Upload Picture</span>
-                                  <!-- <input name="file" type="file" id="fileupload" class="cloudinary-fileupload" data-cloudinary-field="image_upload" data-form-data=""> -->
+                                  <span style="position:relative; left:-220px; top:5px" class="btn dark-blue-btn btn-primary fileinput-button">
+                                  <div id="uploadprogress"><i class="glyphicon glyphicon-plus"></i> <span >Upload new CV</span></div>
                                   <input name="file" type="file" id="fileupload" class="cloudinary-fileupload" data-cloudinary-field="image_upload" ></span>
                                 <span style="visibility:hidden" class="progress"> Uploading in progress</span>
                                 <script type="text/javascript">
@@ -113,15 +111,18 @@
                                                     $('#pic').html(tt);  //to refresh this page picture
                                                     $('#pic2').html(tt); //for side bar picture
                                                     // newAlert("#alert_placeholder-tab", 'success', "File uploaded successfully!");
-                                                     
+                                                    $("#uploadprog").html("Uploading is complete!");
+                                                    $('#uploadprog').fadeOut(3000, function() {
+                                                    $(this).remove();
+                                                    $("#uploadprogress").html("<i class='glyphicon glyphicon-plus'></i> <span >Upload new CV</span>");
+                                                     });
                                                   }
                                              }); //ajax
                                              return true;
                                     }); //cloudinary done
 
-                                     $('.cloudinary-fileupload').bind('fileuploadprogress', function(e, data) {
-                                        $('.progress').attr({
-                                            style : "visibility:show",
+                                    $('.cloudinary-fileupload').bind('fileuploadprogress', function(e, data) {
+                                    $("#uploadprogress").html("<div id='uploadprog'> <i class='fa fa-spinner fa-spin'></i>Uploading in progress</div> </div>");
                                         });
                                         // $('.status_value').text('Uploading...');
                                     });
