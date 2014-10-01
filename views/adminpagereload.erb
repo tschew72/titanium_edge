@@ -409,3 +409,811 @@
   <!-- End of Modals definition -->
 
 <!--Main App-->
+
+
+
+  <script>
+
+
+  $(document).ready(function(){
+
+                //non singaporean and non-PR and active in seeking for job, show it!
+              if (<%= @mynations %> != 157 && <%= @mynationtypes %> !=2 && <%= @userprofile.activeseeker %>){
+                 document.getElementById( 'spr_block' ).style.visibility = 'visible';
+                 if (<%= @userprofile.insingaporenow%> ){
+                  document.getElementById( 'insg_block' ).style.visibility = 'visible';
+                 }
+              };
+
+              if (<%= @mynations %> == 157 || <%= @mynationtypes %> ==2)  {
+                document.getElementById( 'spr_block' ).style.visibility = 'hidden';
+                document.getElementById( 'insg_block' ).style.visibility = 'hidden';
+              } ;
+
+
+              if (<%= @userprofile.travelfreq %> ==25){
+                document.getElementById("f1").checked = true;
+               }
+              if (<%= @userprofile.travelfreq %> ==50){
+                document.getElementById("f2").checked = true;
+               }
+              if (<%= @userprofile.travelfreq %> ==75){
+                document.getElementById("f3").checked = true;
+               }
+              if (<%= @userprofile.travelfreq %> ==100){
+                document.getElementById("f4").checked = true;
+               }
+
+              $("#st").load("/table",{i: new Date().getTime()});   //putting the current time as a parameter to overcome IE issue
+              $("#lt").load("/langtable",{i: new Date().getTime()}); 
+
+       $('input[name="date-range-picker"]').daterangepicker({
+        timePicker: false,
+        showDropdowns: true,
+        format: 'DD/MM/YYYY',
+        }, function(start, end, label) {
+          console.log(moment(start.format('YYYY-MM-DDTHH:mm:ss') + 'Z').utc().toISOString());
+          from = moment(start.format('YYYY-MM-DDTHH:mm:ss') + 'Z').utc().toISOString();
+          end =moment(end.format('YYYY-MM-DDTHH:mm:ss') + 'Z').utc().toISOString();
+           $.ajax({
+              url: '/update_inSG_Date',
+              type: 'POST',
+              data: {"insg_start": from, "insg_end": end, "pk" : <%=@userprofile.id %>},
+              beforeSend : function(){
+                $("#saving_date").html("<div id='saver'><i class='fa fa-spinner fa-spin'></i></div>");
+              }, 
+              success: function(response){
+                          // newAlert("#alert_placeholder-tab", 'success', "Dates recorded");
+                           $('#saver').fadeOut(1000, function() {
+                            $(this).remove();
+                           });
+                        }
+            });
+        });
+
+      $('#skr_careergoal').editable();
+
+      $('#skilltable').editable({
+        selector: 'a.skillrank',
+        showbuttons: false
+      });
+
+      $('#achievementsection').editable({
+        selector: 'a.ec',
+        emptytext: '[Optional] Enter your achievement here',
+        placeholder: '[Optional] Enter your achievement here'
+      });
+      // $('#skilltable').editable({
+      //   selector: 'a.skills'
+      // });
+
+      $('#languagetable').editable({
+        selector: 'a.skr_lang_speakskill',
+        showbuttons: false
+      });
+
+      $('#languagetable').editable({
+        selector: 'a.skr_lang_writeskill',
+        showbuttons: false
+      });
+
+
+      $('#expectedsalary').editable();
+      $('#currentsalary').editable();
+
+
+      $('#expectedsalary').editable('option', 'validate', function(v) {
+          if(!v) return 'This is a required field!';
+      });
+
+      $('#currentsalary').editable('option', 'validate', function(v) {
+          if (!isInt(v)){
+            return "Invalid entry. Please re-enter";             
+          }
+      });
+
+      $('#expectedsalary').editable('option', 'validate', function(v) {
+          if (!isInt(v)){
+            return "Invalid entry. Please re-enter";             
+          }
+      });
+
+
+    /* This is in the Add Skill Modal  START*/
+      $('#skillcat').editable({
+        source: <%= @skillcat %> ,
+        onblur: 'submit',
+        showbuttons: false,
+        success: function(response, newValue) {
+
+                 $.getJSON("/getskill", {"value": newValue}, function (result) {
+                  $('#skillname').editable('option', 'source', result);   //somehow, all these 3 sentences must be in here.
+                  $('#skillname').editable('setValue', null);             //else it will fail.
+                  $('#skillname').editable('option', 'disabled', false);  //             
+                  }).fail( function(d, textStatus, error) {
+                      console.error("Upload failed, Please refresh this page and try again. Status: " + textStatus + ", error: "+error)
+
+                  });
+
+          
+        }
+      });
+
+      $('#skillname').editable({
+        disabled: true,
+        onblur: 'submit',
+        showbuttons: false,
+        success: function(response, newValue)
+        {
+          $('#skillrank').editable('option', 'disabled', false);
+        }
+        });
+
+      $('#skillrank').editable(
+        {
+        disabled: true,
+        onblur: 'submit',
+        showbuttons: false})
+
+      //init editables
+      // $('.newskill').editable('option', 'validate', function(v) {
+      //     if(!v) return 'This is a required field!';
+      // });
+
+
+    /* This is in the Add Skill Modal  END */
+
+    /* This is in the Add Language Modal  START*/
+      $('#lang').editable({
+        source: function() {
+                return (<%= @langlist%>)},
+        onblur: 'submit',
+        showbuttons: false,
+        success: function(response, newValue) {
+           $('#speakskill').editable('option', 'disabled', false);
+          
+        }
+      });
+
+      $('#speakskill').editable({
+        disabled: true,
+        onblur: 'submit',
+        showbuttons: false,
+        success: function(response, newValue)
+        {
+          $('#writeskill').editable('option', 'disabled', false);
+        }
+        });
+
+      $('#writeskill').editable(
+        {
+        disabled: true,
+        onblur: 'submit',
+        showbuttons: false})
+
+      //init editables
+      $('.newlang').editable('option', 'validate', function(v) {
+          if(!v) return 'This is a required field!';
+      });
+
+    /* This is in the Add Language Modal  END */
+
+      $('#industries').editable({
+     
+           source: function() {
+                return (<%= @industries%>)
+              },
+        select2: {
+           multiple: true,
+           dropdownAutoWidth : true,
+           placeholder: 'Select Industries', width: '192px'
+        },
+        allowClear: true,
+        minimumInputLength: 3,
+        mode: 'popup',
+        showbuttons: 'bottom',
+        placement: 'bottom',
+        emptytext: 'Select your preferred industries'
+      });
+
+      $('#locations').editable({
+     
+           source: function() {
+                return (<%= @locations %>)
+              },
+        select2: {
+           multiple: true,
+           dropdownAutoWidth : true,
+           placeholder: 'Select locations', width: '192px'
+        },
+        allowClear: true,
+        minimumInputLength: 3,
+        mode: 'popup',
+        showbuttons: 'bottom',
+        placement: 'bottom',
+        emptytext: 'Select your preferred Job locations'
+      });
+
+      $('#joblevel').editable({
+     
+           source: function() {
+                return (<%= @levels%>)
+              },
+        select2: {
+           multiple: true,
+           dropdownAutoWidth : true,
+           placeholder: 'Select Job Levels', width: '192px'
+        },
+        allowClear: true,
+        minimumInputLength: 3,
+        mode: 'popup',
+        showbuttons: 'bottom',
+        placement: 'bottom',
+        emptytext: 'Select your preferred Job levels'
+      });
+
+      $('#jobfunction').editable({
+     
+           source: function() {
+                return (<%= @functions%>)
+              },
+        select2: {
+           multiple: true,
+           dropdownAutoWidth : true,
+           placeholder: 'Select Job Functions', width: '192px'
+        },
+        allowClear: true,
+        minimumInputLength: 3,
+        mode: 'popup',
+        showbuttons: 'bottom',
+        placement: 'bottom',
+        emptytext: 'Select your preferred Job functions'
+      });
+
+        $('#skillsettingtable').dataTable( {  
+            "scrollY": 200,
+            "ScrollX": true,
+            "iDisplayLength": 10,
+            "order": [[ 0, "desc" ]],
+            "scrollCollapse": true,
+            "jQueryUI": true,
+            "aoColumns": [       
+                null, null, null,
+                { "bSortable": false }
+              ]
+        } );
+
+        $('#languagesettingtable').dataTable( {
+            "scrollY": 200,
+            "ScrollX": true,
+            "iDisplayLength": 10,
+            "order": [[ 0, "desc" ]],
+            "scrollCollapse": true,
+            "jQueryUI": true,
+            "aoColumns": [       
+                null, null, null,
+                { "bSortable": false }
+              ]
+        } );
+
+       $('.date-picker').datepicker({autoclose:true}).next().on(ace.click_event, function(){
+          $(this).prev().focus();
+      });
+
+ 
+
+      $('[data-rel=tooltip]').tooltip();
+      $('[data-rel=popover]').popover({html:true});
+
+
+
+
+        $('#fileupload').fileupload({
+        // The regular expression for allowed file types, matches
+        // against either file type or file name:
+        acceptFileTypes: /(\.|\/)(gif|jpe?g|png)$/i,
+        // The maximum allowed file size in bytes:
+        maxFileSize: 10000000, // 10 MB
+        // The minimum allowed file size in bytes:
+        minFileSize: 1, // No minimal file size
+        // The limit of files to be uploaded:
+        maxNumberOfFiles: 10
+      }).on('fileuploadprocessalways', function (e, data) {
+        var currentFile = data.files[data.index];
+        if (data.files.error && currentFile.error) {
+          // there was an error, do something about it
+          newAlert("#alert_placeholder-tab",'danger', currentFile.error);
+       
+        }
+        });
+
+     
+
+
+   }); //document ready
+
+
+  </script>
+
+
+
+
+
+<script>
+
+
+      $('#saveskill-btn').click(function() {
+         $('.newskill').editable('submit', {
+             url: '/newskill',
+             ajaxOptions: {
+                 dataType: 'json' //assuming json response
+             },        
+             success: function(data, config) {
+              
+                  if(data && data.errors){
+                       //server-side validation error, response like {"errors": {"username": "username already exist"} }
+                       //config.error.call(this, data.errors);
+                       newAlert("#alert_placeholder-inmodal",'danger', data.errors);
+                 }   else{
+
+                      newAlert("#alert_placeholder-inmodal",'success', data.responsemsg);
+
+                      $('.newskill').editable('setValue', null);  //clear values
+                      $('#skillname').editable('option', 'disabled', true);
+                      $('#skillrank').editable('option', 'disabled', true);
+                      $("#st").load("/table",{i: new Date().getTime()}); 
+                 }    
+             },
+             error: function(errors) {
+                 var msg = '';
+                 if(errors && errors.responseText) { //ajax error, errors = xhr object
+                     msg = errors.responseText;
+                     //We do not have any response text from backend at the moment
+                 } else { //validation error (client-side or server-side)
+                     $.each(errors, function(k, v) {
+                      if (k=="skillcatid") {k = "Skill Category"};
+                      if (k=="skillid") {k = "Skill name"};
+                      if (k=="skillrank") {k = "Skill rank"};      
+                      msg += k+": "+v+"<br>";
+                    });
+                     newAlert("#alert_placeholder-inmodal",'danger', "ohno");
+                   
+                 }
+               
+             }
+         });
+      });
+
+
+
+      $('#closeskill-btn').click(function() {
+          $('.newskill').editable('setValue', null)  //clear values
+              .editable('option', 'pk', null)          //clear pk
+              .removeClass('editable-unsaved');        //remove bold css
+
+      });
+
+
+      $('#savelanguage-btn').click(function() {
+         $('.newlang').editable('submit', {
+             url: '/newlanguage',
+             ajaxOptions: {
+                 dataType: 'json' //assuming json response
+             },        
+             success: function(data, config) {
+              
+                  if(data && data.errors){
+                       //server-side validation error, response like {"errors": {"username": "username already exist"} }
+                       config.error.call(this, data.errors);
+
+                 }   else{
+
+                      newAlert("#alert_placeholder-inmodal",'success', 'New Language added!');
+
+                      $('.newlang').editable('setValue', null);  //clear values
+                      $('#speakskill').editable('option', 'disabled', true);
+                      $('#writeskill').editable('option', 'disabled', true);
+                      // $("#lt").load("/langtable"); 
+                      $("#lt").load("/langtable",{i: new Date().getTime()});  
+                 }    
+             },
+             error: function(errors) {
+                 var msg = '';
+                 if(errors && errors.responseText) { //ajax error, errors = xhr object
+                     msg = errors.responseText;
+                     //We do not have any response text from backend at the moment
+                 } else { //validation error (client-side or server-side)
+                     $.each(errors, function(k, v) {
+                      if (k=="skr_lang") {k = "Language"};
+                      if (k=="skr_lang_speakskill") {k = "Spoken skill level"};
+                      if (k=="skr_lang_writeskill") {k = "Written skill level"};      
+                      msg += k+": "+v+"<br>";
+                    });
+                     newAlert("#alert_placeholder-inmodal",'danger', msg);
+                   
+                 }
+               
+             }
+         });
+      });
+
+      $('#closelanguage-btn').click(function() {
+          $('.newlang').editable('setValue', null)  //clear values
+              .editable('option', 'pk', null)          //clear pk
+              .removeClass('editable-unsaved');        //remove bold css
+
+      });
+
+
+    $("#activecheck").on('change', function(){
+      $.ajax({
+        url: '/updateactive',
+        type: 'POST',
+        data: {"activeseeker": this.checked, "pk" : <%=@userprofile.id %>},
+        beforeSend : function(){
+          $("#saving").html("<div id='saver'><i class='fa fa-spinner fa-spin'></i></div>");
+        }, 
+        success: function(response){
+          var data = JSON.parse(response);
+
+          if (data.active){
+             if (data.singaporepr != 2)
+              {document.getElementById( 'spr_block' ).style.visibility = 'visible';}
+             if (data.singaporepr != 2 && data.insingaporenow){
+                document.getElementById( 'insg_block' ).style.visibility = 'visible';}
+           // newAlert("#alert_placeholder-tab", 'success', "Thanks for informing us that you are actively seeker for job");                 
+          } else{
+             document.getElementById( 'spr_block' ).style.visibility = 'hidden';
+             document.getElementById( 'insg_block' ).style.visibility = 'hidden';
+             // newAlert("#alert_placeholder-tab", 'success', "Thanks for informing us that you are not actively looking for job now.");
+            
+          }; //else
+          // $("#saving").html("<div id='saver'>Saved...</div>");
+          $('#saver').fadeOut(1000, function() {
+          $(this).remove();
+         });
+        } //success function
+      }); //ajax
+  }); //activecheck function
+
+  $("#insgcheck").on('change', function(){
+      $.ajax({
+        url: '/updateinsgnow',
+        type: 'POST',
+        data: {"insingaporenow": this.checked, "pk" : <%=@userprofile.id %>},
+        beforeSend : function(){
+          $("#saving1").html("<div id='saver'><i class='fa fa-spinner fa-spin'></i></div>");
+        },
+        success: function(response){
+          var data = JSON.parse(response);
+
+          if (data.insingaporenow){
+             document.getElementById( 'insg_block' ).style.visibility = 'visible';
+             // newAlert("#alert_placeholder-tab", 'success', "Welcome to Singapore!");            
+                      
+          } else{
+             document.getElementById( 'insg_block' ).style.visibility = 'hidden';
+             // newAlert("#alert_placeholder-tab", 'success', "Look forward to see you in Singapore soon!");
+                          
+          }; //else
+              // $("#saving1").html("<div id='saver'>Saved...</div>");
+              $('#saver').fadeOut(1000, function() {
+               $(this).remove();
+             });
+        } //success function
+
+     
+      });
+  });
+
+
+        $("#parttimecheck").on('change', function(){
+          $.ajax({
+            url: '/updateparttime',
+            type: 'POST',
+            data: {"parttime": this.checked, "pk" : <%=@userprofile.id %>},
+            beforeSend : function(){
+              $("#saving_parttime").html("<div id='saver_parttime'><i class='fa fa-spinner fa-spin'></i></div>");
+            },
+            success: function(response){
+              var data = JSON.parse(response);
+              if (data.parttime){
+                    newAlert("#alert_placeholder-tab", 'success', "You will be matched to any part time jobs");     
+              } else {
+                    newAlert("#alert_placeholder-tab", 'success', "You will not be matched to part time jobs");  
+              }                        
+               $('#saver_parttime').fadeOut(1000, function() {
+               $(this).remove();
+             }); 
+            } //success function
+          }); //ajax
+      }); //parttime function
+
+
+      $("#fulltimecheck").on('change', function(){
+          $.ajax({
+            url: '/updatefulltime',
+            type: 'POST',
+            data: {"fulltime": this.checked, "pk" : <%=@userprofile.id %>},
+            beforeSend : function(){
+              $("#saving_fulltime").html("<div id='saver_fulltime'><i class='fa fa-spinner fa-spin'></i></div>");
+            },
+            success: function(response){
+              var data = JSON.parse(response);
+              if (data.fulltime){
+                   newAlert("#alert_placeholder-tab", 'success', "You will be matched to full time jobs");  
+              } else {
+
+                    newAlert("#alert_placeholder-tab", 'success', "You will not be matched to full time jobs");    
+              }                               
+               $('#saver_fulltime').fadeOut(1000, function() {
+               $(this).remove();
+             });
+            } //success function
+          }); //ajax
+      }); //fulltime function
+
+      $("#shiftworkcheck").on('change', function(){
+          $.ajax({
+            url: '/updateshiftwork',
+            type: 'POST',
+            data: {"shiftwork": this.checked, "pk" : <%=@userprofile.id %>},
+            beforeSend : function(){
+              $("#saving_shift").html("<div id='saver_shift'><i class='fa fa-spinner fa-spin'></i></div>");
+            },
+            success: function(response){
+              var data = JSON.parse(response);
+              if (data.shiftwork){
+                   newAlert("#alert_placeholder-tab", 'success', "You will be matched to jobs requiring shift work");                                    
+              } else {
+                   newAlert("#alert_placeholder-tab", 'success', "You will not be matched to jobs requiring shift work");  
+              }
+               $('#saver_shift').fadeOut(1000, function() {
+               $(this).remove();
+             });
+            } //success function
+          }); //ajax
+      }); //shiftwork function
+
+      $("#outofhourscheck").on('change', function(){
+          $.ajax({
+            url: '/updateoutofhours',
+            type: 'POST',
+            data: {"outofhours": this.checked, "pk" : <%=@userprofile.id %>},
+            beforeSend : function(){
+              $("#saving_out").html("<div id='saver_out'><i class='fa fa-spinner fa-spin'></i></div>");
+            },
+            success: function(response){
+              var data = JSON.parse(response);
+              if (data.outofhours){
+                   newAlert("#alert_placeholder-tab", 'success', "You will be matched to jobs requiring you to work outside office hour");
+               } else {
+                   newAlert("#alert_placeholder-tab", 'success', "You will not be matched to jobs requiring you to work outside office hour");  
+               }                        
+                $('#saver_out').fadeOut(1000, function() {
+               $(this).remove();
+             });
+            } //success function
+          }); //ajax
+      }); // function
+
+
+      $("#interncheck").on('change', function(){
+          $.ajax({
+            url: '/updateintern',
+            type: 'POST',
+            data: {"skr_intern": this.checked, "pk" : <%=@userprofile.id %>},
+            beforeSend : function(){
+              $("#saving_intern").html("<div id='saver_i'><div id='saver_fulltime'><i class='fa fa-spinner fa-spin'></i></div>");
+            },
+            success: function(response){
+              var data = JSON.parse(response);                           
+               $('#saver_i').fadeOut(1000, function() {
+               $(this).remove();
+             });
+            } //success function
+          }); //ajax
+      }); // function
+
+      $("#contractorcheck").on('change', function(){
+          $.ajax({
+            url: '/updatecontractor',
+            type: 'POST',
+            data: {"skr_contractor": this.checked, "pk" : <%=@userprofile.id %>},
+            beforeSend : function(){
+              $("#saving_contractor").html("<div id='saver_c'><i class='fa fa-spinner fa-spin'></i></div>");
+            },
+            success: function(response){
+              var data = JSON.parse(response);                           
+               $('#saver_c').fadeOut(1000, function() {
+               $(this).remove();
+             });
+            } //success function
+          }); //ajax
+      }); // function
+
+
+      function freqcheck(myRadio) {
+          $.ajax({
+            url: '/updatetravelfreq',
+            type: 'POST',
+            data: {"travelfreq": myRadio.value, "pk" : <%=@userprofile.id %>},
+            beforeSend : function(){
+              $("#saving_radio").html("<div id='saver_r'><i class='fa fa-spinner fa-spin'></i></div>");
+            },
+            success: function(response){
+              // var data = JSON.parse(response);                           
+               $('#saver_r').fadeOut(1000, function() {
+                  $(this).remove();
+               });
+            } //success function
+          }); //ajax
+      }; // function
+
+
+
+      $("#id-date-picker-1").on('change', function(){
+          $.ajax({
+            url: '/updatedob',
+            type: 'POST',
+            data: {"dob": this.value, "pk" : <%=@userprofile.id %>}
+         
+          });
+      
+      });
+
+     //automatically show next editable 1
+      // $('.newskill').on('save.newskill', function(){
+      //     var that = this;
+      //     setTimeout(function() {
+      //         $(that).closest('tr').next().find('.newskill').editable('show');
+      //     }, 200);
+      // });  
+
+      // $('.newlang').on('save.newlang', function(){
+      //     var that = this;
+      //     setTimeout(function() {
+      //         $(that).closest('tr').next().find('.newlang').editable('show');
+      //     }, 200);
+      // });  
+
+
+      function isInt(value) {
+        return !isNaN(value) &&
+               parseInt(Number(value)) == value &&
+               !isNaN(parseInt(value, 10));
+      }
+
+      function delskill(element,i){
+        $.ajax({
+                url: '/deleteskill',
+                type: 'POST',
+                data: {"pk" : i},
+                success: function(response){
+                   //$(element).parents('tr').remove();
+               
+                  //var row = $(this).closest('tr');
+                  var row=$(element).parents('tr')
+                  $('#skillsettingtable').dataTable().fnDeleteRow(row[0]);
+                  newAlert("#alert_placeholder-tab", 'success', "Skill deleted!");
+
+                }
+
+              });
+      }//function
+
+
+      function dellanguage(element,i){
+        $.ajax({
+                url: '/deletelanguage',
+                type: 'POST',
+                data: {"pk" : i},
+                success: function(response){
+                  var row=$(element).parents('tr')
+                  $('#languagesettingtable').dataTable().fnDeleteRow(row[0]);
+                  newAlert("#alert_placeholder-tab", 'success', "Language deleted!");
+
+                }
+
+              });
+      }//function
+
+      function newAlert (loc, type, message) {
+          $(loc).append($("<div class='alert alert-block alert-" + type + " fade in' data-alert><p> " + message + " </p></div>"));
+          $(".alert").delay(2000).fadeOut("slow", function () { $(this).remove(); });
+      }     
+ 
+</script>
+
+
+
+
+
+
+
+<script>
+
+  $(document).ready(function(){
+      $('#firstname').editable({ 
+        onblur: 'submit',
+        showbuttons: true,
+      });
+
+      $('#lastname').editable({
+        onblur: 'submit',
+        showbuttons: true,
+        });
+
+      $('#username').editable(
+        {
+        onblur: 'submit',
+        showbuttons: true,
+      });
+
+      $('#email').editable(
+        {
+        onblur: 'submit',
+        showbuttons: true,
+
+      });
+
+
+      $('#password').editable(
+        {
+        onblur: 'submit',
+        showbuttons: true,
+
+      });
+
+           //init editables
+      $('#username').editable('option', 'validate', function(v) {
+          if(!v) return 'This is a required field!';
+      });
+
+      $('#password').editable('option', 'validate', function(v) {
+          if(!v) return 'This is a required field!';
+      });
+
+});
+
+</script>
+
+<script>
+
+
+$('#saveuser-btn').click(function() {
+         $('.newuser').editable('submit', {
+             url: '/newuser',
+             ajaxOptions: {
+                 dataType: 'json' //assuming json response
+             },         
+             success: function(data, config) {
+               
+                  if(data && data.errors){
+                       //server-side validation error, response like {"errors": {"username": "username already exist"} }
+                       config.error.call(this, data.errors);
+
+                 }   else{
+
+                      $('.newuser').editable('setValue', null);  //clear values
+                 }     
+             },
+             error: function(errors) {
+                 var msg = '';
+                 if(errors && errors.responseText) { //ajax error, errors = xhr object
+                     msg = errors.responseText;
+                     //We do not have any response text from backend at the moment
+                 } else { //validation error (client-side or server-side)
+                     $.each(errors, function(k, v) {
+                      if (k=="username") {k = "UserName"};    
+                      if (k=="password") {k = "Password"};   
+                      msg += k+": "+v+"<br>";
+                    });
+                    
+                 }
+                
+             }
+         });
+      });
+
+</script>
