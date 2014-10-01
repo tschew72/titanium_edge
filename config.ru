@@ -283,7 +283,7 @@ get '/admin' do
        redirect '/auth/login' unless env['warden'].authenticated?
        @userprofile = env['warden'].user   
        @userme = @userprofile.firstname
-       @seeker = User.all
+       @seekers = User.all
         erb :"dash/admin", :layout => :'dash/layout1'
 
 end
