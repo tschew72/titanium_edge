@@ -280,7 +280,7 @@ get '/admin' do
         #make sure only admin can access
         #Create a section where we can dump the json of categories and skills.
         #To create new users
-       redirect '/auth/login' unless env['warden'].authenticated?
+        redirect '/auth/login' unless env['warden'].authenticated?
        
        @userprofile = env['warden'].user   
        #@userprofile = User.get(1)
