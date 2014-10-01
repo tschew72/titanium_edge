@@ -532,8 +532,13 @@ body.nooverflow {
 	color: #fff;
 	margin: 1px;
 }
-}
 
+}
+@media (min-width:992px) {
+    .desktop-only {
+        display:block !important;
+    }
+}
 
 .powerwidget-loader {
 	-webkit-animation: spin 3s infinite linear;
