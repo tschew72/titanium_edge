@@ -284,9 +284,9 @@ get '/admin' do
        if params['pk'] == nil
         @userprofile = env['warden'].user   
        else
-        @userprofile = User.get(1)
+        @userprofile = User.get(params['pk'] )
        end
-       
+
        @userme = @userprofile.firstname
        @seekers = User.all
 
