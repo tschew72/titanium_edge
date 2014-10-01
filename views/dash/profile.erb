@@ -145,9 +145,8 @@
                             <div class="inputlabel col-md-2 col-lg-2 column">First Name: </div>  
                             <div class="inputtext col-md-2 col-lg-2 column" style="position:absolute;left:120px"> <a class="editable-click"  href="javascript:void(0)" id="firstname" data-type="text" data-pk="<%=@userprofile.id %>" data-url="/updateprofile" data-title="Enter first name"><%= @userprofile.firstname %></a></div>
 
-                            <div class="inputlabel col-md-2 col-lg-2  column"> Middle Name:  </div>
-                            <div style="position:relative;left:-20px;" class="inputtext col-md-2 col-lg-2  column"><a class="editable-click" href="javascript:void(0)" id="middlename" data-type="text" data-pk="<%=@userprofile.id %>" data-url="/updateprofile" data-title="Enter middle name"><%= @userprofile.middlename %></a></div>   
-
+                            <div class="inputlabel col-md-2 col-lg-2  column style="position:absolute;left:400px;""> Middle Name:  </div>
+                            <div style="position:absolute;left:500px;" class="inputtext col-md-2 col-lg-2  column"><a class="editable-click" href="javascript:void(0)" id="middlename" data-type="text" data-pk="<%=@userprofile.id %>" data-url="/updateprofile" data-title="Enter middle name"><%= @userprofile.middlename %></a></div>   
                                 
                           </div> <!-- row -->
                           <div class="row">
@@ -157,8 +156,8 @@
 
                           <div class="row">
                             <div class="inputlabel col-md-2 col-lg-2 column"> Date of Birth</label></div>
-                            <div class="col-md-2 col-lg-2 column"> 
-                                <input readonly="true" type="text" style="position: absolute; width: 260px;height: 35px; left: 120px;" name="date-range-picker" id="id-date-range-picker-1"  class="inputtext form-control rdonly" value="<%=@userprofile.dob.strftime("%d/%m/%Y") %> "  class="span4"></input> <div id="saving_date"></div>
+                            <div class="col-md-2 col-lg-2 column" style="position:absolute; left:105px"> 
+                                <input readonly="true" type="text" style=" width: 260px;height: 35px;" name="date-range-picker" id="id-date-range-picker-1"  class="inputtext form-control rdonly" value="<%=@userprofile.dob.strftime("%d/%m/%Y") %> "  class="span4"></input> <div id="saving_date"></div>
                             </div>
                             <div class="col-md-2 col-lg-2  column inputlabel" style="position:relative;left:125px">I am Married </div>  
                               <label>
@@ -169,18 +168,18 @@
                           
                           <div class="row">   
                             <div class="inputlabel col-md-2 col-lg-2 column">Gender:</div>                 
-                            <div class="inputtext col-md-2 col-lg-2  column"  style="position: relative; width: 260px;height: 35px; left: 0px;"> <a class="editable-click" href="javascript:void(0)"  id="gender" data-type="select" data-pk="<%=@userprofile.id %>" data-url="/updateprofile" data-title="Enter gender"><%= @userprofile.gender == 1 ? "Male" : "Female" %> </a> </div> 
+                            <div class="inputtext col-md-2 col-lg-2  column"  style="position: absolute; width: 260px;height: 35px; left: 120px;"> <a class="editable-click" href="javascript:void(0)"  id="gender" data-type="select" data-pk="<%=@userprofile.id %>" data-url="/updateprofile" data-title="Enter gender"><%= @userprofile.gender == 1 ? "Male" : "Female" %> </a> </div> 
                           </div>
 
                           <div class="row">   
                             <div class="inputlabel col-md-2 col-lg-2 column"> Nationality: </div>
-                            <div class="inputtext col-md-2 col-lg-2 column"  style="position: relative; width: 260px;height: 35px; left: 0px;" ><a class="editable-click" href="javascript:void(0)" id="nationality" data-type="select"  data-pk="<%=@userprofile.id %>" data-url="/updatenationality" data-title="Enter nationality"><%=@cmaster.get(@mynations).country %> </a>  </div>
+                            <div class="inputtext col-md-2 col-lg-2 column"  style="position: absolute; width: 260px;height: 35px; left: 120px;" ><a class="editable-click" href="javascript:void(0)" id="nationality" data-type="select"  data-pk="<%=@userprofile.id %>" data-url="/updatenationality" data-title="Enter nationality"><%=@cmaster.get(@mynations).country %> </a>  </div>
                           </div>
                           <div class="row">
                             <div  id="spr_block" style="visibility: visible;position:relative;left:0px">  
                               <div class="col-md-2 col-lg-2 column inputlabel">Singapore PR? </div>  
                               <label>
-                                <input style= "position: relative;left: 0px;top:3px" id="sprcheck" name="skr_nation_type" type="checkbox"  <%= @mynationtypes == 2 ? "checked" : "unchecked" %> />  <!-- Temporary set to get(1). In the future, we expand it to allow multi nation edit-->
+                                <input style= "position: absolute;left: 120px;top:3px" id="sprcheck" name="skr_nation_type" type="checkbox"  <%= @mynationtypes == 2 ? "checked" : "unchecked" %> />  <!-- Temporary set to get(1). In the future, we expand it to allow multi nation edit-->
                                 <span class="lbl"> </span>
                               </label>
                             </div>
