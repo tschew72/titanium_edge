@@ -287,6 +287,11 @@ get '/admin' do
        @userme = @userprofile.firstname
        @seekers = User.all
 
+       @careerscore = @userprofile.skrscore.skrscore_total
+       @allskills =   @userprofile.skill_summaries.all
+       @alllanguages = @userprofile.tme_skr_language.all
+       @allachievements = @userprofile.tme_skr_achieve.all
+       
       @ssmaster = SkillSource  #master skill source for cross referencing
        #stemp = []
        #    @ssmaster.each do |x|
