@@ -534,7 +534,7 @@ body.nooverflow {
 }
 
 }
-@media (min-width:992px) {
+@media screen (min-width: 992px) {
     .desktop-only {
         display:block !important;
     }
