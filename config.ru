@@ -281,11 +281,12 @@ get '/admin' do
         #Create a section where we can dump the json of categories and skills.
         #To create new users
         redirect '/auth/login' unless env['warden'].authenticated?
-       if params['pk'] == nil
-        @userprofile = env['warden'].user   
-       else
-        @userprofile = User.get(params['pk'] )
-       end
+        if params['pk'] == nil
+          @userprofile = env['warden'].user
+        else
+          @userprofile = params['pk']
+        end   
+
 
        @userme = @userprofile.firstname
        @seekers = User.all
@@ -296,12 +297,6 @@ get '/admin' do
        @allachievements = @userprofile.tme_skr_achieve.all
 
       @ssmaster = SkillSource  #master skill source for cross referencing
-       #stemp = []
-       #    @ssmaster.each do |x|
-       #    stemp << {value: x.id, text: "#{x.skill_name}"}
-       #    
-       #end
-       # @skill_list= stemp.to_json
 
 
        #Preferred Level
