@@ -1,0 +1,346 @@
+
+<link href='http://fonts.googleapis.com/css?family=Open+Sans:300' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="/vendor/jqueryfileupload/css/jquery.fileupload.css" />
+<link href="/vendor/select2/select2.css" rel="stylesheet" type="text/css"></link>  
+<!-- <link href="/vendor/select2/select2-bootstrap.css" rel="stylesheet" type="text/css"></link>   -->
+<link href="/dash/css/vendors/x-editable/bootstrap-editable.css" rel="stylesheet" type="text/css"></link>  
+<!-- <link rel="stylesheet" href="/vendor/aceskin/datepicker.css" /> -->
+<link rel="stylesheet" href="/vendor/aceskin/daterangepicker.css" />
+<link rel="stylesheet" href="/dash/css/vendors/datatables/datables.css" />
+<link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
+<script type="text/javascript" src='/dash/js/vendors/modernizr/modernizr.custom.js'></script>
+<link rel="stylesheet" href="http://css-spinners.com/css/spinner/dots.css" type="text/css">
+<!--JQuery--> 
+<!-- <script type="text/javascript" src="/dash/js/vendors/jquery/jquery.min.js"></script> 
+<script type="text/javascript" src="/dash/js/vendors/jquery/jquery-ui.min.js"></script>  -->
+<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.0/jquery-ui.min.js"></script>
+
+<script>
+$(window).load(function(){
+
+    $('#preloader').fadeOut(100, function() {
+               $('body').css('overflow','auto');
+
+               $(this).remove();
+    });
+});
+</script>
+
+
+</head>
+
+<body>
+<div id="preloader">
+<div id="spinner_container">
+<div id="spinner" class="dots">
+    Loading...
+</div>
+</div>
+</div>
+
+
+<!--Smooth Scroll-->
+<div class="smooth-overflow"> 
+  <!--Navigation-->
+  <nav class="main-header clearfix" role="navigation"> <a class="navbar-brand" href="/edge"><span class="text-blue">JORB</span></a> 
+    
+    <!--Search-->
+    <!-- <div class="site-search">
+      <form action="#" id="inline-search">
+        <i class="fa fa-search"></i>
+        <input type="search" placeholder="Search">
+      </form>
+    </div> -->
+    
+    <!--Navigation Itself-->
+    
+    <div class="navbar-content"> 
+      
+      <!--Sidebar Toggler REMOVED--> 
+      
+      <!--Right Userbar Toggler--> 
+      <a href="#" class="btn btn-user right-toggler pull-right"><i class="entypo-vcard"></i> <span class="logged-as hidden-xs">Logged as</span><span class="logged-as-name hidden-xs"><%= @userme %></span></a> 
+      <!--Fullscreen Trigger-->
+      <button type="button" class="btn btn-default hidden-xs pull-right" id="toggle-fullscreen"> <i class=" entypo-popup"></i> </button>
+      
+      <!--Settings Dropdown-->
+
+      <!--Lock Screen--> 
+
+      
+      <!--Notifications Dropdown-->
+      
+
+      
+      <!--Inbox Dropdown-->
+
+    </div>
+  </nav>
+  
+  <!--/Navigation--> 
+  
+  <!--MainWrapper-->
+  <div class="main-wrap"> 
+    
+    <!--OffCanvas Menu -->
+    <aside class="user-menu"> 
+      
+      <!-- Tabs -->
+      <div class="tabs-offcanvas">
+        <ul class="nav nav-tabs nav-justified">
+          <li class="active"><a href="#userbar-one" data-toggle="tab">Main</a></li>
+<!--           <li><a href="#userbar-two" data-toggle="tab">Users</a></li>
+          <li><a href="#userbar-three" data-toggle="tab">ToDo</a></li> -->
+        </ul>
+        <div class="tab-content"> 
+          
+          <!--User Primary Panel-->
+          <div class="tab-pane active" id="userbar-one">
+            <div class="main-info">
+              <div class="user-img" id="pic2"><img src=<%= @userprofile.pictureurl %> alt="User Picture" /></div>
+              <h1><%= @userme %> </h1>
+            </div>
+            <div class="list-group"> 
+              <a href="/profile" class="list-group-item"><i class="fa fa-user"></i>Profile</a> 
+              <a href="/settings" class="list-group-item"><i class="fa fa-cog"></i>Preferences</a> 
+              <a href="/mycv" class="list-group-item"><i class="fa fa-cog"></i>My CV</a> 
+              <div class="empthy"></div>
+              <a href="/logout" class="list-group-item" ><i class="fa fa-power-off"></i> Sign Out</a> </div>
+          </div>
+          
+          <!--User Chat Panel-->
+ 
+              <!--Adding Some Scroll-->
+
+          <!--User Tasks Panel-->
+
+              <!--Adding Some Scroll-->
+
+        </div>
+      </div>
+      
+      <!-- /tabs --> 
+      
+    </aside>
+    <!-- /Offcanvas user menu--> 
+    
+    <!--Main Menu-->
+
+    <!--/MainMenu  TSCHEW-->
+
+
+    <!--Main App--> 
+<script type="text/javascript" src="/dash/js/scripts.js"></script>
+          <%= yield %> 
+
+      </div>
+  <!--/MainWrapper--> 
+</div>
+<!--/Smooth Scroll--> 
+
+<!-- scroll top -->
+<div class="scroll-top-wrapper hidden-xs"> <i class="fa fa-angle-up"></i> </div>
+<script>
+ // $(document).ready(function(){
+
+    $('.smooth-overflow').on('scroll', function () {
+        if ($(this).scrollTop() > 100) {
+            $('.scroll-top-wrapper').addClass('show')
+        } else {
+            $('.scroll-top-wrapper').removeClass('show')
+        }
+    });
+    $('.scroll-top-wrapper').on('click', scrollToTop);
+
+// });
+
+ 
+ function scrollToTop() {
+        var verticalOffset = typeof (verticalOffset) != 'undefined' ? verticalOffset : 0;
+        var element = $('body');
+        var offset = element.offset();
+        var offsetTop = offset.top;
+        $('.smooth-overflow').animate({
+            scrollTop: offsetTop
+        }, 400, 'linear')
+    }
+</script>
+
+
+<!-- /scroll top --> 
+
+<!--Modals--> 
+
+<!--Power Widgets Modal-->
+<div class="modal" id="delete-widget">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <i class="fa fa-lock"></i> </div>
+      <div class="modal-body text-center">
+        <p>Are you sure to delete this widget?</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" id="trigger-deletewidget-reset">Cancel</button>
+        <button type="button" class="btn btn-primary" id="trigger-deletewidget">Delete</button>
+      </div>
+    </div>
+    <!-- /.modal-content --> 
+  </div>
+  <!-- /.modal-dialog --> 
+</div>
+<!-- /.modal --> 
+
+<!--Sign Out Dialog Modal-->
+<div class="modal" id="signout">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <i class="fa fa-lock"></i> </div>
+      <div class="modal-body text-center">Are You Sure Want To Sign Out?</div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" id="yesigo">Ok</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+    <!-- /.modal-content --> 
+  </div>
+  <!-- /.modal-dialog --> 
+</div>
+<!-- /.modal --> 
+
+<!--Lock Screen Dialog Modal-->
+
+<!-- /.modal --> 
+<!-- modal from settings.erb -->
+
+
+
+
+<!--Scripts--> 
+
+
+<!--GMaps--> 
+
+
+
+<!--GMap--> 
+
+
+<!--Demo Script for File Input Fields-->
+<script>
+    $(function() {
+        $('input[type="file"]').change(function() {
+            $(this).parent().next().val($(this).val());
+        });
+    });
+</script>
+<!--Forms--> 
+<script type="text/javascript" src="/dash/js/vendors/forms/jquery.form.min.js"></script> 
+<script type="text/javascript" src="/dash/js/vendors/forms/jquery.validate.min.js"></script> 
+<script type="text/javascript" src="/dash/js/vendors/forms/jquery.maskedinput.min.js"></script> 
+
+<!--EasyPieChart--> 
+<script type="text/javascript" src="/dash/js/vendors/easing/jquery.easing.1.3.min.js"></script> 
+<script type="text/javascript" src="/dash/js/vendors/easypie/jquery.easypiechart.min.js"></script> 
+
+<!--Fullscreen--> 
+<script type="text/javascript" src="/dash/js/vendors/fullscreen/screenfull.min.js"></script> 
+
+<!--NanoScroller--> 
+<script type="text/javascript" src="/dash/js/vendors/nanoscroller/jquery.nanoscroller.min.js"></script> 
+
+<!--Sparkline--> 
+<script type="text/javascript" src="/dash/js/vendors/sparkline/jquery.sparkline.min.js"></script> 
+
+<!--Horizontal Dropdown--> 
+<script type="text/javascript" src="/dash/js/vendors/horisontal/cbpHorizontalSlideOutMenu.js"></script> 
+<script type="text/javascript" src="/dash/js/vendors/classie/classie.js"></script> 
+
+<!--PowerWidgets--> 
+<script type="text/javascript" src="/dash/js/vendors/powerwidgets/powerwidgets.min.js"></script> 
+
+<!--Morris Chart--> 
+<!-- <script type="text/javascript" src="/dash/js/vendors/raphael/raphael-min.js"></script> 
+<script type="text/javascript" src="/dash/js/vendors/morris/morris.min.js"></script>  -->
+
+<!--FlotChart--> 
+<!-- <script type="text/javascript" src="/dash/js/vendors/flotchart/jquery.flot.min.js"></script> 
+<script type="text/javascript" src="/dash/js/vendors/flotchart/jquery.flot.resize.min.js"></script> 
+<script type="text/javascript" src="/dash/js/vendors/flotchart/jquery.flot.axislabels.js"></script> 
+<script type="text/javascript" src="/dash/js/vendors/flotchart/jquery.flot-tooltip.js"></script>  -->
+
+<!--Chart.js--> 
+<!-- <script type="text/javascript" src="/dash/js/vendors/chartjs/chart.min.js"></script>  -->
+
+<!--Calendar--> 
+<!-- <script type="text/javascript" src="/dash/js/vendors/fullcalendar/fullcalendar.min.js"></script> 
+<script type="text/javascript" src="/dash/js/vendors/fullcalendar/gcal.js"></script>  -->
+
+<!--Bootstrap--> 
+<script type="text/javascript" src="/dash/js/vendors/bootstrap/bootstrap.min.js"></script> 
+
+<!--Vector Map--> 
+
+<!--X-Editable--> 
+<script type="text/javascript" src="/dash/js/vendors/x-editable/bootstrap-editable.min.js"></script> 
+<!-- <script type="text/javascript" src="/dash/js/vendors/x-editable/demo.js"></script>  -->
+<!-- <script type="text/javascript" src="/dash/js/vendors/x-editable/demo-mock.js"></script>  -->
+<script type="text/javascript" src="/dash/js/vendors/x-editable/select2.js"></script> 
+<script type="text/javascript" src="/dash/js/vendors/x-editable/address.js"></script> 
+<!-- <script type="text/javascript" src="/dash/js/vendors/x-editable/jquery.mockjax.js"></script>  -->
+<!-- <script type="text/javascript" src="/dash/js/vendors/x-editable/moment.min.js"></script>  -->
+<script src="/vendor/aceskin/date-time/moment.min.js"></script>
+<!-- <script type="text/javascript" src="/vendor/select2/select2-bootstrap.js"></script>  -->
+<script type="text/javascript" src="/dash/js/vendors/x-editable/typeahead.js"></script> 
+<script type="text/javascript" src="/dash/js/vendors/x-editable/typeaheadjs.js"></script> 
+
+<!--Datepicker--> 
+
+
+    <!-- <script type="text/javascript" src="/vendor/aceskin/date-time/bootstrap-datepicker.min.js"></script> -->
+    <!-- <script type="text/javascript" src="/vendor/aceskin/date-time/bootstrap-timepicker.min.js"></script> -->
+    <script type="text/javascript" src="/vendor/aceskin/date-time/daterangepicker.js"></script>
+<!--Datatables--> 
+<script type="text/javascript" src="/dash/js/vendors/datatables/jquery.dataTables.min.js"></script> 
+<script type="text/javascript" src="/dash/js/vendors/datatables/jquery.dataTables-bootstrap.js"></script> 
+<script type="text/javascript" src="/dash/js/vendors/datatables/dataTables.colVis.js"></script> 
+<script type="text/javascript" src="/dash/js/vendors/datatables/colvis.extras.js"></script> 
+
+<!--SkyCons--> 
+<script type="text/javascript" src="/dash/js/vendors/skycons/skycons.js"></script> 
+
+<script src="/vendor/aceskin/ace-elements.min.js"></script>
+
+
+<script>
+      // var icons = new Skycons({"color": "#fff"}),
+      //     list  = [
+      //       "clear-day", "clear-night", "partly-cloudy-day",
+      //       "partly-cloudy-night", "cloudy", "rain", "sleet", "snow", "wind",
+      //       "fog"
+      //     ],
+      //     i;
+
+      // for(i = list.length; i--; )
+      //   icons.set(list[i], list[i]);
+
+      // icons.play();
+
+
+</script> 
+
+
+<!--Switcher-->
+
+
+
+
+<!-- <script src="/vendor/custom.js"></script> -->
+</body>
+
+
+</html>     
