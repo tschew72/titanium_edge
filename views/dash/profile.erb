@@ -159,9 +159,9 @@
                             <div class="col-md-2 col-lg-2 column" style="position:absolute; left:105px"> 
                                 <input readonly="true" type="text" style=" width: 260px;height: 35px;" name="date-range-picker" id="id-date-range-picker-1"  class="inputtext form-control rdonly" value="<%=@userprofile.dob.strftime("%d/%m/%Y") %> "  class="span4"></input> <div id="saving_date"></div>
                             </div>
-                            <div class="col-md-2 col-lg-2  column inputlabel" style="position:relative;left:125px">I am Married </div>  
+                            <div class="col-md-2 col-lg-2  column inputlabel" style="position:absolute;left:400px">I am Married </div>  
                               <label>
-                                <div style="position:absolute; left:120px;top:4px" style="col-md-1 col-lg-1" ><input  id="marriedcheck" name="married" type="checkbox"  <%= @userprofile.married == true ? "checked" : "unchecked" %> />  </div>
+                                <div style="position:absolute; left:500px;top:93px" style="col-md-1 col-lg-1" ><input  id="marriedcheck" name="married" type="checkbox"  <%= @userprofile.married == true ? "checked" : "unchecked" %> />  </div>
                                 <span class="lbl"> </span>
                               </label>
                             </div> <!-- row -->
