@@ -102,7 +102,115 @@
         </div> <!-- Powerwidget -->
       </div>  <!-- col-md-12  bootstrap-grid -->
     </div> <!-- row -->
+    <div class="row">
+      <div class="col-md-12  bootstrap-grid">
+        <div class="powerwidget blue" data-widget-editbutton="false" data-widget-deletebutton="false">
+          <header>
+            <h2>Career Detail<small></small></h2>
+          </header>
+          <div class="inner-spacer">
 
+            <div class="row">
+              <div class="inputlabel col-md-4 col-lg-3 col-xs-12 column">  </div> 
+              <span style="position:relative; left:-260px; top:20px" id="CVsection"> <a href=<%= @userprofile.cvurl %> > <i style="font-size: 25px;" class="fa fa-file-text-o"><br><div style="font-size: 14px;left:-10px;position:relative">My CV</div></i> </a></span>
+              <script src='/vendor/jqueryfileupload/js/vendor/jquery.ui.widget.js' type='text/javascript'></script>
+              <script src='/vendor/jqueryfileupload/js/jquery.iframe-transport.js' type='text/javascript'></script>
+              <script src='/vendor/jqueryfileupload/js/jquery.fileupload.js' type='text/javascript'></script>
+              <script src='/vendor/jqueryfileupload/js/jquery.fileupload-process.js' type='text/javascript'></script>
+              <script src='/vendor/jqueryfileupload/js/jquery.fileupload-validate.js' type='text/javascript'></script>
+              <script src='/vendor/cloudinary/jquery.cloudinary.js' type='text/javascript'></script>
+              <script type="text/javascript">$.cloudinary.config({cloud_name:'dashy', api_key:'219441847515364'}); </script>
+              <span style="position:relative; left:-220px; top:5px" class="btn dark-blue-btn btn-primary fileinput-button">
+                <div id="uploadprogress"><i class="glyphicon glyphicon-plus"></i> <span >Upload new CV</span></div> <input name="file" type="file" id="fileupload" class="cloudinary-fileupload" data-cloudinary-field="image_upload" ></span>
+              <!-- <div  id="uploadprogress" style="position:relative; top:-25px; left: -25px;">AA </div> -->
+            </div> <!--upload row-->
+            <br><br> 
+                <script type="text/javascript">
+                $(function(){
+                  $('#fileupload').fileupload({
+                      add: function (e, data) {
+                          $.getJSON('/filer_cv', function (result) {
+                              data.formData = result; // e.g. {id: 123}
+                              data.submit();
+                          }).fail( function(d, textStatus, error) {
+                              console.error("Error! Please contact helpdesk. Status: " + textStatus + ", error: "+error)
+                          });
+                      },
+                      url: "https://api.cloudinary.com/v1_1/dashy/upload",
+                      acceptFileTypes: /(\.|\/)(doc|docx|pdf|txt)$/i,
+                      // The maximum allowed file size in bytes:
+                      maxFileSize: 10000000, // 10 MB
+                      // The minimum allowed file size in bytes:
+                      minFileSize: 1, // No minimal file size
+                      // The limit of files to be uploaded:
+                      maxNumberOfFiles: 10
+                    }).on('fileuploadfail', function (e, data) {
+                      var currentFile = data.files[data.index];
+                      alert("Error! Please contact helpdesk")
+                      if (data.files.error && currentFile.error) {
+                        // there was an error, do something about it
+                        // newAlert("#alert_placeholder-tab",'danger', currentFile.error);
+                     
+                      }
+                    });
+                  });
+
+                  $('.cloudinary-fileupload').bind('cloudinarydone', function(e, data) { 
+                     $.ajax({
+                          url: '/cvuploaded',
+                          type: 'POST',
+                          data: {"cvurl": data.result.url, "pk" : <%=@userprofile.id %>},
+                          success: function(response){
+                            tt = "<a href=".concat(data.result.url,"><i style="font-size: 25px;" class="fa fa-file-text-o"><br><div style="font-size: 14px;left:-10px;position:relative">My CV</div></i></a>");
+                            $('#CVsection').html(tt);
+                                      $("#uploadprog").html("Uploading is complete!");
+                                      $('#uploadprog').fadeOut(3000, function() {
+                                        $(this).remove();
+                                        $("#uploadprogress").html("<i class='glyphicon glyphicon-plus'></i> <span >Upload new CV</span>");
+                                       });
+                            //newAlert("#alert_placeholder-tab", 'success', "File uploaded successfully!");
+                          }
+                     }); //ajax
+                     return true;
+                  }); //cloudinary done
+
+                  $('.cloudinary-fileupload').bind('fileuploadprogress', function(e, data) {
+                    $("#uploadprogress").html("<div id='uploadprog'> <i class='fa fa-spinner fa-spin'></i>Uploading in progress</div> </div>");
+                  });
+                  $('.cloudinary-fileupload').bind('fileuploadstop', function(e, data) {
+                    $('.progress').attr({
+                        style : "visibility:hidden",
+                    });
+                     
+                  });
+
+                   $('.cloudinary-fileupload').bind('fileuploadfail', function(e, data) {
+                      alert("You have been inactive on this page for a while. Please refresh this page before uploading your photo");
+                     
+                  });
+              </script>
+
+            <!-- Start Row of My Career Goal Section -->
+            <div class="row">
+              <!-- First half of the My Career Goal Section -->
+              <div class=" col-md-10 col-lg-8 column"> 
+                <div class="row">
+                  <div class="inputlabel col-md-3 col-lg-3column" style="position:relative;left:10px">My Career Goal: </div> 
+                </div>
+                <div class="row">
+                  <div class="inputlabel col-md-1 col-lg-1 col-xs-9 column" style="position:relative;left:10px">  </div>
+                  <div class="inputtext col-md-9 col-lg-9 column" style="width: 600px; max-width:80%; position: relative;left: 10px;"> 
+                     <a class="editable-click" href="javascript:void(0)"  id="skr_careergoal" data-type="text" data-pk="<%=@userprofile.id %>" data-url="/updateprofile" data-title="Enter Career Goal"><%= @userprofile.skr_careergoal %> </a>
+                    <!--  <div id="saving_careergoal" class="col-md-1 col-lg-1 col-xs-1 column" style="position:relative; left:-220px; top:4px;"></div> -->
+                  </div>
+                </div> <!-- row -->
+              </div> <!-- col -->
+              <!-- END First half of the My Career Goal Section -->
+            </div> <!-- END Row -->
+            <!-- End Row of My Career Goal Section -->
+
+            <!-- Start Row of Achievement Section -->
+          
 
     </div> <!-- End adminsection -->
     
