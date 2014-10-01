@@ -9255,7 +9255,7 @@ input[readonly] {
  .inputlabel {
     /*font-size: 1.4em;*/
     margin: 0 0 25px;
-    padding: 5px 9px;
+    padding: 1px 1px;
     /*width: 260px;*/
     font-family: 'Open Sans', sans-serif;
 }
