@@ -31,113 +31,12 @@ $(window).load(function(){
 </head>
 
 <body>
-<div id="preloader">
-<div id="spinner_container">
-<div id="spinner" class="dots">
-    Loading...
-</div>
-</div>
-</div>
-
-
-<!--Smooth Scroll-->
-<div class="smooth-overflow"> 
-  <!--Navigation-->
-  <nav class="main-header clearfix" role="navigation"> <a class="navbar-brand" href="/edge"><span class="text-blue">JORB</span></a> 
-    
-    <!--Search-->
-    <!-- <div class="site-search">
-      <form action="#" id="inline-search">
-        <i class="fa fa-search"></i>
-        <input type="search" placeholder="Search">
-      </form>
-    </div> -->
-    
-    <!--Navigation Itself-->
-    
-    <div class="navbar-content"> 
-      
-      <!--Sidebar Toggler REMOVED--> 
-      
-      <!--Right Userbar Toggler--> 
-      <a href="#" class="btn btn-user right-toggler pull-right"><i class="entypo-vcard"></i> <span class="logged-as hidden-xs">Logged as</span><span class="logged-as-name hidden-xs"><%= @userme %></span></a> 
-      <!--Fullscreen Trigger-->
-      <button type="button" class="btn btn-default hidden-xs pull-right" id="toggle-fullscreen"> <i class=" entypo-popup"></i> </button>
-      
-      <!--Settings Dropdown-->
-
-      <!--Lock Screen--> 
-
-      
-      <!--Notifications Dropdown-->
-      
-
-      
-      <!--Inbox Dropdown-->
-
-    </div>
-  </nav>
-  
-  <!--/Navigation--> 
-  
-  <!--MainWrapper-->
-  <div class="main-wrap"> 
-    
-    <!--OffCanvas Menu -->
-    <aside class="user-menu"> 
-      
-      <!-- Tabs -->
-      <div class="tabs-offcanvas">
-        <ul class="nav nav-tabs nav-justified">
-          <li class="active"><a href="#userbar-one" data-toggle="tab">Main</a></li>
-<!--           <li><a href="#userbar-two" data-toggle="tab">Users</a></li>
-          <li><a href="#userbar-three" data-toggle="tab">ToDo</a></li> -->
-        </ul>
-        <div class="tab-content"> 
-          
-          <!--User Primary Panel-->
-          <div class="tab-pane active" id="userbar-one">
-            <div class="main-info">
-              <div class="user-img" id="pic2"><img src=<%= @userprofile.pictureurl %> alt="User Picture" /></div>
-              <h1><%= @userme %> </h1>
-            </div>
-            <div class="list-group"> 
-              <a href="/profile" class="list-group-item"><i class="fa fa-user"></i>Profile</a> 
-              <a href="/settings" class="list-group-item"><i class="fa fa-cog"></i>Preferences</a> 
-              <a href="/mycv" class="list-group-item"><i class="fa fa-cog"></i>My CV</a> 
-              <div class="empthy"></div>
-              <a href="/logout" class="list-group-item" ><i class="fa fa-power-off"></i> Sign Out</a> </div>
-          </div>
-          
-          <!--User Chat Panel-->
- 
-              <!--Adding Some Scroll-->
-
-          <!--User Tasks Panel-->
-
-              <!--Adding Some Scroll-->
-
-        </div>
-      </div>
-      
-      <!-- /tabs --> 
-      
-    </aside>
-    <!-- /Offcanvas user menu--> 
-    
-    <!--Main Menu-->
-
-    <!--/MainMenu  TSCHEW-->
-
 
     <!--Main App--> 
 <script type="text/javascript" src="/dash/js/scripts.js"></script>
           <%= yield %> 
 
-      </div>
-  <!--/MainWrapper--> 
-</div>
-<!--/Smooth Scroll--> 
+
 
 <!-- scroll top -->
 <div class="scroll-top-wrapper hidden-xs"> <i class="fa fa-angle-up"></i> </div>
