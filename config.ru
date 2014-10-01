@@ -217,7 +217,7 @@ post '/lookforseeker' do
 
 
 
-   erb :adminpagereload, :layout => :'dash/adminlayout'
+       erb :"dash/settings", :layout => :'dash/layout1'
 
 end
 
