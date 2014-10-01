@@ -290,14 +290,14 @@
 
                 <div class="row">
                   <div class="inputlabel col-md-5 col-lg-4 column">Current annual salary:S$ </div> 
-                  <div class="inputtext col-md-4 col-lg-3 col-xs-12 column" style="width: 100px; max-width:90%; position: relative;left: -200px;"> 
+                  <div class="inputtext col-md-4 col-lg-3 col-xs-12 column" style="width: 100px; max-width:90%; position: relative;left: -200px;line-height: 15px; vertical-align:middle;"> 
                     <a href="#" id="currentsalary" data-name="currentsalary" data-type="text" data-pk="<%=@userprofile.id %>" data-url="/updateprofile" data-title="Enter current salary"><%= @userprofile.currentsalary %></a>
                   </div>
                 </div>
 
                 <div class="row">
                   <div class="inputlabel col-md-5 col-lg-4 column">Expected annual salary:S$</div> 
-                  <div class="inputtext col-md-4 col-lg-3 col-xs-12 column" style="width: 100px; max-width:90%; position: relative;left: -200px;"> 
+                  <div class="inputtext col-md-4 col-lg-3 col-xs-12 column" style="width: 100px; max-width:90%; position: relative;left: -200px;line-height: 15px; vertical-align:middle;"> 
                     <a href="#" id="expectedsalary" data-name="expectedsalary" data-type="text"  data-pk="<%=@userprofile.id %>" data-url="/updateprofile" data-title="Enter expected salary"><%= @userprofile.expectedsalary %></a>
                   </div>
                 </div>               
@@ -310,23 +310,23 @@
                     <div class="row orb-form">
                           <div class="inputlabel col-md-4 col-lg-3 col-xs-11 column">Full Time</div>
                           <label style="position: absolute; left: 30px;" class="toggle col-md-1 col-lg-1 col-xs-1 column"><input id="fulltimecheck" name="fulltime"  type="checkbox" <%= @userprofile.fulltime.to_s == "true" ? "checked" : "unchecked" %> ><i></i></label>
-                        <div class="col-md-1 col-lg-1 col-xs-1 column" id="saving_fulltime" style="position:relative; left: 10px; top: 3px"></div>
+                        <div class="col-md-1 col-lg-1 col-xs-1 column" id="saving_fulltime" style="position:absolute; left: 140px; top: 3px"></div>
                     </div>
                     <div class="row orb-form">
                       <div class="inputlabel col-md-4 col-lg-3 col-xs-11 column">Part Time</div>
                         <label style="position: absolute; left: 30px;" class="toggle col-md-1 col-lg-1 col-xs-1 column"><input id="parttimecheck" name="parttime"  type="checkbox" <%= @userprofile.parttime.to_s == "true" ? "checked" : "unchecked" %> ><i></i></label>
-                       <div id="saving_parttime" style="position:absolute; left: 130px; top: 60px" class="col-md-1 col-lg-1 col-xs-1 column"></div>
+                       <div id="saving_parttime" style="position:absolute; left: 140px; top: 50px" class="col-md-1 col-lg-1 col-xs-1 column"></div>
                     </div>
                   </div>
                     <div class="col-md-4 col-lg-3 column" style="position: relative">
                       <div class="row orb-form">
-                        <div class="inputlabel col-md-4 col-lg-3 col-xs-11 column">Shift Work</div>
+                        <div class="inputlabel col-md-4 col-lg-3 column">Shift Work</div>
                           <label style="position: absolute; left: 40px;" class="toggle col-md-1 col-lg-1 col-xs-1 column"><input id="shiftworkcheck" name="shiftwork" type="checkbox" <%= @userprofile.shiftwork.to_s == "true" ? "checked" : "unchecked" %> ><i></i></label>
-                          <div id="saving_shift" style="position:relative; left: 20px; top: 3px" class="col-md-1 col-lg-1 col-xs-1 column"></div>
+                          <div id="saving_shift" style="position:absolute; left: 140px; top: 3px" class="col-md-1 col-lg-1 col-xs-1 column"></div>
                       </div>
 
                       <div class="row orb-form ">
-                          <div class="inputlabel col-md-4 col-lg-3 col-xs-11 column">Internship</div>
+                          <div class="inputlabel col-md-4 col-lg-3 column">Internship</div>
                             <label style="position: absolute; left: 40px;" class="toggle col-md-1 col-lg-1 col-xs-1 column"><input id="interncheck" name="skr_intern"  type="checkbox" <%= @userprofile.skr_intern.to_s == "true" ? "checked" : "unchecked" %> ><i></i></label>
                             <div id="saving_intern" style="position:absolute; left: 140px; top: 60px" class="col-md-1 col-lg-1 col-xs-1 column"></div>
                       </div>                     
@@ -340,7 +340,7 @@
                       <div class="row orb-form">
                         <div class="inputlabel col-md-5 col-lg-4 col-xs-11 column" style="left: 0px;">Freelance/Contract</div>
                           <label style="position: absolute; left: 90px;" class="toggle col-md-1 col-lg-1 col-xs-1 column"><input id="contractorcheck" name="skr_contractor" unchecked="" type="checkbox"><i></i></label> 
-                          <div id="saving_contractor" style="position:absolute; left: 190px; top: 60px" class="col-md-1 col-lg-1 col-xs-1 column"></div>
+                          <div id="saving_contractor" style="position:absolute; left: 190px; top: 50px" class="col-md-1 col-lg-1 col-xs-1 column"></div>
                       </div>
                     </div>
                     <div class="col-lg-3 column " style="position: relative"></div>
