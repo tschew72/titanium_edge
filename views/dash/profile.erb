@@ -193,26 +193,27 @@
                   <header>
                     <h2>Contact Information</h2>
                   </header>
+
                   <div class="inner-spacer">
                     <div class="row">   
-                      <div class="col-md-1 column">  
-                         Mobile #:
+                      <div class="col-md-1 column" style="position:relative">  
+                        <div class="inputlabel col-md-2 col-lg-2 column">Mobile #: </div> 
                       </div>
-                      <div class="inputtext col-md-2 column">  
+                      <div class="inputtext col-md-2 column" style="position:absolute;left:120px">  
                          <a class="editable-click" href="javascript:void(0)"  id="contactnumber" data-type="text" data-pk="<%=@userprofile.id %>" data-url="/updateprofile" data-title="Enter mobile number"><%= @userprofile.contactnumber %> </a> 
                       </div>
                     </div>
                     <div class="row">  
                       <div class="col-md-1 column">     
-                         Address:
+                        <div class="inputlabel col-md-2 col-lg-2 column"> Address: </div>
                       </div>
-                      <div class="inputtext col-md-2 column">  
+                      <div class="inputtext col-md-2 column" style="position:absolute;left:120px">
                          <a class="editable-click" href="javascript:void(0)"  id="address" data-type="text" data-pk="<%=@userprofile.id %>" data-url="/updateprofile" data-title="Enter address"><%= @userprofile.address %>   </a>
                       </div>
                     </div>
                     <div class="row">  
-                      <div class="col-md-1 column"> Email: </div> 
-                      <div class="inputtext col-md-2 column">  
+                      <div class="inputlabel col-md-2 col-lg-2 column">  Email: </div> 
+                      <div class="inputtext col-md-2 column" style="position:absolute;left:120px">
                          <a class="editable-click" href="javascript:void(0)"  id="email" data-type="text" data-pk="<%=@userprofile.id %>" data-url="/updateprofile" data-title="Enter email address"><%= @userprofile.email %>   </a>
                       </div>
                     </div>
