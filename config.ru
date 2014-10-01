@@ -131,75 +131,6 @@ end
 post '/lookforseeker' do
    userid = params["pk"]
    @userprofile = User.get(userid)
-   erb :adminpagereload, :layout => false
-
-end
-
-
-
-get '/mycv' do
-       redirect '/auth/login' unless env['warden'].authenticated?
-       @userprofile = env['warden'].user  #This is the most important query of all. it will identify the user of this session.
-       @userme = @userprofile.firstname
-       @cmaster = TmeListCountry
-       @uni = TmeListUniversity
-       @degree = TmeListDegree
-       @allskills =   @userprofile.skill_summaries.all(:order => [ :skillrank.desc ], :limit => 10, :status.gt =>0)
-       @alledu =   @userprofile.tme_skr_edu.all
-       @alljobs = @userprofile.tme_skr_emp.all
-       @ssmaster = SkillSource  #master skill source for cross referencing
-       @mynations=@userprofile.tme_skr_nation.first(:user_id=>@userprofile.id).skr_nation
-       @mynationtypes=@userprofile.tme_skr_nation.first(:user_id=>@userprofile.id).skr_nation_type
-       erb :mycv, :layout => :'main/layout2'
-end
-
-
-get '/profile' do
-       redirect '/auth/login' unless env['warden'].authenticated?
-       @userprofile = env['warden'].user   
-       @userme = @userprofile.firstname 
-
-       sc = @userprofile.tme_skr_socialmedia.all
-       sc.each do |x|
-          if x.skr_socialmediacat == 1
-            @facebook = x.skr_socialmediaurl
-          end
-          if x.skr_socialmediacat == 2
-            @github = x.skr_socialmediaurl
-          end
-          if x.skr_socialmediacat == 3
-            @linkedin = x.skr_socialmediaurl
-          end
-          if x.skr_socialmediacat == 4
-            @twitter = x.skr_socialmediaurl
-          end
-          if x.skr_socialmediacat == 5
-            @google = x.skr_socialmediaurl
-          end
-       end
-       @mynations=@userprofile.tme_skr_nation.first(:user_id=>@userprofile.id).skr_nation
-       @mynationtypes=@userprofile.tme_skr_nation.first(:user_id=>@userprofile.id).skr_nation_type
-
-       @cmaster = TmeListCountry.all
-       ctemp = []
-           @cmaster.each do |x|
-           ctemp << {value: x.country_id, text: "#{x.country}"}
-        end
-        @countries = ctemp.to_json
-       erb :"dash/profile", :layout => :'dash/layout1'
-end
-
-
-get '/admin' do
-        #make sure only admin can access
-        #Create a section where we can dump the json of categories and skills.
-        #To create new users
-       redirect '/auth/login' unless env['warden'].authenticated?
-       @userprofile = env['warden'].user   
-       @userme = @userprofile.firstname
-       
-
-       @seekers = User.all
 
 
        @careerscore = @userprofile.skrscore.skrscore_total
@@ -285,6 +216,73 @@ get '/admin' do
        @mynationtypes=@userprofile.tme_skr_nation.first(:user_id=>@userprofile.id).skr_nation_type
 
 
+
+   erb :adminpagereload, :layout => false
+
+end
+
+
+
+get '/mycv' do
+       redirect '/auth/login' unless env['warden'].authenticated?
+       @userprofile = env['warden'].user  #This is the most important query of all. it will identify the user of this session.
+       @userme = @userprofile.firstname
+       @cmaster = TmeListCountry
+       @uni = TmeListUniversity
+       @degree = TmeListDegree
+       @allskills =   @userprofile.skill_summaries.all(:order => [ :skillrank.desc ], :limit => 10, :status.gt =>0)
+       @alledu =   @userprofile.tme_skr_edu.all
+       @alljobs = @userprofile.tme_skr_emp.all
+       @ssmaster = SkillSource  #master skill source for cross referencing
+       @mynations=@userprofile.tme_skr_nation.first(:user_id=>@userprofile.id).skr_nation
+       @mynationtypes=@userprofile.tme_skr_nation.first(:user_id=>@userprofile.id).skr_nation_type
+       erb :mycv, :layout => :'main/layout2'
+end
+
+
+get '/profile' do
+       redirect '/auth/login' unless env['warden'].authenticated?
+       @userprofile = env['warden'].user   
+       @userme = @userprofile.firstname 
+
+       sc = @userprofile.tme_skr_socialmedia.all
+       sc.each do |x|
+          if x.skr_socialmediacat == 1
+            @facebook = x.skr_socialmediaurl
+          end
+          if x.skr_socialmediacat == 2
+            @github = x.skr_socialmediaurl
+          end
+          if x.skr_socialmediacat == 3
+            @linkedin = x.skr_socialmediaurl
+          end
+          if x.skr_socialmediacat == 4
+            @twitter = x.skr_socialmediaurl
+          end
+          if x.skr_socialmediacat == 5
+            @google = x.skr_socialmediaurl
+          end
+       end
+       @mynations=@userprofile.tme_skr_nation.first(:user_id=>@userprofile.id).skr_nation
+       @mynationtypes=@userprofile.tme_skr_nation.first(:user_id=>@userprofile.id).skr_nation_type
+
+       @cmaster = TmeListCountry.all
+       ctemp = []
+           @cmaster.each do |x|
+           ctemp << {value: x.country_id, text: "#{x.country}"}
+        end
+        @countries = ctemp.to_json
+       erb :"dash/profile", :layout => :'dash/layout1'
+end
+
+
+get '/admin' do
+        #make sure only admin can access
+        #Create a section where we can dump the json of categories and skills.
+        #To create new users
+       redirect '/auth/login' unless env['warden'].authenticated?
+       @userprofile = env['warden'].user   
+       @userme = @userprofile.firstname
 
         erb :"dash/admin", :layout => :'dash/layout1'
 
