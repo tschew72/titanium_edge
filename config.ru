@@ -282,8 +282,8 @@ get '/admin' do
         #To create new users
        redirect '/auth/login' unless env['warden'].authenticated?
        
-       #@userprofile = env['warden'].user   
-       @userprofile = User.get(1)
+       @userprofile = env['warden'].user   
+       #@userprofile = User.get(1)
        @userme = @userprofile.firstname
        @seekers = User.all
 
