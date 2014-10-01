@@ -47,7 +47,7 @@
                           <td><h4 class="text-center"> <%= i.username %></h4></td> 
                           <td><h4 class="text-center"> <%= i.firstname %></h4></td>
                           <td><h4 class="text-center"> <%= i.lastname %></h4></td>
-                          <td><h4 class="text-center"> <a  href="/lookforseeker?pk=1"> <i class="fa fa-puzzle-piece"></i>Show Seeker Profile</a> </h4></td>
+                          <td><h4 class="text-center"> <a  href="/lookforseeker?pk=<%= i.id%>"> <i class="fa fa-puzzle-piece"></i>Show Seeker Profile</a> </h4></td>
                             </tr>
                             <% end %>
                           </tbody>
