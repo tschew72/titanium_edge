@@ -160,7 +160,7 @@
                           type: 'POST',
                           data: {"cvurl": data.result.url, "pk" : <%=@userprofile.id %>},
                           success: function(response){
-                            tt = "<a href=".concat(data.result.url,"><i style='font-size: 25px;' class='fa fa-file-text-o'></i></a>");
+                            tt = "<a href=".concat(data.result.url,"><i style="font-size: 25px;" class="fa fa-file-text-o"><br><div style="font-size: 14px;left:-10px;position:relative">My CV</div></i></a>");
                             $('#CVsection').html(tt);
                                       $("#uploadprog").html("Uploading is complete!");
                                       $('#uploadprog').fadeOut(3000, function() {
@@ -198,7 +198,7 @@
                 </div>
                 <div class="row">
                   <div class="inputlabel col-md-1 col-lg-1 col-xs-9 column" style="position:relative;left:10px">  </div>
-                  <div class="inputtext col-md-9 col-lg-9 column" style="width: 600px; max-width:80%; position: relative;left: 110px;"> 
+                  <div class="inputtext col-md-9 col-lg-9 column" style="width: 600px; max-width:80%; position: relative;left: 10px;"> 
                      <a class="editable-click" href="javascript:void(0)"  id="skr_careergoal" data-type="text" data-pk="<%=@userprofile.id %>" data-url="/updateprofile" data-title="Enter Career Goal"><%= @userprofile.skr_careergoal %> </a>
                     <!--  <div id="saving_careergoal" class="col-md-1 col-lg-1 col-xs-1 column" style="position:relative; left:-220px; top:4px;"></div> -->
                   </div>
@@ -220,9 +220,9 @@
                   <% @allachievements.each do |i| %>
                     <div class="row">
                        <%a=a+1%>
-                       <div class="inputlabel col-md-1 col-lg-1 col-xs-9 column" style="position:relative;left:10px"># <%= a %> </div>
+                       <div class="inputlabel col-md-1 col-lg-1 column" style="position:relative;left:10px"># <%= a %> </div>
 
-                       <div class="inputtext col-md-9 col-lg-9 col-xs-4 column" style="width: 600px; max-width:80%; position: relative;left: 10px;"> 
+                       <div class="inputtext col-md-9 col-lg-9 column" style="width: 600px; max-width:80%; position: relative;left: 10px;"> 
                         <a class="editable-click ec" href="javascript:void(0)" data-type="text" data-pk="<%=i.achieve_id %>" data-url="/updateachievement" data-title="Enter achievement"><%= i.achievement != '' ? i.achievement : "[Optional] Enter your achievement here"%> </a>
                      </div>
                     </div>
