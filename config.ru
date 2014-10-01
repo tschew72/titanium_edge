@@ -128,7 +128,7 @@ post '/top5matchestable' do
 
 end
 
-post '/lookforseeker' do
+get '/lookforseeker' do
    userid = params["pk"]
    @userprofile = User.get(userid)
 
@@ -291,7 +291,7 @@ get '/admin' do
        @allskills =   @userprofile.skill_summaries.all
        @alllanguages = @userprofile.tme_skr_language.all
        @allachievements = @userprofile.tme_skr_achieve.all
-       
+
       @ssmaster = SkillSource  #master skill source for cross referencing
        #stemp = []
        #    @ssmaster.each do |x|
