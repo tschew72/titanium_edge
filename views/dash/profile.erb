@@ -115,7 +115,7 @@
                                                     $("#uploadprog").html("Uploading is complete!");
                                                     $('#uploadprog').fadeOut(3000, function() {
                                                       $(this).remove();
-                                                      $("#uploadprogress").html("<i class='glyphicon glyphicon-plus'></i> <span >Upload new CV</span>");
+                                                      $("#uploadprogress").html("<i class='glyphicon glyphicon-plus'></i> <span >Upload new Photo</span>");
                                                      });
                                                      
                                                   }
@@ -123,18 +123,15 @@
                                              return true;
                                     }); //cloudinary done
 
-                                     $('.cloudinary-fileupload').bind('fileuploadprogress', function(e, data) {
-                                        $('.progress').attr({
-                                            style : "visibility:show",
-                                        });
-                                        // $('.status_value').text('Uploading...');
+                                 $('.cloudinary-fileupload').bind('fileuploadprogress', function(e, data) {
+                                 $("#uploadprogress").html("<div id='uploadprog'> <i class='fa fa-spinner fa-spin'></i>Uploading in progress</div> </div>");
+                                 });
+                                 $('.cloudinary-fileupload').bind('fileuploadstop', function(e, data) {
+                                    $('.progress').attr({
+                                        style : "visibility:hidden",
                                     });
-                                     $('.cloudinary-fileupload').bind('fileuploadstop', function(e, data) {
-                                        $('.progress').attr({
-                                            style : "visibility:hidden",
-                                        });
-                                        
-                                    });
+                                    
+                                });
 
                                      $('.cloudinary-fileupload').bind('fileuploadfail', function(e, data) {
                                         alert("You have been inactive on this page for a while. Please refresh this page before uploading your photo");
