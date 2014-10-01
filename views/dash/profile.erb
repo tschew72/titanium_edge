@@ -112,7 +112,11 @@
                                                     tt = "<img id='avatar' class='img-responsive' src=".concat(data.result.url," />");
                                                     $('#pic').html(tt);  //to refresh this page picture
                                                     $('#pic2').html(tt); //for side bar picture
-                                                    // newAlert("#alert_placeholder-tab", 'success', "File uploaded successfully!");
+                                                    $("#uploadprog").html("Uploading is complete!");
+                                                    $('#uploadprog').fadeOut(3000, function() {
+                                                      $(this).remove();
+                                                      $("#uploadprogress").html("<i class='glyphicon glyphicon-plus'></i> <span >Upload new CV</span>");
+                                                     });
                                                      
                                                   }
                                              }); //ajax
