@@ -128,6 +128,13 @@ post '/top5matchestable' do
 
 end
 
+post '/lookforseeker' do
+   userid = params["pk"]
+   @userprofile = User.get(userid)
+   erb :adminpagereload, :layout => false
+
+end
+
 
 
 get '/mycv' do
@@ -190,6 +197,10 @@ get '/admin' do
        redirect '/auth/login' unless env['warden'].authenticated?
        @userprofile = env['warden'].user   
        @userme = @userprofile.firstname
+       
+
+       @seekers = User.all
+
 
        @careerscore = @userprofile.skrscore.skrscore_total
        @allskills =   @userprofile.skill_summaries.all
