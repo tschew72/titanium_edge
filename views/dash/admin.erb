@@ -1,0 +1,150 @@
+
+
+
+<!--Content Wrapper-->
+      <div class="content-wrapper main-content-toggle-left"> 
+        <nav class="cbp-hsmenu-wrapper" id="cbp-hsmenu-wrapper">
+
+      </nav>
+            <!--Breadcrumb-->
+      <div class="breadcrumb clearfix">
+        <ul>
+          <li><a href="/"><i class="fa fa-home"></i></a></li>
+          <li><a href="/edge">Dashboard</a></li>
+          <li class="active">Admin</li>
+        </ul>
+      </div>
+      <!--/Breadcrumb--> 
+    <div class="page-header">
+      <h1>Administration <small>For Authorized Personnel only</h1>
+    </div>
+
+
+  <div id="powerwidgets">
+    <div class="row" >
+          <div class="col-md-12  bootstrap-grid">
+            <div class="powerwidget blue" data-widget-editbutton="false" data-widget-deletebutton="false">
+              <header>
+                <h2>Basic<small>State you intention</small></h2>
+              </header>
+              <div class="inner-spacer">
+                    <div class="col-md-6">
+                      <div class="table-responsive">
+                        <table class="table table-striped table-hover margin-0px airtable">
+                          <thead>
+                            <tr>
+                              <th>User ID </th>
+                              <th >User Name</th>
+                              <th >First Name</th>
+                              <th >Last Name</th>
+                              <th ></th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <% @seekers.each do |i| %>
+                            <tr>
+                          <td><h4 class="text-center"><%= i.id %></h4></td> 
+                          <td><h4 class="text-center"> <%= i.username %></h4></td> 
+                          <td><h4 class="text-center"> <%= i.firstname %></h4></td>
+                          <td><h4 class="text-center"> <%= i.lastname %></h4></td>
+                          <td><h4 class="text-center"> <a onclick="viewseeker(<%=i.id%>)" class="red" href="javascript:void(0)"> <i class="fa fa-puzzle-piece"></i>Show Seeker Profile</a> </h4></td>
+                            </tr>
+                            <% end %>
+                          </tbody>
+                          <tfoot>
+                            <tr>
+                              <th>User ID </th>
+                              <th >User Name</th>
+                              <th >First Name</th>
+                              <th >Last Name</th>
+                              <th ></th>
+                            </tr>
+                          </tfoot>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+    
+<!-- <script type="text/javascript" src="/dash/js/scripts.js"></script> -->
+           
+
+
+<div class="tabbable">
+        <ul class="nav nav-tabs padding-16">
+          <li class="active">
+            <a data-toggle="tab" href="#createuser">
+              <i class="green icon-edit bigger-125"></i>
+              Create User
+            </a>
+          </li>
+          <li>
+            <a data-toggle="tab" href="#edituser">
+              <i class="blue icon-key bigger-125"></i>
+              Edit User
+            </a>
+          </li>
+        </ul>
+        <div class="tab-content">
+        <div id="createuser" class="tab-pane in active">
+          <h3 class="header smaller lighter blue">General</h3>
+              <div  class=" row">
+
+                <table id="newusertab" class="table table-bordered table-striped">
+                  <tbody>
+                  <tr>       
+                  <td width="20%">Username</td> <!--TSCHEW-->
+                  <td width="50%">
+                  <a href="#" class="newuser" id="username" data-emptytext="Enter Username" data-type="text" id="skillcat" data-name="username"  data-original-title="Username"></a></td>
+                  </tr>
+                  <tr>       
+                  <td width="20%">First name</td>
+                  <td width="50%"><a href="#" class="newuser" id="firstname"  data-emptytext="Enter First Name" data-type="text" data-name="firstname" data-original-title="First Name"></a></td>
+                  </tr>
+                  <tr>       
+                  <td width="20%">Last name</td>
+                  <td width="50%"><a href="#" class="newuser" id="lastname" data-emptytext="Enter Last Name" data-type="text" data-name="lastname" data-original-title="Last Name"></a></td>
+                  </tr>   
+                  <tr>       
+                  <td width="20%">Email</td>
+                  <td width="50%"><a href="#" class="newuser" id="email" data-emptytext="Enter Email" data-type="text" data-name="email"  data-original-title="Email"></a></td>
+                  </tr>   
+                  <tr>       
+                  <td width="20%">Password</td>
+                  <td width="50%"><a href="#" class="newuser" id="password" data-emptytext="Enter Password" data-type="text" data-name="password" data-original-title="Password"></a></td>
+                  </tr>                       
+                  </tbody>
+                </table>
+            </div> <!-- <div id="user-profile-1" class="user-profile row"> -->
+          <button id="saveuser-btn" class="btn btn-primary"><i class="icon-save bigger-140 icon-only">Save User and Add New</i></button>
+          </div> <!-- <div id="edit-basic" class="tab-pane in active"> -->
+
+          <div id="edituser" class="tab-pane">
+              <div class="space-10"></div>
+              <div class="form-group">
+                  <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Edit User</label>
+                  <p> <input type="text" id="form-field-1"  /> </p>
+              </div> 
+          </div> <!-- <div id="edit-password" class="tab-pane"> -->
+
+     <!-- <div class="row"> -->
+      
+         
+  </div> <!-- <div class="tab-content profile-edit-tab-content"> -->
+</div> <!-- <div class="tabbable"> -->
+
+        
+
+
+<script>
+
+      function viewseeker(i){
+
+        $("#adminsection").load("/lookforseeker",{ pk: i }); 
+
+      }//function
+
+</script>
