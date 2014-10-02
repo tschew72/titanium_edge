@@ -254,25 +254,25 @@
               <div id="t3" class="tab-pane active">   
                 <div class="row">
                   <div class="inputlabel col-md-3 col-lg-2 col-sm-3 col-xs-9 column">Preferred Job Levels</div>
-                  <div class="inputtext col-md-9 col-lg-10 col-xs-12 column" style="width: 600px; max-width:90%; position: relative;left: -30px;"> 
+                  <div class="inputtext col-md-9 col-lg-10 col-xs-12 column" style="width: 530px; max-width:90%; position: relative;left: -30px;"> 
                     <a href="#" id="joblevel" data-type="select2" data-value="<%= @pref_level%>"  data-pk="<%=@userprofile.id %>" data-url="/updatelevelpref" data-title="Enter preferred job level"></a>
                   </div>
                 </div>
                 <div class="row">      
                   <div class="inputlabel col-md-3 col-lg-2 col-sm-3 col-xs-9 column">Preferred Job Functions</div>
-                  <div class="inputtext col-md-9 col-lg-10 col-xs-12 column" style="width: 600px; max-width:90%; position: relative;left: -30px;">
+                  <div class="inputtext col-md-9 col-lg-10 col-xs-12 column" style="width: 530px; max-width:90%; position: relative;left: -30px;">
                     <a href="#" id="jobfunction" data-type="select2" data-value="<%= @pref_func %>"  data-pk="<%=@userprofile.id %>" data-url="/updatefuncpref" data-title="Enter preferred job functions"></a>
                   </div>
                 </div>
                 <div class="row"> 
                   <div class="inputlabel col-md-3 col-lg-2 col-sm-3 col-xs-9 column">Preferred Industries</div>
-                  <div class="inputtext col-md-9 col-lg-10 col-xs-12 column" style="width: 600px; max-width:90%; position: relative;left: -30px;">         
+                  <div class="inputtext col-md-9 col-lg-10 col-xs-12 column" style="width: 530px; max-width:90%; position: relative;left: -30px;">         
                     <a href="#" id="industries" data-type="select2" data-value="<%= @pref_ind %>"  data-pk="<%=@userprofile.id %>" data-url="/updateindpref" data-title="Enter preferred industries"></a>
                   </div>
                 </div>
                 <div class="row">
                   <div class="inputlabel col-md-3 col-lg-2 col-sm-3 col-xs-9 column">Preferred Locations</div>       
-                  <div class="inputtext col-md-9 col-lg-10 col-xs-12 column" style="width: 600px; max-width:90%; position: relative;left: -30px;">    
+                  <div class="inputtext col-md-9 col-lg-10 col-xs-12 column" style="width: 530px; max-width:90%; position: relative;left: -30px;">    
                     <a href="#" id="locations" data-type="select2" data-value="<%= @pref_loc %>"  data-pk="<%=@userprofile.id %>" data-url="/updatelocpref" data-title="Enter preferred locations"></a>
                   </div>
                 </div>
@@ -291,14 +291,14 @@
                 </div>
 
                 <div class="row">
-                  <div class="inputlabel col-md-5 col-sm-5 col-lg-4 column">Current annual salary:S$ </div> 
+                  <div class="inputlabel col-md-5 col-sm-7 col-lg-4 column">Current annual salary:S$ </div> 
                   <div class="inputtext col-md-4 col-lg-3 col-xs-12 column" style="width: 100px; max-width:90%; position: relative;left: -200px;line-height: 15px; vertical-align:middle;"> 
                     <a href="#" id="currentsalary" data-name="currentsalary" data-type="text" data-pk="<%=@userprofile.id %>" data-url="/updateprofile" data-title="Enter current salary"><%= @userprofile.currentsalary %></a>
                   </div>
                 </div>
 
                 <div class="row">
-                  <div class="inputlabel col-md-5 col-sm-5 col-lg-4 column">Expected annual salary:S$</div> 
+                  <div class="inputlabel col-md-5 col-sm-7 col-lg-4 column">Expected annual salary:S$</div> 
                   <div class="inputtext col-md-4 col-lg-3 col-xs-12 column" style="width: 100px; max-width:90%; position: relative;left: -200px;line-height: 15px; vertical-align:middle;"> 
                     <a href="#" id="expectedsalary" data-name="expectedsalary" data-type="text"  data-pk="<%=@userprofile.id %>" data-url="/updateprofile" data-title="Enter expected salary"><%= @userprofile.expectedsalary %></a>
                   </div>
@@ -310,26 +310,26 @@
 
                   <div class="col-md-4 col-lg-3 column" style="position: relative">
                     <div class="row orb-form">
-                          <div class="inputlabel col-md-4 col-lg-3 col-xs-11 column">Full Time</div>
+                          <div class="inputlabel col-md-4 col-lg-3 col-sm-3 col-xs-11 column">Full Time</div>
                           <label style="position: absolute; left: 30px;" class="toggle col-md-1 col-lg-1 col-xs-1 column"><input id="fulltimecheck" name="fulltime"  type="checkbox" <%= @userprofile.fulltime.to_s == "true" ? "checked" : "unchecked" %> ><i></i></label>
                         <div class="col-md-1 col-lg-1 col-xs-1 column" id="saving_fulltime" style="position:absolute; left: 140px; top: 3px"></div>
                     </div>
                     <div class="row orb-form">
-                      <div class="inputlabel col-md-4 col-lg-3 col-xs-11 column">Part Time</div>
+                      <div class="inputlabel col-md-4 col-lg-3 col-sm-3 col-xs-11 column">Part Time</div>
                         <label style="position: absolute; left: 30px;" class="toggle col-md-1 col-lg-1 col-xs-1 column"><input id="parttimecheck" name="parttime"  type="checkbox" <%= @userprofile.parttime.to_s == "true" ? "checked" : "unchecked" %> ><i></i></label>
                        <div id="saving_parttime" style="position:absolute; left: 140px; top: 50px" class="col-md-1 col-lg-1 col-xs-1 column"></div>
                     </div>
                   </div>
-                    <div class="col-md-4 col-lg-3 column" style="position: relative">
+                    <div class="col-md-4 col-lg-3 col-sm-4 column" style="position: relative">
                       <div class="row orb-form">
-                        <div class="inputlabel col-md-4 col-lg-3 column">Shift Work</div>
-                          <label style="position: absolute; left: 40px;" class="toggle col-md-1 col-lg-1 col-xs-1 column"><input id="shiftworkcheck" name="shiftwork" type="checkbox" <%= @userprofile.shiftwork.to_s == "true" ? "checked" : "unchecked" %> ><i></i></label>
+                        <div class="inputlabel col-md-4 col-lg-3 col-sm-4 column">Shift Work</div>
+                          <label style="position: absolute; left: 40px;" class="toggle col-md-1 col-lg-1 col-xs-1 col-sm-1 column"><input id="shiftworkcheck" name="shiftwork" type="checkbox" <%= @userprofile.shiftwork.to_s == "true" ? "checked" : "unchecked" %> ><i></i></label>
                           <div id="saving_shift" style="position:absolute; left: 140px; top: 3px" class="col-md-1 col-lg-1 col-xs-1 column"></div>
                       </div>
 
                       <div class="row orb-form ">
                           <div class="inputlabel col-md-4 col-lg-3 column">Internship</div>
-                            <label style="position: absolute; left: 40px;" class="toggle col-md-1 col-lg-1 col-xs-1 column"><input id="interncheck" name="skr_intern"  type="checkbox" <%= @userprofile.skr_intern.to_s == "true" ? "checked" : "unchecked" %> ><i></i></label>
+                            <label style="position: absolute; left: 40px;" class="toggle col-md-1 col-lg-1 col-xs-1 col-sm-1 column"><input id="interncheck" name="skr_intern"  type="checkbox" <%= @userprofile.skr_intern.to_s == "true" ? "checked" : "unchecked" %> ><i></i></label>
                             <div id="saving_intern" style="position:absolute; left: 140px; top: 60px" class="col-md-1 col-lg-1 col-xs-1 column"></div>
                       </div>                     
                     </div>
