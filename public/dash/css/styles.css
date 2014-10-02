@@ -9348,14 +9348,14 @@ display:block !important;
 
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation:portrait) {
   /* For portrait layouts only */
-  .ipadshow {
+/*  .ipadshow {
 display:none !important;
-}
+}*/
 }
 
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation:landscape) {
   /* For landscape layouts only */
-.ipadshow {
+/*.ipadshow {
 display:block !important;
-}
+}*/
 }
