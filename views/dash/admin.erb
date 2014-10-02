@@ -70,7 +70,7 @@
 
 
     <div id="adminsection"> 
-<div id="powerwidgets">
+ <div id="powerwidgets">
     <div class="row" >
       <div class="col-md-12  bootstrap-grid">
         <div class="powerwidget blue" data-widget-editbutton="false" data-widget-deletebutton="false">
@@ -111,7 +111,7 @@
           <div class="inner-spacer">
 
             <div class="row">
-              <div class="inputlabel col-md-4 col-lg-3 col-xs-12 column">  </div> 
+              <div class="inputlabel col-md-4 col-lg-3 col-xs-12 col-sm-5 column">  </div> 
               <span style="position:relative; left:-260px; top:20px" id="CVsection"> <a href=<%= @userprofile.cvurl %> > <i style="font-size: 25px;" class="fa fa-file-text-o"><br><div style="font-size: 14px;left:-10px;position:relative">My CV</div></i> </a></span>
               <script src='/vendor/jqueryfileupload/js/vendor/jquery.ui.widget.js' type='text/javascript'></script>
               <script src='/vendor/jqueryfileupload/js/jquery.iframe-transport.js' type='text/javascript'></script>
@@ -161,7 +161,7 @@
                           type: 'POST',
                           data: {"cvurl": data.result.url, "pk" : <%=@userprofile.id %>},
                           success: function(response){
-                            tt = "<a href=".concat(data.result.url,"><i style="font-size: 25px;" class="fa fa-file-text-o"><br><div style="font-size: 14px;left:-10px;position:relative">My CV</div></i></a>");
+                            tt = "<a href=".concat(data.result.url,"><i style='font-size: 25px;' class='fa fa-file-text-o'><br><div style='font-size: 14px;left:-10px;position:relative'>My CV</div></i></a>");
                             $('#CVsection').html(tt);
                                       $("#uploadprog").html("Uploading is complete!");
                                       $('#uploadprog').fadeOut(3000, function() {
@@ -195,7 +195,7 @@
               <!-- First half of the My Career Goal Section -->
               <div class=" col-md-10 col-lg-8 column"> 
                 <div class="row">
-                  <div class="inputlabel col-md-3 col-lg-3column" style="position:relative;left:10px">My Career Goal: </div> 
+                  <div class="inputlabel col-md-3 col-lg-3 column" style="position:relative;left:10px">My Career Goal: </div> 
                 </div>
                 <div class="row">
                   <div class="inputlabel col-md-1 col-lg-1 col-xs-9 column" style="position:relative;left:10px">  </div>
@@ -221,9 +221,9 @@
                   <% @allachievements.each do |i| %>
                     <div class="row">
                        <%a=a+1%>
-                       <div class="inputlabel col-md-1 col-lg-1 column" style="position:relative;left:10px"># <%= a %> </div>
+                       <div class="inputlabel col-md-1 col-lg-1 col-sm-1 column" style="position:relative;left:10px"># <%= a %> </div>
 
-                       <div class="inputtext col-md-9 col-lg-9 column" style="width: 600px; max-width:80%; position: relative;left: 10px;"> 
+                       <div class="inputtext col-md-9 col-lg-9 col-sm-11 column" style="width: 600px; max-width:80%; position: relative;left: 10px;"> 
                         <a class="editable-click ec" href="javascript:void(0)" data-type="text" data-pk="<%=i.achieve_id %>" data-url="/updateachievement" data-title="Enter achievement"><%= i.achievement != '' ? i.achievement : "[Optional] Enter your achievement here"%> </a>
                      </div>
                     </div>
@@ -253,31 +253,31 @@
             <div class="tab-content">
               <div id="t3" class="tab-pane active">   
                 <div class="row">
-                  <div class="inputlabel col-md-3 col-lg-2 col-xs-9 column">Preferred Job Levels</div>
-                  <div class="inputtext col-md-9 col-lg-10 col-xs-12 column" style="width: 600px; max-width:90%; position: relative;left: -30px;"> 
+                  <div class="inputlabel col-md-3 col-lg-2 col-sm-3 col-xs-9 column">Preferred Levels</div>
+                  <div class="inputtext col-md-9 col-lg-10 col-xs-12 column" style="width: 500px; max-width:90%; position: relative;left: -30px;"> 
                     <a href="#" id="joblevel" data-type="select2" data-value="<%= @pref_level%>"  data-pk="<%=@userprofile.id %>" data-url="/updatelevelpref" data-title="Enter preferred job level"></a>
                   </div>
                 </div>
                 <div class="row">      
-                  <div class="inputlabel col-md-3 col-lg-2 col-xs-9 column">Preferred Job Functions</div>
-                  <div class="inputtext col-md-9 col-lg-10 col-xs-12 column" style="width: 600px; max-width:90%; position: relative;left: -30px;">
+                  <div class="inputlabel col-md-3 col-lg-2 col-sm-3 col-xs-9 column">Preferred Functions</div>
+                  <div class="inputtext col-md-9 col-lg-10 col-xs-12 column" style="width: 500px; max-width:90%; position: relative;left: -30px;">
                     <a href="#" id="jobfunction" data-type="select2" data-value="<%= @pref_func %>"  data-pk="<%=@userprofile.id %>" data-url="/updatefuncpref" data-title="Enter preferred job functions"></a>
                   </div>
                 </div>
                 <div class="row"> 
-                  <div class="inputlabel col-md-3 col-lg-2 col-xs-9 column">Preferred Industries</div>
-                  <div class="inputtext col-md-9 col-lg-10 col-xs-12 column" style="width: 600px; max-width:90%; position: relative;left: -30px;">         
+                  <div class="inputlabel col-md-3 col-lg-2 col-sm-3 col-xs-9 column">Preferred Industries</div>
+                  <div class="inputtext col-md-9 col-lg-10 col-xs-12 column" style="width: 500px; max-width:90%; position: relative;left: -30px;">         
                     <a href="#" id="industries" data-type="select2" data-value="<%= @pref_ind %>"  data-pk="<%=@userprofile.id %>" data-url="/updateindpref" data-title="Enter preferred industries"></a>
                   </div>
                 </div>
                 <div class="row">
-                  <div class="inputlabel col-md-3 col-lg-2 col-xs-9 column">Preferred Locations</div>       
-                  <div class="inputtext col-md-9 col-lg-10 col-xs-12 column" style="width: 600px; max-width:90%; position: relative;left: -30px;">    
+                  <div class="inputlabel col-md-3 col-lg-2 col-sm-3 col-xs-9 column">Preferred Locations</div>       
+                  <div class="inputtext col-md-9 col-lg-10 col-xs-12 column" style="width: 500px; max-width:90%; position: relative;left: -30px;">    
                     <a href="#" id="locations" data-type="select2" data-value="<%= @pref_loc %>"  data-pk="<%=@userprofile.id %>" data-url="/updatelocpref" data-title="Enter preferred locations"></a>
                   </div>
                 </div>
                 <div class="row"> 
-                  <div class="inputlabel col-md-3 col-lg-2 col-xs-6 column">Preferred Travel Frequency</div>
+                  <div class="inputlabel col-md-3 col-lg-2 col-sm-4 col-xs-6 column">Preferred Travel Frequency</div>
 
                   <div class="inputlabel col-md-4 col-lg-3 col-xs-3 column" style=" position: relative;left: -10px;">  
                     <div> <input  name= "freq" id="f1" type="radio" onclick="freqcheck(this)"  value="25"> 25%</div>
@@ -285,20 +285,20 @@
                     <div><input name= "freq" id="f3" type="radio" onclick="freqcheck(this)"  value="75"> 75%</div>
                     <div><input name= "freq" id="f4" type="radio" onclick="freqcheck(this)"  value="100"> 100%</div>
                   </div>
-                  <div class="inputlabel col-md-2 col-lg-1 col-xs-3 column" style=" position: relative;left: -10px;">  
+                  <div class="inputlabel col-md-2 col-lg-1 col-sm-3 col-xs-3 column" style=" position: relative;left: -10px;">  
                     <div id="saving_radio" style=" position: relative; left:-250px; top:-2px"></div>
                   </div>
                 </div>
 
                 <div class="row">
-                  <div class="inputlabel col-md-5 col-lg-4 column">Current annual salary:S$ </div> 
+                  <div class="inputlabel col-md-5 col-sm-7 col-lg-4 column">Current annual salary:S$ </div> 
                   <div class="inputtext col-md-4 col-lg-3 col-xs-12 column" style="width: 100px; max-width:90%; position: relative;left: -200px;line-height: 15px; vertical-align:middle;"> 
                     <a href="#" id="currentsalary" data-name="currentsalary" data-type="text" data-pk="<%=@userprofile.id %>" data-url="/updateprofile" data-title="Enter current salary"><%= @userprofile.currentsalary %></a>
                   </div>
                 </div>
 
                 <div class="row">
-                  <div class="inputlabel col-md-5 col-lg-4 column">Expected annual salary:S$</div> 
+                  <div class="inputlabel col-md-5 col-sm-7 col-lg-4 column">Expected annual salary:S$</div> 
                   <div class="inputtext col-md-4 col-lg-3 col-xs-12 column" style="width: 100px; max-width:90%; position: relative;left: -200px;line-height: 15px; vertical-align:middle;"> 
                     <a href="#" id="expectedsalary" data-name="expectedsalary" data-type="text"  data-pk="<%=@userprofile.id %>" data-url="/updateprofile" data-title="Enter expected salary"><%= @userprofile.expectedsalary %></a>
                   </div>
@@ -308,32 +308,32 @@
                     <h4 style="margin-left: 0px;" class="header smaller lighter blue">Other Parameters <small>(Select all applicable)</small> </h4>
                 </div> <!-- END row -->
 
-                  <div class="col-md-4 col-lg-3 column" style="position: relative">
+                  <div class="col-md-4 col-lg-3 col-sm-4 column" style="position: relative">
                     <div class="row orb-form">
-                          <div class="inputlabel col-md-4 col-lg-3 col-xs-11 column">Full Time</div>
-                          <label style="position: absolute; left: 30px;" class="toggle col-md-1 col-lg-1 col-xs-1 column"><input id="fulltimecheck" name="fulltime"  type="checkbox" <%= @userprofile.fulltime.to_s == "true" ? "checked" : "unchecked" %> ><i></i></label>
+                          <div class="inputlabel col-md-4 col-lg-3 col-sm-4 column">Full Time</div>
+                          <label style="position: absolute; left: 30px;" class="toggle col-md-1 col-lg-1 col-sm-1 column"><input id="fulltimecheck" name="fulltime"  type="checkbox" <%= @userprofile.fulltime.to_s == "true" ? "checked" : "unchecked" %> ><i></i></label>
                         <div class="col-md-1 col-lg-1 col-xs-1 column" id="saving_fulltime" style="position:absolute; left: 140px; top: 3px"></div>
                     </div>
                     <div class="row orb-form">
-                      <div class="inputlabel col-md-4 col-lg-3 col-xs-11 column">Part Time</div>
-                        <label style="position: absolute; left: 30px;" class="toggle col-md-1 col-lg-1 col-xs-1 column"><input id="parttimecheck" name="parttime"  type="checkbox" <%= @userprofile.parttime.to_s == "true" ? "checked" : "unchecked" %> ><i></i></label>
+                      <div class="inputlabel col-md-4 col-lg-3 col-sm-4 column">Part Time</div>
+                        <label style="position: absolute; left: 30px;" class="toggle col-md-1 col-lg-1 col-sm-1 column"><input id="parttimecheck" name="parttime"  type="checkbox" <%= @userprofile.parttime.to_s == "true" ? "checked" : "unchecked" %> ><i></i></label>
                        <div id="saving_parttime" style="position:absolute; left: 140px; top: 50px" class="col-md-1 col-lg-1 col-xs-1 column"></div>
                     </div>
                   </div>
-                    <div class="col-md-4 col-lg-3 column" style="position: relative">
+                    <div class="col-md-4 col-lg-3 col-sm-4 column" style="position: relative">
                       <div class="row orb-form">
-                        <div class="inputlabel col-md-4 col-lg-3 column">Shift Work</div>
-                          <label style="position: absolute; left: 40px;" class="toggle col-md-1 col-lg-1 col-xs-1 column"><input id="shiftworkcheck" name="shiftwork" type="checkbox" <%= @userprofile.shiftwork.to_s == "true" ? "checked" : "unchecked" %> ><i></i></label>
-                          <div id="saving_shift" style="position:absolute; left: 140px; top: 3px" class="col-md-1 col-lg-1 col-xs-1 column"></div>
+                        <div class="inputlabel col-md-4 col-lg-3 col-sm-4 column">Shift Work</div>
+                          <label style="position: absolute; left: 40px;" class="toggle col-md-1 col-lg-1 col-sm-1 column"><input id="shiftworkcheck" name="shiftwork" type="checkbox" <%= @userprofile.shiftwork.to_s == "true" ? "checked" : "unchecked" %> ><i></i></label>
+                          <div id="saving_shift" style="position:absolute; left: 140px; top: 3px" class="col-md-1 col-lg-1 column"></div>
                       </div>
 
                       <div class="row orb-form ">
-                          <div class="inputlabel col-md-4 col-lg-3 column">Internship</div>
-                            <label style="position: absolute; left: 40px;" class="toggle col-md-1 col-lg-1 col-xs-1 column"><input id="interncheck" name="skr_intern"  type="checkbox" <%= @userprofile.skr_intern.to_s == "true" ? "checked" : "unchecked" %> ><i></i></label>
-                            <div id="saving_intern" style="position:absolute; left: 140px; top: 60px" class="col-md-1 col-lg-1 col-xs-1 column"></div>
+                          <div class="inputlabel col-md-4 col-lg-3 col-sm-2 column">Internship</div>
+                            <label style="position: absolute; left: 40px;" class="toggle col-md-1 col-lg-1 col-xs-1 col-sm-1 column"><input id="interncheck" name="skr_intern"  type="checkbox" <%= @userprofile.skr_intern.to_s == "true" ? "checked" : "unchecked" %> ><i></i></label>
+                            <div id="saving_intern" style="position:absolute; left: 140px; top: 60px" class="col-md-1 col-lg-1 column"></div>
                       </div>                     
                     </div>
-                    <div class="col-md-4 col-lg-3 column " style="position: relative">
+                    <div class="col-md-4 col-lg-3 col-sm-4 column " style="position: relative">
                       <div class="row orb-form">
                         <div style="left: 0px;" class="inputlabel col-md-5 col-lg-4 col-xs-11 column">AfterOfficeHour</div>
                             <label style="position: absolute; left: 90px;" class="toggle col-md-1 col-lg-1 col-xs-1 column"><input id="outofhourscheck" name="outofhours" unchecked="" type="checkbox"><i></i></label>
@@ -482,89 +482,9 @@
   <!-- End of Modals definition -->
 
 <!--Main App-->
-
-    </div> <!-- End adminsection -->
-    
 <!-- <script type="text/javascript" src="/dash/js/scripts.js"></script> -->
-           
-
-
-<div class="tabbable">
-        <ul class="nav nav-tabs padding-16">
-          <li class="active">
-            <a data-toggle="tab" href="#createuser">
-              <i class="green icon-edit bigger-125"></i>
-              Create User
-            </a>
-          </li>
-          <li>
-            <a data-toggle="tab" href="#edituser">
-              <i class="blue icon-key bigger-125"></i>
-              Edit User
-            </a>
-          </li>
-        </ul>
-        <div class="tab-content">
-        <div id="createuser" class="tab-pane in active">
-          <h3 class="header smaller lighter blue">General</h3>
-              <div  class=" row">
-
-                <table id="newusertab" class="table table-bordered table-striped">
-                  <tbody>
-                  <tr>       
-                  <td width="20%">Username</td> <!--TSCHEW-->
-                  <td width="50%">
-                  <a href="#" class="newuser" id="username" data-emptytext="Enter Username" data-type="text" id="skillcat" data-name="username"  data-original-title="Username"></a></td>
-                  </tr>
-                  <tr>       
-                  <td width="20%">First name</td>
-                  <td width="50%"><a href="#" class="newuser" id="firstname"  data-emptytext="Enter First Name" data-type="text" data-name="firstname" data-original-title="First Name"></a></td>
-                  </tr>
-                  <tr>       
-                  <td width="20%">Last name</td>
-                  <td width="50%"><a href="#" class="newuser" id="lastname" data-emptytext="Enter Last Name" data-type="text" data-name="lastname" data-original-title="Last Name"></a></td>
-                  </tr>   
-                  <tr>       
-                  <td width="20%">Email</td>
-                  <td width="50%"><a href="#" class="newuser" id="email" data-emptytext="Enter Email" data-type="text" data-name="email"  data-original-title="Email"></a></td>
-                  </tr>   
-                  <tr>       
-                  <td width="20%">Password</td>
-                  <td width="50%"><a href="#" class="newuser" id="password" data-emptytext="Enter Password" data-type="text" data-name="password" data-original-title="Password"></a></td>
-                  </tr>                       
-                  </tbody>
-                </table>
-            </div> <!-- <div id="user-profile-1" class="user-profile row"> -->
-          <button id="saveuser-btn" class="btn btn-primary"><i class="icon-save bigger-140 icon-only">Save User and Add New</i></button>
-          </div> <!-- <div id="edit-basic" class="tab-pane in active"> -->
-
-          <div id="edituser" class="tab-pane">
-              <div class="space-10"></div>
-              <div class="form-group">
-                  <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Edit User</label>
-                  <p> <input type="text" id="form-field-1"  /> </p>
-              </div> 
-          </div> <!-- <div id="edit-password" class="tab-pane"> -->
-
-     <!-- <div class="row"> -->
-      
-         
-  </div> <!-- <div class="tab-content profile-edit-tab-content"> -->
-</div> <!-- <div class="tabbable"> -->
-
-        
-
-
-<script>
-
-      function viewseeker(i){
-
-        $("#adminsection").load("/lookforseeker",{ pk: i }); 
-
-      }//function
-
-</script>
-<script>
+                   
+  <script>
 
 
   $(document).ready(function(){
@@ -860,24 +780,24 @@
 
 
 
-        $('#fileupload').fileupload({
-        // The regular expression for allowed file types, matches
-        // against either file type or file name:
-        acceptFileTypes: /(\.|\/)(gif|jpe?g|png)$/i,
-        // The maximum allowed file size in bytes:
-        maxFileSize: 10000000, // 10 MB
-        // The minimum allowed file size in bytes:
-        minFileSize: 1, // No minimal file size
-        // The limit of files to be uploaded:
-        maxNumberOfFiles: 10
-      }).on('fileuploadprocessalways', function (e, data) {
-        var currentFile = data.files[data.index];
-        if (data.files.error && currentFile.error) {
-          // there was an error, do something about it
-          newAlert("#alert_placeholder-tab",'danger', currentFile.error);
+      //   $('#fileupload').fileupload({
+      //   // The regular expression for allowed file types, matches
+      //   // against either file type or file name:
+      //   acceptFileTypes: /(\.|\/)(gif|jpe?g|png)$/i,
+      //   // The maximum allowed file size in bytes:
+      //   maxFileSize: 10000000, // 10 MB
+      //   // The minimum allowed file size in bytes:
+      //   minFileSize: 1, // No minimal file size
+      //   // The limit of files to be uploaded:
+      //   maxNumberOfFiles: 10
+      // }).on('fileuploadprocessalways', function (e, data) {
+      //   var currentFile = data.files[data.index];
+      //   if (data.files.error && currentFile.error) {
+      //     // there was an error, do something about it
+      //     newAlert("#alert_placeholder-tab",'danger', currentFile.error);
        
-        }
-        });
+      //   }
+      //   });
 
      
 
