@@ -230,11 +230,11 @@ class TmeCompanyUsers
   property :surname, String, :index => true,  :default=>"", length:100
   property :middlename, String, :default=>"", length: 100, :index => true 
   property :firstname, String, :default=>"", length: 100, :index => true
-  property :email, String, :default=>"your@email.com", length:80, format: :email_address, :index => true, :field => 'skr_email' 
+  property :email, String, :default=>"your@email.com", length:80, format: :email_address, :index => true
   property :datejoined, Date, :index => true, :field => 'skr_datejoined'
   property :updated_at, DateTime, :index => true, :field => 'skr_updated'
   property :password,  BCryptHash, :index => true,:field => 'skr_password'
-  property :accesslevel, Integer, :index=>true
+  property :accesslevel, Integer, :index=>true #0 = read only, 1 = read/write
   property :tme_company_main_id, Integer, :index => true, :field => 'company_id'  
 end
 
