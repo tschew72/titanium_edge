@@ -281,7 +281,7 @@ get '/admin' do
         #Create a section where we can dump the json of categories and skills.
         #To create new users
         redirect '/auth/login' unless env['warden'].authenticated?
-        if params['pk'] == nil
+        if params['pk'] == 1
           @userprofile = env['warden'].user
         else
           @userprofile = params['pk']
