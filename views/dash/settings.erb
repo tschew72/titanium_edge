@@ -161,7 +161,7 @@
                           type: 'POST',
                           data: {"cvurl": data.result.url, "pk" : <%=@userprofile.id %>},
                           success: function(response){
-                            tt = "<a href=".concat(data.result.url,"><i style="font-size: 25px;" class="fa fa-file-text-o"><br><div style="font-size: 14px;left:-10px;position:relative">My CV</div></i></a>");
+                            tt = "<a href=".concat(data.result.url,"><i style='font-size: 25px;' class='fa fa-file-text-o'><br><div style='font-size: 14px;left:-10px;position:relative'>My CV</div></i></a>");
                             $('#CVsection').html(tt);
                                       $("#uploadprog").html("Uploading is complete!");
                                       $('#uploadprog').fadeOut(3000, function() {
