@@ -229,9 +229,9 @@
                   <% @allachievements.each do |i| %>
                     <div class="row">
                        <%a=a+1%>
-                       <div class="inputlabel col-md-1 col-lg-1 column" style="position:relative;left:10px"># <%= a %> </div>
+                       <div class="inputlabel col-md-1 col-lg-1 col-sm-1 column" style="position:relative;left:10px"># <%= a %> </div>
 
-                       <div class="inputtext col-md-9 col-lg-9 column" style="width: 600px; max-width:80%; position: relative;left: 10px;"> 
+                       <div class="inputtext col-md-9 col-lg-9 col-sm-11 column" style="width: 600px; max-width:80%; position: relative;left: 10px;"> 
                         <a class="editable-click ec" href="javascript:void(0)" data-type="text" data-pk="<%=i.achieve_id %>" data-url="/updateachievement" data-title="Enter achievement"><%= i.achievement != '' ? i.achievement : "[Optional] Enter your achievement here"%> </a>
                      </div>
                     </div>
