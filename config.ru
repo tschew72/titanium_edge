@@ -284,7 +284,7 @@ get '/admin' do
         if params['pk'] == nil
           @userprofile = env['warden'].user
         else
-          @userprofile = params['pk']
+          @userprofile = 2
         end   
 
 
