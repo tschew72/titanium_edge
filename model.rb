@@ -15,9 +15,9 @@ class User
   storage_names[repository = :default] = 'tme_skr_main'
   property :id, Serial, key: true, :index => true, :field => 'skr_id'
   property :activeseeker, Boolean, :index => true, :default =>true, :field => 'skr_active'
-  property :lastname, String, :index => true,  :default=>"", length:50, :field => 'skr_surname'
-  property :firstname, String, :default=>"", length: 50, :index => true, :field => 'skr_firstname'
-  property :middlename, String, :default=>"", length: 50, :index => true, :field => 'skr_middlename'
+  property :lastname, String, :index => true,  :default=>"", length:100, :field => 'skr_surname'
+  property :firstname, String, :default=>"", length: 100, :index => true, :field => 'skr_firstname'
+  property :middlename, String, :default=>"", length: 100, :index => true, :field => 'skr_middlename'
   property :reveal, Boolean, :index => true, :field => 'skr_reveal'
   property :email, String, :default=>"your@email.com", length:80, format: :email_address, :index => true, :field => 'skr_email' 
   property :dob, Date, :index => true, :field => 'skr_birthdate' 
@@ -77,6 +77,7 @@ class User
   has 1, :skrscore, :model =>'Skrscore'
   has n, :tme_skr_nation, :model =>'TmeSkrNation'
   has n, :tme_skr_achieve, :model =>'TmeSkrAchieve'
+  
 
   def authenticate(attempted_password)
     if self.password == attempted_password
@@ -217,7 +218,26 @@ class TmeCompanyMain
   property :company_addrpostcode, String, :index=>true
 
   has n, :tme_job_main, :model =>'TmeJobMain'
+  has n, :tme_company_users, :model =>'TmeCompanyUsers'
 end
+
+class TmeCompanyUsers
+  include DataMapper::Resource
+  storage_names[repository = :default] = 'tme_company_users'
+  property :id, Serial, key: true, :index=>true, :field => 'username_id'
+  property :username, String, length: 200, :index=>true
+  property :active, Boolean, :index=>true
+  property :surname, String, :index => true,  :default=>"", length:100
+  property :middlename, String, :default=>"", length: 100, :index => true 
+  property :firstname, String, :default=>"", length: 100, :index => true
+  property :email, String, :default=>"your@email.com", length:80, format: :email_address, :index => true, :field => 'skr_email' 
+  property :datejoined, Date, :index => true, :field => 'skr_datejoined'
+  property :updated_at, DateTime, :index => true, :field => 'skr_updated'
+  property :password,  BCryptHash, :index => true,:field => 'skr_password'
+  property :accesslevel, Integer, :index=>true
+  property :tme_company_main_id, Integer, :index => true, :field => 'company_id'  
+end
+
 
 
 class TmeJobMain
