@@ -146,7 +146,7 @@
                       maxNumberOfFiles: 10
                     }).on('fileuploadfail', function (e, data) {
                       var currentFile = data.files[data.index];
-                      alert("Error! Please contact helpdesk")
+                      alert("Error! Please contact helpdesk");
                       if (data.files.error && currentFile.error) {
                         // there was an error, do something about it
                         // newAlert("#alert_placeholder-tab",'danger', currentFile.error);

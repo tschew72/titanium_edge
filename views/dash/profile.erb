@@ -45,7 +45,7 @@
                       <h2>Profile</h2>
                     </header>
                     <div class="inner-spacer">
-                      <div  class="row"> 
+                      <div  class="row" style="padding: 5px 0px 40px 1px;"> 
                         <div class="col-md-2 col-md-3 col-sm-3 col-lg-2 column"> <!-- photo and upload button column -->
                           <span class="profile-picture" id="pic">
                             <img id="avatar" class="editable img-responsive" alt="Avatar" src=<%= @userprofile.pictureurl %> />
@@ -91,7 +91,6 @@
                                                       maxNumberOfFiles: 10
                                                     }).on('fileuploadfail', function (e, data) {
                                                       var currentFile = data.files[data.index];
-                                                      alert("Refresh page and try uploading again!")
                                                       if (data.files.error && currentFile.error) {
                                                         // there was an error, do something about it
                                                         // newAlert("#alert_placeholder-tab",'danger', currentFile.error);
@@ -148,7 +147,7 @@
                             <div class="inputlabel col-md-2 col-lg-2 col-xs-12 column">First Name: </div>  
                             <div class="inputtext col-md-2 col-lg-2 column" style="position:absolute;left:120px"> <a class="editable-click"  href="javascript:void(0)" id="firstname" data-type="text" data-pk="<%=@userprofile.id %>" data-url="/updateprofile" data-title="Enter first name"><%= @userprofile.firstname %></a></div>
 
-                            <div class="inputlabel col-md-2 col-lg-2 col-xs-12 column" style="position:absolute;left:400px;"> Middle Name:  </div>
+                            <div class="inputlabel col-md-2 col-lg-2 col-xs-12 column" style="position:absolute;left:400px; width:200px"> Middle Name:  </div>
                             <div style="position:absolute;left:500px;" class="inputtext col-md-2 col-lg-2  column"><a class="editable-click" href="javascript:void(0)" id="middlename" data-type="text" data-pk="<%=@userprofile.id %>" data-url="/updateprofile" data-title="Enter middle name"><%= @userprofile.middlename %></a></div>   
                                 
                           </div> <!-- row -->
