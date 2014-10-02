@@ -261,31 +261,31 @@
             <div class="tab-content">
               <div id="t3" class="tab-pane active">   
                 <div class="row">
-                  <div class="inputlabel col-md-3 col-lg-2 col-xs-9 column">Preferred Job Levels</div>
+                  <div class="inputlabel col-md-3 col-lg-2 col-sm-3 col-xs-9 column">Preferred Job Levels</div>
                   <div class="inputtext col-md-9 col-lg-10 col-xs-12 column mobile-1" style="width: 600px; max-width:90%; position: relative;left: -30px;"> 
                     <a href="#" id="joblevel" data-type="select2" data-value="<%= @pref_level%>"  data-pk="<%=@userprofile.id %>" data-url="/updatelevelpref" data-title="Enter preferred job level"></a>
                   </div>
                 </div>
                 <div class="row">      
-                  <div class="inputlabel col-md-3 col-lg-2 col-xs-9 column">Preferred Job Functions</div>
+                  <div class="inputlabel col-md-3 col-lg-2 col-sm-3 col-xs-9 column">Preferred Job Functions</div>
                   <div class="inputtext col-md-9 col-lg-10 col-xs-12 column" style="width: 600px; max-width:90%; position: relative;left: -30px;">
                     <a href="#" id="jobfunction" data-type="select2" data-value="<%= @pref_func %>"  data-pk="<%=@userprofile.id %>" data-url="/updatefuncpref" data-title="Enter preferred job functions"></a>
                   </div>
                 </div>
                 <div class="row"> 
-                  <div class="inputlabel col-md-3 col-lg-2 col-xs-9 column">Preferred Industries</div>
+                  <div class="inputlabel col-md-3 col-lg-2 col-sm-3 col-xs-9 column">Preferred Industries</div>
                   <div class="inputtext col-md-9 col-lg-10 col-xs-12 column" style="width: 600px; max-width:90%; position: relative;left: -30px;">         
                     <a href="#" id="industries" data-type="select2" data-value="<%= @pref_ind %>"  data-pk="<%=@userprofile.id %>" data-url="/updateindpref" data-title="Enter preferred industries"></a>
                   </div>
                 </div>
                 <div class="row">
-                  <div class="inputlabel col-md-3 col-lg-2 col-xs-9 column">Preferred Locations</div>       
+                  <div class="inputlabel col-md-3 col-lg-2 col-sm-3 col-xs-9 column">Preferred Locations</div>       
                   <div class="inputtext col-md-9 col-lg-10 col-xs-12 column" style="width: 600px; max-width:90%; position: relative;left: -30px;">    
                     <a href="#" id="locations" data-type="select2" data-value="<%= @pref_loc %>"  data-pk="<%=@userprofile.id %>" data-url="/updatelocpref" data-title="Enter preferred locations"></a>
                   </div>
                 </div>
                 <div class="row"> 
-                  <div class="inputlabel col-md-3 col-lg-2 col-xs-6 column">Preferred Travel Frequency</div>
+                  <div class="inputlabel col-md-3 col-lg-2 col-sm-3 col-xs-6 column">Preferred Travel Frequency</div>
 
                   <div class="inputlabel col-md-4 col-lg-3 col-xs-3 column" style=" position: relative;left: -10px;">  
                     <div> <input  name= "freq" id="f1" type="radio" onclick="freqcheck(this)"  value="25"> 25%</div>
@@ -293,20 +293,20 @@
                     <div><input name= "freq" id="f3" type="radio" onclick="freqcheck(this)"  value="75"> 75%</div>
                     <div><input name= "freq" id="f4" type="radio" onclick="freqcheck(this)"  value="100"> 100%</div>
                   </div>
-                  <div class="inputlabel col-md-2 col-lg-1 col-xs-3 column" style=" position: relative;left: -10px;">  
+                  <div class="inputlabel col-md-2 col-lg-1 col-sm-3 col-xs-3 column" style=" position: relative;left: -10px;">  
                     <div id="saving_radio" style=" position: relative; left:-250px; top:-2px"></div>
                   </div>
                 </div>
 
                 <div class="row">
-                  <div class="inputlabel col-md-5 col-lg-4 column">Current annual salary:S$ </div> 
+                  <div class="inputlabel col-md-5 col-sm-5 col-lg-4 column">Current annual salary:S$ </div> 
                   <div class="inputtext col-md-4 col-lg-3 col-xs-12 column" style="width: 100px; max-width:90%; position: relative;left: -200px;line-height: 15px; vertical-align:middle;"> 
                     <a href="#" id="currentsalary" data-name="currentsalary" data-type="text" data-pk="<%=@userprofile.id %>" data-url="/updateprofile" data-title="Enter current salary"><%= @userprofile.currentsalary %></a>
                   </div>
                 </div>
 
                 <div class="row">
-                  <div class="inputlabel col-md-5 col-lg-4 column">Expected annual salary:S$</div> 
+                  <div class="inputlabel col-md-5 col-sm-5 col-lg-4 column">Expected annual salary:S$</div> 
                   <div class="inputtext col-md-4 col-lg-3 col-xs-12 column" style="width: 100px; max-width:90%; position: relative;left: -200px;line-height: 15px; vertical-align:middle;"> 
                     <a href="#" id="expectedsalary" data-name="expectedsalary" data-type="text"  data-pk="<%=@userprofile.id %>" data-url="/updateprofile" data-title="Enter expected salary"><%= @userprofile.expectedsalary %></a>
                   </div>
