@@ -46,7 +46,7 @@
                     </header>
                     <div class="inner-spacer">
                       <div  class="row"> 
-                        <div class="col-md-2 column">
+                        <div class="col-md-2 col-md-3 col-sm-3 col-lg-2 column"> <!-- photo and upload button column -->
                           <span class="profile-picture" id="pic">
                             <img id="avatar" class="editable img-responsive" alt="Avatar" src=<%= @userprofile.pictureurl %> />
                           </span>
@@ -140,7 +140,9 @@
                                 </script> 
                             </div>
                            </div> <!--upload row-->
-                        </div>
+                        </div> <!-- photo and upload button column -->
+                      </div>
+                      <div class="row">
                         <div class="col-md-10 column" style="position:relative">   
                           <div class="row">
                             <div class="inputlabel col-md-2 col-lg-2 col-xs-12 column">First Name: </div>  
