@@ -534,11 +534,7 @@ body.nooverflow {
 }
 
 }
-@media screen (min-width: 992px) {
-    .desktop-only {
-        display:block !important;
-    }
-}
+
 
 .powerwidget-loader {
 	-webkit-animation: spin 3s infinite linear;
@@ -9326,4 +9322,22 @@ border-radius: 10px;
 -moz-border-radius: 10px; 
 -webkit-border-radius: 10px; 
 border: 1px outset #000000;
+}
+
+@media screen (min-width: 992px) {
+    .desktop-only {
+        display:block !important;
+    }
+}
+
+@media (max-width: 991px) {
+
+.mobile-only {
+display:block !important;
+}
+
+.desktop-only {
+    display:none !important;
+}
+
 }
