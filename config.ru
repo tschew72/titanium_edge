@@ -104,14 +104,14 @@ get '/hrm' do
    @userprofile = env['warden'].user 
    @user = User
    @userme = @userprofile.firstname
-   #@emailme = @userprofile.email
-   #@usermatchjoblist = @userprofile.matched_jobs
-   #@careerscore = @userprofile.skrscore.skrscore_total
+   @emailme = @userprofile.email
+   @usermatchjoblist = @userprofile.matched_jobs
+   @careerscore = @userprofile.skrscore.skrscore_total
    userid = @userprofile.id.to_s
    cmd = "SELECT * FROM jobmatch("+ userid+")"
    @top5matches=repository(:default).adapter.select(cmd)
-   #mycoy = TmeCompanyMain.get(1)  #replace this with the CompanyID
-   #@joblist = mycoy.tme_job_main
+   mycoy = TmeCompanyMain.get(1)  #replace this with the CompanyID
+   @joblist = mycoy.tme_job_main
 
 
    erb :hrm, :layout => :'dash/layout1'  #change the layout for Recruiters
