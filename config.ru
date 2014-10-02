@@ -275,12 +275,21 @@ get '/profile' do
        erb :"dash/profile", :layout => :'dash/layout1'
 end
 
+get '/companyprofile' do
+       redirect '/auth/login' unless env['warden'].authenticated?
+       @userprofile = env['warden'].user   
+       @userme = @userprofile.firstname 
+       @mycoy = @userprofile.tme_company_main
+       erb :"dash/companyprofile", :layout => :'dash/layout1'
+end
 
 get '/admin' do
         #make sure only admin can access
         #Create a section where we can dump the json of categories and skills.
         #To create new users
         redirect '/auth/login' unless env['warden'].authenticated?
+
+
         if params["pk"] == nil
           @userprofile = env['warden'].user
         else

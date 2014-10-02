@@ -56,7 +56,9 @@ class User
   property :address, String, :index => true, :field => 'skr_address'
   property :contactnumber, String, length: 20, :index => true, :field => 'skr_contactnumber' #created a new column in table
   property :skr_careergoal, String,length: 1000, :default=>"", :index => true
-
+ 
+  property :tme_company_main_id, Integer, :index => true, :field => 'company_id'  
+  belongs_to :tme_company_main
 
   has n, :matched_jobs
   has n, :jobs
@@ -77,6 +79,7 @@ class User
   has 1, :skrscore, :model =>'Skrscore'
   has n, :tme_skr_nation, :model =>'TmeSkrNation'
   has n, :tme_skr_achieve, :model =>'TmeSkrAchieve'
+  
   
 
   def authenticate(attempted_password)
@@ -217,8 +220,8 @@ class TmeCompanyMain
   property :company_addrcountry, Integer, :index=>true
   property :company_addrpostcode, String, :index=>true
 
-  has n, :tme_job_main, :model =>'TmeJobMain'
-  has n, :tme_company_users, :model =>'TmeCompanyUsers'
+  # has n, :tme_job_main, :model =>'TmeJobMain'
+  has n, :user
 end
 
 class TmeCompanyUsers
@@ -231,9 +234,9 @@ class TmeCompanyUsers
   property :middlename, String, :default=>"", length: 100, :index => true 
   property :firstname, String, :default=>"", length: 100, :index => true
   property :email, String, :default=>"your@email.com", length:80, format: :email_address, :index => true
-  property :datejoined, Date, :index => true, :field => 'skr_datejoined'
-  property :updated_at, DateTime, :index => true, :field => 'skr_updated'
-  property :password,  BCryptHash, :index => true,:field => 'skr_password'
+  property :datejoined, Date, :index => true
+  property :updated, DateTime, :index => true
+  property :password,  BCryptHash, :index => true
   property :accesslevel, Integer, :index=>true #0 = read only, 1 = read/write
   property :tme_company_main_id, Integer, :index => true, :field => 'company_id'  
 end
