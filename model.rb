@@ -220,7 +220,7 @@ class TmeCompanyMain
   property :company_addrcountry, Integer, :index=>true
   property :company_addrpostcode, String, :index=>true
 
-  # has n, :tme_job_main, :model =>'TmeJobMain'
+  has n, :tme_job_main, :model =>'TmeJobMain'
   has n, :user
 end
 
