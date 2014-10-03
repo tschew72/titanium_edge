@@ -27,15 +27,3 @@
      //      });
      //  });
 
-
-      function revealcheck(i){
-
-      		 $.ajax({
-	            url: '/updaterevealcoy',
-	            type: 'POST',
-	            data: {"job_companyreveal": this.checked, "pk" : i} //need to change 1 to dynamic!!! TSCHEW
-	          });
-
-       	
-
-      }//function
