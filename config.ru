@@ -280,7 +280,7 @@ get '/companyprofile' do
        @userprofile = env['warden'].user   
        @userme = @userprofile.firstname 
        @mycoy = @userprofile.tme_company_main
-       @joblisting = @mycoy.tme_job_main.get(1) #temporary put a 1. 
+       @joblisting = @mycoy.tme_job_main #temporary put a 1. 
 
 
        smaster = TmeListCompanysize.all
