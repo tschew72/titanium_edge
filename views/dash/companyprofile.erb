@@ -308,7 +308,78 @@
                 </div><!--powerwidget -->
               </div> <!-- <div id="edit-basic" class="tab-pane in active"> -->
                 <div id="jobposting" class="tab-pane">
+                  <div class="row">    
+                  <!--This is where the skillsettingtable will be landed -->
+                  <table id="joblistingtable" class="table table-striped table-bordered table-hover">
+                    <thead>
+                      <tr>
+                         <th class="align-center">Job ID</th>
+                         <th class="align-center">Job Title</th>
+                         <th class="align-center">Posted Date</th>
+                         <th class="align-center"></th>
+                      </tr>
+                    </thead>
+                    <tbody id="aat" >
+                        <% @joblisting.each do |i| %> 
+                          <% if i.job_status  != 0 %>
+                       
+                        <tr>
+                           <td><%= i.id%></td>
+                           <td><%= i.job_title %> </td>
+                           <td><%= i.job_posted %></td> 
+                           <td>
+                            <div class="hidden-sm hidden-xs action-buttons">
+                              <a onclick="delskill(this, <%=i.id%>)" class="red" href="javascript:void(0)"> <i class="fa fa-trash-o"></i></a>      
+                            </div>
+                           </td>
+                        </tr>
+                       <% end %> 
+                        <% end %>
+                    </tbody>
+                  </table>
+                </div>
 
+                 <!--  <div id="powerwidgets">
+                    <div class="row" >
+                      <div class="col-md-12  bootstrap-grid">
+                        <div class="powerwidget blue" data-widget-editbutton="false" data-widget-deletebutton="false">
+                          <header>
+                            <h2>Basic Setup</h2>
+                          </header>
+                          <div class="inner-spacer">
+                            <div class="row">  
+                              <div class="inputlabel col-md-2 col-lg-2 col-xs-12 column" style="left:10px">Contact Person: </div> 
+                              <div class="inputtext col-md-2 column" style="position:absolute;left:120px;width:400px">
+                                 <a class="editable-click" href="javascript:void(0)"  id="job_contactname" data-name="job_contactname" data-type="text" data-pk="<%=@mycoy.id %>" data-url="/updatecompanyprofile" data-title="Enter Contact Person"><%= @joblisting.job_contactname %>   </a>
+                              </div>
+                            </div>
+                            <div class="row">  
+                              <div class="inputlabel col-md-2 col-lg-2 col-xs-12 column" style="left:10px">Contact Email: </div> 
+                              <div class="inputtext col-md-2 column" style="position:absolute;left:120px;width:400px">
+                                 <a class="editable-click" href="javascript:void(0)"  id="job_contactemail" data-name="job_contactemail" data-type="text" data-pk="<%=@mycoy.id %>" data-url="/updatecompanyprofile" data-title="Enter Contact Email"><%= @joblisting.job_contactemail %>   </a>
+                              </div>
+                            </div>
+                            <div class="row">   
+                                <div class="inputlabel col-md-2 col-lg-2 col-xs-12 column" style="left:10px">Phone #: </div> 
+                                <div class="inputtext col-md-2 column" style="position:absolute;left:120px">  
+                                 <a class="editable-click" href="javascript:void(0)"  id="job_contactphone" data-name="job_contactphone" data-type="text" data-pk="<%=@mycoy.id %>" data-url="/updatecompanyprofile" data-title="Enter Contact Number"><%= @joblisting.job_contactphone %> </a> 
+                                </div>
+                            </div>  
+                            <div class="row" style="position:relative">
+                            <div class="col-md-2 col-lg-2  column inputlabel" >I want to reveal our company detail to candidate</div>  
+                              <label>
+                                <div style="position:absolute; left:190px;top:0px" style="col-md-1 col-lg-1" ><input  id="revealcheck" name="job_companyreveal" type="checkbox"  <%= @joblisting.job_companyreveal== true ? "checked" : "unchecked" %> />  </div>
+                                <span class="lbl"> </span>
+                              </label>
+                          </div> <!-- row -->   
+                          </div> <!-- innerspacer -->
+                        </div> <!--powerwidget -->
+                      </div> <!--col -->
+                    </div> <!--row-->
+                  </div> <!--powerwidgets --> -->
+
+
+                </div> <!-- < class="tab-pane"> -->
                 <div id="user" class="tab-pane">
                 </div>
 
