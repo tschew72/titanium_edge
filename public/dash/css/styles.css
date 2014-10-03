@@ -9324,6 +9324,18 @@ border-radius: 10px;
 border: 1px outset #000000;
 }
 
+
+div.centered 
+{
+    text-align: center;
+}
+div.centered table 
+{
+    margin: 0 auto; 
+    text-align: left;
+}
+
+
 /*@media screen (min-width: 992px) {
     .desktop-only {
         display:block !important;
