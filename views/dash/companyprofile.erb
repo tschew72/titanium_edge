@@ -54,7 +54,7 @@
                       <div  class="row" style="padding: 5px 0px 40px 1px;"> 
                         <div class="col-md-2 col-md-3 col-sm-3 col-lg-2 column"> <!-- photo and upload button column -->
                           <span class="profile-picture" id="pic">
-                            <img id="Company Logo" class="editable img-responsive" alt="Avatar" src=<%= @mycoy.company_logo %> />
+                            <img id="Company Logo" class="editable img-responsive" alt="Company Logo" src=<%= @mycoy.company_logo %> />
                           </span>
                           <div class="row"><!-- Upload Row -->
                             <div class="col-sm-6">
@@ -308,6 +308,44 @@
                 </div><!--powerwidget -->
               </div> <!-- <div id="edit-basic" class="tab-pane in active"> -->
                 <div id="jobposting" class="tab-pane">
+                  <div id="powerwidgets">
+                    <div class="row" >
+                      <div class="col-md-12  bootstrap-grid">
+                        <div class="powerwidget blue" data-widget-editbutton="false" data-widget-deletebutton="false">
+                          <header>
+                            <h2>Basic Setup</h2>
+                          </header>
+                          <div class="inner-spacer">
+                            <div class="row">  
+                              <div class="inputlabel col-md-2 col-lg-2 col-xs-12 column" style="left:10px">Contact Person: </div> 
+                              <div class="inputtext col-md-2 column" style="position:absolute;left:120px;width:400px">
+                                 <a class="editable-click" href="javascript:void(0)"  id="job_contactname" data-name="job_contactname" data-type="text" data-pk="<%=@mycoy.id %>" data-url="/updatecompanyprofile" data-title="Enter Contact Person"><%= @joblisting.job_contactname %>   </a>
+                              </div>
+                            </div>
+                            <div class="row">  
+                              <div class="inputlabel col-md-2 col-lg-2 col-xs-12 column" style="left:10px">Contact Email: </div> 
+                              <div class="inputtext col-md-2 column" style="position:absolute;left:120px;width:400px">
+                                 <a class="editable-click" href="javascript:void(0)"  id="job_email" data-name="job_email" data-type="text" data-pk="<%=@mycoy.id %>" data-url="/updatecompanyprofile" data-title="Enter Contact Email"><%= @joblisting.job_email %>   </a>
+                              </div>
+                            </div>
+                            <div class="row">   
+                                <div class="inputlabel col-md-2 col-lg-2 col-xs-12 column" style="left:10px">Phone #: </div> 
+                                <div class="inputtext col-md-2 column" style="position:absolute;left:120px">  
+                                 <a class="editable-click" href="javascript:void(0)"  id="job_contactphone" data-name="job_contactphone" data-type="text" data-pk="<%=@mycoy.id %>" data-url="/updatecompanyprofile" data-title="Enter Contact Number"><%= @joblisting.job_contactphone %> </a> 
+                                </div>
+                            </div>  
+                            <div class="row" style="position:relative">
+                            <div class="col-md-2 col-lg-2  column inputlabel" >I want to reveal our company detail to candidate</div>  
+                              <label>
+                                <div style="position:absolute; left:190px;top:0px" style="col-md-1 col-lg-1" ><input  id="revealcheck" name="job_companyreveal" type="checkbox"  <%= @joblisting.job_companyreveal== true ? "checked" : "unchecked" %> />  </div>
+                                <span class="lbl"> </span>
+                              </label>
+                          </div> <!-- row -->   
+                          </div> <!-- innerspacer -->
+                        </div> <!--powerwidget -->
+                      </div> <!--col -->
+                    </div> <!--row-->
+                  </div> <!--powerwidgets -->
 
 
                 </div> <!-- < class="tab-pane"> -->
@@ -458,7 +496,25 @@ $(document).ready(function(){
     // placeholder: '[Optional] Enter your achievement here'
   });
 
+  $('#job_contactname').editable(
+    {
+      emptytext: '--',
+    // placeholder: '[Optional] Enter your achievement here'
+  });
 
+    $('#job_email').editable(
+    {
+      emptytext: '--',
+    // placeholder: '[Optional] Enter your achievement here'
+  });
+
+      $('#job_contactphone').editable(
+    {
+      emptytext: '--',
+    // placeholder: '[Optional] Enter your achievement here'
+  });
+
+      
   $('.date-picker').datepicker({autoclose:true}).next().on(ace.click_event, function(){
     $(this).prev().focus();
   });
@@ -498,6 +554,14 @@ $(document).ready(function(){
             url: '/updateagent',
             type: 'POST',
             data: {"isagent": this.checked, "pk" : <%=@mycoy.id %>}
+          });
+      });
+
+      $("#revealcheck").on('change', function(){
+          $.ajax({
+            url: '/updaterevealcoy',
+            type: 'POST',
+            data: {"job_companyreveal": this.checked, "pk" : <%=@joblisting.id %>}
           });
       });
 

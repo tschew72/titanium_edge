@@ -249,7 +249,6 @@ class TmeJobMain
   storage_names[repository = :default] = 'tme_job_main'
   property :id, Serial, key: true, :index=>true, :field => 'job_id'
   property :job_companyreveal, Boolean,:default=>false
-  property :job_agencyreveal, Boolean,:default=>false
   property :job_contactname, String, length: 120, :index=>true
   property :job_contactemail, String, length: 200, :index=>true
   property :job_contactphone, String, :index=>true

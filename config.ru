@@ -280,6 +280,7 @@ get '/companyprofile' do
        @userprofile = env['warden'].user   
        @userme = @userprofile.firstname 
        @mycoy = @userprofile.tme_company_main
+       @joblisting = @mycoy.tme_job_main.get(1) #temporary put a 1. 
 
 
        smaster = TmeListCompanysize.all
@@ -297,6 +298,7 @@ get '/companyprofile' do
         end
         @countries = ctemp.to_json
 
+
        erb :"dash/companyprofile", :layout => :'dash/layout1'
 end
 
@@ -308,6 +310,13 @@ post '/updatecompanyprofile' do
 
 end
 
+post '/updatecjoblisting' do
+
+    coydata = TmeCompanyMain.get(params["pk"])
+    coydata.update(eval(":#{params['name']}") => params["value"])
+    return 200
+
+end
 
 
 get '/admin' do
@@ -626,11 +635,17 @@ end
     return 200
   end
 
+  post '/updaterevealcoy' do #/companyprofile
+    jobdata = TmeJobMain.get(params["pk"])
+    jobdata.update(:company_isagent => params["isagent"])
+    return 200
+  end
+
   post '/updatenationality' do
     userdata = User.get(params["pk"])
     mynations=userdata.tme_skr_nation.first(:user_id=>userdata.id)
 
-    mynations.update(:skr_nation => params["value"])
+    mynations.update(:job_companyreveal => params["job_companyreveal"])
     return 200
   end
 
