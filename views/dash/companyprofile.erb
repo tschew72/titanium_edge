@@ -328,7 +328,7 @@
                             <tr>
                                <td><%= i.id%></td>
                                <td><%= i.job_title %> </td>
-                               <td><%= i.job_posted %></td> 
+                               <td><%= i.job_posted.strftime("%d/%m/%Y") %></td> 
                                <td>
                                 <div class="hidden-sm hidden-xs action-buttons">
                                   <a onclick="deljob(this, <%=i.id%>)" class="red" href="javascript:void(0)"> <i class="fa fa-trash-o"></i></a>      
