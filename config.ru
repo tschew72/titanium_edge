@@ -280,6 +280,22 @@ get '/companyprofile' do
        @userprofile = env['warden'].user   
        @userme = @userprofile.firstname 
        @mycoy = @userprofile.tme_company_main
+
+
+       smaster = TmeListCompanySize
+       stemp = []
+           smaster.each do |x|
+           stemp << {value: x.companysize_id, text: "#{x.companysize}"}
+        end
+        @coysize = stemp.to_json
+
+       @cmaster = TmeListCountry.all
+       ctemp = []
+           @cmaster.each do |x|
+           ctemp << {value: x.country_id, text: "#{x.country}"}
+        end
+        @countries = ctemp.to_json
+
        erb :"dash/companyprofile", :layout => :'dash/layout1'
 end
 

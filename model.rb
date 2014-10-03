@@ -443,6 +443,15 @@ class TmeListLanguage
   
 end
 
+class TmeListCompanysize   
+  include DataMapper::Resource              
+  storage_names[repository = :default] = 'tme_list_companysize'
+  property :companysize_id, Serial , key: true
+  property :companysize, String, length:300
+  
+end
+
+
 class TmeSkrLanguage    
   include DataMapper::Resource
   storage_names[repository = :default] = 'tme_skr_language'
