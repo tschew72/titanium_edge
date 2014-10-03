@@ -128,6 +128,17 @@ post '/top5matchestable' do
 
 end
 
+
+post '/jobdetail' do
+   #@user = User
+   jobid = params["pk"]
+   @job = TmeJobMain.get(jobid)
+
+   erb :jobdetail, :layout => false
+
+end
+
+
 get '/lookforseeker' do
    userid = params["pk"]
    @userprofile = User.get(userid)
