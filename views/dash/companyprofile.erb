@@ -146,60 +146,60 @@
                       </div>
                       <div class="row" style="position:relative">
                         <div class="col-md-12 column" >   
-                          <div class="row" style="position:absolute">
+                          <div class="row" style="position:relative">
                             <div class="inputlabel col-md-2 col-lg-2 col-xs-12 column">Company Name </div>  
-                            <div class="inputtext col-md-9 col-lg-9 col-sm-11 column" style="position:absolute;left:120px;width:500px;"> <a class="editable-click"  href="javascript:void(0)" id="coyname" data-name="company_name" data-type="text" data-pk="<%=@mycoy.id %>" data-url="/updatecompanyprofile" data-title="Enter Company Name"><%= @mycoy.company_name %></a></div>
+                            <div class="inputtext col-md-9 col-lg-9 col-sm-11 column" style="position:absolute;left:120px;width:600px;"> <a class="editable-click"  href="javascript:void(0)" id="coyname" data-name="company_name" data-type="text" data-pk="<%=@mycoy.id %>" data-url="/updatecompanyprofile" data-title="Enter Company Name"><%= @mycoy.company_name %></a></div>
                           </div>
-                          <div class="row" style="position:absolute">
+                          <div class="row" style="position:relative">
                             <div class="inputlabel col-md-2 col-lg-2 col-xs-12 column"> Industry:  </div>
-                            <div style="position:absolute;left:120px; width:500px" class="inputtext col-md-9 col-lg-9 col-sm-11 column"><a class="editable-click" href="javascript:void(0)" id="industry" data-type="text" data-pk="<%=@mycoy.id %>" data-url="/updatecompanyprofile" data-title="Enter Industry"><%= @mycoy.company_industry%></a></div>      
+                            <div style="position:absolute;left:500px; width:200px" class="inputtext col-md-9 col-lg-9 col-sm-11 column"><a class="editable-click" href="javascript:void(0)" id="industry" data-type="text" data-pk="<%=@mycoy.id %>" data-url="/updatecompanyprofile" data-title="Enter Industry"><%= @mycoy.company_industry%></a></div>      
                           </div> <!-- row -->
-                          <div class="row" style="position:absolute">
+                          <div class="row">
                             <div class="inputlabel col-md-2 col-lg-2 col-xs-12 column" > Contact Person:  </div>
-                            <div class="inputtext col-md-9 col-lg-9 col-sm-11 column" style="position:absolute;left:500px"><a class="editable-click" href="javascript:void(0)" id="contactperson" data-type="text" data-pk="<%=@mycoy.id %>" data-url="/updatecompanyprofile" data-title="Enter Contact Person"><%= @mycoy.company_contactname %></a></div>    
-                          </div>
-
-                          <div class="row" style="position:absolute">
-                            <div class="inputlabel col-md-2 col-lg-2 col-xs-12 column" > Company Size: </div>
-                            <div class="inputtext col-md-9 col-lg-9 col-sm-11 column" style="position:absolute;left:500px"><a class="editable-click" href="javascript:void(0)" id="coysize" data-type="text" data-pk="<%=@mycoy.id %>" data-url="/updatecompanyprofile" data-title="Enter Company Size"><%= @mycoy.company_size %></a></div>     <!--take note that it should be an integer -->
-                          </div>
-
-                          <div class="row" style="position:absolute">
-                            <div class="inputlabel col-md-2 col-lg-2 col-xs-12 column" > Company HQ: </div>
-                            <div class="inputtext col-md-9 col-lg-9 col-sm-11 column" style="position:absolute;left:500px"><a class="editable-click" href="javascript:void(0)" id="coyhq" data-type="text" data-pk="<%=@mycoy.id %>" data-url="/updatecompanyprofile" data-title="Enter Company HQ"><%= @mycoy.company_hq %></a></div>     <!--take note that it should be an integer -->
+                            <div class="inputtext col-md-9 col-lg-9 col-sm-11 column" style="position:absolute;left:120px"><a class="editable-click" href="javascript:void(0)" id="contactperson" data-type="text" data-pk="<%=@mycoy.id %>" data-url="/updatecompanyprofile" data-title="Enter Contact Person"><%= @mycoy.company_contactname %></a></div>    
                           </div>
 
                           <div class="row">
-                            <div class="inputlabel col-md-2 col-lg-2 col-xs-12 column" >Recruitment Agency</div>  
+                            <div class="inputlabel col-md-2 col-lg-2 col-xs-12 column" > Company Size: </div>
+                            <div class="inputtext col-md-9 col-lg-9 col-sm-11 column" style="position:absolute;left:120px"><a class="editable-click" href="javascript:void(0)" id="coysize" data-type="text" data-pk="<%=@mycoy.id %>" data-url="/updatecompanyprofile" data-title="Enter Company Size"><%= @mycoy.company_size %></a></div>     <!--take note that it should be an integer -->
+                          </div>
+
+                          <div class="row">
+                            <div class="inputlabel col-md-2 col-lg-2 col-xs-12 column" > Company HQ: </div>
+                            <div class="inputtext col-md-9 col-lg-9 col-sm-11 column" style="position:absolute;left:120px"><a class="editable-click" href="javascript:void(0)" id="coyhq" data-type="text" data-pk="<%=@mycoy.id %>" data-url="/updatecompanyprofile" data-title="Enter Company HQ"><%= @mycoy.company_hq %></a></div>     <!--take note that it should be an integer -->
+                          </div>
+
+                          <div class="row">
+                            <div class="col-md-2 col-lg-2  column inputlabel" style="position:absolute;left:400px">Recruitment Agency</div>  
                               <label>
                                 <div style="position:absolute; left:500px;top:93px" style="col-md-1 col-lg-1" ><input  id="agentcheck" name="company_isagent" type="checkbox"  <%= @mycoy.company_isagent== true ? "checked" : "unchecked" %> />  </div>
                                 <span class="lbl"> </span>
                               </label>
                           </div> <!-- row -->
                           
-                          <div class="row" style="position:absolute">
+                          <div class="row">
                             <div class="inputlabel col-md-2 col-lg-2 col-xs-12 column" > Working Hours: </div>
-                            <div class="inputtext col-md-9 col-lg-9 col-sm-11 column"  style="position:absolute;left:500px"><a class="editable-click" href="javascript:void(0)" id="workinghours" data-type="text" data-pk="<%=@mycoy.id %>" data-url="/updatecompanyprofile" data-title="Enter Working Hours"><%= @mycoy.company_workinghours %></a></div>     <!--take note that it should be an integer -->
+                            <div class="inputtext col-md-2 col-lg-2 column" style="position:absolute;left:120px"><a class="editable-click" href="javascript:void(0)" id="workinghours" data-type="text" data-pk="<%=@mycoy.id %>" data-url="/updatecompanyprofile" data-title="Enter Working Hours"><%= @mycoy.company_workinghours %></a></div>     <!--take note that it should be an integer -->
                           </div>
 
-                          <div class="row" style="position:absolute">
+                          <div class="row">
                             <div class="inputlabel col-md-2 col-lg-2 col-xs-12 column" > Dress Code:</div>
-                            <div class="inputtext col-md-9 col-lg-9 col-sm-11 column" style="position:absolute;left:500px"><a class="editable-click" href="javascript:void(0)" id="dresscode" data-type="text" data-pk="<%=@mycoy.id %>" data-url="/updatecompanyprofile" data-title="Enter Dress Code"><%= @mycoy.company_dresscode %></a></div>     <!--take note that it should be an integer -->
+                            <div class="inputtext col-md-2 col-lg-2 column" style="position:absolute;left:120px"><a class="editable-click" href="javascript:void(0)" id="dresscode" data-type="text" data-pk="<%=@mycoy.id %>" data-url="/updatecompanyprofile" data-title="Enter Dress Code"><%= @mycoy.company_dresscode %></a></div>     <!--take note that it should be an integer -->
                           </div>
                           
-                          <div class="row" style="position:absolute">
+                          <div class="row">
                             <div class="inputlabel col-md-2 col-lg-2 col-xs-12 column" >Preferred Language:</div>
-                            <div class="inputtext col-md-9 col-lg-9 col-sm-11 column" style="position:absolute;left:500px"><a class="editable-click" href="javascript:void(0)" id="preflang" data-type="text" data-pk="<%=@mycoy.id %>" data-url="/updatecompanyprofile" data-title="Enter Preferred Language"><%= @mycoy.company_preflang %></a></div>     <!--take note that it should be an integer -->
+                            <div class="inputtext col-md-2 col-lg-2 column" style="position:absolute;left:120px"><a class="editable-click" href="javascript:void(0)" id="preflang" data-type="text" data-pk="<%=@mycoy.id %>" data-url="/updatecompanyprofile" data-title="Enter Preferred Language"><%= @mycoy.company_preflang %></a></div>     <!--take note that it should be an integer -->
                           </div>
                           
-                          <div class="row" style="position:absolute">
+                          <div class="row">
                             <div class="inputlabel col-md-2 col-lg-2 col-xs-12 column" >Promotion:</div>
-                            <div class="inputtext col-md-9 col-lg-9 col-sm-11 column"  style="position:absolute;left:500px"><a class="editable-click" href="javascript:void(0)" id="coypromo" data-type="text" data-pk="<%=@mycoy.id %>" data-url="/updatecompanyprofile" data-title="Enter Promotion Paragraph"><%= @mycoy.company_promo %></a></div>     <!--take note that it should be an integer -->
+                            <div class="inputtext col-md-2 col-lg-2 column" style="position:absolute;left:120px"><a class="editable-click" href="javascript:void(0)" id="coypromo" data-type="text" data-pk="<%=@mycoy.id %>" data-url="/updatecompanyprofile" data-title="Enter Promotion Paragraph"><%= @mycoy.company_promo %></a></div>     <!--take note that it should be an integer -->
                           </div>
                           
-                          <div class="row" style="position:absolute">
+                          <div class="row">
                             <div class="inputlabel col-md-2 col-lg-2 col-xs-12 column" >Company Introduction:</div>
-                            <div class="inputtext col-md-9 col-lg-9 col-sm-11 column" style="position:absolute;left:120px;width:500px"><a class="editable-click" href="javascript:void(0)" id="coyintro" data-type="text" data-pk="<%=@mycoy.id %>" data-url="/updatecompanyprofile" data-title="Enter Company Introduction"><%= @mycoy.company_intro %></a></div>     <!--take note that it should be an integer -->
+                            <div class="inputtext col-md-9 col-lg-9 col-sm-11 column" style="position:absolute;left:120px;width:600px"><a class="editable-click" href="javascript:void(0)" id="coyintro" data-type="text" data-pk="<%=@mycoy.id %>" data-url="/updatecompanyprofile" data-title="Enter Company Introduction"><%= @mycoy.company_intro %></a></div>     <!--take note that it should be an integer -->
                           </div>
 
 
