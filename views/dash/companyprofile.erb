@@ -579,7 +579,7 @@ $(document).ready(function(){
           $.ajax({
             url: '/updaterevealcoy',
             type: 'POST',
-            data: {"job_companyreveal": this.checked, "pk" : 1}
+            data: {"job_companyreveal": this.checked, "pk" : 1} //need to change 1 to dynamic!!! TSCHEW
           });
       });
 
@@ -593,13 +593,6 @@ $(document).ready(function(){
           });
       });   
 
-      $("#revealcheck").on('change', function(){
-          $.ajax({
-            url: '/updaterevealcoy',
-            type: 'POST',
-            data: {"job_companyreveal": this.checked, "pk" : <%=@joblisting.id %>}
-          });
-      });
     
 </script>
 <script>
