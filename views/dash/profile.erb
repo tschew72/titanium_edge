@@ -89,14 +89,15 @@
                                                       minFileSize: 1, // No minimal file size
                                                       // The limit of files to be uploaded:
                                                       maxNumberOfFiles: 10
-                                                    }).on('fileuploadfail', function (e, data) {
-                                                      var currentFile = data.files[data.index];
-                                                      if (data.files.error && currentFile.error) {
-                                                        // there was an error, do something about it
-                                                        // newAlert("#alert_placeholder-tab",'danger', currentFile.error);
+                                                    })
+                                                      // .on('fileuploadfail', function (e, data) {
+                                                      // var currentFile = data.files[data.index];
+                                                      // if (data.files.error && currentFile.error) {
+                                                      //   // there was an error, do something about it
+                                                      //   // newAlert("#alert_placeholder-tab",'danger', currentFile.error);
                                                       
-                                                      }
-                                                      });
+                                                      // }
+                                                      // });
 
                                         });
 
@@ -133,7 +134,7 @@
                                 });
 
                                      $('.cloudinary-fileupload').bind('fileuploadfail', function(e, data) {
-                                        alert("You have been inactive on this page for a while. Please refresh this page before uploading your photo");
+                                        alert(data.files[0].error);
                                         
                                     });
                                 </script> 
