@@ -3,6 +3,6 @@
      //      $.ajax({
      //        url: '/updaterevealcoy',
      //        type: 'POST',
-     //        data: {"job_companyreveal": this.checked, "pk" : <%=@joblisting.id %>}
+     //        data: {"job_companyreveal": this.checked, "pk" : <%=@job.id %>}
      //      });
      //  });
