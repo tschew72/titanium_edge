@@ -137,7 +137,7 @@
                           });
                       },
                       url: "https://api.cloudinary.com/v1_1/dashy/upload",
-                      acceptFileTypes: /(\.|\/)(doc|docx|pdf|txt)$/i,
+                      acceptFileTypes: /(\.|\/)(doc?x|pdf|txt)$/i, 
                       // The maximum allowed file size in bytes:
                       maxFileSize: 10000000, // 10 MB
                       // The minimum allowed file size in bytes:
@@ -178,14 +178,13 @@
                   $('.cloudinary-fileupload').bind('fileuploadprogress', function(e, data) {
                     $("#uploadprogress").html("<div id='uploadprog'> <i class='fa fa-spinner fa-spin'></i>Uploading in progress</div> </div>");
                   });
+
                   $('.cloudinary-fileupload').bind('fileuploadstop', function(e, data) {
 
-                     
                   });
 
                    $('.cloudinary-fileupload').bind('fileuploadfail', function(e, data) {
-                      alert("Upload Failed. - Contact us on support@jorb.co");
-                     
+                      alert(data.files[0].error);
                   });
               </script>
 
