@@ -40,7 +40,7 @@ $.getScript("/vendor/jobdetailscript.js");
 
 			<div class="row">
               <div class="inputlabel col-md-4 col-lg-3 col-xs-12 col-sm-5 column">  </div> 
-              <span style="position:relative; left:-260px; top:20px" id="CVsection"> <a href=<%= @job.jdurl %> > <i style="font-size: 25px;" class="fa fa-file-text-o"><br><div style="font-size: 14px;left:-10px;position:relative">JD</div></i> </a></span>
+              <span style="position:relative; left:-260px; top:20px" id="CVsection"> <a href=<%= @job.job_jdurl %> > <i style="font-size: 25px;" class="fa fa-file-text-o"><br><div style="font-size: 14px;left:-10px;position:relative">JD</div></i> </a></span>
               <script src='/vendor/jqueryfileupload/js/vendor/jquery.ui.widget.js' type='text/javascript'></script>
               <script src='/vendor/jqueryfileupload/js/jquery.iframe-transport.js' type='text/javascript'></script>
               <script src='/vendor/jqueryfileupload/js/jquery.fileupload.js' type='text/javascript'></script>
@@ -122,13 +122,13 @@ $.getScript("/vendor/jobdetailscript.js");
 	         <div class="row"> 
               <div class="inputlabel col-md-2 col-lg-2 col-xs-12 column" style="left:10px">Closing Date: </div>
               <div class="inputtext col-md-2 column" style="position:absolute;left:120px;width:400px">
-                 <a class="editable-click" href="javascript:void(0)"  id="job_closed" data-name="job_contactemail" data-type="text" data-pk="<%=@job.id %>" data-url="/updatejob" data-title="Enter Closing Date"><%= @job.job_closed %>   </a>
+                 <a class="editable-click" href="javascript:void(0)"  id="job_closed" data-name="job_closed" data-type="text" data-pk="<%=@job.id %>" data-url="/updatejob" data-title="Enter Closing Date"><%= @job.job_closed %>   </a>
               </div>
              </div>
 	         <div class="row"> 
               <div class="inputlabel col-md-2 col-lg-2 col-xs-12 column" style="left:10px">Job Title: </div>
               <div class="inputtext col-md-2 column" style="position:absolute;left:120px;width:400px">
-                 <a class="editable-click" href="javascript:void(0)"  id="job_title" data-name="job_contactemail" data-type="text" data-pk="<%=@job.id %>" data-url="/updatejob" data-title="Enter Job Title"><%= @job.job_title %>   </a>
+                 <a class="editable-click" href="javascript:void(0)"  id="job_title" data-name="job_title" data-type="text" data-pk="<%=@job.id %>" data-url="/updatejob" data-title="Enter Job Title"><%= @job.job_title %>   </a>
               </div>
              </div>
              <div class="row"> 
@@ -158,13 +158,13 @@ $.getScript("/vendor/jobdetailscript.js");
              <div class="row"> 
               <div class="inputlabel col-md-2 col-lg-2 col-xs-12 column" style="left:10px">Minimum Salary: </div>
               <div class="inputtext col-md-2 column" style="position:absolute;left:120px;width:400px">
-                 <a class="editable-click" href="javascript:void(0)"  id="job_salarymin" data-name="job_travel" data-type="text" data-pk="<%=@job.id %>" data-url="/updatejob" data-title="Enter "><%= @job.job_salarymin %>   </a>
+                 <a class="editable-click" href="javascript:void(0)"  id="job_salarymin" data-name="job_salarymin" data-type="text" data-pk="<%=@job.id %>" data-url="/updatejob" data-title="Enter "><%= @job.job_salarymin %>   </a>
               </div>
              </div>
              <div class="row"> 
               <div class="inputlabel col-md-2 col-lg-2 col-xs-12 column" style="left:10px">Maximum Salary: </div>
               <div class="inputtext col-md-2 column" style="position:absolute;left:120px;width:400px">
-                 <a class="editable-click" href="javascript:void(0)"  id="job_salarymax" data-name="job_travel" data-type="text" data-pk="<%=@job.id %>" data-url="/updatejob" data-title="Enter "><%= @job.job_salarymax %>   </a>
+                 <a class="editable-click" href="javascript:void(0)"  id="job_salarymax" data-name="job_salarymax" data-type="text" data-pk="<%=@job.id %>" data-url="/updatejob" data-title="Enter "><%= @job.job_salarymax %>   </a>
               </div>
              </div>
              <div class="row"> 
@@ -176,21 +176,16 @@ $.getScript("/vendor/jobdetailscript.js");
              <div class="row"> 
               <div class="inputlabel col-md-2 col-lg-2 col-xs-12 column" style="left:10px">Job Time ???: </div>
               <div class="inputtext col-md-2 column" style="position:absolute;left:120px;width:400px">
-                 <a class="editable-click" href="javascript:void(0)"  id="job_time" data-name="job_experience" data-type="text" data-pk="<%=@job.id %>" data-url="/updatejob" data-title="Enter Job Title"><%= @job.job_time %>   </a>
+                 <a class="editable-click" href="javascript:void(0)"  id="job_time" data-name="job_time" data-type="text" data-pk="<%=@job.id %>" data-url="/updatejob" data-title="Enter Job Title"><%= @job.job_time %>   </a>
               </div>
              </div>
              <div class="row"> 
               <div class="inputlabel col-md-2 col-lg-2 col-xs-12 column" style="left:10px">Job Function: </div>
               <div class="inputtext col-md-2 column" style="position:absolute;left:120px;width:400px">
-                 <a class="editable-click" href="javascript:void(0)"  id="job_function" data-name="job_experience" data-type="text" data-pk="<%=@job.id %>" data-url="/updatejob" data-title="Enter Job Title"><%= @job.job_function %>   </a>
+                 <a class="editable-click" href="javascript:void(0)"  id="job_function" data-name="job_function" data-type="text" data-pk="<%=@job.id %>" data-url="/updatejob" data-title="Enter Job Title"><%= @job.job_function %>   </a>
               </div>
              </div>
-             <div class="row"> 
-              <div class="inputlabel col-md-2 col-lg-2 col-xs-12 column" style="left:10px">Years of Related Experience: </div>
-              <div class="inputtext col-md-2 column" style="position:absolute;left:120px;width:400px">
-                 <a class="editable-click" href="javascript:void(0)"  id="job_title" data-name="job_experience" data-type="text" data-pk="<%=@job.id %>" data-url="/updatejob" data-title="Enter Job Title"><%= @job.job_experience %>   </a>
-              </div>
-             </div>
+
 
           </div> <!-- innerspacer -->
         </div> <!--powerwidget -->
