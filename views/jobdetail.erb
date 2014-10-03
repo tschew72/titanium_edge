@@ -1,0 +1,45 @@
+
+<script>
+$.getScript("/vendor/jobdetailscript.js");
+
+</script>
+
+ <div id="powerwidgets">
+    <div class="row" >
+      <div class="col-md-12  bootstrap-grid">
+        <div class="powerwidget blue" data-widget-editbutton="false" data-widget-deletebutton="false">
+          <header>
+            <h2>Basic Setup</h2>
+          </header>
+          <div class="inner-spacer">
+            <div class="row"> 
+              <div class="inputlabel col-md-2 col-lg-2 col-xs-12 column" style="left:10px">Contact Person: </div>
+              <div class="inputtext col-md-2 column" style="position:absolute;left:120px;width:400px">
+                 <a class="editable-click" href="javascript:void(0)"  id="job_contactname" data-name="job_contactname" data-type="text" data-pk="<%=@job.id %>" data-url="/updatejob" data-title="Enter Contact Person"><%= @job.job_contactname %>   </a>
+              </div>
+            </div>
+            <div class="row"> 
+              <div class="inputlabel col-md-2 col-lg-2 col-xs-12 column" style="left:10px">Contact Email: </div>
+              <div class="inputtext col-md-2 column" style="position:absolute;left:120px;width:400px">
+                 <a class="editable-click" href="javascript:void(0)"  id="job_contactemail" data-name="job_contactemail" data-type="text" data-pk="<%=@job.id %>" data-url="/updatejob" data-title="Enter Contact Email"><%= @job.job_contactemail %>   </a>
+              </div>
+            </div>
+            <div class="row">  
+                <div class="inputlabel col-md-2 col-lg-2 col-xs-12 column" style="left:10px">Phone #: </div>
+                <div class="inputtext col-md-2 column" style="position:absolute;left:120px"> 
+                 <a class="editable-click" href="javascript:void(0)"  id="job_contactphone" data-name="job_contactphone" data-type="text" data-pk="<%=@job.id %>" data-url="/updatejob" data-title="Enter Contact Number"><%= @job.job_contactphone %> </a>
+                </div>
+            </div> 
+            <div class="row" style="position:relative">
+            <div class="col-md-3 col-lg-3  column inputlabel" >I want to reveal our company detail to candidate</div> 
+              <label>
+                <div style="position:absolute; left:150px;top:0px" style="col-md-1 col-lg-1" ><input  onclick="revealcheck(<%=job.id%>)" id="revealcheck" name="job_companyreveal" type="checkbox"  <%= @job.job_companyreveal== true ? "checked" : "unchecked" %> />  </div>
+                <span class="lbl"> </span>
+              </label>
+          </div> <!-- row -->  
+          </div> <!-- innerspacer -->
+        </div> <!--powerwidget -->
+      </div> <!--col -->
+    </div> <!--row-->
+  </div> <!--powerwidgets —->
+
