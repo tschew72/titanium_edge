@@ -300,6 +300,16 @@ get '/companyprofile' do
        erb :"dash/companyprofile", :layout => :'dash/layout1'
 end
 
+post '/updatecompanyprofile' do
+
+    coydata = TmeCompanyMain.get(params["pk"])
+    coydata.update(eval(":#{params['name']}") => params["value"])
+    return 200
+
+end
+
+
+
 get '/admin' do
         #make sure only admin can access
         #Create a section where we can dump the json of categories and skills.
