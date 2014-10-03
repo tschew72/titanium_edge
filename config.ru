@@ -620,6 +620,12 @@ end
     return 200
   end
 
+  post '/updateagent' do #/companyprofile
+    coydata = TmeCompanyMain.get(params["pk"])
+    coydata.update(:company_isagent => params["isagent"])
+    return 200
+  end
+
   post '/updatenationality' do
     userdata = User.get(params["pk"])
     mynations=userdata.tme_skr_nation.first(:user_id=>userdata.id)
