@@ -5,7 +5,7 @@ require './model'
 require 'json'
 require 'newrelic_rpm'
 require 'digest/sha1'
-  
+ 
 class SinatraWardenExample < Sinatra::Application
 
 #use Rack::Session::Pool, :expire_after => 2592000
@@ -90,7 +90,7 @@ end
 get '/edge' do
    # If user comes in directly here, if not authenticated, throw them to /auth/login
    redirect '/auth/login' unless env['warden'].authenticated?
-       @userprofile = env['warden'].user    
+       @userprofile = env['warden'].user   
        @userme = @userprofile.firstname
        @emailme = @userprofile.email
        @usermatchjoblist = @userprofile.matched_jobs
@@ -101,7 +101,7 @@ end
  
 get '/hrm' do
    redirect '/auth/login' unless env['warden'].authenticated?
-   @userprofile = env['warden'].user 
+   @userprofile = env['warden'].user
    @user = User
    @userme = @userprofile.firstname
    @emailme = @userprofile.email
@@ -189,7 +189,7 @@ get '/lookforseeker' do
        @locmaster = TmeListCountry.all
        loctemp = []
        @locmaster.each do |x|
-           loctemp << {id: x.country_id, text: "#{x.country}"} 
+           loctemp << {id: x.country_id, text: "#{x.country}"}
         end
         @locations = loctemp.to_json
 
@@ -207,7 +207,7 @@ get '/lookforseeker' do
         end
         @functions = functemp.to_json
 
-       @scmaster = SkillCategory.all   #Skill Category Master   
+       @scmaster = SkillCategory.all   #Skill Category Master  
        cattemp = []
            @scmaster.each do |x|
            cattemp << {value: x.id, text: "#{x.categoryname}"}
@@ -253,8 +253,8 @@ end
 
 get '/profile' do
        redirect '/auth/login' unless env['warden'].authenticated?
-       @userprofile = env['warden'].user   
-       @userme = @userprofile.firstname 
+       @userprofile = env['warden'].user  
+       @userme = @userprofile.firstname
 
        sc = @userprofile.tme_skr_socialmedia.all
        sc.each do |x|
@@ -288,10 +288,10 @@ end
 
 get '/companyprofile' do
        redirect '/auth/login' unless env['warden'].authenticated?
-       @userprofile = env['warden'].user   
-       @userme = @userprofile.firstname 
+       @userprofile = env['warden'].user  
+       @userme = @userprofile.firstname
        @mycoy = @userprofile.tme_company_main
-       @joblisting = @mycoy.tme_job_main.all #temporary put a 1. 
+       @joblisting = @mycoy.tme_job_main.all #temporary put a 1.
 
 
        smaster = TmeListCompanysize.all
@@ -341,7 +341,7 @@ get '/admin' do
           @userprofile = env['warden'].user
         else
           @userprofile = User.get(params["pk"])
-        end   
+        end  
 
 
        @userme = @userprofile.firstname
@@ -393,7 +393,7 @@ get '/admin' do
        @locmaster = TmeListCountry.all
        loctemp = []
        @locmaster.each do |x|
-           loctemp << {id: x.country_id, text: "#{x.country}"} 
+           loctemp << {id: x.country_id, text: "#{x.country}"}
         end
         @locations = loctemp.to_json
 
@@ -411,7 +411,7 @@ get '/admin' do
         end
         @functions = functemp.to_json
 
-       @scmaster = SkillCategory.all   #Skill Category Master   
+       @scmaster = SkillCategory.all   #Skill Category Master  
        cattemp = []
            @scmaster.each do |x|
            cattemp << {value: x.id, text: "#{x.categoryname}"}
@@ -451,7 +451,7 @@ get '/settings' do
        #stemp = []
        #    @ssmaster.each do |x|
        #    stemp << {value: x.id, text: "#{x.skill_name}"}
-       #    
+       #   
        #end
        # @skill_list= stemp.to_json
 
@@ -494,7 +494,7 @@ get '/settings' do
        @locmaster = TmeListCountry.all
        loctemp = []
        @locmaster.each do |x|
-           loctemp << {id: x.country_id, text: "#{x.country}"} 
+           loctemp << {id: x.country_id, text: "#{x.country}"}
         end
         @locations = loctemp.to_json
 
@@ -512,7 +512,7 @@ get '/settings' do
         end
         @functions = functemp.to_json
 
-       @scmaster = SkillCategory.all   #Skill Category Master   
+       @scmaster = SkillCategory.all   #Skill Category Master  
        cattemp = []
            @scmaster.each do |x|
            cattemp << {value: x.id, text: "#{x.categoryname}"}
@@ -536,10 +536,10 @@ get '/settings' do
 end
 
 get '/getskill' do
-      smaster = SkillSource.all(:skillcategory_id => params["value"]) 
+      smaster = SkillSource.all(:skillcategory_id => params["value"])
       sltemp=[]
       smaster.each do |x|
-        sltemp << {value: x.id, text: "#{x.skill_name}"}       
+        sltemp << {value: x.id, text: "#{x.skill_name}"}      
       end
      sltemp.to_json
 end
@@ -624,7 +624,7 @@ end
 
   post '/updatespr' do
     userdata = User.get(params["pk"])
-    
+   
     if params["singaporepr"] =="true"
       ntype=2
     else ntype=1  #temporary put as 1. No significance at this stage
@@ -662,10 +662,9 @@ end
     userdata = User.get(params["pk"])
     mynations=userdata.tme_skr_nation.first(:user_id=>userdata.id)
 
-    mynations.update(:job_companyreveal => params["job_companyreveal"])
+    mynations.update(:skr_nation => params["value"])
     return 200
   end
-
 
   post '/updateactive' do
     userdata = User.get(params["pk"])
@@ -733,7 +732,7 @@ end
 
     )
      redirect to('/profile')
-  end 
+  end
 
   post '/jobupdate' do
     jobdata = Job.get(params['id'])
@@ -794,12 +793,12 @@ end
 
   post '/newlanguage' do
     userprofile = env['warden'].user
-    newlanguage = TmeSkrLanguage.first_or_create({:skr_lang => params["skr_lang"], :user_id => userprofile.id}).update(:skr_lang_speakskill => params["skr_lang_speakskill"], :skr_lang_writeskill => params["skr_lang_writeskill"], :user_id => userprofile.id, :skr_status =>2)  
+    newlanguage = TmeSkrLanguage.first_or_create({:skr_lang => params["skr_lang"], :user_id => userprofile.id}).update(:skr_lang_speakskill => params["skr_lang_speakskill"], :skr_lang_writeskill => params["skr_lang_writeskill"], :user_id => userprofile.id, :skr_status =>2) 
         {:responsemsg => "New language added!" }.to_json
   end
 
   post '/newuser' do
-    newuser = User.first_or_create({:username => params["username"]}).update(:firstname => params["firstname"],  :lastname => params["lastname"], :email => params["email"], :password => params["password"] ) 
+    newuser = User.first_or_create({:username => params["username"]}).update(:firstname => params["firstname"],  :lastname => params["lastname"], :email => params["email"], :password => params["password"] )
     {:responsemsg => "New user added!" }.to_json
   end
 
@@ -920,19 +919,19 @@ end
   end
 
  post '/table' do
-       @userprofile = env['warden'].user  
+       @userprofile = env['warden'].user 
        @allskills =   @userprofile.skill_summaries.all
        @ssmaster = SkillSource  #master skill source for cross referencing
        @scmaster = SkillCategory.all   #Skill Category Master     #Hardcode to HTML. Remove from Database. Push this to the /admin for churning json.
-       @sr = SkillRank.all  
+       @sr = SkillRank.all 
        erb :table, :layout => false
 
     end
 
  post '/langtable' do
-       @userprofile = env['warden'].user  
+       @userprofile = env['warden'].user 
        @alllanguages =   @userprofile.tme_skr_language.all
-       @lmaster = TmeListLanguage.all 
+       @lmaster = TmeListLanguage.all
        @sr = SkillRank.all  #Hardcode to HTML. Remove from Database.
        erb :langtable, :layout => false
 
@@ -983,27 +982,27 @@ end
 
   post '/updatefacebook' do
     userprofile = env['warden'].user
-    TmeSkrSocialmedia.first_or_create({:skr_socialmediacat=>1, :user_id=> params["pk"]}).update(:skr_socialmediaurl=> params['value']) 
+    TmeSkrSocialmedia.first_or_create({:skr_socialmediacat=>1, :user_id=> params["pk"]}).update(:skr_socialmediaurl=> params['value'])
         {:responsemsg => "Facebook URL updated" }.to_json
 
   end
 
    post '/updatelinkedin' do
     userprofile = env['warden'].user
-    TmeSkrSocialmedia.first_or_create({:skr_socialmediacat=>3, :user_id=> params["pk"]}).update(:skr_socialmediaurl=> params["value"]) 
+    TmeSkrSocialmedia.first_or_create({:skr_socialmediacat=>3, :user_id=> params["pk"]}).update(:skr_socialmediaurl=> params["value"])
         {:responsemsg => "LinkedIn URL updated" }.to_json
   end
 
   post '/updatetwitter' do
     userprofile = env['warden'].user
-    TmeSkrSocialmedia.first_or_create({:skr_socialmediacat=>4, :user_id=> params["pk"]}).update(:skr_socialmediaurl=> params["value"]) 
+    TmeSkrSocialmedia.first_or_create({:skr_socialmediacat=>4, :user_id=> params["pk"]}).update(:skr_socialmediaurl=> params["value"])
         {:responsemsg => "Twitter URL updated" }.to_json
   end
 
 
 #get '/industrystatistics' do
 #       redirect '/auth/login' unless env['warden'].authenticated?
-#       user1 = env['warden'].user   
+#       user1 = env['warden'].user  
 #       @userme = user1.firstname
 #       @chart1_name="IT Professionals hired"
 #       @chart1_source="IDA"
@@ -1014,6 +1013,6 @@ end
 
 
 end
-  
+ 
 
 run SinatraWardenExample
