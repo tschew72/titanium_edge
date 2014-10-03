@@ -148,7 +148,7 @@
                         <div class="col-md-10 column" style="position:relative">   
                           <div class="row">
                             <div class="inputlabel col-md-2 col-lg-2 col-xs-12 column">Company Name </div>  
-                            <div class="inputtext col-md-2 col-lg-2 column" style="position:absolute;left:120px"> <a class="editable-click"  href="javascript:void(0)" id="coyname" data-type="text" data-pk="<%=@mycoy.id %>" data-url="/updatcompanyprofile" data-title="Enter Company Name"><%= @mycoy.company_name %></a></div>
+                            <div class="inputtext col-md-2 col-lg-2 column" style="position:absolute;left:120px"> <a class="editable-click"  href="javascript:void(0)" id="coyname" data-type="text" data-pk="<%=@mycoy.id %>" data-url="/updatecompanyprofile" data-title="Enter Company Name"><%= @mycoy.company_name %></a></div>
 
                             <div class="inputlabel col-md-2 col-lg-2 col-xs-12 column" style="position:absolute;left:400px;"> Industry:  </div>
                             <div style="position:absolute;left:500px; width:200px" class="inputtext col-md-2 col-lg-2  column"><a class="editable-click" href="javascript:void(0)" id="industry" data-type="text" data-pk="<%=@mycoy.id %>" data-url="/updatecompanyprofile" data-title="Enter Industry"><%= @mycoy.company_industry%></a></div>   
@@ -199,7 +199,7 @@
                           
                           <div class="row">
                             <div class="inputlabel col-md-2 col-lg-2 col-xs-12 column" >Company Introduction:</div>
-                            <div class="inputtext col-md-2 col-lg-2 column" style="position:absolute;left:120px"><a class="editable-click" href="javascript:void(0)" id="coyintro" data-type="text" data-pk="<%=@mycoy.id %>" data-url="/updatecompanyprofile" data-title="Enter Company Introduction"><%= @mycoy.company_intro %></a></div>     <!--take note that it should be an integer -->
+                            <div class="inputtext col-md-9 col-lg-9 col-sm-11 column" style="position:absolute;left:120px;width:600px"><a class="editable-click" href="javascript:void(0)" id="coyintro" data-type="text" data-pk="<%=@mycoy.id %>" data-url="/updatecompanyprofile" data-title="Enter Company Introduction"><%= @mycoy.company_intro %></a></div>     <!--take note that it should be an integer -->
                           </div>
 
 
@@ -410,13 +410,6 @@ $(document).ready(function(){
 
   });
 
-  var nation=document.getElementById( 'nationality' ).textContent;
-  if (nation.indexOf("Singapore") > -1){
-    document.getElementById( 'spr_block' ).style.visibility = 'hidden'; 
-  } else
-  {
-    document.getElementById( 'spr_block' ).style.visibility = 'visible'; 
-  }; 
 
   $('.date-picker').datepicker({autoclose:true}).next().on(ace.click_event, function(){
     $(this).prev().focus();

@@ -281,11 +281,6 @@ get '/companyprofile' do
        @userme = @userprofile.firstname 
        @mycoy = @userprofile.tme_company_main
 
-       erb :"dash/companyprofile", :layout => :'dash/layout1'
-end
-
-post '/updatecompanyprofile'
-
        smaster = TmeListCompanysize.all
        stemp = []
            smaster.each do |x|
@@ -300,6 +295,13 @@ post '/updatecompanyprofile'
            ctemp << {value: x.country_id, text: "#{x.country}"}
         end
         @countries = ctemp.to_json
+        
+       erb :"dash/companyprofile", :layout => :'dash/layout1'
+end
+
+post '/updatecompanyprofile'
+
+
 
 end
 
