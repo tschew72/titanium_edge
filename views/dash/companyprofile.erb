@@ -317,6 +317,7 @@
                          <th class="align-center">Job Title</th>
                          <th class="align-center">Posted Date</th>
                          <th class="align-center"></th>
+                         <th class="align-center"></th>
                       </tr>
                     </thead>
                     <tbody id="aat" >
@@ -329,7 +330,12 @@
                            <td><%= i.job_posted %></td> 
                            <td>
                             <div class="hidden-sm hidden-xs action-buttons">
-                              <a onclick="delskill(this, <%=i.id%>)" class="red" href="javascript:void(0)"> <i class="fa fa-trash-o"></i></a>      
+                              <a onclick="deljob(this, <%=i.id%>)" class="red" href="javascript:void(0)"> <i class="fa fa-trash-o"></i></a>      
+                            </div>
+                           </td>
+                           <td>
+                            <div class="hidden-sm hidden-xs action-buttons">
+                              <a onclick="showjob(this, <%=i.id%>)" class="red" href="javascript:void(0)"> <i class="fa fa-trash-o"></i></a>      
                             </div>
                            </td>
                         </tr>
@@ -372,7 +378,7 @@ $(document).ready(function(){
       "jQueryUI": true,
       "aoColumns": [         
           null, null, null,
-          { "bSortable": false }
+          { "bSortable": false },{ "bSortable": false }
         ]
   } );
 
