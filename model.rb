@@ -207,6 +207,7 @@ class TmeCompanyMain
   property :company_hq, String, :index=>true
   property :company_linkedin, String, length: 500, :index=>true
   property :company_facebook, String, length: 500,  :index=>true
+  property :company_twitter, String, length: 500,  :index=>true
   property :company_logo, String, length: 500,  :index=>true #URL
   property :company_workinghours, String,  :index=>true
   property :company_dresscode, String, length: 500,  :index=>true
