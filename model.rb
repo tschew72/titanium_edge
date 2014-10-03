@@ -268,6 +268,7 @@ class TmeJobMain
   property :tme_company_main_id, Integer, :index => true, :field => 'job_companyname'   
   property :job_agencyname, Integer, :index => true  
   property :job_workemergency, Integer, :index => true  
+  property :job_status, Integer, :default => 2, :index => true #"0 = deleted, 1 = pending, 2 = active, 3 = closed"
 
   belongs_to :tme_company_main
 
