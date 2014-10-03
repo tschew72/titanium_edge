@@ -33,7 +33,7 @@ $.getScript("/vendor/jobdetailscript.js");
             <div class="row" style="position:relative">
             <div class="col-md-3 col-lg-3  column inputlabel" >I want to reveal our company detail to candidate</div> 
               <label>
-                <div style="position:absolute; left:150px;top:0px" style="col-md-1 col-lg-1" ><input  onclick="revealcheck(<%=job.id%>)" id="revealcheck" name="job_companyreveal" type="checkbox"  <%= @job.job_companyreveal== true ? "checked" : "unchecked" %> />  </div>
+                <div style="position:absolute; left:150px;top:0px" style="col-md-1 col-lg-1" ><input  onclick="revealcheck(<%=@job.id%>)" id="revealcheck" name="job_companyreveal" type="checkbox"  <%= @job.job_companyreveal== true ? "checked" : "unchecked" %> />  </div>
                 <span class="lbl"> </span>
               </label>
           </div> <!-- row -->  
