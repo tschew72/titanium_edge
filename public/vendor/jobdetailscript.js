@@ -19,10 +19,23 @@
   });
 
 
-     $("#revealcheck").on('change', function(){
-          $.ajax({
-            url: '/updaterevealcoy',
-            type: 'POST',
-            data: {"job_companyreveal": this.checked, "pk" : <%=@myjob.id %>} //need to change 1 to dynamic!!! TSCHEW
-          });
-      });
+     // $("#revealcheck").on('change', function(){
+     //      $.ajax({
+     //        url: '/updaterevealcoy',
+     //        type: 'POST',
+     //        data: {"job_companyreveal": this.checked, "pk" : <%=@myjob.id %>} //need to change 1 to dynamic!!! TSCHEW
+     //      });
+     //  });
+
+
+      function revealcheck(i){
+
+      		 $.ajax({
+	            url: '/updaterevealcoy',
+	            type: 'POST',
+	            data: {"job_companyreveal": this.checked, "pk" : i} //need to change 1 to dynamic!!! TSCHEW
+	          });
+
+       	
+
+      }//function
