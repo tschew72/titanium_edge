@@ -144,15 +144,16 @@
                       minFileSize: 1, // No minimal file size
                       // The limit of files to be uploaded:
                       maxNumberOfFiles: 10
-                    }).on('fileuploadfail', function (e, data) {
-                      var currentFile = data.files[data.index];
-                      alert("Error! Please contact helpdesk");
-                      if (data.files.error && currentFile.error) {
-                        // there was an error, do something about it
-                        // newAlert("#alert_placeholder-tab",'danger', currentFile.error);
+                    })
+                  // .on('fileuploadfail', function (e, data) {
+                  //     var currentFile = data.files[data.index];
+                  //     alert("Error! Please contact helpdesk");
+                  //     if (data.files.error && currentFile.error) {
+                  //       // there was an error, do something about it
+                  //       // newAlert("#alert_placeholder-tab",'danger', currentFile.error);
                      
-                      }
-                    });
+                  //     }
+                  //   });
                   });
 
                   $('.cloudinary-fileupload').bind('cloudinarydone', function(e, data) { 
@@ -178,14 +179,12 @@
                     $("#uploadprogress").html("<div id='uploadprog'> <i class='fa fa-spinner fa-spin'></i>Uploading in progress</div> </div>");
                   });
                   $('.cloudinary-fileupload').bind('fileuploadstop', function(e, data) {
-                    $('.progress').attr({
-                        style : "visibility:hidden",
-                    });
+
                      
                   });
 
                    $('.cloudinary-fileupload').bind('fileuploadfail', function(e, data) {
-                      alert("You have been inactive on this page for a while. Please refresh this page before uploading your photo");
+                      alert("Upload Failed. - Contact us on support@jorb.co");
                      
                   });
               </script>
