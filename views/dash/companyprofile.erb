@@ -326,6 +326,7 @@ $(document).ready(function(){
   $.fn.editable.defaults.mode = 'popup';  
   $('#coyname').editable({
   });
+
   $('#industry').editable({
     emptytext: '--',
     // placeholder: '[Optional] Enter your achievement here'
@@ -336,9 +337,9 @@ $(document).ready(function(){
   });
 
   $('#coysize').editable({   
-    function() {
+    source: function() {
             return (<%= @coysize %>)
-          },
+          }
     });
 
   $('#coyhq').editable({
@@ -396,13 +397,15 @@ $(document).ready(function(){
     emptytext: '--',
     // placeholder: '[Optional] Enter your achievement here'
   });
-  
+
   $('#facebook').editable({
     emptytext: '--',
     // placeholder: '[Optional] Enter your achievement here'
   });
 
-  $('#twitter').editable({emptytext: '--',
+  $('#twitter').editable(
+    {
+      emptytext: '--',
     // placeholder: '[Optional] Enter your achievement here'
 
   });
