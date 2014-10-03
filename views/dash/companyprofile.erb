@@ -335,7 +335,7 @@
                            </td>
                            <td>
                             <div class="hidden-sm hidden-xs action-buttons">
-                              <a onclick="showjob(this, <%=i.id%>)" class="red" href="javascript:void(0)"> <i class="fa fa-trash-o"></i></a>      
+                              <a onclick="showjobdetail(<%=i.id%>)" class="red" href="javascript:void(0)"> <i class="fa fa-trash-o"></i></a>      
                             </div>
                            </td>
                         </tr>
@@ -344,7 +344,9 @@
                     </tbody>
                   </table>
                 </div>
+                <div id="jobdetail">
 
+                </div>
                  
 
 
@@ -582,5 +584,16 @@ $(document).ready(function(){
       });   
 
     
+</script>
+<script>
+
+      function showjobdetail(i){
+
+       // $("#top5matches").load("/top5matchestable&pk=".concat(i.toString())); 
+        $("#jobdetail").load("/jobdetail",{ pk: i }); 
+       // $("#top5matches").load("/top5matchestable"); 
+
+      }//function
+
 </script>
 
