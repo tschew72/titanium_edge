@@ -282,7 +282,7 @@ get '/companyprofile' do
        @mycoy = @userprofile.tme_company_main
 
 
-       smaster = TmeListCompanySize.all
+       smaster = TmeListCompanysize.all
        stemp = []
            smaster.each do |x|
            stemp << {value: x.companysize_id, text: "#{x.companysize}"}
