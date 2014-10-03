@@ -322,7 +322,7 @@
                     <tbody id="aat" >
                         <% @joblisting.each do |i| %>  <!--From Skill Summary Class -->
                         <!-- If flag is set to delete, break. and find next record -->
-                        <% if <%= @i.job_status %> != 0 %>
+                        <% if i.job_status  != 0 %>
                        
                         <tr>
                          
