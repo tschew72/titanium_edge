@@ -573,6 +573,14 @@ $(document).ready(function(){
       });
 
 
+     $("#revealcheck").on('change', function(){
+          $.ajax({
+            url: '/updaterevealcoy',
+            type: 'POST',
+            data: {"job_companyreveal": this.checked, "pk" : 1}
+          });
+      });
+
 
       $("#id-date-picker-1").on('change', function(){
           $.ajax({
