@@ -54,7 +54,7 @@
                       <div  class="row" style="padding: 5px 0px 40px 1px;"> 
                         <div class="col-md-2 col-md-3 col-sm-3 col-lg-2 column"> <!-- photo and upload button column -->
                           <span class="profile-picture" id="pic">
-                            <img id="avatar" class="editable img-responsive" alt="Avatar" src=<%= @mycoy.company_logo %> />
+                            <img id="Company Logo" class="editable img-responsive" alt="Avatar" src=<%= @mycoy.company_logo %> />
                           </span>
                           <div class="row"><!-- Upload Row -->
                             <div class="col-sm-6">
@@ -148,7 +148,7 @@
                         <div class="col-md-10 column" style="position:relative">   
                           <div class="row">
                             <div class="inputlabel col-md-2 col-lg-2 col-xs-12 column">Company Name </div>  
-                            <div class="inputtext col-md-9 col-lg-9 col-sm-11 column" style="position:absolute;left:500px";width:400px> <a class="editable-click"  href="javascript:void(0)" id="coyname" data-name="company_name" data-type="text" data-pk="<%=@mycoy.id %>" data-url="/updatecompanyprofile" data-title="Enter Company Name"><%= @mycoy.company_name %></a></div>
+                            <div class="inputtext col-md-9 col-lg-9 col-sm-11 column" style="position:absolute;left:120px;width:400px;"> <a class="editable-click"  href="javascript:void(0)" id="coyname" data-name="company_name" data-type="text" data-pk="<%=@mycoy.id %>" data-url="/updatecompanyprofile" data-title="Enter Company Name"><%= @mycoy.company_name %></a></div>
 
                             <div class="inputlabel col-md-2 col-lg-2 col-xs-12 column" style="position:absolute;left:400px;"> Industry:  </div>
                             <div style="position:absolute;left:500px; width:200px" class="inputtext col-md-9 col-lg-9 col-sm-11 column"><a class="editable-click" href="javascript:void(0)" id="industry" data-type="text" data-pk="<%=@mycoy.id %>" data-url="/updatecompanyprofile" data-title="Enter Industry"><%= @mycoy.company_industry%></a></div>   
