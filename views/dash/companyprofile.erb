@@ -149,7 +149,15 @@
                           <div class="row" >
                             <div class="inputlabel col-md-2 col-lg-2 col-xs-12 column">Company Name </div>  
                             <div class="inputtext col-md-9 col-lg-9 col-sm-11 column" style="position:absolute;left:120px;width:500px;"> <a class="editable-click"  href="javascript:void(0)" id="coyname" data-name="company_name" data-type="text" data-pk="<%=@mycoy.id %>" data-url="/updatecompanyprofile" data-title="Enter Company Name"><%= @mycoy.company_name %></a></div>
+
                           </div>
+                          <div class="row" style="position:relative">
+                            <div class="col-md-2 col-lg-2  column inputlabel" >Recruitment Agency</div>  
+                              <label>
+                                <div style="position:absolute; left:100px;top:93px" style="col-md-1 col-lg-1" ><input  id="agentcheck" name="company_isagent" type="checkbox"  <%= @mycoy.company_isagent== true ? "checked" : "unchecked" %> />  </div>
+                                <span class="lbl"> </span>
+                              </label>
+                          </div> <!-- row -->   
                           <div class="row" style="position:relative">
                             <div class="inputlabel col-md-2 col-lg-2 col-xs-12 column"> Industry:  </div>
                             <div class="inputtext col-md-9 col-lg-9 col-sm-11 column" style="position:relative ;left:-80px;width:500px"><a class="editable-click" href="javascript:void(0)" id="industry" data-name="company_industry" data-type="text" data-pk="<%=@mycoy.id %>" data-url="/updatecompanyprofile" data-title="Enter Industry"><%= @mycoy.company_industry%></a></div>      
@@ -169,13 +177,7 @@
                             <div class="inputtext col-md-9 col-lg-9 col-sm-11 column" style="position:relative ;left:-80px;width:500px"><a class="editable-click" href="javascript:void(0)" id="coyhq" data-name="company_hq" data-type="text" data-pk="<%=@mycoy.id %>" data-url="/updatecompanyprofile" data-title="Enter Company HQ"><%= @mycoy.company_hq %></a></div>     <!--take note that it should be an integer -->
                           </div>
 
-                          <div class="row">
-                            <div class="col-md-2 col-lg-2  column inputlabel" style="position:absolute;left:400px">Recruitment Agency</div>  
-                              <label>
-                                <div style="position:absolute; left:500px;top:93px" style="col-md-1 col-lg-1" ><input  id="agentcheck" name="company_isagent" type="checkbox"  <%= @mycoy.company_isagent== true ? "checked" : "unchecked" %> />  </div>
-                                <span class="lbl"> </span>
-                              </label>
-                          </div> <!-- row -->
+
                           
                           <div class="row">
                             <div class="inputlabel col-md-2 col-lg-2 col-xs-12 column" > Working Hours: </div>
