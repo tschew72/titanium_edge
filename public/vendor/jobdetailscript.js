@@ -16,7 +16,73 @@
     {
       emptytext: '--',
     // placeholder: '[Optional] Enter your achievement here'
-  });
+ 	 });
+
+      $('#job_closed').editable(
+    {
+      emptytext: '--',
+    // placeholder: '[Optional] Enter your achievement here'
+ 	 });
+
+      $('#job_title').editable(
+    {
+      emptytext: '--',
+    // placeholder: '[Optional] Enter your achievement here'
+ 	 });
+
+      $('#job_location ').editable(
+    {
+      emptytext: '--',
+    // placeholder: '[Optional] Enter your achievement here'
+ 	 });
+
+      $('#job_industry  ').editable(
+    {
+      emptytext: '--',
+    // placeholder: '[Optional] Enter your achievement here'
+ 	 });
+
+      $('#job_travel').editable(
+    {
+      emptytext: '--',
+    // placeholder: '[Optional] Enter your achievement here'
+ 	 });
+
+      $('#job_nationality').editable(
+    {
+      emptytext: '--',
+    // placeholder: '[Optional] Enter your achievement here'
+ 	 });
+
+      $('#job_salarymin').editable(
+    {
+      emptytext: '--',
+    // placeholder: '[Optional] Enter your achievement here'
+ 	 });
+
+      $('#job_salarymax').editable(
+    {
+      emptytext: '--',
+    // placeholder: '[Optional] Enter your achievement here'
+ 	 });
+
+      $('#job_experience').editable(
+    {
+      emptytext: '--',
+    // placeholder: '[Optional] Enter your achievement here'
+ 	 });
+
+      $('#job_time').editable(
+    {
+      emptytext: '--',
+    // placeholder: '[Optional] Enter your achievement here'
+ 	 });
+     $('#job_function').editable(
+    {
+      emptytext: '--',
+    // placeholder: '[Optional] Enter your achievement here'
+ 	 });
+
 
 
      // $("#revealcheck").on('change', function(){
