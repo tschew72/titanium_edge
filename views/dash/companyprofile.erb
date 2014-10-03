@@ -176,24 +176,24 @@
 
                           <div class="row" style="position:relative">
                             <div class="inputlabel col-md-2 col-lg-2 col-xs-12 column" > Company HQ City: </div>
-                            <div class="inputtext col-md-9 col-lg-9 col-sm-11 column" style="position:absolute ;left:140px;width:300px"><a class="editable-click" href="javascript:void(0)" id="coyhq" data-name="company_hq" data-type="text" data-pk="<%=@mycoy.id %>" data-url="/updatecompanyprofile" data-title="Enter Company HQ"><%= @mycoy.company_hq %></a></div>     <!--take note that it should be an integer -->
+                            <div class="inputtext col-md-9 col-lg-9 col-sm-11 column" style="position:absolute ;left:140px;width:300px"><a class="editable-click" href="javascript:void(0)" id="coyhq" data-name="company_hq" data-type="text" data-pk="<%=@mycoy.id %>" data-url="/updatecompanyprofile" data-title="Enter Company HQ"><%= @mycoy.company_hq %></a></div>    
                           </div>
 
 
                           
                           <div class="row" style="position:relative">
                             <div class="inputlabel col-md-2 col-lg-2 col-xs-12 column" > Working Hours: </div>
-                            <a class="editable-click inputtext col-md-9 col-lg-9 col-sm-11 column" style="position:absolute ;left:140px;width:200px" href="javascript:void(0)" id="workinghours" data-name="company_workinghours" data-type="text" data-pk="<%=@mycoy.id %>" data-url="/updatecompanyprofile" data-title="Enter Working Hours"><%= @mycoy.company_workinghours %></a>   <!--take note that it should be an integer -->
+                            <a class="editable-click inputtext col-md-9 col-lg-9 col-sm-11 column" style="position:absolute ;left:140px;width:200px" href="javascript:void(0)" id="workinghours" data-name="company_workinghours" data-type="text" data-pk="<%=@mycoy.id %>" data-url="/updatecompanyprofile" data-title="Enter Working Hours"><%= @mycoy.company_workinghours %></a>   
                           </div>
 
                           <div class="row" style="position:relative">
                             <div class="inputlabel col-md-2 col-lg-2 col-xs-12 column" > Dress Code:</div>
-                            <div class="inputtext col-md-9 col-lg-9 col-sm-11 column"  style="position:absolute ;left:140px;width:200px"><a class="editable-click" href="javascript:void(0)" id="dresscode" data-name="company_dresscode" data-type="text" data-pk="<%=@mycoy.id %>" data-url="/updatecompanyprofile" data-title="Enter Dress Code"><%= @mycoy.company_dresscode %></a></div>     <!--take note that it should be an integer -->
+                            <div class="inputtext col-md-9 col-lg-9 col-sm-11 column"  style="position:absolute ;left:140px;width:200px"><a class="editable-click" href="javascript:void(0)" id="dresscode" data-name="company_dresscode" data-type="text" data-pk="<%=@mycoy.id %>" data-url="/updatecompanyprofile" data-title="Enter Dress Code"><%= @mycoy.company_dresscode %></a></div>     
                           </div>
                           
                           <div class="row" style="position:relative">
                             <div class="inputlabel col-md-2 col-lg-2 col-xs-12 column" >Preferred Language:</div>
-                            <div class="inputtext col-md-9 col-lg-9 col-sm-11 column" style="position:absolute ;left:140px;width:200px"><a class="editable-click" href="javascript:void(0)" id="preflang" data-name="company_preflang" data-type="text" data-pk="<%=@mycoy.id %>" data-url="/updatecompanyprofile" data-title="Enter Preferred Language"><%= @mycoy.company_preflang %></a></div>     <!--take note that it should be an integer -->
+                            <div class="inputtext col-md-9 col-lg-9 col-sm-11 column" style="position:absolute ;left:140px;width:200px"><a class="editable-click" href="javascript:void(0)" id="preflang" data-name="company_preflang" data-type="text" data-pk="<%=@mycoy.id %>" data-url="/updatecompanyprofile" data-title="Enter Preferred Language"><%= @mycoy.company_preflang %></a></div>   
                           </div>
                           
                           <div class="row" style="position:relative">
@@ -322,7 +322,7 @@
                     <tbody id="aat" >
                         <% @joblisting.each do |i| %>  <!--From Skill Summary Class -->
                         <!-- If flag is set to delete, break. and find next record -->
-                        <% if @i.status != 0 %>
+                        <% if <%= @i.status %> != 0 %>
                        
                         <tr>
                          
