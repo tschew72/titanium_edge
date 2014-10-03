@@ -384,7 +384,7 @@ $(document).ready(function(){
         ]
   } );
 
-  $("#jobdetail").load("/jobdetail",{ pk: 1}); 
+  $("#jobdetail").load("/jobdetail",{ pk: 1}); // need to change the 1 to a dynamic variable!!!
 
   $.fn.editable.defaults.mode = 'popup';  
   $('#coyname').editable({
@@ -593,6 +593,13 @@ $(document).ready(function(){
           });
       });   
 
+      $("#revealcheck").on('change', function(){
+          $.ajax({
+            url: '/updaterevealcoy',
+            type: 'POST',
+            data: {"job_companyreveal": this.checked, "pk" : <%=@joblisting.id %>}
+          });
+      });
     
 </script>
 <script>
