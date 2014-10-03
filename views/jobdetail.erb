@@ -185,7 +185,20 @@ $.getScript("/vendor/jobdetailscript.js");
                  <a class="editable-click" href="javascript:void(0)"  id="job_function" data-name="job_function" data-type="text" data-pk="<%=@job.id %>" data-url="/updatejob" data-title="Enter Job Title"><%= @job.job_function %>   </a>
               </div>
              </div>
-
+            <div class="row" style="position:relative">
+            <div class="col-md-4 col-lg-3  column inputlabel">No preference on Nationality</div> <!-- this will hide the dropdown list-->
+              <label>
+                <div style="position:absolute; left:310px;top:0px" style="col-md-1 col-lg-1" ><input  onclick="nationalityallcheck(<%=@job.id%>)" id="nationalityallcheck" name="job_nationalityall" type="checkbox"  <%= @job.job_nationalityall== true ? "checked" : "unchecked" %> />  </div>
+                <span class="lbl"> </span>
+              </label>
+	         </div> <!-- row -->  
+            <div class="row" style="position:relative">
+            <div class="col-md-4 col-lg-3  column inputlabel">Need to be a PR?</div> <!-- show this only if nationalityall or non Singapore is selected-->
+              <label>
+                <div style="position:absolute; left:310px;top:0px" style="col-md-1 col-lg-1" ><input  onclick="nationalityprcheck(<%=@job.id%>)" id="nationalityprcheck" name="job_nationalityall" type="checkbox"  <%= @job.job_nationalitypr== true ? "checked" : "unchecked" %> />  </div>
+                <span class="lbl"> </span>
+              </label>
+	         </div> <!-- row -->  	         
 
           </div> <!-- innerspacer -->
         </div> <!--powerwidget -->
