@@ -648,7 +648,13 @@ end
 
   post '/updaterevealcoy' do #/companyprofile
     jobdata = TmeJobMain.get(params["pk"])
-    jobdata.update(:company_isagent => params["isagent"])
+    jobdata.update(:company_isagent => params["job_companyreveal"])
+    return 200
+  end
+
+  post '/updatejob' do #/companyprofile
+    jobdata = TmeJobMain.get(params["pk"])
+    jobdata.update(eval(":#{params['name']}") => params["value"])
     return 200
   end
 
