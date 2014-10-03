@@ -183,7 +183,7 @@
                           
                           <div class="row" style="position:relative">
                             <div class="inputlabel col-md-2 col-lg-2 col-xs-12 column" > Working Hours: </div>
-                            <a style="position:absolute ;left:120px;width:200px" class="editable-click inputtext col-md-9 col-lg-9 col-sm-11 column" href="javascript:void(0)" id="workinghours" data-name="company_workinghours" data-type="text" data-pk="<%=@mycoy.id %>" data-url="/updatecompanyprofile" data-title="Enter Working Hours"><%= @mycoy.company_workinghours %></a>   <!--take note that it should be an integer -->
+                            <a class="editable-click inputtext col-md-9 col-lg-9 col-sm-11 column" style="position:absolute ;left:140px;width:200px" href="javascript:void(0)" id="workinghours" data-name="company_workinghours" data-type="text" data-pk="<%=@mycoy.id %>" data-url="/updatecompanyprofile" data-title="Enter Working Hours"><%= @mycoy.company_workinghours %></a>   <!--take note that it should be an integer -->
                           </div>
 
                           <div class="row" style="position:relative">
@@ -230,14 +230,14 @@
                     <div class="row">  
 
                         <div class="inputlabel col-md-2 col-lg-2 col-xs-12 col-xs-12 column" style="left:10px">Address Street 1: </div>
-                      <div class="inputtext col-md-2 column" style="position:absolute;left:120px">
+                      <div class="inputtext col-md-2 column" style="position:absolute;left:120px;width:300px">
                          <a class="editable-click" href="javascript:void(0)"  id="address" data-type="text" data-pk="<%=@mycoy.id %>" data-url="/updateprofile" data-title="Enter address"><%= @mycoy.company_addrstreet1 %>   </a>
                       </div>
                     </div>
                     <div class="row">  
 
                         <div class="inputlabel col-md-2 col-lg-2 col-xs-12 col-xs-12 column" style="left:10px">Address Street 2: </div>
-                      <div class="inputtext col-md-2 column" style="position:absolute;left:120px">
+                      <div class="inputtext col-md-2 column" style="position:absolute;left:120px;;width:300px">
                          <a class="editable-click" href="javascript:void(0)"  id="address" data-type="text" data-pk="<%=@mycoy.id %>" data-url="/updateprofile" data-title="Enter address"><%= @mycoy.company_addrstreet2 %>   </a>
                       </div>
                     </div>
@@ -267,14 +267,14 @@
 
                     <div class="row">  
                       <div class="inputlabel col-md-2 col-lg-2 col-xs-12 column" style="left:10px">Company Email: </div> 
-                      <div class="inputtext col-md-2 column" style="position:absolute;left:120px">
+                      <div class="inputtext col-md-2 column" style="position:absolute;left:120px;width:200px">
                          <a class="editable-click" href="javascript:void(0)"  id="email" data-type="text" data-pk="<%=@mycoy.id %>" data-url="/updateprofile" data-title="Enter email address"><%= @mycoy.company_email %>   </a>
                       </div>
                     </div>
                     <div class="row">  
                       <div class="inputlabel col-md-2 col-lg-2 col-xs-12 column" style="left:10px">Company URL: </div>
                       <div class="form-group"> 
-                          <div class="inputtext col-md-2 column" style="position:absolute;left:120px"> <a class="editable-click" href="javascript:void(0)"  id="linkedin" data-type="text" data-pk="<%=@mycoy.id %>" data-url="/updatelinkedin" data-title="Enter LinkedIn address"><%= @mycoy.company_url%>   </a></div>
+                          <div class="inputtext col-md-2 column" style="position:absolute;left:120px;width:300px"> <a class="editable-click" href="javascript:void(0)"  id="linkedin" data-type="text" data-pk="<%=@mycoy.id %>" data-url="/updatelinkedin" data-title="Enter LinkedIn address"><%= @mycoy.company_url%>   </a></div>
                       </div>    
                     </div>
 
