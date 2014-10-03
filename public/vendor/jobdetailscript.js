@@ -23,6 +23,6 @@
           $.ajax({
             url: '/updaterevealcoy',
             type: 'POST',
-            data: {"job_companyreveal": this.checked, "pk" : 1} //need to change 1 to dynamic!!! TSCHEW
+            data: {"job_companyreveal": this.checked, "pk" : <%=@myjob.id %>} //need to change 1 to dynamic!!! TSCHEW
           });
       });
