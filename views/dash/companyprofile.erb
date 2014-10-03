@@ -515,18 +515,6 @@ $(document).ready(function(){
 
 
 
-    $('#job_contactemail').editable(
-    {
-      emptytext: '--',
-    // placeholder: '[Optional] Enter your achievement here'
-  });
-
-      $('#job_contactphone').editable(
-    {
-      emptytext: '--',
-    // placeholder: '[Optional] Enter your achievement here'
-  });
-
 
   $('.date-picker').datepicker({autoclose:true}).next().on(ace.click_event, function(){
     $(this).prev().focus();
@@ -567,15 +555,6 @@ $(document).ready(function(){
             url: '/updateagent',
             type: 'POST',
             data: {"isagent": this.checked, "pk" : <%=@mycoy.id %>}
-          });
-      });
-
-
-     $("#revealcheck").on('change', function(){
-          $.ajax({
-            url: '/updaterevealcoy',
-            type: 'POST',
-            data: {"job_companyreveal": this.checked, "pk" : 1} //need to change 1 to dynamic!!! TSCHEW
           });
       });
 
