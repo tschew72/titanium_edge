@@ -271,7 +271,7 @@ class TmeJobMain
   property :job_nationalitypr, Integer, :index => true  
   
   property :job_status, Integer, :default => 2, :index => true #"0 = deleted, 1 = pending, 2 = active, 3 = closed"
-
+ 
   belongs_to :tme_company_main
 
   has n, :tme_job_skill, :model =>'TmeJobSkill'
